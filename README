@@ -1,0 +1,11 @@
+To get going:
+
+git clone git://github.com/danvk/sfhistory.git
+gunzip -c records.pickle.gz > records.pickle
+tar -xzf geocache.tgz
+echo "records.pickle\ngeocache" >> .git/info/exclude
+
+These files could be checked in directly, but that seemed wasteful.
+
+Python can read the pickle.gz file directly, but this winds up being an order
+of magnitude slower than reading the uncompressed version.
