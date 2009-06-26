@@ -3,7 +3,7 @@ To get going:
 git clone git://github.com/danvk/sfhistory.git
 gunzip -c records.pickle.gz > records.pickle
 tar -xzf geocache.tgz
-echo "records.pickle\ngeocache" >> .git/info/exclude
+echo "records.pickle\ngeocache\n*.pyc" >> .git/info/exclude
 
 These files could be checked in directly, but that seemed wasteful.
 
