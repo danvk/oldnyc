@@ -1,0 +1,97 @@
+NOTES
+SF Library Historical Images
+
+Start with the "Browse by Subject" page:
+http://sfpl.org/librarylocations/sfhistory/browse.htm
+
+General outline:
+	Scrape this page.
+	Scrape the pages it links to.
+	Determine which subjects are likely to be geocodeable.
+	Scrape all records in those sections.
+	Parse those records.
+	Geocode those records.
+	Toss them all on a map.
+	Add a "by year" selector.
+
+The library claims 38,000+ digitized photographs. These can all be scraped using URLs of the form:
+
+http://sflib1.sfpl.org:82/record=b1000001
+...
+http://sflib1.sfpl.org:82/record=b1039345
+
+At a rate of one page every five seconds, this would take 2.5 days to crawl. These would then all need to be run through the geocoder, which would take a similar amount of time.
+
+
+I scraped 100 random image records from the library and got the following estimates:
+
+17% of the images would be easily geocodeable using the Google Maps geocoder
+36% more images could, in principle, be geocoded based on place names
+
+The rest of the images lack any context.
+
+Also some info on dates:
+18% no date
+6% approximate dates (e.g. 187- or 1912-1915)
+15% year only
+61% exact dates
+
+
+This is all surprisingly good... 17% of 38k images is ~6500 images.
+There are also "Notes", which are informative but rarely (maybe 1/200) yield an address more precisely than the title or description.
+
+For some folders geocoding could be either:
+- perfect (e.g. "Golden Gate Bridge")
+- eased (e.g. "Fillmore Street")
+
+2009-05-04
+... on the other hand, it might just be easier to scrape everything!
+
+The plan now is to scrape everything, using both my home and work computers. This will take a few days. Then I can do all kinds of off-line analysis.
+
+I'm working on a method which guesses whether a record is likely to be geocoded successfully. It looks for things like addresses ("at 1371 Union Street"), cross streets ("at Union and Polk"), or landmarks ("Civic Center Plaza", "Pier 17"). Some of these can be geocoded directly, others need to be fed to the Google Maps Geocoder.
+
+TODO:
+- Write a general date-parsing method and look at date distribution.
+- Dig up my notes on geocoding from the Cushman project.
+- Serialized Python records on disk?
+- Hard-code geocodes for some common place (e.g. Civic Center, Ferry Building)
+
+Matt suggests submitting the hard-to-geocode places to Amazon's Mechanical Turk. Assuming I can geocode ~25% of the images and another ~10% are portraits, that means I'd need to geocode 0.65 * 38k = 25k images. At 5 cents per geocode, that would be ~$1,200. More than I'm willing to spend, but an interesting thought!
+
+Matt also suggests that I use Tor for my crawling, which is a great idea.
+
+Looking at the 30 earliest records, most of them are not photographs. It would be useful to have a "photographs only" option.
+
+
+Geocoding in Python:
+Quick and dirty (and possibly tor-able):
+http://code.activestate.com/recipes/498128/
+
+Offers batch geocoding of addresses:
+https://webgis.usc.edu/Services/Geocode/BatchProcess/Default.aspx
+
+GMaps API documentation:
+http://code.google.com/apis/maps/documentation/geocoding/index.html
+
+Internal Google:
+location/geocoder/docchart.h
+
+
+General outline:
+- Geocode the ~1250 photos that have exact addresses
+- Create a KML file
+- Create a basic maps UI
+- Contact the maps team about higher recall geocoding
+- Add date restrictions to the map
+
+
+2009-06-22
+Command sequence to do geolocations and generate a KML file:
+
+./geocode_all.py
+./generate_kml.py
+
+Geolocation happens in record.py's ExtractAddress.
+
+To do a test run of address extraction:
