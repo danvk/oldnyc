@@ -18,7 +18,7 @@ def ExtractRegex(pat, str):
 def strip_tags(value):
   "Return the given HTML with all tags stripped."
   # TODO(danvk): replace this with something correct.
-  return re.sub(r'<[^>]*?>', '', value) 
+  return re.sub(r'<[^>]*?>', '', value)
 
 def parse_month(mon):
   """Takes "Jan" -> 1"""

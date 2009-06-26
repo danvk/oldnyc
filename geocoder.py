@@ -116,6 +116,10 @@ class Geocoder:
 
     return location
 
+  def InCache(self, loc):
+    data = self._check_cache(loc)
+    return data == None
+
   def LocateFromCache(self, loc):
     """Like Locate, but never goes to the network to get a location."""
     data = self._check_cache(loc)

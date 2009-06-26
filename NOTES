@@ -89,9 +89,12 @@ General outline:
 2009-06-22
 Command sequence to do geolocations and generate a KML file:
 
-./geocode_all.py
+./geocode_all.py --fetch
 ./generate_kml.py
 
 Geolocation happens in record.py's ExtractAddress.
 
-To do a test run of address extraction:
+To print a random selection of non-locatable addresses:
+./geocode_all.py --random 100
+
+To print locatable strings that have not yet been geocoded:

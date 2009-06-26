@@ -42,15 +42,34 @@ def PrintRandom(n):
     print addy
 
 
+def PrintNonlocated():
+  rs = record.AllRecords()
+  addys = [r for r in rs if r.locatable_str()]
+
+  g = geocoder.Geocoder("ABQIAAAAafDALeUVyxhUndZQcT0BRRQjgiEk1Ut90lZbiCSD8tXKcVgrkBQLYOFQ3xwutc5R9SNzfGaKxMnf7g", 5)
+  non_locatable = [r for r in addys if not g.InCache(r.locatable_str())]
+  print "Found % locatable addresses, of which %d have not been located." % (
+      len(addys), len(non_locatable))
+
+  for r in rs:
+    print r.locatable_str()
+
+
 if __name__ == '__main__':
   parser = OptionParser()
-  parser.add_option("-f", "--fetch", dest="fetch", default=False,
+  parser.add_option("-f", "--fetch", dest="fetch",
+                    action="store_true", default=False,
                     help="Should request actually be sent on the network?")
   parser.add_option("-r", "--random", dest="random", default=0,
                     help="Set to see a random subset of non-locatable titles")
+  parser.add_option("-n", "--non-located", dest="nonloc",
+                    action="store_true", default=False,
+                    help="Set to print non-located but locatable addresses.")
   (options, args) = parser.parse_args()
 
-  if options.random > 0:
+  if options.nonloc:
+    PrintNonlocated()
+  elif options.random > 0:
     PrintRandom(int(options.random))
   else:
     CodeAll(options.fetch)
