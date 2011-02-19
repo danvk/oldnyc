@@ -14,12 +14,18 @@ count = 0
 streets = 0
 starts = {}
 ends = {}
+tags = {}
 for r in rs:
   count += 1
-  if r.location and 'Folder: S.F. Streets' in r.location:
-    streets += 1
+  for tag in r.tabular.keys():
+    Bump(tags, tag)
 
-print "Streets: %d/%d" % (streets, count)
+print "Tags:"
+for tag in sorted(tags.keys()):
+  print "  %s: %d" % (tag, tags[tag])
+
+  # if r.location and 'Folder: S.F. Streets' in r.location:
+  #   streets += 1
 
   #start, end = r.date_range()
   #if start: Bump(starts, start.year)

@@ -98,3 +98,25 @@ To print a random selection of non-locatable addresses:
 ./geocode_all.py --random 100
 
 To print locatable strings that have not yet been geocoded:
+./geocode_all.py --non-located
+
+
+2011-02-19
+SFPL record pages each contain a two-column table. The left column has
+both a one-letter field tag and a field name. Here are the tags, along
+with a count of how many records have them and what they mean:
+
+Tags:
+  a: 1583 (Collection Name)
+  b: 6023 (Source)
+  c: 1762 (Call #)
+  d: 38639 (Subject)
+  e: 38586 (Reproduction Rights)
+  i: 38639 (Photo ID #)
+  l: 36939 (Location)
+  n: 18119 (Notes)
+  p: 38639 (Date)
+  r: 38639 (Description)
+  s: 38639 (Source/Series)
+  t: 38639 (Title)
+  x: 6998 (photo type, e.g. "Negative")
