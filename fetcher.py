@@ -60,9 +60,10 @@ class Fetcher:
 
   def _cache_file(self, url):
     """Returns the path to the cache file for a URL."""
-    key = hashlib.md5(url).hexdigest()
     mkdir_p(self._cache_dir)
-    return "%s/%s" % (self._cache_dir, key)
+    key = hashlib.md5(url).hexdigest()
+    base, ext = os.path.splitext(url)
+    return "%s/%s%s" % (self._cache_dir, key, ext)
 
   def _check_cache(self, url):
     """Returns cached results for the location or None if not available."""
