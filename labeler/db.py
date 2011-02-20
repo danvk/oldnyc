@@ -1,5 +1,6 @@
 from google.appengine.ext import db
 
+
 class ImageRecord(db.Model):
   # key = photo_id
   title = db.StringProperty(required=True)
@@ -8,10 +9,12 @@ class ImageRecord(db.Model):
   description = db.StringProperty()
   thumbnail_jpg = db.BlobProperty()
 
+
 class User(db.Model):
   # key = user_id = cookie
   name = db.StringProperty()  # optional
   first_use = db.DateTimeProperty(auto_now_add=True)
+
 
 class Geocode(db.Model):
   user = db.ReferenceProperty(User)
