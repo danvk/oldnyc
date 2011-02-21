@@ -2,7 +2,9 @@ from google.appengine.ext import db
 
 
 class ImageRecord(db.Model):
-  # key = photo_id
+  # key = seq_id (it's convenient to have it both as a key and a field)
+  seq_id = db.IntegerProperty()  # assigned sequentially, starting with 0.
+  photo_id = db.StringProperty()
   title = db.StringProperty()
   date = db.StringProperty()
   location = db.StringProperty()

@@ -6,7 +6,7 @@
 <h2>SF Image Geocoding Game</h2>
 <p>Your cookie: <b>{{ cookie }}</b></p>
 
-<img src="/image?id={{image.photo_id}}" />
+<img src="/image?id={{image.id}}" />
 
 <p>
 <b>ID</b> {{ image.photo_id }}<br/>

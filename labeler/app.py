@@ -3,6 +3,8 @@ import db
 import os
 import upload
 import random
+import logging
+from datetime import datetime
 
 from google.appengine.ext import webapp
 from google.appengine.ext.webapp.util import run_wsgi_app
@@ -30,15 +32,22 @@ class MainPage(webapp.RequestHandler):
       assert user
 
     # Pull up a random image for them to peruse.
-    ks = [k for k in db.ImageRecord.all(keys_only=True)]
-    k = random.choice(ks)
-    image = db.ImageRecord.get(k)
+    # We use a combination of user id and time as the random number seed.
+    # TODO(danvk): surely there is a better way to do this.
+    qs = db.ImageRecord.all().order('-seq_id').fetch(limit=1)
+    assert len(qs) == 1
+    max_id = qs[0].seq_id
+    r = random.Random(str(user.key()) + datetime.now().isoformat())
+    id = r.randint(0, max_id)
+    logging.info('Showing image %d' % id)
+    image = db.ImageRecord.get_by_key_name(str(id))
     assert image
 
     template_values = {
       'cookie': cookie,
       'image': {
-        'photo_id': k.name(),
+        'id': id,
+        'photo_id': image.photo_id,
         'title': image.title,
         'date': image.date,
         'location': image.location,

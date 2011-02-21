@@ -7,13 +7,15 @@ from google.appengine.ext import webapp
 from google.appengine.ext.webapp.util import run_wsgi_app
 from google.appengine.ext.webapp import template
 
+kProps = ['photo_id', 'title', 'date', 'location', 'description', 'photo_url']
 
 class UploadHandler(webapp.RequestHandler):
   def post(self):
     """Adds a new image to the DB."""
     self.response.headers.add_header('Content-type', 'text/plain')
-    id = self.request.get('id')
+    id = self.request.get('seq_id')
     assert id
+    assert int(id) >= 0
 
     verb = 'Updated'
     record = db.ImageRecord.get_by_key_name(id)
@@ -21,19 +23,18 @@ class UploadHandler(webapp.RequestHandler):
       verb = 'Added'
       record = db.ImageRecord(key_name=id)
 
+    record.seq_id = int(id)
     props = record.properties()
-    for field in ['title', 'date', 'location', 'description', 'photo_url']:
+    for field in kProps:
       if self.request.get(field):
         props[field].__set__(record, self.request.get(field))
-        self.response.out.write('Set %s\n' % field)
-      else:
-        self.response.out.write('Leaving %s\n' % field)
 
     if self.request.get('image'):
       record.image = self.request.get('image')
 
     record.put()
     self.response.out.write('%s image record %s\n' % (verb, id))
+
 
 class UploadForm(webapp.RequestHandler):
   def get(self):

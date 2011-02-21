@@ -22,7 +22,8 @@ for i, r in enumerate(rs):
   print '%03d Uploading %s' % (i, r.photo_id())
 
   q = {
-    'id': r.photo_id(),
+    'seq_id': str(i),
+    'photo_id': r.photo_id(),
     'title': r.title(),
     'date': r.date(),
     'location': r.location(),
@@ -31,3 +32,8 @@ for i, r in enumerate(rs):
     'image': open(f.CacheFile(r.photo_url), 'rb')
   }
   opener.open(upload_url, q)
+
+# To clear the data store, run:
+# import db
+# qs = db.ImageRecord.all()
+# for q in qs: q.delete()
