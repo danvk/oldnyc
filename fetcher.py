@@ -49,16 +49,17 @@ class Fetcher:
 
   def InCache(self, url):
     """Is the URL in the cache?"""
-    data = self._check_cache(url)
-    return data == None
+    if os.path.exists(self.CacheFile(url)):
+      return True
+    else:
+      return False
 
 
   def FetchFromCache(self, url):
     """Like Fetch, but never goes to the network to get a location."""
     return self._check_cache(url)
 
-
-  def _cache_file(self, url):
+  def CacheFile(self, url):
     """Returns the path to the cache file for a URL."""
     mkdir_p(self._cache_dir)
     key = hashlib.md5(url).hexdigest()
@@ -67,14 +68,14 @@ class Fetcher:
 
   def _check_cache(self, url):
     """Returns cached results for the location or None if not available."""
-    cache_file = self._cache_file(url)
+    cache_file = self.CacheFile(url)
     try:
       return file(cache_file).read()
     except:
       return None
 
   def _cache_result(self, url, result):
-    cache_file = self._cache_file(url)
+    cache_file = self.CacheFile(url)
     file(cache_file, "w").write(result)
 
   def _fetch(self, url):

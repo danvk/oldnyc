@@ -7,7 +7,7 @@ class ImageRecord(db.Model):
   date = db.StringProperty()
   location = db.StringProperty()
   description = db.StringProperty()
-  thumbnail_url = db.StringProperty()
+  photo_url = db.StringProperty()
   image = db.BlobProperty()
 
 

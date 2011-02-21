@@ -85,6 +85,7 @@ class Record:
     if len(vals) == 1: return strip_tags(vals[0])
     return ''
 
+  def photo_id(self): return self._single_table('i')
   def location(self): return self._single_table('l')
   def date(self): return self._single_table('p')
   def description(self): return self._single_table('r')
