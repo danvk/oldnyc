@@ -31,4 +31,3 @@ for i, r in enumerate(rs):
     'image': open(f.CacheFile(r.photo_url), 'rb')
   }
   opener.open(upload_url, q)
-  break

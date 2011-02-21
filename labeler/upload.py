@@ -28,7 +28,6 @@ class UploadHandler(webapp.RequestHandler):
         self.response.out.write('Leaving %s\n' % field)
 
     if self.request.get('image'):
-      logging.info(type(self.request.get('image')))
       record.image = self.request.get('image')
 
     record.put()
