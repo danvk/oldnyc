@@ -6,21 +6,16 @@
 <h2>SF Image Geocoding Game</h2>
 <p>Your cookie: <b>{{ cookie }}</b></p>
 
-<form enctype="multipart/form-data" action="/upload" method="post">
-ID: <input type=text name="id" size=20 /><br/>
-Title: <input type=text name="title" size=50 /><br/>
-Date: <input type=text name="date" size=30 /><br/>
-Location: <input type=text name="location" size=50 /><br/>
-Thumbnail URL: <input type=text name="thumbnail_url" size=50 /><br/>
-Image: <input type=file name="image" /><br/>
-Description: <br/>
-<textarea name="description" rows=10 cols=50>
-</textarea>
+<img src="/image?id={{image.photo_id}}" />
 
 <p>
-<input type="submit" value="Upload" />
+<b>ID</b> {{ image.photo_id }}<br/>
+<b>Title</b> {{ image.title }}<br/>
+<b>Date</b> {{ image.date }}<br/>
+<b>Location</b> {{ image.location }}<br/>
+<b>Description</b><br/>
+{{ image.description }}
 </p>
-</form>
 
 </body>
 </html>

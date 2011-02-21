@@ -1,9 +1,11 @@
 import db
 import cgi
 import logging
+import os
 
 from google.appengine.ext import webapp
 from google.appengine.ext.webapp.util import run_wsgi_app
+from google.appengine.ext.webapp import template
 
 
 class UploadHandler(webapp.RequestHandler):
@@ -33,3 +35,29 @@ class UploadHandler(webapp.RequestHandler):
     record.put()
     self.response.out.write('%s image record %s\n' % (verb, id))
 
+class UploadForm(webapp.RequestHandler):
+  def get(self):
+    cookie = None
+    if 'id' in self.request.cookies:
+      cookie = self.request.cookies['id']
+
+    user = None
+    if not cookie:
+      # Create a new entry for this user and set their cookie.
+      user = db.User()
+      user.put()
+      self.response.headers.add_header(
+        'Set-Cookie',
+        'id=%s' % user.key(),
+        Expires='Wed, 13-Jan-2012 22:23:01 GMT')
+
+    else:
+      # Get their record.
+      user = db.User.get(cookie)
+      assert user
+
+    template_values = {
+      'cookie': cookie
+    }
+    path = os.path.join(os.path.dirname(__file__), 'templates/upload.tpl')
+    self.response.out.write(template.render(path, template_values))

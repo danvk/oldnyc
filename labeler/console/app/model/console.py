@@ -132,6 +132,7 @@ class AppEngineConsole(ShellSession):
 
             # Re-evaluate the unpicklables.
             for bad_statement in self.unpicklables:
+                logging.info(bad_statement)
                 exec bad_statement in statement_module.__dict__
 
             # Re-initialize the globals.
