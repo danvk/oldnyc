@@ -4,8 +4,13 @@ runtime: python
 api_version: 1
 
 handlers:
+- url: /console/static
+  static_dir: console/app/view/static
+- url: /console.*
+  script: console/app/console.py
 - url: /.*
   script: app.py
+
 
 builtins:
 - remote_api: on

@@ -1,8 +1,11 @@
-import db
 import cgi
+import db
+import os
+import upload
 
 from google.appengine.ext import webapp
 from google.appengine.ext.webapp.util import run_wsgi_app
+from google.appengine.ext.webapp import template
 
 class MainPage(webapp.RequestHandler):
   def get(self):
@@ -25,11 +28,18 @@ class MainPage(webapp.RequestHandler):
       user = db.User.get(cookie)
       assert user
 
-    self.response.out.write('<html><body>uid: %s</boby></html>' % user.key())
+    template_values = {
+      'cookie': cookie
+    }
+    path = os.path.join(os.path.dirname(__file__), 'templates/mainpage.tpl')
+    self.response.out.write(template.render(path, template_values))
 
 
 application = webapp.WSGIApplication(
-                                     [('/', MainPage)],
+                                     [
+                                      ('/', MainPage),
+                                      ('/upload', upload.UploadHandler)
+                                     ],
                                      debug=True)
 
 def main():

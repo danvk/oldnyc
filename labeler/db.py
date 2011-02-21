@@ -3,11 +3,12 @@ from google.appengine.ext import db
 
 class ImageRecord(db.Model):
   # key = photo_id
-  title = db.StringProperty(required=True)
+  title = db.StringProperty()
   date = db.StringProperty()
   location = db.StringProperty()
   description = db.StringProperty()
-  thumbnail_jpg = db.BlobProperty()
+  thumbnail_url = db.StringProperty()
+  image = db.BlobProperty()
 
 
 class User(db.Model):
