@@ -4,10 +4,11 @@ runtime: python
 api_version: 1
 
 handlers:
-- url: /console/static
-  static_dir: console/app/view/static
-- url: /console.*
-  script: console/app/console.py
+- url: /jquery
+  static_dir: jquery
+- url: /(.*\.(gif|png|jpg))
+  static_files: static/\1
+  upload: static/(.*\.(gif|png|jpg))
 - url: /.*
   script: app.py
 

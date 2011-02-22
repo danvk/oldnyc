@@ -21,13 +21,17 @@ opener = urllib2.build_opener(MultipartPostHandler.MultipartPostHandler)
 for i, r in enumerate(rs):
   print '%03d Uploading %s' % (i, r.photo_id())
 
+  desc = r.description()
+  if r.note():
+    desc += '\n\n' + r.note()
+
   q = {
     'seq_id': str(i),
     'photo_id': r.photo_id(),
     'title': r.title(),
     'date': r.date(),
     'location': r.location(),
-    'description': r.description(),
+    'description': desc,
     'photo_url': r.photo_url,
     'image': open(f.CacheFile(r.photo_url), 'rb')
   }

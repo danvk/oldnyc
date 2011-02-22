@@ -90,6 +90,7 @@ class Record:
   def date(self): return self._single_table('p')
   def description(self): return self._single_table('r')
   def title(self): return self._single_table('t')
+  def note(self): return self._single_table('n')
 
   @staticmethod
   def TagIds():
