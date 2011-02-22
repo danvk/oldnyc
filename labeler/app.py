@@ -2,49 +2,33 @@ import cgi
 import db
 import os
 import upload
-import random
+import labeler
 import logging
 from datetime import datetime
 
 from google.appengine.ext import webapp
 from google.appengine.ext.webapp.util import run_wsgi_app
 from google.appengine.ext.webapp import template
+from google.appengine.ext.db import GeoPt
 
 class MainPage(webapp.RequestHandler):
   def get(self):
-    cookie = None
-    if 'id' in self.request.cookies:
-      cookie = self.request.cookies['id']
+    user = labeler.userFromCookie(self)
+    assert user
 
-    user = None
-    if not cookie:
-      # Create a new entry for this user and set their cookie.
-      user = db.User()
-      user.put()
-      self.response.headers.add_header(
-        'Set-Cookie',
-        'id=%s' % user.key(),
-        Expires='Wed, 13-Jan-2021 22:23:01 GMT')
+    if not self.request.get('id'):
+      # Redirect them to a random image.
+      id = labeler.randomImage(user)
+      self.redirect('/?id=%d' % id)
+      return
 
-    else:
-      # Get their record.
-      user = db.User.get(cookie)
-      assert user
-
-    # Pull up a random image for them to peruse.
-    # We use a combination of user id and time as the random number seed.
-    # TODO(danvk): surely there is a better way to do this.
-    qs = db.ImageRecord.all().order('-seq_id').fetch(limit=1)
-    assert len(qs) == 1
-    max_id = qs[0].seq_id
-    r = random.Random(str(user.key()) + datetime.now().isoformat())
-    id = r.randint(0, max_id)
-    logging.info('Showing image %d' % id)
+    id = int(self.request.get('id'))
+    logging.info('Showing record %d to %s' % (id, user.key()))
     image = db.ImageRecord.get_by_key_name(str(id))
     assert image
 
     template_values = {
-      'cookie': cookie,
+      'cookie': str(user.key()),
       'image': {
         'id': id,
         'photo_id': image.photo_id,
@@ -69,10 +53,64 @@ class ImageHandler(webapp.RequestHandler):
     self.response.out.write(image.image)
 
 
+class GeocodeHandler(webapp.RequestHandler):
+  def post(self):
+    cookie = self.request.get('cookie')
+    if not cookie:
+      logging.warning('Submit to /geocode without cookie.')
+      self.redirect('/')
+      return
+
+    user = db.User.get(cookie)
+    assert user
+
+    assert self.request.get('id')
+    photo = db.ImageRecord.get_by_key_name(self.request.get('id'))
+    assert photo
+
+    geocode = db.Geocode(user=user, photo=photo)
+
+    lat = self.request.get('lat') 
+    lon = self.request.get('lon') 
+    if lat and lon:
+      geocode.location = GeoPt(lat=float(lat), lon=float(lon))
+
+    if self.request.get('impossible'):
+      geocode.feasibility = 'no'
+    elif self.request.get('notme'):
+      geocode.feasibility = 'maybe'
+    elif self.request.get('success'):
+      geocode.feasibility = 'yes'
+    else:
+      logging.warning('Got rating w/o feasibility')
+      self.redirect('/')
+      return
+
+    setting = self.request.get('setting')
+    if setting: geocode.setting = setting
+
+    rating = self.request.get('rating')
+    if rating:
+      rating = int(rating)
+      if rating >= 1 and rating <= 5:
+        geocode.rating = rating
+      else:
+        logging.warning('Got odd rating: %s' % rating)
+
+    geocode.put()
+    logging.info('Geocode %s for %s by %s' % (
+        geocode.feasibility, photo.photo_id, user.key()))
+
+    # Take them to another random image.
+    id = labeler.randomImage(user)
+    self.redirect('/?id=%d' % id)
+    
+
 application = webapp.WSGIApplication(
                                      [
                                       ('/', MainPage),
                                       ('/image', ImageHandler),
+                                      ('/geocode', GeocodeHandler),
                                       ('/upload_form', upload.UploadForm),
                                       ('/upload', upload.UploadHandler)
                                      ],

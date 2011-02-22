@@ -40,6 +40,8 @@
 
     var marker;
     var map;
+    var geocoder;
+
     function initialize_map() {
       var latlng = new google.maps.LatLng(37.77493, -122.419416);
       var opts = {
@@ -52,24 +54,26 @@
       marker = new google.maps.Marker({
         position: latlng, 
         map: map,
-        title: "Photo",
         draggable: true,
         animation: google.maps.Animation.DROP
       });
 
-      function updatePos(pos) {
-        var ll = pos.latLng;
-        el("lat").value = ll.lat();
-        el("lon").value = ll.lng();
-        updateButtons();
-      }
+      geocoder = new google.maps.Geocoder();
+
       google.maps.event.addListener(marker, 'drag', function(pos) {
-        updatePos(pos);
+        updatePos(pos.latLng);
       });
+
       google.maps.event.addListener(map, 'dblclick', function(pos) {
         marker.setPosition(pos.latLng);
-        updatePos(pos);
+        updatePos(pos.latLng);
       });
+    }
+
+    function updatePos(ll) {
+      el("lat").value = ll.lat();
+      el("lon").value = ll.lng();
+      updateButtons();
     }
 
     function resize(img) {
@@ -107,6 +111,30 @@
         el('success').disabled = true;
       }
     }
+
+    function search() {
+      var txt = document.getElementById("search").value;
+      console.log(txt);
+      var req = {
+        address: txt,
+        latLng: new google.maps.LatLng(37.77493, -122.419416),
+        bounds: new google.maps.LatLngBounds(
+          new google.maps.LatLng(37.554376, -122.61875),  // sw
+          new google.maps.LatLng(37.879460, -122.28779)   // ne
+        ),
+        language: 'en'
+      };
+
+      geocoder.geocode(req, function(results, status) {
+        console.log(status);
+        if (status == google.maps.GeocoderStatus.OK) {
+          var latLng = results[0].geometry.location;
+          map.setCenter(latLng);
+          marker.setPosition(latLng);
+          updatePos(latLng);
+        }
+      });
+    }
   </script>
 </head>
 <body onload="initialize_map()">
@@ -126,38 +154,61 @@
 </div>
 
 <div id="geocode">
+
+<input type=hidden name="cookie" value="{{cookie}}" />
+<input type=hidden name="id" value="{{image.id}}" />
+
 <div id="map" style="width: 500px; height: 350px;"></div>
-<b>Lat:</b> <input type=text id="lat" name="lat" size="30" onkeypress="updateButtons()" />
-<b>Lon:</b> <input type=text id="lon" name="lon" size="30" onkeypress="updateButtons()" />
+<b>Search:</b>
+  <input type=text id="search" size="60" onChange="search()" />
+  <input type=button value="Search" onClick="search()" /> <br/>
+  
+<hr/>
+
+<form action="/geocode" method="post">
+<b>Lat:</b>
+  <input type=text id="lat" name="lat" size="30"
+    onkeypress="updateButtons()" />
+<b>Lon:</b>
+  <input type=text id="lon" name="lon" size="30"
+    onkeypress="updateButtons()" />
 <input type=button value="reset" onclick="reset()" />
 
-<table width=500><tr><td valign=top width=150>
-<p><b>Setting</b><br/>
-<input type="radio" id="indoors" name="setting"><label for="indoors"> Indoors<br/>
-<input type="radio" id="outdoors" name="setting"><label for="outdoors"> Outdoors
-</p>
-
-</td><td valign=top>
-
-<p><b>How interesting is this photo?</b><br/>
-<input name="star1" type="radio" class="star" />
-<input name="star1" type="radio" class="star" />
-<input name="star1" type="radio" class="star" />
-<input name="star1" type="radio" class="star" />
-<input name="star1" type="radio" class="star" />
-</p>
-</td></tr></table>
+<table width=500>
+<tr><td valign=top width=150>
+  <p><b>Setting</b><br/>
+  <input type="radio" id="indoors" name="setting" value="indoors">
+  <label for="indoors"> Indoors<br/>
+  <input type="radio" id="outdoors" name="setting" value="outdoors">
+  <label for="outdoors"> Outdoors
+  </p>
+</td>
+<td valign=top>
+  <p><b>How interesting is this photo?</b><br/>
+  <input name="rating" type="radio" class="star" value="1" />
+  <input name="rating" type="radio" class="star" value="2" />
+  <input name="rating" type="radio" class="star" value="3" />
+  <input name="rating" type="radio" class="star" value="4" />
+  <input name="rating" type="radio" class="star" value="5" />
+  </p>
+</td></tr>
+</table>
 
 <table width=500>
 <tr><td valign=top>
-<input type="submit" id="impossible" name="impossible" value="This image can't be located on a map." /><br/>
-<input type="submit" id="notme" name="notme" value="This image might be located, but I can't do it." />
+  <input type="submit" id="impossible" name="impossible"
+    value="This image can't be located on a map." /><br/>
+  <input type="submit" id="notme" name="notme"
+    value="This image might be located, but I can't do it." />
 </td>
 <td valign=middle><center>
-<input type="submit" id="success" name="success" value="Success! Next image, please." disabled=true />
-</center></td></tr>
+  <input type="submit" id="success" name="success" disabled=true
+    value="Success! Next image, please." />
+</center>
+</td></tr>
 </table>
 
+</form>
 </div>
 
 </body>
