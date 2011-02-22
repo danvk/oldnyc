@@ -47,7 +47,8 @@
       var opts = {
         zoom: 13,
         center: latlng,
-        mapTypeId: google.maps.MapTypeId.ROADMAP
+        mapTypeId: google.maps.MapTypeId.ROADMAP,
+        streetViewControl: true
       };
       map = new google.maps.Map(el("map"), opts);
 
@@ -68,6 +69,17 @@
         marker.setPosition(pos.latLng);
         updatePos(pos.latLng);
       });
+
+      $('#lat').change(updateLatLon);
+      $('#lon').change(updateLatLon);
+      var killEnter = function(event) {
+        if (event.which == '13') {
+          event.preventDefault();
+          updateLatLon();
+        }
+      };
+      $('#lat').keypress(killEnter);
+      $('#lon').keypress(killEnter);
     }
 
     function updatePos(ll) {
@@ -85,15 +97,14 @@
       }
     }
 
-    function reset() {
+    function resetlatlon() {
       el("lat").value = '';
       el("lon").value = '';
       var latlng = new google.maps.LatLng(37.77493, -122.419416);
       marker.setPosition(latlng);
       var opts = {
         zoom: 13,
-        center: latlng,
-        mapTypeId: google.maps.MapTypeId.ROADMAP
+        center: latlng
       };
       map.setOptions(opts);
       updateButtons();
@@ -112,9 +123,22 @@
       }
     }
 
+    function updateLatLon(event) {
+      var lat = parseFloat(el('lat').value);
+      var lon = parseFloat(el('lon').value);
+      // TODO(danvk): validate range
+      if (lat && lon) {
+        var latlng = new google.maps.LatLng(lat, lon);
+        marker.setPosition(latlng);
+        marker.setAnimation(google.maps.Animation.DROP);
+        map.setCenter(latlng);
+        updateButtons();
+      }
+      return false;
+    }
+
     function search() {
       var txt = document.getElementById("search").value;
-      console.log(txt);
       var req = {
         address: txt,
         latLng: new google.maps.LatLng(37.77493, -122.419416),
@@ -131,6 +155,7 @@
           var latLng = results[0].geometry.location;
           map.setCenter(latLng);
           marker.setPosition(latLng);
+          marker.setAnimation(google.maps.Animation.DROP);
           updatePos(latLng);
         }
       });
@@ -166,13 +191,9 @@
 <hr/>
 
 <form action="/geocode" method="post">
-<b>Lat:</b>
-  <input type=text id="lat" name="lat" size="30"
-    onkeypress="updateButtons()" />
-<b>Lon:</b>
-  <input type=text id="lon" name="lon" size="30"
-    onkeypress="updateButtons()" />
-<input type=button value="reset" onclick="reset()" />
+<b>Lat:</b> <input type="text" id="lat" name="lat" size="30" />
+<b>Lon:</b> <input type="text" id="lon" name="lon" size="30" />
+<input id="reset" type="button" value="reset" onclick="resetlatlon()" />
 
 <table width=500>
 <tr><td valign=top width=150>
