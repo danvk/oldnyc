@@ -1,3 +1,5 @@
+from google.appengine.api import memcache
+
 from datetime import datetime
 import random
 import logging
@@ -6,13 +8,22 @@ import db
 
 def randomImage(user):
   """user is a db.User entry. Returns an integer image ID."""
-  qs = db.ImageRecord.all().order('-seq_id').fetch(limit=1)
-  assert len(qs) == 1
-  max_id = qs[0].seq_id
-  # We use a combination of user id and time as the random number seed.
-  # TODO(danvk): surely there is a better way to do this.
-  r = random.Random(str(user.key()) + datetime.now().isoformat())
-  id = r.randint(0, max_id)
+  # Use memcache to avoid computing max_id repeatedly.
+  max_id = memcache.get('max_id')
+  if not max_id:
+    qs = db.ImageRecord.all().order('-seq_id').fetch(limit=1)
+    assert len(qs) == 1
+    max_id = qs[0].seq_id
+    memcache.set('max_id', max_id, 3600)
+
+  # We generate an ordering of IDs for the user and walk through it.
+  r = random.Random(str(user.key()))
+  ids = range(0, 1 + max_id)
+  r.shuffle(ids)
+  num_seen = user.num_seen or 0
+  id = ids[num_seen % (1 + max_id)]
+  user.num_seen = 1 + num_seen
+  user.put()
   return id
 
 def userFromCookie(handler):

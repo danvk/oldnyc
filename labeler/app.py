@@ -79,6 +79,8 @@ class GeocodeHandler(webapp.RequestHandler):
       geocode.feasibility = 'no'
     elif self.request.get('notme'):
       geocode.feasibility = 'maybe'
+    elif self.request.get('notsf'):
+      geocode.feasibility = 'notsf'
     elif self.request.get('success'):
       geocode.feasibility = 'yes'
     else:
@@ -96,6 +98,10 @@ class GeocodeHandler(webapp.RequestHandler):
         geocode.rating = rating
       else:
         logging.warning('Got odd rating: %s' % rating)
+
+    comments = self.request.get('comments')
+    if comments:
+      geocode.comments = comments
 
     geocode.put()
     logging.info('Geocode %s for %s by %s' % (

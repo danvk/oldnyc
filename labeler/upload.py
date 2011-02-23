@@ -6,6 +6,7 @@ import os
 from google.appengine.ext import webapp
 from google.appengine.ext.webapp.util import run_wsgi_app
 from google.appengine.ext.webapp import template
+from google.appengine.api import memcache
 
 kProps = ['photo_id', 'title', 'date', 'location', 'description', 'photo_url']
 
@@ -33,6 +34,7 @@ class UploadHandler(webapp.RequestHandler):
       record.image = self.request.get('image')
 
     record.put()
+    memcache.delete('max_id')  # might not be valid any more.
     self.response.out.write('%s image record %s\n' % (verb, id))
 
 

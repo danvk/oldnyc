@@ -14,8 +14,12 @@ f = fetcher.Fetcher('images', 0)
 rs = [r for r in rs if (r.photo_url and f.InCache(r.photo_url))]
 
 sys.stderr.write('Have %d full records\n' % len(rs))
-
 upload_url = 'http://localhost:8080/upload'
+if len(sys.argv) > 1:
+  upload_url = sys.argv[1]
+
+print 'Will upload via %s' % upload_url
+
 opener = urllib2.build_opener(MultipartPostHandler.MultipartPostHandler)
 
 for i, r in enumerate(rs):

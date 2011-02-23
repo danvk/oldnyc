@@ -17,6 +17,10 @@
       left: 525px;
       width: 500px;
     }
+    #search_error {
+      color: red;
+      font-size: 75%;
+    }
     div.rating-cancel,
     div.rating-cancel a
     {
@@ -115,10 +119,12 @@
       if (ok) {
         el('impossible').disabled = true;
         el('notme').disabled = true;
+        el('notsf').disabled = true;
         el('success').disabled = false;
       } else {
         el('impossible').disabled = false;
         el('notme').disabled = false;
+        el('notsf').disabled = false;
         el('success').disabled = true;
       }
     }
@@ -150,15 +156,27 @@
       };
 
       geocoder.geocode(req, function(results, status) {
-        console.log(status);
+        var search_error = el('search_error');
         if (status == google.maps.GeocoderStatus.OK) {
+          search_error.style.display = 'none';
           var latLng = results[0].geometry.location;
           map.setCenter(latLng);
+          map.setZoom(16);
           marker.setPosition(latLng);
           marker.setAnimation(google.maps.Animation.DROP);
           updatePos(latLng);
+        } else {
+          if (status == google.maps.GeocoderStatus.ZERO_RESULTS) {
+            status = "no results";
+          }
+          search_error.innerHTML = status;
+          search_error.style.display = 'block';
         }
       });
+    }
+
+    function expandComments() {
+      el('comment_box').rows=5;
     }
   </script>
 </head>
@@ -180,38 +198,45 @@
 
 <div id="geocode">
 
-<input type=hidden name="cookie" value="{{cookie}}" />
-<input type=hidden name="id" value="{{image.id}}" />
-
 <div id="map" style="width: 500px; height: 350px;"></div>
 <b>Search:</b>
   <input type=text id="search" size="60" onChange="search()" />
   <input type=button value="Search" onClick="search()" /> <br/>
+  <div id="search_error" style="display:none;"></div>
   
 <hr/>
 
 <form action="/geocode" method="post">
-<b>Lat:</b> <input type="text" id="lat" name="lat" size="30" />
-<b>Lon:</b> <input type="text" id="lon" name="lon" size="30" />
-<input id="reset" type="button" value="reset" onclick="resetlatlon()" />
+<input type=hidden name="cookie" value="{{cookie}}" />
+<input type=hidden name="id" value="{{image.id}}" />
 
-<table width=500>
+<table width=500 cellspacing=5>
+<tr><td colspan=2>
+  <b>Lat:</b> <input type="text" id="lat" name="lat" size="30" />
+  <b>Lon:</b> <input type="text" id="lon" name="lon" size="30" />
+  <input id="reset" type="button" value="reset" onclick="resetlatlon()" />
+</td></tr>
 <tr><td valign=top width=150>
-  <p><b>Setting</b><br/>
+  <b>Setting</b><br/>
   <input type="radio" id="indoors" name="setting" value="indoors">
   <label for="indoors"> Indoors<br/>
   <input type="radio" id="outdoors" name="setting" value="outdoors">
   <label for="outdoors"> Outdoors
-  </p>
 </td>
 <td valign=top>
-  <p><b>How interesting is this photo?</b><br/>
+  <b>How interesting is this photo?</b><br/>
   <input name="rating" type="radio" class="star" value="1" />
   <input name="rating" type="radio" class="star" value="2" />
   <input name="rating" type="radio" class="star" value="3" />
   <input name="rating" type="radio" class="star" value="4" />
   <input name="rating" type="radio" class="star" value="5" />
-  </p>
+</td></tr>
+
+<tr><td colspan=2>
+<b>Any other comments about this photo?</b><br/>
+<textarea id="comment_box" name="comments" rows=1 cols=60 onClick="expandComments()">
+</textarea>
+
 </td></tr>
 </table>
 
@@ -221,6 +246,8 @@
     value="This image can't be located on a map." /><br/>
   <input type="submit" id="notme" name="notme"
     value="This image might be located, but I can't do it." />
+  <input type="submit" id="notsf" name="notsf"
+    value="This image is not in San Francisco." />
 </td>
 <td valign=middle><center>
   <input type="submit" id="success" name="success" disabled=true

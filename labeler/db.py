@@ -17,6 +17,7 @@ class User(db.Model):
   # key = user_id = cookie
   name = db.StringProperty()  # optional
   first_use = db.DateTimeProperty(auto_now_add=True)
+  num_seen = db.IntegerProperty()
 
 
 class Geocode(db.Model):
@@ -27,10 +28,12 @@ class Geocode(db.Model):
   feasibility = db.StringProperty(choices=set([
     "yes",    # this record includes a geocode
     "no",     # image cannot be geocoded
-    "maybe"]  # image can be geocoded, but not by me.
-  ))
+    "maybe",  # image can be geocoded, but not by me.
+    "notsf"   # image is not in San Francisco
+  ]))
   location = db.GeoPtProperty()
   orientation = db.IntegerProperty()  # 0-360, 0=E, 90=N, ...
 
   setting = db.StringProperty(choices=set(['indoors', 'outdoors']))
   rating = db.IntegerProperty()
+  comments = db.TextProperty()
