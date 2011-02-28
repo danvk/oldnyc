@@ -40,8 +40,7 @@ print "Re-pickling"
 output_file = "records.pickle"
 f = file(output_file, "w")
 p = cPickle.Pickler(f, 2)
-for r in rs:
-  count += 1
+for i, r in enumerate(rs):
   p.dump(r)
-  if count % 100 == 0:
-    print "Pickled %d records" % count
+  if i % 100 == 0:
+    print "Pickled %d records" % i
