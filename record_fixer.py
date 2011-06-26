@@ -34,6 +34,7 @@ for idx, r in enumerate(rs):
   # Change 'foojpg' -> 'foo.jpg'
   # Just a typo. There are ~4 of these, too.
   if url[-3:] == 'jpg' and url[-4:] != '.jpg':
+    print '%s -> %s' % (url, url[:-3] + '.jpg')
     url = url[:-3] + '.jpg'
 
 print "Re-pickling"
