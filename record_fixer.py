@@ -37,6 +37,9 @@ for idx, r in enumerate(rs):
     print '%s -> %s' % (url, url[:-3] + '.jpg')
     url = url[:-3] + '.jpg'
 
+  if url != r.photo_url:
+    r.photo_url = url
+
 print "Re-pickling"
 output_file = "records.pickle"
 f = file(output_file, "w")
