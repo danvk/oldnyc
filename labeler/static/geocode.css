@@ -1,0 +1,103 @@
+button {
+  font:1em/1em Arial,sans-serif;
+}
+/*
+button {
+  background: #eee;
+  background: -moz-linear-gradient(100% 100% 90deg, #e3e3e3, #f9f9f9);
+  background: -webkit-gradient(linear, 0% 40%, 0% 70%, from(#f9f9f9), to(#e3e3e3));
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f9f9f9', endColorstr='#e3e3e3');
+
+  border: 1px solid #bbb;
+  border-top-color: #ccc;
+  border-bottom-color: #999;
+  border-radius: 2px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 2px;
+
+  color: #222;
+  cursor: pointer;
+  display: inline-block;
+  font:1em/1em Arial,sans-serif;
+  text-shadow: 1px 1px 0 #fafafa;
+
+  margin: 0;
+  margin-right: 8px;
+  outline: none;
+  padding: 3px 8px;
+  text-align: center;
+  white-space: nowrap;
+}
+button:hover {
+  border-color: #999;
+}
+button:active {
+  border-color: #999;
+  background: -moz-linear-gradient(100% 100% 90deg, #f5f5f5, #e0e0e0);
+  background: -webkit-gradient(linear, 0% 40%, 0% 60%, from(#e0e0e0), to(#f5f5f5));
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#e0e0e0', endColorstr='#f5f5f5');
+}
+
+button.button {
+  font:14px/18px Arial,sans-serif;
+
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  top-left-radius: 0;
+  bottom-left-radius: 0;
+  -moz-border-radius: 0 3px 3px 0;
+  -webkit-top-left-radius: 0;
+  -webkit-bottom-left-radius: 0;
+}
+*/
+
+#carousel {
+  top: 5px;
+  left: 5px;
+  width: 96px;
+  border-right: 1px solid black;
+  text-align: center;
+}
+#record {
+  max-width: 500px;
+  position: absolute;
+  top: 5px;
+  left: 115px;
+}
+#geocode {
+  position: absolute;
+  top: 5px;
+  left: 635px;
+  width: 500px;
+}
+.carousel-image {
+  width: 96px;
+  height: 64px;
+  padding-bottom: 5px;
+  padding-top: 5px;
+  border-bottom: 1px solid black;
+  /* border-right: 1px solid black; */
+}
+.current-image {
+  /*background-color: rgb(224,224,224);*/
+  border-right: 1px solid white;
+}
+.carousel-image-img {
+  max-width: 86px;
+}
+div.image {
+  margin-left: auto;
+  margin-right: auto;
+}
+#search_error {
+  color: red;
+  font-size: 75%;
+}
+.instructions {
+  font-size: small;
+}
+div.rating-cancel,
+div.rating-cancel a
+{
+display:none; width:0;height:0;overflow:hidden;
+}  

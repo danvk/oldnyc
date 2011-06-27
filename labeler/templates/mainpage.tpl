@@ -4,29 +4,7 @@
   <title>SF Image Geocoding Game</title>
 
   <link rel="stylesheet" type="text/css" href="/jquery/star-rating/jquery.rating.css" />
-  <style type="text/css">
-    #record {
-      max-width: 500px;
-      position: absolute;
-      top: 50px;
-      left: 5px;
-    }
-    #geocode {
-      position: absolute;
-      top: 50px;
-      left: 525px;
-      width: 500px;
-    }
-    #search_error {
-      color: red;
-      font-size: 75%;
-    }
-    div.rating-cancel,
-    div.rating-cancel a
-    {
-    display:none; width:0;height:0;overflow:hidden;
-    }  
-  </style>
+  <link rel="stylesheet" type="text/css" href="/geocode.css" />
 
   <!-- jQuery star rating plugin -->
   <script type="text/javascript" src="/jquery/jquery-1.5.min.js"></script>
@@ -73,17 +51,6 @@
         marker.setPosition(pos.latLng);
         updatePos(pos.latLng);
       });
-
-      $('#lat').change(updateLatLon);
-      $('#lon').change(updateLatLon);
-      var killEnter = function(event) {
-        if (event.which == '13') {
-          event.preventDefault();
-          updateLatLon();
-        }
-      };
-      $('#lat').keypress(killEnter);
-      $('#lon').keypress(killEnter);
     }
 
     function updatePos(ll) {
@@ -97,7 +64,10 @@
       if (orig_width > 500) {
         // This automatically adjusts the height of the image as well.
         img.width = 500;
+        img.parentNode.style.width = 500 + 'px';
         // img.height = img.height * (500.0 / orig_width);
+      } else {
+        img.parentNode.style.width = orig_width + 'px';
       }
     }
 
@@ -117,14 +87,8 @@
     function updateButtons() {
       var ok = (el('lat').value != '' && el('lon').value != '');
       if (ok) {
-        el('impossible').disabled = true;
-        el('notme').disabled = true;
-        el('notsf').disabled = true;
         el('success').disabled = false;
       } else {
-        el('impossible').disabled = false;
-        el('notme').disabled = false;
-        el('notsf').disabled = false;
         el('success').disabled = true;
       }
     }
@@ -176,24 +140,60 @@
     }
 
     function expandComments() {
-      el('comment_box').rows=5;
+      var cb = el('comment_box');
+      if (cb.rows == 1) {
+        cb.rows=5;
+        cb.value='';
+        cb.removeAttribute('readonly');
+        cb.style.color='black';
+      }
+    }
+
+    function maybeContractComments() {
+      var cb = el('comment_box');
+      if (cb.value == '') {
+        cb.rows=1;
+        cb.value='Any other comments? Those go here.';
+        cb.readonly="readonly";
+        cb.style.color='gray';
+      }
     }
   </script>
 </head>
 <body onload="initialize_map()">
-<h2>SF Image Geocoding Game</h2>
+<div id="carousel">
+  <div class="dotdotdot">
+    .<br/>
+    .<br/>
+    .
+  </div>
+  {% for item in carousel %}
+  <div class="carousel-image{% if item.current %} current-image{% endif %}">
+    {% if not item.current %}<a href="/?id={{item.id}}">{% endif %}
+    <img class="carousel-image-img" border=0 src="/image?id={{item.id}}" height=64 />
+    {% if not item.current %}</a>{% endif %}
+  </div>
+  {% endfor %}
+  <div class="dotdotdot">
+    .<br/>
+    .<br/>
+    .
+  </div>
+</div>
 
 <div id="record">
-<img id="image" src="/image?id={{image.id}}" onload='resize(this)' />
 
-<p>
-<b>ID</b> {{ image.photo_id }}<br/>
-<b>Title</b> {{ image.title }}<br/>
-<b>Date</b> {{ image.date }}<br/>
-<b>Location</b> {{ image.location }}<br/>
-<b>Description</b><br/>
-{{ image.description|linebreaks }}
-</p>
+<div class="image">
+<img id="image" src="/image?id={{image.id}}" onload='resize(this)' />
+</div>
+
+<p style='text-align: center;'><b>{{ image.title }}</b></p>
+
+<b>Date:</b> {{ image.date }}
+
+{% if image.note %}<p>{{ image.note|linebreaks }}</p>{% endif %}
+<p>{{ image.folder }}</p>
+<p style='font-size: small;'>View the <a href="{{ image.library_url }}">original record</a> at the San Francisco Historical Photograph Collection site.</p>
 </div>
 
 <div id="geocode">
@@ -203,56 +203,45 @@
   <input type=text id="search" size="60" onChange="search()" />
   <input type=button value="Search" onClick="search()" /> <br/>
   <div id="search_error" style="display:none;"></div>
-  
-<hr/>
+
+<p class="instructions">Double-click on the map or drag-and-drop the pin to locate the photo.<br/>
+Alternatively, you can search for:
+<ul class="instructions">
+  <li>Cross streets: <i>4th and Market</i> or <i>Polk &amp; Union</i>
+  <li>Location names: <i>Dolores Park</i> or <i>Mark Hopkins Hotel</i>
+  <li>Coordinates: <i>37.791558°N 122.410364°W</i> (copy/paste from Wikipedia)
+</ul>
+</p>
 
 <form action="/geocode" method="post">
 <input type=hidden name="cookie" value="{{cookie}}" />
 <input type=hidden name="id" value="{{image.id}}" />
+<input type="hidden" id="lat" name="lat" />
+<input type="hidden" id="lon" name="lon" />
 
-<table width=500 cellspacing=5>
-<tr><td colspan=2>
-  <b>Lat:</b> <input type="text" id="lat" name="lat" size="30" />
-  <b>Lon:</b> <input type="text" id="lon" name="lon" size="30" />
-  <input id="reset" type="button" value="reset" onclick="resetlatlon()" />
-</td></tr>
-<tr><td valign=top width=150>
-  <b>Setting</b><br/>
-  <input type="radio" id="indoors" name="setting" value="indoors">
-  <label for="indoors"> Indoors<br/>
-  <input type="radio" id="outdoors" name="setting" value="outdoors">
-  <label for="outdoors"> Outdoors
-</td>
-<td valign=top>
-  <b>How interesting is this photo?</b><br/>
+<div>
   <input name="rating" type="radio" class="star" value="1" />
   <input name="rating" type="radio" class="star" value="2" />
   <input name="rating" type="radio" class="star" value="3" />
   <input name="rating" type="radio" class="star" value="4" />
   <input name="rating" type="radio" class="star" value="5" />
-</td></tr>
+  &nbsp;
+  <b>Rate this photo</b>
+</div>
 
-<tr><td colspan=2>
-<b>Any other comments about this photo?</b><br/>
-<textarea id="comment_box" name="comments" rows=1 cols=60 onClick="expandComments()">
+<div style='margin-top: 10px;'>
+<textarea id="comment_box" name="comments" rows=1 cols=60 onClick="expandComments()" readonly style="color: gray;" onblur="maybeContractComments()">
+Any other comments? Those go here.
 </textarea>
+</div>
 
-</td></tr>
-</table>
-
+<br/>
 <table width=500>
-<tr><td valign=top>
-  <input type="submit" id="impossible" name="impossible"
-    value="This image can't be located on a map." /><br/>
-  <input type="submit" id="notme" name="notme"
-    value="This image might be located, but I can't do it." />
-  <input type="submit" id="notsf" name="notsf"
-    value="This image is not in San Francisco." />
+<tr><td align=left>
+  <button type="submit" name="skip" style='height:40px;'>Skip this one</button>
 </td>
-<td valign=middle><center>
-  <input type="submit" id="success" name="success" disabled=true
-    value="Success! Next image, please." />
-</center>
+<td align=right>
+  <button type="submit" id="success" name="success" style='height: 40px;' disabled=true>Success! Next image, please.</button>
 </td></tr>
 </table>
 

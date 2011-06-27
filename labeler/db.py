@@ -7,9 +7,10 @@ class ImageRecord(db.Model):
   photo_id = db.StringProperty()
   title = db.StringProperty()
   date = db.StringProperty()
-  location = db.StringProperty()
+  folder = db.StringProperty()
   description = db.TextProperty()
-  photo_url = db.StringProperty()
+  note = db.TextProperty()
+  library_url = db.StringProperty()
   image = db.BlobProperty()
 
 

@@ -6,9 +6,9 @@ api_version: 1
 handlers:
 - url: /jquery
   static_dir: jquery
-- url: /(.*\.(gif|png|jpg))
+- url: /(.*\.(gif|png|jpg|css))
   static_files: static/\1
-  upload: static/(.*\.(gif|png|jpg))
+  upload: static/(.*\.(gif|png|jpg|css))
 - url: /.*
   script: app.py
 

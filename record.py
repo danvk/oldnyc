@@ -1,4 +1,11 @@
 #!/usr/bin/python
+#
+# Usage:
+#   import record
+#   rs = record.AllRecords()
+#   print rs[0].photo_url
+#   ...
+
 import cPickle
 import re
 import time

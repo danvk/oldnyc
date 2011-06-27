@@ -8,7 +8,7 @@ from google.appengine.ext.webapp.util import run_wsgi_app
 from google.appengine.ext.webapp import template
 from google.appengine.api import memcache
 
-kProps = ['photo_id', 'title', 'date', 'location', 'description', 'photo_url']
+kProps = ['photo_id', 'title', 'date', 'folder', 'description', 'note', 'library_url']
 
 class UploadHandler(webapp.RequestHandler):
   def post(self):

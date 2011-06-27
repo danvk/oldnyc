@@ -9,3 +9,9 @@ These files could be checked in directly, but that seemed wasteful.
 
 Python can read the pickle.gz file directly, but this winds up being an order
 of magnitude slower than reading the uncompressed version.
+
+
+To start up a new local AppEngine instance:
+- (open up the GoogleAppEngineLauncher and start up the app)
+- Run "./upload_to_appengine.py" and Ctrl-C when you're ready
+- Hit up http://localhost:8080/

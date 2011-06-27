@@ -11,6 +11,7 @@ from google.appengine.ext.webapp.util import run_wsgi_app
 from google.appengine.ext.webapp import template
 from google.appengine.ext.db import GeoPt
 
+
 class MainPage(webapp.RequestHandler):
   def get(self):
     user = labeler.userFromCookie(self)
@@ -27,6 +28,8 @@ class MainPage(webapp.RequestHandler):
     image = db.ImageRecord.get_by_key_name(str(id))
     assert image
 
+    carousel = labeler.nearbyIds(user, id)
+
     template_values = {
       'cookie': str(user.key()),
       'image': {
@@ -34,10 +37,17 @@ class MainPage(webapp.RequestHandler):
         'photo_id': image.photo_id,
         'title': image.title,
         'date': image.date,
-        'location': image.location,
+        'folder': image.folder,
         'description': image.description,
-        'photo_url': image.photo_url
-      }
+        'note': image.note,
+        'library_url': image.library_url
+      },
+      'carousel': [
+        {
+          'id': this_id,
+          'current': (id == this_id)
+        } for this_id in carousel
+      ]
     }
     path = os.path.join(os.path.dirname(__file__), 'templates/mainpage.tpl')
     self.response.out.write(template.render(path, template_values))
