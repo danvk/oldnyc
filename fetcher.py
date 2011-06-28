@@ -87,5 +87,9 @@ class Fetcher:
     self._last_fetch_time_ = time.time()
 
     sys.stderr.write("Fetching %s\n" % url)
-    f = urllib.URLopener().open(url)
-    return f.read()
+    try:
+      f = urllib.URLopener().open(url)
+      return f.read()
+    except IOError, e:
+      sys.stderr.write("Error! %s on %s\n" % (e, url))
+      return None
