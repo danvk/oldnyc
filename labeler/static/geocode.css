@@ -101,3 +101,7 @@ div.rating-cancel a
 {
 display:none; width:0;height:0;overflow:hidden;
 }  
+
+h2 {
+  margin-bottom: 2px;
+}

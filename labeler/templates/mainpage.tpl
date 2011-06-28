@@ -184,6 +184,7 @@
 <div id="record">
 
 <div class="image">
+<h2>Here's a picture</h2>
 <img id="image" src="/image?id={{image.id}}" onload='resize(this)' />
 </div>
 
@@ -197,6 +198,7 @@
 </div>
 
 <div id="geocode">
+<h2>Where was it taken?</h2>
 
 <div id="map" style="width: 500px; height: 350px;"></div>
 <b>Search:</b>
