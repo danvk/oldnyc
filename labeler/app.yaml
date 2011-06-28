@@ -9,7 +9,15 @@ handlers:
 - url: /(.*\.(gif|png|jpg|css))
   static_files: static/\1
   upload: static/(.*\.(gif|png|jpg|css))
-- url: /.*
+- url: /
+  script: app.py
+- url: /image.*
+  script: app.py
+- url: /geocode.*
+  script: app.py
+- url: /upload.*
+  script: app.py
+- url: /upload_form.*
   script: app.py
 
 
