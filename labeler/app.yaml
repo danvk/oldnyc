@@ -15,3 +15,5 @@ handlers:
 
 builtins:
 - remote_api: on
+builtins:
+- datastore_admin: on
