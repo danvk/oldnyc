@@ -15,5 +15,7 @@ for r in rs: r.delete()
 
 There's also a --clear-datastore command-line flag.
 
-To clear the remote db:
-$ /usr/local/bin/remote_api_shell.py sfgeocoder /_ah/remote_api
+To clear the remote db, visit:
+http://sfgeocoder.appspot.com/_ah/datastore_admin/
+
+Check the boxes and hit "Delete Entities".
