@@ -1,4 +1,4 @@
-import db
+import labeler_db
 import cgi
 import logging
 import os
@@ -19,10 +19,10 @@ class UploadHandler(webapp.RequestHandler):
     assert int(id) >= 0
 
     verb = 'Updated'
-    record = db.ImageRecord.get_by_key_name(id)
+    record = labeler_db.ImageRecord.get_by_key_name(id)
     if not record:
       verb = 'Added'
-      record = db.ImageRecord(key_name=id)
+      record = labeler_db.ImageRecord(key_name=id)
 
     record.seq_id = int(id)
     props = record.properties()
@@ -47,7 +47,7 @@ class UploadForm(webapp.RequestHandler):
     user = None
     if not cookie:
       # Create a new entry for this user and set their cookie.
-      user = db.User()
+      user = labeler_db.User()
       user.put()
       self.response.headers.add_header(
         'Set-Cookie',
@@ -56,7 +56,7 @@ class UploadForm(webapp.RequestHandler):
 
     else:
       # Get their record.
-      user = db.User.get(cookie)
+      user = labeler_db.User.get(cookie)
       assert user
 
     template_values = {

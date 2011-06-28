@@ -13,3 +13,7 @@ import db
 rs = db.ImageRecord.all()
 for r in rs: r.delete()
 
+There's also a --clear-datastore command-line flag.
+
+To clear the remote db:
+$ /usr/local/bin/remote_api_shell.py sfgeocoder /_ah/remote_api

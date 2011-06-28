@@ -4,7 +4,7 @@ from datetime import datetime
 import random
 import logging
 
-import db
+import labeler_db
 
 
 def _idSequenceForUser(user):
@@ -12,7 +12,7 @@ def _idSequenceForUser(user):
   # Use memcache to avoid computing max_id repeatedly.
   max_id = memcache.get('max_id')
   if not max_id:
-    qs = db.ImageRecord.all().order('-seq_id').fetch(limit=1)
+    qs = labeler_db.ImageRecord.all().order('-seq_id').fetch(limit=1)
     assert len(qs) == 1
     max_id = qs[0].seq_id
     memcache.set('max_id', max_id, 3600)
@@ -25,7 +25,7 @@ def _idSequenceForUser(user):
 
 
 def randomImage(user):
-  """user is a db.User entry. Returns an integer image ID. Advances the current
+  """user is a labeler_db.User entry. Returns an integer image ID. Advances the current
   image for this user."""
   ids = _idSequenceForUser(user)
   num_seen = user.num_seen or 0
@@ -53,7 +53,7 @@ def nearbyIds(user, id):
 
 
 def userFromCookie(handler):
-  """handler is a webapp.RequestHandler. Returns the db.user entry."""
+  """handler is a webapp.RequestHandler. Returns the labeler_db.user entry."""
   cookie = None
   if 'id' in handler.request.cookies:
     cookie = handler.request.cookies['id']
@@ -61,11 +61,11 @@ def userFromCookie(handler):
   user = None
   if cookie:
     # Get their record. This might fail while running locally.
-    user = db.User.get(cookie)
+    user = labeler_db.User.get(cookie)
     
   if not user:
     # Create a new entry for this user and set their cookie.
-    user = db.User()
+    user = labeler_db.User()
     user.put()
     handler.response.headers.add_header(
       'Set-Cookie',

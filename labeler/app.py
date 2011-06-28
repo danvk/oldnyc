@@ -1,5 +1,5 @@
 import cgi
-import db
+import labeler_db
 import os
 import upload
 import labeler
@@ -25,7 +25,7 @@ class MainPage(webapp.RequestHandler):
 
     id = int(self.request.get('id'))
     logging.info('Showing record %d to %s' % (id, user.key()))
-    image = db.ImageRecord.get_by_key_name(str(id))
+    image = labeler_db.ImageRecord.get_by_key_name(str(id))
     assert image
 
     carousel = labeler.nearbyIds(user, id)
@@ -58,7 +58,7 @@ class ImageHandler(webapp.RequestHandler):
     id = self.request.get('id')
     assert id
     
-    image = db.ImageRecord.get_by_key_name(id)
+    image = labeler_db.ImageRecord.get_by_key_name(id)
     self.response.headers.add_header('Content-type', 'image/jpeg')
     self.response.out.write(image.image)
 
@@ -71,14 +71,14 @@ class GeocodeHandler(webapp.RequestHandler):
       self.redirect('/')
       return
 
-    user = db.User.get(cookie)
+    user = labeler_db.User.get(cookie)
     assert user
 
     assert self.request.get('id')
-    photo = db.ImageRecord.get_by_key_name(self.request.get('id'))
+    photo = labeler_db.ImageRecord.get_by_key_name(self.request.get('id'))
     assert photo
 
-    geocode = db.Geocode(user=user, photo=photo)
+    geocode = labeler_db.Geocode(user=user, photo=photo)
 
     lat = self.request.get('lat') 
     lon = self.request.get('lon') 
