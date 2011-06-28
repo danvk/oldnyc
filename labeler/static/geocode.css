@@ -26,7 +26,6 @@ button {
   padding-left: 10px;
   padding-right: 10px;
   border-bottom: 0;
-  height: 90%;
 }
 
 #geocode {
@@ -37,7 +36,6 @@ button {
   border-top: 1px solid black;
   padding-left: 10px;
   padding-right: 10px;
-  height: 90%;
 }
 
 h2 {
@@ -119,7 +117,6 @@ display:none; width:0;height:0;overflow:hidden;
 div.ratings-div {
   font-size: small;
   position: absolute;
-  bottom: 10px;
   right: 20px;
 }
 

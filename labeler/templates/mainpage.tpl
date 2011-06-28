@@ -242,8 +242,9 @@ Any other comments? Those go here.
 </textarea>
 </div>
 
-<br/>
-<div style='position: absolute; bottom: 0px;'>
+<!-- spacer -->
+<div style='margin-bottom: 150px;'>&nbsp;</div>
+
 <table width=500 style='bottom: 0px;'>
 <tr><td align=left>
   <button type="submit" name="skip" style='height:40px;'>Skip this one</button>
@@ -252,7 +253,6 @@ Any other comments? Those go here.
   <button type="submit" id="success" name="success" style='height: 40px;' disabled=true>Success! Next image, please.</button>
 </td></tr>
 </table>
-</div>
 
 </form>
 </div>
