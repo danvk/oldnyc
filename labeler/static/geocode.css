@@ -1,75 +1,89 @@
+body {
+  background-color: #F8F8F5;
+}
+
 button {
   font:1em/1em Arial,sans-serif;
 }
-/*
-button {
-  background: #eee;
-  background: -moz-linear-gradient(100% 100% 90deg, #e3e3e3, #f9f9f9);
-  background: -webkit-gradient(linear, 0% 40%, 0% 70%, from(#f9f9f9), to(#e3e3e3));
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f9f9f9', endColorstr='#e3e3e3');
-
-  border: 1px solid #bbb;
-  border-top-color: #ccc;
-  border-bottom-color: #999;
-  border-radius: 2px;
-  -moz-border-radius: 3px;
-  -webkit-border-radius: 2px;
-
-  color: #222;
-  cursor: pointer;
-  display: inline-block;
-  font:1em/1em Arial,sans-serif;
-  text-shadow: 1px 1px 0 #fafafa;
-
-  margin: 0;
-  margin-right: 8px;
-  outline: none;
-  padding: 3px 8px;
-  text-align: center;
-  white-space: nowrap;
-}
-button:hover {
-  border-color: #999;
-}
-button:active {
-  border-color: #999;
-  background: -moz-linear-gradient(100% 100% 90deg, #f5f5f5, #e0e0e0);
-  background: -webkit-gradient(linear, 0% 40%, 0% 60%, from(#e0e0e0), to(#f5f5f5));
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#e0e0e0', endColorstr='#f5f5f5');
-}
-
-button.button {
-  font:14px/18px Arial,sans-serif;
-
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
-  top-left-radius: 0;
-  bottom-left-radius: 0;
-  -moz-border-radius: 0 3px 3px 0;
-  -webkit-top-left-radius: 0;
-  -webkit-bottom-left-radius: 0;
-}
-*/
 
 #carousel {
-  top: 5px;
-  left: 5px;
+  top: 45px;
+  left: 8px;
   width: 96px;
   border-right: 1px solid black;
   text-align: center;
-}
-#record {
-  max-width: 500px;
   position: absolute;
-  top: 5px;
-  left: 115px;
+  z-index: 1;
 }
+
+#record {
+  width: 500px;
+  position: absolute;
+  top: 25px;
+  left: 104px;
+  border: 1px solid black;
+  border-top-left-radius: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-bottom: 0;
+  height: 90%;
+}
+
 #geocode {
   position: absolute;
-  top: 5px;
-  left: 635px;
+  top: 25px;
+  left: 625px;
   width: 500px;
+  border-top: 1px solid black;
+  padding-left: 10px;
+  padding-right: 10px;
+  height: 90%;
 }
+
+h2 {
+  font-family: Georgia, Serif;
+  font-weight: normal;
+}
+
+h2.title {
+  font-style: italic;
+  padding-bottom: 10px;
+  color: #5E5E5E;
+}
+
+#record h2.title {
+  text-align: right;
+  padding-right: 60px;
+}
+
+#geocode h2.title {
+  text-align: left;
+  padding-left: 60px;
+}
+
+h2.in-frame {
+  background: #F8F8F5;
+  position: absolute;
+  top: -35px;
+  left: 50px;
+  padding-left: 10px;
+  padding-right: 10px;
+  color: #C8C8C8;
+}
+
+#record h2.in-frame {
+}
+
+#geocode h2.in-frame {
+}
+
+#record {
+  font-family: Georgia, Serif;
+}
+#title {
+  text-align: center;
+}
+
 .carousel-image {
   width: 96px;
   height: 64px;
@@ -101,6 +115,13 @@ div.rating-cancel a
 {
 display:none; width:0;height:0;overflow:hidden;
 }  
+
+div.ratings-div {
+  font-size: small;
+  position: absolute;
+  bottom: 10px;
+  right: 20px;
+}
 
 h2 {
   margin-bottom: 2px;

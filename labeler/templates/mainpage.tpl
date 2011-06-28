@@ -182,46 +182,22 @@
 </div>
 
 <div id="record">
+<h2 class="title">We have the photo&hellip;</h2>
+<h2 class="in-frame">Photo</h2>
 
 <div class="image">
-<h2>Here's a picture</h2>
 <img id="image" src="/image?id={{image.id}}" onload='resize(this)' />
 </div>
 
-<p style='text-align: center;'><b>{{ image.title }}</b></p>
+<p id="title">{{ image.title }}</p>
 
-<b>Date:</b> {{ image.date }}
+Date: {{ image.date }}
 
 {% if image.note %}<p>{{ image.note|linebreaks }}</p>{% endif %}
 <p>{{ image.folder }}</p>
 <p style='font-size: small;'>View the <a href="{{ image.library_url }}">original record</a> at the San Francisco Historical Photograph Collection site.</p>
-</div>
 
-<div id="geocode">
-<h2>Where was it taken?</h2>
-
-<div id="map" style="width: 500px; height: 350px;"></div>
-<b>Search:</b>
-  <input type=text id="search" size="60" onChange="search()" />
-  <input type=button value="Search" onClick="search()" /> <br/>
-  <div id="search_error" style="display:none;"></div>
-
-<p class="instructions">Double-click on the map or drag-and-drop the pin to locate the photo.<br/>
-Alternatively, you can search for:
-<ul class="instructions">
-  <li>Cross streets: <i>4th and Market</i> or <i>Polk &amp; Union</i>
-  <li>Location names: <i>Dolores Park</i> or <i>Mark Hopkins Hotel</i>
-  <li>Coordinates: <i>37.791558°N 122.410364°W</i> (copy/paste from Wikipedia)
-</ul>
-</p>
-
-<form action="/geocode" method="post">
-<input type=hidden name="cookie" value="{{cookie}}" />
-<input type=hidden name="id" value="{{image.id}}" />
-<input type="hidden" id="lat" name="lat" />
-<input type="hidden" id="lon" name="lon" />
-
-<div>
+<div class="ratings-div">
   <input name="rating" type="radio" class="star" value="1" />
   <input name="rating" type="radio" class="star" value="2" />
   <input name="rating" type="radio" class="star" value="3" />
@@ -231,14 +207,44 @@ Alternatively, you can search for:
   <b>Rate this photo</b>
 </div>
 
-<div style='margin-top: 10px;'>
+</div>
+
+<div id="geocode">
+<h2 class="title">&hellip; but where was it taken?</h2>
+<h2 class="in-frame">Location</h2>
+
+<div id="map" style="width: 500px; height: 350px;"></div>
+<b>Search:</b>
+  <input type=text id="search" size="60" onChange="search()" />
+  <input type=button value="Search" onClick="search()" /> <br/>
+  <div id="search_error" style="display:none;"></div>
+
+<!--
+<p class="instructions">Double-click on the map or drag-and-drop the pin to locate the photo.<br/>
+Alternatively, you can search for:
+<ul class="instructions">
+  <li>Cross streets: <i>4th and Market</i> or <i>Polk &amp; Union</i>
+  <li>Location names: <i>Dolores Park</i> or <i>Mark Hopkins Hotel</i>
+  <li>Coordinates: <i>37.791558°N 122.410364°W</i> (copy/paste from Wikipedia)
+</ul>
+</p>
+-->
+
+<form action="/geocode" method="post">
+<input type=hidden name="cookie" value="{{cookie}}" />
+<input type=hidden name="id" value="{{image.id}}" />
+<input type="hidden" id="lat" name="lat" />
+<input type="hidden" id="lon" name="lon" />
+
+<div style='margin-top: 30px;'>
 <textarea id="comment_box" name="comments" rows=1 cols=60 onClick="expandComments()" readonly style="color: gray;" onblur="maybeContractComments()">
 Any other comments? Those go here.
 </textarea>
 </div>
 
 <br/>
-<table width=500>
+<div style='position: absolute; bottom: 0px;'>
+<table width=500 style='bottom: 0px;'>
 <tr><td align=left>
   <button type="submit" name="skip" style='height:40px;'>Skip this one</button>
 </td>
@@ -246,6 +252,7 @@ Any other comments? Those go here.
   <button type="submit" id="success" name="success" style='height: 40px;' disabled=true>Success! Next image, please.</button>
 </td></tr>
 </table>
+</div>
 
 </form>
 </div>

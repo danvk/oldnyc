@@ -17,7 +17,8 @@ random.shuffle(rs)
 rs = rs[0:100]
 
 sys.stderr.write('Have %d full records\n' % len(rs))
-upload_url = 'http://localhost:8080/upload'
+#upload_url = 'http://localhost:8080/upload'
+upload_url = 'http://sfgeocoder.appspot.com/upload'
 if len(sys.argv) > 1:
   upload_url = sys.argv[1]
 
