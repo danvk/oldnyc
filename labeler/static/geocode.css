@@ -1,5 +1,5 @@
 body {
-  background-color: #F8F8F5;
+  background-color: rgb(250, 250, 248);
 }
 
 button {
@@ -46,7 +46,7 @@ h2 {
 h2.title {
   font-style: italic;
   padding-bottom: 10px;
-  color: #5E5E5E;
+  color: rgb(51,51,51);
 }
 
 #record h2.title {
@@ -60,13 +60,14 @@ h2.title {
 }
 
 h2.in-frame {
-  background: #F8F8F5;
+  font-size: 30px;
+  background: rgb(250, 250, 248);
   position: absolute;
-  top: -35px;
+  top: -45px;
   left: 50px;
   padding-left: 10px;
   padding-right: 10px;
-  color: #C8C8C8;
+  color: rgb(211,211,209);
 }
 
 #record h2.in-frame {
@@ -92,7 +93,7 @@ h2.in-frame {
 }
 .current-image {
   /*background-color: rgb(224,224,224);*/
-  border-right: 1px solid white;
+  border-right: 1px solid #F8F8F5;
 }
 .carousel-image-img {
   max-width: 86px;

@@ -215,7 +215,7 @@ Date: {{ image.date }}
 
 <div id="map" style="width: 500px; height: 350px;"></div>
 <b>Search:</b>
-  <input type=text id="search" size="60" onChange="search()" />
+  <input type=text id="search" size="70" onChange="search()" />
   <input type=button value="Search" onClick="search()" /> <br/>
   <div id="search_error" style="display:none;"></div>
 
@@ -237,13 +237,13 @@ Alternatively, you can search for:
 <input type="hidden" id="lon" name="lon" />
 
 <div style='margin-top: 30px;'>
-<textarea id="comment_box" name="comments" rows=1 cols=60 onClick="expandComments()" readonly style="color: gray;" onblur="maybeContractComments()">
+<textarea id="comment_box" name="comments" rows=1 cols=68 onClick="expandComments()" readonly style="color: gray;" onblur="maybeContractComments()">
 Any other comments? Those go here.
 </textarea>
 </div>
 
 <!-- spacer -->
-<div style='margin-bottom: 150px;'>&nbsp;</div>
+<div style='margin-bottom: 100px;'>&nbsp;</div>
 
 <table width=500 style='bottom: 0px;'>
 <tr><td align=left>
