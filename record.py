@@ -7,6 +7,7 @@
 #   ...
 
 import cPickle
+import os
 import re
 import time
 import sys
@@ -232,6 +233,29 @@ class Record:
     return None
 
 
+def CleanTitle(title):
+  """remove [graphic] from titles"""
+  title = title.replace(' [graphic].', '')
+  title = title.replace('[', '').replace(']','')
+  return title
+
+
+def CleanDate(date):
+  """remove [] and trailing period from dates"""
+  date = r.date().replace('[', '').replace(']','')
+  if date[-1] == '.': date = date[:-1]
+  return date
+
+def CleanFolder(folder):
+  # remove leading 'Folder: ', trailing period & convert various forms of
+  # dashes to a single form of slashes.
+  if folder[-1] == '.' and not folder[-3] == '.':  # e.g. 'Y.M.C.A'
+    folder = folder[:-1]
+  folder = folder.replace('Folder: ', '')
+  folder = re.sub(r' *- *', ' / ', folder)
+  return folder
+
+
 def ExtractAddress(str):
   """Find an address in the string and return it. Returns None if no address."""
   pat = r'''\b(?<![',.])(\d{2,})(?: [A-Z](?:[a-z.]|'[A-Za-z])+)+\b'''
@@ -264,8 +288,10 @@ def ExtractAddress(str):
     street1, street2 = addr_match.group(1), addr_match.group(2)
     #print "%s -> (%s, %s)" % (str, street1, street2)
 
-def AllRecords(path="records.pickle"):
+def AllRecords(path=None):
   """Reads all records from the pickled file and returns a list."""
+  if not path:
+    path = os.path.join(os.path.dirname(__file__), 'records.pickle')
   unpickler = cPickle.Unpickler(open(path, 'r'))
 
   count = 0

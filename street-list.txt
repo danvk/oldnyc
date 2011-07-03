@@ -47,6 +47,7 @@
 47th
 48th
 49th
+
 Alemany
 Amber
 Anza
@@ -118,7 +119,6 @@ Corwin
 Cumberland
 Cypress
 Davis
-Day
 Del Vale
 Delano
 Dewey
@@ -365,3 +365,128 @@ West Portal
 Wheat
 Winston Drive
 Woodside
+
+acadia
+acton
+alabama
+alameda
+alton
+amazon
+anderson
+arch
+arleta
+ashton
+baden
+bowdoin
+boyelston
+brazil
+brompton
+burnside
+capitol
+caselli
+cedro
+cerritos
+cervantes
+circular
+clyde
+colonial
+connecticut
+cook
+costa
+crescent
+crocker
+de haro
+dixie alley
+drumm
+edna
+el camino real
+elizabeth
+ellsworth
+eucalyptus
+euclid
+eugenia
+farallones
+farragut
+felton
+fifth
+fowler
+france
+grafton
+granville
+guttenberg
+hallam place
+hamerton
+hoffman
+holland
+italy
+joost
+kelly
+laura
+locust
+lowell
+lower terrace
+madrid
+main
+mandell
+manor
+marin
+mariposa
+mayfair
+mono
+montcalm
+morgan alley
+moscow
+moultrie
+mullen
+myrtle
+nevada
+niagara
+olympia
+omsted
+ord
+parnassus
+paul
+pixie
+plato
+portola
+precita
+quintara
+rankin
+raymond
+richland
+roanoke
+rodgers
+romain
+rosseau
+san jacinto
+san juan
+santiago
+saturn
+schwerin
+seward
+sickles
+sillman
+standish
+stanton
+sterling
+stevenson
+stuart
+third
+tompkins
+trumbell
+twentieth
+visitacion
+wallbridge
+walnut
+winfield
+york
+
+julian
+fairfax
+la conte
+rivere
+indiana
+williams
+gilman
+clementina
+wisconsin

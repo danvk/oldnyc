@@ -1,0 +1,170 @@
+acadia
+acton
+alabama
+alameda
+alton
+amazon
+anderson
+arch
+arleta
+ashton
+baden
+bowdoin
+boyelston
+brazil
+brompton
+burnside
+capitol
+caselli
+cedro
+cerritos
+cervantes
+circular
+clyde
+colonial
+connecticut
+cook
+costa
+crescent
+crocker
+de haro
+dixie alley
+drumm
+edna
+el camino real
+elizabeth
+ellsworth
+eucalyptus
+euclid
+eugenia
+farallones
+farragut
+felton
+fifth
+fowler
+france
+grafton
+granville
+guttenberg
+hallam place
+hamerton
+hoffman
+holland
+italy
+joost
+kelly
+laura
+locust
+lowell
+lower terrace
+madrid
+main
+mandell
+manor
+marin
+mariposa
+mayfair
+mono
+montcalm
+morgan alley
+moscow
+moultrie
+mullen
+myrtle
+nevada
+niagara
+olympia
+omsted
+ord
+parnassus
+paul
+pixie
+plato
+portola
+precita
+quintara
+rankin
+raymond
+richland
+roanoke
+rodgers
+romain
+rosseau
+san jacinto
+san juan
+santiago
+saturn
+schwerin
+seward
+sickles
+sillman
+standish
+stanton
+sterling
+stevenson
+stuart
+third
+tompkins
+trumbell
+twentieth
+visitacion
+wallbridge
+walnut
+winfield
+york
+
+
+
+Tricky:
+fountain street*
+francisco street*
+hill*
+industrial street*
+"water main"
+
+Typos:
+21th -> 21st
+keanry -> Kearny
+kearney -> Kearny
+douglass vs. douglas
+
+
+Blocks:
+2100 block of
+1700 block of
+2200 block of lombard street
+
+
+Exact Addresses:
+x 600 cambridge street
+x 604 capp street
+x 934 carolina street apartment
+268-a clara street
+x 448 - laurel street
+x 652  miramar avenue
+x 180  missouri street
+
+
+Some streets are short enough to give geocodes on their own:
+maiden lane
+juri
+myra way
+naglee
+niantic
+ogden
+onondaga
+peralta
+phelan
+quane street
+ripley
+ritch street
+st. francis circle
+steuart
+tehama street
+villa terrace
+balance street
+barcelona
+
+This record just sucks:
+AAB-6467        market  ['california', 'guerrero', 'address: 118 market']       s. f. no. 118 market and guerrero se san francisco, california
+

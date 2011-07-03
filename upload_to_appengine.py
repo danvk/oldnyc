@@ -37,22 +37,16 @@ for i, r in enumerate(rs):
     desc = ''
 
   # remove [] and trailing period from dates.
-  date = r.date().replace('[', '').replace(']','')
-  if date[-1] == '.': date = date[:-1]
-
+  date = record.CleanDate(r.date())
+  
   # remove [graphic] from titles
-  title = r.title().replace(' [graphic].', '')
-  title = title.replace('[', '').replace(']','')
+  title = record.CleanTitle(r.title())
 
   # remove leading 'Folder: ', trailing period & convert various forms of
   # dashes to a single form of slashes.
   folder = r.location()
-  if folder:
-    if folder[-1] == '.' and not folder[-3] == '.':  # e.g. 'Y.M.C.A'
-      folder = folder[:-1]
-    folder = folder.replace('Folder: ', '')
-    folder = re.sub(r' *- *', ' / ', folder)
-
+  if folder: folder = record.CleanFolder(folder)
+    
   q = {
     'seq_id': str(i),
     'photo_id': r.photo_id(),
