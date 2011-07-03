@@ -1,0 +1,21 @@
+application: sfcatcode
+
+version: 1
+runtime: python
+api_version: 1
+
+handlers:
+- url: /jquery
+  static_dir: jquery
+- url: /favicon.ico
+  static_files: favicon.ico
+  upload: favicon.ico
+- url: /
+  script: app.py
+- url: .*
+  script: app.py
+
+
+builtins:
+- remote_api: on
+- datastore_admin: on

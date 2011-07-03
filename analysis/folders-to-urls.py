@@ -17,6 +17,15 @@ for r in rs:
         folder = folder[:-1]
       folder = folder.replace('Folder: ', '')
       folder = re.sub(r' *- *', ' / ', folder)
-    print folder
+
+    # remove [graphic] from titles
+    title = r.title().replace(' [graphic].', '')
+    title = title.replace('[', '').replace(']','')
+
+    # remove [] and trailing period from dates.
+    date = r.date().replace('[', '').replace(']','')
+    if date[-1] == '.': date = date[:-1]
+
+    print '\t'.join([folder, date, title, r.preferred_url])
   else:
     print '(none)'
