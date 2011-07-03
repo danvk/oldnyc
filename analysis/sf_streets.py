@@ -8,7 +8,7 @@ import record
 
 def get_street_cat(cat):
   st = cat.split('-')[1]
-  if '1920' in st or 'Unidentified' in st: return None
+  if '1920' in st or 'Unidentified' in st or 'Bernal Cut' in st: return None
   return st
 
 
@@ -115,7 +115,10 @@ tiny_streets = [
   'tehama street', 
   'villa terrace', 
   'balance street', 
-  'barcelona'
+  'barcelona',
+  'hotaling place',
+  'hattie',
+  'jordan'
 ]
 
 if __name__ == '__main__':
@@ -149,7 +152,11 @@ if __name__ == '__main__':
       matches.append('block: ' + m.group(1))
 
     # e.g.  "652  miramar avenue"
-    m = re.search(r'([-0-9 ]+) *' + st, street_title)
+    rst = st
+    if rst == '3rd': rst = 'third'
+    if rst == '4th': rst = 'fourth'
+    if rst == '6th': rst = 'sixth'
+    m = re.search(r'([-0-9 ]+) *' + rst + r'( (street|avenue|ave|road|boulevard|blvd|place|way))?', title)
     if m and re.search(r'\d', m.group(1)):
       matches.append('address:' + m.group(0))
 
