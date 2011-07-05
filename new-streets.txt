@@ -168,3 +168,6 @@ barcelona
 This record just sucks:
 AAB-6467        market  ['california', 'guerrero', 'address: 118 market']       s. f. no. 118 market and guerrero se san francisco, california
 
+
+"Blvd" and "Boulevard" need to be synonymized.
+"Road" and "Rd" need to be synonymized.

@@ -5,6 +5,9 @@ sys.path += (sys.path[0] + '/..')
 
 import re
 import record
+import cPickle
+
+output_mode = 'pickle'
 
 def get_street_cat(cat):
   st = cat.split('-')[1]
@@ -129,6 +132,7 @@ if __name__ == '__main__':
   for cross_street in street_list:
     res.append(re.compile(r'\b' + cross_street + r'\b'))
 
+  outputs = []
   rs = record.AllRecords()
   for r in rs:
     if not r.location().startswith("Folder: S.F. Streets-"): continue
@@ -166,4 +170,10 @@ if __name__ == '__main__':
         if tiny_street in street_title:
           matches.append("tiny:" + tiny_street)
 
-    print "%s\t%s\t%s\t%s" % (r.photo_id(), st, matches, title)
+    if output_mode == 'text':
+      print "%s\t%s\t%s\t%s" % (r.photo_id(), st, matches, title)
+    elif output_mode == 'pickle':
+      outputs.append([r.photo_id(), st, matches])
+
+if outputs:
+  cPickle.dump(outputs, file('/tmp/sf-crossstreets.pickle', 'w'))

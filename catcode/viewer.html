@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Map dot viewer</title>
+  <!-- Google Maps API -->
+  <script type="text/javascript"
+      src="http://maps.google.com/maps/api/js?sensor=false">
+  </script>
+  <script type="text/javascript" src="lat-lons.js"></script>
+
+  <script type="text/javascript">
+    var markers = [];
+    var map;
+
+    function el(id) {
+      return document.getElementById(id);
+    }
+
+    function initialize_map() {
+      var latlng = new google.maps.LatLng(37.77493, -122.419416);
+      var opts = {
+        zoom: 13,
+        center: latlng,
+        mapTypeId: google.maps.MapTypeId.ROADMAP,
+        streetViewControl: true
+      };
+      map = new google.maps.Map(el("map"), opts);
+
+      for (var i = 0; i < lat_lons.length; i++) {
+        var ll = lat_lons[i];
+        marker = new google.maps.Marker({
+          position: new google.maps.LatLng(ll[0], ll[1]), 
+          map: map,
+          flat: true,
+          visible: true,
+          icon: 'red-dot.png',
+          title: ll[2]
+        });
+        markers.push(marker);
+      }
+    }
+  </script>
+</head>
+<body onload="initialize_map()">
+  <div id="map" style="position: absolute; top: 10px; left: 10px; width: 200px; height: 600px;"></div>
+  <div id="info" style="position: absolute; top: 10px; right: 10px; width: 200px; height: 100px;">Content goes here!</div>
+
+  <script type="text/javascript">
+    var winW = 630, winH = 460;
+    if (document.body && document.body.offsetWidth) {
+     winW = document.body.offsetWidth;
+     winH = document.body.offsetHeight;
+    }
+    if (document.compatMode=='CSS1Compat' &&
+        document.documentElement &&
+        document.documentElement.offsetWidth ) {
+     winW = document.documentElement.offsetWidth;
+     winH = document.documentElement.offsetHeight;
+    }
+    if (window.innerWidth && window.innerHeight) {
+     winW = window.innerWidth;
+     winH = window.innerHeight;
+    }
+
+    // TODO(danvk): window.resize
+    el("map").style.width = (winW - 230) + "px";
+    el("info").style.height = (winH - 20) + "px";
+  </script>
+</body>
+</html>

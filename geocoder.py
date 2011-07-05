@@ -49,7 +49,11 @@ class Location:
     # Zip Code
     zips = place.getElementsByTagName("PostalCodeNumber")
     if len(zips) >= 1:
-      self.zipcode = int(zips[0].firstChild.nodeValue)
+      z = zips[0].firstChild.nodeValue
+      if len(z) == 10:
+        self.zipcode = float(z[0:5]) + float(z[6:])/10000
+      else:
+        self.zipcode = int(z)
 
   def __str__(self):
     if self.lat and self.lon:

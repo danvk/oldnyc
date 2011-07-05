@@ -32,6 +32,21 @@ def parse_month(mon):
   """Takes "Jan" -> 1"""
   return int(time.strptime(mon[0:3], "%b")[1])
 
+def AbbreviateMonths(txt):
+  return txt.replace('January', 'Jan') \
+            .replace('February', 'Feb') \
+            .replace('March', 'Mar') \
+            .replace('April', 'Apr') \
+            .replace('June', 'Jun') \
+            .replace('July', 'Jul') \
+            .replace('August', 'Aug') \
+            .replace('September', 'Sep') \
+            .replace('October', 'Oct') \
+            .replace('Novemeber', 'Nov') \
+            .replace('December', 'Dec') \
+            .replace('Sept', 'Sep')
+
+
 Tags = {}
 class Record:
   def __init__(self):
@@ -117,8 +132,9 @@ class Record:
 
   @staticmethod
   def ExtractDateRange(raw_txt):
-    """Return a (first, last) tuple of datetime.date's from a string."""
-    # TODO(danvk): pre-compile all these re's
+    """Return a (first, last) tuple of datetime.date's from a string.
+    Returns None if the date couldn't be parsed or (None, None) if the photo
+    is undateable (e.g. the date is 'n.d.')."""
 
     txt = re.sub(r'[\[\].]', '', raw_txt).strip()  # strip '[', ']' and '.'
     # Undateable, e.g. "[n.d.]"
@@ -148,6 +164,8 @@ class Record:
       end = date(y + 1, 12, 31)
       return (start, end)
 
+    txt = AbbreviateMonths(txt)
+
     # An exact date with a 3-letter month abbrev., e.g. "1950 Aug. 25."
     m = re.match(r'^(\d{4}) ([A-Z][a-z]{2,3}) ?(\d{1,2})$', txt)
     if m:
@@ -170,10 +188,31 @@ class Record:
       start = date(year, mon, day)
       return (start, start)
 
+    # An exact date range, e.g. "1950 Aug. 25-27."
+    m = re.match(r'^(\d{4}) ([A-Z][a-z]{2,3}) ?(\d{1,2})-(\d{1,2})$', txt)
+    if m:
+      year, mon, day1, day2 = m.groups()
+      year, mon, day1, day2 = int(year), parse_month(mon), int(day1), int(day2)
+
+      start = date(year, mon, day1)
+      end = date(year, mon, day2)
+      return (start, end)
+
+
     # A month and year, e.g. "1971 Aug."
     m = re.match(r'^(\d{4}) ([A-Z][a-z]{2,3})$', txt)
     if m:
       year, mon = m.groups()
+      year, mon = int(year), parse_month(mon)
+      start = date(year, mon, 1)
+      # This monstrosity determines the last day of the month
+      end = (start + timedelta(days=+32)).replace(day=1) + timedelta(days=-1)
+      return (start, end)
+
+    # A month and year, e.g. "Aug. 1971"
+    m = re.match(r'^([A-Z][a-z]{2,3}) (\d{4})$', txt)
+    if m:
+      mon, year = m.groups()
       year, mon = int(year), parse_month(mon)
       start = date(year, mon, 1)
       # This monstrosity determines the last day of the month
@@ -188,6 +227,33 @@ class Record:
       end = date(year + 9, 12, 31)
       return (start, end)
 
+    # Special case: "-1906"
+    if txt == '-1906':
+      return (date(1850, 1, 1), date(1906, 4, 17))
+    
+    # A year range, e.g "1925-1928" or "1925-28"
+    yr = re.search(r'^(\d{4}) *- *(\d{2,4})$', txt)
+    if yr:
+      start = int(yr.group(1))
+      end = int(yr.group(2))
+      if end < 100: end += 100 * int(start / 100)
+      return (date(start, 1, 1), date(end, 12, 31))
+
+    # A pair of years, e.g. "1925 or 1926"
+    yp = re.search(r'^(\d{4}) or (\d{4})$', txt)
+    if yp:
+      start = int(yp.group(1))
+      end = int(yp.group(2))
+      return (date(start, 1, 1), date(end, 12, 31))
+
+    # A pair of dates, e.g "[between (date1) and (date2)]"
+    bt = re.search(r'^between (.*) and (.*)$', txt, re.IGNORECASE)
+    if bt:
+      left = Record.ExtractDateRange(bt.group(1))
+      right = Record.ExtractDateRange(bt.group(2))
+      if left and right:
+        return (left[0], right[1])
+
     # A century, e.g. "[19--]"
     # TODO(danvk): maybe throw these out? '19--' isn't very informative.
     cen = ExtractRegex(r'^([12]\d)--$', txt)
@@ -199,19 +265,21 @@ class Record:
         start = date(1850, 1, 1)  # Photography isn't that old.
       return (start, end)
 
+    # If there's a '?' or 'ca' then try it again, but ignore any uncertainty
+    if '?' in txt or 'ca' in txt:
+      return Record.ExtractDateRange(txt.replace('?', '').replace('ca', ''))
+
     return None
+    
 
   def date_range(self):
     if self._date_range:
       return self._date_range
-    if not self.date:
-      self._date_range = (None, None)
+    if not self.date():
+      self._date_range = None
     else:
-      p = Record.ExtractDateRange(self.date)
-      if not p:
-        self._date_range = (None, None)
-      else:
-        self._date_range = p
+      p = Record.ExtractDateRange(self.date())
+      self._date_range = p
     return self._date_range
 
   def date_range_str(self):
@@ -242,9 +310,10 @@ def CleanTitle(title):
 
 def CleanDate(date):
   """remove [] and trailing period from dates"""
-  date = r.date().replace('[', '').replace(']','')
+  date = date.replace('[', '').replace(']','')
   if date[-1] == '.': date = date[:-1]
   return date
+
 
 def CleanFolder(folder):
   # remove leading 'Folder: ', trailing period & convert various forms of
