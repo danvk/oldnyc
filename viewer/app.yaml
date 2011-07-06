@@ -10,19 +10,19 @@ handlers:
 - url: /favicon.ico
   static_files: favicon.ico
   upload: favicon.ico
-- url: /viewer.html
+- url: /
   static_files: viewer.html
   upload: viewer.html
+- url: /upload
+  script: app.py
 - url: /lat-lons.js
   static_files: lat-lons.js
   upload: lat-lons.js
-- url: /thumb
-  static_dir: thumb
+- url: /thumb/.*
+  script: app.py
 - url: /(.*\.(gif|png|jpg|css))
   static_files: \1
   upload: (.*\.(gif|png|jpg|css))
-- url: /
-  script: app.py
 - url: .*
   script: app.py
 

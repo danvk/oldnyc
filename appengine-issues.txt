@@ -9,3 +9,5 @@
     * how to load binary data?
 
 - appcfg.py only told me about the 3000 file limit after hitting 3000!
+
+- it would be so much nicer to run locally w/ the remote db.

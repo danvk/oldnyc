@@ -22,12 +22,22 @@ class ImageRecord(db.Model):
   library_url = db.StringProperty()
 
 
-class MainPage(webapp.RequestHandler):
-  def get(self):
+class ThumbnailRecord(db.Model):
+  # key = photo_id
+  image = db.BlobProperty()
+
+
+class UploadThumbnailHandler(webapp.RequestHandler):
+  def post(self):
     num = 0
-    for r in ImageRecord.all():
+    while self.request.get('photo_id%d' % num):
+      photo_id = self.request.get('photo_id%d' % num)
+      image = self.request.get('image%d' % num)
+      rec = ThumbnailRecord(key_name=photo_id, image=image)
+      rec.put()
       num += 1
-    self.response.out.write('Serving %d records' % num)
+
+    self.response.out.write('Loaded %d thumbnails' % num)
 
 
 class RecordFetcher(webapp.RequestHandler):
@@ -58,10 +68,27 @@ class RecordFetcher(webapp.RequestHandler):
     self.response.out.write(json.dumps(response))
 
 
+class ThumbnailFetcher(webapp.RequestHandler):
+  def get(self):
+    """URL is something like /thumb/AAA-1234.jpg"""
+    basename = os.path.basename(self.request.path)
+    name = basename.split('.')[0]
+    thumb = ThumbnailRecord.get_by_key_name(name)
+    if not thumb:
+      self.response.set_status(404)
+      self.respnose.out.write("Couldn't find image %s" % name)
+      return
+
+    self.response.headers['Content-type'] = 'image/jpeg'
+    self.response.out.write(thumb.image)
+
+
+
 application = webapp.WSGIApplication(
                                      [
-                                      ('/', MainPage),
                                       ('/info', RecordFetcher),
+                                      ('/upload', UploadThumbnailHandler),
+                                      ('/thumb.*', ThumbnailFetcher),
                                      ],
                                      debug=True)
 

@@ -24,9 +24,10 @@
 
     function makeCallback(photo_id) {
       return function(e) {
-        var id = photo_id.toLowerCase().replace('-', '');
-        var url = 'http://webbie1.sfpl.org/multimedia/thumbnails/' + id + '_x.jpg';
-        el('thumbnail').src = url;
+        // var id = photo_id.toLowerCase().replace('-', '');
+        // var url = 'http://webbie1.sfpl.org/multimedia/thumbnails/' + id + '_x.jpg';
+        el('thumbnail').src = '/blank.gif';  // clear it
+        el('thumbnail').src = '/thumb/' + photo_id + '.jpg';
         el('description').innerHTML = 'Loading...';
         getDescription(photo_id);
       };
