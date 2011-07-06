@@ -1,11 +1,13 @@
 #!/usr/bin/python
 
+from datetime import date
 import record
 rs = record.AllRecords()
 
 no_date = 0
 failures = 0
 success = 0
+pre1900 = 0
 
 for r in rs:
   dr = r.date_range()
@@ -18,11 +20,20 @@ for r in rs:
     no_date += 1
     continue
 
+  if dr[1] < date(1900, 1, 1):
+    pre1900 += 1
+    print '\t'.join([r.photo_id(),
+                     record.CleanDate(r.date()),
+                     record.CleanFolder(r.location()),
+                     record.CleanTitle(r.title())
+                     ])
+    
   success += 1
 
 print 'no date: %d' % no_date
 print 'failure: %d' % failures
 print 'success: %d' % success
+print 'pre1900: %d' % pre1900
 
 # initial: 1717 failures
 # "between YYYY and YYYY" -> 1213

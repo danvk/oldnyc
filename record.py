@@ -310,6 +310,7 @@ def CleanTitle(title):
 
 def CleanDate(date):
   """remove [] and trailing period from dates"""
+  if not date: return ''
   date = date.replace('[', '').replace(']','')
   if date[-1] == '.': date = date[:-1]
   return date
@@ -318,6 +319,7 @@ def CleanDate(date):
 def CleanFolder(folder):
   # remove leading 'Folder: ', trailing period & convert various forms of
   # dashes to a single form of slashes.
+  if not folder: return ''
   if folder[-1] == '.' and not folder[-3] == '.':  # e.g. 'Y.M.C.A'
     folder = folder[:-1]
   folder = folder.replace('Folder: ', '')

@@ -1,0 +1,11 @@
+- Using bulk loader is hard!
+    Designed for very large amounts of data
+    Doesn't work well with local instances -- took 2 hours to upload 5 MB.
+
+    How to load binary data?
+
+    Documentation doesn't mention:
+    * importance of CSV header row
+    * how to load binary data?
+
+- appcfg.py only told me about the 3000 file limit after hitting 3000!

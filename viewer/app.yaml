@@ -1,0 +1,32 @@
+application: sf-viewer
+
+version: 1
+runtime: python
+api_version: 1
+
+handlers:
+- url: /jquery
+  static_dir: jquery
+- url: /favicon.ico
+  static_files: favicon.ico
+  upload: favicon.ico
+- url: /viewer.html
+  static_files: viewer.html
+  upload: viewer.html
+- url: /lat-lons.js
+  static_files: lat-lons.js
+  upload: lat-lons.js
+- url: /thumb
+  static_dir: thumb
+- url: /(.*\.(gif|png|jpg|css))
+  static_files: \1
+  upload: (.*\.(gif|png|jpg|css))
+- url: /
+  script: app.py
+- url: .*
+  script: app.py
+
+
+builtins:
+- remote_api: on
+- datastore_admin: on
