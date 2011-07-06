@@ -27,6 +27,7 @@
         var id = photo_id.toLowerCase().replace('-', '');
         var url = 'http://webbie1.sfpl.org/multimedia/thumbnails/' + id + '_x.jpg';
         el('thumbnail').src = url;
+        el('description').innerHTML = 'Loading...';
         getDescription(photo_id);
       };
     }
@@ -90,9 +91,48 @@
         }
       }
     }
+
+    function sizeElements() {
+      var winW = 630, winH = 460;
+      if (document.body && document.body.offsetWidth) {
+       winW = document.body.offsetWidth;
+       winH = document.body.offsetHeight;
+      }
+      if (document.compatMode=='CSS1Compat' &&
+          document.documentElement &&
+          document.documentElement.offsetWidth ) {
+       winW = document.documentElement.offsetWidth;
+       winH = document.documentElement.offsetHeight;
+      }
+      if (window.innerWidth && window.innerHeight) {
+       winW = window.innerWidth;
+       winH = window.innerHeight;
+      }
+
+      // TODO(danvk): window.resize
+      el("map").style.width = (winW - 230) + "px";
+      el("map").style.height = (winH - 100) + "px";
+      el("slider").style.width = el("map").style.width;
+      el("date_range").style.width = el("map").style.width;
+      el("info").style.height = (winH - 100) + "px";
+      $('#slider').slider({
+        range: true,
+        values: [1850, 2000],
+        min: 1850,
+        max: 2000,
+        slide: function(event, ui) {
+          el("date_range").innerHTML = ui.values[0] + ' - ' + ui.values[1];
+          date1 = ui.values[0];
+          date2 = ui.values[1];
+          updateVisibleMarkers(new Date(date1 + "/01/01"), new Date(date2 + "/12/31"));
+        },
+        change: function(event, ui) {
+        }
+      });
+    }
   </script>
 </head>
-<body onload="initialize_map()">
+<body onload="initialize_map()" onresize="sizeElements()">
   <!-- TODO(danvk): CSS -->
   <div id="slider" style="position: absolute; top: 10px; left: 10px; width: 200px;"></div>
   <div id="date_range" style="position: absolute; top: 30px; left: 10px; width: 200px; height: 20px; text-align: center;"></div>
@@ -105,42 +145,7 @@
   </div>
 
   <script type="text/javascript">
-    var winW = 630, winH = 460;
-    if (document.body && document.body.offsetWidth) {
-     winW = document.body.offsetWidth;
-     winH = document.body.offsetHeight;
-    }
-    if (document.compatMode=='CSS1Compat' &&
-        document.documentElement &&
-        document.documentElement.offsetWidth ) {
-     winW = document.documentElement.offsetWidth;
-     winH = document.documentElement.offsetHeight;
-    }
-    if (window.innerWidth && window.innerHeight) {
-     winW = window.innerWidth;
-     winH = window.innerHeight;
-    }
-
-    // TODO(danvk): window.resize
-    el("map").style.width = (winW - 230) + "px";
-    el("slider").style.width = el("map").style.width;
-    el("date_range").style.width = el("map").style.width;
-    el("info").style.height = (winH - 100) + "px";
-    $('#slider').slider({
-      range: true,
-      values: [1850, 2000],
-      min: 1850,
-      max: 2000,
-      slide: function(event, ui) {
-        el("date_range").innerHTML = ui.values[0] + ' - ' + ui.values[1];
-        date1 = ui.values[0];
-        date2 = ui.values[1];
-        updateVisibleMarkers(new Date(date1 + "/01/01"), new Date(date2 + "/12/31"));
-      },
-      change: function(event, ui) {
-      }
-    });
-    
+    sizeElements();
   </script>
 </body>
 </html>
