@@ -76,7 +76,7 @@ class ThumbnailFetcher(webapp.RequestHandler):
     thumb = ThumbnailRecord.get_by_key_name(name)
     if not thumb:
       self.response.set_status(404)
-      self.respnose.out.write("Couldn't find image %s" % name)
+      self.response.out.write("Couldn't find image %s" % name)
       return
 
     self.response.headers['Content-type'] = 'image/jpeg'
