@@ -12,6 +12,69 @@
   <script type="text/javascript" src="jquery/jquery-ui-1.8.14.custom.min.js"></script>
 
   <link type="text/css" href="jquery/jquery-ui-1.8.14.custom.css" rel="stylesheet" />
+  <style type="text/css">
+  body {
+    background-color: #F7F6F0;
+  }
+  #title {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 200px;
+    height: 30px;  /* ??? */
+    padding: 15px;
+    font: 24px Georgia;
+    background: #D8D0C6;  /* TODO(danvk): gradient */
+    border-bottom: 1px solid black;
+  }
+  #instructions {
+    font: 20px Georgia;
+    font-style: italic;
+    color: #878683;
+    position: absolute;
+    top: 70px;
+    height: 30px;
+    text-align: center;
+    left: 20px;
+    width: 200; /* dynamic */
+  }
+  #slider {
+    position: absolute;
+    top: 100px;
+    left: 20px;
+    width: 200px;
+    height: 10px;
+  }
+  #date_range {
+    font: 20px Georgia;
+    font-style: bold;
+    color: #FA5E57;
+    position: absolute;
+    top: 120px;
+    left: 10px;
+    width: 200px;
+    height: 20px;
+    text-align: center;
+  }
+  #map {
+    position: absolute;
+    top: 150px;
+    left: 10px;
+    width: 200px;
+    height: 600px;
+  }
+  #info {
+    position: absolute;
+    top: 150px;
+    right: 10px;
+    width: 200px;
+    height: 100px;
+  }
+  #thumbnail {
+  }
+  #description {
+  }
+  </style>
   
   <script type="text/javascript">
     var markers = [];
@@ -24,8 +87,6 @@
 
     function makeCallback(photo_id) {
       return function(e) {
-        // var id = photo_id.toLowerCase().replace('-', '');
-        // var url = 'http://webbie1.sfpl.org/multimedia/thumbnails/' + id + '_x.jpg';
         el('thumbnail').src = '/blank.gif';  // clear it
         el('thumbnail').src = '/thumb/' + photo_id + '.jpg';
         el('description').innerHTML = 'Loading...';
@@ -110,43 +171,49 @@
        winH = window.innerHeight;
       }
 
-      // TODO(danvk): window.resize
+      el("title").style.width = (winW - 30) + "px";
       el("map").style.width = (winW - 230) + "px";
-      el("map").style.height = (winH - 100) + "px";
-      el("slider").style.width = el("map").style.width;
-      el("date_range").style.width = el("map").style.width;
-      el("info").style.height = (winH - 100) + "px";
-      $('#slider').slider({
-        range: true,
-        values: [1850, 2000],
-        min: 1850,
-        max: 2000,
-        slide: function(event, ui) {
-          el("date_range").innerHTML = ui.values[0] + ' - ' + ui.values[1];
-          date1 = ui.values[0];
-          date2 = ui.values[1];
-          updateVisibleMarkers(new Date(date1 + "/01/01"), new Date(date2 + "/12/31"));
-        },
-        change: function(event, ui) {
-        }
-      });
+      el("map").style.height = (winH - 200) + "px";
+      el("info").style.height = (winH - 200) + "px";
+
+      var dynamic_els = document.getElementsByClassName("dynamic-width");
+      for (var i = 0; i < dynamic_els.length; i++) {
+        dynamic_els[i].style.width = (winW - 230 - 20) + "px";
+      }
     }
   </script>
 </head>
 <body onload="initialize_map()" onresize="sizeElements()">
   <!-- TODO(danvk): CSS -->
-  <div id="slider" style="position: absolute; top: 10px; left: 10px; width: 200px;"></div>
-  <div id="date_range" style="position: absolute; top: 30px; left: 10px; width: 200px; height: 20px; text-align: center;"></div>
+  <div id="title">San Francisco Historical Photographs, 1850&ndash;2000</div>
+  <div id="instructions" class="dynamic-width">
+    Adjust the sliders to a period of interest.
+  </div>
+  <div id="slider" class="dynamic-width"></div>
+  <div id="date_range" class="dynamic-width">1850 &ndash; 2000</div>
 
-  <div id="map" style="position: absolute; top: 50px; left: 10px; width: 200px; height: 600px;"></div>
-  <div id="info" style="position: absolute; top: 50px; right: 10px; width:
-  200px; height: 100px;">
+  <div id="map"></div>
+  <div id="info">
     <img id="thumbnail" />
     <div id="description"></div>
   </div>
 
   <script type="text/javascript">
     sizeElements();
+    $('#slider').slider({
+      range: true,
+      values: [1850, 2000],
+      min: 1850,
+      max: 2000,
+      slide: function(event, ui) {
+        el("date_range").innerHTML = ui.values[0] + ' &ndash; ' + ui.values[1];
+        date1 = ui.values[0];
+        date2 = ui.values[1];
+        updateVisibleMarkers(new Date(date1 + "/01/01"), new Date(date2 + "/12/31"));
+      },
+      change: function(event, ui) {
+      }
+    });
   </script>
 </body>
 </html>
