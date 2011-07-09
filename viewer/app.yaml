@@ -7,6 +7,8 @@ api_version: 1
 handlers:
 - url: /jquery
   static_dir: jquery
+- url: /dots
+  static_dir: dots
 - url: /favicon.ico
   static_files: favicon.ico
   upload: favicon.ico

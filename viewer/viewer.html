@@ -80,17 +80,34 @@
     var markers = [];
     var marker_dates = [];
     var map;
+    var start_date = new Date("1850/01/01");
+    var end_date = new Date("2000/01/01");
 
     function el(id) {
       return document.getElementById(id);
     }
 
-    function makeCallback(photo_id) {
+    function displayInfoForLatLon(lat_lon) {
+      var recs = lat_lons[lat_lon];
+      var ok_recs = [];
+      for (var i = 0; i < recs.length; i++) {
+        if (recs[i][0] >= start_date && recs[i][1] <= end_date) {
+          ok_recs.push(recs[i]);
+        }
+      }
+
+      var photo_id = ok_recs[0][2];
+      el('thumbnail').src = '/blank.gif';  // clear it
+      el('thumbnail').src = '/thumb/' + photo_id + '.jpg';
+      // el('thumbnail').src = 'http://sf-viewer.appspot.com/thumb/' + photo_id + '.jpg';
+      el('description').innerHTML = 'Loading...';
+      getDescription(photo_id);
+      // TODO(danvk): show information about other photos at this lat_lon.
+    }
+
+    function makeCallback(lat_lon) {
       return function(e) {
-        el('thumbnail').src = '/blank.gif';  // clear it
-        el('thumbnail').src = '/thumb/' + photo_id + '.jpg';
-        el('description').innerHTML = 'Loading...';
-        getDescription(photo_id);
+        displayInfoForLatLon(lat_lon);
       };
     }
 
@@ -125,33 +142,50 @@
       };
       map = new google.maps.Map(el("map"), opts);
 
-      for (var i = 0; i < lat_lons.length; i++) {
-        var ll = lat_lons[i];
+      for (var lat_lon in lat_lons) {
+        var ll = lat_lon.split(",");
+        var recs = lat_lons[ll];
         marker = new google.maps.Marker({
-          position: new google.maps.LatLng(ll[0], ll[1]), 
+          position: new google.maps.LatLng(parseFloat(ll[0]), parseFloat(ll[1])),
           map: map,
           flat: true,
           visible: true,
-          icon: 'red-dot.png',
-          title: ll[4]
+          icon: 'dots/' + recs.length + '.png',
+          title: lat_lon
         });
         markers.push(marker);
-        marker_dates.push([new Date(ll[2]), new Date(ll[3]), marker]);
-        google.maps.event.addListener(marker, 'click', makeCallback(ll[4]));
+        // marker_dates.push([new Date(ll[2]), new Date(ll[3]), marker]);
+        google.maps.event.addListener(marker, 'click', makeCallback(ll));
+        // TODO(danvk): use timestamps?
+        for (var i = 0; i < recs.length; i++) {
+          recs[i][0] = new Date(recs[i][0]);
+          recs[i][1] = new Date(recs[i][1]);
+        }
       }
     }
 
     function updateVisibleMarkers(date1, date2) {
-      for (var i = 0; i < marker_dates.length; i++) {
-        var md = marker_dates[i];
-        var marker = md[2];
+      var total = 0;
+      for (var i = 0; i < markers.length; i++) {
+        var marker = markers[i];
+        var ll = marker.getTitle();
         var vis = marker.getVisible();
-        if (!vis && md[0] >= date1 && md[1] <= date2) {
-          marker.setVisible(true);
-        } else if (vis && (md[0] < date1 || md[1] > date2)) {
-          marker.setVisible(false);
+        var icon = marker.getIcon();
+        var count = 0;
+        var recs = lat_lons[ll];
+        for (var j = 0; j < recs.length; j++) {
+          if (recs[j][0] >= date1 && recs[j][1] <= date2) count += 1;
+        }
+        if (count == 0) {
+          if (vis) marker.setVisible(false);
+        } else {
+          if (!vis) marker.setVisible(true);
+          var new_icon = 'dots/' + count + '.png';
+          if (icon != new_icon) marker.setIcon(new_icon);
         }
       }
+      start_date = date1;
+      end_date = date2;
     }
   </script>
 </head>
