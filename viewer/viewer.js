@@ -1,4 +1,5 @@
 var markers = [];
+var marker_icons = [];
 var marker_dates = [];
 var map;
 var start_date = new Date("1850/01/01");
@@ -78,6 +79,19 @@ function initialize_map() {
   };
   map = new google.maps.Map(el("map"), opts);
 
+  // Create markers for each number.
+  marker_icons.push(null);  // it's easier to be 1-based.
+  for (var i = 0; i < 100; i++) {
+    var num = i + 1;
+    var size = (num == 1 ? 9 : (num < 10 ? 13 : (num < 100 ? 25 : 39)));
+    marker_icons.push(new google.maps.MarkerImage(
+      '/dots/sprite.png',
+      new google.maps.Size(size, size),
+      new google.maps.Point((i%10)*39, Math.floor(i/10)*39),
+      new google.maps.Point((size - 1) / 2, (size - 1)/2)
+    ));
+  }
+
   var total = 0;
   for (var lat_lon in lat_lons) {
     var ll = lat_lon.split(",");
@@ -87,7 +101,7 @@ function initialize_map() {
       map: map,
       flat: true,
       visible: true,
-      icon: 'dots/' + (recs.length > 100 ? 100 : recs.length) + '.png',
+      icon: marker_icons[recs.length > 100 ? 100 : recs.length],
       title: lat_lon
     });
     markers.push(marker);
@@ -121,7 +135,7 @@ function updateVisibleMarkers(date1, date2) {
     } else {
       total += count;
       if (!vis) marker.setVisible(true);
-      var new_icon = 'dots/' + (count > 100 ? 100 : count) + '.png';
+      var new_icon = marker_icons[count > 100 ? 100 : count];
       if (icon != new_icon) marker.setIcon(new_icon);
     }
   }
