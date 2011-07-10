@@ -1,16 +1,11 @@
 from google.appengine.ext import webapp
+from google.appengine.api import memcache
+from google.appengine.ext import db
 from google.appengine.ext.webapp.util import run_wsgi_app
 from google.appengine.ext.webapp import template
-from google.appengine.ext.db import GeoPt
-from google.appengine.ext import db
 import os
 import simplejson as json
 import logging
-
-
-def load_entries():
-  """Returns a [(count, folder), ...] list."""
-  return [(int(line.split("\t")[0]), line.split("\t")[1]) for line in file("folder-counts.txt").read().split("\n")[:-1]]
 
 
 class ImageRecord(db.Model):
@@ -25,6 +20,26 @@ class ImageRecord(db.Model):
 class ThumbnailRecord(db.Model):
   # key = photo_id
   image = db.BlobProperty()
+
+
+def GetImageRecord(photo_id):
+  """Queries the ImageRecord db, w/ memcaching"""
+  key = "IR" + photo_id
+  r = memcache.get(key)
+  if r: return r
+  r = ImageRecord.get_by_key_name(photo_id)
+  memcache.add(key, r)
+  return r
+
+
+def GetThumbnailRecord(photo_id):
+  """Queries the Thumbnail db, w/ memcaching"""
+  key = "TN" + photo_id
+  r = memcache.get(key)
+  if r: return r
+  r = ThumbnailRecord.get_by_key_name(photo_id)
+  memcache.add(key, r)
+  return r
 
 
 class UploadThumbnailHandler(webapp.RequestHandler):
@@ -54,7 +69,7 @@ class RecordFetcher(webapp.RequestHandler):
       #self.response.out.write("no 'id' param")
       pass
     else:
-      r = ImageRecord.get_by_key_name(id)
+      r = GetImageRecord(id)
       if not r:
         #self.response.out.write("no record for '%s'" % id)
         pass
@@ -65,6 +80,7 @@ class RecordFetcher(webapp.RequestHandler):
           'folder': r.folder,
           'library_url': r.library_url
         }
+    self.response.headers.add_header('Expires', 'Sun, 17-Jan-2038 19:14:07')
     self.response.out.write(json.dumps(response))
 
 
@@ -73,12 +89,13 @@ class ThumbnailFetcher(webapp.RequestHandler):
     """URL is something like /thumb/AAA-1234.jpg"""
     basename = os.path.basename(self.request.path)
     name = basename.split('.')[0]
-    thumb = ThumbnailRecord.get_by_key_name(name)
+    thumb = GetThumbnailRecord(name)
     if not thumb:
       self.response.set_status(404)
       self.response.out.write("Couldn't find image %s" % name)
       return
 
+    self.response.headers.add_header('Expires', 'Sun, 17-Jan-2038 19:14:07')
     self.response.headers['Content-type'] = 'image/jpeg'
     self.response.out.write(thumb.image)
 
@@ -97,5 +114,4 @@ def main():
 
 if __name__ == "__main__":
     main()
-
 

@@ -1,0 +1,78 @@
+body {
+  background-color: #F7F6F0;
+}
+
+#title {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  height: 30px;  /* ??? */
+  padding: 15px;
+  font: 24px Georgia;
+  background: #D8D0C6;  /* TODO(danvk): gradient */
+  border-bottom: 1px solid black;
+}
+
+#stats {
+  position: absolute;
+  right: 10px;
+  width: 200px;
+  top: 70px;
+  height: 50px;
+  font: 20px Georgia;
+}
+
+#instructions {
+  font: 20px Georgia;
+  font-style: italic;
+  color: #878683;
+  position: absolute;
+  top: 70px;
+  height: 30px;
+  text-align: center;
+  left: 20px;
+  right: 250px;
+}
+
+#slider {
+  position: absolute;
+  top: 100px;
+  left: 20px;
+  right: 250px;
+  height: 10px;
+}
+
+#date_range {
+  font: 20px Georgia;
+  font-style: bold;
+  color: #FA5E57;
+  position: absolute;
+  top: 120px;
+  left: 10px;
+  right: 250px;
+  height: 20px;
+  text-align: center;
+}
+
+#map {
+  position: absolute;
+  top: 150px;
+  left: 10px;
+  right: 230px;
+  bottom: 10px;
+}
+
+#info {
+  position: absolute;
+  top: 150px;
+  right: 10px;
+  width: 200px;
+  height: 100px;
+}
+
+#thumbnail {
+}
+
+#description {
+}
