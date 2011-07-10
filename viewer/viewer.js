@@ -11,24 +11,32 @@ function el(id) {
 
 function displayInfoForLatLon(lat_lon, should_display) {
   var recs = lat_lons[lat_lon];
-  var ok_recs = [];
+  var photo_ids = [];
   for (var i = 0; i < recs.length; i++) {
     if (recs[i][0] >= start_date && recs[i][1] <= end_date) {
-      ok_recs.push(recs[i]);
+      photo_ids.push(recs[i][2]);
     }
   }
 
-  var photo_id = ok_recs[0][2];
-  var img_path = '/thumb/' + photo_id + '.jpg';
-  if (should_display) {
-    el('thumbnail').src = '/blank.gif';  // clear it
-    el('thumbnail').src = img_path;
-    // el('thumbnail').src = 'http://sf-viewer.appspot.com/thumb/' + photo_id + '.jpg';
-  } else {
-    el('preload_img').src = img_path;
+  var html = '';
+  for (var i = 0; i < photo_ids.length; i++) {
+    var photo_id = photo_ids[i];
+    // var img_path = '/thumb/' + photo_id + '.jpg';
+    var img_path = 'http://sf-viewer.appspot.com/thumb/' + photo_id + '.jpg';
+    html += '<img class="thumb" src="' + img_path + '" />\n';
+    html += '<div class="description" id="description-' + photo_id + '">Loading&hellip;</div>\n';
   }
-  el('description').innerHTML = 'Loading...';
-  getDescription(photo_id, should_display);
+  el('info').innerHTML = html;
+
+  // if (should_display) {
+  //   el('thumbnail').src = '/blank.gif';  // clear it
+  //   el('thumbnail').src = img_path;
+  //   // el('thumbnail').src = 'http://sf-viewer.appspot.com/thumb/' + photo_id + '.jpg';
+  // } else {
+  //   el('preload_img').src = img_path;
+  // }
+  // el('description').innerHTML = 'Loading...';
+  getDescription(photo_ids, should_display);
   // TODO(danvk): show information about other photos at this lat_lon.
 }
 
@@ -46,26 +54,35 @@ function makePreloadCallback(lat_lon) {
   };
 }
 
-function getDescription(photo_id, should_display) {
+function getDescription(photo_ids, should_display) {
   var req = new XMLHttpRequest();
   var caller = this;
   req.onreadystatechange = function () {
     if (req.readyState == 4) {
       if (req.status == 200 ||  // Normal http
           req.status == 0) {    // Chrome w/ --allow-file-access-from-files
-        var info = eval('(' + req.responseText + ')');
+        var info_map = eval('(' + req.responseText + ')');
         if (should_display) {
-          el("description").innerHTML =
-            info.title + '<br/>' +
-            info.date + '<br/>' +
-            info.folder + '<br/><br/>' +
-            '<a href="' + info.library_url + '">&rarr; Library</a>';
+          for (var id in info_map) {
+            var info = info_map[id];
+            if (!el("description-" + id)) continue;
+            el("description-" + id).innerHTML =
+              info.title + '<br/>' +
+              info.date + '<br/>' +
+              info.folder + '<br/><br/>' +
+                '<a href="' + info.library_url + '">&rarr; Library</a>';
+          }
         }
       }
     }
   };
 
-  req.open("GET", '/info?id=' + photo_id, true);
+  var url = '/info';
+  for (var i = 0; i < photo_ids.length; i++) {
+    url += (i ? '&' : '?') + 'id=' + photo_ids[i];
+  }
+
+  req.open("GET", url, true);
   req.send(null);
 }
 

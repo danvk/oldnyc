@@ -22,14 +22,21 @@ class ThumbnailRecord(db.Model):
   image = db.BlobProperty()
 
 
-def GetImageRecord(photo_id):
-  """Queries the ImageRecord db, w/ memcaching"""
-  key = "IR" + photo_id
-  r = memcache.get(key)
-  if r: return r
-  r = ImageRecord.get_by_key_name(photo_id)
-  memcache.add(key, r)
-  return r
+def GetImageRecords(photo_ids):
+  """Queries the ImageRecord db, w/ memcaching. Returns photo_id -> rec dict"""
+  keys = ["IR" + photo_id for photo_id in photo_ids]
+  record_map = memcache.get_multi(keys, key_prefix='IR')
+  missing_ids = list(set(photo_ids) - set(record_map.keys()))
+  if not missing_ids: return record_map
+
+  memcache_map = {}
+  db_recs = ImageRecord.get_by_key_name(missing_ids)
+  for id, r in zip(missing_ids, db_recs):
+    record_map[id] = r
+    memcache_map["IR" + id] = r
+
+  if memcache_map: memcache.add_multi(memcache_map)
+  return record_map
 
 
 def GetThumbnailRecord(photo_id):
@@ -58,23 +65,28 @@ class UploadThumbnailHandler(webapp.RequestHandler):
 class RecordFetcher(webapp.RequestHandler):
   def get(self):
     """Responds to AJAX requests for record information."""
-    id = self.request.get("id")
-    response = {
+    photo_ids = self.request.get("id", allow_multiple=True)
+    default_response = {
       'title': 'Proposed Alemany Blvd. West from Mission St. viaduct, 2-18-26',
       'date': '1926 Feb. 18',
       'folder': 'S.F. Streets / Alemany Boulevard',
       'library_url': 'http://sflib1.sfpl.org:82/record=b1000001~S0'
     }
-    if not id:
-      #self.response.out.write("no 'id' param")
-      pass
-    else:
-      r = GetImageRecord(id)
+
+    rs = GetImageRecords(photo_ids)
+    response = {}
+    for id, r in rs.iteritems():
       if not r:
         #self.response.out.write("no record for '%s'" % id)
-        pass
+        # This is just to aid local testing:
+        response[id] = {
+          'title': 'Photo ID #' + id,
+          'date': default_response['date'],
+          'folder': default_response['folder'],
+          'library_url': 'http://sflib1.sfpl.org:82/record=b1000001~S0'
+        }
       else:
-        response = {
+        response[id] = {
           'title': r.title,
           'date': r.date,
           'folder': r.folder,
