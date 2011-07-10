@@ -27,6 +27,14 @@
     background: #D8D0C6;  /* TODO(danvk): gradient */
     border-bottom: 1px solid black;
   }
+  #stats {
+    position: absolute;
+    right: 10px;
+    width: 200px;
+    top: 70px;
+    height: 50px;
+    font: 20px Georgia;
+  }
   #instructions {
     font: 20px Georgia;
     font-style: italic;
@@ -142,6 +150,7 @@
       };
       map = new google.maps.Map(el("map"), opts);
 
+      var total = 0;
       for (var lat_lon in lat_lons) {
         var ll = lat_lon.split(",");
         var recs = lat_lons[ll];
@@ -150,7 +159,7 @@
           map: map,
           flat: true,
           visible: true,
-          icon: 'dots/' + recs.length + '.png',
+          icon: 'dots/' + (recs.length > 100 ? 100 : recs.length) + '.png',
           title: lat_lon
         });
         markers.push(marker);
@@ -160,8 +169,10 @@
         for (var i = 0; i < recs.length; i++) {
           recs[i][0] = new Date(recs[i][0]);
           recs[i][1] = new Date(recs[i][1]);
+          total += 1;
         }
       }
+      el("count").innerHTML = total;
     }
 
     function updateVisibleMarkers(date1, date2) {
@@ -179,24 +190,26 @@
         if (count == 0) {
           if (vis) marker.setVisible(false);
         } else {
+          total += count;
           if (!vis) marker.setVisible(true);
-          var new_icon = 'dots/' + count + '.png';
+          var new_icon = 'dots/' + (count > 100 ? 100 : count) + '.png';
           if (icon != new_icon) marker.setIcon(new_icon);
         }
       }
       start_date = date1;
       end_date = date2;
+      el("count").innerHTML = total;
     }
   </script>
 </head>
 <body onload="initialize_map()">
-  <!-- TODO(danvk): CSS -->
   <div id="title">San Francisco Historical Photographs, 1850&ndash;2000</div>
   <div id="instructions">
     Adjust the sliders to a period of interest.
   </div>
   <div id="slider"></div>
   <div id="date_range">1850 &ndash; 2000</div>
+  <div id="stats">Showing <span id="count">__</span> photos.</div>
 
   <div id="map"></div>
   <div id="info">

@@ -13,7 +13,8 @@ for r in rs:
   id_to_record[r.photo_id()] = r
 
 # load the list of geocodes
-lines = file('/tmp/pair-geocodes.txt').read().split('\n')
+# format is: (photo_id)<tab>(lat,lon)[<tab>ignored...]
+lines = file('/tmp/geocodes.txt').read().split('\n')
 
 # "lat,lon" -> list of photo_ids
 ll_to_id = defaultdict(list)
