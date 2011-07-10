@@ -60,7 +60,6 @@ function getDescription(photo_ids, should_display) {
             el("description-" + id).innerHTML =
               info.title + '<br/>' +
               info.date + '<br/>' +
-              info.folder + '<br/><br/>' +
                 '<a href="' + info.library_url + '">&rarr; Library</a>';
           }
         }
