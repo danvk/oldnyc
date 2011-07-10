@@ -21,23 +21,13 @@ function displayInfoForLatLon(lat_lon, should_display) {
   var html = '';
   for (var i = 0; i < photo_ids.length; i++) {
     var photo_id = photo_ids[i];
-    // var img_path = '/thumb/' + photo_id + '.jpg';
     var img_path = 'http://sf-viewer.appspot.com/thumb/' + photo_id + '.jpg';
     html += '<img class="thumb" src="' + img_path + '" />\n';
     html += '<div class="description" id="description-' + photo_id + '">Loading&hellip;</div>\n';
   }
   el('info').innerHTML = html;
 
-  // if (should_display) {
-  //   el('thumbnail').src = '/blank.gif';  // clear it
-  //   el('thumbnail').src = img_path;
-  //   // el('thumbnail').src = 'http://sf-viewer.appspot.com/thumb/' + photo_id + '.jpg';
-  // } else {
-  //   el('preload_img').src = img_path;
-  // }
-  // el('description').innerHTML = 'Loading...';
   getDescription(photo_ids, should_display);
-  // TODO(danvk): show information about other photos at this lat_lon.
 }
 
 function makeCallback(lat_lon) {
@@ -63,7 +53,8 @@ function getDescription(photo_ids, should_display) {
           req.status == 0) {    // Chrome w/ --allow-file-access-from-files
         var info_map = eval('(' + req.responseText + ')');
         if (should_display) {
-          for (var id in info_map) {
+          for (var i = 0; i < photo_ids.length; i++) {
+            var id = photo_ids[i];
             var info = info_map[id];
             if (!el("description-" + id)) continue;
             el("description-" + id).innerHTML =
@@ -102,7 +93,7 @@ function initialize_map() {
     var num = i + 1;
     var size = (num == 1 ? 9 : (num < 10 ? 13 : (num < 100 ? 25 : 39)));
     marker_icons.push(new google.maps.MarkerImage(
-      '/dots/sprite.png',
+      'dots/sprite.png',
       new google.maps.Size(size, size),
       new google.maps.Point((i%10)*39, Math.floor(i/10)*39),
       new google.maps.Point((size - 1) / 2, (size - 1)/2)

@@ -32,7 +32,12 @@ for line in lines:
 print "var lat_lons = {"
 for lat_lon, photo_ids in ll_to_id.iteritems():
   recs = []
-  for photo_id in photo_ids:
+  sorted_ids = sorted([id for id in photo_ids
+                          if id and 
+                             id_to_record[id].date_range() and
+                             id_to_record[id].date_range()[1]],
+                      key=lambda id: id_to_record[id].date_range()[1])
+  for photo_id in sorted_ids:
     r = id_to_record[photo_id]
     date_range = r.date_range()
     # saves ~9k. could save more by doing '0.' -> '.' or ''

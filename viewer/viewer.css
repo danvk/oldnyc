@@ -74,12 +74,6 @@ body {
   overflow-y: auto;
 }
 
-#thumbnail {
-}
-
-#description {
-}
-
 /* Credit: http://numerosign.com/notebook/styling-webkit-scrollbars-with-css3/ */
 #info::-webkit-scrollbar {
   width: 6px;
