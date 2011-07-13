@@ -88,3 +88,4 @@
 37.7965837271,-122.408147415 : S.F. Districts / Chinatown / Housing / Ping Yuen
 37.8015870681,-122.409979999 : S.F. Churches / Catholic / St. Peter and Paul's
 37.7910192,-122.4011804 : S.F. Businesses / Standard Oil
+37.73341524,-122.5059164 : S.F. Fleishhacker Pool
