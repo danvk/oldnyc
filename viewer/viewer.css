@@ -14,6 +14,24 @@ body {
   border-bottom: 1px solid black;
 }
 
+#about {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  width: 100px;
+  padding-left: 50px;
+  height: 60px;  /* ??? */
+  background-image: url('chevron.png');
+  background-repeat: no-repeat;
+  font: 24px Georgia;
+  line-height: 60px;
+}
+#about > a {
+  text-decoration: none;
+  color: white;
+  text-shadow: gray 2px 2px 3px;
+}
+
 #stats {
   position: absolute;
   right: 10px;
