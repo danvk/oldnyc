@@ -15,6 +15,9 @@ handlers:
 - url: /
   static_files: viewer.html
   upload: viewer.html
+- url: /about
+  static_files: about.html
+  upload: about.html
 - url: /upload
   script: app.py
 - url: /lat-lons.js

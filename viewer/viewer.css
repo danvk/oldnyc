@@ -14,6 +14,18 @@ body {
   border-bottom: 1px solid black;
 }
 
+/* for "About" page */
+#content-area {
+  position: absolute;
+  top: 60px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  padding: 10px;
+  font: 16px Georgia;
+  max-width: 600px;
+}
+
 #about {
   position: absolute;
   top: 0px;
