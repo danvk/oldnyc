@@ -50,6 +50,14 @@ def GetThumbnailRecord(photo_id):
 
 
 class UploadThumbnailHandler(webapp.RequestHandler):
+  def get(self):
+    # print out a list of photo_ids that we already have.
+    self.response.headers['Content-Type'] = 'text/plain'
+    query = db.Query(ThumbnailRecord, keys_only=True)
+    for thumb in query:
+      self.response.out.write(thumb.name() + "\n")
+
+
   def post(self):
     num = 0
     while self.request.get('photo_id%d' % num):

@@ -23,9 +23,16 @@ def Upload(pairs):
     f.close()
 
 
+# Get a list of photos that are already there.
+response = urllib2.urlopen(upload_url)
+text = response.read()
+already_uploaded = set(text.split('\n'))
+print 'Will skip %d photos which are already uploaded' % len(already_uploaded)
+
 # batch up groups of 20
 pairs = []  # (photo_id)
 for idx, photo_id in enumerate(photo_ids):
+  if photo_id in already_uploaded: continue
   pairs.append(photo_id)
 
   if len(pairs) == 20:
