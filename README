@@ -22,7 +22,10 @@ Here's the sequence to bring up an instance of the viewer app:
 # Generate /tmp/sf-crossstreets.pickle
 $ ./analysis/sf_streets.py
 
-# Convert the cross streets into a photo_id -> coordinates mapping
+# Generate /tmp/sf-residences.pickle
+$ ./analysis/sf_residences.py
+
+# Convert the cross streets + residences into a photo_id -> coordinates mapping
 $ ./geocode_pairs.py > /tmp/geocodes-pairs.txt
 
 # Convert the manual cat-codes.txt file into the same format
