@@ -1,7 +1,7 @@
 #!/usr/bin/python
 import MultipartPostHandler, urllib2
 
-photo_ids = [line.split('\t')[0] for line in file("/tmp/geocodes-catcodes.txt").read().split("\n") if line]
+photo_ids = [line.split('\t')[0] for line in file("/tmp/geocodes.txt").read().split("\n") if line]
 
 upload_url = 'http://sf-viewer.appspot.com/upload'
 #upload_url = 'http://localhost:8080/upload'

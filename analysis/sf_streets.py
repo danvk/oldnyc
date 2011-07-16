@@ -1,4 +1,14 @@
 #!/usr/bin/python
+#
+# Go through the list of records and find geocodable street information.
+#
+# Input:
+#    records.pickle
+#    street-list.txt (a manually-generated list of street names)
+#
+# Output:
+#    /tmp/sf-crossstreets.pickle
+#       Format is [ [photo_id, street folder, [ cross streets ] ], ... ]
 
 import sys
 sys.path += (sys.path[0] + '/..')
@@ -8,6 +18,8 @@ import record
 import cPickle
 
 output_mode = 'pickle'
+
+# TODO(danvk): all the functions here should go into an object.
 
 def get_street_cat(cat):
   st = cat.split('-')[1]
@@ -124,6 +136,45 @@ tiny_streets = [
   'jordan'
 ]
 
+def extract_matches(txt, st, street_list, res):
+  """txt is text that may contain street information. Exclude street st from
+  consideration. Returns an array of street matches."""
+  street_txt = clean_street_cat(ordinal_shrinker(txt))
+  matches = []
+  for idx, cross_street in enumerate(street_list):
+    if cross_street != st and re.search(res[idx], street_txt):
+      matches.append(cross_street)
+
+  # special case: make sure we don't match "second" _and_ "twenty-second".
+  kill_substrings(matches)
+
+  if not st and len(matches) == 1:
+    st = matches[0]
+
+  # e.g. "2500 block of lombard"
+  if '00 block' in street_txt:
+    m = re.search(r'(\d+00) block', street_txt)
+    matches.append('block: ' + m.group(1))
+
+  # e.g.  "652  miramar avenue"
+  if st:
+    rst = st
+    if rst == '3rd': rst = 'third'
+    if rst == '4th': rst = 'fourth'
+    if rst == '6th': rst = 'sixth'
+    m = re.search(r'([-0-9 ]+) *' + rst + r'( (street|avenue|ave|road|boulevard|blvd|place|way))?', txt)
+    if m and re.search(r'\d', m.group(1)):
+      matches.append('address:' + m.group(0))
+
+  # Fallback: some streets are short enough that they're geocodable.
+  if not matches:
+    for tiny_street in tiny_streets:
+      if tiny_street in street_txt:
+        matches.append("tiny:" + tiny_street)
+
+  return matches
+
+
 if __name__ == '__main__':
   street_list = file("street-list.txt").read().split("\n")
   street_list = [s.lower() for s in street_list if s]
@@ -135,45 +186,22 @@ if __name__ == '__main__':
   outputs = []
   rs = record.AllRecords()
   for r in rs:
-    if not r.location().startswith("Folder: S.F. Streets-"): continue
-    st = get_street_cat(r.location())
+    loc = r.location()
+    loc = loc.replace('Folder: S.F. Earthquakes-1906-Streets',
+                      'Folder: S.F. Streets')
+    if not loc.startswith("Folder: S.F. Streets-"): continue
+    st = get_street_cat(loc)
     if not st: continue
     st = clean_street_cat(st.lower())
 
-    matches = []
     title = record.CleanTitle(r.title()).lower()
-    street_title = clean_street_cat(ordinal_shrinker(title))
-    for idx, cross_street in enumerate(street_list):
-      if cross_street != st and re.search(res[idx], street_title):
-        matches.append(cross_street)
-
-    # special case: make sure we don't match "second" _and_ "twenty-second".
-    kill_substrings(matches)
-
-    # e.g. "2500 block of lombard"
-    if '00 block' in street_title:
-      m = re.search(r'(\d+00) block', street_title)
-      matches.append('block: ' + m.group(1))
-
-    # e.g.  "652  miramar avenue"
-    rst = st
-    if rst == '3rd': rst = 'third'
-    if rst == '4th': rst = 'fourth'
-    if rst == '6th': rst = 'sixth'
-    m = re.search(r'([-0-9 ]+) *' + rst + r'( (street|avenue|ave|road|boulevard|blvd|place|way))?', title)
-    if m and re.search(r'\d', m.group(1)):
-      matches.append('address:' + m.group(0))
-
-    # Fallback: some streets are short enough that they're geocodable.
-    if not matches:
-      for tiny_street in tiny_streets:
-        if tiny_street in street_title:
-          matches.append("tiny:" + tiny_street)
+    matches = extract_matches(title, st, street_list, res)
 
     if output_mode == 'text':
       print "%s\t%s\t%s\t%s" % (r.photo_id(), st, matches, title)
     elif output_mode == 'pickle':
       outputs.append([r.photo_id(), st, matches])
 
-if outputs:
-  cPickle.dump(outputs, file('/tmp/sf-crossstreets.pickle', 'w'))
+  print len(outputs)
+  if outputs:
+    cPickle.dump(outputs, file('/tmp/sf-crossstreets.pickle', 'w'))

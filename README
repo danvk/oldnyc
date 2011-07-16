@@ -15,3 +15,28 @@ To start up a new local AppEngine instance:
 - (open up the GoogleAppEngineLauncher and start up the app)
 - Run "./upload_to_appengine.py" and Ctrl-C when you're ready
 - Hit up http://localhost:8080/
+
+
+Here's the sequence to bring up an instance of the viewer app:
+
+# Generate /tmp/sf-crossstreets.pickle
+$ ./analysis/sf_streets.py
+
+# Convert the cross streets into a photo_id -> coordinates mapping
+$ ./geocode_pairs.py > /tmp/geocodes-pairs.txt
+
+# Convert the manual cat-codes.txt file into the same format
+# ./geocode_catcodes.py > /tmp/geocodes-catcodes.txt
+
+# Combine lists:
+$ cat /tmp/geocodes-pairs.txt /tmp/geocodes-catcodes.txt > /tmp/geocodes.txt
+
+# Convert these geocodes into JSON:
+$ ./generate-js.py > viewer/lat-lons.js
+
+# Upload JSON to AppEngine
+$ cat /tmp/password | appcfg.py update --passin --email danvdk@gmail.com viewer
+
+# Upload (new) thumbnail images to AppEngine
+$ ./upload-thumbnails.py
+
