@@ -71,6 +71,33 @@ def GetAverageLatLon(lat_lons):
   lat /= len(lat_lons)
   lon /= len(lat_lons)
   return (lat, lon)
+
+
+# These intersections/streets have changed names since the photos were taken.
+fixes = {
+  '13th and howard': '13th and south van ness',
+  '14th and howard': '14th and south van ness',
+  '15th and howard': '15th and south van ness',
+  '16th and howard': '16th and south van ness',
+  '17th and howard': '17th and south van ness',
+  '18th and howard': '18th and south van ness',
+  'eighteenth and howard': '18th and south van ness',
+  '19th and howard': '19th and south van ness',
+  '20th and howard': '20th and south van ness',
+  '21st and howard': '21st and south van ness',
+  '22nd and howard': '22nd and south van ness',
+  '23rd and howard': '23rd and south van ness',
+  '24th and howard': '24th and south van ness',
+  '25th and howard': '25th and south van ness',
+  
+  'castro and market': 'castro street and market street',  # this is strange!
+  'california and market': 'spear street and market street',
+  'market and post': '2nd street and market street',
+  'embarcadero and market': 'Harry Bridges Plaza',
+  'sloat and sunset': 'Cunard Cruise Line',
+  'eddy and market': '@37.784724,-122.407715',
+  'eddy and powell': '@37.784724,-122.407715'
+}
   
 
 pairs = []  # (street1, street2) -- in alphabetical order!
@@ -125,16 +152,17 @@ for rec in records:
     # a few special cases for streets that were renamed or intersections that
     # no longer exist.
     take_it = False
-    if locatable == '15th and howard': locatable = '15th and south van ness'
-    if locatable == '17th and howard': locatable = '17th and south van ness'
-    if locatable == '18th and howard': locatable = '18th and south van ness'
-    if locatable == 'eighteenth and howard': locatable = '18th and south van ness'
-    if locatable == 'embarcadero and market':
-      locatable = 'Harry Bridges Plaza'
-      take_it = True
-    locatable = locatable.replace('army', 'cesar chavez')
+    if locatable in fixes:
+      locatable = fixes[locatable]
+      if 'and' not in locatable: take_it = True
 
-    x = Locate(g, id, locatable)
+    locatable = locatable.replace('army', 'cesar chavez')
+    if locatable[0] != '@':
+      x = Locate(g, id, locatable)
+    else:
+      ll = locatable[1:].split(',')
+      x = geocoder.FakeLocation(float(ll[0]), float(ll[1]), 7)
+
     if not x or (x.accuracy != 7 and not take_it):
       sys.stderr.write('Failure: %s -> %s\n' % (locatable, x))
     else:

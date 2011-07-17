@@ -62,6 +62,20 @@ class Location:
       return "(???)"
 
 
+class FakeLocation:
+  def __init__(self, lat, lon, accuracy):
+    """constructor for creating Locations not from google maps."""
+    self.lat = lat
+    self.lon = lon
+    self.accuracy = accuracy
+
+  def __str__(self):
+    if self.lat and self.lon:
+      return "(%f, %f)" % (self.lat, self.lon)
+    else:
+      return "(???)"
+
+
 def _cache_file(loc):
   key = base64.b64encode(loc)[:-2]  # minus the trailing '=='
   return "%s/%s" % (CacheDir, key)
@@ -104,13 +118,16 @@ class Geocoder:
     f = urllib.URLopener().open(url)
     return f.read()
 
-  def Locate(self, loc):
+  def Locate(self, loc, check_cache=True):
     """Returns a Location object based on the loc string or None."""
     sf_loc = loc + " San Francisco, CA"
     url = "%s&q=%s" % (self._base_url, urllib.quote(sf_loc))
 
-    data = self._check_cache(loc)
-    from_cache = data != None
+    data = None
+    from_cache = False
+    if check_cache:
+      data = self._check_cache(loc)
+      from_cache = data != None
     if not data:
       data = self._fetch(url)
 
