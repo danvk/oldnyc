@@ -189,6 +189,7 @@ if __name__ == '__main__':
     loc = r.location()
     loc = loc.replace('Folder: S.F. Earthquakes-1906-Streets',
                       'Folder: S.F. Streets')
+    loc = loc.replace('Sheet: S.F. Streets', 'Folder: S.F. Streets')
     if not loc.startswith("Folder: S.F. Streets-"): continue
     st = get_street_cat(loc)
     if not st: continue
