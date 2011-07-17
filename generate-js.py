@@ -38,14 +38,18 @@ for line in lines:
   lat, lon = [float(x) for x in lat_lon.split(",")]
   ll_to_id['%f,%f' % (lat, lon)].append(photo_id)
 
+no_date = 0
+points = 0
+photos = 0
 print "var lat_lons = {"
 for lat_lon, photo_ids in ll_to_id.iteritems():
   recs = []
+  photo_ids = [id for id in photo_ids if id]
   sorted_ids = sorted([id for id in photo_ids
-                          if id and 
-                             id_to_record[id].date_range() and
+                          if id_to_record[id].date_range() and
                              id_to_record[id].date_range()[1]],
                       key=lambda id: id_to_record[id].date_range()[1])
+  no_date += (len(photo_ids) - len(sorted_ids))
   for photo_id in sorted_ids:
     r = id_to_record[photo_id]
     date_range = r.date_range()
@@ -60,6 +64,12 @@ for lat_lon, photo_ids in ll_to_id.iteritems():
         r.photo_id()))
     
   if recs:
+    points += 1
+    photos += len(recs)
     print '"%s": [%s],' % (lat_lon, ','.join(recs))
 
 print "};"
+
+sys.stderr.write('Dropped w/ no date: %d\n' % no_date)
+sys.stderr.write('Unique lat/longs: %d\n' % points)
+sys.stderr.write('Total photographs: %d\n' % photos)
