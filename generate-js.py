@@ -19,12 +19,20 @@ lines = file('/tmp/geocodes.txt').read().split('\n')
 # "lat,lon" -> list of photo_ids
 ll_to_id = defaultdict(list)
 
+seen_ids = set()
+
 codes = []
 for line in lines:
   if not line: continue
 
   # e.g. AAB-2914<tab>37.723611,-122.400803
   photo_id = line.split("\t")[0]
+
+  if photo_id in seen_ids:
+    sys.stderr.write('Duplicated ID %s\n' % photo_id)
+    continue
+  seen_ids.add(photo_id)
+
   lat_lon = line.split("\t")[1]
   lat, lon = [float(x) for x in lat_lon.split(",")]
   ll_to_id['%f,%f' % (lat, lon)].append(photo_id)
