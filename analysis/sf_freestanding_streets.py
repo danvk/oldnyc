@@ -6,25 +6,81 @@ import re
 import record
 import cPickle
 import sf_streets
+from collections import defaultdict
 
 rs = record.AllRecords()
 
 street_list = file("street-list.txt").read().split("\n")
 street_list = [s.lower() for s in street_list if s]
 
-res = []
-for cross_street in street_list:
-  res.append(re.compile(r'\b' + cross_street + r'\b'))
+street_re = '(' + '|'.join(street_list) + ')'
+addr_re = r'[-0-9]{2,} +' + street_re + r' +(street|st|avenue|ave|road|boulevard|blvd|place|way|bus|line|express bus|area|rush)?'
 
-for r in rs:
-  # SF Streets are handled elsewhere
-  if r.location().startswith("Folder: S.F. Streets-"): continue
+# There's some overlap here, but they're in decreasing order of confidence.
+# More confident (i.e. longer) forms get matched first.
+forms = [
+  '(' + street_re + '( +street|st\.)?,? +between +(' + street_re + ' (street )?)(and|&) +(' + street_re + r'))\b',  # A between B and C (47; sparse, but "protects" the next forms)
+  '(' + street_re + ' +(and|&) +' + street_re + ' +street)s',         # A and B streets (1027 records)
+  '(' + street_re + ' +(and|&) +' + street_re + ' +st)s',             # A and B sts (46 records)
+  '(' + street_re + ' +(and|&) +' + street_re + r' +(street|st|ave|avenue))\b',  # A and B st/street (193)
+  '(' + street_re + ' +& +' + street_re + r'\b)',  # A & B (106)
+  '(?:at|of) (' + street_re + ' +and +' + street_re + r'\b)',  # at A and B (104)
 
-  folder = record.CleanFolder(r.location()).lower()
-  title = record.CleanTitle(r.title()).lower()
-  combined = folder + " : " + title
+  # Rejected forms:
+  # street_re + ',? (north|south|east|west) of ' + street_re + r'\b', (only 6)
+  # street_re + ' +and +' + street_re,  # A and B (235 but w/ lots of false positives)
+]
+forms = [re.compile(form) for form in forms]
 
-  matches = sf_streets.extract_matches(combined, None, street_list, res)
-  colon_matches = [x for x in matches if ':' in x]
-  if len(matches) > 1 or colon_matches:
-    print '%s\t%s\t%s' % (r.photo_id(), combined, matches)
+def should_reject_address(addr):
+  if re.search(r'\b(bus|line)\b', addr): return True
+  if '1939 golden gate' in addr: return True
+  if '1940 golden gate' in addr: return True
+  if 'bay area' in addr: return True
+  if 'gold rush' in addr: return True
+  if '214 carl' in addr: return True
+  m = re.search(r'^(\d+)', addr)
+  if not m: return True
+  address_no = int(m.group(0))
+  if address_no == 0: return True
+  if address_no < 10: return True
+  return False
+
+
+if __name__ == '__main__':
+  stats = defaultdict(int)
+  for r in rs:
+    # SF Streets are handled elsewhere
+    if r.location().startswith("Folder: S.F. Streets-"): continue
+    if r.location().startswith('Folder: S.F. Earthquakes-1906-Streets'): continue
+    if r.location().startswith('Sheet: S.F. Streets'): continue
+
+    # this is too strong -- sometimes it's something like 'Spreckels Mansion' and
+    # there's a more useful address in the description.
+    if r.location().startswith('Folder: S.F. Residences'): continue
+
+    title = sf_streets.clean_street(record.CleanTitle(r.title()).lower())
+
+    # look for an exact address
+    m = re.search(addr_re, title)
+    if m:
+      # filter out '38 geary bus', '22 fillmore line', '12 ocean  line'
+      addr = m.group(0)
+      if not should_reject_address(addr):
+        print 'a\t%s\t%s\t%s' % (r.photo_id(), m.group(0), title)
+        stats['a'] += 1
+        continue
+
+    # Common patterns
+    for idx, pat in enumerate(forms):
+      m = re.search(pat, title)
+      if m:
+        print '%d\t%s\t%s\t%s' % (1 + idx, r.photo_id(), m.group(1), title)
+        stats[str(1 + idx)] += 1
+        break
+
+  tally = 0
+  for k in sorted(stats.keys()):
+    sys.stderr.write('%5d %s\n' % (stats[k], k))
+    tally += stats[k]
+  sys.stderr.write('%5d total\n' % tally)

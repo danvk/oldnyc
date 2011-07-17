@@ -27,7 +27,7 @@ def get_street_cat(cat):
   return st
 
 
-def clean_street_cat(st):
+def fix_streets(st):
   st = st.replace('21th', '21st')
   st = st.replace('farralon', 'farallones')
   st = st.replace('keanry', 'kearny')
@@ -39,8 +39,7 @@ def clean_street_cat(st):
   st = st.replace('store front', 'storefront')  # hack
   st = re.sub(r'farralon\b', 'farallones', st)
   st = re.sub(r'douglas\b', 'douglass', st)
-  st = re.sub(r'boulevard|blvd|avenue|\bave\b|street|\broad\b|\brd\b', '', st)
-  st = re.sub(r'\(.*', '', st)
+  st = re.sub(r'\(.*', '', st)  # TODO(danvk): does this affect free-standing streets?
   st = re.sub(r'^ *', '', st)
   st = re.sub(r' *$', '', st)
   st = re.sub(r'\.$', '', st)
@@ -136,10 +135,19 @@ tiny_streets = [
   'jordan'
 ]
 
+def clean_street(txt):
+  return fix_streets(ordinal_shrinker(txt))
+
+def clean_street_cat(txt):
+  st = fix_streets(ordinal_shrinker(txt))
+  st = re.sub(r'boulevard|blvd|avenue|\bave\b|street|\broad\b|\brd\b', '', st)
+  return st
+
+
 def extract_matches(txt, st, street_list, res):
   """txt is text that may contain street information. Exclude street st from
   consideration. Returns an array of street matches."""
-  street_txt = clean_street_cat(ordinal_shrinker(txt))
+  street_txt = clean_street_cat(txt)
   matches = []
   for idx, cross_street in enumerate(street_list):
     if cross_street != st and re.search(res[idx], street_txt):
@@ -193,7 +201,7 @@ if __name__ == '__main__':
     if not loc.startswith("Folder: S.F. Streets-"): continue
     st = get_street_cat(loc)
     if not st: continue
-    st = clean_street_cat(st.lower())
+    st = fix_streets(st.lower())
 
     title = record.CleanTitle(r.title()).lower()
     matches = extract_matches(title, st, street_list, res)
