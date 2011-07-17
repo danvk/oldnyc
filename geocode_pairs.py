@@ -26,7 +26,7 @@ def FormatGeocode(x):
 def Locate(g, id, addr):
   x = g.Locate(addr)
   if x.status != 200:
-    print "%s\t%s -> status %d" % (id, addr, x.status)
+    sys.stderr.write("%s\t%s -> status %d\n" % (id, addr, x.status))
     return None
   if not InSF(x.lat, x.lon): return None
   return x

@@ -4,6 +4,7 @@
 
 import re
 import record
+import sys
 from collections import defaultdict
 
 # build a photo_id -> Record dict
