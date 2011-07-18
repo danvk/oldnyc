@@ -22,7 +22,7 @@ function displayInfoForLatLon(lat_lon, should_display) {
   for (var i = 0; i < photo_ids.length; i++) {
     var photo_id = photo_ids[i];
     var img_path = 'http://sf-viewer.appspot.com/thumb/' + photo_id + '.jpg';
-    html += '<img class="thumb" src="' + img_path + '" />\n';
+    html += '<div id="thumb-' + photo_id + '"><img class="thumb" src="' + img_path + '" /></div>\n';
     html += '<div class="description" id="description-' + photo_id + '">Loading&hellip;</div>\n';
     html += '<hr/>'
   }
@@ -61,7 +61,10 @@ function getDescription(photo_ids, should_display) {
             el("description-" + id).innerHTML =
               info.title + '<br/>' +
               info.date + '<br/>' +
-                '<a href="' + info.library_url + '">&rarr; Library</a>';
+                '<a target="_blank" href="' + info.library_url + '">&rarr; Library</a>';
+            el("thumb-" + id).innerHTML = 
+                '<a target="_blank" href="' + info.library_url + '">' +
+                el("thumb-" + id).innerHTML + '</a>';
           }
         }
       }
@@ -118,8 +121,8 @@ function initialize_map() {
 
     // TODO(danvk): use timestamps?
     for (var i = 0; i < recs.length; i++) {
-      recs[i][0] = new Date(recs[i][0]);
-      recs[i][1] = new Date(recs[i][1]);
+      recs[i][0] = new Date(recs[i][0] + '/01/01');
+      recs[i][1] = new Date(recs[i][1] + '/12/31');
       total += 1;
     }
   }

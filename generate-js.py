@@ -58,10 +58,8 @@ for lat_lon, photo_ids in ll_to_id.iteritems():
     # lon += 123
     if date_range and date_range[0] and date_range[1]:
       # TODO(danvk): use a more compact date format.
-      recs.append('["%d/%d/%d","%d/%d/%d","%s"]' % (
-        date_range[0].year, date_range[0].month, date_range[0].day,
-        date_range[1].year, date_range[1].month, date_range[1].day,
-        r.photo_id()))
+      recs.append('[%d,%d,"%s"]' % (
+        date_range[0].year, date_range[1].year, r.photo_id()))
     
   if recs:
     points += 1
