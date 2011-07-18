@@ -4,6 +4,7 @@
 #
 #   o Latitude and Longitude
 #   o An address
+#   o A city block (e.g. '2500 block of Valencia')
 #   o A short street
 #   o Cross streets (e.g. Valencia and Market)
 #   o A set of cross streets (e.g. Market between 4th and 5th)

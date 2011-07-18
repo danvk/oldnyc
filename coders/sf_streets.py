@@ -211,7 +211,7 @@ class StreetsCoder:
 
 
   def name(self):
-    return 'SF Streets'
+    return 'sf-streets'
 
 
 coders.registration.registerCoderClass(StreetsCoder)

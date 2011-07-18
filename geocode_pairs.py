@@ -182,4 +182,3 @@ for rec in records:
   else:
     # these are geocode failures
     pass
-

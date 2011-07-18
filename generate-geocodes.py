@@ -6,6 +6,9 @@
 # o JSON for loading on the sf-viewer site.
 # o XML for all records, including geocodable strings and lat/lons.
 
+import sys
+from collections import defaultdict
+from optparse import OptionParser
 import coders.registration
 import coders.locatable
 import record
@@ -17,14 +20,31 @@ import coders.sf_streets
 import coders.free_streets
 import coders.catcodes
 
-coders = coders.registration.coderClasses()
-coders = [coder() for coder in coders]
 
-rs = record.AllRecords()
-for r in rs:
+if __name__ == '__main__':
+  parser = OptionParser()
+  parser.add_option("-c", "--coders", dest="ok_coders",
+                    default='sf-residences,sf-streets,free-streets,catcodes',
+                    help="Set to a comma-separated list of coders")
+  (options, args) = parser.parse_args()
+
+  coders = coders.registration.coderClasses()
+  coders = [coder() for coder in coders]
+
+  ok_coders = options.ok_coders.split(',')
+  coders = [c for c in coders if c.name() in ok_coders]
+
+  rs = record.AllRecords()
+  stats = defaultdict(int)
+  for r in rs:
+    for c in coders:
+      loc = c.codeRecord(r)
+      if loc:
+        print '%s %s: %s (folder=%s, title=%s)' % (
+            c.name(), r.photo_id(), loc,
+            r.location(), record.CleanTitle(r.title()))
+        stats[c.name()] += 1
+        break
+
   for c in coders:
-    loc = c.codeRecord(r)
-    if loc:
-      print '%s: %s (folder=%s, title=%s)' % (
-          c.name(), loc, r.location(), record.CleanTitle(r.title()))
-      break
+    sys.stderr.write('%5d %s\n' % (stats[c.name()], c.name()))

@@ -30,7 +30,7 @@ class CatCodeCoder:
     return None
 
   def name(self):
-    return 'Category Codes'
+    return 'catcodes'
 
 
 coders.registration.registerCoderClass(CatCodeCoder)

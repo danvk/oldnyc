@@ -69,14 +69,15 @@ class FreeStreetCoder:
           return coders.locatable.fromCross(m.group(1), m.group(2),
                                             source=m.group(0))
         else:
-          pass  # TODO(danvk): handle "A between B and C"
+          return coders.locatable.fromStreetAndCrosses(
+              m.group(1), [m.group(2), m.group(3)])
 
     # No dice.
     return None
 
 
   def name(self):
-    return 'Freestanding Streets'
+    return 'free-streets'
 
 
 coders.registration.registerCoderClass(FreeStreetCoder)

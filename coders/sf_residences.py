@@ -48,7 +48,7 @@ class ResidencesCoder:
 
 
   def name(self):
-    return 'SF Residences'
+    return 'sf-residences'
 
 
 coders.registration.registerCoderClass(ResidencesCoder)
