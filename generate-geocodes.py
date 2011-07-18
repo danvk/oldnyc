@@ -12,6 +12,7 @@ from optparse import OptionParser
 import coders.registration
 import coders.locatable
 import record
+import geocoder
 
 # Import order here determines the order in which coders get a crack at each
 # record. We want to go in order from precise to imprecise.
@@ -26,7 +27,17 @@ if __name__ == '__main__':
   parser.add_option("-c", "--coders", dest="ok_coders",
                     default='sf-residences,sf-streets,free-streets,catcodes',
                     help="Set to a comma-separated list of coders")
+  parser.add_option("-m", "--maps_key", dest="maps_key",
+                    default=None, help="Your google maps API key.")
+  parser.add_option("-g", "--geocode", dest="geocode", action="store_true",
+                    default=False, help="Set to geocode all locations")
   (options, args) = parser.parse_args()
+
+  if options.geocode:
+    assert options.maps_key, "Must specify --maps_key with --geocode"
+    g = geocoder.Geocoder(options.maps_key, 5)
+  else:
+    g = None
 
   coders = coders.registration.coderClasses()
   coders = [coder() for coder in coders]
@@ -38,13 +49,21 @@ if __name__ == '__main__':
   stats = defaultdict(int)
   for r in rs:
     for c in coders:
-      loc = c.codeRecord(r)
-      if loc:
-        print '%s %s: %s (folder=%s, title=%s)' % (
-            c.name(), r.photo_id(), loc,
-            r.location(), record.CleanTitle(r.title()))
+      locatable = c.codeRecord(r)
+      if not locatable: continue
+      if not g:
+        print '%s\t%s\t%s' % (c.name(), r.photo_id(), locatable)
         stats[c.name()] += 1
         break
 
+      lat_lon = locatable.getLatLon(g)
+      if lat_lon:
+        print '%s\t%s\t%s\t%s' % (c.name(), r.photo_id(), locatable, lat_lon)
+        stats[c.name()] += 1
+        break
+
+  successes = 0
   for c in coders:
     sys.stderr.write('%5d %s\n' % (stats[c.name()], c.name()))
+    successes += stats[c.name()]
+  sys.stderr.write('%5d (total)\n' % successes)

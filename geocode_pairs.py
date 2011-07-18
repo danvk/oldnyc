@@ -18,10 +18,6 @@ records = records_cross + records_residences + records_free
 
 g = geocoder.Geocoder("ABQIAAAAafDALeUVyxhUndZQcT0BRRQjgiEk1Ut90lZbiCSD8tXKcVgrkBQLYOFQ3xwutc5R9SNzfGaKxMnf7g", 5)
 
-def FormatGeocode(x):
-  return "%s\t%s -> %d @ %d (%s %f,%f)" % (
-      id, addr, x.status, x.accuracy, x.city, x.lat, x.lon)
-
 
 def Locate(g, id, addr):
   x = g.Locate(addr)
@@ -92,7 +88,7 @@ fixes = {
   '23rd and howard': '23rd and south van ness',
   '24th and howard': '24th and south van ness',
   '25th and howard': '25th and south van ness',
-  
+
   'castro and market': 'castro street and market street',  # this is strange!
   'california and market': 'spear street and market street',
   'market and post': '2nd street and market street',
@@ -101,7 +97,7 @@ fixes = {
   'eddy and market': '@37.784724,-122.407715',
   'eddy and powell': '@37.784724,-122.407715'
 }
-  
+
 
 pairs = []  # (street1, street2) -- in alphabetical order!
 addresses = []  # e.g. 7142 market street
