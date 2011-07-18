@@ -24,7 +24,7 @@ function displayInfoForLatLon(lat_lon, should_display) {
     var img_path = 'http://sf-viewer.appspot.com/thumb/' + photo_id + '.jpg';
     html += '<div id="thumb-' + photo_id + '"><img class="thumb" src="' + img_path + '" /></div>\n';
     html += '<div class="description" id="description-' + photo_id + '">Loading&hellip;</div>\n';
-    html += '<hr/>'
+    if (i != photo_ids.length - 1) html += '<hr/>'
   }
   el('info').innerHTML = html;
 
