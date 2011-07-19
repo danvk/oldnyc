@@ -70,7 +70,7 @@ body {
   top: 100px;
   left: 20px;
   right: 270px;
-  height: 10px;
+  height: 8px;
 }
 
 #date_range {
@@ -133,4 +133,11 @@ hr {
   position: relative;
   margin-top: 10px;
   margin-bottom: 10px;
+}
+
+.ui-slider-horizontal .ui-slider-handle {
+  width: 20px;
+  height: 12px;
+  top: -3px;
+  margin-left: -10px;
 }

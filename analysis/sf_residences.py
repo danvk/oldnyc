@@ -9,7 +9,6 @@ sys.path += (sys.path[0] + '/..')
 import re
 import record
 import cPickle
-import sf_streets
 
 output_mode = 'pickle'
 outputs = []
