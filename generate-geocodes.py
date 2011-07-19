@@ -38,7 +38,7 @@ if __name__ == '__main__':
                     action="store_true", default=False,
                     help="Set to print out records as they're coded.")
   parser.add_option("-o", "--output_format", default="",
-                    help="Set to either lat-lons.js or records.xml to output " +
+                    help="Set to either lat-lons.js or records.js to output " +
                     "one of these formats.")
   (options, args) = parser.parse_args()
 
@@ -87,3 +87,5 @@ if __name__ == '__main__':
 
   if options.output_format == 'lat-lons.js':
     generate_js.printJson(located_recs)
+  elif options.output_format == 'records.js':
+    generate_js.printRecordsJson(located_recs)

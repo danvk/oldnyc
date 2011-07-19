@@ -2,9 +2,13 @@
 # Reads in a photo_id -> lat,lon mapping (from geocode_pairs.py)
 # and the records and outputs a JS file.
 
+import json
 import record
 import sys
 from collections import defaultdict
+
+from json import encoder
+encoder.FLOAT_REPR = lambda o: format(o, '.5f')
 
 def printJson(located_recs):
   # "lat,lon" -> list of photo_ids
@@ -50,3 +54,34 @@ def printJson(located_recs):
   sys.stderr.write('Dropped w/ no date: %d\n' % no_date)
   sys.stderr.write('Unique lat/longs: %d\n' % points)
   sys.stderr.write('Total photographs: %d\n' % photos)
+
+
+def printRecordsJson(located_recs):
+  recs = []
+  for r, coder, locatable in located_recs:
+    rec = {
+      'id': r.photo_id(),
+      'folder': r.location().replace('Folder: ', ''),
+      'date': record.CleanDate(r.date()),
+      'title': record.CleanTitle(r.title()),
+      'description': r.description(),
+      'url': r.preferred_url,
+      'extracted': {
+        'date_range': [ None, None ]
+      }
+    }
+    if r.note(): rec['note'] = r.note()
+
+    start, end = r.date_range()
+    rec['extracted']['date_range'][0] = '%04d-%02d-%02d' % (
+        start.year, start.month, start.day)
+    rec['extracted']['date_range'][1] = '%04d-%02d-%02d' % (
+        end.year, end.month, end.day)
+
+    if coder:
+      rec['extracted']['latlon'] = locatable.getLatLon()
+      rec['extracted']['located_str'] = str(locatable)
+      rec['extracted']['technique'] = coder
+
+    recs.append(rec)
+  print json.dumps(recs, indent=2)
