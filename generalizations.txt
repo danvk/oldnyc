@@ -47,7 +47,6 @@ S.F. Theaters / St. Francis:y
 S.F. Masonic Memorial Temple (California & Taylor):y
 S.F. Parks / Golden Gate / Casino:y
 S.F. Chutes (10th and Fulton):y
-S.F. Associations / California Historical Society (See Also: S.F. Consulates / German):y
 S.F. Restaurants / Tiki Bob's:y
 S.F. Districts / Noe Valley:n
 S.F. Banks / Bank of America / Branches / Chinatown:y
@@ -148,13 +147,9 @@ S.F. Playgrounds / Michelangelo:y
 S.F. Districts / Produce Market / 1950's:n
 S.F. Schools / Private / Notre Dame High:y
 S.F. Districts / Telegraph Hill / 1920's:n
-S.F. Strikes / 1934 / Violence (See Also: Victims):n
 S.F. Colleges / St. Ignatius:n
 S.F. Associations / California Historical Society (See Also: S.F. Consulates / German):AAK-1063
-S.F. Playgrounds / Hamilton (See also: Swimming Pools / Hamilton):y
-S.F. Transportation / Cable Cars / Lines / Castro Street (See Also: S.F. Transportation / Cable Cars / Companies / Market Street Railway Company / Castro Street Line and S.F. Streets / Castro):n
 S.F. Chronicle Building:AAC-2679
-S.F. Districts / North Beach / 1860's (See Also: Dist / Waterfront / Meiggs wharf):n
 S.F. Streets / Sansome / 1850 / 60's:n
 S.F. Churches / Catholic / St. Anne's (Old):y
 S.F. Districts / Mission / 1950's:n
@@ -437,3 +432,124 @@ S.F. Districts / Golden Gateway / Site:n
 S.F. Fire Department / Engine 15 (Old):n
 S.F. Monuments / Donahue:y
 S.F. Police / Crime / Investigations:n
+S.F. Theaters / Granada:y
+S.F. Banks / Hibernia:n
+S.F. Montgomery Block:y
+S.F. Unions / National Maritime Union:n
+S.F. Libraries / SFPL / Branches / Business:AAC-6208
+S.F. Theaters / Uptown:y
+S.F. Monuments / La Soif:y
+S.F. Metropolitan Temple:y
+S.F. Banks / San Francisco Federal Savings:y
+S.F. Transportation / Streetcars / Lines / United Railroads:n
+S.F. Theaters / Capitol:y
+S.F. Theaters / Palace:AAA-9007
+S.F. Businesses / Charles Brown & Sons:y
+S.F. Hospitals / St. Luke's:y
+S.F. Parks / United Nations Plaza:y
+S.F. Earthquakes / 1906 / Churches / St. Catherine's Cathedral:y
+S.F. Schools / Elementary / Pacific Heights:AAC-0824
+S.F. Transportation / Railroads (See Also: CA. Transportation / Railroads):n
+S.F. Transportation / Streetcars / Lines / Market Street Railway / Fillmore:n
+S.F. Districts / Potrero (See also: S. F. Goats):n
+S.F. Theaters / Warfield:y
+S.F. Earthquakes / 1906 / Districts / Nob Hill:n
+S.F. Banks / Mission Savings:y
+S.F. Schools / Elementary / Washington :AAB-0048
+S.F. Restaurants / Ernie's:y
+S.F. Fairs / P.P.I.E. / Banquets and Luncheons:n
+S.F. Views / 1950's:n
+S.F. Transportation / Streetcars / Barns / Geneva:y
+S.F. Bridges / Bay / Model:n
+S.F. Odd Fellows Hall:y
+S.F. Transportation / Railroads / Southern Pacific:n
+S.F. Districts / Chinatown / Housing:n
+S.F. Transportation / Streetcars / Companies / Sutro Railroad:n
+S.F. Districts / Chinatown / Festivals / 1959 (See also: Oversize):n
+S.F. Housing Projects / Yerba Buena Plaza:y
+S.F. Schools / Elementary / Commodore Stockton:y
+Portraits / Arbuckle, Fatty (Roscoe):n
+S.F. Schools / Elementary / Mark Twain :y
+S.F. Strikes / 1940 / Euclid Candy Company:y
+S.F. Streets / Sacramento / 1920's / 1940's:n
+S.F. Banks / San Francisco Bank:y
+S.F. Earthquakes / 1906 / Refugees / Barber Shops:n
+S.F. Libraries / SFPL / New Main / Construction:y
+S.F. Businesses / Walgreen Drugs:n
+S.F. Banks / Bank of California / 400 California:y
+S.F. Hotels / Occidental:y
+S.F. Hotels / Lick House:y
+S.F. Earthquakes / 1906 / Young Men's Christian Association:y
+S.F. Transportation / Taxicabs (See Also: Strikes / 1934 & 1949):n
+S.F. Transportation / Streetcars / Barns / Valencia:y
+S.F. Theaters / Orpheum:y
+S.F. Depression / S.R.A.:y
+S.F. Earthquakes / 1906 / Schools / Girls' High School:y
+S.F. Businesses / Kress & Company:y
+S.F. Districts / Civic Center / Hospitality House (See also: S.F. Wars / World War II / Hospitality House):y
+S.F. Districts / Downtown / 1980's:n
+S.F. Schools / Elementary / Francis Scott Key:y
+Oversize / S.F. Box 40:n
+S.F. Transportation / Streetcars / Barns / McAllister:y
+S.F. Hotels / Colonial:y
+S.F. Colleges / Heald Business College:n
+S.F. Businesses / California State Automobile Association:y
+S.F. Treasury Building:y
+S.F. Districts / Golden Gateway:n
+S.F. Churches / Presbyterian / Calvary / (Fillmore & Jackson):y
+S.F. Districts / South Of Market / 1985:n
+S.F. Districts / Westwood Park:n
+S.F. Fire Department / Truck 12:n
+S.F. Businesses / Breweries / Acme:y
+S.F. Transportation / Streetcars / Lines / Municipal Railway / J Line:n
+S.F. Districts / Glen Park:n
+S.F. Businesses / Schlage Locks:n
+S.F. Masonic Temple (Oak & Temple):y
+S.F. Pacific Telephone & Telegraph / Construction:n
+S.F. Districts / Jackson Square:n
+S.F. Districts / Chinatown / Festivals / 1939:n
+S.F. Earthquakes / 1906 / Districts / South of Market:n
+S.F. Depression / S.E.R.A.:n
+S.F. Protests and Picketing / 1977:n
+S.F. Matson Building:y
+S.F. Churches / Church of Christ / St. John's United:y
+S.F. Parks / Jefferson Square:y
+S.F. Streets / Sutter / 1870 / 80's:n
+S.F. Earthquakes / 1906 / Post Office:y
+S.F. Districts / Chinatown / Festivals / 1962 (See also: Oversize):n
+S.F. Strikes / 1951 / Pacific Telephone & Telegraph Company:n
+S.F. Districts / Western Addition / Slum Clearance:n
+S.F. Earthquakes / 1906 / Refugees / Street Kitchens:n
+S.F. Theaters / Harding:y
+S.F. Views / 1864 / 65:n
+S.F. Police / Stations / Harbor:y
+S.F. Churches / Methodist / Norwegian Danish:y
+S.F. Transportation / Buses / Accidents:n
+S.F. Transportation / Lines / Market Street Railroad / 9 Line:n
+S.F. Theaters / Granada (Paramount):y
+S.F. Views / 1930's:n
+S.F. Transportation / Streetcars / Lines / Market Street Railway / 19 Line:n
+S.F. Masonic Temple (Montgomery & Post):y
+S.F. Fire Department / Engine 9:y
+S.F. Hotels / Bellevue:y
+S.F. Districts / Marina:n
+S.F. Strikes / 1947 / Sears:y
+S.F. Earthquakes / 1906 / Refugees / Laundry:n
+S.F. Post Offices / Seventh and Mission / Exteriors / 1915 / 1964:y
+S.F. Churches / Episcopal / Grace Cathedral:AAB-1427
+S.F. Banks / Hibernia / Jones & McAllister:AAC-4557
+S.F. Streets / 2nd. / 1850 / 1870's:n
+S.F. Restaurants / Oyster Loaf:y
+S.F. Districts / Civic Center / State Bldg. (Golden Gate Ave):n
+S.F. Parks / Golden Gate / McCauley Gate:y
+S.F. Districts / Visitacion Valley / Early:n
+S.F. Districts / Waterfront / 1870:n
+S.F. Hotels / Del Webb's TowneHouse:y
+S.F. Night Clubs / Spider Kelly:y
+S.F. Blind:y
+S.F. Homes / Holy Family Day Home:y
+S.F. Districts / Stonestown:n
+S.F. Fire Department / Engine 28 (Stockton and Filbert):y
+S.F. Flood Building (Powell & Market):y
+S.F. Strikes / 1934 / National Guard:n
+S.F. Earthquakes / 1906 / Districts / Downtown:n

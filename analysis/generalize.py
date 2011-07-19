@@ -12,7 +12,19 @@ import sys
 sys.path += (sys.path[0] + '/..')
 
 import record
+import re
 from collections import defaultdict
+
+# read in previous generalization responses
+# folder -> 'y' or 'n'
+responses = {}
+for line in file('generalizations.txt').read().split('\n'):
+  if not line: continue
+  m = re.match(r'(.*):(.*)', line)
+  assert m, line
+  assert m.group(1) not in responses, line
+  responses[m.group(1)] = m.group(2)
+
 
 rs = record.AllRecords()
 id_to_record = {}
@@ -70,16 +82,14 @@ for r in rs:
   latlon, locatable_str = id_to_code[r.photo_id()]
   coded_cats[folder].append((r.photo_id(), latlon, locatable_str))
 
-# read in previous generalization responses
-# folder -> 'y' or 'n'
-responses = dict([(line.split(':')[0], line.split(':')[1]) for line in file('generalizations.txt').read().split('\n') if line])
 
-
+saved = 0
 for folder in coded_cats.keys():
   if len(folder_to_record[folder]) == len(coded_cats[folder]):
     continue
 
   if folder in responses:
+    saved += len(folder_to_record[folder]) - len(coded_cats[folder])
     print '%s (%s)' % (folder, responses[folder])
     continue
 
@@ -90,10 +100,14 @@ for folder in coded_cats.keys():
     print '    %s (%s)' % (locatable_str, latlon)
     located.add(id)
   print '  Others: %d' % (len(folder_to_record[folder]) - len(coded_cats[folder]))
-  for r in folder_to_record[folder]:
+  dated_rs = [(r.date(), r) for r in folder_to_record[folder]]
+  for date, r in sorted(dated_rs):
     c = ' '
     if r.photo_id() in located: c = '*'
-    print '   %s%s %s %s' % (c, r.photo_id(), record.CleanFolder(r.location()), r.title())
+    print '   %s%s %15s %s %s' % (c, r.photo_id(),
+                                  record.CleanDate(r.date()),
+                                  record.CleanTitle(r.title()),
+                                  r.preferred_url)
   print ''
 
   response = raw_input('generalize? (y or n or photo_id): ')
@@ -106,3 +120,4 @@ for folder in coded_cats.keys():
   print ''
   print ''
 
+print 'Saved records: %d' % saved
