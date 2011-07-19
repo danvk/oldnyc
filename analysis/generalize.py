@@ -55,7 +55,7 @@ for line in lines:
   if loc_type != 'free-streets': continue
 
   if len(parts) > 3:
-    locatable_str = '\t'.join(parts[2:])
+    locatable_str = '\t'.join(parts[3:])
   else:
     locatable_str = ''
 
@@ -83,24 +83,67 @@ for r in rs:
   coded_cats[folder].append((r.photo_id(), latlon, locatable_str))
 
 
+def add_generalization(response, coded_cats, records, generalizations):
+  """
+  response = manual response (either 'y', 'n', or a photo id)
+  coded_cats = list of (photo_id, latlon, loc_str) tuples for a folder.
+  records = list of all records for the folder.
+  generalizations = list of (photo_id, latlon, comment) (I/O param)"""
+  latlons = set()
+  id_to_latlon = {}
+  id_to_desc = {}
+  for id, latlon, desc in coded_cats:
+    latlons.add(latlon)
+    id_to_latlon[id] = latlon
+    id_to_desc[id] = desc
+
+  ll = None
+  desc = ''
+  if len(latlons) == 1:
+    ll = latlons.pop()
+    desc = 'Generalized from %s ("%s")' % (coded_cats[0][0], coded_cats[0][2])
+  elif '-' in response:
+    assert response in id_to_latlon, response
+    ll = id_to_latlon[response]
+    src_desc = id_to_desc[response]
+    desc = 'Generalized from %s ("%s")' % (response, src_desc)
+  else:
+    # TODO(danvk): handle this case
+    pass
+
+  if not ll: return
+
+  for r in recs:
+    if r.photo_id() in id_to_latlon: continue
+    generalizations.append((r.photo_id(), ll, desc))
+
+
 saved = 0
+generalizations = []
 for folder in coded_cats.keys():
   if len(folder_to_record[folder]) == len(coded_cats[folder]):
     continue
 
+  recs = folder_to_record[folder]  # list of record objects
+  ccs = coded_cats[folder]         # list of (photo_id, latlon, loc_str) tuples
+
   if folder in responses:
-    saved += len(folder_to_record[folder]) - len(coded_cats[folder])
-    print '%s (%s)' % (folder, responses[folder])
+    resp = responses[folder]
+    if resp in ['y', 'yes'] or '-' in resp:
+      count = len(recs) - len(ccs)
+      saved += count
+      add_generalization(resp, ccs, recs, generalizations)
+
     continue
 
   print folder
   print '  Located:'
   located = set()
-  for id, latlon, locatable_str in coded_cats[folder]:
+  for id, latlon, locatable_str in ccs:
     print '    %s (%s)' % (locatable_str, latlon)
     located.add(id)
-  print '  Others: %d' % (len(folder_to_record[folder]) - len(coded_cats[folder]))
-  dated_rs = [(r.date(), r) for r in folder_to_record[folder]]
+  print '  Others: %d' % (len(recs) - len(ccs))
+  dated_rs = [(r.date(), r) for r in recs]
   for date, r in sorted(dated_rs):
     c = ' '
     if r.photo_id() in located: c = '*'
@@ -120,4 +163,8 @@ for folder in coded_cats.keys():
   print ''
   print ''
 
-print 'Saved records: %d' % saved
+sys.stderr.write('Saveable records: %d\n' % saved)
+sys.stderr.write('Saved: %d\n' % len(generalizations))
+
+for id, ll, desc in generalizations:
+  print '%s\t%s\t%s' % (id, ll, desc)

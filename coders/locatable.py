@@ -31,24 +31,28 @@ class Locatable(object):
     self.source = None
     self.block_num = None
     self.block_street = None
+    self._latlon = 'unknown'
 
   def __str__(self):
     if not self.source: return ''
     return self.source
 
-  def getLatLon(self, g):
+  def getLatLon(self, g=None):
     """Returns either a (lat, lon) tuple or None."""
+    if self._latlon != 'unknown': return self._latlon
     if self.loc_type == LAT_LON:
-      return (self.lat, self.lon)
-    if self.loc_type == ADDRESS:
-      return locateAddress(g, self.address)
-    if self.loc_type == BLOCK:
-      return locateBlock(g, self.block_num, self.block_street)
-    if self.loc_type == TINY:
-      return locateTiny(g, self.tiny)
-    if self.loc_type == CROSSES:
-      return locateCrosses(g, self.crosses)
-    assert False, 'Unknown loc_type %d' % self.loc_type
+      self._latlon = (self.lat, self.lon)
+    elif self.loc_type == ADDRESS:
+      self._latlon = locateAddress(g, self.address)
+    elif self.loc_type == BLOCK:
+      self._latlon = locateBlock(g, self.block_num, self.block_street)
+    elif self.loc_type == TINY:
+      self._latlon = locateTiny(g, self.tiny)
+    elif self.loc_type == CROSSES:
+      self._latlon = locateCrosses(g, self.crosses)
+    else:
+      assert False, 'Unknown loc_type %d' % self.loc_type
+    return self._latlon
 
 
 def fromLatLon(lat, lon, source=None):
