@@ -58,7 +58,7 @@ if __name__ == '__main__':
 
       lat_lon = locatable.getLatLon(g)
       if lat_lon:
-        print '%s\t%f,%f\t%s' % (r.photo_id(), lat_lon[0], lat_lon[1], locatable)
+        print '%s\t%f,%f\t%s\t%s' % (r.photo_id(), lat_lon[0], lat_lon[1], c.name(), locatable)
         stats[c.name()] += 1
         break
 

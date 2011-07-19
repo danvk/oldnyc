@@ -81,7 +81,8 @@
 37.7872253,-122.40357 : S.F. Earthquakes / 1906 / Call Building
 37.7839493276,-122.400062016 : S.F. Districts / South Of Market / Yerba Buena Center / Moscone / Expansion
 37.809385987,-122.476407577 : S.F. Districts / Presidio / Fort Point (Pre / Bridge)
-37.7880556,-122.4075 : S.F. Parks / Union Square / Pre 1906
+37.7880556,-122.4075 : S.F. Parks / Union Square
+37.7880556,-122.4075 : S.F. Earthquakes / 1906 / Parks / Union Square
 37.7827689838,-122.407064247 : S.F. Mint / Old
 37.8038252813,-122.461558868 : S.F. Fairs / P.P.I.E. / Horses / Horse Show
 37.7794345,-122.418689 : S.F. Districts / Civic Center / City Hall / Rotunda Events
@@ -90,3 +91,6 @@
 37.7910192,-122.4011804 : S.F. Businesses / Standard Oil
 37.73341524,-122.5059164 : S.F. Fleishhacker Pool
 37.759862,-122.427259 : S.F. Parks / Dolores Park
+37.759862,-122.427259 : S.F. Earthquakes / 1906 / Refugee Camps / Mission Park
+37.805696,-122.422963 : S.F. Ghirardelli Square
+37.781358,-122.417997 : S.F. Federal Building (New)

@@ -30,16 +30,19 @@ def IsCatCode(r):
       return True
   return False
 
-# load geocodes: (photo_id)<tab>(lat,lon)<tab>locatable_str
+# load geocodes: (photo_id)<tab>(lat,lon)<tab>loc_type<tab>locatable_str
 # photo_id -> [("lat,lon",locatable_str), ...]
 id_to_code = {}
-lines = file('/tmp/geocodes-pairs.txt').read().split('\n')
+lines = file('/tmp/geocodes.txt').read().split('\n')
 for line in lines:
   if not line: continue
   parts = line.split("\t")
   photo_id = parts[0]
   latlon = parts[1]
-  if len(parts) > 2:
+  loc_type = parts[2]
+  if loc_type != 'free-streets': continue
+
+  if len(parts) > 3:
     locatable_str = '\t'.join(parts[2:])
   else:
     locatable_str = ''
@@ -66,10 +69,18 @@ for r in rs:
   # now this is a record which has the potential to be generalized.
   latlon, locatable_str = id_to_code[r.photo_id()]
   coded_cats[folder].append((r.photo_id(), latlon, locatable_str))
-  #print '%s\t%s' % (folder, id_to_code[r.photo_id()])
+
+# read in previous generalization responses
+# folder -> 'y' or 'n'
+responses = dict([(line.split(':')[0], line.split(':')[1]) for line in file('generalizations.txt').read().split('\n') if line])
+
 
 for folder in coded_cats.keys():
   if len(folder_to_record[folder]) == len(coded_cats[folder]):
+    continue
+
+  if folder in responses:
+    print '%s (%s)' % (folder, responses[folder])
     continue
 
   print folder
@@ -84,3 +95,14 @@ for folder in coded_cats.keys():
     if r.photo_id() in located: c = '*'
     print '   %s%s %s %s' % (c, r.photo_id(), record.CleanFolder(r.location()), r.title())
   print ''
+
+  response = raw_input('generalize? (y or n or photo_id): ')
+  if response in ['y', 'n', 'yes', 'no'] or '-' in response:
+    file('generalizations.txt', 'a').write('%s:%s\n' % (folder, response))
+  else:
+    print '(Skipping)'
+
+  print ''
+  print ''
+  print ''
+
