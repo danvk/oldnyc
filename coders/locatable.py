@@ -38,14 +38,16 @@ class Locatable(object):
 
   def getLatLon(self, g):
     """Returns either a (lat, lon) tuple or None."""
+    if self.loc_type == LAT_LON:
+      return (self.lat, self.lon)
     if self.loc_type == ADDRESS:
-      return locateAddress(self.address)
+      return locateAddress(g, self.address)
     if self.loc_type == BLOCK:
-      return locateBlock(self.block_num, self.block_street)
+      return locateBlock(g, self.block_num, self.block_street)
     if self.loc_type == TINY:
-      return locateTiny(self.tiny)
+      return locateTiny(g, self.tiny)
     if self.loc_type == CROSSES:
-      return locateCrosses(self.crosses)
+      return locateCrosses(g, self.crosses)
     assert False, 'Unknown loc_type %d' % self.loc_type
 
 
@@ -189,9 +191,9 @@ def LatLonDistance(lat1, lon1, lat2, lon2):
 
 
 def locateAddress(g, address):
-  x = Locate(g, loc_str)
+  x = Locate(g, address)
   if not x or x.accuracy != 8:
-    sys.stderr.write('Failure: %s -> %s\n' % (addy[0], x))
+    sys.stderr.write('Failure: %s -> %s\n' % (address, x))
     return None
   return (x.lat, x.lon)
 
@@ -259,7 +261,7 @@ def locateCrosses(g, crosses):
 
     locatable = locatable.replace('army', 'cesar chavez')
     if locatable[0] != '@':
-      x = Locate(g, id, locatable)
+      x = Locate(g, locatable)
     else:
       ll = locatable[1:].split(',')
       x = geocoder.FakeLocation(float(ll[0]), float(ll[1]), 7)

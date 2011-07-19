@@ -30,11 +30,11 @@ if __name__ == '__main__':
   parser.add_option("-m", "--maps_key", dest="maps_key",
                     default=None, help="Your google maps API key.")
   parser.add_option("-g", "--geocode", dest="geocode", action="store_true",
-                    default=False, help="Set to geocode all locations")
+                    default=False,
+                    help="Set to geocode all locations. If set w/o --maps_key, will only use the geocache.")
   (options, args) = parser.parse_args()
 
   if options.geocode:
-    assert options.maps_key, "Must specify --maps_key with --geocode"
     g = geocoder.Geocoder(options.maps_key, 5)
   else:
     g = None
@@ -58,7 +58,7 @@ if __name__ == '__main__':
 
       lat_lon = locatable.getLatLon(g)
       if lat_lon:
-        print '%s\t%s\t%s\t%s' % (c.name(), r.photo_id(), locatable, lat_lon)
+        print '%s\t%f,%f\t%s' % (r.photo_id(), lat_lon[0], lat_lon[1], locatable)
         stats[c.name()] += 1
         break
 

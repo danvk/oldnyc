@@ -15,8 +15,10 @@ class CatCodeCoder:
     self._catmap = {}
     codes = [line.split(" : ") for line in file("cat-codes.txt").read().split("\n") if line]
     assert codes
-    for latlon, cat in codes:
-      self._catmap[cat] = latlon
+    for lat_lon, cat in codes:
+      lat = float(lat_lon.split(',')[0])
+      lon = float(lat_lon.split(',')[1])
+      self._catmap[cat] = (lat, lon)
 
   def codeRecord(self, r):
     cat = record.CleanFolder(r.location())
