@@ -22,7 +22,7 @@ function displayInfoForLatLon(lat_lon, should_display) {
   for (var i = 0; i < photo_ids.length; i++) {
     var photo_id = photo_ids[i];
     var img_path = 'http://sf-viewer.appspot.com/thumb/' + photo_id + '.jpg';
-    html += '<div id="thumb-' + photo_id + '" class="thumb"><img src="' + img_path + '" /></div>\n';
+    html += '<div id="thumb-' + photo_id + '" class="thumb"><img border=0 src="' + img_path + '" /></div>\n';
     html += '<div class="description" id="description-' + photo_id + '">Loading&hellip;</div>\n';
     if (i != photo_ids.length - 1) html += '<hr/>'
   }
