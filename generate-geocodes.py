@@ -14,6 +14,8 @@ import coders.locatable
 import record
 import geocoder
 import generate_js
+import cPickle
+import coders.cached_coder
 
 # Import order here determines the order in which coders get a crack at each
 # record. We want to go in order from precise to imprecise.
@@ -40,6 +42,12 @@ if __name__ == '__main__':
   parser.add_option("-o", "--output_format", default="",
                     help="Set to either lat-lons.js or records.js to output " +
                     "one of these formats.")
+  parser.add_option("", "--from_cache", default="", dest="from_cache",
+                    help="Set to a comma-separated list of coders to read " +
+                    "them from the pickle cache instead of regenerating.")
+  parser.add_option("", "--write_cache", default=False, dest="write_cache",
+                    action="store_true", help="Create pickle cache")
+
   (options, args) = parser.parse_args()
 
   if options.geocode:
@@ -47,19 +55,25 @@ if __name__ == '__main__':
   else:
     g = None
 
-  coders = coders.registration.coderClasses()
-  coders = [coder() for coder in coders]
+  geocoders = coders.registration.coderClasses()
+  geocoders = [coder() for coder in geocoders]
 
   if options.ok_coders != 'all':
     ok_coders = options.ok_coders.split(',')
-    coders = [c for c in coders if c.name() in ok_coders]
+    geocoders = [c for c in geocoders if c.name() in ok_coders]
+
+  cache_coders = options.from_cache.split(',')
+  for idx, coder in enumerate(geocoders):
+    if coder.name() in cache_coders:
+      geocoders[idx] = coders.cached_coder.CachedCoder(coder.name())
+  cache = defaultdict(list)
 
   rs = record.AllRecords()
   stats = defaultdict(int)
   located_recs = []  # array of (record, coder name, locatable) tuples
   for r in rs:
     located_rec = (r, None, None)
-    for c in coders:
+    for c in geocoders:
       locatable = c.codeRecord(r)
       if not locatable: continue
       if not g:
@@ -77,12 +91,22 @@ if __name__ == '__main__':
         stats[c.name()] += 1
         located_rec = (r, c.name(), locatable)
         break
+
     located_recs.append(located_rec)
+    if options.write_cache and located_rec[1]:
+      cache[located_rec[1]].append((r.photo_id(), located_rec[2]))
+
 
   successes = 0
-  for c in coders:
+  for c in geocoders:
     sys.stderr.write('%5d %s\n' % (stats[c.name()], c.name()))
     successes += stats[c.name()]
+    if options.write_cache:
+      output_file = "/tmp/coder.%s.pickle" % c.name()
+      f = file(output_file, "w")
+      p = cPickle.Pickler(f, 2)
+      p.dump(cache[c.name()])
+
   sys.stderr.write('%5d (total)\n' % successes)
 
   if options.output_format == 'lat-lons.js':
