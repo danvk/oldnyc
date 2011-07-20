@@ -45,7 +45,6 @@ body {
 }
 
 #stats {
-  display: none;
   position: absolute;
   right: 10px;
   width: 200px;
@@ -55,7 +54,6 @@ body {
 }
 
 #instructions {
-  display: none;
   font: 20px Georgia;
   font-style: italic;
   color: #878683;
@@ -69,14 +67,13 @@ body {
 
 #slider {
   position: absolute;
-  bottom: 10px;
+  top: 100px;
   left: 20px;
   right: 270px;
   height: 8px;
 }
 
 #date_range {
-  display: none;
   font: 20px Georgia;
   font-style: bold;
   color: #FA5E57;
@@ -90,32 +87,28 @@ body {
 
 #map {
   position: absolute;
-  top: 61px;
-  left: 0px;
-  right: 230px;
-  bottom: 30px;
+  top: 150px;
+  left: 10px;
+  right: 250px;
+  bottom: 10px;
 }
 
 #info {
   position: absolute;
-  top: 61px;
-  right: 0px;
+  top: 150px;
+  right: 10px;
   width: 220px;
-  bottom: 30px;
-  padding: 5px;
-  padding-bottom: 0px;
+  bottom: 10px;
   overflow: auto;
   overflow-x: hidden;
   overflow-y: auto;
-  background: rgba(247,246,240,0.8);
-  border-left: 1px solid #D8D0C6;
 }
 
 .thumb {
   min-height: 140px;
   background-image: url(spinner.gif);  /* TODO(danvk): find a transparent one */
   background-repeat:no-repeat;
-  background-position:center; 
+  background-position:center;
   text-align: center;
 }
 
