@@ -25,9 +25,9 @@ handlers:
   upload: lat-lons.js
 - url: /thumb/.*
   script: app.py
-- url: /(.*\.(gif|png|jpg|css|js))
+- url: /(.*\.(gif|png|jpg|css|js|bz2))
   static_files: \1
-  upload: (.*\.(gif|png|jpg|css|js))
+  upload: (.*\.(gif|png|jpg|css|js|bz2))
 - url: .*
   script: app.py
 
