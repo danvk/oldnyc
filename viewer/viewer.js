@@ -26,6 +26,7 @@ function displayInfoForLatLon(lat_lon, should_display) {
     html += '<div class="description" id="description-' + photo_id + '">Loading&hellip;</div>\n';
     if (i != photo_ids.length - 1) html += '<hr/>'
   }
+  el('info').scrollTop = 0;
   el('info').innerHTML = html;
 
   getDescription(photo_ids, should_display);

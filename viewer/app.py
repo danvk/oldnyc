@@ -100,7 +100,7 @@ class RecordFetcher(webapp.RequestHandler):
           'folder': r.folder,
           'library_url': r.library_url
         }
-    self.response.headers.add_header('Expires', 'Sun, 17-Jan-2038 19:14:07')
+    self.response.headers['Cache-Control'] = 'public; max-age=2592000'
     self.response.out.write(json.dumps(response))
 
 
