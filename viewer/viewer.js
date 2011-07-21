@@ -83,6 +83,9 @@ function getDescription(photo_ids, should_display) {
 }
 
 function initialize_map() {
+  // Give them something to look at while the map loads:
+  makeCallback("37.771393,-122.428618")();
+
   var latlng = new google.maps.LatLng(37.77493, -122.419416);
   var opts = {
     zoom: 13,
