@@ -1,5 +1,5 @@
 body {
-  background-color: #F7F6F0;
+  background-color: #F5F0E6;
 }
 
 #title {
@@ -10,8 +10,19 @@ body {
   height: 30px;  /* ??? */
   padding: 15px;
   font: 24px Georgia;
-  background: #D8D0C6;  /* TODO(danvk): gradient */
-  border-bottom: 1px solid black;
+  color: #000000;
+  background: #F5F0E6;
+  border-bottom: 1px solid gray;
+}
+
+#title_words {
+  position: absolute;
+  top: 17px;
+  left: 22px;
+  right: 0px;
+  height: 30px;  /* ??? */
+  font: 20px Georgia;
+  color: #000000;
 }
 
 /* for "About" page */
@@ -28,22 +39,24 @@ body {
 
 #about {
   position: absolute;
-  top: 0px;
+  top: 1px;
   right: 0px;
-  width: 100px;
-  padding-left: 50px;
+  width: 82px;
+  padding-left: 0px;
   height: 60px;  /* ??? */
-  background-image: url('chevron.png');
+  /* background-image: url('chevron.png'); */
   background-repeat: no-repeat;
-  font: 24px Georgia;
+  font: 16px Georgia;
   line-height: 60px;
 }
 #about > a {
   text-decoration: none;
-  color: white;
-  text-shadow: gray 2px 2px 3px;
+  color: #000000;
+  /*color: white;
+  text-shadow: gray 2px 2px 3px;*/
 }
 
+/*
 #stats {
   position: absolute;
   right: 10px;
@@ -64,44 +77,48 @@ body {
   left: 20px;
   right: 270px;
 }
+*/
 
 #slider {
   position: absolute;
-  top: 100px;
-  left: 20px;
-  right: 270px;
+  top: 39px;
+  left: 401px;
+  right: 348px;
   height: 8px;
 }
 
 #date_range {
-  font: 20px Georgia;
+  font: 24px Georgia;
   font-style: bold;
   color: #FA5E57;
   position: absolute;
-  top: 120px;
-  left: 10px;
+  top: 7px;
+  left: 560px;
   right: 270px;
   height: 20px;
-  text-align: center;
+  text-align: left;
 }
 
 #map {
   position: absolute;
-  top: 150px;
-  left: 10px;
-  right: 250px;
-  bottom: 10px;
+  top: 61px;
+  left: 0px;
+  right: 240px;
+  bottom: 0px;
 }
 
 #info {
   position: absolute;
-  top: 150px;
-  right: 10px;
+  top: 67px;
+  right: 5px;
   width: 220px;
-  bottom: 10px;
+  padding: 5px;
+  bottom: 7px;
   overflow: auto;
   overflow-x: hidden;
   overflow-y: auto;
+  background-color: rgba(255,255,255,.75);
+  border-radius: 15px;
 }
 
 .thumb {
@@ -110,6 +127,26 @@ body {
   background-repeat:no-repeat;
   background-position:center;
   text-align: center;
+}
+
+.thumb > a {
+  cursor:pointer;
+}
+
+#expanded {
+  position: absolute;
+  z-index: 100;
+  border: 1px solid #D8D0C6;
+  background: rgba(247, 246, 240, 0.9);
+  padding: 10px;
+}
+
+#expanded button {
+  float: right;
+}
+
+#expanded img {
+  margin: 0 auto;
 }
 
 /* Credit: http://numerosign.com/notebook/styling-webkit-scrollbars-with-css3/ */
@@ -149,3 +186,4 @@ hr {
   top: -3px;
   margin-left: -10px;
 }
+

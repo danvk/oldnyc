@@ -22,13 +22,15 @@ function displayInfoForLatLon(lat_lon, should_display) {
   for (var i = 0; i < photo_ids.length; i++) {
     var photo_id = photo_ids[i];
     var img_path = 'http://sf-viewer.appspot.com/thumb/' + photo_id + '.jpg';
-    html += '<div id="thumb-' + photo_id + '" class="thumb"><img border=0 src="' + img_path + '" /></div>\n';
+    html += '<div id="thumb-' + photo_id + '" class="thumb"><img border=0 path="' + img_path + '" /></div>\n';
     html += '<div class="description" id="description-' + photo_id + '">Loading&hellip;</div>\n';
     if (i != photo_ids.length - 1) html += '<hr/>'
   }
+  el('info').scrollTop = 0;
   el('info').innerHTML = html;
 
   getDescription(photo_ids, should_display);
+  loadPictures();
 }
 
 function makeCallback(lat_lon) {
@@ -64,7 +66,7 @@ function getDescription(photo_ids, should_display) {
                 '<a target="_blank" href="' + info.library_url + '">&rarr; Library</a>';
             if (!el("thumb-" + id)) continue;
             el("thumb-" + id).innerHTML = 
-                '<a target="_blank" href="' + info.library_url + '">' +
+                '<a href="javascript:showExpanded(\'' + id + '\')">' +
                 el("thumb-" + id).innerHTML + '</a>';
           }
         }
@@ -82,6 +84,9 @@ function getDescription(photo_ids, should_display) {
 }
 
 function initialize_map() {
+  // Give them something to look at while the map loads:
+  makeCallback("37.771393,-122.428618")();
+
   var latlng = new google.maps.LatLng(37.77493, -122.419416);
   var opts = {
     zoom: 13,
@@ -172,4 +177,40 @@ function createSlider() {
       // TODO(danvk): on slow browsers, the update should actually happen here
     }
   });
+}
+
+// The thumbnails div has scrolled or changed. Maybe we should load some pictures.
+function loadPictures() {
+  var info = el('info');
+  var imgs = info.getElementsByTagName('img');
+  var bottom_edge = info.scrollTop + info.offsetHeight;
+  var padding = 500;
+  for (var i = 0; i < imgs.length; i++) {
+    if (imgs[i].offsetTop - padding < bottom_edge && imgs[i].src == '') {
+      imgs[i].src = imgs[i].getAttribute('path');
+    }
+  }
+}
+
+function showExpanded(id) {
+  // There should be a way to center the div that's less hacky.
+  var map = el('map');
+  var img = el('thumb-' + id).getElementsByTagName('img')[0];
+  var div_width = 10 + 400.0 / img.height * img.width;
+  var div_height = 80 + 400;
+
+  var expanded = el('expanded');
+  expanded.style.left = map.offsetLeft + map.offsetWidth / 2 - div_width / 2 + 'px';
+  expanded.style.top = map.offsetTop + map.offsetHeight / 2 - div_height / 2 + 'px';
+  expanded.style.width = div_width + 'px';
+  expanded.style.minHeight = div_height + 'px';
+
+  el('expanded-image').style.width = div_width + 'px';
+  el('expanded-image').src = 'http://webbie1.sfpl.org/multimedia/sfphotos/' + id + '.jpg';
+  el('expanded-desc').innerHTML = el('description-' + id).innerHTML;
+  expanded.style.display = '';
+}
+
+function hideExpanded() {
+  el('expanded').style.display = 'none';
 }
