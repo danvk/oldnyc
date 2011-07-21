@@ -29,15 +29,15 @@
   <div id="stats">Showing <span id="count">__</span> photos.</div>
 
   <div id="map"></div>
-  <div id="info"></div>
+  <div id="info" onscroll="loadPictures()"></div>
 
   <script type="text/javascript">
     createSlider();
   </script>
 
-  <div style="display: none;">
-    <img id="preload_img" />
+  <div style="position: absolute; left: -1000px;">
     <img src="blank.gif" />
+    <img src="spinner.gif" />
   </div>
 </body>
 </html>

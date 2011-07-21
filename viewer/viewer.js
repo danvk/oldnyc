@@ -22,13 +22,14 @@ function displayInfoForLatLon(lat_lon, should_display) {
   for (var i = 0; i < photo_ids.length; i++) {
     var photo_id = photo_ids[i];
     var img_path = 'http://sf-viewer.appspot.com/thumb/' + photo_id + '.jpg';
-    html += '<div id="thumb-' + photo_id + '" class="thumb"><img src="' + img_path + '" /></div>\n';
+    html += '<div id="thumb-' + photo_id + '" class="thumb"><img path="' + img_path + '" /></div>\n';
     html += '<div class="description" id="description-' + photo_id + '">Loading&hellip;</div>\n';
     if (i != photo_ids.length - 1) html += '<hr/>'
   }
   el('info').innerHTML = html;
 
   getDescription(photo_ids, should_display);
+  loadPictures();
 }
 
 function makeCallback(lat_lon) {
@@ -172,4 +173,17 @@ function createSlider() {
       // TODO(danvk): on slow browsers, the update should actually happen here
     }
   });
+}
+
+// The thumbnails div has scrolled or changed. Maybe we should load some pictures.
+function loadPictures() {
+  var info = el('info');
+  var imgs = info.getElementsByTagName('img');
+  var bottom_edge = info.scrollTop + info.offsetHeight;
+  var padding = 500;
+  for (var i = 0; i < imgs.length; i++) {
+    if (imgs[i].offsetTop - padding < bottom_edge && imgs[i].src == '') {
+      imgs[i].src = imgs[i].getAttribute('path');
+    }
+  }
 }
