@@ -195,14 +195,18 @@ function showExpanded(id) {
   // There should be a way to center the div that's less hacky.
   var map = el('map');
   var img = el('thumb-' + id).getElementsByTagName('img')[0];
-  var img_width = 20 + 400.0 / img.height * img.width;
-  var img_height = 40 + 400;
+  var div_width = 10 + 400.0 / img.height * img.width;
+  var div_height = 80 + 400;
 
   var expanded = el('expanded');
-  expanded.style.left = map.offsetLeft + map.offsetWidth / 2 - img_width / 2 + 'px';
-  expanded.style.top = map.offsetTop + map.offsetHeight / 2 - img_height / 2 + 'px';
+  expanded.style.left = map.offsetLeft + map.offsetWidth / 2 - div_width / 2 + 'px';
+  expanded.style.top = map.offsetTop + map.offsetHeight / 2 - div_height / 2 + 'px';
+  expanded.style.width = div_width + 'px';
+  expanded.style.minHeight = div_height + 'px';
 
+  el('expanded-image').style.width = div_width + 'px';
   el('expanded-image').src = 'http://webbie1.sfpl.org/multimedia/sfphotos/' + id + '.jpg';
+  el('expanded-desc').innerHTML = el('description-' + id).innerHTML;
   expanded.style.display = '';
 }
 

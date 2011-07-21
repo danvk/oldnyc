@@ -112,6 +112,10 @@ body {
   text-align: center;
 }
 
+.thumb > a {
+  cursor:pointer;
+}
+
 #expanded {
   position: absolute;
   z-index: 100;
@@ -122,6 +126,10 @@ body {
 
 #expanded button {
   float: right;
+}
+
+#expanded img {
+  margin: 0 auto;
 }
 
 /* Credit: http://numerosign.com/notebook/styling-webkit-scrollbars-with-css3/ */

@@ -32,10 +32,9 @@
   <div id="info" onscroll="loadPictures()"></div>
 
   <div style="display:none;" id="expanded">
-  <button onclick="hideExpanded()">close</button><br/>
-  <table><tr valign=middle><td align=center>
-  <img id="expanded-image" class="thumb" src="blank.gif" />
-  </td></tr></table>
+  <button onclick="hideExpanded()">close</button>
+  <img id="expanded-image" class="thumb" src="blank.gif" onclick="hideExpanded()" />
+  <span id="expanded-desc"></span>
   </div>
 
   <script type="text/javascript">
