@@ -65,7 +65,7 @@ function getDescription(photo_ids, should_display) {
                 '<a target="_blank" href="' + info.library_url + '">&rarr; Library</a>';
             if (!el("thumb-" + id)) continue;
             el("thumb-" + id).innerHTML = 
-                '<a target="_blank" href="' + info.library_url + '">' +
+                '<a href="javascript:showExpanded(\'' + id + '\')">' +
                 el("thumb-" + id).innerHTML + '</a>';
           }
         }
@@ -189,4 +189,23 @@ function loadPictures() {
       imgs[i].src = imgs[i].getAttribute('path');
     }
   }
+}
+
+function showExpanded(id) {
+  // There should be a way to center the div that's less hacky.
+  var map = el('map');
+  var img = el('thumb-' + id).getElementsByTagName('img')[0];
+  var img_width = 20 + 400.0 / img.height * img.width;
+  var img_height = 40 + 400;
+
+  var expanded = el('expanded');
+  expanded.style.left = map.offsetLeft + map.offsetWidth / 2 - img_width / 2 + 'px';
+  expanded.style.top = map.offsetTop + map.offsetHeight / 2 - img_height / 2 + 'px';
+
+  el('expanded-image').src = 'http://webbie1.sfpl.org/multimedia/sfphotos/' + id + '.jpg';
+  expanded.style.display = '';
+}
+
+function hideExpanded() {
+  el('expanded').style.display = 'none';
 }

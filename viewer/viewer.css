@@ -112,6 +112,18 @@ body {
   text-align: center;
 }
 
+#expanded {
+  position: absolute;
+  z-index: 100;
+  border: 1px solid #D8D0C6;
+  background: rgba(247, 246, 240, 0.9);
+  padding: 10px;
+}
+
+#expanded button {
+  float: right;
+}
+
 /* Credit: http://numerosign.com/notebook/styling-webkit-scrollbars-with-css3/ */
 #info::-webkit-scrollbar {
   width: 6px;
