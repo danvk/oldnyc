@@ -194,6 +194,7 @@ function loadPictures() {
 
 function showExpanded(id) {
   // There should be a way to center the div that's less hacky.
+  expanded.style.display = 'none';
   var map = el('map');
   var img = el('thumb-' + id).getElementsByTagName('img')[0];
   var div_width = 10 + 400.0 / img.height * img.width;

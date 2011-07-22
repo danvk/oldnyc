@@ -89,14 +89,13 @@ body {
 
 #date_range {
   font: 24px Georgia;
-  font-style: bold;
   color: #FA5E57;
   position: absolute;
   top: 7px;
-  left: 560px;
-  right: 270px;
+  left: 401px;
+  right: 348px;
   height: 20px;
-  text-align: left;
+  text-align: center;
 }
 
 #map {
