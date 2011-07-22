@@ -31,12 +31,16 @@ class FreeStreetCoder:
     street_list = [s.lower() for s in street_list if s]
 
     street_re = '(?:' + '|'.join(street_list) + ')'
+    suffix_re = '(?:street|st\.?|ave\.?|avenue|blvd\.?|boulevard)'
     self._addr_re = r'[-0-9]{2,} +' + street_re + r' +(street|st|avenue|ave|road|boulevard|blvd|place|way|bus|line|express bus|area|rush)?'
 
     # There's some overlap here, but they're in decreasing order of confidence.
     # More confident (i.e. longer) forms get matched first.
     forms = [
-      '(' + street_re + '(?: +street|st\.)?),? +between +(' + street_re + ' (?:street )?)(?:and|&) +(' + street_re + r')\b',  # A between B and C (47; sparse, but "protects" the next forms)
+      # A between B and C (47; sparse, but "protects" the next forms)
+      '(' + street_re + '(?: +street|st\.)?),? +between +(' + street_re + ' (?:street )?)(?:and|&) +(' + street_re + r')\b',
+
+      '(' + street_re + ' +' + suffix_re + ') +(?:and|&) +(' + street_re + ' +' + suffix_re + ')',  # A street and B street
       '(' + street_re + ') +(?:and|&) +(' + street_re + ' +street)s',         # A and B streets (1027 records)
       '(' + street_re + ') +(?:and|&) +(' + street_re + ' +st)s',             # A and B sts (46 records)
       '(' + street_re + ') +(?:and|&) +(' + street_re + r' +(street|st|ave|avenue))\b',  # A and B st/street (193)
