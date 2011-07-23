@@ -31,7 +31,8 @@ class FreeStreetCoder:
     street_list = [s.lower() for s in street_list if s]
 
     street_re = '(?:' + '|'.join(street_list) + ')'
-    suffix_re = '(?:street|st\.?|ave\.?|avenue|blvd\.?|boulevard)'
+    suffix_re = '(?:street|st\.?|avenue|ave\.?|blvd\.?|boulevard|drive|dr\.?)'
+    dir_re = '(?:north|south|east|west|northwest|northeast|southwest|southeast)'
     self._addr_re = r'[-0-9]{2,} +' + street_re + r' +(street|st|avenue|ave|road|boulevard|blvd|place|way|bus|line|express bus|area|rush)?'
 
     # There's some overlap here, but they're in decreasing order of confidence.
@@ -40,15 +41,20 @@ class FreeStreetCoder:
       # A between B and C (47; sparse, but "protects" the next forms)
       '(' + street_re + '(?: +street|st\.)?),? +between +(' + street_re + ' (?:street )?)(?:and|&) +(' + street_re + r')\b',
 
-      '(' + street_re + ' +' + suffix_re + ') +(?:and|&) +(' + street_re + ' +' + suffix_re + ')',  # A street and B street
-      '(' + street_re + ') +(?:and|&) +(' + street_re + ' +street)s',         # A and B streets (1027 records)
-      '(' + street_re + ') +(?:and|&) +(' + street_re + ' +st)s',             # A and B sts (46 records)
-      '(' + street_re + ') +(?:and|&) +(' + street_re + r' +(street|st|ave|avenue))\b',  # A and B st/street (193)
+      '(' + street_re + ' +' + suffix_re + ') +(?:and|&|at) +(' + street_re + ' +' + suffix_re + ')',  # A street and B street
+
+      # Funston Avenue, north from Rockridge Drive
+      '(' + street_re + ' +' + suffix_re + '?),? ' + dir_re + ' +(?:from|of) +(' + street_re + ' +' + suffix_re + '?)',
+
+      '(' + street_re + ') +(?:and|&|at) +(' + street_re + ' +street)s',         # A and B streets (1027 records)
+      '(' + street_re + ') +(?:and|&|at) +(' + street_re + ' +st)s',             # A and B sts (46 records)
+      '(' + street_re + ') +(?:and|&|at) +(' + street_re + r' +' + suffix_re + r')\b',  # A and B st/street (193)
+      '(' + street_re + ' +' + suffix_re + ') +(?:and|&|at) +(' + street_re + r')\b',  # A street and B
+
       '(' + street_re + ') +& +(' + street_re + r'\b)',  # A & B (106)
-      '(?:at|of) (' + street_re + ') +and +(' + street_re + r'\b)',  # at A and B (104)
+      '(?:at|of|on) (' + street_re + ') +and +(' + street_re + r'\b)',  # at A and B (104)
 
       # Rejected forms:
-      # street_re + ',? (north|south|east|west) of ' + street_re + r'\b', (only 6)
       # street_re + ' +and +' + street_re,  # A and B (235 but w/ lots of false positives)
     ]
     self._forms = [re.compile(form) for form in forms]
@@ -71,7 +77,7 @@ class FreeStreetCoder:
         self._stats[str(1 + idx)] += 1
         if idx != 0:
           return coders.locatable.fromCross(m.group(1), m.group(2),
-                                            source=m.group(0))
+                                            source='%s (form %d)' % (m.group(0), idx))
         else:
           return coders.locatable.fromStreetAndCrosses(
               m.group(1), [m.group(2), m.group(3)])

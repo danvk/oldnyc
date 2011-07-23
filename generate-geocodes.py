@@ -47,6 +47,8 @@ if __name__ == '__main__':
                     "them from the pickle cache instead of regenerating.")
   parser.add_option("", "--write_cache", default=False, dest="write_cache",
                     action="store_true", help="Create pickle cache")
+  parser.add_option("", "--ids_filter", default="", dest="ids_filter",
+                    help="Comma-separated list of Photo IDs to consider.")
 
   (options, args) = parser.parse_args()
 
@@ -69,6 +71,10 @@ if __name__ == '__main__':
   cache = defaultdict(list)
 
   rs = record.AllRecords()
+  if options.ids_filter:
+    ids = set(options.ids_filter.split(','))
+    rs = [r for r in rs if r.photo_id() in ids]
+    
   stats = defaultdict(int)
   located_recs = []  # array of (record, coder name, locatable) tuples
   for r in rs:

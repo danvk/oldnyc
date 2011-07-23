@@ -7,6 +7,7 @@
 import base64
 import xml.dom.minidom
 import os
+import sys
 import time
 import urllib
 
@@ -68,6 +69,7 @@ class FakeLocation:
     self.lat = lat
     self.lon = lon
     self.accuracy = accuracy
+    self.status = 200
 
   def __str__(self):
     if self.lat and self.lon:
@@ -129,6 +131,9 @@ class Geocoder:
       data = self._check_cache(loc)
       from_cache = data != None
     if not data:
+      if not self._api_key:
+        sys.stderr.write('Using fake location for %s\n' % loc)
+        return FakeLocation(37.784724, -122.407715, 7)
       data = self._fetch(url)
 
     location = self._parse_xml(data)

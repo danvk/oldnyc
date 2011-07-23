@@ -553,3 +553,45 @@ S.F. Fire Department / Engine 28 (Stockton and Filbert):y
 S.F. Flood Building (Powell & Market):y
 S.F. Strikes / 1934 / National Guard:n
 S.F. Earthquakes / 1906 / Districts / Downtown:n
+S.F. Playgrounds / North Beach:y
+S.F. Theaters / Balboa:y
+S.F. Districts / Golden Gate Heights:n
+S.F. Hospitals / French (See Also: Oversize):y
+S.F. Transportation / Railroads / Cliff House Trains:n
+S.F. Temples / Synagogues / Anshey Sfard:y
+S.F. Transportation / Cable Cars / Lines / Pacific Avenue (See Also: S.F. Transportation / Cable Cars / Companies / Market Street Railway):n
+S.F. Monuments / Spanish American War (Camp Merritt):y
+S.F. Playgrounds / Argonne:y
+S.F. Districts / Richmond:n
+S.F. Monuments / Hanson Monument:y
+S.F. Fire Department / Engine 34 (499 41st Avenue):y
+S.F. Schools / Secondary / Giannini Jr. High:y
+S.F. Schools / Secondary / Benjamin Franklin:y
+S.F. Banks / Italian Popular Bank:y
+S.F. Districts / Cathedral Hill:n
+S.F. Businesses / Groceries / Siri's:n
+S.F. Transportation / Streetcars / Barns / Presidio and Geary:y
+S.F. Views / 1970's:n
+S.F. Views / 1895:n
+S.F. Fire Department / Engine 22 (16th and Irving):y
+S.F. Automobiles / Dealers and Showrooms / Ernest Ingold Chevrolet:y
+S.F. Hotels / Jack Tar:y
+S.F. Hospitals / Shriners / Exterior:y
+S.F. Districts / Western Addition (See also: Housing Projects):n
+S.F. Earthquakes / 1906 / Newspaper Row:n
+S.F. Streets / Van Ness Ave / 1950 / 1980's:n
+S.F. Businesses / Recorder Printing and Publishing:y
+S.F. Schools / Boards / Commission:n
+S.F. Automobiles / Dealers and Showrooms / Berl Berry Ford:y
+S.F. Police / Stations / Golden Gate Park:y
+S.F. Earthquakes / 1906 / Businesses / Emporium:y
+S.F. Schools / Elementary / Jefferson:y
+S.F. Automobiles / Dealers and Showrooms:n
+S.F. Businesses / H. Liebes:y
+S.F. Earthquakes / 1906 / Hotels / St. Dunstan Hotel:y
+S.F. Schools / Elementary / Lafayette:y
+S.F. Recreation and Community Centers / Jewish Community Center:y
+S.F. Automobiles / Dealers and Showrooms / James W. McAlister:y
+S.F. Earthquakes / 1906 / Districts / Russian Hill:n
+S.F. Churches / Catholic / St. Ignatius (Old):y
+S.F. Libraries / SFPL / Branches / Parkside:y
