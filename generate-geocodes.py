@@ -40,8 +40,8 @@ if __name__ == '__main__':
                     action="store_true", default=False,
                     help="Set to print out records as they're coded.")
   parser.add_option("-o", "--output_format", default="",
-                    help="Set to either lat-lons.js or records.js to output " +
-                    "one of these formats.")
+                    help="Set to either lat-lons.js, records.js or entries.txt "
+                    "to output one of these formats.")
   parser.add_option("", "--from_cache", default="", dest="from_cache",
                     help="Set to a comma-separated list of coders to read " +
                     "them from the pickle cache instead of regenerating.")
@@ -119,3 +119,5 @@ if __name__ == '__main__':
     generate_js.printJson(located_recs)
   elif options.output_format == 'records.js':
     generate_js.printRecordsJson(located_recs)
+  elif options.output_format == 'entries.txt':
+    generate_js.printRecordsText(located_recs)

@@ -99,3 +99,7 @@ Some cross-streets/addresses spotted in record titles that I currently miss:
     AAC-7008    1955 Aug. 10 Siri's Market at Hillside Boulevard and Linden Avenue in South San Francisco, with inset photos of head butcher Al Perruquet and manager Frank Meisenbach http://sflib1.sfpl.org:82/record=b1021867~S0
 
     AAC-8927	1874	S.F. Views / 1874 / 75	View of San Francisco from Mason street, corner of Pine. 1874.
+
+
+Chenery Street = Diamond Street?
+  AAB-5584	1928 May 28	S.F. Streets / Utah	Utah St. south from 19th St.	failed	n/a

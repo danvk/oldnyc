@@ -94,3 +94,6 @@
 37.759862,-122.427259 : S.F. Earthquakes / 1906 / Refugee Camps / Mission Park
 37.805696,-122.422963 : S.F. Ghirardelli Square
 37.781358,-122.417997 : S.F. Federal Building (New)
+37.7845087, -122.4073936 : S.F. Parks / Hallidie Plaza
+37.800239,-122.410834 : S.F. Parks / Washington Square
+

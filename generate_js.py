@@ -85,3 +85,18 @@ def printRecordsJson(located_recs):
 
     recs.append(rec)
   print json.dumps(recs, indent=2)
+
+
+def printRecordsText(located_recs):
+  for r, coder, locatable in located_recs:
+    date = record.CleanDate(r.date())
+    title = record.CleanTitle(r.title())
+    folder = r.location()
+    if folder: folder = record.CleanFolder(folder)
+
+    if locatable:
+      loc = (str(locatable.getLatLon()) or '') + '\t' + str(locatable)
+    else:
+      loc = 'n/a\tn/a'
+
+    print '\t'.join([r.photo_id(), date, folder, title, r.preferred_url, coder or 'failed', loc])
