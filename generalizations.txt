@@ -595,3 +595,31 @@ S.F. Automobiles / Dealers and Showrooms / James W. McAlister:y
 S.F. Earthquakes / 1906 / Districts / Russian Hill:n
 S.F. Churches / Catholic / St. Ignatius (Old):y
 S.F. Libraries / SFPL / Branches / Parkside:y
+S.F. Earthquakes / 1906 / Shreve Building:y
+S.F. Hospitals / Greens' Eye and Ear:y
+S.F. Transportation / Steam Trains:n
+S.F. Transportation / Lines / Market Street Railroad / 3 Line:n
+S.F. Theaters / Metro:y
+S.F. Transportation / Cable Cars / Lines / Powell / Mason:n
+S.F. Districts / Chinatown / Stores:n
+S.F. Parks / Stern Grove:n
+S.F. Hospitals / Emergency / Alemany:y
+S.F. Streets / Market / 1906 / 1909 (postquake):n
+S.F. Depression / W.P.A.:n
+S.F. Earthquakes / 1906 / Mark Hopkins Art Institute:y
+S.F. Hospitals / Notre Dame:y
+S.F. Colleges / S.F. College for Women Exteriors:y
+S.F. Earthquakes / 1906 / Banks / German Savings Bank:y
+S.F. Districts / North Beach / People:n
+S.F. Streets / Broadway / 1960's / 1970's:n
+S.F. Churches / Lutheran / Golden Gate (Formerly Ascension):y
+S.F. Schools / Private / St. Patrick's Elementary:y
+S.F. Transportation / Lines / Market Street Railroad / 2 Line:n
+S.F. Police / Stations / Taraval:y
+S.F. Districts / St. Francis Wood:n
+S.F. Businesses / Union Iron Works:n
+S.F. Police / Stations / Potrero:y
+S.F. Libraries / SFPL / Branches / Mission:y
+S.F. Hospitals / Marine (See also: Hospitals / Sailors' Home):n
+S.F. Businesses / Union Pacific Railroad:n
+S.F. Hotels / Grand:y
