@@ -18,6 +18,9 @@ handlers:
 - url: /about
   static_files: about.html
   upload: about.html
+- url: /feedback
+  static_files: feedback.html
+  upload: feedback.html
 - url: /upload
   script: app.py
 - url: /lat-lons.js

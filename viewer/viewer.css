@@ -112,7 +112,7 @@ body {
   right: 5px;
   width: 220px;
   padding: 5px;
-  bottom: 7px;
+  bottom: 23px;
   overflow: auto;
   overflow-x: hidden;
   overflow-y: auto;
@@ -184,4 +184,13 @@ hr {
   height: 12px;
   top: -3px;
   margin-left: -10px;
+}
+
+#feedback {
+  position: absolute;
+  bottom: 1px;
+  right: 1px;
+  width: 100px;
+  height: 20px;
+  font-size: small;
 }
