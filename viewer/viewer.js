@@ -1,5 +1,6 @@
 var markers = [];
 var marker_icons = [];
+var selected_marker_icons = [];
 var marker_dates = [];
 var map;
 var start_date = new Date("1850/01/01");
@@ -9,7 +10,10 @@ function el(id) {
   return document.getElementById(id);
 }
 
-function displayInfoForLatLon(lat_lon, should_display) {
+var selected_marker = null;
+var selected_icon = 0;
+
+function displayInfoForLatLon(lat_lon, should_display, marker) {
   var recs = lat_lons[lat_lon];
   var photo_ids = [];
   for (var i = 0; i < recs.length; i++) {
@@ -29,21 +33,23 @@ function displayInfoForLatLon(lat_lon, should_display) {
   el('info').scrollTop = 0;
   el('info').innerHTML = html;
 
+  var zIndex = 0;
+  if (selected_marker) {
+    zIndex = selected_marker.getZIndex();
+    selected_marker.setIcon(selected_icon);
+  }
+  selected_marker = marker;
+  selected_icon = marker.getIcon();
+  marker.setIcon(selected_marker_icons[photo_ids.length > 100 ? 100 : photo_ids.length]);
+  marker.setZIndex(100000 + zIndex);
+
   getDescription(photo_ids, should_display);
   loadPictures();
 }
 
-function makeCallback(lat_lon) {
+function makeCallback(lat_lon, marker) {
   return function(e) {
-    displayInfoForLatLon(lat_lon, true);
-  };
-}
-
-// This doesn't quite work right -- it should promote any in-flight request to
-// "should_display=true" rather than relying on caching.
-function makePreloadCallback(lat_lon) {
-  return function(e) {
-    displayInfoForLatLon(lat_lon, false);
+    displayInfoForLatLon(lat_lon, true, marker);
   };
 }
 
@@ -85,7 +91,7 @@ function getDescription(photo_ids, should_display) {
 
 function initialize_map() {
   // Give them something to look at while the map loads:
-  makeCallback("37.771393,-122.428618")();
+  init_lat_lon = "37.771393,-122.428618";
 
   var latlng = new google.maps.LatLng(37.77493, -122.419416);
   var opts = {
@@ -98,6 +104,7 @@ function initialize_map() {
 
   // Create markers for each number.
   marker_icons.push(null);  // it's easier to be 1-based.
+  selected_marker_icons.push(null);
   for (var i = 0; i < 100; i++) {
     var num = i + 1;
     var size = (num == 1 ? 9 : (num < 10 ? 13 : (num < 100 ? 25 : 39)));
@@ -107,9 +114,16 @@ function initialize_map() {
       new google.maps.Point((i%10)*39, Math.floor(i/10)*39),
       new google.maps.Point((size - 1) / 2, (size - 1)/2)
     ));
+    selected_marker_icons.push(new google.maps.MarkerImage(
+      'dots/selected-sprite.png',
+      new google.maps.Size(size, size),
+      new google.maps.Point((i%10)*39, Math.floor(i/10)*39),
+      new google.maps.Point((size - 1) / 2, (size - 1)/2)
+    ));
   }
 
   var total = 0;
+  var init_marker = null;
   for (var lat_lon in lat_lons) {
     var ll = lat_lon.split(",");
     var recs = lat_lons[ll];
@@ -122,7 +136,7 @@ function initialize_map() {
       title: lat_lon
     });
     markers.push(marker);
-    google.maps.event.addListener(marker, 'click', makeCallback(ll));
+    google.maps.event.addListener(marker, 'click', makeCallback(ll, marker));
     // google.maps.event.addListener(marker, 'mouseover', makePreloadCallback(ll));
 
     // TODO(danvk): use timestamps?
@@ -131,8 +145,11 @@ function initialize_map() {
       recs[i][1] = new Date(recs[i][1] + '/12/31');
       total += 1;
     }
+
+    if (lat_lon == init_lat_lon) init_marker = marker;
   }
   el("count").innerHTML = total;
+  makeCallback(init_lat_lon, init_marker)();
 }
 
 function updateVisibleMarkers(date1, date2) {
