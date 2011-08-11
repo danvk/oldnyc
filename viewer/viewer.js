@@ -81,12 +81,14 @@ function getDescription(photo_ids, should_display) {
   };
 
   var url = '/info';
+  var data = ''
   for (var i = 0; i < photo_ids.length; i++) {
-    url += (i ? '&' : '?') + 'id=' + photo_ids[i];
+    data += (i ? '&' : '') + 'id=' + photo_ids[i];
   }
 
-  req.open("GET", url, true);
-  req.send(null);
+  req.open("POST", url, true);
+  req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+  req.send(data);
 }
 
 function initialize_map() {

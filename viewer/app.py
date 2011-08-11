@@ -3,6 +3,8 @@ from google.appengine.api import memcache
 from google.appengine.ext import db
 from google.appengine.ext.webapp.util import run_wsgi_app
 from google.appengine.ext.webapp import template
+from google.appengine.dist import use_library
+
 import os
 import simplejson as json
 import logging
@@ -71,9 +73,13 @@ class UploadThumbnailHandler(webapp.RequestHandler):
 
 
 class RecordFetcher(webapp.RequestHandler):
+  def post(self):
+    self.get()
+
   def get(self):
     """Responds to AJAX requests for record information."""
-    photo_ids = self.request.get("id", allow_multiple=True)
+    photo_ids = self.request.get_all("id")
+    logging.info('info for %d photos' % len(photo_ids));
     default_response = {
       'title': 'Proposed Alemany Blvd. West from Mission St. viaduct, 2-18-26',
       'date': '1926 Feb. 18',
