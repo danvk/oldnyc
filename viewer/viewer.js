@@ -247,6 +247,7 @@ function showExpanded(id) {
   el('expanded-image').src = 'http://webbie1.sfpl.org/multimedia/sfphotos/' + id + '.jpg';
   el('expanded-desc').innerHTML = el('description-' + id).innerHTML;
   expanded.style.display = '';
+  // TODO(danvk): add in library URL here.
 }
 
 function hideExpanded() {
