@@ -176,18 +176,6 @@ body {
   border-left: none;
 }
 
-/* for "About" page */
-#content-area {
-  position: absolute;
-  top: 60px;
-  bottom: 0px;
-  left: 0px;
-  right: 0px;
-  padding: 10px;
-  font: 16px Georgia;
-  max-width: 600px;
-}
-
 .thumb {
   min-height: 140px;
   background-image: url(spinner.gif);  /* TODO(danvk): find a transparent one */
@@ -203,12 +191,13 @@ body {
 #expanded {
   position: absolute;
   z-index: 100;
-  border: 1px solid #D8D0C6;
-  background: rgba(247, 246, 240, 0.9);
+  border: 1px solid #8E8F8F;
+  background: #FCFBF9;
   padding: 10px;
+  -webkit-box-shadow: 0px 0px 10px 2px gray;
 }
 
-#expanded button {
+#expanded a {
   float: right;
 }
 
@@ -247,11 +236,14 @@ hr {
   margin-bottom: 10px;
 }
 
-/*
-.ui-slider-horizontal .ui-slider-handle {
-  width: 20px;
-  height: 12px;
-  top: -3px;
-  margin-left: -10px;
+/* for "About" page */
+#content-area {
+  position: absolute;
+  top: 60px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  padding: 10px;
+  font: 16px Georgia;
+  max-width: 600px;
 }
-*/
