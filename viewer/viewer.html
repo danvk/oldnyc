@@ -18,26 +18,37 @@
 </head>
 
 <body onload="initialize_map()">
-  <div id="title"></div>
-  <div id="map"></div>
-  <div id="title_words">San Francisco Historical Photographs</div>
-  <div id="about"><a href="/about">About</a></div>
-
-  <div id="instructions">
-    Adjust the sliders to a period of interest.
+  <div id="header">
+    <div id="blue_bar">
+      <div id="about"><a href="/about">About</a></div>
+    </div>
+    <div id="logo">
+      <img src="logo91.png" height=70 />
+    </div>
+    <div id="slider"></div>
+    <div id="slider_ticks"></div>
+    <div id="date_range">1850&ndash;2000</div>
   </div>
-  <div id="slider"></div>
-  <div id="date_range">1850 &ndash; 2000</div>
-  <div id="stats">Showing <span id="count">__</span> photos.</div>
 
-  <div id="info" onscroll="loadPictures()"></div>
+  <div id="map"></div>
+  <div id="stats">Showing <span id="count">__</span> photos</div>
+
+  <div id="rightpanel">
+    <div id="extra_line"></div>
+    <div id="carousel" onscroll="loadPictures()"></div>
+  </div>
+
   <div id="feedback"><a href="/feedback">Send feedback</a></div>
+
+<!--
+
 
   <div style="display:none;" id="expanded">
   <button onclick="hideExpanded()">close</button>
   <img id="expanded-image" class="thumb" src="blank.gif" onclick="hideExpanded()" />
   <span id="expanded-desc"></span>
   </div>
+  -->
 
   <script type="text/javascript">
     createSlider();

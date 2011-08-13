@@ -30,8 +30,8 @@ function displayInfoForLatLon(lat_lon, should_display, marker) {
     html += '<div class="description" id="description-' + photo_id + '">Loading&hellip;</div>\n';
     if (i != photo_ids.length - 1) html += '<hr/>'
   }
-  el('info').scrollTop = 0;
-  el('info').innerHTML = html;
+  el('carousel').scrollTop = 0;
+  el('carousel').innerHTML = html;
 
   var zIndex = 0;
   if (selected_marker) {
@@ -68,8 +68,7 @@ function getDescription(photo_ids, should_display) {
             if (!el("description-" + id)) continue;
             el("description-" + id).innerHTML =
               info.title + '<br/>' +
-              info.date + '<br/>' +
-                '<a target="_blank" href="' + info.library_url + '">&rarr; Library</a>';
+              info.date + '<br/>';
             if (!el("thumb-" + id)) continue;
             el("thumb-" + id).innerHTML = 
                 '<a href="javascript:showExpanded(\'' + id + '\')">' +
@@ -150,7 +149,7 @@ function initialize_map() {
 
     if (lat_lon == init_lat_lon) init_marker = marker;
   }
-  el("count").innerHTML = total;
+  setCount(total);
   makeCallback(init_lat_lon, init_marker)();
 }
 
@@ -177,6 +176,16 @@ function updateVisibleMarkers(date1, date2) {
   }
   start_date = date1;
   end_date = date2;
+  setCount(total);
+}
+
+function setCount(total) {
+  total += '';
+  var rgx = /(\d+)(\d{3})/;
+  while (rgx.test(total)) {
+    total = total.replace(rgx, '$1' + ',' + '$2');
+  }
+  
   el("count").innerHTML = total;
 }
 
@@ -187,7 +196,7 @@ function createSlider() {
     min: 1850,
     max: 2000,
     slide: function(event, ui) {
-      el("date_range").innerHTML = ui.values[0] + ' &ndash; ' + ui.values[1];
+      el("date_range").innerHTML = ui.values[0] + '&ndash;' + ui.values[1];
       date1 = ui.values[0];
       date2 = ui.values[1];
       updateVisibleMarkers(new Date(date1 + "/01/01"), new Date(date2 + "/12/31"));
@@ -196,13 +205,22 @@ function createSlider() {
       // TODO(danvk): on slow browsers, the update should actually happen here
     }
   });
+
+  for (var year = 1850; year <= 2000; year += 10) {
+    var pct = (year - 1850) / (2000 - 1850) * 100;
+    var html = '<div class=tick style="left:' + pct + '%;"></div>';
+    if (year % 50 == 0) {
+      html += '<div class=tick_text style="left:' + pct + '%;">' + year + '</div>';
+    }
+    document.getElementById('slider_ticks').innerHTML += html;
+  }
 }
 
 // The thumbnails div has scrolled or changed. Maybe we should load some pictures.
 function loadPictures() {
-  var info = el('info');
-  var imgs = info.getElementsByTagName('img');
-  var bottom_edge = info.scrollTop + info.offsetHeight;
+  var carousel = el('carousel');
+  var imgs = carousel.getElementsByTagName('img');
+  var bottom_edge = carousel.scrollTop + carousel.offsetHeight;
   var padding = 500;
   for (var i = 0; i < imgs.length; i++) {
     if (imgs[i].offsetTop - padding < bottom_edge && imgs[i].src == '') {
