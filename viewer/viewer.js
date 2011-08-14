@@ -31,7 +31,7 @@ function currentState() {
 
   var center = map.getCenter();
   var map_state = center.lat().toFixed(5) + ',' + center.lng().toFixed(5) + ',' + map.getZoom();
-  if (map_state == '37.77493,-122.41942,13') map_state = null;
+  if (map_state == '37.79216,-122.41753,14') map_state = null;
 
   var state = {};
   if (years) state.y = years[0] + '-' + years[1];
@@ -203,9 +203,9 @@ function initialize_map() {
   // Give them something to look at while the map loads:
   init_lat_lon = "37.771393,-122.428618";
 
-  var latlng = new google.maps.LatLng(37.77493, -122.419416);
+  var latlng = new google.maps.LatLng(37.79216, -122.41753);
   var opts = {
-    zoom: 13,
+    zoom: 14,
     center: latlng,
     mapTypeId: google.maps.MapTypeId.ROADMAP,
     streetViewControl: true
@@ -265,7 +265,7 @@ function initialize_map() {
     loadFromHash();
   }
 
-  if (!stateFromHash().hasOwnProperty('id')) {
+  if (!stateFromHash().hasOwnProperty('ll')) {
     setCount(total);
     makeCallback(init_lat_lon, init_marker)();
   }
