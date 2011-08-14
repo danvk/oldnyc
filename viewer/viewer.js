@@ -53,7 +53,9 @@ function updateHash() {
   location.hash = hash;
 }
 
-function loadFromHash() {
+function stateFromHash() {
+  if (!location.hash) return {};
+
   var hash = '' + location.hash;
   var parts = hash.substr(1).split(',');
   var state = {};
@@ -63,7 +65,11 @@ function loadFromHash() {
     if (v.indexOf('|') != -1) v = v.split('|');
     state[kv[0]] = v;
   }
+  return state;
+}
 
+function loadFromHash() {
+  var state = stateFromHash();
   block_update = true;
   if (state.hasOwnProperty('m')) {
     var ll = new google.maps.LatLng(parseFloat(state.m[0]), parseFloat(state.m[1]));
@@ -257,7 +263,9 @@ function initialize_map() {
 
   if (location.hash) {
     loadFromHash();
-  } else {
+  }
+
+  if (!stateFromHash().hasOwnProperty('id')) {
     setCount(total);
     makeCallback(init_lat_lon, init_marker)();
   }
@@ -299,8 +307,13 @@ function setCount(total) {
   el("count").innerHTML = total;
 }
 
-function slide() {
-  var dates = $('#slider').slider('values');
+function slide(event, ui) {
+  var dates = null
+  if (typeof(ui) != 'undefined') {
+    dates = ui.values;
+  } else {
+    dates = $('#slider').slider('values');
+  }
   date1 = dates[0];
   date2 = dates[1];
   el("date_range").innerHTML = date1 + '&ndash;' + date2;
