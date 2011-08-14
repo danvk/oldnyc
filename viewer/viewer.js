@@ -12,6 +12,90 @@ function el(id) {
 
 var selected_marker = null;
 var selected_icon = 0;
+var expanded_photo_id = null;
+
+// There are four bits of state:
+// 1. Selected date range
+// 2. Selected dot
+// 3. Expanded image
+// 4. Map position
+function currentState() {
+  var years = $('#slider').slider('values');
+  if (years[0] == 1850 && years[1] == 2000) years = null;
+  var selected_lat_lon = selected_marker ? selected_marker.title : null;
+  if (selected_lat_lon == init_lat_lon) selected_lat_lon = null;
+  var expanded = null;
+  if (el('expanded').style.display != 'none') {
+    expanded = expanded_photo_id + ',' + el('expanded-image').width;
+  }
+
+  var center = map.getCenter();
+  var map_state = center.lat().toFixed(5) + ',' + center.lng().toFixed(5) + ',' + map.getZoom();
+  if (map_state == '37.77493,-122.41942,13') map_state = null;
+
+  var state = {};
+  if (years) state.y = years[0] + '-' + years[1];
+  if (selected_lat_lon) state.ll = selected_lat_lon;
+  if (expanded) state.e = expanded;
+  if (map_state) state.m = map_state;
+  return state;
+}
+
+var block_update = false;
+function updateHash() {
+  if (block_update) return;
+  var state = currentState();
+  var hash = '';
+  for (var k in state) {
+    if (hash) hash += ',';
+    hash += k + ':' + state[k].replace(/,/g, '|');
+  }
+  location.hash = hash;
+}
+
+function loadFromHash() {
+  var hash = '' + location.hash;
+  var parts = hash.substr(1).split(',');
+  var state = {};
+  for (var i = 0; i < parts.length; i++) {
+    var kv = parts[i].split(':');
+    var v = kv[1];
+    if (v.indexOf('|') != -1) v = v.split('|');
+    state[kv[0]] = v;
+  }
+
+  block_update = true;
+  if (state.hasOwnProperty('m')) {
+    var ll = new google.maps.LatLng(parseFloat(state.m[0]), parseFloat(state.m[1]));
+    var zoom = parseInt(state.m[2]);
+    map.setCenter(ll);
+    map.setZoom(parseInt(zoom));
+  }
+  if (state.hasOwnProperty('y')) {
+    var ys = state.y.split('-');
+    ys = [parseInt(ys[0]), parseInt(ys[1])];
+    $('#slider').slider('values', ys);
+    slide();
+  }
+  if (state.hasOwnProperty('ll')) {
+    var marker = null;
+    for (var i = 0; i < markers.length; i++) {
+      if (markers[i].title == state.ll) {
+        marker = markers[i];
+        break;
+      }
+    }
+    if (marker) {
+      displayInfoForLatLon(state.ll, marker);
+    }
+  }
+  if (state.hasOwnProperty('e')) {
+    var id = state.e[0];
+    var w = parseInt(state.e[1]);
+    showExpanded(id, w);
+  }
+  block_update = false;
+}
 
 // Intended to be used as an img.onLoad handler.
 function createSpinnerKiller(id) {
@@ -20,7 +104,7 @@ function createSpinnerKiller(id) {
   }
 }
 
-function displayInfoForLatLon(lat_lon, should_display, marker) {
+function displayInfoForLatLon(lat_lon, marker) {
   var recs = lat_lons[lat_lon];
   var photo_ids = [];
   for (var i = 0; i < recs.length; i++) {
@@ -57,17 +141,18 @@ function displayInfoForLatLon(lat_lon, should_display, marker) {
   marker.setIcon(selected_marker_icons[photo_ids.length > 100 ? 100 : photo_ids.length]);
   marker.setZIndex(100000 + zIndex);
 
-  getDescription(photo_ids, should_display);
+  getDescription(photo_ids);
   loadPictures();
+  updateHash();
 }
 
 function makeCallback(lat_lon, marker) {
   return function(e) {
-    displayInfoForLatLon(lat_lon, true, marker);
+    displayInfoForLatLon(lat_lon, marker);
   };
 }
 
-function getDescription(photo_ids, should_display) {
+function getDescription(photo_ids) {
   var req = new XMLHttpRequest();
   var caller = this;
   req.onreadystatechange = function () {
@@ -75,18 +160,22 @@ function getDescription(photo_ids, should_display) {
       if (req.status == 200 ||  // Normal http
           req.status == 0) {    // Chrome w/ --allow-file-access-from-files
         var info_map = eval('(' + req.responseText + ')');
-        if (should_display) {
-          for (var i = 0; i < photo_ids.length; i++) {
-            var id = photo_ids[i];
-            var info = info_map[id];
-            if (!el("description-" + id)) continue;
-            el("description-" + id).innerHTML =
-              info.title + '<br/>' +
-              info.date + '<br/>';
+
+        for (var i = 0; i < photo_ids.length; i++) {
+          var id = photo_ids[i];
+          var info = info_map[id];
+          var html = info.title + '<br/>' + info.date;
+
+          if (el("description-" + id)) {
+            el("description-" + id).innerHTML = html;
             if (!el("thumb-" + id)) continue;
             el("thumb-" + id).innerHTML = 
                 '<a href="javascript:showExpanded(\'' + id + '\')">' +
                 el("thumb-" + id).innerHTML + '</a>';
+          }
+
+          if (el("expanded-desc-" + id)) {
+            el("expanded-desc-" + id).innerHTML = html;
           }
         }
       }
@@ -116,6 +205,8 @@ function initialize_map() {
     streetViewControl: true
   };
   map = new google.maps.Map(el("map"), opts);
+  //google.maps.event.addListener(map, 'center_changed', updateHash);
+  //google.maps.event.addListener(map, 'zoom_changed', updateHash);
 
   // Create markers for each number.
   marker_icons.push(null);  // it's easier to be 1-based.
@@ -163,8 +254,13 @@ function initialize_map() {
 
     if (lat_lon == init_lat_lon) init_marker = marker;
   }
-  setCount(total);
-  makeCallback(init_lat_lon, init_marker)();
+
+  if (location.hash) {
+    loadFromHash();
+  } else {
+    setCount(total);
+    makeCallback(init_lat_lon, init_marker)();
+  }
 }
 
 function updateVisibleMarkers(date1, date2) {
@@ -203,20 +299,24 @@ function setCount(total) {
   el("count").innerHTML = total;
 }
 
+function slide() {
+  var dates = $('#slider').slider('values');
+  date1 = dates[0];
+  date2 = dates[1];
+  el("date_range").innerHTML = date1 + '&ndash;' + date2;
+  updateVisibleMarkers(new Date(date1 + "/01/01"), new Date(date2 + "/12/31"));
+}
+
 function createSlider() {
   $('#slider').slider({
     range: true,
     values: [1850, 2000],
     min: 1850,
     max: 2000,
-    slide: function(event, ui) {
-      el("date_range").innerHTML = ui.values[0] + '&ndash;' + ui.values[1];
-      date1 = ui.values[0];
-      date2 = ui.values[1];
-      updateVisibleMarkers(new Date(date1 + "/01/01"), new Date(date2 + "/12/31"));
-    },
+    slide: slide,
     change: function(event, ui) {
       // TODO(danvk): on slow browsers, the update should actually happen here
+      updateHash();
     }
   });
 
@@ -243,13 +343,16 @@ function loadPictures() {
   }
 }
 
-function showExpanded(id) {
+function showExpanded(id, img_width) {
   // There should be a way to center the div that's less hacky.
   var expanded = el('expanded');
   expanded.style.display = 'none';
   var map = el('map');
-  var img = el('thumb-' + id).getElementsByTagName('img')[0];
-  var div_width = 10 + 400.0 / img.height * img.width;
+  if (typeof(img_width) == 'undefined') {
+    var thumb_img = el('thumb-' + id).getElementsByTagName('img')[0];
+    img_width = 400.0 / thumb_img.height * thumb_img.width;
+  }
+  var div_width = img_width + 10;
   var div_height = 80 + 400;
 
   expanded.style.left = map.offsetLeft + map.offsetWidth / 2 - div_width / 2 + 'px';
@@ -260,7 +363,7 @@ function showExpanded(id) {
   var img = document.createElement('img');
   img.className = 'thumb';  // makes the spinner appear
   img.src = 'http://webbie1.sfpl.org/multimedia/sfphotos/' + id + '.jpg';
-  img.width = div_width;
+  img.width = img_width;
   img.height = 400;
   img.id = 'expanded-image';
   el('expanded-image-holder').innerHTML = '';
@@ -270,11 +373,19 @@ function showExpanded(id) {
   img.onload = createSpinnerKiller(img.id);
   img_obj.src = img.src;
 
-  el('expanded-desc').innerHTML = el('description-' + id).innerHTML;
+  var desc = document.createElement('span');
+  desc.id = 'expanded-desc-' + id;
+  desc.innerHTML = el('description-' + id).innerHTML;
+  el('expanded-image-holder').appendChild(desc);
+
   expanded.style.display = '';
+  expanded_photo_id = id;
   // TODO(danvk): add in library URL here.
+
+  updateHash();
 }
 
 function hideExpanded() {
   el('expanded').style.display = 'none';
+  updateHash();
 }
