@@ -284,6 +284,9 @@ function updateVisibleMarkers(date1, date2) {
       total += count;
       if (!vis) marker.setVisible(true);
       var new_icon = marker_icons[count > 100 ? 100 : count];
+      if (marker == selected_marker) {
+        new_icon = selected_marker_icons[count > 100 ? 100 : count];
+      }
       if (icon != new_icon) marker.setIcon(new_icon);
     }
   }
