@@ -13,6 +13,13 @@ function el(id) {
 var selected_marker = null;
 var selected_icon = 0;
 
+// Intended to be used as an img.onLoad handler.
+function createSpinnerKiller(id) {
+  return function() {
+    el(id).style.backgroundImage = 'none';
+  }
+}
+
 function displayInfoForLatLon(lat_lon, should_display, marker) {
   var recs = lat_lons[lat_lon];
   var photo_ids = [];
@@ -25,9 +32,16 @@ function displayInfoForLatLon(lat_lon, should_display, marker) {
   var html = '';
   for (var i = 0; i < photo_ids.length; i++) {
     var photo_id = photo_ids[i];
+    var thumb_id = 'thumb-' + photo_id;
     var img_path = 'http://sf-viewer.appspot.com/thumb/' + photo_id + '.jpg';
-    html += '<div id="thumb-' + photo_id + '" class="thumb"><img border=0 path="' + img_path + '" /></div>\n';
-    html += '<div class="description" id="description-' + photo_id + '">Loading&hellip;</div>\n';
+    var img = new Image();
+    img.onload = createSpinnerKiller(thumb_id);
+    img.src = img_path;
+
+    html += '<div id="' + thumb_id + '" class="thumb">';
+    html += '<img border=0 path="' + img_path + '" /></div>\n';
+    html += '<div class="description" id="description-' + photo_id + '">';
+    html += 'Loading&hellip;</div>\n';
     if (i != photo_ids.length - 1) html += '<hr/>'
   }
   el('carousel').scrollTop = 0;
@@ -243,8 +257,19 @@ function showExpanded(id) {
   expanded.style.width = div_width + 'px';
   expanded.style.minHeight = div_height + 'px';
 
-  el('expanded-image').style.width = div_width + 'px';
-  el('expanded-image').src = 'http://webbie1.sfpl.org/multimedia/sfphotos/' + id + '.jpg';
+  var img = document.createElement('img');
+  img.className = 'thumb';  // makes the spinner appear
+  img.src = 'http://webbie1.sfpl.org/multimedia/sfphotos/' + id + '.jpg';
+  img.width = div_width;
+  img.height = 400;
+  img.id = 'expanded-image';
+  el('expanded-image-holder').innerHTML = '';
+  el('expanded-image-holder').appendChild(img);
+
+  var img_obj = new Image();
+  img.onload = createSpinnerKiller(img.id);
+  img_obj.src = img.src;
+
   el('expanded-desc').innerHTML = el('description-' + id).innerHTML;
   expanded.style.display = '';
   // TODO(danvk): add in library URL here.
