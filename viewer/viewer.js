@@ -3,8 +3,8 @@ var marker_icons = [];
 var selected_marker_icons = [];
 var marker_dates = [];
 var map;
-var start_date = new Date("1850/01/01");
-var end_date = new Date("2000/01/01");
+var start_date = 1850;
+var end_date = 2000;
 
 function el(id) {
   return document.getElementById(id);
@@ -251,12 +251,7 @@ function initialize_map() {
     google.maps.event.addListener(marker, 'click', makeCallback(ll, marker));
     // google.maps.event.addListener(marker, 'mouseover', makePreloadCallback(ll));
 
-    // TODO(danvk): use timestamps?
-    for (var i = 0; i < recs.length; i++) {
-      recs[i][0] = new Date(recs[i][0] + '/01/01');
-      recs[i][1] = new Date(recs[i][1] + '/12/31');
-      total += 1;
-    }
+    total += recs.length;
 
     if (lat_lon == init_lat_lon) init_marker = marker;
   }
@@ -314,10 +309,10 @@ function slide(event, ui) {
   } else {
     dates = $('#slider').slider('values');
   }
-  date1 = dates[0];
-  date2 = dates[1];
+  var date1 = dates[0];
+  var date2 = dates[1];
   el("date_range").innerHTML = date1 + '&ndash;' + date2;
-  updateVisibleMarkers(new Date(date1 + "/01/01"), new Date(date2 + "/12/31"));
+  updateVisibleMarkers(date1, date2);
 }
 
 function createSlider() {
