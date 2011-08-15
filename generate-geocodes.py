@@ -74,7 +74,7 @@ if __name__ == '__main__':
   if options.ids_filter:
     ids = set(options.ids_filter.split(','))
     rs = [r for r in rs if r.photo_id() in ids]
-    
+
   stats = defaultdict(int)
   located_recs = []  # array of (record, coder name, locatable) tuples
   for r in rs:
@@ -121,3 +121,5 @@ if __name__ == '__main__':
     generate_js.printRecordsJson(located_recs)
   elif options.output_format == 'entries.txt':
     generate_js.printRecordsText(located_recs)
+  elif options.output_format == 'locations.txt':
+    generate_js.printLocations(located_recs)

@@ -23,7 +23,7 @@ def printJson(located_recs):
     lat_lon = locatable.getLatLon()
     assert lat_lon
     lat, lon = lat_lon
-    ll_to_id['%f,%f' % (lat, lon)].append(r)
+    ll_to_id['%.6f,%.6f' % (lat, lon)].append(r)
 
   no_date = 0
   points = 0
@@ -100,3 +100,14 @@ def printRecordsText(located_recs):
       loc = 'n/a\tn/a'
 
     print '\t'.join([r.photo_id(), date, folder, title, r.preferred_url, coder or 'failed', loc])
+
+
+def printLocations(located_recs):
+  locs = defaultdict(int)
+  for r, coder, locatable in located_recs:
+    if not locatable: continue
+    lat, lon = locatable.getLatLon()
+    locs['%.6f,%.6f' % (lat, lon)] += 1
+
+  for ll, count in locs.iteritems():
+    print '%d\t%s' % (count, ll)
