@@ -119,7 +119,8 @@ function displayInfoForLatLon(lat_lon, marker) {
     }
   }
 
-  var html = '';
+  // var html = '';
+  var html = '<p>' + lat_lon + '</p>';
   for (var i = 0; i < photo_ids.length; i++) {
     var photo_id = photo_ids[i];
     var thumb_id = 'thumb-' + photo_id;

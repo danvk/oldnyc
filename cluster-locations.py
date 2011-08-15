@@ -25,7 +25,7 @@ for line in fileinput.input():
 def UrlForIndex(idx):
   global lat_lons
   lat, lon = lat_lons[idx]
-  return 'http://oldsf.org/#ll:%.6f|%.6f,m:%.5f|%.5f|19' % (lat, lon, lat, lon)
+  return 'http://localhost:8080/#ll:%.6f|%.6f,m:%.5f|%.5f|19' % (lat, lon, lat, lon)
 
 
 def dist(a, b):
@@ -46,7 +46,13 @@ for i in range(0, len(lat_lons)):
     neighbors.append((-d, j))
   neighbors.sort()
 
-  nns.append([(-x[0], x[1]) for x in neighbors[:10]])
+  nns.append([(-x[0], x[1]) for x in neighbors])
+
+  # if i == 1328:
+  #   print UrlForIndex(i)
+  #   for d, j in nns[i]:
+  #     print '%.3f %s' % (d, UrlForIndex(j))
+      
 
 # we hope there aren't any really degenerate cases
 cluster_map = {}    # idx -> cluster representative idx
@@ -61,6 +67,7 @@ for i, buds in enumerate(nns):
         old_idx = cluster_map[j]
         for idx, rep in cluster_map.iteritems():
           if rep == old_idx: cluster_map[idx] = cluster_idx
+        cluster_map[old_idx] = cluster_idx
         # this is pathological behavior; we artificially break the cluster
         #a = j
         #b = cluster_map[j]
