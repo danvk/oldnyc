@@ -133,6 +133,7 @@ function displayInfoForLatLon(lat_lon, marker) {
     html += '<img border=0 path="' + img_path + '" /></div>\n';
     html += '<div class="description" id="description-' + photo_id + '">';
     html += 'Loading&hellip;</div>\n';
+    html += '<div style="display:none" id="library_url-' + photo_id + '">';
     if (i != photo_ids.length - 1) html += '<hr/>'
   }
   el('carousel').scrollTop = 0;
@@ -181,8 +182,17 @@ function getDescription(photo_ids) {
                 el("thumb-" + id).innerHTML + '</a>';
           }
 
+          var library_html =
+              '<a target=_blank href="' + info.library_url + '">&rarr; Library</a>';
+          if (el("library_url-" + id)) {
+            el("library_url-" + id).innerHTML = library_html;
+          }
+
           if (el("expanded-desc-" + id)) {
             el("expanded-desc-" + id).innerHTML = html;
+          }
+          if (el("expanded-library_url-" + id)) {
+            el("expanded-library_url-" + id).innerHTML = library_html;
           }
         }
       }
@@ -390,6 +400,11 @@ function showExpanded(id, img_width) {
   desc.innerHTML = el('description-' + id).innerHTML;
   el('expanded-image-holder').appendChild(desc);
 
+  var library_link = document.createElement('div');
+  library_link.id = 'expanded-library_url-' + id;
+  library_link.innerHTML = el('library_url-' + id).innerHTML;
+  el('expanded-image-holder').appendChild(library_link);
+
   expanded.style.display = '';
   expanded_photo_id = id;
   // TODO(danvk): add in library URL here.
@@ -401,3 +416,9 @@ function hideExpanded() {
   el('expanded').style.display = 'none';
   updateHash();
 }
+
+// This enables pasting hashed URLs
+$(window).hashchange(function(){
+  if (block_update) return;
+  loadFromHash();
+});
