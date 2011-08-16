@@ -49,6 +49,9 @@ if __name__ == '__main__':
                     action="store_true", help="Create pickle cache")
   parser.add_option("", "--ids_filter", default="", dest="ids_filter",
                     help="Comma-separated list of Photo IDs to consider.")
+  parser.add_option("", "--lat_lon_map", default="", dest="lat_lon_map",
+                    help="Lat/lon cluster map, built by cluster-locations.py. "
+                    "Only used when outputting lat-lons.js")
 
   (options, args) = parser.parse_args()
 
@@ -69,6 +72,14 @@ if __name__ == '__main__':
     if coder.name() in cache_coders:
       geocoders[idx] = coders.cached_coder.CachedCoder(coder.name())
   cache = defaultdict(list)
+
+  lat_lon_map = {}
+  if options.lat_lon_map:
+    for line in file(options.lat_lon_map):
+      line = line.strip()
+      if not line: continue
+      old, new = line.split('->')
+      lat_lon_map[old] = new
 
   rs = record.AllRecords()
   if options.ids_filter:
@@ -116,7 +127,7 @@ if __name__ == '__main__':
   sys.stderr.write('%5d (total)\n' % successes)
 
   if options.output_format == 'lat-lons.js':
-    generate_js.printJson(located_recs)
+    generate_js.printJson(located_recs, lat_lon_map)
   elif options.output_format == 'records.js':
     generate_js.printRecordsJson(located_recs)
   elif options.output_format == 'entries.txt':

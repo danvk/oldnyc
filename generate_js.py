@@ -10,11 +10,12 @@ from collections import defaultdict
 from json import encoder
 encoder.FLOAT_REPR = lambda o: format(o, '.5f')
 
-def printJson(located_recs):
+def printJson(located_recs, lat_lon_map):
   # "lat,lon" -> list of photo_ids
   ll_to_id = defaultdict(list)
 
   codes = []
+  claimed_in_map = {}
 
   for r, coder, locatable in located_recs:
     if not locatable: continue
@@ -23,7 +24,13 @@ def printJson(located_recs):
     lat_lon = locatable.getLatLon()
     assert lat_lon
     lat, lon = lat_lon
-    ll_to_id['%.6f,%.6f' % (lat, lon)].append(r)
+    ll_str = '%.6f,%.6f' % (lat, lon)
+    if lat_lon_map and ll_str in lat_lon_map:
+      claimed_in_map[ll_str] = True
+      ll_str = lat_lon_map[ll_str]
+    ll_to_id[ll_str].append(r)
+
+  assert len(claimed_in_map) == len(lat_lon_map)
 
   no_date = 0
   points = 0

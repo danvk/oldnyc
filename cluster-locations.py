@@ -5,20 +5,48 @@ Reads in locations.txt (produced by generate-geocodes.py with
 number of unique map markers and makes it easier to find things.
 
 Output is an exhaustive mapping of "old_lat,old_lon\tnew_lat,new_lon" pairs.
+
+TODO:
+- remove large catcodes from consideration
+- break up clusters which have grown too large
+- look over pre-built eval pairs
+- implement this as a hook for lat-lons.js
+- look at before/after
 """
+
 from collections import defaultdict
 import fileinput
 
-# (lat, lon) -> count
-counts = {}
+output_mode = 'map'  # 'urls'
+
+catcodes = {}
+for line in file('cat-codes.txt'):
+  line = line.strip()
+  if not line: continue
+  lat_lon = line.split(':')[0].split(',')
+  assert len(lat_lon) == 2, line
+  lat = float(lat_lon[0])
+  lon = float(lat_lon[1])
+  catcodes['%.6f,%.6f' % (lat, lon)] = True
+
+counts = []
 lat_lons = []
+orig_points = 0
 for line in fileinput.input():
   line = line.strip()
   if not line: continue
+  orig_points += 1
   count, ll = line.split('\t')
   lat, lon = [float(x) for x in ll.split(',')]
+  count = int(count)
 
-  counts[(lat, lon)] = count
+  # 188 clusters, 451/2378 points
+  # ignore large catcodes -- these should be left unaltered
+  key = '%.6f,%.6f' % (lat, lon)
+  if key in catcodes and count >= 10:
+    continue
+
+  counts.append(count)
   lat_lons.append((lat, lon))
 
 
@@ -32,6 +60,20 @@ def dist(a, b):
   d1 = a[0] - b[0]
   d2 = a[1] - b[1]
   return 1.0e8 * (d1*d1 + d2*d2)
+
+
+def centroidForIndices(idxs):
+  global lat_lons, counts
+  lat_sum = 0
+  lon_sum = 0
+  total = 0
+  for i in idxs:
+    ll = lat_lons[i]
+    lat_sum += ll[0] * counts[i]
+    lon_sum += ll[1] * counts[i]
+    total += counts[i]
+
+  return (lat_sum / total, lon_sum / total)
 
 
 # calculate all-pairs distances
@@ -48,11 +90,6 @@ for i in range(0, len(lat_lons)):
 
   nns.append([(-x[0], x[1]) for x in neighbors])
 
-  # if i == 1328:
-  #   print UrlForIndex(i)
-  #   for d, j in nns[i]:
-  #     print '%.3f %s' % (d, UrlForIndex(j))
-      
 
 # we hope there aren't any really degenerate cases
 cluster_map = {}    # idx -> cluster representative idx
@@ -89,9 +126,22 @@ for i, rep in cluster_map.iteritems():
   clusters[rep].append(i)
 
 
-for base, members in clusters.iteritems():
-  if not members: continue
-  print '(%d)' % len(members)
-  for i in members:
-    print '  %s' % UrlForIndex(i)
-  print ''
+if output_mode == 'map':
+  for base, members in clusters.iteritems():
+    ll = centroidForIndices(members)
+    for i in members:
+      b = lat_lons[i]
+      print '%.6f,%.6f->%.6f,%.6f' % (b[0], b[1], ll[0], ll[1])
+
+
+if output_mode == 'urls':
+  num_points = 0
+  for base, members in clusters.iteritems():
+    if not members: continue
+    print '(%d)' % len(members)
+    for i in members:
+      print '  %s' % UrlForIndex(i)
+    print ''
+    num_points += len(members)
+
+  print '%d clusters, %d/%d points' % (len(clusters), num_points, orig_points)
