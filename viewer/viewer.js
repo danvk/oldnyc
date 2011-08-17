@@ -127,7 +127,8 @@ function displayInfoForLatLon(lat_lon, marker) {
   for (var i = 0; i < photo_ids.length; i++) {
     var photo_id = photo_ids[i];
     var thumb_id = 'thumb-' + photo_id;
-    var img_path = 'http://sf-viewer.appspot.com/thumb/' + photo_id + '.jpg';
+    //var img_path = 'http://sf-viewer.appspot.com/thumb/' + photo_id + '.jpg';
+    var img_path = 'http://s3-us-west-1.amazonaws.com/oldsf/thumb/' + photo_id + '.jpg';
     var img = new Image();
     img.onload = createSpinnerKiller(thumb_id);
     img.src = img_path;

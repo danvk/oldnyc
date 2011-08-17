@@ -49,36 +49,6 @@ def GetImageRecords(photo_ids):
   return record_map
 
 
-def GetThumbnailRecord(photo_id):
-  """Queries the Thumbnail db, w/ memcaching"""
-  key = "TN" + photo_id
-  r = memcache.get(key)
-  if r: return r
-  r = ThumbnailRecord.get_by_key_name(photo_id)
-  memcache.add(key, r)
-  return r
-
-
-class UploadThumbnailHandler(webapp.RequestHandler):
-  def get(self):
-    # print out a list of photo_ids that we already have.
-    self.response.headers['Content-Type'] = 'text/plain'
-    query = db.Query(ThumbnailRecord, keys_only=True)
-    for thumb in query:
-      self.response.out.write(thumb.name() + "\n")
-
-
-  def post(self):
-    num = 0
-    while self.request.get('photo_id%d' % num):
-      photo_id = self.request.get('photo_id%d' % num)
-      image = self.request.get('image%d' % num)
-      rec = ThumbnailRecord(key_name=photo_id, image=image)
-      rec.put()
-      num += 1
-
-    self.response.out.write('Loaded %d thumbnails' % num)
-
 
 class RecordFetcher(webapp.RequestHandler):
   def post(self):
@@ -117,28 +87,58 @@ class RecordFetcher(webapp.RequestHandler):
     self.response.out.write(json.dumps(response))
 
 
-class ThumbnailFetcher(webapp.RequestHandler):
-  def get(self):
-    """URL is something like /thumb/AAA-1234.jpg"""
-    basename = os.path.basename(self.request.path)
-    name = basename.split('.')[0]
-    thumb = GetThumbnailRecord(name)
-    if not thumb:
-      self.response.set_status(404)
-      self.response.out.write("Couldn't find image %s" % name)
-      return
+#def GetThumbnailRecord(photo_id):
+#  """Queries the Thumbnail db, w/ memcaching"""
+#  key = "TN" + photo_id
+#  r = memcache.get(key)
+#  if r: return r
+#  r = ThumbnailRecord.get_by_key_name(photo_id)
+#  memcache.add(key, r)
+#  return r
+#
+#
+#class UploadThumbnailHandler(webapp.RequestHandler):
+#  def get(self):
+#    # print out a list of photo_ids that we already have.
+#    self.response.headers['Content-Type'] = 'text/plain'
+#    query = db.Query(ThumbnailRecord, keys_only=True)
+#    for thumb in query:
+#      self.response.out.write(thumb.name() + "\n")
+#
+#
+#  def post(self):
+#    num = 0
+#    while self.request.get('photo_id%d' % num):
+#      photo_id = self.request.get('photo_id%d' % num)
+#      image = self.request.get('image%d' % num)
+#      rec = ThumbnailRecord(key_name=photo_id, image=image)
+#      rec.put()
+#      num += 1
+#
+#    self.response.out.write('Loaded %d thumbnails' % num)
 
-    self.response.headers.add_header('Expires', 'Sun, 17-Jan-2038 19:14:07')
-    self.response.headers['Content-type'] = 'image/jpeg'
-    self.response.out.write(thumb.image)
+#class ThumbnailFetcher(webapp.RequestHandler):
+#  def get(self):
+#    """URL is something like /thumb/AAA-1234.jpg"""
+#    basename = os.path.basename(self.request.path)
+#    name = basename.split('.')[0]
+#    thumb = GetThumbnailRecord(name)
+#    if not thumb:
+#      self.response.set_status(404)
+#      self.response.out.write("Couldn't find image %s" % name)
+#      return
+#
+#    self.response.headers.add_header('Expires', 'Sun, 17-Jan-2038 19:14:07')
+#    self.response.headers['Content-type'] = 'image/jpeg'
+#    self.response.out.write(thumb.image)
 
 
 
 application = webapp.WSGIApplication(
                                      [
                                       ('/info', RecordFetcher),
-                                      ('/upload', UploadThumbnailHandler),
-                                      ('/thumb.*', ThumbnailFetcher),
+                                      #('/upload', UploadThumbnailHandler),
+                                      #('/thumb.*', ThumbnailFetcher),
                                      ],
                                      debug=True)
 
