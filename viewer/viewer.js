@@ -41,7 +41,8 @@ function currentState() {
   return state;
 }
 
-var block_update = false;
+var block_update = false;  // used when loading from a hash
+var current_hash = null;
 function updateHash() {
   if (block_update) return;
   var state = currentState();
@@ -50,6 +51,7 @@ function updateHash() {
     if (hash) hash += ',';
     hash += k + ':' + state[k].replace(/,/g, '|');
   }
+  current_hash = hash;
   location.hash = hash;
 }
 
@@ -106,7 +108,8 @@ function loadFromHash() {
 // Intended to be used as an img.onLoad handler.
 function createSpinnerKiller(id) {
   return function() {
-    el(id).style.backgroundImage = 'none';
+    var e = el(id);
+    if (e) el(id).style.backgroundImage = 'none';
   }
 }
 
@@ -133,7 +136,7 @@ function displayInfoForLatLon(lat_lon, marker) {
     html += '<img border=0 path="' + img_path + '" /></div>\n';
     html += '<div class="description" id="description-' + photo_id + '">';
     html += 'Loading&hellip;</div>\n';
-    html += '<div style="display:none" id="library_url-' + photo_id + '">';
+    html += '<div style="display:none" id="library_url-' + photo_id + '"></div>';
     if (i != photo_ids.length - 1) html += '<hr/>'
   }
   el('carousel').scrollTop = 0;
@@ -419,6 +422,6 @@ function hideExpanded() {
 
 // This enables pasting hashed URLs
 $(window).hashchange(function(){
-  if (block_update) return;
+  if (current_hash == location.hash.substr(1)) return;
   loadFromHash();
 });

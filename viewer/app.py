@@ -26,7 +26,13 @@ class ThumbnailRecord(db.Model):
 
 def GetImageRecords(photo_ids):
   """Queries the ImageRecord db, w/ memcaching. Returns photo_id -> rec dict"""
+  # check if we've got the whole thing in memcache
+  multi_key = 'MIR' + ','.join(photo_ids)
+  recs = memcache.get(multi_key)
+  if recs: return recs
+
   keys = ["IR" + photo_id for photo_id in photo_ids]
+
   record_map = memcache.get_multi(keys, key_prefix='IR')
   missing_ids = list(set(photo_ids) - set(record_map.keys()))
   if not missing_ids: return record_map
@@ -37,7 +43,9 @@ def GetImageRecords(photo_ids):
     record_map[id] = r
     memcache_map["IR" + id] = r
 
-  if memcache_map: memcache.add_multi(memcache_map)
+  if memcache_map:
+    memcache.add_multi(memcache_map)
+    memcache.add(multi_key, record_map)
   return record_map
 
 
@@ -79,7 +87,6 @@ class RecordFetcher(webapp.RequestHandler):
   def get(self):
     """Responds to AJAX requests for record information."""
     photo_ids = self.request.get_all("id")
-    logging.info('info for %d photos' % len(photo_ids));
     default_response = {
       'title': 'Proposed Alemany Blvd. West from Mission St. viaduct, 2-18-26',
       'date': '1926 Feb. 18',

@@ -8,7 +8,17 @@ import sys
 from collections import defaultdict
 
 from json import encoder
-encoder.FLOAT_REPR = lambda o: format(o, '.5f')
+encoder.FLOAT_REPR = lambda o: format(o, '.6f')
+
+def loadBlacklist():
+  bl = set()
+  for line in file('blacklist.lat-lons.js'):
+    line = line.strip()
+    if not line: continue
+    if line[0] == '#': continue
+    bl.add(line)
+  return bl
+
 
 def printJson(located_recs, lat_lon_map):
   # "lat,lon" -> list of photo_ids
@@ -16,6 +26,9 @@ def printJson(located_recs, lat_lon_map):
 
   codes = []
   claimed_in_map = {}
+
+  # load a blacklist as a side input
+  blacklist = loadBlacklist()
 
   for r, coder, locatable in located_recs:
     if not locatable: continue
@@ -28,6 +41,7 @@ def printJson(located_recs, lat_lon_map):
     if lat_lon_map and ll_str in lat_lon_map:
       claimed_in_map[ll_str] = True
       ll_str = lat_lon_map[ll_str]
+    if ll_str in blacklist: continue
     ll_to_id[ll_str].append(r)
 
   assert len(claimed_in_map) == len(lat_lon_map)

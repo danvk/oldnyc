@@ -1,0 +1,25 @@
+#!/bin/bash
+
+color='#26264A'
+text_color=white
+border_color=white
+
+convert -size 9x9 xc:none -fill $color -stroke $border_color -draw 'circle 4,4 7,7' -stroke none -fill black dots/1.png
+
+for x in $(seq 2 9); do
+  convert -size 13x13 xc:none -fill $color -stroke $border_color -draw 'circle 6,6 10,10' -stroke none -fill $text_color -pointsize 10 -gravity center -draw "text 1,0 '$x'" dots/$x.png
+done
+
+for x in $(seq 10 19); do
+  convert -size 25x25 xc:none -fill $color -stroke $border_color -draw 'circle 12,12 20,20' -stroke none -fill $text_color -pointsize 16 -gravity center -draw "text 0,1 '$x'" dots/$x.png
+done
+
+for x in $(seq 20 99); do
+  convert -size 25x25 xc:none -fill $color -stroke $border_color -draw 'circle 12,12 20,20' -stroke none -fill $text_color -pointsize 16 -gravity center -draw "text 1,1 '$x'" dots/$x.png
+done
+
+convert -size 39x39 xc:none -fill $color -stroke $border_color -draw 'circle 19,19 32,32' -stroke none -fill $text_color -pointsize 16 -gravity center -draw "text 1,1 '100+'" dots/100.png
+
+montage $(ls dots/?.png dots/??.png dots/???.png | sort -t/ -k2 -n | xargs) -background transparent -gravity NorthWest -geometry '39x39>+0+0' -tile 10x dots/selected-sprite.png
+
+rm dots/?.png dots/??.png dots/???.png
