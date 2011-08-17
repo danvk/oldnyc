@@ -21,6 +21,7 @@
 37.7873203335,-122.40686215 : S.F. Businesses / City of Paris
 37.8153531077,-122.478295852 : S.F. Bridges / Golden Gate / Construction
 37.8068246166,-122.420893746 : S.F. Parks /  / Aquatic 
+37.8068246166,-122.420893746 : S.F. Parks / Aquatic 
 37.7699575712,-122.468544681 : S.F. Parks / Golden Gate / Music Concourse
 37.7785296096,-122.514011648 : S.F. Districts / Ocean Beach / Cliff House
 37.7670118,-122.408553 : S.F. Baseball / Seals (See Also: S.F. Stadiums / Seals)
@@ -65,6 +66,8 @@
 37.8023686,-122.4058194 : S.F. Districts / Telegraph Hill / Coit Tower
 37.7276095,-122.3702611 : S.F. Districts / Hunters Point / Shipyards
 37.784282751,-122.425375476 : S.F. Churches / Catholic / St. Mary's Cathedral (Old)
+37.78544,-122.424689 : S.F. Parks / St. Mary's Square
+37.78544,-122.424689 : S.F. Parks / St. Mary's
 37.7688327,-122.4730835 : S.F. Parks / Golden Gate / Lakes / Stow
 37.7785405,-122.4205266 : S.F. Opera House
 37.7791191594,-122.415832569 : S.F. Libraries / SFPL / Main
@@ -96,4 +99,17 @@
 37.781358,-122.417997 : S.F. Federal Building (New)
 37.7845087, -122.4073936 : S.F. Parks / Hallidie Plaza
 37.800239,-122.410834 : S.F. Parks / Washington Square
-
+37.736058,-122.478539 : S.F. Parks / Stern Grove
+37.788037,-122.471138 : S.F. Parks / Mountain Lake
+37.768373,-122.44111 : S.F. Parks / Buena Vista
+37.781604,-122.393899 : S.F. Parks / South Park
+37.806631,-122.439117 : S.F. Parks / Marina Green
+37.783607,-122.501912 : S.F. Parks / Lincoln
+37.777857,-122.406436 : S.F. Parks / Columbia Square
+37.769544,-122.433121 : S.F. Parks / Duboce Park
+37.779397,-122.413973 : S.F. Parks / United Nations Plaza
+37.790833,-122.4 : S.F. Parks / Zellerbach Plaza
+37.79155,-122.427626 : S.F. Parks / Lafayette Square
+37.795391,-122.39918 : S.F. Parks / Maritime Plaza
+37.791172,-122.437676 : S.F. Parks /  / Alta Plaza
+37.743011,-122.414861 : S.F. Parks / Bernal Park
