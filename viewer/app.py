@@ -87,6 +87,18 @@ class RecordFetcher(webapp.RequestHandler):
     self.response.out.write(json.dumps(response))
 
 
+class AddEgg(webapp.RequestHandler):
+  def get(self):
+    image = ImageRecord(key_name="egg")
+    image.photo_id = 'egg'
+    image.title = 'Old S.F. developers with their handywork'
+    image.date = 'August 17, 2011'
+    image.folder = 'The New York Collection'
+    image.library_url = 'http://danvk.org/'
+    image.put()
+
+
+
 #def GetThumbnailRecord(photo_id):
 #  """Queries the Thumbnail db, w/ memcaching"""
 #  key = "TN" + photo_id
@@ -139,6 +151,7 @@ application = webapp.WSGIApplication(
                                       ('/info', RecordFetcher),
                                       #('/upload', UploadThumbnailHandler),
                                       #('/thumb.*', ThumbnailFetcher),
+                                      ('/addegg', AddEgg),
                                      ],
                                      debug=True)
 

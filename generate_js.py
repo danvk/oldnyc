@@ -70,6 +70,8 @@ def printJson(located_recs, lat_lon_map):
       photos += len(out_recs)
       print '"%s": [%s],' % (lat_lon, ','.join(out_recs))
 
+
+  print '"40.719595,-73.964204": [[1850,2000,"egg"]]'
   print "};"
 
   sys.stderr.write('Dropped w/ no date: %d\n' % no_date)
