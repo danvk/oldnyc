@@ -138,7 +138,11 @@ function displayInfoForLatLon(lat_lon, marker) {
     html += '<div class="description" id="description-' + photo_id + '">';
     html += 'Loading&hellip;</div>\n';
     html += '<div style="display:none" id="library_url-' + photo_id + '"></div>';
-    if (i != photo_ids.length - 1) html += '<hr/>'
+    if (i != photo_ids.length - 1) {
+      html += '<hr/>'
+    } else {
+      html += '<br/>'
+    }
   }
   el('carousel').scrollTop = 0;
   el('carousel').innerHTML = html;
@@ -388,7 +392,7 @@ function showExpanded(id, img_width) {
 
   var img = document.createElement('img');
   img.className = 'thumb';  // makes the spinner appear
-  img.src = 'http://webbie1.sfpl.org/multimedia/sfphotos/' + id + '.jpg';
+  img.src = 'http://s3-us-west-1.amazonaws.com/oldsf/images/' + id + '.jpg';
   img.width = img_width;
   img.height = 400;
   img.id = 'expanded-image';
@@ -411,7 +415,6 @@ function showExpanded(id, img_width) {
 
   expanded.style.display = '';
   expanded_photo_id = id;
-  // TODO(danvk): add in library URL here.
 
   updateHash();
 }
