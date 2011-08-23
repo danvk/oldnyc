@@ -27,6 +27,7 @@ def fix_streets(st):
   st = st.replace('noe valley', 'noevalley')  # hack
   st = st.replace('in front', 'infront')  # hack
   st = st.replace('store front', 'storefront')  # hack
+  st = st.replace('\bdupont\b', 'grant')  # source: wikipedia
   st = re.sub(r'farralon\b', 'farallones', st)
   st = re.sub(r'douglas\b', 'douglass', st)
   st = re.sub(r'\(.*', '', st)  # TODO(danvk): does this affect free-standing streets?

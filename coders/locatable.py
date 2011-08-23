@@ -109,7 +109,7 @@ def fromCross(street1, street2, source=None):
   if source:
     l.source = source
   else:
-    l.source = '%s and %s' (street1, street2)
+    l.source = '%s and %s' % (street1, street2)
   return l
 
 
@@ -244,9 +244,11 @@ fixes = {
   'california and market': 'spear street and market street',
   'market and post': '2nd street and market street',
   'embarcadero and market': 'Harry Bridges Plaza',
-  'sloat and sunset': 'Cunard Cruise Line',
+  'sloat and sunset': '@37.733865,-122.493889',
   'eddy and market': '@37.784724,-122.407715',
-  'eddy and powell': '@37.784724,-122.407715'
+  'eddy and powell': '@37.784724,-122.407715',
+
+  '15th and bryant street': '@37.767102,-122.412565'
 }
 
 def locateCrosses(g, crosses):

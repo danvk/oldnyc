@@ -37,8 +37,10 @@ def GetImageRecords(photo_ids):
   missing_ids = list(set(photo_ids) - set(record_map.keys()))
   if not missing_ids: return record_map
 
+  config = db.create_config(read_policy=db.EVENTUAL_CONSISTENCY)
+  db_recs = ImageRecord.get_by_key_name(missing_ids, config=config)
+
   memcache_map = {}
-  db_recs = ImageRecord.get_by_key_name(missing_ids)
   for id, r in zip(missing_ids, db_recs):
     record_map[id] = r
     memcache_map["IR" + id] = r
@@ -47,7 +49,6 @@ def GetImageRecords(photo_ids):
     memcache.add_multi(memcache_map)
     memcache.add(multi_key, record_map)
   return record_map
-
 
 
 class RecordFetcher(webapp.RequestHandler):
@@ -96,54 +97,6 @@ class AddEgg(webapp.RequestHandler):
     image.folder = 'The New York Collection'
     image.library_url = 'http://danvk.org/'
     image.put()
-
-
-
-#def GetThumbnailRecord(photo_id):
-#  """Queries the Thumbnail db, w/ memcaching"""
-#  key = "TN" + photo_id
-#  r = memcache.get(key)
-#  if r: return r
-#  r = ThumbnailRecord.get_by_key_name(photo_id)
-#  memcache.add(key, r)
-#  return r
-#
-#
-#class UploadThumbnailHandler(webapp.RequestHandler):
-#  def get(self):
-#    # print out a list of photo_ids that we already have.
-#    self.response.headers['Content-Type'] = 'text/plain'
-#    query = db.Query(ThumbnailRecord, keys_only=True)
-#    for thumb in query:
-#      self.response.out.write(thumb.name() + "\n")
-#
-#
-#  def post(self):
-#    num = 0
-#    while self.request.get('photo_id%d' % num):
-#      photo_id = self.request.get('photo_id%d' % num)
-#      image = self.request.get('image%d' % num)
-#      rec = ThumbnailRecord(key_name=photo_id, image=image)
-#      rec.put()
-#      num += 1
-#
-#    self.response.out.write('Loaded %d thumbnails' % num)
-
-#class ThumbnailFetcher(webapp.RequestHandler):
-#  def get(self):
-#    """URL is something like /thumb/AAA-1234.jpg"""
-#    basename = os.path.basename(self.request.path)
-#    name = basename.split('.')[0]
-#    thumb = GetThumbnailRecord(name)
-#    if not thumb:
-#      self.response.set_status(404)
-#      self.response.out.write("Couldn't find image %s" % name)
-#      return
-#
-#    self.response.headers.add_header('Expires', 'Sun, 17-Jan-2038 19:14:07')
-#    self.response.headers['Content-type'] = 'image/jpeg'
-#    self.response.out.write(thumb.image)
-
 
 
 application = webapp.WSGIApplication(

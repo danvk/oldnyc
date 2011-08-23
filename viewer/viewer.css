@@ -61,13 +61,13 @@ body {
   top: 0;
   left: 0;
   right: 0;
-  height: 20px;
+  height: 22px;
   background: #34365A;
 }
 
 #about {
   position: absolute;
-  top: 3px;
+  top: 4px;
   right: 10px;
   font-family: Arial, Tahoma, Sans-serif;
   font-size: 12px;
