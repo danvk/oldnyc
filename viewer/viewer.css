@@ -178,10 +178,20 @@ body {
 
 .thumb {
   min-height: 140px;
-  background-image: url(spinner.gif);  /* TODO(danvk): find a transparent one */
+  background-image: url(spinner.gif);
   background-repeat:no-repeat;
   background-position:center;
   text-align: center;
+}
+
+#carousel .thumb {
+/* border: 1px solid #FCFBF9; */
+  padding-top: 4px;
+}
+
+#carousel .thumb:hover {
+  /* border: 1px solid #F5F0E6; */
+  background-color: #F5F0E6;
 }
 
 .thumb > a {
