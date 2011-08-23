@@ -438,7 +438,15 @@ function showExpanded(id, img_width) {
   desc.innerHTML = el('description-' + id).innerHTML;
   el('expanded-image-holder').appendChild(desc);
 
+  /*
+  var twitter = document.createElement('div');
+  twitter.id = 'expanded-twitter';
+  twitter.innerHTML = el('twitter').innerHTML;
+  el('expanded-image-holder').appendChild(twitter);
+  */
+
   var library_link = document.createElement('div');
+  library_link.className = 'library-link';
   library_link.id = 'expanded-library_url-' + id;
   library_link.innerHTML = el('library_url-' + id).innerHTML;
   el('expanded-image-holder').appendChild(library_link);
@@ -454,8 +462,36 @@ function hideExpanded() {
   updateHash();
 }
 
+function killSplash() {
+  el('backdrop').style.display = 'none';
+}
+
+/* From quirksmode */
+function createCookie(name,value,days) {
+  if (days) {
+    var date = new Date();
+    date.setTime(date.getTime()+(days*24*60*60*1000));
+    var expires = "; expires="+date.toGMTString();
+  }
+  else var expires = "";
+  document.cookie = name+"="+value+expires+"; path=/";
+}
+
+function readCookie(name) {
+  var nameEQ = name + "=";
+  var ca = document.cookie.split(';');
+  for(var i=0;i < ca.length;i++) {
+    var c = ca[i];
+    while (c.charAt(0)==' ') c = c.substring(1,c.length);
+    if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+  }
+  return null;
+}
+
+
 // This enables pasting hashed URLs
 $(window).hashchange(function(){
   if (current_hash == location.hash.substr(1)) return;
   loadFromHash();
 });
+

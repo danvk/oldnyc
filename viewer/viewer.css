@@ -9,10 +9,17 @@ body {
   right: 0px;
   height: 80px;
   background: #F5F4F0;
+  z-index: 1;
+}
+
+.header-shadow {
   -webkit-box-shadow: 0px 0px 5px 3px gray;
   -moz-box-shadow: 0px 0px 5px 3px gray;
   box-shadow: 0px 0px 5px 3px gray;
-  z-index: 1;
+}
+
+.header-line {
+  border-bottom: 1px solid gray;
 }
 
 #map {
@@ -85,6 +92,12 @@ body {
   left: 28px;
 }
 
+#twitter {
+  position: absolute;
+  top: 1px;
+  right: 130px;
+}
+
 #slider {
   position: absolute;
   top: 35px;
@@ -134,6 +147,7 @@ body {
   height: 17px;
   margin-top: 2px;
   border: none;
+  cursor: pointer;
 }
 
 .ui-slider-horizontal .ui-slider-handle:focus {
@@ -174,6 +188,9 @@ body {
   background-color: red;
   border: outset 1px red;
   border-left: none;
+  -webkit-box-shadow: 0px 0px 10px 2px gray;
+  -moz-box-shadow: 0px 0px 10px 2px gray;
+  box-shadow: 0px 0px 10px 2px gray;
 }
 
 .thumb {
@@ -209,12 +226,24 @@ body {
   box-shadow: 0px 0px 10px 2px gray;
 }
 
-#expanded a {
+#close {
   float: right;
 }
 
 #expanded img {
   margin: 0 auto;
+}
+
+#expanded-twitter {
+  position: absolute;
+  bottom: 5px;
+  left: 10px;
+}
+
+.library-link {
+  position: absolute;
+  bottom: 5px;
+  right: 10px;
 }
 
 /* Credit: http://numerosign.com/notebook/styling-webkit-scrollbars-with-css3/ */
@@ -236,6 +265,7 @@ body {
 .description {
   font-family: Tahoma, sans-serif;
   font-size: 13px;
+  margin-left: 5px;
 }
 
 hr {
@@ -249,13 +279,110 @@ hr {
 }
 
 /* for "About" page */
+#title {
+  position: absolute;
+  left: 150px;
+  top: 30px;
+  font-size: 24px;
+}
+
 #content-area {
   position: absolute;
-  top: 60px;
+  top: 80px;
   bottom: 0px;
   left: 0px;
   right: 0px;
   padding: 10px;
   font: 16px Georgia;
   max-width: 600px;
+}
+
+
+/* splash screen */
+#backdrop {
+  background-color: rgba(52, 54, 90, 0.8);
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  bottom: 0px;
+  right: 0px;
+  z-index: 100;
+}
+
+#splash-screen {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -270px;
+  width: 540px;
+  margin-top: -195px;
+  height: 440px;
+  background-color: #D4D3D8;
+  z-index: 10;
+  border: 1px solid black;
+}
+
+#splash-screen div {
+  font-family: Helvetica;
+}
+
+#splash-line1 {
+  position: absolute;
+  top: 22px;
+  left: 20px;
+  font-family: Helvetica;
+  font-size: 28px;
+}
+
+#splash-line2 {
+  position: absolute;
+  top: 60px;
+  left: 38px;
+  font-family: Helvetica;
+  font-size: 18px;
+  font-style: italic;
+  color: #F57600;
+}
+
+.splash-image {
+  position: absolute;
+  background-color: #f5f4f0;
+  height: 90px;
+  left: 20px;
+  right: 20px;
+  font-family: Helvetica;
+  font-size: 18px;
+  font-weight: 100;
+  background-repeat: no-repeat;
+  background-position: 5px 50%;
+}
+
+#splash-logo {
+  margin-top: -111px;
+}
+
+#splash-map {
+  top: 90px;
+  background-image: url('splash-map.png');
+}
+#splash-slide {
+  top: 186px;
+  background-image: url('splash-slider.png');
+}
+#splash-thumb {
+  top: 282px;
+  background-image: url('splash-thumb.png');
+}
+
+.splash-image div {
+  padding-left: 120px;
+  height: 90px;
+  line-height: 90px;
+}
+
+#splash-button {
+  position: absolute;
+  top: 390px;
+  width: 200px;
+  left: 170px;
 }

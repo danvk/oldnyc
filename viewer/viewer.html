@@ -22,8 +22,8 @@
 <body onload="initialize_map()">
   <div id="header">
     <div id="blue_bar">
-      <div id="twitter" style="position: absolute; top: 1px; right: 128px;">
-      <a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="danvdk">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+      <div id="twitter">
+        <a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="danvdk">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
       </div>
       <div id="about"><a href="/about">About</a></div>
     </div>
@@ -46,7 +46,7 @@
   <div id="feedback"><a href="/feedback">Send feedback</a></div>
 
   <div style="display:none;" id="expanded">
-  <a onclick="hideExpanded()" border=0><img src="iw_close.gif" /></a>
+  <a id="close" onclick="hideExpanded()" border=0><img src="iw_close.gif" /></a>
   <div id="expanded-image-holder"></div>
   </div>
 
@@ -58,6 +58,35 @@
     <img src="blank.gif" />
     <img src="spinner.gif" />
   </div>
+
+  <div id="backdrop" style="display:none;">
+    <div id="splash-screen">
+      <div id="splash-line1">
+        Welcome to <img id="splash-logo" src="logo131.png" height=131 />
+      </div>
+      <div id="splash-line2">OldS.F. offers a glimpse into how the city used to look.</div>
+
+      <div class="splash-image" id="splash-map">
+        <div>Click a dot to see hisorical photographs.</div>
+      </div>
+      <div class="splash-image" id="splash-slide">
+        <div>Adjust sliders to change display dates.</div>
+      </div>
+      <div class="splash-image" id="splash-thumb">
+        <div>Click a thumbnail to view a larger image.</div>
+      </div>
+
+      <button id="splash-button" onClick="killSplash()">Go Explore!</button>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+  var here_before = readCookie('oldsf');
+  if (!here_before) {
+    document.getElementById('backdrop').style.display = '';
+    createCookie('oldsf', '1', 4000);
+  }
+  </script>
 
 <script type="text/javascript">
   var _gaq = _gaq || [];
