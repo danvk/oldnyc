@@ -315,11 +315,13 @@ hr {
   left: 50%;
   margin-left: -270px;
   width: 540px;
-  margin-top: -195px;
-  height: 440px;
-  background-color: #D4D3D8;
+  margin-top: -228px;
+  height: 456px;
+  /*background-color: #D4D3D8;*/
+  background-color: #f5f4f0;
   z-index: 10;
-  border: 1px solid black;
+  border: 2px solid #d4d3d8;
+  /*border: 1px solid black;*/
 }
 
 #splash-screen div {
@@ -346,7 +348,7 @@ hr {
 
 .splash-image {
   position: absolute;
-  background-color: #f5f4f0;
+  /* background-color: #f5f4f0; */
   height: 90px;
   left: 20px;
   right: 20px;
@@ -362,16 +364,20 @@ hr {
 }
 
 #splash-map {
-  top: 90px;
+  top: 95px;
   background-image: url('splash-map.png');
+  border-top: 1px solid #d4d3d8;
+  border-bottom: 1px solid #d4d3d8;
 }
 #splash-slide {
-  top: 186px;
+  top: 191px;
   background-image: url('splash-slider.png');
+  border-bottom: 1px solid #d4d3d8;
 }
 #splash-thumb {
-  top: 282px;
+  top: 287px;
   background-image: url('splash-thumb.png');
+  border-bottom: 1px solid #d4d3d8;
 }
 
 .splash-image div {
@@ -382,7 +388,10 @@ hr {
 
 #splash-button {
   position: absolute;
-  top: 390px;
-  width: 200px;
-  left: 170px;
+  top: 395px;
+  width: 141px;
+  margin-left: -71px;
+  height: 46px;
+  left: 50%;
+  cursor: pointer;
 }
