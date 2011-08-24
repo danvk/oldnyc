@@ -20,7 +20,7 @@
 </head>
 
 <body onload="initialize_map()">
-  <div id="header">
+  <div id="header" class="header-shadow">
     <div id="blue_bar">
       <div id="twitter">
         <a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="danvdk">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
@@ -81,7 +81,7 @@
   </div>
 
   <script type="text/javascript">
-  var here_before = readCookie('oldsf');
+  var here_before = readCookie('oldsf') && false;
   if (!here_before) {
     document.getElementById('backdrop').style.display = '';
     createCookie('oldsf', '1', 4000);
