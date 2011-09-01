@@ -59,6 +59,11 @@ function stateFromHash() {
   if (!location.hash) return {};
 
   var hash = '' + location.hash;
+  if (hash.indexOf('%7') >= 0) {
+    // twitter links come through as 'foo%7Cbar', not 'foo|bar'.
+    hash = unescape(hash);
+  }
+
   var parts = hash.substr(1).split(',');
   var state = {};
   for (var i = 0; i < parts.length; i++) {
