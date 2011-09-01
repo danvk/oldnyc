@@ -400,7 +400,7 @@ function loadPictures() {
   var carousel = el('carousel');
   var imgs = carousel.getElementsByTagName('img');
   var bottom_edge = carousel.scrollTop + carousel.offsetHeight;
-  var padding = 500;
+  var padding = 100;
   for (var i = 0; i < imgs.length; i++) {
     if (imgs[i].offsetTop - padding < bottom_edge && imgs[i].src == '') {
       imgs[i].src = imgs[i].getAttribute('path');
