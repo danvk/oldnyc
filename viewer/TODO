@@ -1,11 +1,14 @@
 To match Raven's mocks:
 x Make the image viewer cover the entire page with 50% opacity
 x Show a single expanded image "card" centered
-- Show multiple images
-- Add jcarousel.min.js
+x Show multiple images
+x Add jcarousel.min.js
+- Load images dynamically
 - Restyle individual slides
 
 Cleanup:
 - Make sure I'm not loading invisible images
+  sorgalla.com/projects/jcarousel/examples/dynamic_javascript.html
 - Verify that I'm not doing el('nonexistent-id') anywhere.
 - Get rid of all these IDs!
+- Use $('.jcarousel').jcarousel('reload'); after loading new carousel data.

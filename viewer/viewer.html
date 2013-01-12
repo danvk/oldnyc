@@ -56,7 +56,11 @@
 
   <div style="display:none;" id="expanded">
     <div id="curtains"></div>
-    <ul id="expanded-carousel"> </ul>
+    <div id="expanded-carousel">
+      <ul></ul>
+    </div>
+    <a class='expanded-link' id='prev-link' href='javascript:scrollExpanded("-=1");'>&larr;</a>
+    <a class='expanded-link' id='next-link' href='javascript:scrollExpanded("+=1");'>&rarr;</a>
   </div>
   <li id="expanded-image-holder-template" class='expanded-image-holder'>
     <img class='expanded-image thumb' height=400 />

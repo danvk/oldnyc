@@ -239,7 +239,7 @@ body {
   right: 0;
   top: 50%;
   margin-top: -200px;
-  height: 400px;
+  height: 500px;
 
   z-index: 100;
 }
@@ -253,7 +253,27 @@ body {
   border: 1px solid black;
   background: white;
   padding: 10px;
-  margin: 0 auto;
+  margin: 0 50px;
+}
+
+.expanded-link {
+  position: absolute;
+  height: 20px;
+  top: 50%;
+  margin-top: -10px;
+  width: 100px;
+  z-index: 100;
+  font-size: 20px;
+  background-color: white;
+  text-align: center;
+}
+
+#next-link {
+  right: 50px;
+}
+
+#prev-link {
+  left: 50px;
 }
 
 .library-link {
@@ -317,96 +337,17 @@ hr {
 }
 
 
-/* splash screen */
-#backdrop {
-  background-color: rgba(52, 54, 90, 0.8);
+#expanded-carousel {
+  /* position: relative; */
+  overflow: hidden;
+}
+#expanded-carousel ul {
+  width: 20000em;
   position: absolute;
-  top: 0px;
-  left: 0px;
-  bottom: 0px;
-  right: 0px;
-  z-index: 100;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
-
-#splash-screen {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  margin-left: -270px;
-  width: 540px;
-  margin-top: -228px;
-  height: 456px;
-  /*background-color: #D4D3D8;*/
-  background-color: #f5f4f0;
-  z-index: 10;
-  border: 2px solid #d4d3d8;
-  /*border: 1px solid black;*/
-}
-
-#splash-screen div {
-}
-
-#splash-line1 {
-  position: absolute;
-  top: 22px;
-  left: 20px;
-  font-size: 28px;
-}
-
-#splash-line2 {
-  position: absolute;
-  top: 60px;
-  left: 38px;
-  font-size: 18px;
-  font-style: italic;
-  color: #F57600;
-}
-
-.splash-image {
-  position: absolute;
-  /* background-color: #f5f4f0; */
-  height: 90px;
-  left: 20px;
-  right: 20px;
-  font-size: 18px;
-  font-weight: 100;
-  background-repeat: no-repeat;
-  background-position: 5px 50%;
-}
-
-#splash-logo {
-  margin-top: -111px;
-}
-
-#splash-map {
-  top: 95px;
-  background-image: url('splash-map.png');
-  border-top: 1px solid #d4d3d8;
-  border-bottom: 1px solid #d4d3d8;
-}
-#splash-slide {
-  top: 191px;
-  background-image: url('splash-slider.png');
-  border-bottom: 1px solid #d4d3d8;
-}
-#splash-thumb {
-  top: 287px;
-  background-image: url('splash-thumb.png');
-  border-bottom: 1px solid #d4d3d8;
-}
-
-.splash-image div {
-  padding-left: 120px;
-  height: 90px;
-  line-height: 90px;
-}
-
-#splash-button {
-  position: absolute;
-  top: 395px;
-  width: 141px;
-  margin-left: -71px;
-  height: 46px;
-  left: 50%;
-  cursor: pointer;
+#expanded-carousel li {
+  float: left;
 }
