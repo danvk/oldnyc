@@ -194,7 +194,7 @@ function getDescription(photo_ids) {
           }
 
           var library_html =
-              '<a target=_blank href="' + info.library_url + '">&rarr; Library</a>';
+              '<a target=_blank href="' + info.library_url + '"><i>via</i> San Francisco Public Library</a>';
           if (el("library_url-" + id)) {
             el("library_url-" + id).innerHTML = library_html;
           }
