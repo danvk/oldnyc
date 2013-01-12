@@ -134,9 +134,6 @@ function displayInfoForLatLon(lat_lon, marker) {
     var thumb_id = 'thumb-' + photo_id;
     //var img_path = 'http://sf-viewer.appspot.com/thumb/' + photo_id + '.jpg';
     var img_path = 'http://s3-us-west-1.amazonaws.com/oldsf/thumb/' + photo_id + '.jpg';
-    var img = new Image();
-    img.onload = createSpinnerKiller(thumb_id);
-    img.src = img_path;
 
     html += '<div id="' + thumb_id + '" class="thumb">';
     html += '<img border=0 path="' + img_path + '" /></div>\n';
@@ -403,7 +400,13 @@ function loadPictures() {
   var padding = 100;
   for (var i = 0; i < imgs.length; i++) {
     if (imgs[i].offsetTop - padding < bottom_edge && imgs[i].src == '') {
-      imgs[i].src = imgs[i].getAttribute('path');
+      var thumb_id = imgs[i].parentNode.id;
+      var img_path = imgs[i].getAttribute('path');
+
+      var img = new Image();
+      img.onload = createSpinnerKiller(thumb_id);
+      img.src = img_path;
+      imgs[i].src = img_path;
     }
   }
 }
