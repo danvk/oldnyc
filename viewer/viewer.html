@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Old S.F.</title>
+  <title>OldSF</title>
 
   <link type="text/css" href="jquery/jquery-ui-1.8.14.custom.css" rel="stylesheet" />
   <link type="text/css" href="viewer.css" rel="stylesheet" />
@@ -58,35 +58,6 @@
     <img src="blank.gif" />
     <img src="spinner.gif" />
   </div>
-
-  <div id="backdrop" style="display:none;" onclick="killSplash()">
-    <div id="splash-screen">
-      <div id="splash-line1">
-        Welcome to <img id="splash-logo" src="logo131.png" height=131 />
-      </div>
-      <div id="splash-line2">Old S.F. offers a glimpse into how the city used to look.</div>
-
-      <div class="splash-image" id="splash-map">
-        <div>Click a dot to see historical photographs.</div>
-      </div>
-      <div class="splash-image" id="splash-slide">
-        <div>Adjust sliders to change display dates.</div>
-      </div>
-      <div class="splash-image" id="splash-thumb">
-        <div>Click a thumbnail to view a larger image.</div>
-      </div>
-
-      <img id="splash-button" onClick="killSplash()" alt="Go Explore!" src="go-explore.png" />
-    </div>
-  </div>
-
-  <script type="text/javascript">
-  var here_before = readCookie('oldsf');
-  if (!here_before) {
-    document.getElementById('backdrop').style.display = '';
-    createCookie('oldsf', '1', 4000);
-  }
-  </script>
 
 <script type="text/javascript">
   var _gaq = _gaq || [];
