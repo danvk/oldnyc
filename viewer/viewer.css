@@ -227,9 +227,8 @@ body {
   top: 0;
   right: 0;
   bottom: 0;
-
-  background: black;
-  opacity: 0.75;
+  background: #111;
+  opacity: 0.95;
   z-index: 100;
 }
 
@@ -238,7 +237,7 @@ body {
   left: 0;
   right: 0;
   top: 50%;
-  margin-top: -200px;
+  margin-top: -250px;
   height: 500px;
 
   z-index: 100;
@@ -250,30 +249,52 @@ body {
 
 .expanded-image-holder {
   display: table;  /* fit to content */
-  border: 1px solid black;
+  border: 1px solid #111;
+  opacity: 0.5;
   background: white;
   padding: 10px;
   margin: 0 50px;
 }
-
+.current{
+	opacity: 1.0;
+}
+.arrow-right {
+	width: 0; 
+	height: 0; 
+	border-top: 40px solid transparent;
+	border-bottom: 40px solid transparent;
+	border-left: 50px solid #DADADA; 
+}
+.arrow-left {
+	width: 0; 
+	height: 0; 
+	border-top: 40px solid transparent;
+	border-bottom: 40px solid transparent; 
+	border-right:50px solid #DADADA; 
+}
 .expanded-link {
   position: absolute;
-  height: 20px;
+/*  height: 50px;*/
   top: 50%;
-  margin-top: -10px;
-  width: 100px;
+  margin-top: -40px;
+/*  width: 50px;*/
   z-index: 100;
   font-size: 20px;
-  background-color: white;
+ /* background-color: #e5e5e5;*/
   text-align: center;
 }
-
+.arrow-left:hover{
+  border-right:50px solid #fff;
+}
+.arrow-right:hover{
+  border-left:50px solid #fff;
+}
 #next-link {
-  right: 50px;
+  right: 40px;
 }
 
 #prev-link {
-  left: 50px;
+  left: 40px;
 }
 
 .library-link {
