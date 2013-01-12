@@ -478,11 +478,22 @@ function showExpanded(id) {
   $('#expanded-carousel')
     .jcarousel('scroll', selected_idx, false /* no animation */);
 
+  $(document).bind('keyup', function(e) {
+    // handle cursor keys
+    // TODO(danvk): hitting left/right quickly results in dropped scrolls.
+    if (event.keyCode == 37) {
+      scrollExpanded('-=1');  // go left
+    } else if (event.keyCode == 39) {
+      scrollExpanded('+=1');  // go right
+    }
+  });
+
   updateHash();
 }
 
 function hideExpanded() {
   el('expanded').style.display = 'none';
+  $(document).unbind('keyup');
   updateHash();
 }
 
