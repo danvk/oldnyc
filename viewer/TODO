@@ -6,12 +6,12 @@ x Add jcarousel.min.js
 x Add keyboard shortcuts
 x Load images dynamically
 - Create carousel items dynamically?
+  sorgalla.com/projects/jcarousel/examples/dynamic_javascript.html
 - Restyle individual slides (-> Raven)
 - Add "link to this page"
 
 Cleanup:
-- Make sure I'm not loading invisible images
-  sorgalla.com/projects/jcarousel/examples/dynamic_javascript.html
+x Make sure I'm not loading invisible images
 - Verify that I'm not doing el('nonexistent-id') anywhere.
 - Get rid of all these IDs!
 - Use $('.jcarousel').jcarousel('reload'); after loading new carousel data.

@@ -10,106 +10,6 @@ function el(id) {
   return document.getElementById(id);
 }
 
-var selected_marker = null;
-var selected_icon = 0;
-var expanded_photo_id = null;
-
-// There are four bits of state:
-// 1. Selected date range
-// 2. Selected dot
-// 3. Expanded image
-// 4. Map position
-function currentState() {
-  var years = $('#slider').slider('values');
-  if (years[0] == 1850 && years[1] == 2000) years = null;
-  var selected_lat_lon = selected_marker ? selected_marker.title : null;
-  if (selected_lat_lon == init_lat_lon) selected_lat_lon = null;
-  var expanded = null;
-  if (el('expanded').style.display != 'none') {
-    expanded = expanded_photo_id + ',' + el('expanded-image').width;
-  }
-
-  var center = map.getCenter();
-  var map_state = center.lat().toFixed(5) + ',' + center.lng().toFixed(5) + ',' + map.getZoom();
-  if (map_state == '37.79216,-122.41753,14') map_state = null;
-
-  var state = {};
-  if (years) state.y = years[0] + '-' + years[1];
-  if (selected_lat_lon) state.ll = selected_lat_lon;
-  if (expanded) state.e = expanded;
-  if (map_state) state.m = map_state;
-  return state;
-}
-
-var block_update = false;  // used when loading from a hash
-var current_hash = null;
-function updateHash() {
-  if (block_update) return;
-  var state = currentState();
-  var hash = '';
-  for (var k in state) {
-    if (hash) hash += ',';
-    hash += k + ':' + state[k].replace(/,/g, '|');
-  }
-  current_hash = hash;
-  location.hash = hash;
-}
-
-function stateFromHash() {
-  if (!location.hash) return {};
-
-  var hash = '' + location.hash;
-  if (hash.indexOf('%7') >= 0) {
-    // twitter links come through as 'foo%7Cbar', not 'foo|bar'.
-    hash = unescape(hash);
-  }
-
-  var parts = hash.substr(1).split(',');
-  var state = {};
-  for (var i = 0; i < parts.length; i++) {
-    var kv = parts[i].split(':');
-    var v = kv[1];
-    if (v.indexOf('|') != -1) v = v.split('|');
-    state[kv[0]] = v;
-  }
-  return state;
-}
-
-function loadFromHash() {
-  var state = stateFromHash();
-  block_update = true;
-  if (state.hasOwnProperty('m')) {
-    var ll = new google.maps.LatLng(parseFloat(state.m[0]), parseFloat(state.m[1]));
-    var zoom = parseInt(state.m[2]);
-    map.setCenter(ll);
-    map.setZoom(parseInt(zoom));
-  }
-  if (state.hasOwnProperty('y')) {
-    var ys = state.y.split('-');
-    ys = [parseInt(ys[0]), parseInt(ys[1])];
-    $('#slider').slider('values', ys);
-    slide();
-  }
-  if (state.hasOwnProperty('ll')) {
-    var marker = null;
-    for (var i = 0; i < markers.length; i++) {
-      if (markers[i].title == state.ll) {
-        marker = markers[i];
-        break;
-      }
-    }
-    if (marker) {
-      displayInfoForLatLon(state.ll, marker);
-    }
-  }
-  if (state.hasOwnProperty('e')) {
-    var id = state.e[0];
-    var w = parseInt(state.e[1]);
-    showExpanded(id, w);
-  }
-  block_update = false;
-}
-
 // Intended to be used as an img.onLoad handler.
 function spinnerKiller() {
   $(this).css('backgroundImage', 'none');
@@ -135,16 +35,17 @@ function displayInfoForLatLon(lat_lon, marker) {
       .removeAttr('id')
       .attr('photo_id', photo_id);
 
-    $pane.find('.thumb').attr('id', thumb_id);
+    // $pane.find('.thumb').attr('id', thumb_id);
     $pane.find('img').attr('path', img_path);
-    $pane.find('.description').attr('id', 'description-' + photo_id);
-    $pane.find('.library-link').attr('id', 'library_url-' + photo_id);
+    // $pane.find('.description').attr('id', 'description-' + photo_id);
+    // $pane.find('.library-link').attr('id', 'library_url-' + photo_id);
 
     if (idx == photo_ids.length - 1) {
       $pane.find('hr').hide();
     }
     return $pane.get();
   });
+
   $('#carousel')
     .scrollTop(0)
     .empty()
@@ -160,17 +61,19 @@ function displayInfoForLatLon(lat_lon, marker) {
   marker.setIcon(selected_marker_icons[photo_ids.length > 100 ? 100 : photo_ids.length]);
   marker.setZIndex(100000 + zIndex);
 
-  getDescription(photo_ids);
+  loadInfoForPhotoIds(photo_ids);
   loadPictures();
   updateHash();
 }
 
+// TODO(danvk): possible to just use the event?
 function makeCallback(lat_lon, marker) {
   return function(e) {
     displayInfoForLatLon(lat_lon, marker);
   };
 }
 
+/*
 function getDescription(photo_ids) {
   var req = new XMLHttpRequest();
   var caller = this;
@@ -220,6 +123,7 @@ function getDescription(photo_ids) {
   req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
   req.send(data);
 }
+*/
 
 function initialize_map() {
   // Give them something to look at while the map loads:
@@ -412,23 +316,20 @@ function loadPictures() {
   }
 }
 
-
-function buildHolder(id, img_width, is_visible) {
+// This creates the holder "pane" for an expanded image.
+// The expanded image slideshow consists of many of these.
+// id 
+function buildHolder(photo_id, img_width, is_visible) {
+  var info = infoForPhotoId(photo_id);
   var $holder = $('#expanded-image-holder-template').clone().removeAttr('id');
   $holder.find('img')
     .attr(is_visible ? 'src' : 'future-src',
-        'http://s3-us-west-1.amazonaws.com/oldsf/images/' + id + '.jpg')
+        'http://s3-us-west-1.amazonaws.com/oldsf/images/' + photo_id + '.jpg')
     .attr('width', img_width)
     .load(spinnerKiller);
 
-  // TODO(danvk): get rid of this use of IDs.
-  $holder.find('.description')
-    .html(el('description-' + id).innerHTML)
-    .attr('id', 'expanded-desc-' + id);
-
-  $holder.find('.library-link')
-    .attr('id', 'expanded-library_url-' + id)
-    .html(el('library_url-' + id).innerHTML);
+  $('.description', $holder).html(descriptionForPhotoId(photo_id));
+  $('.library-link', $holder).attr('href', info.library_url);
 
   return $holder;
 }
@@ -499,33 +400,6 @@ function scrollExpanded(target) {
     .jcarousel('scroll', target);
 }
 
-function killSplash() {
-  el('backdrop').style.display = 'none';
-}
-
-/* From quirksmode */
-function createCookie(name,value,days) {
-  if (days) {
-    var date = new Date();
-    date.setTime(date.getTime()+(days*24*60*60*1000));
-    var expires = "; expires="+date.toGMTString();
-  }
-  else var expires = "";
-  document.cookie = name+"="+value+expires+"; path=/";
-}
-
-function readCookie(name) {
-  var nameEQ = name + "=";
-  var ca = document.cookie.split(';');
-  for(var i=0;i < ca.length;i++) {
-    var c = ca[i];
-    while (c.charAt(0)==' ') c = c.substring(1,c.length);
-    if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
-  }
-  return null;
-}
-
-
 // This enables pasting hashed URLs
 $(window).hashchange(function(){
   if (current_hash == location.hash.substr(1)) return;
@@ -544,6 +418,7 @@ $(function() {
       var this_idx = $(els).index(this);
       if (this_idx == -1) throw 'eh?';
       for (var i = 0; i < 2; i++) {
+        if (!els[this_idx + i]) continue;
         var $img = $(els[this_idx + i]).find('img');
         if (!$img.attr('src')) {
           $img
