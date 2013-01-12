@@ -541,5 +541,10 @@ $(function() {
           $img.attr('width', null);
         }
       }
-  });
+    })
+    .delegate('li', 'itemtargetin.jcarousel', function(event, carousel) {
+      // Set a "current" class on the target element but no others.
+      $('#expanded-carousel li').removeClass('current');
+      $(this).addClass('current');
+    });
 });

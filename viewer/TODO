@@ -3,8 +3,9 @@ x Make the image viewer cover the entire page with 50% opacity
 x Show a single expanded image "card" centered
 x Show multiple images
 x Add jcarousel.min.js
+- Add keyboard shortcuts
 - Load images dynamically
-- Restyle individual slides
+- Restyle individual slides (-> Raven)
 
 Cleanup:
 - Make sure I'm not loading invisible images
