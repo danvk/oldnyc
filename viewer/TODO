@@ -1,0 +1,7 @@
+To match Raven's mocks:
+x Make the image viewer cover the entire page with 50% opacity
+x Show a single expanded image "card" centered
+- Add jcarousel.min.js
+- Build out DOM for all the images (or whatever jcarousel needs)
+- Restyle individual slides
+- Verify that I'm not doing el('nonexistent-id') anywhere.

@@ -221,39 +221,48 @@ body {
   cursor:pointer;
 }
 
-#expanded {
+#curtains {
   position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+
+  background: black;
+  opacity: 0.75;
   z-index: 100;
-  /*background: #FCFBF9;*/
-  background: #f8f8f8;
+}
+
+#expanded-carousel {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  margin-top: -200px;
+  height: 400px;
+
+  z-index: 100;
+}
+
+#expanded-image-holder-template {
+  display: none;
+}
+
+.expanded-image-holder {
+  display: table;  /* fit to content */
+  border: 1px solid black;
+  background: white;
   padding: 10px;
-  padding-left: 16px;
-  -webkit-box-shadow: 0px 0px 3px 1px #aaa;
-  -moz-box-shadow: 0px 0px 3px 1px #aaa;
-  box-shadow: 0px 0px 3px 1px #aaa;
-}
-
-#close {
-  float: right;
-}
-
-#expanded img {
   margin: 0 auto;
-  padding: 2px;
+}
+
+.library-link {
 }
 
 #expanded-twitter {
   position: absolute;
   bottom: 5px;
   left: 10px;
-}
-
-.library-link {
-  position: absolute;
-  bottom: 5px;
-  right: 5px;
-  padding-right: 15px;
-  padding-bottom: 5px;
 }
 
 /* Credit: http://numerosign.com/notebook/styling-webkit-scrollbars-with-css3/ */

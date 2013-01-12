@@ -111,11 +111,8 @@ function loadFromHash() {
 }
 
 // Intended to be used as an img.onLoad handler.
-function createSpinnerKiller(id) {
-  return function() {
-    var e = el(id);
-    if (e) el(id).style.backgroundImage = 'none';
-  }
+function spinnerKiller() {
+  $(this).css('backgroundImage', 'none');
 }
 
 function displayInfoForLatLon(lat_lon, marker) {
@@ -404,7 +401,7 @@ function loadPictures() {
       var img_path = imgs[i].getAttribute('path');
 
       var img = new Image();
-      img.onload = createSpinnerKiller(thumb_id);
+      img.onload = spinnerKiller;
       img.src = img_path;
       imgs[i].src = img_path;
     }
@@ -415,7 +412,6 @@ function showExpanded(id, img_width) {
   // There should be a way to center the div that's less hacky.
   var expanded = el('expanded');
   expanded.style.display = 'none';
-  var map = el('map');
   if (typeof(img_width) == 'undefined') {
     var thumb_img = el('thumb-' + id).getElementsByTagName('img')[0];
     img_width = 400.0 / thumb_img.height * thumb_img.width;
@@ -423,28 +419,16 @@ function showExpanded(id, img_width) {
   var div_width = img_width + 10;
   var div_height = 80 + 400;
 
-  expanded.style.left = map.offsetLeft + map.offsetWidth / 2 - div_width / 2 + 'px';
-  expanded.style.top = map.offsetTop + map.offsetHeight / 2 - div_height / 2 + 'px';
-  expanded.style.width = div_width + 'px';
-  expanded.style.minHeight = div_height + 'px';
+  var $holder = $('#expanded-image-holder-template').clone().removeAttr('id');
+  $holder.find('img')
+    .attr('src', 'http://s3-us-west-1.amazonaws.com/oldsf/images/' + id + '.jpg')
+    .attr('width', img_width)
+    .load(spinnerKiller);
 
-  var img = document.createElement('img');
-  img.className = 'thumb';  // makes the spinner appear
-  img.src = 'http://s3-us-west-1.amazonaws.com/oldsf/images/' + id + '.jpg';
-  img.width = img_width;
-  img.height = 400;
-  img.id = 'expanded-image';
-  el('expanded-image-holder').innerHTML = '';
-  el('expanded-image-holder').appendChild(img);
-
-  var img_obj = new Image();
-  img.onload = createSpinnerKiller(img.id);
-  img_obj.src = img.src;
-
-  var desc = document.createElement('span');
-  desc.id = 'expanded-desc-' + id;
-  desc.innerHTML = el('description-' + id).innerHTML;
-  el('expanded-image-holder').appendChild(desc);
+  // TODO(danvk): get rid of this use of IDs.
+  $holder.find('.description')
+    .html(el('description-' + id).innerHTML)
+    .attr('id', 'expanded-desc-' + id);
 
   /*
   var twitter = document.createElement('div');
@@ -453,11 +437,11 @@ function showExpanded(id, img_width) {
   el('expanded-image-holder').appendChild(twitter);
   */
 
-  var library_link = document.createElement('div');
-  library_link.className = 'library-link';
-  library_link.id = 'expanded-library_url-' + id;
-  library_link.innerHTML = el('library_url-' + id).innerHTML;
-  el('expanded-image-holder').appendChild(library_link);
+  $holder.find('.library-link')
+    .attr('id', 'expanded-library_url-' + id)
+    .html(el('library_url-' + id).innerHTML);
+
+  $('#expanded-carousel').empty().append($holder.show());
 
   expanded.style.display = '';
   expanded_photo_id = id;
@@ -503,3 +487,6 @@ $(window).hashchange(function(){
   loadFromHash();
 });
 
+$(function() {
+  $('#curtains').click(hideExpanded);
+});

@@ -46,8 +46,14 @@
   <div id="feedback"><a href="/feedback">Send feedback</a></div>
 
   <div style="display:none;" id="expanded">
-  <a id="close" onclick="hideExpanded()" border=0><img src="iw_close.gif" /></a>
-  <div id="expanded-image-holder"></div>
+    <div id="curtains"></div>
+    <div id="expanded-carousel">
+    </div>
+  </div>
+  <div id="expanded-image-holder-template" class='expanded-image-holder'>
+    <img class='expanded-image thumb' height=400 />
+    <div class='description'></div>
+    <div class='library-link'></div>
   </div>
 
   <script type="text/javascript">
