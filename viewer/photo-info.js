@@ -17,17 +17,8 @@ function loadInfoForPhotoIds(photo_ids) {
 
     // Update any on-screen elements.
     $.each(data, function(photo_id, info) {
-      // This could be either a thumbnail on the right-hand side or an expanded
-      // image, front and center.
       var $pane = $('[photo_id=' + photo_id + ']');
-      $('.description', $pane).html(descriptionForPhotoId(photo_id));
-
-      // TODO(danvk): this is kinda gross
-      $('.thumb', $pane)
-        .html('<a href="javascript:showExpanded(\'' + photo_id + '\')">' +
-          $('.thumb', $pane).html() + '</a>');
-      $('.library-link', $pane)
-        .attr('href', info.library_url);
+      fillPhotoPane(photo_id, $pane, info);
     });
   });
 }
@@ -40,6 +31,7 @@ function infoForPhotoId(photo_id) {
       { title: '', date: '', library_url: '' };
 }
 
+// Would it make more sense to incorporate this into infoForPhotoId?
 function descriptionForPhotoId(photo_id) {
   var info = infoForPhotoId(photo_id);
   return info.title + '<br/>' + info.date;

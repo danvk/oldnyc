@@ -97,3 +97,9 @@ function loadFromHash() {
   }
   block_update = false;
 }
+
+// This enables pasting hashed URLs
+$(window).hashchange(function(){
+  if (current_hash == location.hash.substr(1)) return;
+  loadFromHash();
+});

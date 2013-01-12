@@ -6,10 +6,6 @@ var map;
 var start_date = 1850;
 var end_date = 2000;
 
-function el(id) {
-  return document.getElementById(id);
-}
-
 // Intended to be used as an img.onLoad handler.
 function spinnerKiller() {
   $(this).css('backgroundImage', 'none');
@@ -35,13 +31,10 @@ function displayInfoForLatLon(lat_lon, marker) {
       .removeAttr('id')
       .attr('photo_id', photo_id);
 
-    // $pane.find('.thumb').attr('id', thumb_id);
-    $pane.find('img').attr('path', img_path);
-    // $pane.find('.description').attr('id', 'description-' + photo_id);
-    // $pane.find('.library-link').attr('id', 'library_url-' + photo_id);
+    $('img', $pane).attr('path', img_path);
 
     if (idx == photo_ids.length - 1) {
-      $pane.find('hr').hide();
+      $('hr', $pane).hide();
     }
     return $pane.get();
   });
@@ -72,58 +65,6 @@ function makeCallback(lat_lon, marker) {
     displayInfoForLatLon(lat_lon, marker);
   };
 }
-
-/*
-function getDescription(photo_ids) {
-  var req = new XMLHttpRequest();
-  var caller = this;
-  req.onreadystatechange = function () {
-    if (req.readyState == 4) {
-      if (req.status == 200 ||  // Normal http
-          req.status == 0) {    // Chrome w/ --allow-file-access-from-files
-        var info_map = eval('(' + req.responseText + ')');
-
-        for (var i = 0; i < photo_ids.length; i++) {
-          var id = photo_ids[i];
-          var info = info_map[id];
-          var html = info.title + '<br/>' + info.date;
-
-          if (el("description-" + id)) {
-            el("description-" + id).innerHTML = html;
-            if (!el("thumb-" + id)) continue;
-            el("thumb-" + id).innerHTML = 
-                '<a href="javascript:showExpanded(\'' + id + '\')">' +
-                el("thumb-" + id).innerHTML + '</a>';
-          }
-
-          var library_html =
-              '<a target=_blank href="' + info.library_url + '"><i>via</i> San Francisco Public Library</a>';
-          if (el("library_url-" + id)) {
-            el("library_url-" + id).innerHTML = library_html;
-          }
-
-          if (el("expanded-desc-" + id)) {
-            el("expanded-desc-" + id).innerHTML = html;
-          }
-          if (el("expanded-library_url-" + id)) {
-            el("expanded-library_url-" + id).innerHTML = library_html;
-          }
-        }
-      }
-    }
-  };
-
-  var url = '/info';
-  var data = ''
-  for (var i = 0; i < photo_ids.length; i++) {
-    data += (i ? '&' : '') + 'id=' + photo_ids[i];
-  }
-
-  req.open("POST", url, true);
-  req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-  req.send(data);
-}
-*/
 
 function initialize_map() {
   // Give them something to look at while the map loads:
@@ -166,7 +107,7 @@ function initialize_map() {
       ]
   };
   
-  map = new google.maps.Map(el("map"), opts);
+  map = new google.maps.Map($('#map').get(), opts);
   //google.maps.event.addListener(map, 'center_changed', updateHash);
   //google.maps.event.addListener(map, 'zoom_changed', updateHash);
 
@@ -258,7 +199,7 @@ function setCount(total) {
     total = total.replace(rgx, '$1' + ',' + '$2');
   }
   
-  el("count").innerHTML = total;
+  $('#count').html(total);
 }
 
 function slide(event, ui) {
@@ -270,7 +211,7 @@ function slide(event, ui) {
   }
   var date1 = dates[0];
   var date2 = dates[1];
-  el("date_range").innerHTML = date1 + '&ndash;' + date2;
+  $('#date_range').html(date1 + '&ndash;' + date2);
   updateVisibleMarkers(date1, date2);
 }
 
@@ -297,23 +238,30 @@ function createSlider() {
   }
 }
 
-// The thumbnails div has scrolled or changed. Maybe we should load some pictures.
+// The thumbnails div has scrolled or changed. Maybe we should load some
+// pictures.
 function loadPictures() {
-  var carousel = el('carousel');
-  var imgs = carousel.getElementsByTagName('img');
-  var bottom_edge = carousel.scrollTop + carousel.offsetHeight;
-  var padding = 100;
-  for (var i = 0; i < imgs.length; i++) {
-    if (imgs[i].offsetTop - padding < bottom_edge && imgs[i].src == '') {
-      var thumb_id = imgs[i].parentNode.id;
-      var img_path = imgs[i].getAttribute('path');
+  var $carousel = $('#carousel');
 
+  // var carousel = el('carousel');
+  // var imgs = carousel.getElementsByTagName('img');
+  // var bottom_edge = carousel.scrollTop + carousel.offsetHeight;
+  var bottom_edge = $carousel.scrollTop() + $carousel.height();
+  var padding = 100;
+  $('#carousel img').each(function(i, imgEl) {
+    var $img = $(imgEl);
+    if ($img.offset().top - padding < bottom_edge &&
+        !$img.attr('src')) {
+      var thumb_id = $img.parent().attr('photo_id');
+      var img_path = $img.attr('path');
+
+      // can probably use jQuery to fix this.
       var img = new Image();
       img.onload = spinnerKiller;
       img.src = img_path;
-      imgs[i].src = img_path;
+      $img.attr('src', img_path);
     }
-  }
+  });
 }
 
 // This creates the holder "pane" for an expanded image.
@@ -328,9 +276,7 @@ function buildHolder(photo_id, img_width, is_visible) {
     .attr('width', img_width)
     .load(spinnerKiller);
 
-  $('.description', $holder).html(descriptionForPhotoId(photo_id));
-  $('.library-link', $holder).attr('href', info.library_url);
-
+  fillPhotoPane(photo_id, $holder);
   return $holder;
 }
 
@@ -390,7 +336,7 @@ function showExpanded(id) {
 }
 
 function hideExpanded() {
-  el('expanded').style.display = 'none';
+  $('#expanded').hide();
   $(document).unbind('keyup');
   updateHash();
 }
@@ -400,11 +346,19 @@ function scrollExpanded(target) {
     .jcarousel('scroll', target);
 }
 
-// This enables pasting hashed URLs
-$(window).hashchange(function(){
-  if (current_hash == location.hash.substr(1)) return;
-  loadFromHash();
-});
+// This fills out details for either a thumbnail or the expanded image pane.
+function fillPhotoPane(photo_id, $pane, opt_info) {
+  // This could be either a thumbnail on the right-hand side or an expanded
+  // image, front and center.
+  $('.description', $pane).html(descriptionForPhotoId(photo_id));
+
+  var info = opt_info || infoForPhotoId(photo_id);
+  // TODO(danvk): this is kinda gross
+  $('.thumb a', $pane)
+      .attr('href', "javascript:showExpanded('" + photo_id + "')");
+  $('.library-link', $pane)
+    .attr('href', info.library_url);
+}
 
 $(function() {
   $('#curtains').click(hideExpanded);
