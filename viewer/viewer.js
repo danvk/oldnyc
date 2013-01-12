@@ -124,27 +124,26 @@ function displayInfoForLatLon(lat_lon, marker) {
     }
   }
 
-  var html = '';
-  // var html = '<p>' + lat_lon + '</p>';
-  for (var i = 0; i < photo_ids.length; i++) {
-    var photo_id = photo_ids[i];
+  var thumb_panes = $.map(photo_ids, function(photo_id, idx) {
     var thumb_id = 'thumb-' + photo_id;
     //var img_path = 'http://sf-viewer.appspot.com/thumb/' + photo_id + '.jpg';
     var img_path = 'http://s3-us-west-1.amazonaws.com/oldsf/thumb/' + photo_id + '.jpg';
 
-    html += '<div id="' + thumb_id + '" class="thumb">';
-    html += '<img border=0 path="' + img_path + '" /></div>\n';
-    html += '<div class="description" id="description-' + photo_id + '">';
-    html += 'Loading&hellip;</div>\n';
-    html += '<div style="display:none" id="library_url-' + photo_id + '"></div>';
-    if (i != photo_ids.length - 1) {
-      html += '<hr/>'
-    } else {
-      html += '<br/>'
+    var $pane = $('#thumbnail-template').clone().removeAttr('id');
+    $pane.find('.thumb').attr('id', thumb_id);
+    $pane.find('img').attr('path', img_path);
+    $pane.find('.description').attr('id', 'description-' + photo_id);
+    $pane.find('.library-link').attr('id', 'library_url-' + photo_id);
+
+    if (idx == photo_ids.length - 1) {
+      $pane.find('hr').hide();
     }
-  }
-  el('carousel').scrollTop = 0;
-  el('carousel').innerHTML = html;
+    return $pane.get();
+  });
+  $('#carousel')
+    .scrollTop(0)
+    .empty()
+    .append($(thumb_panes).show());
 
   var zIndex = 0;
   if (selected_marker) {
@@ -408,20 +407,12 @@ function loadPictures() {
   }
 }
 
-function showExpanded(id, img_width) {
-  // There should be a way to center the div that's less hacky.
-  var expanded = el('expanded');
-  expanded.style.display = 'none';
-  if (typeof(img_width) == 'undefined') {
-    var thumb_img = el('thumb-' + id).getElementsByTagName('img')[0];
-    img_width = 400.0 / thumb_img.height * thumb_img.width;
-  }
-  var div_width = img_width + 10;
-  var div_height = 80 + 400;
 
+function buildHolder(id, img_width) {
   var $holder = $('#expanded-image-holder-template').clone().removeAttr('id');
   $holder.find('img')
-    .attr('src', 'http://s3-us-west-1.amazonaws.com/oldsf/images/' + id + '.jpg')
+    .attr('src',
+        'http://s3-us-west-1.amazonaws.com/oldsf/images/' + id + '.jpg')
     .attr('width', img_width)
     .load(spinnerKiller);
 
@@ -430,6 +421,24 @@ function showExpanded(id, img_width) {
     .html(el('description-' + id).innerHTML)
     .attr('id', 'expanded-desc-' + id);
 
+  $holder.find('.library-link')
+    .attr('id', 'expanded-library_url-' + id)
+    .html(el('library_url-' + id).innerHTML);
+
+  return $holder;
+}
+
+
+function showExpanded(id) {
+  // There should be a way to center the div that's less hacky.
+  var expanded = el('expanded');
+  expanded.style.display = 'none';
+
+  var thumb_img = el('thumb-' + id).getElementsByTagName('img')[0];
+  var img_width = 400.0 / thumb_img.height * thumb_img.width;
+
+  var $holder = buildHolder(id, img_width);
+
   /*
   var twitter = document.createElement('div');
   twitter.id = 'expanded-twitter';
@@ -437,11 +446,16 @@ function showExpanded(id, img_width) {
   el('expanded-image-holder').appendChild(twitter);
   */
 
-  $holder.find('.library-link')
-    .attr('id', 'expanded-library_url-' + id)
-    .html(el('library_url-' + id).innerHTML);
-
-  $('#expanded-carousel').empty().append($holder.show());
+  $('#expanded-carousel')
+    .empty()
+    .append($holder.show())
+    .jcarousel({
+      scroll: 1,
+      // initCallback: mycarousel_initCallback,
+      // This tells jCarousel NOT to autobuild prev/next buttons
+      // buttonNextHTML: null,
+      // buttonPrevHTML: null
+    });
 
   expanded.style.display = '';
   expanded_photo_id = id;

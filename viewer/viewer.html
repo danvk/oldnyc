@@ -15,6 +15,7 @@
   <script type="text/javascript" src="jquery/jquery-1.5.1.min.js"></script>
   <script type="text/javascript" src="jquery.ba-hashchange.min.js"></script>
   <script type="text/javascript" src="jquery/jquery-ui-1.8.14.custom.min.js"></script>
+  <script type="text/javascript" src="jquery/jquery.jcarousel.min.js"></script>
   
   <script type="text/javascript" src="viewer.js"></script>
 </head>
@@ -42,19 +43,26 @@
     <div id="extra_line"></div>
     <div id="carousel" onscroll="loadPictures()"></div>
   </div>
+  <div style="display:none;" id="thumbnail-template" class="thumbnail-pane">
+    <div class='thumb'>
+      <img border=0 path="" />
+    </div>
+    <div class="description">Loading&hellip;</div>
+    <div class="library-link" style="display:none"></div>
+    <hr/>
+  </div>
 
   <div id="feedback"><a href="/feedback">Send feedback</a></div>
 
   <div style="display:none;" id="expanded">
     <div id="curtains"></div>
-    <div id="expanded-carousel">
-    </div>
+    <ul id="expanded-carousel"> </ul>
   </div>
-  <div id="expanded-image-holder-template" class='expanded-image-holder'>
+  <li id="expanded-image-holder-template" class='expanded-image-holder'>
     <img class='expanded-image thumb' height=400 />
     <div class='description'></div>
     <div class='library-link'></div>
-  </div>
+  </li>
 
   <script type="text/javascript">
     createSlider();
