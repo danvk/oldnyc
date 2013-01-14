@@ -266,7 +266,10 @@ function buildHolder(photo_id, img_width, is_visible) {
     .attr(is_visible ? 'src' : 'future-src',
         'http://s3-us-west-1.amazonaws.com/oldsf/images/' + photo_id + '.jpg')
     .attr('width', img_width)
-    .load(spinnerKiller);
+    .load(spinnerKiller)
+    .load(function() {
+      $('#expanded-carousel').jcarousel('reload');
+    });
 
   fillPhotoPane(photo_id, $holder);
   return $holder;
@@ -283,7 +286,7 @@ function showExpanded(id, opt_explicit_width) {
 
   var selected_idx = 0;
   var expanded_images = $.map(photo_ids, function(photo_id, idx) {
-    var $thumb_img = $('#thumb-' + photo_id + ' img');
+    var $thumb_img = $('[photo_id=' + photo_id + '] img');
     var img_width = 400.0 / $thumb_img.height() * $thumb_img.width();
 
     if (photo_id == id) {
@@ -361,7 +364,7 @@ $(function() {
       var els = $('#expanded-carousel li');
       var this_idx = $(els).index(this);
       if (this_idx == -1) throw 'eh?';
-      for (var i = 0; i < 2; i++) {
+      for (var i = -1; i < 2; i++) {
         if (!els[this_idx + i]) continue;
         var $img = $(els[this_idx + i]).find('img');
         if (!$img.attr('src')) {
@@ -380,4 +383,8 @@ $(function() {
       $(this).addClass('current');
       stateWasChanged();
     });
+
+  // $('#expanded-carousel')
+  //   .delegate('img', 'load', function() {
+  //   });
 });

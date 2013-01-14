@@ -5,11 +5,11 @@ x Show multiple images
 x Add jcarousel.min.js
 x Add keyboard shortcuts
 x Load images dynamically
+x Make URL history behave nicely.
+x Use a smarter default width for expanded images
 - Create carousel items dynamically?
   sorgalla.com/projects/jcarousel/examples/dynamic_javascript.html
 - Restyle UI (-> Raven)
-- Make URL history behave nicely.
-- Use a smarter default width for expanded images
 
 Cleanup:
 x Make sure I'm not loading invisible images
