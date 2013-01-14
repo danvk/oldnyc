@@ -10,10 +10,10 @@ body {
   top: 0px;
   left: 0px;
   right: 0px;
-  height: 60px;
+  height: 55px;
   min-width:800px;
   /*background-color: #f8f8f8;*/
-  background-color: #fff;
+  /*background-color: #111;*/
   z-index: 1;
 }
 /*.header-shadow {
@@ -27,7 +27,7 @@ body {
 
 #map {
   position: absolute;
-  top: 60px;
+  top: 0px;
   left: 0px;
   right: 240px;
   bottom: 0px;
@@ -89,9 +89,15 @@ body {
 
 #logo {
   position: absolute;
-  top: 15px;
-  left: 15px;
+  top: 5px;
+  left: 5px;
   font-size: 2em;
+  background: #111;
+  padding: 10px 10px 6px 10px;
+}
+#logo a{
+	text-decoration: none;
+	color: #fff;
 }
 
 #twitter {
