@@ -2,8 +2,9 @@ body {
   /*background-color: #F5F0E6;*/
  /* background-color: #f8f8f8;*/
  background-color: #fff;
-  font-family: 'Adobe Garamond Pro', serif;
-  font-size: 1em;
+  font-family: 'Helvetica Neue','Helvetica','Arial',sans-serif;
+  font-size: 0.8em;
+  text-rendering: optimizeLegibility;
 }
 #header {
   position: absolute;
@@ -13,7 +14,7 @@ body {
   height: 55px;
   min-width:800px;
   /*background-color: #f8f8f8;*/
-  /*background-color: #111;*/
+  background-color: #111;
   z-index: 1;
 }
 /*.header-shadow {
@@ -27,7 +28,7 @@ body {
 
 #map {
   position: absolute;
-  top: 0px;
+  top: 55px;
   left: 0px;
   right: 240px;
   bottom: 0px;
@@ -35,7 +36,7 @@ body {
 
 #rightpanel {
   position: absolute;
-  top: 56px;
+  top: 55px;
   right: 0px;
   width: 240px;
   bottom: 0px;
@@ -48,13 +49,14 @@ body {
   overflow-x: hidden;
 }
 
-/*#extra_line {
-  border-top: 1px solid #CCC;
+#extra_line {
+  border-top: 55px solid #111;
   position: absolute;
   left: 0;
   right: 0;
-  top: 4px;
-}*/
+  top: 0px;
+  display: none;
+}
 
 #carousel {
   position: absolute;
@@ -65,45 +67,42 @@ body {
   overflow: hidden;
   overflow-y: scroll;
 }
-
-#blue_bar {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 22px;
-}
-
 #about {
   position: absolute;
-  top: 15px;
-  right: 20px;
- /* font-family: Arial, Tahoma, Sans-serif;*/
+  top: 20px;
+  right: 22px;
+ font-family: Arial, Tahoma, Sans-serif;
  font-size: 1.2em;
 }
 
 #about a, #about a:visited {
   text-decoration: none;
-  color: #262626;
+  color: #ddd;
 }
-
+#about a:hover {
+  text-decoration: none;
+  color: #fff;
+}
 #logo {
   position: absolute;
-  top: 5px;
-  left: 5px;
-  font-size: 2em;
-  background: #111;
-  padding: 10px 10px 6px 10px;
+  top: 0px;
+  left: 22px;
+  font-size: 2.2em;
+  padding: 9px 0px;
 }
 #logo a{
 	text-decoration: none;
+	color: #ddd;
+	font-family: 'Adobe Garamond Pro', serif;
+}
+#logo a:hover{
+	text-decoration: none;
 	color: #fff;
 }
-
 #twitter {
   position: absolute;
-  top: 15px;
-  right: 112px;
+  top: 18px;
+  right: 70px;
 }
 
 #slider {
@@ -112,6 +111,7 @@ body {
   left: 205px;
   right: 297px;
   height: 4px;
+  display: none;
 }
 
 #slider_ticks {
@@ -120,6 +120,7 @@ body {
   left: 205px;
   right: 298px;
   height: 20px;
+  display: none;
 }
 
 .tick {
@@ -128,6 +129,7 @@ body {
   width:1px;
  /* background:#8E8F8F;*/
  background: #ccc;
+ display: none;
 }
 
 .tick_text {
@@ -138,19 +140,35 @@ body {
   margin-left: -20px;
   text-align: center;
   color: #262626;
+  display: none;
 }
 
 #date_range {
-  position: absolute;
-  right: 0px;
-  width: 180px;
-  top: 36px;
+  font-size: 1.8em;
+  margin-left: 116px;
+  margin-top: 0px;
+  background: #1c1c1c;
+  width: 130px;
   text-align: center;
-  font-size: 24px;
-  color: #EA7762;
-  visibility: hidden;
+  padding: 13px 10px;
+  text-decoration: none;
+  color: #ddd;
 }
-
+#date_range:hover{
+	background: #222;
+	color: #fff;
+	text-decoration: none;
+}
+#date_range a, #date_range a:hover {
+	text-decoration: none;
+}
+/*#date_range a {
+  color: #ddd;
+  text-decoration: none;
+}	
+#date_range a:hover{
+	color: #fff;
+}*/
 .ui-slider-horizontal .ui-slider-handle {
   background: url('sliderdoodad.png');
   width: 22px;
