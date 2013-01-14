@@ -62,7 +62,7 @@ function hashToState(url_hash) {
   for (var i = 0; i < parts.length; i++) {
     var kv = parts[i].split(':');
     var v = kv[1];
-    // if (v.indexOf('|') != -1) v = v.split('|');
+    if (v.indexOf('|') != -1) v = v.replace(/\|/g, ',');
     state[kv[0]] = v;
   }
   return state;
@@ -98,7 +98,7 @@ function stateWasChanged() {
 function loadFromState(state) {
   block_update = true;
   if (state.hasOwnProperty('m')) {
-    var m = state['m'].split('|');
+    var m = state['m'].split(',');
     var ll = new google.maps.LatLng(parseFloat(m[0]), parseFloat(m[1]));
     var zoom = parseInt(m[2]);
     map.setCenter(ll);
@@ -126,7 +126,7 @@ function loadFromState(state) {
   }
 
   if (state.hasOwnProperty('e')) {
-    var e = state['e'].split('|');
+    var e = state['e'].split(',');
     var id = e[0];
     var w = parseInt(e[1]);
     showExpanded(id, w);
@@ -152,7 +152,6 @@ function setUrlHash(hash, include_in_history) {
 function setUIFromUrlHash() {
   if (block_update) return;
   var state = hashToState(location.hash);
-  // console.log(state, current_state);
   if (areStatesEqual(state, current_state)) return;
   loadFromState(state);
 }
