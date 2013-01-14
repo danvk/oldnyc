@@ -110,13 +110,19 @@ body {
   right: 70px;
 }
 
+#slider-container {
+  border: 2px solid purple;
+  background: yellow;
+  height: 50px;
+  width: 300px;
+}
+
 #slider {
   position: absolute;
   top: 17px;
   left: 205px;
   right: 297px;
   height: 4px;
-  display: none;
 }
 
 #slider_ticks {
@@ -125,7 +131,6 @@ body {
   left: 205px;
   right: 298px;
   height: 20px;
-  display: none;
 }
 
 .tick {
