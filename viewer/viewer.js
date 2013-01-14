@@ -256,6 +256,12 @@ function loadPictures() {
   });
 }
 
+
+// Typically, when a new image loads, we want to redo the layout of the
+// expanded image carousel to make sure the target image is in the center. But
+// if we're in the middle of an animation, it just looks bad.
+var expanded_carousel_animating = false;
+
 // This creates the holder "pane" for an expanded image.
 // The expanded image slideshow consists of many of these.
 // id 
@@ -268,7 +274,9 @@ function buildHolder(photo_id, img_width, is_visible) {
     .attr('width', img_width)
     .load(spinnerKiller)
     .load(function() {
-      $('#expanded-carousel').jcarousel('reload');
+      if (!expanded_carousel_animating) {
+        $('#expanded-carousel').jcarousel('reload');
+      }
     });
 
   fillPhotoPane(photo_id, $holder);
@@ -329,6 +337,7 @@ function showExpanded(id, opt_explicit_width) {
 
 function hideExpanded() {
   $('#expanded').hide();
+  $('#expanded-carousel').jcarousel('destroy');
   $(document).unbind('keyup');
   stateWasChanged();
 }
@@ -382,6 +391,12 @@ $(function() {
       $('#expanded-carousel li').removeClass('current');
       $(this).addClass('current');
       stateWasChanged();
+    })
+    .on('animate.jcarousel', function() {
+      expanded_carousel_animating = true;
+    })
+    .on('animateend.jcarousel', function() {
+      expanded_carousel_animating = false;
     });
 
   // $('#expanded-carousel')
