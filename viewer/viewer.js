@@ -110,7 +110,8 @@ function initialize_map() {
 
   // This event fires when a pan/zoom operation has completed and the map is no
   // longer in motion. It reduces the number of URL parameter updates we do.
-  google.maps.event.addListener(map, 'idle', stateWasChanged);
+  // google.maps.event.addListener(map, 'idle', stateWasChanged);
+  // ... but it's still annoying.
 
   // Create markers for each number.
   marker_icons.push(null);  // it's easier to be 1-based.
