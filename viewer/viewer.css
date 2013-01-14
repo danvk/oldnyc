@@ -69,35 +69,40 @@ body {
 }
 #about {
   position: absolute;
-  top: 20px;
-  right: 22px;
+  top: 0px;
+  right: 0px;
  font-family: Arial, Tahoma, Sans-serif;
  font-size: 1.2em;
+ padding: 21px 22px;
 }
-
+#about:hover{
+	background: #1a1a1a;
+	color: #fff;
+	text-decoration: none;
+}
 #about a, #about a:visited {
   text-decoration: none;
   color: #ddd;
 }
 #about a:hover {
   text-decoration: none;
-  color: #fff;
 }
 #logo {
   position: absolute;
   top: 0px;
-  left: 22px;
+  left: 0px;
   font-size: 2.2em;
-  padding: 9px 0px;
+  padding: 10px 17px 6px 22px;
 }
 #logo a{
 	text-decoration: none;
 	color: #ddd;
 	font-family: 'Adobe Garamond Pro', serif;
 }
-#logo a:hover{
+#logo:hover{
 	text-decoration: none;
 	color: #fff;
+	background: #1a1a1a;
 }
 #twitter {
   position: absolute;
@@ -145,19 +150,24 @@ body {
 
 #date_range {
   font-size: 1.8em;
-  margin-left: 116px;
+  margin-left: 110px;
   margin-top: 0px;
-  background: #1c1c1c;
+  background: #111;
   width: 130px;
   text-align: center;
-  padding: 13px 10px;
+  padding: 14px 7px 12px 7px;
   text-decoration: none;
   color: #ddd;
+  font-weight: light;
+  font-weight: 300;
 }
 #date_range:hover{
-	background: #222;
+	background: #1a1a1a;
 	color: #fff;
 	text-decoration: none;
+}
+#date_range a{
+	color: #ddd;
 }
 #date_range a, #date_range a:hover {
 	text-decoration: none;
