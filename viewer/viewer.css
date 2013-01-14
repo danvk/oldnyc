@@ -6,6 +6,9 @@ body {
   font-size: 0.8em;
   text-rendering: optimizeLegibility;
 }
+a{
+	text-decoration: none;
+}
 #header {
   position: absolute;
   top: 0px;
@@ -109,6 +112,19 @@ body {
   top: 18px;
   right: 70px;
 }
+/*new social */
+.social{
+	position: absolute;
+	top: 10px;
+}
+.social:hover{
+
+}
+.facebook{
+
+}
+
+/* end new social*/
 
 #slider-container {
   border: 2px solid purple;
@@ -155,6 +171,7 @@ body {
 
 #date_range {
   font-size: 1.8em;
+  margin: 0;
   margin-left: 110px;
   margin-top: 0px;
   background: #111;
@@ -164,7 +181,7 @@ body {
   text-decoration: none;
   color: #ddd;
   font-weight: light;
-  font-weight: 300;
+  font-weight: 300
 }
 #date_range:hover{
 	background: #1a1a1a;
