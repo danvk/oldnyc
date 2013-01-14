@@ -21,7 +21,6 @@ function displayInfoForLatLon(lat_lon, marker) {
   }
 
   var thumb_panes = $.map(photo_ids, function(photo_id, idx) {
-    var thumb_id = 'thumb-' + photo_id;
     //var img_path = 'http://sf-viewer.appspot.com/thumb/' + photo_id + '.jpg';
     var img_path = 'http://s3-us-west-1.amazonaws.com/oldsf/thumb/' + photo_id + '.jpg';
 
@@ -56,13 +55,13 @@ function displayInfoForLatLon(lat_lon, marker) {
 
   loadInfoForPhotoIds(photo_ids);
   loadPictures();
-  updateHash();
 }
 
 // TODO(danvk): possible to just use the event?
 function makeCallback(lat_lon, marker) {
   return function(e) {
     displayInfoForLatLon(lat_lon, marker);
+    stateWasChanged();
   };
 }
 
@@ -107,9 +106,11 @@ function initialize_map() {
       ]
   };
   
-  map = new google.maps.Map($('#map').get(), opts);
-  //google.maps.event.addListener(map, 'center_changed', updateHash);
-  //google.maps.event.addListener(map, 'zoom_changed', updateHash);
+  map = new google.maps.Map($('#map').get(0), opts);
+
+  // This event fires when a pan/zoom operation has completed and the map is no
+  // longer in motion. It reduces the number of URL parameter updates we do.
+  google.maps.event.addListener(map, 'idle', stateWasChanged);
 
   // Create markers for each number.
   marker_icons.push(null);  // it's easier to be 1-based.
@@ -154,10 +155,9 @@ function initialize_map() {
   }
 
   if (location.hash) {
-    loadFromHash();
+    setUIFromUrlHash();
   }
-
-  if (!stateFromHash().hasOwnProperty('ll')) {
+  if (!hashToState(location.hash).hasOwnProperty('ll')) {
     setCount(total);
     makeCallback(init_lat_lon, init_marker)();
   }
@@ -224,7 +224,7 @@ function createSlider() {
     slide: slide,
     change: function(event, ui) {
       // TODO(danvk): on slow browsers, the update should actually happen here
-      updateHash();
+      stateWasChanged();
     }
   });
 
@@ -243,23 +243,14 @@ function createSlider() {
 function loadPictures() {
   var $carousel = $('#carousel');
 
-  // var carousel = el('carousel');
-  // var imgs = carousel.getElementsByTagName('img');
-  // var bottom_edge = carousel.scrollTop + carousel.offsetHeight;
-  var bottom_edge = $carousel.scrollTop() + $carousel.height();
   var padding = 100;
+  var bottom_edge = $carousel.scrollTop() + $carousel.height() + padding;
   $('#carousel img').each(function(i, imgEl) {
     var $img = $(imgEl);
-    if ($img.offset().top - padding < bottom_edge &&
-        !$img.attr('src')) {
-      var thumb_id = $img.parent().attr('photo_id');
-      var img_path = $img.attr('path');
-
-      // can probably use jQuery to fix this.
-      var img = new Image();
-      img.onload = spinnerKiller;
-      img.src = img_path;
-      $img.attr('src', img_path);
+    if ($img.offset().top < bottom_edge && !$img.attr('src')) {
+      $img
+        .attr('src', $img.attr('path'))
+        .load(spinnerKiller);
     }
   });
 }
@@ -281,7 +272,7 @@ function buildHolder(photo_id, img_width, is_visible) {
 }
 
 
-function showExpanded(id) {
+function showExpanded(id, opt_explicit_width) {
   $('#expanded').hide();
 
   var photo_ids =
@@ -294,18 +285,16 @@ function showExpanded(id) {
     var $thumb_img = $('#thumb-' + photo_id + ' img');
     var img_width = 400.0 / $thumb_img.height() * $thumb_img.width();
 
-    if (photo_id == id) selected_idx = idx;
+    if (photo_id == id) {
+      selected_idx = idx;
+      if (opt_explicit_width) {
+        img_width = opt_explicit_width;
+      }
+    }
 
     // TODO(danvk): show prev/next as well
     return buildHolder(photo_id, img_width, photo_id == id).get();
   });
-
-  /*
-  var twitter = document.createElement('div');
-  twitter.id = 'expanded-twitter';
-  twitter.innerHTML = el('twitter').innerHTML;
-  el('expanded-image-holder').appendChild(twitter);
-  */
 
   $('#expanded-carousel ul')
     .empty()
@@ -318,7 +307,6 @@ function showExpanded(id) {
     })
 
   $('#expanded').show();
-  expanded_photo_id = id;
   $('#expanded-carousel')
     .jcarousel('scroll', selected_idx, false /* no animation */);
 
@@ -332,13 +320,13 @@ function showExpanded(id) {
     }
   });
 
-  updateHash();
+  stateWasChanged();
 }
 
 function hideExpanded() {
   $('#expanded').hide();
   $(document).unbind('keyup');
-  updateHash();
+  stateWasChanged();
 }
 
 function scrollExpanded(target) {
@@ -358,6 +346,7 @@ function fillPhotoPane(photo_id, $pane, opt_info) {
       .attr('href', "javascript:showExpanded('" + photo_id + "')");
   $('.library-link', $pane)
     .attr('href', info.library_url);
+  $pane.attr('photo_id', photo_id);
 }
 
 $(function() {
@@ -388,5 +377,6 @@ $(function() {
       // Set a "current" class on the target element but no others.
       $('#expanded-carousel li').removeClass('current');
       $(this).addClass('current');
+      stateWasChanged();
     });
 });

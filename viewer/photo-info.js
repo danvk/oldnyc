@@ -11,7 +11,7 @@ function loadInfoForPhotoIds(photo_ids) {
     data += (i ? '&' : '') + 'id=' + photo_ids[i];
   }
 
-  $.getJSON('/info', data, function(data, status, xhr) {
+  $.post('/info', data, function(data, status, xhr) {
     // Add these values to the cache.
     $.extend(photo_id_to_info, data);
 
@@ -20,7 +20,7 @@ function loadInfoForPhotoIds(photo_ids) {
       var $pane = $('[photo_id=' + photo_id + ']');
       fillPhotoPane(photo_id, $pane, info);
     });
-  });
+  }, 'json');
 }
 
 // Returns a {title: ..., date: ..., library_url: ...} object.
