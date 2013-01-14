@@ -6,110 +6,6 @@ var map;
 var start_date = 1850;
 var end_date = 2000;
 
-function el(id) {
-  return document.getElementById(id);
-}
-
-var selected_marker = null;
-var selected_icon = 0;
-var expanded_photo_id = null;
-
-// There are four bits of state:
-// 1. Selected date range
-// 2. Selected dot
-// 3. Expanded image
-// 4. Map position
-function currentState() {
-  var years = $('#slider').slider('values');
-  if (years[0] == 1850 && years[1] == 2000) years = null;
-  var selected_lat_lon = selected_marker ? selected_marker.title : null;
-  if (selected_lat_lon == init_lat_lon) selected_lat_lon = null;
-  var expanded = null;
-  if (el('expanded').style.display != 'none') {
-    expanded = expanded_photo_id + ',' + el('expanded-image').width;
-  }
-
-  var center = map.getCenter();
-  var map_state = center.lat().toFixed(5) + ',' + center.lng().toFixed(5) + ',' + map.getZoom();
-  if (map_state == '37.79216,-122.41753,14') map_state = null;
-
-  var state = {};
-  if (years) state.y = years[0] + '-' + years[1];
-  if (selected_lat_lon) state.ll = selected_lat_lon;
-  if (expanded) state.e = expanded;
-  if (map_state) state.m = map_state;
-  return state;
-}
-
-var block_update = false;  // used when loading from a hash
-var current_hash = null;
-function updateHash() {
-  if (block_update) return;
-  var state = currentState();
-  var hash = '';
-  for (var k in state) {
-    if (hash) hash += ',';
-    hash += k + ':' + state[k].replace(/,/g, '|');
-  }
-  current_hash = hash;
-  location.hash = hash;
-}
-
-function stateFromHash() {
-  if (!location.hash) return {};
-
-  var hash = '' + location.hash;
-  if (hash.indexOf('%7') >= 0) {
-    // twitter links come through as 'foo%7Cbar', not 'foo|bar'.
-    hash = unescape(hash);
-  }
-
-  var parts = hash.substr(1).split(',');
-  var state = {};
-  for (var i = 0; i < parts.length; i++) {
-    var kv = parts[i].split(':');
-    var v = kv[1];
-    if (v.indexOf('|') != -1) v = v.split('|');
-    state[kv[0]] = v;
-  }
-  return state;
-}
-
-function loadFromHash() {
-  var state = stateFromHash();
-  block_update = true;
-  if (state.hasOwnProperty('m')) {
-    var ll = new google.maps.LatLng(parseFloat(state.m[0]), parseFloat(state.m[1]));
-    var zoom = parseInt(state.m[2]);
-    map.setCenter(ll);
-    map.setZoom(parseInt(zoom));
-  }
-  if (state.hasOwnProperty('y')) {
-    var ys = state.y.split('-');
-    ys = [parseInt(ys[0]), parseInt(ys[1])];
-    $('#slider').slider('values', ys);
-    slide();
-  }
-  if (state.hasOwnProperty('ll')) {
-    var marker = null;
-    for (var i = 0; i < markers.length; i++) {
-      if (markers[i].title == state.ll) {
-        marker = markers[i];
-        break;
-      }
-    }
-    if (marker) {
-      displayInfoForLatLon(state.ll, marker);
-    }
-  }
-  if (state.hasOwnProperty('e')) {
-    var id = state.e[0];
-    var w = parseInt(state.e[1]);
-    showExpanded(id, w);
-  }
-  block_update = false;
-}
-
 // Intended to be used as an img.onLoad handler.
 function spinnerKiller() {
   $(this).css('backgroundImage', 'none');
@@ -125,7 +21,6 @@ function displayInfoForLatLon(lat_lon, marker) {
   }
 
   var thumb_panes = $.map(photo_ids, function(photo_id, idx) {
-    var thumb_id = 'thumb-' + photo_id;
     //var img_path = 'http://sf-viewer.appspot.com/thumb/' + photo_id + '.jpg';
     var img_path = 'http://s3-us-west-1.amazonaws.com/oldsf/thumb/' + photo_id + '.jpg';
 
@@ -135,16 +30,14 @@ function displayInfoForLatLon(lat_lon, marker) {
       .removeAttr('id')
       .attr('photo_id', photo_id);
 
-    $pane.find('.thumb').attr('id', thumb_id);
-    $pane.find('img').attr('path', img_path);
-    $pane.find('.description').attr('id', 'description-' + photo_id);
-    $pane.find('.library-link').attr('id', 'library_url-' + photo_id);
+    $('img', $pane).attr('path', img_path);
 
     if (idx == photo_ids.length - 1) {
-      $pane.find('hr').hide();
+      $('hr', $pane).hide();
     }
     return $pane.get();
   });
+
   $('#carousel')
     .scrollTop(0)
     .empty()
@@ -160,65 +53,16 @@ function displayInfoForLatLon(lat_lon, marker) {
   marker.setIcon(selected_marker_icons[photo_ids.length > 100 ? 100 : photo_ids.length]);
   marker.setZIndex(100000 + zIndex);
 
-  getDescription(photo_ids);
+  loadInfoForPhotoIds(photo_ids);
   loadPictures();
-  updateHash();
 }
 
+// TODO(danvk): possible to just use the event?
 function makeCallback(lat_lon, marker) {
   return function(e) {
     displayInfoForLatLon(lat_lon, marker);
+    stateWasChanged();
   };
-}
-
-function getDescription(photo_ids) {
-  var req = new XMLHttpRequest();
-  var caller = this;
-  req.onreadystatechange = function () {
-    if (req.readyState == 4) {
-      if (req.status == 200 ||  // Normal http
-          req.status == 0) {    // Chrome w/ --allow-file-access-from-files
-        var info_map = eval('(' + req.responseText + ')');
-
-        for (var i = 0; i < photo_ids.length; i++) {
-          var id = photo_ids[i];
-          var info = info_map[id];
-          var html = info.title + '<br/>' + info.date;
-
-          if (el("description-" + id)) {
-            el("description-" + id).innerHTML = html;
-            if (!el("thumb-" + id)) continue;
-            el("thumb-" + id).innerHTML = 
-                '<a href="javascript:showExpanded(\'' + id + '\')">' +
-                el("thumb-" + id).innerHTML + '</a>';
-          }
-
-          var library_html =
-              '<a target=_blank href="' + info.library_url + '"><i>via</i> San Francisco Public Library</a>';
-          if (el("library_url-" + id)) {
-            el("library_url-" + id).innerHTML = library_html;
-          }
-
-          if (el("expanded-desc-" + id)) {
-            el("expanded-desc-" + id).innerHTML = html;
-          }
-          if (el("expanded-library_url-" + id)) {
-            el("expanded-library_url-" + id).innerHTML = library_html;
-          }
-        }
-      }
-    }
-  };
-
-  var url = '/info';
-  var data = ''
-  for (var i = 0; i < photo_ids.length; i++) {
-    data += (i ? '&' : '') + 'id=' + photo_ids[i];
-  }
-
-  req.open("POST", url, true);
-  req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-  req.send(data);
 }
 
 function initialize_map() {
@@ -262,9 +106,11 @@ function initialize_map() {
       ]
   };
   
-  map = new google.maps.Map(el("map"), opts);
-  //google.maps.event.addListener(map, 'center_changed', updateHash);
-  //google.maps.event.addListener(map, 'zoom_changed', updateHash);
+  map = new google.maps.Map($('#map').get(0), opts);
+
+  // This event fires when a pan/zoom operation has completed and the map is no
+  // longer in motion. It reduces the number of URL parameter updates we do.
+  google.maps.event.addListener(map, 'idle', stateWasChanged);
 
   // Create markers for each number.
   marker_icons.push(null);  // it's easier to be 1-based.
@@ -309,10 +155,9 @@ function initialize_map() {
   }
 
   if (location.hash) {
-    loadFromHash();
+    setUIFromUrlHash();
   }
-
-  if (!stateFromHash().hasOwnProperty('ll')) {
+  if (!hashToState(location.hash).hasOwnProperty('ll')) {
     setCount(total);
     makeCallback(init_lat_lon, init_marker)();
   }
@@ -354,7 +199,7 @@ function setCount(total) {
     total = total.replace(rgx, '$1' + ',' + '$2');
   }
   
-  el("count").innerHTML = total;
+  $('#count').html(total);
 }
 
 function slide(event, ui) {
@@ -366,7 +211,7 @@ function slide(event, ui) {
   }
   var date1 = dates[0];
   var date2 = dates[1];
-  el("date_range").innerHTML = date1 + '&ndash;' + date2;
+  $('#date_range').html(date1 + '&ndash;' + date2);
   updateVisibleMarkers(date1, date2);
 }
 
@@ -379,7 +224,7 @@ function createSlider() {
     slide: slide,
     change: function(event, ui) {
       // TODO(danvk): on slow browsers, the update should actually happen here
-      updateHash();
+      stateWasChanged();
     }
   });
 
@@ -393,48 +238,41 @@ function createSlider() {
   }
 }
 
-// The thumbnails div has scrolled or changed. Maybe we should load some pictures.
+// The thumbnails div has scrolled or changed. Maybe we should load some
+// pictures.
 function loadPictures() {
-  var carousel = el('carousel');
-  var imgs = carousel.getElementsByTagName('img');
-  var bottom_edge = carousel.scrollTop + carousel.offsetHeight;
-  var padding = 100;
-  for (var i = 0; i < imgs.length; i++) {
-    if (imgs[i].offsetTop - padding < bottom_edge && imgs[i].src == '') {
-      var thumb_id = imgs[i].parentNode.id;
-      var img_path = imgs[i].getAttribute('path');
+  var $carousel = $('#carousel');
 
-      var img = new Image();
-      img.onload = spinnerKiller;
-      img.src = img_path;
-      imgs[i].src = img_path;
+  var padding = 100;
+  var bottom_edge = $carousel.scrollTop() + $carousel.height() + padding;
+  $('#carousel img').each(function(i, imgEl) {
+    var $img = $(imgEl);
+    if ($img.offset().top < bottom_edge && !$img.attr('src')) {
+      $img
+        .attr('src', $img.attr('path'))
+        .load(spinnerKiller);
     }
-  }
+  });
 }
 
-
-function buildHolder(id, img_width, is_visible) {
+// This creates the holder "pane" for an expanded image.
+// The expanded image slideshow consists of many of these.
+// id 
+function buildHolder(photo_id, img_width, is_visible) {
+  var info = infoForPhotoId(photo_id);
   var $holder = $('#expanded-image-holder-template').clone().removeAttr('id');
   $holder.find('img')
     .attr(is_visible ? 'src' : 'future-src',
-        'http://s3-us-west-1.amazonaws.com/oldsf/images/' + id + '.jpg')
+        'http://s3-us-west-1.amazonaws.com/oldsf/images/' + photo_id + '.jpg')
     .attr('width', img_width)
     .load(spinnerKiller);
 
-  // TODO(danvk): get rid of this use of IDs.
-  $holder.find('.description')
-    .html(el('description-' + id).innerHTML)
-    .attr('id', 'expanded-desc-' + id);
-
-  $holder.find('.library-link')
-    .attr('id', 'expanded-library_url-' + id)
-    .html(el('library_url-' + id).innerHTML);
-
+  fillPhotoPane(photo_id, $holder);
   return $holder;
 }
 
 
-function showExpanded(id) {
+function showExpanded(id, opt_explicit_width) {
   $('#expanded').hide();
 
   var photo_ids =
@@ -447,18 +285,16 @@ function showExpanded(id) {
     var $thumb_img = $('#thumb-' + photo_id + ' img');
     var img_width = 400.0 / $thumb_img.height() * $thumb_img.width();
 
-    if (photo_id == id) selected_idx = idx;
+    if (photo_id == id) {
+      selected_idx = idx;
+      if (opt_explicit_width) {
+        img_width = opt_explicit_width;
+      }
+    }
 
     // TODO(danvk): show prev/next as well
     return buildHolder(photo_id, img_width, photo_id == id).get();
   });
-
-  /*
-  var twitter = document.createElement('div');
-  twitter.id = 'expanded-twitter';
-  twitter.innerHTML = el('twitter').innerHTML;
-  el('expanded-image-holder').appendChild(twitter);
-  */
 
   $('#expanded-carousel ul')
     .empty()
@@ -471,7 +307,6 @@ function showExpanded(id) {
     })
 
   $('#expanded').show();
-  expanded_photo_id = id;
   $('#expanded-carousel')
     .jcarousel('scroll', selected_idx, false /* no animation */);
 
@@ -485,13 +320,13 @@ function showExpanded(id) {
     }
   });
 
-  updateHash();
+  stateWasChanged();
 }
 
 function hideExpanded() {
-  el('expanded').style.display = 'none';
+  $('#expanded').hide();
   $(document).unbind('keyup');
-  updateHash();
+  stateWasChanged();
 }
 
 function scrollExpanded(target) {
@@ -499,38 +334,20 @@ function scrollExpanded(target) {
     .jcarousel('scroll', target);
 }
 
-function killSplash() {
-  el('backdrop').style.display = 'none';
+// This fills out details for either a thumbnail or the expanded image pane.
+function fillPhotoPane(photo_id, $pane, opt_info) {
+  // This could be either a thumbnail on the right-hand side or an expanded
+  // image, front and center.
+  $('.description', $pane).html(descriptionForPhotoId(photo_id));
+
+  var info = opt_info || infoForPhotoId(photo_id);
+  // TODO(danvk): this is kinda gross
+  $('.thumb a', $pane)
+      .attr('href', "javascript:showExpanded('" + photo_id + "')");
+  $('.library-link', $pane)
+    .attr('href', info.library_url);
+  $pane.attr('photo_id', photo_id);
 }
-
-/* From quirksmode */
-function createCookie(name,value,days) {
-  if (days) {
-    var date = new Date();
-    date.setTime(date.getTime()+(days*24*60*60*1000));
-    var expires = "; expires="+date.toGMTString();
-  }
-  else var expires = "";
-  document.cookie = name+"="+value+expires+"; path=/";
-}
-
-function readCookie(name) {
-  var nameEQ = name + "=";
-  var ca = document.cookie.split(';');
-  for(var i=0;i < ca.length;i++) {
-    var c = ca[i];
-    while (c.charAt(0)==' ') c = c.substring(1,c.length);
-    if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
-  }
-  return null;
-}
-
-
-// This enables pasting hashed URLs
-$(window).hashchange(function(){
-  if (current_hash == location.hash.substr(1)) return;
-  loadFromHash();
-});
 
 $(function() {
   $('#curtains').click(hideExpanded);
@@ -544,6 +361,7 @@ $(function() {
       var this_idx = $(els).index(this);
       if (this_idx == -1) throw 'eh?';
       for (var i = 0; i < 2; i++) {
+        if (!els[this_idx + i]) continue;
         var $img = $(els[this_idx + i]).find('img');
         if (!$img.attr('src')) {
           $img
@@ -559,5 +377,6 @@ $(function() {
       // Set a "current" class on the target element but no others.
       $('#expanded-carousel li').removeClass('current');
       $(this).addClass('current');
+      stateWasChanged();
     });
 });
