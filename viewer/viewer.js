@@ -212,7 +212,7 @@ function slide(event, ui) {
   }
   var date1 = dates[0];
   var date2 = dates[1];
-  $('#date_range').html(date1 + '&ndash;' + date2);
+  $('#date_range a').html(date1 + '&ndash;' + date2);
   updateVisibleMarkers(date1, date2);
 }
 
@@ -398,6 +398,10 @@ $(function() {
     .on('animateend.jcarousel', function() {
       expanded_carousel_animating = false;
     });
+
+  $('#date_range a').click(function() {
+    $('#slider-container').toggle();
+  });
 
   // $('#expanded-carousel')
   //   .delegate('img', 'load', function() {
