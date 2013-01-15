@@ -279,6 +279,11 @@ function buildHolder(photo_id, img_width, is_visible) {
       }
     });
 
+  if (img_width) {
+    $holder.find('.description')
+      .css('max-width', img_width + 'px');
+  }
+
   fillPhotoPane(photo_id, $holder);
   return $holder;
 }
@@ -375,11 +380,16 @@ $(function() {
       if (this_idx == -1) throw 'eh?';
       for (var i = -1; i < 2; i++) {
         if (!els[this_idx + i]) continue;
-        var $img = $(els[this_idx + i]).find('img');
+        var $el = $(els[this_idx + i]);
+        var $img = $el.find('img');
         if (!$img.attr('src')) {
           $img
             .attr('src', $img.attr('future-src'))
-            .removeAttr('future-src');
+            .removeAttr('future-src')
+            .load(function() {
+              $el.find('.description')
+                  .css('max-width', $img.get(0).naturalWidth + 'px');
+            });
         }
         if ($img.width() == 0) {
           $img.attr('width', null);

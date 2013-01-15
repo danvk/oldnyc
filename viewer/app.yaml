@@ -1,7 +1,9 @@
 application: sf-viewer
 
 version: 2013-01-14
-runtime: python
+runtime: python27
+threadsafe: true
+
 api_version: 1
 
 handlers:
@@ -22,19 +24,19 @@ handlers:
   static_files: feedback.html
   upload: feedback.html
 - url: /upload
-  script: app.py
+  script: app.app
 - url: /lat-lons.js
   static_files: lat-lons.js
   upload: lat-lons.js
 - url: /thumb/.*
-  script: app.py
+  script: app.app
 - url: /(.*\.(gif|png|jpg|css|js|zip))
   static_files: \1
   upload: (.*\.(gif|png|jpg|css|js|zip))
 - url: .*
-  script: app.py
+  script: app.app
 
 
 builtins:
 - remote_api: on
-- datastore_admin: on
+#- datastore_admin: on
