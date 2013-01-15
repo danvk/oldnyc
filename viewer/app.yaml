@@ -1,6 +1,6 @@
 application: sf-viewer
 
-version: 1
+version: 2013-01-14
 runtime: python
 api_version: 1
 
