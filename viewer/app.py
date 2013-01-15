@@ -1,9 +1,9 @@
-from google.appengine.ext import webapp
+#from google.appengine.ext import webapp
+import webapp2
 from google.appengine.api import memcache
 from google.appengine.ext import db
 from google.appengine.ext.webapp.util import run_wsgi_app
 from google.appengine.ext.webapp import template
-from google.appengine.dist import use_library
 
 import os
 import simplejson as json
@@ -51,7 +51,7 @@ def GetImageRecords(photo_ids):
   return record_map
 
 
-class RecordFetcher(webapp.RequestHandler):
+class RecordFetcher(webapp2.RequestHandler):
   def post(self):
     self.get()
 
@@ -72,7 +72,7 @@ class RecordFetcher(webapp.RequestHandler):
         #self.response.out.write("no record for '%s'" % id)
         # This is just to aid local testing:
         response[id] = {
-          'title': 'Photo ID #' + id,
+          'title': 'Pat and Mike Dugan running around their aunt, Carla Vanni, in Washington Square Park who was super awesome!',  # 'Photo ID #' + id,
           'date': default_response['date'],
           'folder': default_response['folder'],
           'library_url': 'http://sflib1.sfpl.org:82/record=b1000001~S0'
@@ -88,7 +88,7 @@ class RecordFetcher(webapp.RequestHandler):
     self.response.out.write(json.dumps(response))
 
 
-class AddEgg(webapp.RequestHandler):
+class AddEgg(webapp2.RequestHandler):
   def get(self):
     image = ImageRecord(key_name="egg")
     image.photo_id = 'egg'
@@ -99,18 +99,18 @@ class AddEgg(webapp.RequestHandler):
     image.put()
 
 
-application = webapp.WSGIApplication(
-                                     [
-                                      ('/info', RecordFetcher),
-                                      #('/upload', UploadThumbnailHandler),
-                                      #('/thumb.*', ThumbnailFetcher),
-                                      ('/addegg', AddEgg),
-                                     ],
-                                     debug=True)
+app = webapp2.WSGIApplication(
+                              [
+                               ('/info', RecordFetcher),
+                               #('/upload', UploadThumbnailHandler),
+                               #('/thumb.*', ThumbnailFetcher),
+                               ('/addegg', AddEgg),
+                              ],
+                              debug=True)
 
-def main():
-    run_wsgi_app(application)
-
-if __name__ == "__main__":
-    main()
+# def main():
+#     run_wsgi_app(application)
+# 
+# if __name__ == "__main__":
+#     main()
 

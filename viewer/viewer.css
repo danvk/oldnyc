@@ -416,6 +416,10 @@ a{
   line-height: 130%;
 }
 
+#expanded-carousel .description {
+  width: 100%;
+}
+
 hr {
   border: 0;
   border-bottom: 1px dotted #dadada;
