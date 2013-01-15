@@ -73,7 +73,7 @@ a{
 #about {
   position: absolute;
   top: 0px;
-  right: 0px;
+  right: 158px;
  font-family: Arial, Tahoma, Sans-serif;
  font-size: 1.2em;
  padding: 21px 22px;
@@ -111,34 +111,65 @@ a{
   position: absolute;
   top: 18px;
   right: 70px;
+  visibility: hidden;
 }
 /*new social */
 .social{
 	position: absolute;
-	top: 10px;
+	top: 0px;
+	padding: 11px 8px;
 }
 .social:hover{
-
+	background: #1a1a1a;
 }
 .facebook{
-
+	right: 116px;
+	padding: 11px 13px;
+}
+.twitter{
+	right: 62px;
+}
+.pinterest{
+	right: 12px;
 }
 
 /* end new social*/
 
 #slider-container {
-  border: 2px solid purple;
-  background: yellow;
+  border: none;
   height: 50px;
-  width: 300px;
+  width: 320px;
+  margin-left: 23px;
+  margin-top: 10px;
+  background: #383838;
+}
+#slider-arrow{
+  width: 0; 
+  height: 0;
+  position: absolute;
+  top: 45px;
+  left: 160px;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-bottom: 20px solid #383838;
 }
 
 #slider {
   position: absolute;
-  top: 17px;
-  left: 205px;
-  right: 297px;
+  top: 87px;
+  left: 44px;
+  width: 278px;
   height: 4px;
+}
+#slider {
+  /*background: #555;*/
+  background: #111;
+  border: none;
+  height: 5px;
+}
+#slider .ui-slider-range {
+	background: #ddd;
+	height: 5px;
 }
 
 #slider_ticks {
@@ -147,6 +178,7 @@ a{
   left: 205px;
   right: 298px;
   height: 20px;
+  display: none;
 }
 
 .tick {
@@ -183,7 +215,7 @@ a{
   font-weight: light;
   font-weight: 300
 }
-#date_range:hover{
+#date_range:hover, #date_range:active {
 	background: #1a1a1a;
 	color: #fff;
 	text-decoration: none;
@@ -202,10 +234,12 @@ a{
 	color: #fff;
 }*/
 .ui-slider-horizontal .ui-slider-handle {
-  background: url('sliderdoodad.png');
-  width: 22px;
+  /*background: url('sliderdoodad.png');*/
+  background: #ddd;
+  width: 17px;
   height: 17px;
-  margin-top: 2px;
+  margin-top: -1px;
+  border-radius: 10px;
   border: none;
   cursor: pointer;
 }
@@ -214,13 +248,7 @@ a{
   outline: none;
 }
 
-#slider {
-  background: #e0e0e0;
-/*  border: 1px solid #bbb;*/
-}
-#slider .ui-slider-range {
-  background: #E97566;
-}
+
 
 #stats {
   position: absolute;
