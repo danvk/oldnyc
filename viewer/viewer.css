@@ -17,7 +17,7 @@ a{
   height: 55px;
   min-width:800px;
   /*background-color: #f8f8f8;*/
- background-color: #1f1f1f;
+ background-color: #111;
   z-index: 1;
 }
 /*.header-shadow {
@@ -77,7 +77,7 @@ a{
  font-family: Arial, Tahoma, Sans-serif;
  font-size: 1.2em;
  padding: 18px 20px 17px 20px;
- background: #1f1f1f;
+ background: #111;
 }
 #about:hover{
 	background: #1a1a1a;
@@ -97,7 +97,7 @@ a{
   left: 0px;
   font-size: 2.2em;
   padding: 10px 17px 6px 22px;
-  background: #1f1f1f;
+  background: #111;
 }
 #logo a{
 	text-decoration: none;
@@ -111,7 +111,7 @@ a{
 }
 #date_range {
   font-size: 1.8em;
-  background: #1f1f1f;
+  background: #111;
   width: 130px;
   text-align: center;
   padding: 14px 7px 12px 7px;
@@ -140,7 +140,7 @@ a{
 	position: absolute;
 	top: 0px;
 	padding: 11px 10px;
-	background: #1f1f1f;
+	background: #111;
 }
 .social:hover{
 	background: #1a1a1a;
@@ -164,7 +164,7 @@ a{
   width: 320px;
   margin-left: 23px;
   margin-top: 10px;
-  background: #1a1a1a;
+  background: #2e2e2e;
 }
 #slider-arrow{
   width: 0; 
@@ -174,7 +174,7 @@ a{
   left: 160px;
   border-left: 20px solid transparent;
   border-right: 20px solid transparent;
-  border-bottom: 20px solid #1a1a1a;
+  border-bottom: 20px solid #2e2e2e;
 }
 
 #slider {
@@ -186,7 +186,7 @@ a{
 }
 #slider {
   /*background: #555;*/
-  background: #000;
+  background: #111;
   border: none;
   height: 5px;
 }
