@@ -74,6 +74,7 @@ function initialize_map() {
     zoom: 14,
     center: latlng,
     mapTypeId: google.maps.MapTypeId.ROADMAP,
+    mapTypeControl: false,
     streetViewControl: true,
     panControlOptions: {
       position: google.maps.ControlPosition.LEFT_TOP
