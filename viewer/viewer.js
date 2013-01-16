@@ -117,9 +117,19 @@ function initialize_map() {
   
   map = new google.maps.Map($('#map').get(0), opts);
 
+  // This shoves the navigation bits down by a CSS-specified amount
+  // (see the .spacer rule). This is surprisingly hard to do.
   var map_spacer = $('<div/>').append($('<div/>').addClass('spacer')).get(0);
   map_spacer.index = -1;
   map.controls[google.maps.ControlPosition.TOP_LEFT].push(map_spacer);
+
+  // The OldSF UI just gets in the way of Street View.
+  // Even worse, it blocks the "exit" button!
+  var streetView = map.getStreetView();
+  google.maps.event.addListener(streetView, 'visible_changed',
+      function() {
+        $('.streetview-hide').toggle(!streetView.getVisible());
+      });
 
   // Create a blank control to force the standard controls down a touch.
 

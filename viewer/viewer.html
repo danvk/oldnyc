@@ -23,7 +23,7 @@
 </head>
 
 <body onload="initialize_map()">
-  <div id="header" class="header-shadow">
+  <div id="header" class="streetview-hide">
       <div id="twitter">
         <a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="Old_SF">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
       </div>
@@ -51,7 +51,7 @@
   <div id="map"></div>
   <div id="stats">Showing <span id="count">__</span> photos</div>
 
-  <div id="rightpanel">
+  <div id="rightpanel" class="streetview-hide">
     <div id="extra_line"></div>
     <div id="carousel" onscroll="loadPictures()"></div>
   </div>
