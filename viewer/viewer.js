@@ -359,6 +359,8 @@ function showExpanded(id, opt_explicit_width) {
       scrollExpanded('-=1');  // go left
     } else if (e.keyCode == 39) {
       scrollExpanded('+=1');  // go right
+    } else if (e.keyCode == 27) {  // escape
+      hideExpanded();
     }
   });
 
