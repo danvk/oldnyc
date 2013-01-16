@@ -16,9 +16,7 @@ a{
   right: 0px;
   height: 55px;
   min-width:800px;
-  /*background-color: #f8f8f8;*/
- background-color: #111;
-  z-index: 1;
+  z-index: 10000;
 }
 /*.header-shadow {
   -webkit-box-shadow: 0px 0px 3px 1px #aaa;
@@ -39,12 +37,13 @@ a{
 
 #rightpanel {
   position: absolute;
-  top: 55px;
-  right: 0px;
+  top: 8px;
+  right: 8px;
   width: 240px;
   bottom: 0px;
   background: #fff;
   z-index: 2;
+  border-top: 54px solid #de5c5c;
 /* -webkit-box-shadow: 0px 0px 3px 1px #bbb;
   -moz-box-shadow: 0px 0px 3px 1px #bbb;
   box-shadow: 0px 0px 3px 1px #bbb;*/
@@ -53,11 +52,12 @@ a{
 }
 
 #extra_line {
-  border-top: 55px solid #111;
+  border-top: 55px solid #de5c5c;
   position: absolute;
   left: 0;
   right: 0;
   top: 0px;
+  height: 50px;
   display: none;
 }
 
@@ -70,31 +70,32 @@ a{
   overflow: hidden;
   overflow-y: scroll;
 }
+
 #about {
   position: absolute;
-  top: 0px;
-  right: 0px;
+  top: 8px;
+  right: 8px;
  font-family: Arial, Tahoma, Sans-serif;
- font-size: 1.2em;
- padding: 18px 20px 17px 20px;
- background: #111;
+ font-size: 1.3em;
+ padding: 18px 20px 16px 20px;
+ background: #de5c5c;
 }
 #about:hover{
-	background: #1a1a1a;
+	background: #e46969;
 	color: #fff;
 	text-decoration: none;
 }
 #about a, #about a:visited {
   text-decoration: none;
-  color: #ddd;
+  color: #fff;
 }
 #about a:hover {
   text-decoration: none;
 }
 #logo {
   position: absolute;
-  top: 0px;
-  left: 0px;
+  top: 8px;
+  left: 8px;
   font-size: 2.2em;
   padding: 10px 17px 6px 22px;
   background: #111;
@@ -118,7 +119,7 @@ a{
   color: #ddd;
   font-weight: light;
   font-weight: 300;
-  margin: 0px 0 0 110px;
+  margin: 8px 0 0 118px;
   cursor: pointer;
 }
 #date_range:hover, #date_range:active {
@@ -163,35 +164,35 @@ a{
   height: 50px;
   width: 320px;
   margin-left: 23px;
-  margin-top: 10px;
-  background: #2e2e2e;
+  margin-top: 8px;
+  background: #fff;
 }
 #slider-arrow{
   width: 0; 
   height: 0;
   position: absolute;
-  top: 50px;
+  top: 55px;
   left: 160px;
   border-left: 20px solid transparent;
   border-right: 20px solid transparent;
-  border-bottom: 20px solid #2e2e2e;
+  border-bottom: 20px solid #fff;
 }
 
 #slider {
   position: absolute;
-  top: 87px;
+  top: 94px;
   left: 44px;
   width: 278px;
   height: 4px;
 }
 #slider {
   /*background: #555;*/
-  background: #111;
+  background: #ccc;
   border: none;
   height: 5px;
 }
 #slider .ui-slider-range {
-	background: #ddd;
+	background: #111;
 	height: 5px;
 }
 
@@ -228,11 +229,11 @@ a{
 
 .ui-slider-horizontal .ui-slider-handle {
   /*background: url('sliderdoodad.png');*/
-  background: #ddd;
-  width: 17px;
-  height: 17px;
+  background: #111;
+  width: 14px;
+  height: 14px;
   margin-top: -1px;
-  border-radius: 10px;
+  border-radius: 15px;
   border: none;
   cursor: pointer;
 }
