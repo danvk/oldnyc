@@ -410,36 +410,6 @@ a{
   width: 100%;
 }
 
-hr {
-  border: 0;
-  border-bottom: 1px dotted #dadada;
-  left: 1px;
-  width: 200px;
-  position: relative;
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
-
-/* for "About" page */
-#title {
-  position: absolute;
-  left: 150px;
-  top: 30px;
-  font-size: 24px;
-}
-
-#content-area {
-  position: absolute;
-  top: 80px;
-  bottom: 0px;
-  left: 28px;
-  right: 0px;
-  padding: 10px;
-  font: 16px;
-  max-width: 600px;
-}
-
-
 #expanded-carousel {
   /* position: relative; */
   overflow: hidden;
@@ -458,3 +428,37 @@ hr {
 .spacer {
   height: 64px;
 }
+
+
+hr {
+  border: 0;
+  border-bottom: 1px dotted #dadada;
+  left: 1px;
+  width: 200px;
+  position: relative;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+/* for "About" page */
+
+#title {
+  font-size: 24px;
+  margin: 0;
+  padding: 0;
+  margin-top: 16px;
+  margin-left: 5px;
+}
+
+#content-area {
+font: 1em;
+width: 960px;
+margin: 0 auto;
+margin-bottom: 50px;
+}
+#content-area h3{
+	padding: 0;
+	margin: 0;
+	padding-top: 15px;
+}
+
