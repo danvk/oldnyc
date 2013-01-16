@@ -43,24 +43,13 @@ a{
   bottom: 0px;
   background: #fff;
   z-index: 2;
-  border-top: 54px solid #de5c5c;
+  border-top: 54px solid #d34f4f;
 /* -webkit-box-shadow: 0px 0px 3px 1px #bbb;
   -moz-box-shadow: 0px 0px 3px 1px #bbb;
   box-shadow: 0px 0px 3px 1px #bbb;*/
  /* border-top: 1px solid #CCCCCA;*/
   overflow-x: hidden;
 }
-
-#extra_line {
-  border-top: 55px solid #de5c5c;
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0px;
-  height: 50px;
-  display: none;
-}
-
 #carousel {
   position: absolute;
   top: 10px;
@@ -78,10 +67,10 @@ a{
  font-family: Arial, Tahoma, Sans-serif;
  font-size: 1.3em;
  padding: 18px 20px 16px 20px;
- background: #de5c5c;
+ background: #d34f4f;
 }
 #about:hover{
-	background: #e46969;
+	background: #dc5b5b;
 	color: #fff;
 	text-decoration: none;
 }
@@ -108,7 +97,7 @@ a{
 #logo:hover{
 	text-decoration: none;
 	color: #fff;
-	background: #1a1a1a;
+	background: #1c1c1c;
 }
 #date_range {
   font-size: 1.8em;
@@ -123,7 +112,7 @@ a{
   cursor: pointer;
 }
 #date_range:hover, #date_range:active {
-	background: #1a1a1a;
+	background: #1c1c1c;
 	color: #fff;
 	text-decoration: none;
 }
@@ -165,7 +154,7 @@ a{
   width: 320px;
   margin-left: 23px;
   margin-top: 8px;
-  background: #fff;
+  background: #d34f4f;
 }
 #slider-arrow{
   width: 0; 
@@ -175,7 +164,7 @@ a{
   left: 160px;
   border-left: 20px solid transparent;
   border-right: 20px solid transparent;
-  border-bottom: 20px solid #fff;
+  border-bottom: 20px solid #d34f4f;
 }
 
 #slider {
@@ -187,14 +176,32 @@ a{
 }
 #slider {
   /*background: #555;*/
-  background: #ccc;
+  background: #111;
   border: none;
   height: 5px;
 }
 #slider .ui-slider-range {
-	background: #111;
+	background: #eee;
 	height: 5px;
 }
+
+.ui-slider-horizontal .ui-slider-handle {
+  /*background: url('sliderdoodad.png');*/
+  background: #eee;
+  width: 14px;
+  height: 14px;
+  margin-top: -1px;
+  border-radius: 15px;
+  border: none;
+  cursor: pointer;
+}
+
+.ui-slider-horizontal .ui-slider-handle:focus {
+  outline: none;
+}
+
+
+
 
 #slider_ticks {
   position: absolute;
@@ -227,20 +234,7 @@ a{
 
 
 
-.ui-slider-horizontal .ui-slider-handle {
-  /*background: url('sliderdoodad.png');*/
-  background: #111;
-  width: 14px;
-  height: 14px;
-  margin-top: -1px;
-  border-radius: 15px;
-  border: none;
-  cursor: pointer;
-}
 
-.ui-slider-horizontal .ui-slider-handle:focus {
-  outline: none;
-}
 
 
 
