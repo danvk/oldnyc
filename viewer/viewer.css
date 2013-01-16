@@ -31,7 +31,7 @@ a{
 
 #map {
   position: absolute;
-  top: 0px;
+  top: 54px;
   left: 0px;
   right: 0px;
   bottom: 0px;
@@ -132,8 +132,7 @@ a{
 #twitter {
   position: absolute;
   top: 18px;
-  right: 70px;
-  visibility: hidden;
+  right: 114px;
 }
 /*new social */
 .social{
@@ -141,6 +140,7 @@ a{
 	top: 0px;
 	padding: 11px 10px;
 	background: #111;
+	display: none;
 }
 .social:hover{
 	background: #1a1a1a;
