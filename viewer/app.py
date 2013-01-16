@@ -9,6 +9,9 @@ import os
 import simplejson as json
 import logging
 
+# See https://developers.google.com/appengine/docs/python/runtime#The_Environment
+VERSION = os.environ['CURRENT_VERSION_ID']
+
 
 class ImageRecord(db.Model):
   # key = photo_id
@@ -27,11 +30,11 @@ class ThumbnailRecord(db.Model):
 def GetImageRecords(photo_ids):
   """Queries the ImageRecord db, w/ memcaching. Returns photo_id -> rec dict"""
   # check if we've got the whole thing in memcache
-  multi_key = 'MIR' + ','.join(photo_ids)
+  multi_key = VERSION + 'MIR' + ','.join(photo_ids)
   recs = memcache.get(multi_key)
   if recs: return recs
 
-  keys = ["IR" + photo_id for photo_id in photo_ids]
+  keys = [VERSION + "IR" + photo_id for photo_id in photo_ids]
 
   record_map = memcache.get_multi(keys, key_prefix='IR')
   missing_ids = list(set(photo_ids) - set(record_map.keys()))
@@ -43,7 +46,7 @@ def GetImageRecords(photo_ids):
   memcache_map = {}
   for id, r in zip(missing_ids, db_recs):
     record_map[id] = r
-    memcache_map["IR" + id] = r
+    memcache_map[VERSION + "IR" + id] = r
 
   if memcache_map:
     memcache.add_multi(memcache_map)
