@@ -2,7 +2,8 @@
 
 color='#111111'
 stroke_color='#111111'
-text_color='#ffffff'
+#text_color='#ffffff'
+text_color='#111111'
 font=Helvetica-Bold
 
 convert -size 9x9 xc:none -fill $color -draw 'circle 4,4 7,7' dots/1.png
