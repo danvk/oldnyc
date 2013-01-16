@@ -17,7 +17,7 @@ a{
   height: 55px;
   min-width:800px;
   /*background-color: #f8f8f8;*/
- background-color: #111;
+/*background-color: #fff;*/
   z-index: 1;
 }
 /*.header-shadow {
@@ -31,7 +31,7 @@ a{
 
 #map {
   position: absolute;
-  top: 54px;
+  top: 0px;
   left: 0px;
   right: 0px;
   bottom: 0px;
