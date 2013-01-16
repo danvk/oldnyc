@@ -75,6 +75,12 @@ function initialize_map() {
     center: latlng,
     mapTypeId: google.maps.MapTypeId.ROADMAP,
     streetViewControl: true,
+    panControlOptions: {
+      position: google.maps.ControlPosition.LEFT_TOP
+    },
+    zoomControlOptions: {
+      position: google.maps.ControlPosition.LEFT_TOP
+    },
     styles: [
         {
           featureType: "administrative.land_parcel",
@@ -107,6 +113,12 @@ function initialize_map() {
   };
   
   map = new google.maps.Map($('#map').get(0), opts);
+
+  var map_spacer = $('<div/>').append($('<div/>').addClass('spacer')).get(0);
+  map_spacer.index = -1;
+  map.controls[google.maps.ControlPosition.TOP_LEFT].push(map_spacer);
+
+  // Create a blank control to force the standard controls down a touch.
 
   // This event fires when a pan/zoom operation has completed and the map is no
   // longer in motion. It reduces the number of URL parameter updates we do.

@@ -31,7 +31,7 @@ a{
 
 #map {
   position: absolute;
-  top: 54px;
+  top: 0px;
   left: 0px;
   right: 0px;
   bottom: 0px;
@@ -458,3 +458,6 @@ hr {
   float: left;
 }
 
+.spacer {
+  height: 64px;
+}
