@@ -40,7 +40,7 @@ a{
   top: 8px;
   right: 8px;
   width: 240px;
-  bottom: 0px;
+  bottom: 19px;
   background: #fff;
   z-index: 2;
   border-top: 54px solid #d34f4f;
@@ -50,12 +50,13 @@ a{
  /* border-top: 1px solid #CCCCCA;*/
   overflow-x: hidden;
 }
+
 #carousel {
   position: absolute;
   top: 8px;
   right: 7px;
   width: 220px;
-  bottom: 0px;
+  bottom: 8px;
   overflow: hidden;
   overflow-y: scroll;
 }
@@ -86,8 +87,13 @@ a{
   top: 8px;
   left: 8px;
   font-size: 2.2em;
-  padding: 10px 17px 6px 22px;
+  height: 54px;
+  width: 110px;
   background: #111;
+  text-align: center;
+}
+#logo .wrapper{
+	padding: 11px 0;
 }
 #logo a{
 	text-decoration: none;
@@ -102,14 +108,17 @@ a{
 #date_range {
   font-size: 1.8em;
   background: #111;
-  width: 130px;
+  width: 145px;
   text-align: center;
-  padding: 14px 7px 12px 7px;
+  height: 54px;
   color: #ddd;
   font-weight: light;
   font-weight: 300;
   margin: 8px 0 0 118px;
   cursor: pointer;
+}
+#date_range .wrapper{
+	padding: 15px 0;
 }
 #date_range:hover, #date_range:active {
 	background: #1c1c1c;
@@ -121,8 +130,8 @@ a{
 }
 #twitter {
   position: absolute;
-  top: 18px;
-  right: 114px;
+  top: 26px;
+  right: 122px;
 }
 /*new social */
 .social{
@@ -155,7 +164,7 @@ a{
   margin-left: 8px;
   margin-top: 8px;
   /*background: #d34f4f;*/
-  background: #888;
+  background: #999;
 }
 #slider-arrow{
   width: 0; 
@@ -165,7 +174,7 @@ a{
   left: 170px;
   border-left: 20px solid transparent;
   border-right: 20px solid transparent;
-  border-bottom: 20px solid #888;
+  border-bottom: 20px solid #999;
 }
 
 #slider {
@@ -177,7 +186,7 @@ a{
 }
 #slider {
   /*background: #555;*/
-  background: #555;
+  background: #666;
   border: none;
   height: 5px;
 }
@@ -262,12 +271,12 @@ a{
   width: 22px;
   height: 90px;
   bottom: 100px;
-  background-color: red;
-  border: outset 1px red;
+  padding: 2px;
+  background-color: #c33c3c;
   border-left: none;
-   -webkit-box-shadow: 0px 0px 3px 0px #aaa;
+ /*  -webkit-box-shadow: 0px 0px 3px 0px #aaa;
   -moz-box-shadow: 0px 0px 3px 0px #aaa;
-  box-shadow: 0px 0px 3px 0px #aaa;
+  box-shadow: 0px 0px 3px 0px #aaa;*/
 }
 
 .thumb {
