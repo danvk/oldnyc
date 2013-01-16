@@ -345,9 +345,9 @@ function showExpanded(id, opt_explicit_width) {
   $(document).bind('keyup', function(e) {
     // handle cursor keys
     // TODO(danvk): hitting left/right quickly results in dropped scrolls.
-    if (event.keyCode == 37) {
+    if (e.keyCode == 37) {
       scrollExpanded('-=1');  // go left
-    } else if (event.keyCode == 39) {
+    } else if (e.keyCode == 39) {
       scrollExpanded('+=1');  // go right
     }
   });
