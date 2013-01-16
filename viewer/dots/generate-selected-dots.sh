@@ -23,6 +23,6 @@ done
 
 convert -size 39x39 xc:none -fill $color -stroke $stroke_color -draw 'circle 19,19 32,32' -stroke none -fill $text_color -pointsize 16 -font $font -gravity center -draw "text 1,1 '100+'" dots/100.png
 
-montage $(ls dots/?.png dots/??.png dots/???.png | sort -t/ -k2 -n | xargs) -background transparent -gravity NorthWest -geometry '39x39>+0+0' -tile 10x dots/selected-sprite.png
+montage $(ls dots/?.png dots/??.png dots/???.png | sort -t/ -k2 -n | xargs) -background transparent -gravity NorthWest -geometry '39x39>+0+0' -tile 10x dots/selected-2013-01-14.png
 
 rm dots/?.png dots/??.png dots/???.png
