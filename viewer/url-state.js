@@ -37,7 +37,7 @@ function currentState() {
 function stateToHash(state) {
   var hash = '';
   for (var k in state) {
-    if (hash) hash += ',';
+    if (hash) hash += '&';
     hash += k + ':' + state[k].replace(/,/g, '|');
   }
   return hash;
@@ -57,7 +57,7 @@ function hashToState(url_hash) {
     hash = unescape(hash);
   }
 
-  var parts = hash.split(',');
+  var parts = hash.split('&');
   var state = {};
   for (var i = 0; i < parts.length; i++) {
     var kv = parts[i].split(':');
