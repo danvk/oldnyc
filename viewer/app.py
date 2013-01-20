@@ -20,6 +20,8 @@ class ImageRecord(db.Model):
   date = db.StringProperty()
   folder = db.StringProperty()
   library_url = db.StringProperty()
+  width = db.IntegerProperty()
+  height = db.IntegerProperty()
 
 
 class ThumbnailRecord(db.Model):
@@ -103,12 +105,38 @@ class AddEgg(webapp2.RequestHandler):
     image.put()
 
 
+class AddDims(webapp2.RequestHandler):
+  def get(self):
+    self.post()
+
+  def post(self):
+    recs = self.request.get_all('d')
+    photo_id_to_dims = {}
+    for rec in recs:
+      photo_id, width_str, height_str = rec.split(',')
+      width = int(width_str)
+      height = int(height_str)
+      photo_id_to_dims[photo_id] = (width, height)
+
+    config = db.create_config(read_policy=db.EVENTUAL_CONSISTENCY)
+    db_recs = ImageRecord.get_by_key_name(photo_id_to_dims.keys(), config=config)
+
+    for image in db_recs:
+      width, height = photo_id_to_dims[image.photo_id]
+      image.width = width
+      image.height = height
+      image.put()
+
+    self.response.out.write('Added %d dimensions' % len(db_recs))
+
+
 app = webapp2.WSGIApplication(
                               [
                                ('/info', RecordFetcher),
                                #('/upload', UploadThumbnailHandler),
                                #('/thumb.*', ThumbnailFetcher),
                                ('/addegg', AddEgg),
+                               ('/adddims', AddDims),
                               ],
                               debug=True)
 
