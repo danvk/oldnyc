@@ -10,7 +10,10 @@ import simplejson as json
 import logging
 
 # See https://developers.google.com/appengine/docs/python/runtime#The_Environment
-VERSION = os.environ['CURRENT_VERSION_ID']
+try:
+  VERSION = os.environ['CURRENT_VERSION_ID']
+except:
+  VERSION = ''
 
 
 class ImageRecord(db.Model):
@@ -65,10 +68,12 @@ class RecordFetcher(webapp2.RequestHandler):
     """Responds to AJAX requests for record information."""
     photo_ids = self.request.get_all("id")
     default_response = {
-      'title': 'Proposed Alemany Blvd. West from Mission St. viaduct, 2-18-26',
+      'title': 'Pat and Mike Dugan running around their aunt, Carla Vanni, in Washington Square Park who was super awesome!',
       'date': '1926 Feb. 18',
       'folder': 'S.F. Streets / Alemany Boulevard',
-      'library_url': 'http://sflib1.sfpl.org:82/record=b1000001~S0'
+      'library_url': 'http://sflib1.sfpl.org:82/record=b1000001~S0',
+      'width': 474,
+      'height': 400
     }
 
     rs = GetImageRecords(photo_ids)
@@ -77,18 +82,15 @@ class RecordFetcher(webapp2.RequestHandler):
       if not r:
         #self.response.out.write("no record for '%s'" % id)
         # This is just to aid local testing:
-        response[id] = {
-          'title': 'Pat and Mike Dugan running around their aunt, Carla Vanni, in Washington Square Park who was super awesome!',  # 'Photo ID #' + id,
-          'date': default_response['date'],
-          'folder': default_response['folder'],
-          'library_url': 'http://sflib1.sfpl.org:82/record=b1000001~S0'
-        }
+        response[id] = default_response.copy()
       else:
         response[id] = {
           'title': r.title,
           'date': r.date,
           'folder': r.folder,
-          'library_url': r.library_url
+          'library_url': r.library_url,
+          'width': r.width,
+          'height': r.height
         }
     self.response.headers['Cache-Control'] = 'public; max-age=2592000'
     self.response.out.write(json.dumps(response))
