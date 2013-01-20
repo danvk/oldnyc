@@ -11,7 +11,9 @@ function spinnerKiller() {
   $(this).css('backgroundImage', 'none');
 }
 
-function displayInfoForLatLon(lat_lon, marker) {
+// The callback gets fired when the info for all lat/lons at this location
+// become available (i.e. after the /info RPC returns).
+function displayInfoForLatLon(lat_lon, marker, opt_callback) {
   var recs = lat_lons[lat_lon];
   var photo_ids = [];
   for (var i = 0; i < recs.length; i++) {
@@ -53,7 +55,7 @@ function displayInfoForLatLon(lat_lon, marker) {
   marker.setIcon(selected_marker_icons[photo_ids.length > 100 ? 100 : photo_ids.length]);
   marker.setZIndex(100000 + zIndex);
 
-  loadInfoForPhotoIds(photo_ids);
+  loadInfoForPhotoIds(photo_ids, opt_callback);
   loadPictures();
 }
 
@@ -280,11 +282,6 @@ function loadPictures() {
 }
 
 
-// Typically, when a new image loads, we want to redo the layout of the
-// expanded image carousel to make sure the target image is in the center. But
-// if we're in the middle of an animation, it just looks bad.
-var expanded_carousel_animating = false;
-
 // This creates the holder "pane" for an expanded image.
 // The expanded image slideshow consists of many of these.
 // id 
@@ -295,24 +292,19 @@ function buildHolder(photo_id, img_width, is_visible) {
     .attr(is_visible ? 'src' : 'future-src',
         'http://s3-us-west-1.amazonaws.com/oldsf/images/' + photo_id + '.jpg')
     .attr('width', img_width)
-    .load(spinnerKiller)
-    .load(function() {
-      if (!expanded_carousel_animating) {
-        $('#expanded-carousel').jcarousel('reload');
-      }
-    });
+    .load(spinnerKiller);
 
-  if (img_width) {
-    $holder.find('.description')
-      .css('max-width', img_width + 'px');
-  }
+  $holder.find('.description')
+    .css('max-width', img_width + 'px');
 
   fillPhotoPane(photo_id, $holder);
   return $holder;
 }
 
 
-function showExpanded(id, opt_explicit_width) {
+// NOTE: This can only be called when the info for all photo_ids at the current
+// position have been loaded (in particular the image widths).
+function showExpanded(id) {
   $('#expanded').hide();
 
   var photo_ids =
@@ -322,14 +314,11 @@ function showExpanded(id, opt_explicit_width) {
 
   var selected_idx = 0;
   var expanded_images = $.map(photo_ids, function(photo_id, idx) {
-    var $thumb_img = $('[photo_id=' + photo_id + '] img');
-    var img_width = 400.0 / $thumb_img.height() * $thumb_img.width();
+    var info = infoForPhotoId(photo_id);
+    var img_width = info.width;
 
     if (photo_id == id) {
       selected_idx = idx;
-      if (opt_explicit_width) {
-        img_width = opt_explicit_width;
-      }
     }
 
     // TODO(danvk): show prev/next as well
@@ -397,9 +386,9 @@ $(function() {
 
   $('#expanded-carousel')
     .delegate('li', 'itemtargetin.jcarousel', function(event, carousel) {
+      // Load the next/previous images.
       // "this" refers to the item element
       // "carousel" is the jCarousel instance
-      // If the image element has zero width, then let's correct that.
       var els = $('#expanded-carousel li');
       var this_idx = $(els).index(this);
       if (this_idx == -1) throw 'eh?';
@@ -410,14 +399,7 @@ $(function() {
         if (!$img.attr('src')) {
           $img
             .attr('src', $img.attr('future-src'))
-            .removeAttr('future-src')
-            .load(function() {
-              $el.find('.description')
-                  .css('max-width', $img.get(0).naturalWidth + 'px');
-            });
-        }
-        if ($img.width() == 0) {
-          $img.attr('width', null);
+            .removeAttr('future-src');
         }
       }
     })
@@ -426,12 +408,6 @@ $(function() {
       $('#expanded-carousel li').removeClass('current');
       $(this).addClass('current');
       stateWasChanged();
-    })
-    .on('animate.jcarousel', function() {
-      expanded_carousel_animating = true;
-    })
-    .on('animateend.jcarousel', function() {
-      expanded_carousel_animating = false;
     });
 
   $('#date_range a').click(function() {

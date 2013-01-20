@@ -112,6 +112,17 @@ function loadFromState(state) {
     slide();
   }
 
+  var expanded_photo_id = null;
+  if (state.hasOwnProperty('e')) {
+    // &e=photo_id,expanded_photo_width
+    var e = state['e'].split(',');
+    expanded_photo_id = e[0];
+    var w = parseInt(e[1]);  // used to be useful, but no longer necessary.
+
+    // We can only call showExpanded once the /info request completes.
+    // This gets done below for '&ll=', so we piggyback on that call.
+  }
+
   if (state.hasOwnProperty('ll')) {
     var marker = null;
     for (var i = 0; i < markers.length; i++) {
@@ -121,15 +132,12 @@ function loadFromState(state) {
       }
     }
     if (marker) {
-      displayInfoForLatLon(state.ll, marker);
+      displayInfoForLatLon(state.ll, marker, function() {
+        if (expanded_photo_id) {
+          showExpanded(expanded_photo_id);
+        }
+      });
     }
-  }
-
-  if (state.hasOwnProperty('e')) {
-    var e = state['e'].split(',');
-    var id = e[0];
-    var w = parseInt(e[1]);
-    showExpanded(id, w);
   }
   block_update = false;
 }
