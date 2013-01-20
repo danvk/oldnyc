@@ -123,6 +123,8 @@ class AddDims(webapp2.RequestHandler):
 
     for image in db_recs:
       width, height = photo_id_to_dims[image.photo_id]
+      if image.width == width and image.height == height:
+        continue
       image.width = width
       image.height = height
       image.put()
