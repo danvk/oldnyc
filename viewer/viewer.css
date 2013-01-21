@@ -462,3 +462,8 @@ margin-bottom: 50px;
 	padding-top: 15px;
 }
 
+
+/* Add some extra space to the right side of the slide show to help centering. */
+.expanded-right-gutter {
+  width: 2000px;
+}

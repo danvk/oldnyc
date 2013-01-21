@@ -131,8 +131,6 @@ function initialize_map() {
         $('.streetview-hide').toggle(!streetView.getVisible());
       });
 
-  // Create a blank control to force the standard controls down a touch.
-
   // This event fires when a pan/zoom operation has completed and the map is no
   // longer in motion. It reduces the number of URL parameter updates we do.
   // google.maps.event.addListener(map, 'idle', stateWasChanged);
@@ -325,6 +323,10 @@ function showExpanded(id) {
     return buildHolder(photo_id, img_width, photo_id == id).get();
   });
 
+  if (expanded_images.length > 1) {
+    expanded_images.push($('<div class=expanded-right-gutter />').get(0));
+  }
+
   $('#expanded-carousel ul')
     .empty()
     .append($(expanded_images).show());
@@ -362,8 +364,7 @@ function hideExpanded() {
 }
 
 function scrollExpanded(target) {
-  $('#expanded-carousel')
-    .jcarousel('scroll', target);
+  $('#expanded-carousel').jcarousel('scroll', target);
 }
 
 // This fills out details for either a thumbnail or the expanded image pane.
@@ -409,6 +410,22 @@ $(function() {
       $(this).addClass('current');
       stateWasChanged();
     });
+  $('#expanded-carousel').on('scroll.jcarousel', function(event, carousel, target, animate) {
+    // Why does $(carousel) not work here? It gives initialization errors.
+    var $carousel = $('#expanded-carousel');
+
+    // Drop attempts to scroll to the right-most element in multi-element lists.
+    // This is a "fake" element which is added to help with centering.
+    if (target == '+=1') {
+      var $items = $carousel.jcarousel('items');
+      var idx = $items.index($carousel.jcarousel('target'));
+      if (idx == $items.length - 2) {
+        return false;
+      }
+    }
+
+    return true;
+  });
 
   $('#date_range a').click(function() {
     $('#slider-container').toggle();
