@@ -427,7 +427,8 @@ $(function() {
     return true;
   });
 
-  $('#date_range a').click(function() {
+  $('#date_range').click(function(e) {
+    e.preventDefault();
     $('#slider-container').toggle();
   });
 
