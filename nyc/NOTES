@@ -1,0 +1,20 @@
+The NYC photos come from the NYPL's Milstein collection.
+
+Start page:
+http://digitalgallery.nypl.org/nypldigital/dgdivisionbrowseresult.cfm?div_id=hh
+
+Matt K sent me a CSV file for their digitized photos with 63091 records.
+
+Interesting fields:
+ 3	 59% (25721/43363)	CREATOR		Balgue, George L.--Photographer
+ 5	100% (43363/43363)	IMAGE_Permalink	http://digitalgallery.nypl.org/nypldigital/id?716312f
+ 6	100% (43363/43363)	DIGITAL_ID	716312f
+11	100% (43363/43363)	RECORD_ID	406110
+12	 62% (26943/43363)	Borough		Manhattan
+13	 73% (31674/43363)	Address		??Amsterdam Avenue & La Salle Street
+14	 84% (36327/43363)	Full Address	??Amsterdam Avenue & La Salle Street, Manhattan, NY
+15	100% (43363/43363)	IMAGE_TITLE	??Manhattan: Amsterdam Avenue - La Salle Street
+16	100% (43363/43363)	IMG_URL		http://images.nypl.org/index.php?id=716312f&t=w
+17	 64% (27648/43363)	CREATED_DATE	1927
+
+Other fields are rare or identical across all records.
