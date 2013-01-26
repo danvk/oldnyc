@@ -235,7 +235,7 @@ function slide(event, ui) {
   }
   var date1 = dates[0];
   var date2 = dates[1];
-  $('#date_range a').html(date1 + '&ndash;' + date2);
+  $('#date_range_years').html(date1 + '&ndash;' + date2);
   updateVisibleMarkers(date1, date2);
 }
 
