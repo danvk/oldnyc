@@ -97,24 +97,35 @@ a{
 	color: #fff;
 	background: #1c1c1c;
 }
+#slider-arrow-white-down{
+  width: 0; 
+  height: 0;
+  position: absolute;
+  top: 32px;
+  left: 257px;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 10px solid #fff;
+}
 #date_range {
   font-size: 1.8em;
   background: #111;
   width: 145px;
   text-align: center;
   height: 54px;
-  color: #ddd;
+  color: #fff;
   font-weight: light;
   font-weight: 300;
+  padding-right: 20px;
   margin: 8px 0 0 118px;
   cursor: pointer;
+  border-left: 1px solid #222;
 }
 #date_range .wrapper{
 	padding: 15px 0;
 }
 #date_range:hover, #date_range:active {
 	background: #1c1c1c;
-	color: #fff;
 	text-decoration: none;
 }
 #date_range a, #date_range a:hover {
@@ -149,6 +160,7 @@ a{
 
 /* end new social*/
 
+
 #slider-container {
   border: none;
   height: 50px;
@@ -156,7 +168,7 @@ a{
   margin-left: 8px;
   margin-top: 8px;
   /*background: #d34f4f;*/
-  background: #999;
+  background: #fff;
 }
 #slider-arrow{
   width: 0; 
@@ -166,7 +178,7 @@ a{
   left: 170px;
   border-left: 20px solid transparent;
   border-right: 20px solid transparent;
-  border-bottom: 20px solid #999;
+  border-bottom: 20px solid #fff;
 }
 
 #slider {
@@ -178,7 +190,7 @@ a{
 }
 #slider {
   /*background: #555;*/
-  background: #666;
+  background: #aaa;
   border: none;
   height: 5px;
 }
