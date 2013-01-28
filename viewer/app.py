@@ -134,13 +134,44 @@ class AddDims(webapp2.RequestHandler):
     self.response.out.write('Added %d dimensions' % len(db_recs))
 
 
+kProps = ['photo_id', 'title', 'date', 'folder', 'description', 'note', 'library_url']
+kIntProps = ['width', 'height']
+
+class UploadHandler(webapp2.RequestHandler):
+  def post(self):
+    """Adds a new image to the DB."""
+    self.response.headers.add_header('Content-type', 'text/plain')
+    id = self.request.get('photo_id')
+    assert id
+
+    verb = 'Updated'
+    record = ImageRecord.get_by_key_name(id)
+    if not record:
+      verb = 'Added'
+      record = ImageRecord(key_name=id)
+
+    props = record.properties()
+    for field in kProps:
+      if self.request.get(field):
+        props[field].__set__(record, self.request.get(field))
+    for field in kIntProps:
+      if self.request.get(field):
+        props[field].__set__(record, int(self.request.get(field)))
+
+    if self.request.get('image'):
+      record.image = self.request.get('image')
+
+    record.put()
+    self.response.out.write('%s image record %s\n' % (verb, id))
+
+
 app = webapp2.WSGIApplication(
                               [
                                ('/info', RecordFetcher),
-                               #('/upload', UploadThumbnailHandler),
+                               ('/upload', UploadHandler),
                                #('/thumb.*', ThumbnailFetcher),
                                ('/addegg', AddEgg),
-                               ('/adddims', AddDims),
+                               #('/adddims', AddDims),
                               ],
                               debug=True)
 

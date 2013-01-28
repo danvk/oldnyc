@@ -6,6 +6,27 @@ var map;
 var start_date = 1850;
 var end_date = 2000;
 
+function isOldNycImage(photo_id) {
+  return (photo_id.charAt(photo_id.length - 1) == 'f');
+}
+
+// Multiplex between OldSF and OldNYC
+function thumbnailImageUrl(photo_id) {
+  if (isOldNycImage(photo_id)) {
+    return 'http://images.nypl.org/index.php?id=' + photo_id + '&t=r';
+  } else {
+    return 'http://s3-us-west-1.amazonaws.com/oldsf/thumb/' + photo_id + '.jpg';
+  }
+}
+
+function expandedImageUrl(photo_id) {
+  if (isOldNycImage(photo_id)) {
+    return 'http://images.nypl.org/index.php?id=' + photo_id + '&t=w';
+  } else {
+    return 'http://s3-us-west-1.amazonaws.com/oldsf/images/' + photo_id + '.jpg'
+  }
+}
+
 // Intended to be used as an img.onLoad handler.
 function spinnerKiller() {
   $(this).css('backgroundImage', 'none');
@@ -23,8 +44,7 @@ function displayInfoForLatLon(lat_lon, marker, opt_callback) {
   }
 
   var thumb_panes = $.map(photo_ids, function(photo_id, idx) {
-    //var img_path = 'http://sf-viewer.appspot.com/thumb/' + photo_id + '.jpg';
-    var img_path = 'http://s3-us-west-1.amazonaws.com/oldsf/thumb/' + photo_id + '.jpg';
+    var img_path = thumbnailImageUrl(photo_id);
 
     var $pane =
       $('#thumbnail-template')
@@ -71,7 +91,8 @@ function initialize_map() {
   // Give them something to look at while the map loads:
   init_lat_lon = "37.771393,-122.428618";
 
-  var latlng = new google.maps.LatLng(37.79216, -122.41753);
+  // var latlng = new google.maps.LatLng(37.79216, -122.41753);
+  var latlng = new google.maps.LatLng(40.714353, -74.005973);
   var opts = {
     zoom: 14,
     maxZoom: 18,
@@ -287,8 +308,7 @@ function buildHolder(photo_id, img_width, is_visible) {
   var info = infoForPhotoId(photo_id);
   var $holder = $('#expanded-image-holder-template').clone().removeAttr('id');
   $holder.find('img')
-    .attr(is_visible ? 'src' : 'future-src',
-        'http://s3-us-west-1.amazonaws.com/oldsf/images/' + photo_id + '.jpg')
+    .attr(is_visible ? 'src' : 'future-src', expandedImageUrl(photo_id))
     .attr('width', img_width)
     .load(spinnerKiller);
 

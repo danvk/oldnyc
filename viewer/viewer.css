@@ -314,6 +314,10 @@ a{
   cursor:pointer;
 }
 
+.thumb img {
+  max-height: 140px;
+}
+
 #curtains {
   position: absolute;
   left: 0;

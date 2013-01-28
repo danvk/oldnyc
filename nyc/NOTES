@@ -57,3 +57,24 @@ About 75% of the images are from 1920-1949.
 
 Date oddities:
 This record is listed (in the CSV) as being created on "14793": http://digitalgallery.nypl.org/nypldigital/dgkeysearchdetail.cfm?strucID=288071&imageID=485982
+
+
+
+Stuff to ask Maira/Matt:
+1. What's the deal with odd dates like "14793" in the spreadsheet?
+2. Most (~75%) of photos from 1920-1950, does that seem right?
+3. Easy to get metadata on image height/width?
+4. What's the largest version of the image available online?
+5. Any way to get at just the image (and not the scan of its brown backing paper)?
+6. There are some images (e.g. http://digitalgallery.nypl.org/nypldigital/id?700631f or http://digitalgallery.nypl.org/nypldigital/id?717711f) where there's a description and date on the image, but not on the site. Any way to get that? Have they not been digitized?
+7. Are there any pre-rendered thumbnails?
+    -> &t=r instead of &t=w
+8. OK if I serve images directly off the NYPL site? (I used AWS for OldSF)
+
+
+
+----
+
+I uploaded the image records for OldSF to AppEngine so long ago that I have no
+idea how I did it. They may have gone through the image labeling game, so that
+there's some path dependence.

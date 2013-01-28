@@ -320,7 +320,7 @@ def CleanTitle(title):
 def CleanDate(date):
   """remove [] and trailing period from dates"""
   if not date: return ''
-  date = date.replace('[', '').replace(']','')
+  date = date.replace('[', '').replace(']','').replace('\n', ' ')
   if date[-1] == '.': date = date[:-1]
   return date
 

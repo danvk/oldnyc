@@ -1,6 +1,7 @@
-application: sf-viewer
+#application: sf-viewer
+application: old-nyc
 
-version: 2013-01-26
+version: 2013-01-27
 runtime: python27
 threadsafe: true
 

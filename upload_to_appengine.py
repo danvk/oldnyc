@@ -1,6 +1,9 @@
 #!/usr/bin/python
 #
 # Upload records which are complete to app engine.
+#
+# Usage:
+# ./upload_to_appengine.py records.pickle lat-lons.js [upload url]
 
 import random
 import re
@@ -9,18 +12,28 @@ import fetcher
 import sys
 import httplib
 import MultipartPostHandler, urllib2
+import json
 
-rs = record.AllRecords()
-f = fetcher.Fetcher('images', 0)
-rs = [r for r in rs if (r.photo_url and f.InCache(r.photo_url))]
-random.shuffle(rs)
-rs = rs[0:100]
+assert 3 <= len(sys.argv) <= 4
+pickle_path = sys.argv[1]
+lat_lons_js_path = sys.argv[2]
+upload_url = sys.argv[3] if len(sys.argv) == 4 else 'http://localhost:8080/upload'
+
+all_rs = record.AllRecords(pickle_path)
+
+# The JS file has a leading 'var foo = {' and a trailing '};' that we don't want.
+js_data = file(lat_lons_js_path).readlines()
+js_data = '{'+ ''.join(js_data[1:-1]) + '}'
+lat_lons = json.loads(js_data)
+
+ok_ids = set()
+for ll, images in lat_lons.iteritems():
+  for _, _, photo_id in images:
+    ok_ids.add(photo_id)
+
+rs = [r for r in all_rs if r.photo_id() in ok_ids]
 
 sys.stderr.write('Have %d full records\n' % len(rs))
-#upload_url = 'http://localhost:8080/upload'
-upload_url = 'http://sfgeocoder.appspot.com/upload'
-if len(sys.argv) > 1:
-  upload_url = sys.argv[1]
 
 print 'Will upload via %s' % upload_url
 
@@ -38,7 +51,7 @@ for i, r in enumerate(rs):
 
   # remove [] and trailing period from dates.
   date = record.CleanDate(r.date())
-  
+
   # remove [graphic] from titles
   title = record.CleanTitle(r.title())
 
@@ -46,17 +59,15 @@ for i, r in enumerate(rs):
   # dashes to a single form of slashes.
   folder = r.location()
   if folder: folder = record.CleanFolder(folder)
-    
+
   q = {
-    'seq_id': str(i),
     'photo_id': r.photo_id(),
     'title': title,
     'date': date,
     'folder': folder,
     'description': desc,
     'note': (r.note() or ''),
-    'library_url': r.preferred_url,
-    'image': open(f.CacheFile(r.photo_url), 'rb')
+    'library_url': r.preferred_url
   }
   opener.open(upload_url, q)
 

@@ -35,21 +35,19 @@ for idx, row in enumerate(reader):
   title = row['IMAGE_TITLE'].strip()
   assert title
 
-  collection = 
-
   # TODO(danvk): move this into record.py
   r = record.Record()
   r.thumbnail_url = img_url  # TODO(danvk): real thumbnail
   r.photo_url = img_url
   r.preferred_url = url
   r.tabular = {
-    'l': full_address,  # NOTE: "Location" = folder for SFPL, not address
-    'i': photo_id,
-    'p': date_str,
-    'r': '',  # description
-    't': title,
-    'n': '',  # notes
-    'a': 'Milstein Division'
+    'l': [full_address],  # NOTE: "Location" = folder for SFPL, not address
+    'i': [photo_id],
+    'p': [date_str],
+    'r': [''],  # description
+    't': [title],
+    'n': [''],  # notes
+    'a': ['Milstein Division']
   }
   p.dump(r)
 

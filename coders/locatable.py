@@ -31,6 +31,7 @@ class Locatable(object):
     self.source = None
     self.block_num = None
     self.block_street = None
+    self.city = 'San Francisco, CA'
     self._latlon = 'unknown'
 
   def __str__(self):
@@ -49,7 +50,7 @@ class Locatable(object):
     elif self.loc_type == TINY:
       self._latlon = locateTiny(g, self.tiny)
     elif self.loc_type == CROSSES:
-      self._latlon = locateCrosses(g, self.crosses)
+      self._latlon = locateCrosses(g, self.crosses, self.city)
     else:
       assert False, 'Unknown loc_type %d' % self.loc_type
     return self._latlon
@@ -102,7 +103,7 @@ def fromTiny(tiny, source=None):
   return l
 
 
-def fromCross(street1, street2, source=None):
+def fromCross(street1, street2, source=None, city=None):
   l = Locatable()
   l.loc_type = CROSSES
   l.crosses = [ sorted([street1, street2]) ]
@@ -110,6 +111,8 @@ def fromCross(street1, street2, source=None):
     l.source = source
   else:
     l.source = '%s and %s' % (street1, street2)
+  if city:
+    l.city = city
   return l
 
 
@@ -175,10 +178,12 @@ def InNYC(lat, lon):
          -74.288864 < lon < -73.689423)
 
 
-def Locate(g, addr):
-  x = g.Locate(addr)
+def Locate(g, addr, suffix=None):
+  x = g.Locate(addr, suffix=suffix)
   if x.status != 200:
     sys.stderr.write("%s -> status %d\n" % (addr, x.status))
+    return None
+  if x.is_fake():
     return None
   if not InSF(x.lat, x.lon) and not InNYC(x.lat, x.lon): return None
   return x
@@ -256,7 +261,7 @@ fixes = {
   '15th and bryant street': '@37.767102,-122.412565'
 }
 
-def locateCrosses(g, crosses):
+def locateCrosses(g, crosses, city):
   global fixes
   lat_lons = []
   loc_strs = []
@@ -272,7 +277,7 @@ def locateCrosses(g, crosses):
 
     locatable = locatable.replace('army', 'cesar chavez')
     if locatable[0] != '@':
-      x = Locate(g, locatable)
+      x = Locate(g, locatable, suffix=city)
     else:
       ll = locatable[1:].split(',')
       x = geocoder.FakeLocation(float(ll[0]), float(ll[1]), 7)

@@ -62,6 +62,9 @@ class Location:
     else:
       return "(???)"
 
+  def is_fake(self):
+    return False
+
 
 class FakeLocation:
   def __init__(self, lat, lon, accuracy):
@@ -77,9 +80,13 @@ class FakeLocation:
     else:
       return "(???)"
 
+  def is_fake(self):
+    return True
+
 
 def _cache_file(loc):
   key = base64.b64encode(loc)[:-2]  # minus the trailing '=='
+  key = key.replace('/', '-')  # '/' is bad in a file name.
   return "%s/%s" % (CacheDir, key)
 
 class Geocoder:
@@ -120,6 +127,7 @@ class Geocoder:
     f = urllib.URLopener().open(url)
     return f.read()
 
+  # TODO(danvk): just get rid of the suffix parameter
   def Locate(self, loc, check_cache=True, suffix='San Francisco, CA'):
     """Returns a Location object based on the loc string or None."""
     city_loc = loc + suffix
