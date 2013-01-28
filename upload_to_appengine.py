@@ -5,6 +5,8 @@
 # Usage:
 # ./upload_to_appengine.py records.pickle lat-lons.js [upload url]
 
+# TODO(danvk): upload >1 record per request
+
 import random
 import re
 import record

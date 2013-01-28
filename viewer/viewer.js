@@ -92,7 +92,7 @@ function initialize_map() {
   init_lat_lon = "37.771393,-122.428618";
 
   // var latlng = new google.maps.LatLng(37.79216, -122.41753);
-  var latlng = new google.maps.LatLng(40.714353, -74.005973);
+  var latlng = new google.maps.LatLng(40.74421, -73.97370);
   var opts = {
     zoom: 14,
     maxZoom: 18,
