@@ -3,7 +3,9 @@ The NYC photos come from the NYPL's Milstein collection.
 Start page:
 http://digitalgallery.nypl.org/nypldigital/dgdivisionbrowseresult.cfm?div_id=hh
 
-Matt K sent me a CSV file for their digitized photos with 63091 records.
+Matt K sent me a CSV file for their digitized photos with 43363 records.
+(there are 63091 lines, but some records contain newlines)
+
 
 Interesting fields:
  3	 59% (25721/43363)	CREATOR		Balgue, George L.--Photographer
@@ -18,3 +20,40 @@ Interesting fields:
 17	 64% (27648/43363)	CREATED_DATE	1927
 
 Other fields are rare or identical across all records.
+
+Borough field breakdown:
+  18084 Manhattan
+  16420 ""
+   5391 Brooklyn
+   2253 Bronx
+    845 ", Manhattan"
+    257 Queens
+    108 Staten Island
+      3 Newtown Creek
+      2 Governor's Island
+
+Dates breakdown:
+     1 1790's
+     2 1820's
+     5 1830's
+    11 1850's
+    69 1860's
+    99 1870's
+   149 1880's
+   480 1890's
+  1027 1900's
+  1360 1910's
+  6251 1920's
+ 10754 1930's
+  2011 1940's
+    30 1950's
+    61 1960's
+    28 1970's
+
+My OldSF date range parser is able to understand 23375/25721=91% of the
+date ranges.
+
+About 75% of the images are from 1920-1949.
+
+Date oddities:
+This record is listed (in the CSV) as being created on "14793": http://digitalgallery.nypl.org/nypldigital/dgkeysearchdetail.cfm?strucID=288071&imageID=485982

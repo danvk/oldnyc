@@ -170,12 +170,17 @@ def InSF(lat, lon):
   return True
 
 
+def InNYC(lat, lon):
+  return (40.486649 < lat < 40.921814 and
+         -74.288864 < lon < -73.689423)
+
+
 def Locate(g, addr):
   x = g.Locate(addr)
   if x.status != 200:
     sys.stderr.write("%s -> status %d\n" % (addr, x.status))
     return None
-  if not InSF(x.lat, x.lon): return None
+  if not InSF(x.lat, x.lon) and not InNYC(x.lat, x.lon): return None
   return x
 
 

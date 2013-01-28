@@ -120,10 +120,10 @@ class Geocoder:
     f = urllib.URLopener().open(url)
     return f.read()
 
-  def Locate(self, loc, check_cache=True):
+  def Locate(self, loc, check_cache=True, suffix='San Francisco, CA'):
     """Returns a Location object based on the loc string or None."""
-    sf_loc = loc + " San Francisco, CA"
-    url = "%s&q=%s" % (self._base_url, urllib.quote(sf_loc))
+    city_loc = loc + suffix
+    url = "%s&q=%s" % (self._base_url, urllib.quote(city_loc))
 
     data = None
     from_cache = False

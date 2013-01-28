@@ -19,6 +19,7 @@ import coders.cached_coder
 
 # Import order here determines the order in which coders get a crack at each
 # record. We want to go in order from precise to imprecise.
+import coders.milstein
 import coders.sf_residences
 import coders.sf_streets
 import coders.free_streets
@@ -52,6 +53,8 @@ if __name__ == '__main__':
   parser.add_option("", "--lat_lon_map", default="", dest="lat_lon_map",
                     help="Lat/lon cluster map, built by cluster-locations.py. "
                     "Only used when outputting lat-lons.js")
+  parser.add_option("", "--pickle_path", default=None, dest="pickle_path",
+                    help="Point to an alternative records.pickle file.")
 
   (options, args) = parser.parse_args()
 
@@ -81,7 +84,7 @@ if __name__ == '__main__':
       old, new = line.split('->')
       lat_lon_map[old] = new
 
-  rs = record.AllRecords()
+  rs = record.AllRecords(path=options.pickle_path)
   if options.ids_filter:
     ids = set(options.ids_filter.split(','))
     rs = [r for r in rs if r.photo_id() in ids]
