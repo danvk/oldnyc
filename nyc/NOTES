@@ -78,3 +78,41 @@ Stuff to ask Maira/Matt:
 I uploaded the image records for OldSF to AppEngine so long ago that I have no
 idea how I did it. They may have gone through the image labeling game, so that
 there's some path dependence.
+
+I should verify that geocoded addresses are in the borough they claim to be.
+All of the dots around Greenwood Cemetery should be in Manhattan:
+http://localhost:8080/#ll:40.652937|-74.002161&m:40.65581|-73.98758|15
+
+
+----
+
+I asked the NYPL folks whether there were higher-resolution images available.
+David Riordan sent out links to "MrSID" files which are available on their
+servers. This is an incredibly obscure image format which is designed for easy
+scaling (ala Google Maps tiles). For better or for worse, it's the format that
+the Milstein images were scanned in.
+
+There's a sample MrSID file at:
+http://lt.images.nypl.org/lizardtech/iserv/getdoc?cat=NYPL&item=ED/EDAA/9A2E/8602/11DD/8103/6EC3/9956/CD/EDAA9A2E-8602-11DD-8103-6EC39956CD08.sid
+
+One option to convert it is to use "gdal_translate" with MrSID enabled.
+Instructions for building this:
+http://trac.osgeo.org/gdal/wiki/MrSID
+http://trac.osgeo.org/gdal/wiki/BuildingOnMac
+
+I set up an account with LizardTech and downloaded their SDK.
+
+The SDK includes a "mrsiddecode" tool which works great!
+
+$ mrsiddecode -i nyc.sid -o nyc.jpg
+(takes ~10 seconds to convert)
+
+The 3.5M MrSID file converts to either a 1.3MB JPG or a 25MB PNG file.
+
+To download all the MrSID files, I can...
+1. Fetch http://images.nypl.org/index.php?id=(image id)&t=d
+2. Parse the '&item=' field out of the URL it redirects to
+3. Fetch http://lt.images.nypl.org/lizardtech/iserv/getdoc?cat=NYPL&item=(ITEM).sid
+
+It takes ~10 s to fetch each image and ~10 seconds to convert them, so w/ 40k
+images, each of these would take 4-5 days.
