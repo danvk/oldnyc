@@ -116,3 +116,63 @@ To download all the MrSID files, I can...
 
 It takes ~10 s to fetch each image and ~10 seconds to convert them, so w/ 40k
 images, each of these would take 4-5 days.
+
+----
+
+Detecting the "cards" inside the Milstein images is going to be tricky.
+It seems like a good candidate for edge detection + hough transform.
+
+brew install PIL
+sudo /usr/bin/easy_install scipy
+sudo /usr/bin/easy_install -U scikit-image
+  (needs Cython)
+
+After some hacking, it seems like this will be a good strategy:
+1. Shrink the images 5x in each dimension
+2. Run canny edge detection
+3. Zero out the margins (40px on each side)
+4. Threshold at half the Otsu threshold.
+5. Calculate sums across each column and each row.
+6. Differentiate these.
+7. Pick out the top 10 x- & y-coords.
+8. Build rectangles out of each of these. Pick the brightest one (in canny image)
+
+Another idea:
+Canny finds x- and y-edges, then combines them into edges at any angle. But I
+really do want x- and y-edges! Maybe I can use this intermediate data.
+
+Another idea:
+Binarize based on "brownness".
+-> This works great!
+
+
+Random sample of ten images:
+images/733251f.jpg + perfect (2 cards)
+images/700043f.jpg - (detects the entire image; background is too light)
+images/715405f.jpg / (detects one correctly, other is the full top-half)
+images/711018f.jpg + perfect (1 card)
+images/715240f.jpg + perfect (2 cards)
+images/702532f.jpg - (detects the entire image; background is too light)
+images/725010f.jpg + perfect (1 card)
+images/715153f.jpg + perfect (1 card)
+images/710534f.jpg + perfect (1 card)
+images/715591f.jpg + perfect (1 card)
+
+-> 70% correct on the first go!
+
+Made one change:
+Instead of hard-coding brown as (178, 137, 90), I set it as the median color of
+the image.
+
+images/733251f.jpg +
+images/700043f.jpg +
+images/715405f.jpg +
+images/711018f.jpg +
+images/715240f.jpg +
+images/702532f.jpg +
+images/725010f.jpg +
+images/715153f.jpg +
+images/710534f.jpg +
+images/715591f.jpg +
+
+!!! 100% !!!

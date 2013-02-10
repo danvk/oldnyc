@@ -23,6 +23,9 @@ import re
 import record
 import urllib2
 import urlparse
+import subprocess
+
+CONVERT_CMD = 'mrsiddecode -i %s -o %s'
 
 VIEWER_PATTERN = 'http://images.nypl.org/index.php?id=%s&t=d'
 MRSID_PATTERN = 'http://lt.images.nypl.org/lizardtech/iserv/getdoc?cat=NYPL&item=%s'
@@ -48,11 +51,12 @@ for idx, rec in enumerate(rs):
     response = urllib2.urlopen(HeadRequest(VIEWER_PATTERN % digital_id))
     o = urlparse.urlparse(response.geturl())
     item_id = urlparse.parse_qs(o.query)['item'][0]
-    
 
+    tmp_file = output_sid + '.tmp'
     print 'Downloading %s (%s)...' % (output_sid, MRSID_PATTERN % item_id)
     u = urllib2.urlopen(MRSID_PATTERN % item_id)
-    localsidfile = open(output_sid, 'w')
+    localsidfile = open(tmp_file, 'w')
     localsidfile.write(u.read())
     localsidfile.close()
+    os.rename(tmp_file, output_sid)
     print 'Done!'
