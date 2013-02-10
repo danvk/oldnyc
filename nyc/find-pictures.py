@@ -12,12 +12,9 @@ import numpy as np
 import sys
 import random
 import math
-from skimage.transform import hough, probabilistic_hough
-from skimage.filter import canny, threshold_otsu, sobel
-from skimage.feature import harris
-from scipy import optimize
+import json
 
-import matplotlib.pyplot as plt
+ShowImage = False  # for debugging
 
 Brown = np.array([178.1655574, 137.2695507, 90.26289517])
 def isBrown(pixel):
@@ -44,47 +41,47 @@ B = 255 - 255 * (np.sqrt(((I - Brown) ** 2).sum(2)/3) < 20)
 
 
 def randomWhitePixel(ary):
-  w, h = ary.shape
+  h, w = ary.shape
   while True:
     x, y = int(random.uniform(0, w)), int(random.uniform(0, h))
     x = min(x, w - 1)
     y = min(y, h - 1)
-    if ary[x][y]:
+    if ary[y][x]:
       return x, y
 
 
 def findWhiteRect(ary):
   # Pick a random pixel to start with a 1x1 rect.
-  w, h = ary.shape[0:2]
+  h, w = ary.shape[0:2]
   x, y = randomWhitePixel(ary)
   x1, y1, x2, y2 = x, y, x, y
 
   # Keep expanding in each direction until it's no longer helpful.
   while True:
     expanded = False
-    # Expand left
-    if x1 >= 5:
-      c = ary[x1-5:x1, y1:y2+1].sum()
-      if c:
-        x1 -= 5
-        expanded = True
     # Expand up
     if y1 >= 5:
-      c = ary[x1:x2+1, y1-5:y1].sum()
+      c = ary[y1-5:y1, x1:x2+1].sum()
       if c:
         y1 -= 5
         expanded = True
-    # Expand right
-    if x2 < w - 5:
-      c = ary[x2+1:x2+6, y1:y2+1].sum()
+    # Expand left
+    if x1 >= 5:
+      c = ary[y1:y2+1, x1-5:x1].sum()
       if c:
-        x2 += 5
+        x1 -= 5
         expanded = True
     # Expand down
     if y2 < h - 5:
-      c = ary[x1:x2+1, y2+1:y2+6].sum()
+      c = ary[y2+1:y2+6, x1:x2+1].sum()
       if c:
         y2 += 5
+        expanded = True
+    # Expand right
+    if x2 < w - 5:
+      c = ary[y1:y2+1, x2+1:x2+6].sum()
+      if c:
+        x2 += 5
         expanded = True
 
     if not expanded:
@@ -96,32 +93,42 @@ def findWhiteRect(ary):
 # Keep looking for white rectangles until the image is 90% white.
 # Only record the ones which are sufficiently large.
 rects = []
-print B.mean()
+sys.stderr.write('Image mean: %f\n' % B.mean())
 while True:
   r = findWhiteRect(B)
   x1, y1, x2, y2 = r
+  counted = False
   if x2 - x1 > 150 and y2 - y1 > 150:
-    rects.append(r)
-  B[x1:x2+1, y1:y2+1] = 0
+    rects.append({
+      'left': 80 + 5 * x1,
+      'top':  80 + 5 * y1,
+      'right': 80 + 5 * x2,
+      'bottom': 80 + 5 * y2
+    })
+    counted = True
+  B[y1:y2+1, x1:x2+1] = 0
 
-  print '%s -> %f' % (r, B.mean())
+  sys.stderr.write('%s %s -> %f\n' % ('+' if counted else '-', r, B.mean()))
 
   if B.mean() < 0.10 * 255:
     break
 
+print json.dumps(rects)
 
-pix = orig_im.load()
-for x1, y1, x2, y2 in rects:
-  ox1 = int(x1 * 5 + 80)
-  ox2 = int(x2 * 5 + 80)
-  oy1 = int(y1 * 5 + 80)
-  oy2 = int(y2 * 5 + 80)
 
-  for x in xrange(ox1, ox2 + 1):
-    pix[oy1, x] = (255, 0, 0)
-    pix[oy2, x] = (255, 0, 0)
-  for y in xrange(oy1, oy2 + 1):
-    pix[y, ox1] = (255, 0, 0)
-    pix[y, ox2] = (255, 0, 0)
+if ShowImage:
+  pix = orig_im.load()
+  for x1, y1, x2, y2 in rects:
+    ox1 = int(x1 * 5 + 80)
+    ox2 = int(x2 * 5 + 80)
+    oy1 = int(y1 * 5 + 80)
+    oy2 = int(y2 * 5 + 80)
 
-orig_im.show()
+    for x in xrange(ox1, ox2 + 1):
+      pix[oy1, x] = (255, 0, 0)
+      pix[oy2, x] = (255, 0, 0)
+    for y in xrange(oy1, oy2 + 1):
+      pix[y, ox1] = (255, 0, 0)
+      pix[y, ox2] = (255, 0, 0)
+
+  orig_im.show()
