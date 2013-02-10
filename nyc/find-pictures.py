@@ -40,10 +40,7 @@ Brown[0] = np.median(I[:,:,0])
 Brown[1] = np.median(I[:,:,1])
 Brown[2] = np.median(I[:,:,2])
 
-B = np.zeros((I.shape[0], I.shape[1]), dtype=np.uint8)
-for i in range(I.shape[0]):
-  for j in range(I.shape[1]):
-    B[i][j] = 0 if isBrown(I[i][j]) else 255
+B = 255 - 255 * (np.sqrt(((I - Brown) ** 2).sum(2)/3) < 20)
 
 
 def randomWhitePixel(ary):
