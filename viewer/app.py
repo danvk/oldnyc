@@ -25,6 +25,8 @@ class ImageRecord(db.Model):
   library_url = db.StringProperty()
   width = db.IntegerProperty()
   height = db.IntegerProperty()
+  description = db.StringProperty()
+  note = db.StringProperty()
 
 
 class ThumbnailRecord(db.Model):
@@ -84,8 +86,13 @@ class RecordFetcher(webapp2.RequestHandler):
         # This is just to aid local testing:
         response[id] = default_response.copy()
       else:
+        title = r.title
+        if r.description:
+          title += '; ' + r.description
+        if r.note:
+          title += '; ' + r.note
         response[id] = {
-          'title': r.title,
+          'title': title,
           'date': r.date,
           'folder': r.folder,
           'library_url': r.library_url,
@@ -134,35 +141,35 @@ class AddDims(webapp2.RequestHandler):
     self.response.out.write('Added %d dimensions' % len(db_recs))
 
 
-kProps = ['photo_id', 'title', 'date', 'folder', 'description', 'note', 'library_url']
+kProps = ['photo_id', 'title', 'date', 'folder', 'note', 'library_url', 'description', 'note']
 kIntProps = ['width', 'height']
 
 class UploadHandler(webapp2.RequestHandler):
   def post(self):
     """Adds a new image to the DB."""
     self.response.headers.add_header('Content-type', 'text/plain')
-    id = self.request.get('photo_id')
-    assert id
+    recs = self.request.get_all('r')
+    for rec_json in recs:
+      rec = json.loads(rec_json)
+      id = rec['photo_id']
+      assert id
 
-    verb = 'Updated'
-    record = ImageRecord.get_by_key_name(id)
-    if not record:
-      verb = 'Added'
-      record = ImageRecord(key_name=id)
+      verb = 'Updated'
+      record = ImageRecord.get_by_key_name(id)
+      if not record:
+        verb = 'Added'
+        record = ImageRecord(key_name=id)
 
-    props = record.properties()
-    for field in kProps:
-      if self.request.get(field):
-        props[field].__set__(record, self.request.get(field))
-    for field in kIntProps:
-      if self.request.get(field):
-        props[field].__set__(record, int(self.request.get(field)))
+      props = record.properties()
+      for field in kProps:
+        if field in rec:
+          props[field].__set__(record, rec[field])
+      for field in kIntProps:
+        if field in rec:
+          props[field].__set__(record, int(rec[field]))
 
-    if self.request.get('image'):
-      record.image = self.request.get('image')
-
-    record.put()
-    self.response.out.write('%s image record %s\n' % (verb, id))
+      record.put()
+      self.response.out.write('%s image record %s\n' % (verb, id))
 
 
 app = webapp2.WSGIApplication(

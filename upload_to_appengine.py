@@ -13,8 +13,11 @@ import record
 import fetcher
 import sys
 import httplib
-import MultipartPostHandler, urllib2
+import MultipartPostHandler, urllib2, urllib
 import json
+
+
+CHUNK_SIZE = 100  # number of records to set per HTTP POST
 
 assert 3 <= len(sys.argv) <= 4
 pickle_path = sys.argv[1]
@@ -41,37 +44,49 @@ print 'Will upload via %s' % upload_url
 
 opener = urllib2.build_opener(MultipartPostHandler.MultipartPostHandler)
 
-for i, r in enumerate(rs):
-  print '%03d Uploading %s' % (i, r.photo_id())
+# via http://stackoverflow.com/questions/312443/how-do-you-split-a-list-into-evenly-sized-chunks-in-python
+def chunks(l, n):
+  '''Yield successive n-sized chunks from l.'''
+  for i in xrange(0, len(l), n):
+    yield l[i:i+n]
 
-  # Misc late-stage cleanup:
-  # Delete non-helpful "descriptions"
-  desc = r.description()
-  if re.match(r'^1 photographic print *: *color\.?$', desc) or \
-      re.match(r'^1 photographic print *: *b&w\.?$', desc):
-    desc = ''
 
-  # remove [] and trailing period from dates.
-  date = record.CleanDate(r.date())
+for i, chunk_rs in enumerate(chunks(rs, CHUNK_SIZE)):
+  print 'Chunk %d of %d' % (i, int(len(rs)/CHUNK_SIZE))
 
-  # remove [graphic] from titles
-  title = record.CleanTitle(r.title())
+  vals = []
+  for r in chunk_rs:
+    # Misc late-stage cleanup:
+    # Delete non-helpful "descriptions"
+    desc = r.description()
+    if re.match(r'^1 photographic print *: *color\.?$', desc) or \
+        re.match(r'^1 photographic print *: *b&w\.?$', desc):
+      desc = ''
 
-  # remove leading 'Folder: ', trailing period & convert various forms of
-  # dashes to a single form of slashes.
-  folder = r.location()
-  if folder: folder = record.CleanFolder(folder)
+    # remove [] and trailing period from dates.
+    date = record.CleanDate(r.date())
 
-  q = {
-    'photo_id': r.photo_id(),
-    'title': title,
-    'date': date,
-    'folder': folder,
-    'description': desc,
-    'note': (r.note() or ''),
-    'library_url': r.preferred_url
-  }
-  opener.open(upload_url, q)
+    # remove [graphic] from titles
+    title = record.CleanTitle(r.title())
+
+    # remove leading 'Folder: ', trailing period & convert various forms of
+    # dashes to a single form of slashes.
+    folder = r.location()
+    if folder: folder = record.CleanFolder(folder)
+
+    q = {
+      'photo_id': r.photo_id(),
+      'title': title,
+      'date': date,
+      'folder': folder,
+      'description': desc,
+      'note': (r.note() or ''),
+      'library_url': r.preferred_url
+    }
+    vals.append(json.dumps(q))
+
+  q_pairs = [('r', val) for val in vals]
+  opener.open(upload_url, urllib.urlencode(q_pairs))
 
 # To clear the data store, run:
 # import db
