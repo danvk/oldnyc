@@ -14,7 +14,8 @@ import random
 import math
 import json
 
-ShowImage = False  # for debugging
+ShowImage = False
+ShowImage = True  # for debugging
 
 Brown = np.array([178.1655574, 137.2695507, 90.26289517])
 def isBrown(pixel):
@@ -118,17 +119,21 @@ print json.dumps(rects)
 
 if ShowImage:
   pix = orig_im.load()
-  for x1, y1, x2, y2 in rects:
-    ox1 = int(x1 * 5 + 80)
-    ox2 = int(x2 * 5 + 80)
-    oy1 = int(y1 * 5 + 80)
-    oy2 = int(y2 * 5 + 80)
+  for r in rects:
+    x1 = r['left']
+    y1 = r['top']
+    x2 = r['right']
+    y2 = r['bottom']
 
-    for x in xrange(ox1, ox2 + 1):
-      pix[oy1, x] = (255, 0, 0)
-      pix[oy2, x] = (255, 0, 0)
-    for y in xrange(oy1, oy2 + 1):
-      pix[y, ox1] = (255, 0, 0)
-      pix[y, ox2] = (255, 0, 0)
+    for x in xrange(x1, x2 + 1):
+      pix[x, y1] = (255, 0, 0)
+      pix[x, y2] = (255, 0, 0)
+      pix[x, y1 + 1] = (255, 0, 0)
+      pix[x, y2 - 1] = (255, 0, 0)
+    for y in xrange(y1, y2 + 1):
+      pix[x1, y] = (255, 0, 0)
+      pix[x2, y] = (255, 0, 0)
+      pix[x1 + 1, y] = (255, 0, 0)
+      pix[x2 - 1, y] = (255, 0, 0)
 
   orig_im.show()
