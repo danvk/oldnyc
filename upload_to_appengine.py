@@ -19,10 +19,11 @@ import json
 
 CHUNK_SIZE = 100  # number of records to set per HTTP POST
 
-assert 3 <= len(sys.argv) <= 4
+assert 3 <= len(sys.argv) <= 5
 pickle_path = sys.argv[1]
 lat_lons_js_path = sys.argv[2]
-upload_url = sys.argv[3] if len(sys.argv) == 4 else 'http://localhost:8080/upload'
+upload_url = sys.argv[3] if len(sys.argv) >= 4 else 'http://localhost:8080/upload'
+start_chunk = int(sys.argv[4]) if len(sys.argv) >= 5 else 0
 
 all_rs = record.AllRecords(pickle_path)
 
@@ -52,6 +53,9 @@ def chunks(l, n):
 
 
 for i, chunk_rs in enumerate(chunks(rs, CHUNK_SIZE)):
+  if i < start_chunk:
+    continue
+
   print 'Chunk %d of %d' % (i, int(len(rs)/CHUNK_SIZE))
 
   vals = []
