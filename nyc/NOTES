@@ -182,3 +182,23 @@ images/715591f.jpg +
 images/715426f.jpg doesn't work correctly
 images/711019f.jpg (four small images)
 images/715238f.jpg (combines two close images)
+
+-----
+2013-02-24
+
+I've fetched essentially all the photos whose digital_ids end in 'f'
+(34580/34726). This is ~80% of all the photos.
+
+
+For a 'f' image, the sequence begins with
+http://images.nypl.org/index.php?id=(image_id)&t=d
+
+but this fails for non-'f' images.
+
+Only a small fraction of the non-'f' images are on brown cards.
+Using '&t=w' works fine.
+http://images.nypl.org/index.php?id=3978353&t=w
+
+Many of these non-'f' images don't have a "Zoom" button on the NYPL site, which
+I take to mean that they have no associated MrSid file. But the same sequence
+does work for some, so I'll try to get what I can.

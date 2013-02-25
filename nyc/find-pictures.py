@@ -13,6 +13,7 @@ import sys
 import random
 import math
 import json
+from scipy.ndimage.morphology import binary_opening, binary_closing
 
 ShowImage = False
 ShowImage = True  # for debugging
@@ -38,7 +39,19 @@ Brown[0] = np.median(I[:,:,0])
 Brown[1] = np.median(I[:,:,1])
 Brown[2] = np.median(I[:,:,2])
 
-B = 255 - 255 * (np.sqrt(((I - Brown) ** 2).sum(2)/3) < 20)
+# TODO(danvk): does removing the np.sqrt have an effect on perfomance?
+B = (np.sqrt(((I - Brown) ** 2).sum(2)/3) < 20)
+
+def showBinaryArray(b, title=None):
+  im = Image.fromarray(255*np.uint8(b))
+  im.show(B, title)
+
+# showBinaryArray(B)
+# this kills small features and introduces an 11px black border on every side
+B = binary_closing(B, structure=np.ones((11,11)))
+showBinaryArray(B)
+
+sys.exit(0)
 
 
 def randomWhitePixel(ary):
