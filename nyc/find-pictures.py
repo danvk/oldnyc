@@ -46,12 +46,12 @@ def showBinaryArray(b, title=None):
   im = Image.fromarray(255*np.uint8(b))
   im.show(B, title)
 
-# showBinaryArray(B)
+#showBinaryArray(B)
 # this kills small features and introduces an 11px black border on every side
 B = binary_closing(B, structure=np.ones((11,11)))
 showBinaryArray(B)
-
-sys.exit(0)
+#
+#sys.exit(0)
 
 
 def randomWhitePixel(ary):
