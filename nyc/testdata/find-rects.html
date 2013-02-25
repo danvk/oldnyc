@@ -1,0 +1,156 @@
+<!-- Template for use with Local Turk -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/jquery-ui.min.js"></script>
+<link rel='stylesheet' href='http://code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css' />
+<style>
+img {
+  cursor: crosshair;
+  max-width: 85%;
+}
+.rect {
+  border: 1px solid red;
+  position: absolute;
+}
+.rect.highlighted {
+  border: 1px solid blue;
+  opacity: 0.25;
+  background-color: blue;
+}
+#side {
+  position: fixed;
+  right: 10px;
+  top: 10px;
+  border: 1px solid black;
+  background-color: white;
+  min-width: 150px;
+  border-radius: 3px;
+  padding: 5px;
+}
+.ui-icon-gripsmall-diagonal-se {
+  background: none;
+}
+</style>
+
+<img id="image" alt="the image" src="${image_url}" />
+<div id="side">
+  Rectangles: <input type="submit" />
+  <div id="rect-template" class='rect-list-item' style='display: none;'>
+    <span class='coords'>(x1,y1)-(x2,y2)</span>
+    <button type=button>Remove</button>
+  </div>
+  <hr/>
+</div>
+<input id='rects-json' type="hidden" name="rects" value="" />
+<br style='clear: both;'>
+
+<script type="text/javascript">
+var rects = [];  // List of {x1, y1, x2, y2} objects
+function drawRects() {
+  var base = $('#image').offset();
+  $('.rect').remove();
+  var rectEls = $(rects).map(function(i, rect) {
+    return $('<div class=rect>').css({
+      left: (base.left + rect.x1) + 'px',
+      top: (base.top + rect.y1) + 'px',
+      width: (rect.x2 - rect.x1) + 'px',
+      height: (rect.y2 - rect.y1) + 'px'
+    }).data('index', i).get(0);
+  });
+  $(rectEls)
+    .resizable({handles: 'all'})
+    .on('resize', function(event, ui) {
+      var idx = $.data(this, 'index');
+      var base = $('#image').offset();
+      rects[idx] = {
+        x1: ui.position.left - base.left,
+        y1: ui.position.top - base.top,
+        x2: ui.position.left + ui.size.width - base.left,
+        y2: ui.position.top + ui.size.height - base.top
+      };
+      updateForm();
+      updateList();
+    })
+    .appendTo(document.body);
+}
+
+function updateList() {
+  $('.rect-list-item:visible').remove();
+  var listItemEls = $(rects).map(function(i, rect) {
+    var $el = $('#rect-template').clone().removeAttr('id');
+    $.data($el.get(0), 'index', i);
+    $('.coords', $el).text('(' + rect.x1 + ', ' + rect.y1 + ') - (' + rect.x2 + ', ' + rect.y2 + ')');
+    return $el.get(0);
+  });
+
+  $(listItemEls).appendTo($('#side')).show();
+}
+
+function updateForm() {
+  var visibleSize = {
+    w: $('img').width(),
+    h: $('img').height()
+  };
+  var naturalSize = {
+    w: $('img').get(0).naturalWidth,
+    h: $('img').get(0).naturalHeight,
+  };
+  var naturalRects = $(rects).map(function(idx, r) {
+    return {
+      x1: Math.round(r.x1 * naturalSize.w / visibleSize.w),
+      x2: Math.round(r.x2 * naturalSize.w / visibleSize.w),
+      y1: Math.round(r.y1 * naturalSize.h / visibleSize.h),
+      y2: Math.round(r.y2 * naturalSize.h / visibleSize.h)
+    };
+  }).toArray();
+  $('#rects-json').val(JSON.stringify(naturalRects));
+}
+
+$(function() {
+  $('#image')
+  .on('mousedown', function(e) {
+    var idx = rects.length;
+    var base = $(this).offset();
+    var x1 = e.pageX - base.left, y1 = e.pageY - base.top;
+    e.preventDefault();
+    var updateRect = function(e) {
+      var x2 = e.pageX - base.left, y2 = e.pageY - base.top;
+      rects[idx] = {
+        x1: Math.min(x1, x2),
+        y1: Math.min(y1, y2),
+        x2: Math.max(x1, x2),
+        y2: Math.max(y1, y2)
+      };
+      drawRects();
+      $($('.rect').get(idx)).css({'pointer-events': 'none'});
+    };
+    $(this).on('mousemove', function(e) {
+      updateRect(e);
+    }).on('mouseup', function(e) {
+      updateRect(e);
+      var r = rects[idx];
+      if (Math.abs(r.x2 - r.x1) < 20 && Math.abs(r.y2 - r.y1) < 20) {
+        rects.splice(idx, 1);
+        drawRects();
+      }
+      $($('.rect').get(idx)).css({'pointer-events': 'auto'});
+      $(this).off('mousemove mouseup');
+      updateList();
+      updateForm();
+    });
+  });
+
+  $(document.body)
+  .on('mouseenter mouseleave', '.rect-list-item', function() {
+    $('.rect[index=' + $.data(this, 'index') + ']').toggleClass('highlighted');
+  });
+
+  $(document.body).on('click', '.rect-list-item button', function() {
+    var index = $.data($(this).parent('.rect-list-item').get(0), 'index');
+    console.log(index);
+    rects.splice(index, 1);
+    drawRects();
+    updateList();
+    updateForm();
+  });
+});
+</script>
