@@ -202,3 +202,11 @@ http://images.nypl.org/index.php?id=3978353&t=w
 Many of these non-'f' images don't have a "Zoom" button on the NYPL site, which
 I take to mean that they have no associated MrSid file. But the same sequence
 does work for some, so I'll try to get what I can.
+
+I used Local Turk to generate test data for 100 images.
+
+What's a good scoring function? There are two levels of "right":
+1. Getting the correct number of photos
+2. Getting the correct positions of the photos
+
+
