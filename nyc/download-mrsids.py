@@ -51,10 +51,10 @@ def GetRedirect(url):
 rs = record.AllRecords('records.pickle')
 for idx, rec in enumerate(rs):
   digital_id = rec.photo_id()
-  if digital_id[-1] != 'f':
-    # TODO(danvk): look at these
-    print 'Skipping id %s' % digital_id
-    continue
+  # if digital_id[-1] != 'f':
+  #   # TODO(danvk): look at these
+  #   print 'Skipping id %s' % digital_id
+  #   continue
 
   output_sid = '%s/%s.sid' % (IMAGE_DIR, digital_id)
   output_jpg = '%s/%s.jpg' % (IMAGE_DIR, digital_id)
@@ -65,7 +65,14 @@ for idx, rec in enumerate(rs):
     # o = urlparse.urlparse(response.geturl())
     # item_id = urlparse.parse_qs(o.query)['item'][0].strip()
     redirect_url = GetRedirect(viewer_url)
-    item_id = urlparse.parse_qs(redirect_url)['item'][0]
+    if not redirect_url:
+      sys.stderr.write('%s: Unable to get redirect URL' % digital_id)
+      continue
+    q_fields = urlparse.parse_qs(redirect_url)
+    if 'item' not in q_fields:
+      sys.stderr.write('%s: Unable to parse item_id from URL %s\n' % (digital_id, redirect_url))
+      continue
+    item_id = q_fields['item'][0]
 
     tmp_file = output_sid + '.tmp'
     sid_url = MRSID_PATTERN % item_id
