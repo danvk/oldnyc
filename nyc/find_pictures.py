@@ -52,62 +52,12 @@ def ShowBinaryArray(b, title=None):
 #sys.exit(0)
 
 
-def randomWhitePixel(ary):
-  h, w = ary.shape
-  while True:
-    x, y = int(random.uniform(0, w)), int(random.uniform(0, h))
-    x = min(x, w - 1)
-    y = min(y, h - 1)
-    if ary[y][x]:
-      return x, y
-
-
-def findWhiteRect(ary):
-  # Pick a random pixel to start with a 1x1 rect.
-  h, w = ary.shape[0:2]
-  x, y = randomWhitePixel(ary)
-  x1, y1, x2, y2 = x, y, x, y
-
-  # Keep expanding in each direction until it's no longer helpful.
-  while True:
-    expanded = False
-    # Expand up
-    if y1 >= 5:
-      c = ary[y1-5:y1, x1:x2+1].sum()
-      if c:
-        y1 -= 5
-        expanded = True
-    # Expand left
-    if x1 >= 5:
-      c = ary[y1:y2+1, x1-5:x1].sum()
-      if c:
-        x1 -= 5
-        expanded = True
-    # Expand down
-    if y2 < h - 5:
-      c = ary[y2+1:y2+6, x1:x2+1].sum()
-      if c:
-        y2 += 5
-        expanded = True
-    # Expand right
-    if x2 < w - 5:
-      c = ary[y1:y2+1, x2+1:x2+6].sum()
-      if c:
-        x2 += 5
-        expanded = True
-
-    if not expanded:
-      break
-
-  return x1, y1, x2, y2
-
-
 def ProcessImage(path):
   sys.stderr.write('Processing %s...\n' % path)
   rects = []
   B = LoadAndBinarizeImage(path)
   B = ndimage.binary_fill_holes(B, structure=np.ones((5,5)))
-  ShowBinaryArray(B)
+  #ShowBinaryArray(B)
 
   # Following
   # http://scipy-lectures.github.com/advanced/image_processing/index.html 
@@ -135,20 +85,22 @@ def ProcessImage(path):
 
   for area, idx in regions:
     c = cs[idx]
-    convexI = np.zeros(label_im.shape[0:2]).astype('uint8')
+    #convexI = np.zeros(label_im.shape[0:2]).astype('uint8')
 
     x,y,w,h       = cv2.boundingRect(c)
     ConvexHull    = cv2.convexHull(c)
     ConvexArea    = cv2.contourArea(ConvexHull)
     Solidity      = area/ConvexArea if ConvexArea else 0
-    cv2.drawContours( convexI, [ConvexHull], -1,
-                      color=255, thickness=-1 )
+    #cv2.drawContours( convexI, [ConvexHull], -1,
+    #                  color=255, thickness=-1 )
 
-    counted = False
     x2 = x + w
     y2 = y + h
-    sys.stderr.write('%d x %d, solidity %f\n' % (w, h, Solidity))
-    if w > 150 and h > 150 and Solidity > 0.95:
+
+    if w > 20 and h > 20:
+      sys.stderr.write('%d x %d, solidity %f\n' % (w, h, Solidity))
+
+    if w > 150 and h > 150 and Solidity > 0.90:
       rects.append({
         'left': 80 + 5 * x,
         'top':  80 + 5 * y,

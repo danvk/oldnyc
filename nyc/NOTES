@@ -210,3 +210,18 @@ What's a good scoring function? There are two levels of "right":
 2. Getting the correct positions of the photos
 
 
+-----
+2013-03-07
+
+With help from StackOverflow, I'm using a more principled way of detecting
+regions (modeled after Matlab's RegionProps method) and am using
+ndimage.binary_fill_holes to patch things up in the binarized image.
+
+>= 10 : 16 are perfect
+>= 20 : 15 are perfect
+
+For some images (717271f.jpg), reducing the threshold from 20 -> 10 makes all
+the difference. Backing off might work, but how to know if you only have 2/3?
+
+For others (1507735.jpg), lowering the 95% Solidity threshold to 90% makes all
+the difference.
