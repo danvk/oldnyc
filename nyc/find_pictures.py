@@ -40,6 +40,9 @@ def LoadAndBinarizeImage(path):
   brown[1] = np.median(I[:,:,1])
   brown[2] = np.median(I[:,:,2])
 
+  # I[100:200, 100:200] = brown
+  # ShowBinaryArray(I)
+
   # TODO(danvk): does removing the np.sqrt have an effect on perfomance?
   return (np.sqrt(((I - brown) ** 2).sum(2)/3) >= 20)
 
@@ -89,7 +92,16 @@ def ProcessImage(path):
 
   rects = []
   B = LoadAndBinarizeImage(path)
-  B = ndimage.binary_fill_holes(B, structure=np.ones((5,5)))
+
+  # Exclude borders
+  B[:10,:] = 0
+  B[-10:,:] = 0
+  B[:,:10] = 0
+  B[:,-10:] = 0
+
+  if ShowImage:
+    ShowBinaryArray(B)
+  B = ndimage.binary_fill_holes(B, structure=np.ones((2,2)))
   if ShowImage:
     ShowBinaryArray(B)
 

@@ -46,6 +46,7 @@ def IsPassCorrect(actual_data, golden_rects):
   return photo_frac >= 0.33
   
 
+num_correct_safe = 0
 num_safe, num_correct, num_wrong = 0, 0, 0
 num_total = 0
 for path in sorted(actual.keys()):
@@ -59,6 +60,7 @@ for path in sorted(actual.keys()):
   if actual_rects == None:
     if IsPassCorrect(actual[path], golden_rects):
       num_correct += 1
+      num_correct_safe += 1
     else:
       sys.stderr.write('%s: Invalid pass %.4f\n' % (path, photo_frac))
       num_safe += 1
@@ -74,14 +76,22 @@ print '''
 Stats on %d photos
 
      Safe: %d (%.4f)
-  Correct: %d (%.4f)
+  Correct: %d (%.4f; %d are 'safe')
     Wrong: %d (%.4f)
 ''' % (num_total,
        num_safe, 1. * num_safe / num_total,
-       num_correct, 1. * num_correct / num_total,
+       num_correct, 1. * num_correct / num_total, num_correct_safe,
        num_wrong, 1. * num_wrong / num_total)
 
 '''
+With 10px black borders around all images before filling holes.
+(average 2s/image)
+
+     Safe: 3 (0.0250)
+  Correct: 116 (0.9667; 16 are 'safe')
+    Wrong: 1 (0.0083)
+
+----
 Same as below, but loosened max width and height frac to 0.8.
 
      Safe: 5 (0.0417)
