@@ -225,3 +225,27 @@ the difference. Backing off might work, but how to know if you only have 2/3?
 
 For others (1507735.jpg), lowering the 95% Solidity threshold to 90% makes all
 the difference.
+
+-----
+2013-04-10
+
+Goal is to come up with a program that can reliably either:
+1. Correctly detect photos in an image
+2. Decline to do anything
+
+i.e. have very few false positives.
+
+After some tweaking, I came up with something that has these stats on the 120
+training images:
+
+     Safe: 5 (0.0417)
+  Correct: 113 (0.9417)
+    Wrong: 2 (0.0167)
+
+i.e. it partitions 94% correctly, takes a conservative pass on 4% and gets 1.7%
+incorrect.
+
+In this last category, one is because of a bad binarization (one
+image becomes two). The other is because only 2/3 photos in an image are
+detected (the third is sepia and, unlike the other two, doesn't have a white
+border). These are both lame, but the former is lamer.

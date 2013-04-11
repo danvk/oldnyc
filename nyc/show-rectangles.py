@@ -12,7 +12,8 @@ _, rects_path, image_path = sys.argv
 path_to_rects = {}
 for line in file(rects_path):
   d = json.loads(line)
-  path_to_rects[d['file']] = d['rects']
+  if 'rects' in d:
+    path_to_rects[d['file']] = d['rects']
 
 assert image_path in path_to_rects
 
