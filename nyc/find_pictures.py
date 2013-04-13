@@ -61,8 +61,8 @@ def ShowBinaryArray(b, title=None):
 def AcceptPhotoDetection(im, rects):
   '''Run some heuristics to decide whether to accept a photo segmentation.'''
   im_h, im_w = im.shape
-  im_w = 5 * im_w + 80
-  im_h = 5 * im_h + 80
+  im_w = 5 * im_w + 160
+  im_h = 5 * im_h + 160
   # print '%d x %d' % (im_w, im_h)
 
   # Zero photos is worthless.
@@ -70,16 +70,18 @@ def AcceptPhotoDetection(im, rects):
     return False
 
   # A single photo which takes up a large fraction of the image isn't an
-  # especially valuable find. Better to be safe and bail.
+  # especially valuable find. If it's not an especially solid rectangle, it's
+  # better to be safe and bail.
   if len(rects) == 1:
     w = rects[0]['right'] - rects[0]['left']
     h = rects[0]['bottom'] - rects[0]['top']
+    solidity = rects[0]['solidity']
     w_frac = 1.0 * w / im_w
     h_frac = 1.0 * h / im_h
     # print '%f x %f' % (w_frac, h_frac)
 
     # 711131f.jpg is valid and 0.75 x 0.719 = 0.5396
-    if w_frac > 0.8 or h_frac > 0.8:
+    if (w_frac > 0.8 or h_frac > 0.8) and solidity < 0.98:
       return False
   return True
 
@@ -151,14 +153,15 @@ def ProcessImage(path):
         'left': 80 + 5 * x,
         'top':  80 + 5 * y,
         'right': 80 + 5 * x2,
-        'bottom': 80 + 5 * y2
+        'bottom': 80 + 5 * y2,
+        'solidity': Solidity
       })
 
   output = {
     'file': path,
     'shape': {
-      'w': 5 * B.shape[0] + 80,
-      'h': 5 * B.shape[1] + 80
+      'w': 5 * B.shape[1] + 160,
+      'h': 5 * B.shape[0] + 160
     }
   }
 

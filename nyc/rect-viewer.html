@@ -1,0 +1,90 @@
+<html>
+  <head>
+    <script type="text/javascript" src="/tmp/detected-photos.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <style>
+      .image {
+        /*-webkit-transform: scaleX(0.25) scaleY(0.25);
+        -webkit-transform-origin: top left;*/
+        -webkit-transform: translateZ(0);
+        display: inline-block;
+        margin: 10px 10px;
+      }
+      img.image {
+        max-height: 500px;
+        max-width: 500px;
+      }
+      #imageIdx, #progress, #filename { display: inline-block; }
+    </style>
+  </head>
+  <body>
+    <input id="imageIdx" type="text" value="1">
+    <div id="progress">0/1</div>
+    <div id="filename"></div>
+    <div id="container"></div>
+
+    <script type="text/javascript">
+      var targetHeight = 500;
+
+      function showImage(idx) {
+        $('#imageIdx').val(1 + idx);
+        $('#container').empty();
+        var rec = images[idx];
+        $('#filename').text(rec['file']);
+        var rs = rec['rects'];
+        var pass = false;
+        if (!rs) {
+          rs = [{
+            'left': 0,
+            'top': 0,
+            'right': rec.shape.w,
+            'bottom': rec.shape.h
+          }];
+          pass = true;
+        }
+        $('#progress').text((1+idx) + '/' + images.length + (pass ? ' (pass)' : ''));
+
+        if (!pass) {
+          $('<img/>').addClass('image').attr('src', rec['file']).appendTo('#container');
+        }
+
+        $(rs).each(function(idx, rect) {
+          var width = rect.right - rect.left;
+          var height = rect.bottom - rect.top;
+          var scale = Math.min(1, targetHeight / height);
+          var $img = $('<div/>')
+            .css({
+              'background': 'url(' + rec['file'] + ')',
+              'background-position': '-' + scale*rect.left + 'px -' + scale*rect.top + 'px',
+              'background-size': scale*rec.shape.w + 'px ' + scale*rec.shape.h + 'px',
+              'width': scale*width + 'px',
+              'height': scale*height + 'px'
+            })
+            .addClass('image');
+          $('<a/>')
+            .attr('href', rec['file']).attr('target', '_blank')
+            .append($img)
+            .appendTo('#container');
+        });
+      }
+
+      $(function() {
+        var imageIdx = 0;
+        showImage(imageIdx);
+        $(document).keypress(function(e) {
+          if (e.charCode == 'j'.charCodeAt(0)) {
+            imageIdx++;
+            showImage(imageIdx);
+          } else if (e.charCode == 'k'.charCodeAt(0)) {
+            imageIdx--;
+            showImage(imageIdx);
+          }
+        });
+      });
+      $('#imageIdx').on('change', function(e) {
+        imageIdx = parseInt($(this).val(), 10) - 1;
+        showImage(imageIdx);
+      });
+    </script>
+  </body>
+</html>

@@ -249,3 +249,24 @@ In this last category, one is because of a bad binarization (one
 image becomes two). The other is because only 2/3 photos in an image are
 detected (the third is sepia and, unlike the other two, doesn't have a white
 border). These are both lame, but the former is lamer.
+
+2013-04-13
+Goals:
+- Last tweaks to photo-finding algorithm.
+- Run on 100-200 new random photos from the full collection.
+- Take a crack at removing white borders.
+- Kick off a run on the full set.
+
+#26: pass, but shouldn't be?
+#36: bad pass
+#39: huge border!
+#45: bad pass
+#46: bad pass
+#49: bad pass
+#61: bad pass
+#62: bad pass
+#70: bad pass
+#77: bad pass?
+
+Setting a pass threshold in terms of solidity (instead of height/width
+fraction) might make more sense.
