@@ -1,120 +1,120 @@
-{"rects": [{"top": 1120, "right": 2505, "bottom": 4190, "left": 230}], "shape": {"h": 4900, "w": 3005}, "file": "images/1507735.jpg"}
+{"rects": [{"solidity": 0.9928370763738847, "top": 1120, "right": 2505, "bottom": 4190, "left": 230}], "shape": {"h": 4900, "w": 3005}, "file": "images/1507735.jpg"}
 {"shape": {"h": 4900, "w": 3005}, "file": "images/1507793.jpg"}
-{"shape": {"h": 3490, "w": 2065}, "file": "images/1557938.jpg"}
-{"rects": [{"top": 405, "right": 3290, "bottom": 2065, "left": 830}], "shape": {"h": 3965, "w": 6140}, "file": "images/700005f.jpg"}
-{"rects": [{"top": 460, "right": 3185, "bottom": 2100, "left": 730}], "shape": {"h": 6140, "w": 3960}, "file": "images/700049f.jpg"}
-{"rects": [{"top": 350, "right": 3125, "bottom": 1965, "left": 710}], "shape": {"h": 6140, "w": 4025}, "file": "images/700079f.jpg"}
-{"rects": [{"top": 390, "right": 3165, "bottom": 2030, "left": 740}], "shape": {"h": 6140, "w": 3970}, "file": "images/700254f.jpg"}
-{"rects": [{"top": 425, "right": 3155, "bottom": 2050, "left": 730}], "shape": {"h": 6140, "w": 3975}, "file": "images/700256f.jpg"}
-{"rects": [{"top": 690, "right": 2405, "bottom": 3090, "left": 795}], "shape": {"h": 3935, "w": 6140}, "file": "images/700284f.jpg"}
-{"rects": [{"top": 2145, "right": 3460, "bottom": 3775, "left": 1035}, {"top": 430, "right": 3435, "bottom": 2040, "left": 1015}], "shape": {"h": 3970, "w": 6140}, "file": "images/700288f.jpg"}
-{"rects": [{"top": 560, "right": 3025, "bottom": 1950, "left": 825}], "shape": {"h": 6140, "w": 3965}, "file": "images/700347f.jpg"}
-{"rects": [{"top": 505, "right": 5630, "bottom": 3955, "left": 1285}], "shape": {"h": 4425, "w": 6900}, "file": "images/702211f.jpg"}
-{"rects": [{"top": 465, "right": 3020, "bottom": 2080, "left": 610}], "shape": {"h": 3945, "w": 6140}, "file": "images/702370f.jpg"}
-{"shape": {"h": 3995, "w": 6140}, "file": "images/702477f.jpg"}
-{"rects": [{"top": 2110, "right": 2705, "bottom": 3570, "left": 875}, {"top": 605, "right": 5260, "bottom": 2060, "left": 3425}, {"top": 630, "right": 2695, "bottom": 2040, "left": 875}], "shape": {"h": 3970, "w": 6140}, "file": "images/702549f.jpg"}
-{"rects": [{"top": 415, "right": 3190, "bottom": 2045, "left": 750}], "shape": {"h": 6140, "w": 3975}, "file": "images/702649f.jpg"}
-{"rects": [{"top": 420, "right": 3150, "bottom": 2040, "left": 725}], "shape": {"h": 6140, "w": 3975}, "file": "images/702653f.jpg"}
-{"rects": [{"top": 890, "right": 1920, "bottom": 2940, "left": 475}], "shape": {"h": 3975, "w": 6140}, "file": "images/702754f.jpg"}
-{"rects": [{"top": 900, "right": 5765, "bottom": 3345, "left": 4115}, {"top": 880, "right": 3890, "bottom": 3305, "left": 2290}, {"top": 880, "right": 2035, "bottom": 3295, "left": 435}], "shape": {"h": 3985, "w": 6140}, "file": "images/707561f.jpg"}
-{"rects": [{"top": 600, "right": 1560, "bottom": 2410, "left": 345}], "shape": {"h": 3030, "w": 4660}, "file": "images/707743f.jpg"}
-{"rects": [{"top": 525, "right": 3295, "bottom": 2435, "left": 605}], "shape": {"h": 6140, "w": 3990}, "file": "images/707892f.jpg"}
-{"rects": [{"top": 400, "right": 3215, "bottom": 2020, "left": 795}], "shape": {"h": 6140, "w": 3995}, "file": "images/707946f.jpg"}
-{"rects": [{"top": 835, "right": 2140, "bottom": 3255, "left": 495}], "shape": {"h": 3965, "w": 6140}, "file": "images/707997f.jpg"}
-{"rects": [{"top": 740, "right": 2025, "bottom": 3160, "left": 400}], "shape": {"h": 3970, "w": 6140}, "file": "images/708007f.jpg"}
-{"rects": [{"top": 605, "right": 2795, "bottom": 3020, "left": 1195}], "shape": {"h": 6140, "w": 3940}, "file": "images/708119f.jpg"}
-{"shape": {"h": 4015, "w": 6140}, "file": "images/710239f.jpg"}
-{"rects": [{"top": 480, "right": 3195, "bottom": 2080, "left": 790}, {"top": 2390, "right": 3185, "bottom": 3985, "left": 780}], "shape": {"h": 6140, "w": 3960}, "file": "images/710457f.jpg"}
-{"rects": [{"top": 2205, "right": 3205, "bottom": 3835, "left": 775}, {"top": 420, "right": 3185, "bottom": 2030, "left": 780}], "shape": {"h": 6140, "w": 3980}, "file": "images/710482f.jpg"}
-{"rects": [{"top": 465, "right": 3120, "bottom": 2070, "left": 725}], "shape": {"h": 6140, "w": 3960}, "file": "images/710491f.jpg"}
-{"rects": [{"top": 870, "right": 3860, "bottom": 3285, "left": 2245}, {"top": 875, "right": 2000, "bottom": 3285, "left": 400}, {"top": 880, "right": 5665, "bottom": 3265, "left": 4080}], "shape": {"h": 3980, "w": 6140}, "file": "images/710538f.jpg"}
-{"rects": [{"top": 495, "right": 3205, "bottom": 2090, "left": 805}], "shape": {"h": 6140, "w": 3960}, "file": "images/710680f.jpg"}
-{"rects": [{"top": 3950, "right": 3140, "bottom": 5555, "left": 735}, {"top": 2165, "right": 3125, "bottom": 3775, "left": 725}, {"top": 450, "right": 3125, "bottom": 2055, "left": 720}], "shape": {"h": 6140, "w": 3960}, "file": "images/710752f.jpg"}
-{"rects": [{"top": 570, "right": 3135, "bottom": 2175, "left": 740}], "shape": {"h": 6140, "w": 3955}, "file": "images/710759f.jpg"}
-{"rects": [{"top": 2315, "right": 3125, "bottom": 3960, "left": 690}, {"top": 425, "right": 3115, "bottom": 2060, "left": 695}], "shape": {"h": 6140, "w": 3990}, "file": "images/710791f.jpg"}
-{"rects": [{"top": 2265, "right": 3080, "bottom": 3900, "left": 640}, {"top": 4145, "right": 3070, "bottom": 5780, "left": 640}, {"top": 395, "right": 3060, "bottom": 2020, "left": 640}], "shape": {"h": 6140, "w": 3975}, "file": "images/710812f.jpg"}
+{"rects": [{"solidity": 0.9847174756672171, "top": 130, "right": 1935, "bottom": 3360, "left": 130}], "shape": {"h": 3490, "w": 2065}, "file": "images/1557938.jpg"}
+{"rects": [{"solidity": 0.9970907920473396, "top": 405, "right": 3290, "bottom": 2065, "left": 830}], "shape": {"h": 3965, "w": 6140}, "file": "images/700005f.jpg"}
+{"rects": [{"solidity": 0.9967830032201322, "top": 460, "right": 3185, "bottom": 2100, "left": 730}], "shape": {"h": 6140, "w": 3960}, "file": "images/700049f.jpg"}
+{"rects": [{"solidity": 0.9970121811077913, "top": 350, "right": 3125, "bottom": 1965, "left": 710}], "shape": {"h": 6140, "w": 4025}, "file": "images/700079f.jpg"}
+{"rects": [{"solidity": 0.9960173149076741, "top": 390, "right": 3165, "bottom": 2030, "left": 740}], "shape": {"h": 6140, "w": 3970}, "file": "images/700254f.jpg"}
+{"rects": [{"solidity": 0.9969232547981809, "top": 425, "right": 3155, "bottom": 2050, "left": 730}], "shape": {"h": 6140, "w": 3975}, "file": "images/700256f.jpg"}
+{"rects": [{"solidity": 0.9965082679110803, "top": 690, "right": 2405, "bottom": 3090, "left": 795}], "shape": {"h": 3935, "w": 6140}, "file": "images/700284f.jpg"}
+{"rects": [{"solidity": 0.9968829088579209, "top": 2145, "right": 3460, "bottom": 3775, "left": 1035}, {"solidity": 0.9986451088429229, "top": 430, "right": 3435, "bottom": 2040, "left": 1015}], "shape": {"h": 3970, "w": 6140}, "file": "images/700288f.jpg"}
+{"rects": [{"solidity": 0.962295174916369, "top": 560, "right": 3025, "bottom": 1950, "left": 825}], "shape": {"h": 6140, "w": 3965}, "file": "images/700347f.jpg"}
+{"rects": [{"solidity": 0.9854438955421089, "top": 505, "right": 5630, "bottom": 3955, "left": 1285}], "shape": {"h": 4425, "w": 6900}, "file": "images/702211f.jpg"}
+{"rects": [{"solidity": 0.9990473483992224, "top": 465, "right": 3020, "bottom": 2080, "left": 610}], "shape": {"h": 3945, "w": 6140}, "file": "images/702370f.jpg"}
+{"rects": [{"solidity": 0.9981063116632265, "top": 285, "right": 5160, "bottom": 3550, "left": 1080}], "shape": {"h": 3995, "w": 6140}, "file": "images/702477f.jpg"}
+{"rects": [{"solidity": 0.9963578398679362, "top": 2110, "right": 2705, "bottom": 3570, "left": 875}, {"solidity": 0.9960498920969322, "top": 605, "right": 5260, "bottom": 2060, "left": 3425}, {"solidity": 0.9973995387861243, "top": 630, "right": 2695, "bottom": 2040, "left": 875}], "shape": {"h": 3970, "w": 6140}, "file": "images/702549f.jpg"}
+{"rects": [{"solidity": 0.9959151399128606, "top": 415, "right": 3190, "bottom": 2045, "left": 750}], "shape": {"h": 6140, "w": 3975}, "file": "images/702649f.jpg"}
+{"rects": [{"solidity": 0.9974652475479724, "top": 420, "right": 3150, "bottom": 2040, "left": 725}], "shape": {"h": 6140, "w": 3975}, "file": "images/702653f.jpg"}
+{"rects": [{"solidity": 0.991114346260531, "top": 890, "right": 1920, "bottom": 2940, "left": 475}], "shape": {"h": 3975, "w": 6140}, "file": "images/702754f.jpg"}
+{"rects": [{"solidity": 0.9964613779698583, "top": 900, "right": 5765, "bottom": 3345, "left": 4115}, {"solidity": 0.9959019867376946, "top": 880, "right": 3890, "bottom": 3305, "left": 2290}, {"solidity": 0.9925692551298585, "top": 880, "right": 2035, "bottom": 3295, "left": 435}], "shape": {"h": 3985, "w": 6140}, "file": "images/707561f.jpg"}
+{"rects": [{"solidity": 0.9968157275370345, "top": 600, "right": 1560, "bottom": 2410, "left": 345}], "shape": {"h": 3030, "w": 4660}, "file": "images/707743f.jpg"}
+{"rects": [{"solidity": 0.99172319280672, "top": 525, "right": 3295, "bottom": 2435, "left": 605}], "shape": {"h": 6140, "w": 3990}, "file": "images/707892f.jpg"}
+{"rects": [{"solidity": 0.9951359581776099, "top": 400, "right": 3215, "bottom": 2020, "left": 795}], "shape": {"h": 6140, "w": 3995}, "file": "images/707946f.jpg"}
+{"rects": [{"solidity": 0.9965774327869795, "top": 835, "right": 2140, "bottom": 3255, "left": 495}], "shape": {"h": 3965, "w": 6140}, "file": "images/707997f.jpg"}
+{"rects": [{"solidity": 0.9964268385554402, "top": 740, "right": 2025, "bottom": 3160, "left": 400}], "shape": {"h": 3970, "w": 6140}, "file": "images/708007f.jpg"}
+{"rects": [{"solidity": 0.9962851920522835, "top": 605, "right": 2795, "bottom": 3020, "left": 1195}], "shape": {"h": 6140, "w": 3940}, "file": "images/708119f.jpg"}
+{"rects": [{"solidity": 0.9977307651419238, "top": 390, "right": 5005, "bottom": 3635, "left": 985}], "shape": {"h": 4015, "w": 6140}, "file": "images/710239f.jpg"}
+{"rects": [{"solidity": 0.9977334942454302, "top": 480, "right": 3195, "bottom": 2080, "left": 790}, {"solidity": 0.9973542889405339, "top": 2390, "right": 3185, "bottom": 3985, "left": 780}], "shape": {"h": 6140, "w": 3960}, "file": "images/710457f.jpg"}
+{"rects": [{"solidity": 0.994668919509424, "top": 2205, "right": 3205, "bottom": 3835, "left": 775}, {"solidity": 0.9960651591300758, "top": 420, "right": 3185, "bottom": 2030, "left": 780}], "shape": {"h": 6140, "w": 3980}, "file": "images/710482f.jpg"}
+{"rects": [{"solidity": 0.9952749722008665, "top": 465, "right": 3120, "bottom": 2070, "left": 725}], "shape": {"h": 6140, "w": 3960}, "file": "images/710491f.jpg"}
+{"rects": [{"solidity": 0.9942606128487171, "top": 870, "right": 3860, "bottom": 3285, "left": 2245}, {"solidity": 0.9962458277867762, "top": 875, "right": 2000, "bottom": 3285, "left": 400}, {"solidity": 0.9949393084948038, "top": 880, "right": 5665, "bottom": 3265, "left": 4080}], "shape": {"h": 3980, "w": 6140}, "file": "images/710538f.jpg"}
+{"rects": [{"solidity": 0.9987972198031515, "top": 495, "right": 3205, "bottom": 2090, "left": 805}], "shape": {"h": 6140, "w": 3960}, "file": "images/710680f.jpg"}
+{"rects": [{"solidity": 0.9978790919516264, "top": 3950, "right": 3140, "bottom": 5555, "left": 735}, {"solidity": 0.9958894336189348, "top": 2165, "right": 3125, "bottom": 3775, "left": 725}, {"solidity": 0.9957480846711404, "top": 450, "right": 3125, "bottom": 2055, "left": 720}], "shape": {"h": 6140, "w": 3960}, "file": "images/710752f.jpg"}
+{"rects": [{"solidity": 0.9965744071025934, "top": 570, "right": 3135, "bottom": 2175, "left": 740}], "shape": {"h": 6140, "w": 3955}, "file": "images/710759f.jpg"}
+{"rects": [{"solidity": 0.9945676477442355, "top": 2315, "right": 3125, "bottom": 3960, "left": 690}, {"solidity": 0.9967279889421987, "top": 425, "right": 3115, "bottom": 2060, "left": 695}], "shape": {"h": 6140, "w": 3990}, "file": "images/710791f.jpg"}
+{"rects": [{"solidity": 0.9965613799991151, "top": 2265, "right": 3080, "bottom": 3900, "left": 640}, {"solidity": 0.9972261543110715, "top": 4145, "right": 3070, "bottom": 5780, "left": 640}, {"solidity": 0.9964260873188603, "top": 395, "right": 3060, "bottom": 2020, "left": 640}], "shape": {"h": 6140, "w": 3975}, "file": "images/710812f.jpg"}
 {"shape": {"h": 3950, "w": 6140}, "file": "images/711032f.jpg"}
-{"rects": [{"top": 755, "right": 2060, "bottom": 3150, "left": 460}], "shape": {"h": 3950, "w": 6140}, "file": "images/711102f.jpg"}
-{"rects": [{"top": 2265, "right": 3095, "bottom": 3890, "left": 705}, {"top": 4150, "right": 3055, "bottom": 5740, "left": 695}, {"top": 460, "right": 3085, "bottom": 2060, "left": 705}], "shape": {"h": 6140, "w": 3980}, "file": "images/711119f.jpg"}
-{"rects": [{"top": 775, "right": 3465, "bottom": 5135, "left": 540}], "shape": {"h": 6140, "w": 3980}, "file": "images/711131f.jpg"}
-{"rects": [{"top": 890, "right": 2025, "bottom": 3290, "left": 400}], "shape": {"h": 3985, "w": 6140}, "file": "images/711157f.jpg"}
-{"rects": [{"top": 455, "right": 3480, "bottom": 2265, "left": 775}], "shape": {"h": 6925, "w": 4415}, "file": "images/711194f.jpg"}
-{"rects": [{"top": 775, "right": 2855, "bottom": 3925, "left": 585}], "shape": {"h": 4410, "w": 6875}, "file": "images/711328f.jpg"}
-{"rects": [{"top": 800, "right": 2160, "bottom": 3495, "left": 370}], "shape": {"h": 4425, "w": 6870}, "file": "images/711350f.jpg"}
-{"rects": [{"top": 1030, "right": 3830, "bottom": 3300, "left": 385}, {"top": 3590, "right": 3530, "bottom": 5410, "left": 810}], "shape": {"h": 6910, "w": 4400}, "file": "images/711416f.jpg"}
-{"shape": {"h": 3975, "w": 6140}, "file": "images/711443f.jpg"}
-{"shape": {"h": 3970, "w": 6140}, "file": "images/711465f.jpg"}
-{"rects": [{"top": 460, "right": 5025, "bottom": 3560, "left": 1075}], "shape": {"h": 3970, "w": 6140}, "file": "images/711492f.jpg"}
-{"rects": [{"top": 735, "right": 2860, "bottom": 3880, "left": 605}], "shape": {"h": 4415, "w": 6875}, "file": "images/711675f.jpg"}
-{"shape": {"h": 4420, "w": 6860}, "file": "images/711696f.jpg"}
-{"rects": [{"top": 815, "right": 2080, "bottom": 3215, "left": 490}], "shape": {"h": 3955, "w": 6140}, "file": "images/711804f.jpg"}
-{"rects": [{"top": 480, "right": 3210, "bottom": 2115, "left": 795}], "shape": {"h": 4025, "w": 6140}, "file": "images/711813f.jpg"}
-{"rects": [{"top": 825, "right": 2085, "bottom": 3220, "left": 485}], "shape": {"h": 3955, "w": 6140}, "file": "images/711875f.jpg"}
-{"rects": [{"top": 805, "right": 3930, "bottom": 3215, "left": 2305}, {"top": 820, "right": 2065, "bottom": 3230, "left": 450}, {"top": 1015, "right": 5685, "bottom": 3010, "left": 4140}], "shape": {"h": 3955, "w": 6140}, "file": "images/711916f.jpg"}
-{"rects": [{"top": 470, "right": 2845, "bottom": 3805, "left": 880}], "shape": {"h": 6140, "w": 3955}, "file": "images/711932f.jpg"}
-{"rects": [{"top": 775, "right": 2015, "bottom": 3195, "left": 405}], "shape": {"h": 3970, "w": 6140}, "file": "images/711972f.jpg"}
-{"rects": [{"top": 2215, "right": 3130, "bottom": 3705, "left": 1145}, {"top": 490, "right": 3140, "bottom": 1995, "left": 1155}], "shape": {"h": 6140, "w": 3980}, "file": "images/712021f.jpg"}
-{"rects": [{"top": 770, "right": 2035, "bottom": 3180, "left": 435}], "shape": {"h": 3955, "w": 6140}, "file": "images/712042f.jpg"}
-{"rects": [{"top": 785, "right": 1940, "bottom": 3195, "left": 315}], "shape": {"h": 3975, "w": 6140}, "file": "images/712052f.jpg"}
-{"rects": [{"top": 2215, "right": 2860, "bottom": 3680, "left": 1010}, {"top": 2235, "right": 5085, "bottom": 3690, "left": 3240}, {"top": 705, "right": 5110, "bottom": 2100, "left": 3260}, {"top": 700, "right": 2840, "bottom": 1990, "left": 1020}], "shape": {"h": 3980, "w": 6140}, "file": "images/712081f.jpg"}
-{"rects": [{"top": 420, "right": 3240, "bottom": 2040, "left": 835}], "shape": {"h": 6140, "w": 3980}, "file": "images/712110f.jpg"}
-{"shape": {"h": 3975, "w": 6140}, "file": "images/712115f.jpg"}
-{"shape": {"h": 6140, "w": 3980}, "file": "images/712150f.jpg"}
-{"rects": [{"top": 2140, "right": 3015, "bottom": 3775, "left": 595}, {"top": 410, "right": 2870, "bottom": 1905, "left": 875}], "shape": {"h": 6140, "w": 3980}, "file": "images/712187f.jpg"}
-{"rects": [{"top": 810, "right": 3860, "bottom": 3215, "left": 2250}, {"top": 820, "right": 2025, "bottom": 3220, "left": 420}], "shape": {"h": 3960, "w": 6140}, "file": "images/712233f.jpg"}
-{"rects": [{"top": 2260, "right": 3100, "bottom": 3900, "left": 635}, {"top": 420, "right": 3090, "bottom": 2030, "left": 690}, {"top": 4110, "right": 3090, "bottom": 5755, "left": 670}], "shape": {"h": 6140, "w": 3975}, "file": "images/712287f.jpg"}
-{"rects": [{"top": 695, "right": 3325, "bottom": 2620, "left": 615}], "shape": {"h": 6140, "w": 3975}, "file": "images/712310f.jpg"}
-{"rects": [{"top": 695, "right": 3360, "bottom": 2575, "left": 655}], "shape": {"h": 6140, "w": 3975}, "file": "images/712334f.jpg"}
-{"rects": [{"top": 570, "right": 2670, "bottom": 3600, "left": 640}], "shape": {"h": 3960, "w": 6140}, "file": "images/712354f.jpg"}
-{"rects": [{"top": 850, "right": 2070, "bottom": 3250, "left": 470}], "shape": {"h": 3960, "w": 6140}, "file": "images/712367f.jpg"}
+{"rects": [{"solidity": 0.9969438678329753, "top": 755, "right": 2060, "bottom": 3150, "left": 460}], "shape": {"h": 3950, "w": 6140}, "file": "images/711102f.jpg"}
+{"rects": [{"solidity": 0.9962074851579508, "top": 2265, "right": 3095, "bottom": 3890, "left": 705}, {"solidity": 0.9976456047370029, "top": 4150, "right": 3055, "bottom": 5740, "left": 695}, {"solidity": 0.9956754364792019, "top": 460, "right": 3085, "bottom": 2060, "left": 705}], "shape": {"h": 6140, "w": 3980}, "file": "images/711119f.jpg"}
+{"rects": [{"solidity": 0.9983844752200931, "top": 775, "right": 3465, "bottom": 5135, "left": 540}], "shape": {"h": 6140, "w": 3980}, "file": "images/711131f.jpg"}
+{"rects": [{"solidity": 0.997891010796862, "top": 890, "right": 2025, "bottom": 3290, "left": 400}], "shape": {"h": 3985, "w": 6140}, "file": "images/711157f.jpg"}
+{"rects": [{"solidity": 0.9948111512418851, "top": 455, "right": 3480, "bottom": 2265, "left": 775}], "shape": {"h": 6925, "w": 4415}, "file": "images/711194f.jpg"}
+{"rects": [{"solidity": 0.9967545153421311, "top": 775, "right": 2855, "bottom": 3925, "left": 585}], "shape": {"h": 4410, "w": 6875}, "file": "images/711328f.jpg"}
+{"rects": [{"solidity": 0.9979959293128565, "top": 800, "right": 2160, "bottom": 3495, "left": 370}], "shape": {"h": 4425, "w": 6870}, "file": "images/711350f.jpg"}
+{"rects": [{"solidity": 0.9980365574306952, "top": 1030, "right": 3830, "bottom": 3300, "left": 385}, {"solidity": 0.9987761372148235, "top": 3590, "right": 3530, "bottom": 5410, "left": 810}], "shape": {"h": 6910, "w": 4400}, "file": "images/711416f.jpg"}
+{"rects": [{"solidity": 0.9927479580090783, "top": 295, "right": 5020, "bottom": 3720, "left": 985}], "shape": {"h": 3975, "w": 6140}, "file": "images/711443f.jpg"}
+{"rects": [{"solidity": 0.997287075961873, "top": 415, "right": 5030, "bottom": 3585, "left": 1060}], "shape": {"h": 3970, "w": 6140}, "file": "images/711465f.jpg"}
+{"rects": [{"solidity": 0.9979477665543411, "top": 460, "right": 5025, "bottom": 3560, "left": 1075}], "shape": {"h": 3970, "w": 6140}, "file": "images/711492f.jpg"}
+{"rects": [{"solidity": 0.9969634279524447, "top": 735, "right": 2860, "bottom": 3880, "left": 605}], "shape": {"h": 4415, "w": 6875}, "file": "images/711675f.jpg"}
+{"rects": [{"solidity": 0.9986379390240833, "top": 510, "right": 5680, "bottom": 4225, "left": 1120}], "shape": {"h": 4420, "w": 6860}, "file": "images/711696f.jpg"}
+{"rects": [{"solidity": 0.9974160974160974, "top": 815, "right": 2080, "bottom": 3215, "left": 490}], "shape": {"h": 3955, "w": 6140}, "file": "images/711804f.jpg"}
+{"rects": [{"solidity": 0.9963891269390388, "top": 480, "right": 3210, "bottom": 2115, "left": 795}], "shape": {"h": 4025, "w": 6140}, "file": "images/711813f.jpg"}
+{"rects": [{"solidity": 0.9950837124418113, "top": 825, "right": 2085, "bottom": 3220, "left": 485}], "shape": {"h": 3955, "w": 6140}, "file": "images/711875f.jpg"}
+{"rects": [{"solidity": 0.9968638672941085, "top": 805, "right": 3930, "bottom": 3215, "left": 2305}, {"solidity": 0.9937259690325262, "top": 820, "right": 2065, "bottom": 3230, "left": 450}, {"solidity": 0.9939370192406838, "top": 1015, "right": 5685, "bottom": 3010, "left": 4140}], "shape": {"h": 3955, "w": 6140}, "file": "images/711916f.jpg"}
+{"rects": [{"solidity": 0.997068462759375, "top": 470, "right": 2845, "bottom": 3805, "left": 880}], "shape": {"h": 6140, "w": 3955}, "file": "images/711932f.jpg"}
+{"rects": [{"solidity": 0.9964022481087493, "top": 775, "right": 2015, "bottom": 3195, "left": 405}], "shape": {"h": 3970, "w": 6140}, "file": "images/711972f.jpg"}
+{"rects": [{"solidity": 0.9979135401835914, "top": 2215, "right": 3130, "bottom": 3705, "left": 1145}, {"solidity": 0.9901212412449872, "top": 490, "right": 3140, "bottom": 1995, "left": 1155}], "shape": {"h": 6140, "w": 3980}, "file": "images/712021f.jpg"}
+{"rects": [{"solidity": 0.9967060976406771, "top": 770, "right": 2035, "bottom": 3180, "left": 435}], "shape": {"h": 3955, "w": 6140}, "file": "images/712042f.jpg"}
+{"rects": [{"solidity": 0.9977018246608416, "top": 785, "right": 1940, "bottom": 3195, "left": 315}], "shape": {"h": 3975, "w": 6140}, "file": "images/712052f.jpg"}
+{"rects": [{"solidity": 0.9985416782775084, "top": 2215, "right": 2860, "bottom": 3680, "left": 1010}, {"solidity": 0.9965503753587468, "top": 2235, "right": 5085, "bottom": 3690, "left": 3240}, {"solidity": 0.9959839158308088, "top": 705, "right": 5110, "bottom": 2100, "left": 3260}, {"solidity": 0.991077738039368, "top": 700, "right": 2840, "bottom": 1990, "left": 1020}], "shape": {"h": 3980, "w": 6140}, "file": "images/712081f.jpg"}
+{"rects": [{"solidity": 0.994115375300286, "top": 420, "right": 3240, "bottom": 2040, "left": 835}], "shape": {"h": 6140, "w": 3980}, "file": "images/712110f.jpg"}
+{"rects": [{"solidity": 0.9982153802810467, "top": 500, "right": 5060, "bottom": 3775, "left": 1030}], "shape": {"h": 3975, "w": 6140}, "file": "images/712115f.jpg"}
+{"rects": [{"solidity": 0.998726118371652, "top": 995, "right": 3620, "bottom": 5000, "left": 400}], "shape": {"h": 6140, "w": 3980}, "file": "images/712150f.jpg"}
+{"rects": [{"solidity": 0.9961981585332541, "top": 2140, "right": 3015, "bottom": 3775, "left": 595}, {"solidity": 0.992114958525621, "top": 410, "right": 2870, "bottom": 1905, "left": 875}], "shape": {"h": 6140, "w": 3980}, "file": "images/712187f.jpg"}
+{"rects": [{"solidity": 0.9967871198335942, "top": 810, "right": 3860, "bottom": 3215, "left": 2250}, {"solidity": 0.9961129552758878, "top": 820, "right": 2025, "bottom": 3220, "left": 420}], "shape": {"h": 3960, "w": 6140}, "file": "images/712233f.jpg"}
+{"rects": [{"solidity": 0.991495458340713, "top": 2260, "right": 3100, "bottom": 3900, "left": 635}, {"solidity": 0.9991538028425715, "top": 420, "right": 3090, "bottom": 2030, "left": 690}, {"solidity": 0.9954723834852268, "top": 4110, "right": 3090, "bottom": 5755, "left": 670}], "shape": {"h": 6140, "w": 3975}, "file": "images/712287f.jpg"}
+{"rects": [{"solidity": 0.996298678446173, "top": 695, "right": 3325, "bottom": 2620, "left": 615}], "shape": {"h": 6140, "w": 3975}, "file": "images/712310f.jpg"}
+{"rects": [{"solidity": 0.9954825859773906, "top": 695, "right": 3360, "bottom": 2575, "left": 655}], "shape": {"h": 6140, "w": 3975}, "file": "images/712334f.jpg"}
+{"rects": [{"solidity": 0.9964548351765995, "top": 570, "right": 2670, "bottom": 3600, "left": 640}], "shape": {"h": 3960, "w": 6140}, "file": "images/712354f.jpg"}
+{"rects": [{"solidity": 0.9965681827146858, "top": 850, "right": 2070, "bottom": 3250, "left": 470}], "shape": {"h": 3960, "w": 6140}, "file": "images/712367f.jpg"}
 {"shape": {"h": 3960, "w": 6140}, "file": "images/712416f.jpg"}
-{"rects": [{"top": 685, "right": 3815, "bottom": 3230, "left": 475}], "shape": {"h": 3960, "w": 6140}, "file": "images/712425f.jpg"}
-{"rects": [{"top": 745, "right": 2075, "bottom": 3155, "left": 460}], "shape": {"h": 3965, "w": 6140}, "file": "images/712443f.jpg"}
-{"rects": [{"top": 800, "right": 2070, "bottom": 3220, "left": 460}], "shape": {"h": 3980, "w": 6140}, "file": "images/712580f.jpg"}
-{"rects": [{"top": 845, "right": 2055, "bottom": 3200, "left": 485}], "shape": {"h": 3955, "w": 6140}, "file": "images/712634f.jpg"}
-{"rects": [{"top": 835, "right": 2030, "bottom": 3235, "left": 425}], "shape": {"h": 3985, "w": 6140}, "file": "images/712688f.jpg"}
-{"rects": [{"top": 1120, "right": 3465, "bottom": 4990, "left": 375}], "shape": {"h": 6140, "w": 3985}, "file": "images/712735f.jpg"}
-{"shape": {"h": 4000, "w": 6140}, "file": "images/712773f.jpg"}
-{"rects": [{"top": 1260, "right": 2745, "bottom": 5365, "left": 1610}], "shape": {"h": 6140, "w": 4030}, "file": "images/712824f.jpg"}
-{"rects": [{"top": 485, "right": 3145, "bottom": 2090, "left": 745}], "shape": {"h": 6140, "w": 3950}, "file": "images/712833f.jpg"}
+{"rects": [{"solidity": 0.9731181662415721, "top": 685, "right": 3815, "bottom": 3230, "left": 475}], "shape": {"h": 3960, "w": 6140}, "file": "images/712425f.jpg"}
+{"rects": [{"solidity": 0.9985260987190634, "top": 745, "right": 2075, "bottom": 3155, "left": 460}], "shape": {"h": 3965, "w": 6140}, "file": "images/712443f.jpg"}
+{"rects": [{"solidity": 0.9965777661441216, "top": 800, "right": 2070, "bottom": 3220, "left": 460}], "shape": {"h": 3980, "w": 6140}, "file": "images/712580f.jpg"}
+{"rects": [{"solidity": 0.9984310655821393, "top": 845, "right": 2055, "bottom": 3200, "left": 485}], "shape": {"h": 3955, "w": 6140}, "file": "images/712634f.jpg"}
+{"rects": [{"solidity": 0.9971230093715184, "top": 835, "right": 2030, "bottom": 3235, "left": 425}], "shape": {"h": 3985, "w": 6140}, "file": "images/712688f.jpg"}
+{"rects": [{"solidity": 0.9721412398365203, "top": 1120, "right": 3465, "bottom": 4990, "left": 375}], "shape": {"h": 6140, "w": 3985}, "file": "images/712735f.jpg"}
+{"rects": [{"solidity": 0.9433559083883659, "top": 570, "right": 4935, "bottom": 3615, "left": 1065}], "shape": {"h": 4000, "w": 6140}, "file": "images/712773f.jpg"}
+{"rects": [{"solidity": 0.9953510363827182, "top": 1260, "right": 2745, "bottom": 5365, "left": 1610}], "shape": {"h": 6140, "w": 4030}, "file": "images/712824f.jpg"}
+{"rects": [{"solidity": 0.9968268165242297, "top": 485, "right": 3145, "bottom": 2090, "left": 745}], "shape": {"h": 6140, "w": 3950}, "file": "images/712833f.jpg"}
 {"shape": {"h": 3975, "w": 6140}, "file": "images/712865f.jpg"}
-{"rects": [{"top": 990, "right": 3380, "bottom": 4815, "left": 455}], "shape": {"h": 6140, "w": 3970}, "file": "images/712925f.jpg"}
-{"rects": [{"top": 590, "right": 3210, "bottom": 2185, "left": 825}], "shape": {"h": 3980, "w": 6140}, "file": "images/714985f.jpg"}
-{"rects": [{"top": 2190, "right": 3165, "bottom": 3820, "left": 745}, {"top": 315, "right": 3165, "bottom": 1940, "left": 755}, {"top": 4085, "right": 3145, "bottom": 5705, "left": 740}], "shape": {"h": 6140, "w": 3970}, "file": "images/715036f.jpg"}
-{"shape": {"h": 3970, "w": 6140}, "file": "images/715056f.jpg"}
-{"rects": [{"top": 445, "right": 3175, "bottom": 2060, "left": 760}, {"top": 2205, "right": 3175, "bottom": 3815, "left": 765}], "shape": {"h": 6140, "w": 3985}, "file": "images/715106f.jpg"}
-{"rects": [{"top": 675, "right": 3185, "bottom": 2625, "left": 455}, {"top": 3225, "right": 3145, "bottom": 5140, "left": 440}], "shape": {"h": 6140, "w": 3965}, "file": "images/715211f.jpg"}
-{"shape": {"h": 3945, "w": 6140}, "file": "images/715216f.jpg"}
-{"rects": [{"top": 735, "right": 3385, "bottom": 2770, "left": 360}, {"top": 2985, "right": 3085, "bottom": 4600, "left": 675}], "shape": {"h": 6140, "w": 3945}, "file": "images/715316f.jpg"}
-{"rects": [{"top": 725, "right": 2065, "bottom": 3140, "left": 440}], "shape": {"h": 3955, "w": 6140}, "file": "images/715354f.jpg"}
-{"rects": [{"top": 720, "right": 3240, "bottom": 2545, "left": 625}], "shape": {"h": 6140, "w": 3975}, "file": "images/715358f.jpg"}
-{"rects": [{"top": 615, "right": 2395, "bottom": 3630, "left": 425}], "shape": {"h": 3960, "w": 6140}, "file": "images/715475f.jpg"}
-{"rects": [{"top": 690, "right": 3380, "bottom": 2770, "left": 325}], "shape": {"h": 6140, "w": 3970}, "file": "images/715515f.jpg"}
-{"rects": [{"top": 655, "right": 3325, "bottom": 2715, "left": 265}], "shape": {"h": 6140, "w": 3965}, "file": "images/715644f.jpg"}
-{"rects": [{"top": 2300, "right": 2480, "bottom": 3860, "left": 205}, {"top": 485, "right": 2485, "bottom": 2010, "left": 210}], "shape": {"h": 4645, "w": 3040}, "file": "images/715794f.jpg"}
+{"rects": [{"solidity": 0.9829687361316931, "top": 990, "right": 3380, "bottom": 4815, "left": 455}], "shape": {"h": 6140, "w": 3970}, "file": "images/712925f.jpg"}
+{"rects": [{"solidity": 0.9975182815507924, "top": 590, "right": 3210, "bottom": 2185, "left": 825}], "shape": {"h": 3980, "w": 6140}, "file": "images/714985f.jpg"}
+{"rects": [{"solidity": 0.996933664079379, "top": 2190, "right": 3165, "bottom": 3820, "left": 745}, {"solidity": 0.9983357750533323, "top": 315, "right": 3165, "bottom": 1940, "left": 755}, {"solidity": 0.9967608655434638, "top": 4085, "right": 3145, "bottom": 5705, "left": 740}], "shape": {"h": 6140, "w": 3970}, "file": "images/715036f.jpg"}
+{"rects": [{"solidity": 0.9984697781178271, "top": 430, "right": 5150, "bottom": 3655, "left": 1065}], "shape": {"h": 3970, "w": 6140}, "file": "images/715056f.jpg"}
+{"rects": [{"solidity": 0.9987360913625386, "top": 445, "right": 3175, "bottom": 2060, "left": 760}, {"solidity": 0.9964060453826132, "top": 2205, "right": 3175, "bottom": 3815, "left": 765}], "shape": {"h": 6140, "w": 3985}, "file": "images/715106f.jpg"}
+{"rects": [{"solidity": 0.9970867508745669, "top": 675, "right": 3185, "bottom": 2625, "left": 455}, {"solidity": 0.9950455782395938, "top": 3225, "right": 3145, "bottom": 5140, "left": 440}], "shape": {"h": 6140, "w": 3965}, "file": "images/715211f.jpg"}
+{"rects": [{"solidity": 0.9976283152595145, "top": 405, "right": 5090, "bottom": 3650, "left": 970}], "shape": {"h": 3945, "w": 6140}, "file": "images/715216f.jpg"}
+{"rects": [{"solidity": 0.998097612175282, "top": 735, "right": 3385, "bottom": 2770, "left": 360}, {"solidity": 0.9974623150548807, "top": 2985, "right": 3085, "bottom": 4600, "left": 675}], "shape": {"h": 6140, "w": 3945}, "file": "images/715316f.jpg"}
+{"rects": [{"solidity": 0.9967650041040993, "top": 725, "right": 2065, "bottom": 3140, "left": 440}], "shape": {"h": 3955, "w": 6140}, "file": "images/715354f.jpg"}
+{"rects": [{"solidity": 0.9936560569995282, "top": 720, "right": 3240, "bottom": 2545, "left": 625}], "shape": {"h": 6140, "w": 3975}, "file": "images/715358f.jpg"}
+{"rects": [{"solidity": 0.9977933444900257, "top": 615, "right": 2395, "bottom": 3630, "left": 425}], "shape": {"h": 3960, "w": 6140}, "file": "images/715475f.jpg"}
+{"rects": [{"solidity": 0.9940239003956715, "top": 690, "right": 3380, "bottom": 2770, "left": 325}], "shape": {"h": 6140, "w": 3970}, "file": "images/715515f.jpg"}
+{"rects": [{"solidity": 0.9963674585499636, "top": 655, "right": 3325, "bottom": 2715, "left": 265}], "shape": {"h": 6140, "w": 3965}, "file": "images/715644f.jpg"}
+{"rects": [{"solidity": 0.9960405172872576, "top": 2300, "right": 2480, "bottom": 3860, "left": 205}, {"solidity": 0.9985160513177754, "top": 485, "right": 2485, "bottom": 2010, "left": 210}], "shape": {"h": 4645, "w": 3040}, "file": "images/715794f.jpg"}
 {"shape": {"h": 3040, "w": 4655}, "file": "images/715817f.jpg"}
 {"shape": {"h": 6140, "w": 3985}, "file": "images/717271f.jpg"}
-{"rects": [{"top": 675, "right": 2975, "bottom": 2010, "left": 925}, {"top": 2380, "right": 2955, "bottom": 3625, "left": 975}, {"top": 4035, "right": 2880, "bottom": 5175, "left": 1105}], "shape": {"h": 6140, "w": 3980}, "file": "images/717481f.jpg"}
-{"rects": [{"top": 500, "right": 3000, "bottom": 2055, "left": 1105}], "shape": {"h": 6140, "w": 3970}, "file": "images/720258f.jpg"}
-{"rects": [{"top": 695, "right": 5835, "bottom": 3515, "left": 3815}, {"top": 860, "right": 3610, "bottom": 3290, "left": 1975}], "shape": {"h": 3970, "w": 6140}, "file": "images/720275f.jpg"}
-{"rects": [{"top": 2245, "right": 3280, "bottom": 3880, "left": 870}, {"top": 4090, "right": 3275, "bottom": 5710, "left": 865}, {"top": 390, "right": 3285, "bottom": 1995, "left": 870}], "shape": {"h": 6140, "w": 3970}, "file": "images/724997f.jpg"}
-{"rects": [{"top": 630, "right": 2845, "bottom": 2045, "left": 1000}, {"top": 2060, "right": 5240, "bottom": 3495, "left": 3440}, {"top": 2070, "right": 2800, "bottom": 3485, "left": 1005}, {"top": 650, "right": 5240, "bottom": 1755, "left": 3415}], "shape": {"h": 3975, "w": 6140}, "file": "images/725085f.jpg"}
-{"rects": [{"top": 2205, "right": 2800, "bottom": 3625, "left": 995}, {"top": 535, "right": 2810, "bottom": 1955, "left": 1000}, {"top": 565, "right": 5110, "bottom": 1970, "left": 3315}], "shape": {"h": 3975, "w": 6140}, "file": "images/725186f.jpg"}
-{"rects": [{"top": 650, "right": 2730, "bottom": 2060, "left": 925}], "shape": {"h": 3980, "w": 6140}, "file": "images/725235f.jpg"}
-{"rects": [{"top": 415, "right": 3205, "bottom": 2025, "left": 790}], "shape": {"h": 6140, "w": 3975}, "file": "images/725812f.jpg"}
-{"rects": [{"top": 630, "right": 4925, "bottom": 3310, "left": 900}], "shape": {"h": 3985, "w": 6140}, "file": "images/725848f.jpg"}
+{"rects": [{"solidity": 0.9933643215030346, "top": 675, "right": 2975, "bottom": 2010, "left": 925}, {"solidity": 0.9945060295300913, "top": 2380, "right": 2955, "bottom": 3625, "left": 975}, {"solidity": 0.9933765977365796, "top": 4035, "right": 2880, "bottom": 5175, "left": 1105}], "shape": {"h": 6140, "w": 3980}, "file": "images/717481f.jpg"}
+{"rects": [{"solidity": 0.9969798355831059, "top": 500, "right": 3000, "bottom": 2055, "left": 1105}], "shape": {"h": 6140, "w": 3970}, "file": "images/720258f.jpg"}
+{"rects": [{"solidity": 0.998358094330129, "top": 695, "right": 5835, "bottom": 3515, "left": 3815}, {"solidity": 0.9960945634657465, "top": 860, "right": 3610, "bottom": 3290, "left": 1975}, {"solidity": 0.9313880224191283, "top": 1205, "right": 1715, "bottom": 2935, "left": 355}], "shape": {"h": 3970, "w": 6140}, "file": "images/720275f.jpg"}
+{"rects": [{"solidity": 0.992024226292085, "top": 2245, "right": 3280, "bottom": 3880, "left": 870}, {"solidity": 0.9951687223342972, "top": 4090, "right": 3275, "bottom": 5710, "left": 865}, {"solidity": 0.9968475993006221, "top": 390, "right": 3285, "bottom": 1995, "left": 870}], "shape": {"h": 6140, "w": 3970}, "file": "images/724997f.jpg"}
+{"rects": [{"solidity": 0.9948251727787505, "top": 630, "right": 2845, "bottom": 2045, "left": 1000}, {"solidity": 0.9946335187386568, "top": 2060, "right": 5240, "bottom": 3495, "left": 3440}, {"solidity": 0.9946577945819761, "top": 2070, "right": 2800, "bottom": 3485, "left": 1005}, {"solidity": 0.9953729792003205, "top": 650, "right": 5240, "bottom": 1755, "left": 3415}], "shape": {"h": 3975, "w": 6140}, "file": "images/725085f.jpg"}
+{"rects": [{"solidity": 0.9946507423761966, "top": 2205, "right": 2800, "bottom": 3625, "left": 995}, {"solidity": 0.9944209720060287, "top": 535, "right": 2810, "bottom": 1955, "left": 1000}, {"solidity": 0.9925792998862631, "top": 565, "right": 5110, "bottom": 1970, "left": 3315}], "shape": {"h": 3975, "w": 6140}, "file": "images/725186f.jpg"}
+{"rects": [{"solidity": 0.9941368402699943, "top": 650, "right": 2730, "bottom": 2060, "left": 925}], "shape": {"h": 3980, "w": 6140}, "file": "images/725235f.jpg"}
+{"rects": [{"solidity": 0.9970180471284539, "top": 415, "right": 3205, "bottom": 2025, "left": 790}], "shape": {"h": 6140, "w": 3975}, "file": "images/725812f.jpg"}
+{"rects": [{"solidity": 0.9967252172288144, "top": 630, "right": 4925, "bottom": 3310, "left": 900}], "shape": {"h": 3985, "w": 6140}, "file": "images/725848f.jpg"}
 {"shape": {"h": 6140, "w": 3975}, "file": "images/725877f.jpg"}
-{"rects": [{"top": 540, "right": 2985, "bottom": 1940, "left": 1120}, {"top": 2385, "right": 2990, "bottom": 3770, "left": 1180}, {"top": 4115, "right": 2980, "bottom": 5495, "left": 1160}], "shape": {"h": 6140, "w": 3980}, "file": "images/725903f.jpg"}
-{"rects": [{"top": 440, "right": 3325, "bottom": 2055, "left": 920}], "shape": {"h": 6140, "w": 3975}, "file": "images/725922f.jpg"}
-{"rects": [{"top": 725, "right": 2050, "bottom": 3135, "left": 445}], "shape": {"h": 3985, "w": 6140}, "file": "images/725956f.jpg"}
-{"rects": [{"top": 425, "right": 3220, "bottom": 2020, "left": 820}], "shape": {"h": 6140, "w": 3975}, "file": "images/725967f.jpg"}
-{"rects": [{"top": 630, "right": 5105, "bottom": 3040, "left": 1050}], "shape": {"h": 3970, "w": 6140}, "file": "images/726014f.jpg"}
-{"rects": [{"top": 2115, "right": 3125, "bottom": 3750, "left": 695}, {"top": 445, "right": 3090, "bottom": 1860, "left": 1280}], "shape": {"h": 6140, "w": 3960}, "file": "images/726503f.jpg"}
-{"rects": [{"top": 1695, "right": 2445, "bottom": 2905, "left": 635}, {"top": 330, "right": 2450, "bottom": 1530, "left": 635}, {"top": 3105, "right": 2435, "bottom": 4310, "left": 640}], "shape": {"h": 4655, "w": 3030}, "file": "images/726634f.jpg"}
-{"rects": [{"top": 325, "right": 1940, "bottom": 1245, "left": 790}], "shape": {"h": 3935, "w": 2540}, "file": "images/727069f.jpg"}
-{"rects": [{"top": 875, "right": 1980, "bottom": 3285, "left": 355}, {"top": 855, "right": 5675, "bottom": 3275, "left": 4060}, {"top": 845, "right": 3825, "bottom": 3280, "left": 2205}], "shape": {"h": 3985, "w": 6140}, "file": "images/729255f.jpg"}
-{"rects": [{"top": 785, "right": 3875, "bottom": 3215, "left": 2250}, {"top": 795, "right": 5680, "bottom": 3220, "left": 4070}, {"top": 775, "right": 2060, "bottom": 3190, "left": 435}], "shape": {"h": 3975, "w": 6140}, "file": "images/732848f.jpg"}
+{"rects": [{"solidity": 0.9891082997574762, "top": 540, "right": 2985, "bottom": 1940, "left": 1120}, {"solidity": 0.9970236746287148, "top": 2385, "right": 2990, "bottom": 3770, "left": 1180}, {"solidity": 0.9965427046532374, "top": 4115, "right": 2980, "bottom": 5495, "left": 1160}], "shape": {"h": 6140, "w": 3980}, "file": "images/725903f.jpg"}
+{"rects": [{"solidity": 0.997293850811358, "top": 440, "right": 3325, "bottom": 2055, "left": 920}], "shape": {"h": 6140, "w": 3975}, "file": "images/725922f.jpg"}
+{"rects": [{"solidity": 0.9980980372394554, "top": 725, "right": 2050, "bottom": 3135, "left": 445}], "shape": {"h": 3985, "w": 6140}, "file": "images/725956f.jpg"}
+{"rects": [{"solidity": 0.9963433948201975, "top": 425, "right": 3220, "bottom": 2020, "left": 820}], "shape": {"h": 6140, "w": 3975}, "file": "images/725967f.jpg"}
+{"rects": [{"solidity": 0.9963025512787718, "top": 630, "right": 5105, "bottom": 3040, "left": 1050}], "shape": {"h": 3970, "w": 6140}, "file": "images/726014f.jpg"}
+{"rects": [{"solidity": 0.9954911122886458, "top": 2115, "right": 3125, "bottom": 3750, "left": 695}, {"solidity": 0.994094221955068, "top": 445, "right": 3090, "bottom": 1860, "left": 1280}], "shape": {"h": 6140, "w": 3960}, "file": "images/726503f.jpg"}
+{"rects": [{"solidity": 0.9980135310205844, "top": 1695, "right": 2445, "bottom": 2905, "left": 635}, {"solidity": 0.9986748835459884, "top": 330, "right": 2450, "bottom": 1530, "left": 635}, {"solidity": 0.9981055085980763, "top": 3105, "right": 2435, "bottom": 4310, "left": 640}], "shape": {"h": 4655, "w": 3030}, "file": "images/726634f.jpg"}
+{"rects": [{"solidity": 0.9944239481811736, "top": 325, "right": 1940, "bottom": 1245, "left": 790}], "shape": {"h": 3935, "w": 2540}, "file": "images/727069f.jpg"}
+{"rects": [{"solidity": 0.9972506712542406, "top": 875, "right": 1980, "bottom": 3285, "left": 355}, {"solidity": 0.9967345805017959, "top": 855, "right": 5675, "bottom": 3275, "left": 4060}, {"solidity": 0.9949385908209437, "top": 845, "right": 3825, "bottom": 3280, "left": 2205}], "shape": {"h": 3985, "w": 6140}, "file": "images/729255f.jpg"}
+{"rects": [{"solidity": 0.9970073760506956, "top": 785, "right": 3875, "bottom": 3215, "left": 2250}, {"solidity": 0.9982976747785043, "top": 795, "right": 5680, "bottom": 3220, "left": 4070}, {"solidity": 0.9968113809173412, "top": 775, "right": 2060, "bottom": 3190, "left": 435}], "shape": {"h": 3975, "w": 6140}, "file": "images/732848f.jpg"}
 {"shape": {"h": 3955, "w": 6140}, "file": "images/732925f.jpg"}
-{"rects": [{"top": 460, "right": 3185, "bottom": 2070, "left": 760}], "shape": {"h": 6140, "w": 3980}, "file": "images/733853f.jpg"}
-{"rects": [{"top": 400, "right": 3220, "bottom": 1985, "left": 835}], "shape": {"h": 6140, "w": 3985}, "file": "images/734077f.jpg"}
-{"rects": [{"top": 410, "right": 3095, "bottom": 1935, "left": 905}], "shape": {"h": 6140, "w": 3995}, "file": "images/734450f.jpg"}
+{"rects": [{"solidity": 0.9963542526703643, "top": 460, "right": 3185, "bottom": 2070, "left": 760}], "shape": {"h": 6140, "w": 3980}, "file": "images/733853f.jpg"}
+{"rects": [{"solidity": 0.9968955502887472, "top": 400, "right": 3220, "bottom": 1985, "left": 835}], "shape": {"h": 6140, "w": 3985}, "file": "images/734077f.jpg"}
+{"rects": [{"solidity": 0.998971267074894, "top": 410, "right": 3095, "bottom": 1935, "left": 905}], "shape": {"h": 6140, "w": 3995}, "file": "images/734450f.jpg"}

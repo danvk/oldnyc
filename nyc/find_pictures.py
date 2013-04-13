@@ -19,7 +19,7 @@ from scipy import ndimage
 
 # Algorithm constants
 MIN_PHOTO_SIZE = 150  # minimum in both dimensions
-MIN_PHOTO_SOLIDITY = 0.95
+MIN_PHOTO_SOLIDITY = 0.93
 
 ShowImage = False
 #ShowImage = True  # for debugging
@@ -82,6 +82,9 @@ def AcceptPhotoDetection(im, rects):
 
     # 711131f.jpg is valid and 0.75 x 0.719 = 0.5396
     if (w_frac > 0.8 or h_frac > 0.8) and solidity < 0.98:
+      return False
+    # really useless crops, e.g. images/1557938.jpg
+    if w_frac > 0.9 and h_frac > 0.9:
       return False
   return True
 

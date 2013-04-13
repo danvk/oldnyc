@@ -84,6 +84,21 @@ Stats on %d photos
        num_wrong, 1. * num_wrong / num_total)
 
 '''
+With a 0.93 min solidity requirement:
+
+     Safe: 3 (0.0250)
+  Correct: 117 (0.9750; 5 are 'safe')
+    Wrong: 0 (0.0000)
+
+----
+With a solidity > 0.98 escape hatch for big photos.
+
+     Safe: 3 (0.0250)
+  Correct: 116 (0.9667; 6 are 'safe')
+    Wrong: 1 (0.0083)
+    
+
+----
 With 10px black borders around all images before filling holes.
 (average 2s/image)
 
