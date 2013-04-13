@@ -82,9 +82,11 @@ def AcceptPhotoDetection(im, rects):
 
     # 711131f.jpg is valid and 0.75 x 0.719 = 0.5396
     if (w_frac > 0.8 or h_frac > 0.8) and solidity < 0.98:
+      sys.stderr.write('Rejecting; %.2f x %.2f, solidity %.4f\n' % (w_frac, h_frac, solidity))
       return False
     # really useless crops, e.g. images/1557938.jpg
     if w_frac > 0.9 and h_frac > 0.9:
+      sys.stderr.write('Rejecting; %.2f x %.2f\n' % (w_frac, h_frac))
       return False
   return True
 

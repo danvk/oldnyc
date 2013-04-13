@@ -270,3 +270,14 @@ Goals:
 
 Setting a pass threshold in terms of solidity (instead of height/width
 fraction) might make more sense.
+
+Going over a second sample of 100 images.
+-- lots more passes on this set --
+8/100 images2/1596925.jpg -- false positive
+14/100 (pass) images2/701333f.jpg -- bad pass
+
+-> Looked really good!
+-> The problems were almost all with the early images; maybe a different set?
+  -> Fortunately, the really bad ones don't have addresses!
+
+Cropping an image takes ~1s on my laptop.
