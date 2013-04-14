@@ -285,3 +285,14 @@ Cropping an image takes ~1s on my laptop.
 Started on the full 40k run at 3:14PM.
 ... scratch that! My workstation has 12 cores, so why not run a few copies in parallel?
 Restarted w/ four tasks at 3:22PM.
+
+There were a few issues with "images of death" which took down a process. I
+eventually wrote a small HTTP server to distribute tasks and finished the run
+of 36475 images in the evening.
+
+417664, 465617, 465553, 465601, 417658: schematics, maybe I can spot them via "illustration"?
+
+1113236 wide format, pass is best
+
+After looking through 200 random images, I didn't see any egregious errors.
+-> We're good to go!

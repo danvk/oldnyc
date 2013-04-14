@@ -17,8 +17,8 @@ for line in fileinput.input():
   else:
     n = len(d['rects'])
     rect_counts[n] += 1
-    # if n > 5:
-    #   print '%d %s' % (n, d['file'])
+    if n > 5:
+      print '%d %s' % (n, d['file'])
 
 
 print '\n'.join(['%d: %d' % x for x in enumerate(rect_counts)])

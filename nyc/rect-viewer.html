@@ -44,8 +44,12 @@
         }
         $('#progress').text((1+idx) + '/' + images.length + (pass ? ' (pass)' : ''));
 
+        var imgUrl = rec['file'];
+        var parts = imgUrl.split('/');
+        imgUrl = 'http://dv.nyc.corp.google.com:8000/' + parts[parts.length - 1];
+
         if (!pass) {
-          $('<img/>').addClass('image').attr('src', rec['file']).appendTo('#container');
+          $('<img/>').addClass('image').attr('src', imgUrl).appendTo('#container');
         }
 
         $(rs).each(function(idx, rect) {
@@ -54,7 +58,7 @@
           var scale = Math.min(1, targetHeight / height);
           var $img = $('<div/>')
             .css({
-              'background': 'url(' + rec['file'] + ')',
+              'background': 'url(' + imgUrl + ')',
               'background-position': '-' + scale*rect.left + 'px -' + scale*rect.top + 'px',
               'background-size': scale*rec.shape.w + 'px ' + scale*rec.shape.h + 'px',
               'width': scale*width + 'px',
