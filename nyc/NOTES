@@ -296,3 +296,37 @@ of 36475 images in the evening.
 
 After looking through 200 random images, I didn't see any egregious errors.
 -> We're good to go!
+
+With four jobs, I'm cropping 6.5images/sec.
+
+Total disk usage:
+  58G originals
+  18G crops
+  (23G crops + accepted originals)
+  75.28G total
+
+Commands to do everything:
+
+(Serve up paths to images which haven't had find_pictures.py run on them)
+$ ls milstein/*.jpg | ./list-incomplete-tasks.py detected-photos.txt | ./task-server.py
+
+(Run a few find_pictures.py tasks)
+$ ./find_pictures.py http://localhost:8765 | tee 1detected-photos.txt
+$ ./find_pictures.py http://localhost:8765 | tee 2detected-photos.txt
+...
+
+(Combine detected photos)
+$ cat ?detected* | sort | uniq > detected-photos.txt
+
+(Serve up cropping tasks)
+$ ./task-server.py detected-photos.txt
+
+(Run a few extract-photos.py instances)
+$ ./extract-photos.py http://localhost:8765 ~/milstein-crops | tee -a ~/milstein-crops/1crops.txt
+$ ./extract-photos.py http://localhost:8765 ~/milstein-crops | tee -a ~/milstein-crops/2crops.txt
+
+(Combine crops files)
+$ cat milstein-crops/?crops.txt | sort | uniq > milstein-crops/crops.txt
+
+(Convert to JSON)
+$ ./crops-to-json.py crops.txt > photos.json
