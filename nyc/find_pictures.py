@@ -181,10 +181,14 @@ if __name__ == '__main__':
   assert len(sys.argv) >= 2
   if sys.argv[1].startswith('http://'):
     assert len(sys.argv) == 2, 'Cannot read tasks from argv and http'
+    url = sys.argv[1]
     try:
       while True:
-        path = subprocess.check_output(['curl', '--silent', 'localhost:8765']).strip()
-        ProcessImage(path)
+        path = subprocess.check_output(['curl', '--silent', url]).strip()
+        try:
+          ProcessImage(path)
+        except:
+          sys.stderr.write('Exception on task %s\n' % path)
     except subprocess.CalledProcessError:
       # Done, we hope!
       pass
