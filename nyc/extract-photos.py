@@ -9,8 +9,9 @@ import os
 import re
 import sys
 import subprocess
+import task_reader
 
-usage = '%s detected-photos.txt [filter] output-directory\n' % sys.argv[0]
+usage = '%s (detected-photos.txt|http://...) output-directory\n' % sys.argv[0]
 
 
 def ExtractPhotos(d, output_dir):
@@ -35,26 +36,19 @@ def ExtractPhotos(d, output_dir):
         '%dx%d+%d+%d' % (w, h, rect['left'], rect['top']),
         output_path
       ])
-      rect['path'] = os.path.basename(output_path)
+      rect['file'] = os.path.basename(output_path)
 
 
-if len(sys.argv) < 3 or len(sys.argv) > 5:
+if len(sys.argv) < 2:
   sys.stderr.write(usage)
   sys.exit(1)
 
-photos_txt = sys.argv[1]
-output_dir = sys.argv[-1]
-filter_re = ''
-if len(sys.argv) == 4:
-  filter_re = sys.argv[2]
+output_dir = sys.argv.pop()
 
-output = []
-for line in file(photos_txt):
+for line in task_reader.Tasks():
   d = json.loads(line)
   f = str(d['file'])
-  if not re.search(filter_re, f): continue
 
   ExtractPhotos(d, output_dir)
-  output += [d]
-
-print json.dumps(output, indent=2)
+  print json.dumps(d)
+  sys.stdout.flush()
