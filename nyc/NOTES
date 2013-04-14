@@ -281,3 +281,7 @@ Going over a second sample of 100 images.
   -> Fortunately, the really bad ones don't have addresses!
 
 Cropping an image takes ~1s on my laptop.
+
+Started on the full 40k run at 3:14PM.
+... scratch that! My workstation has 12 cores, so why not run a few copies in parallel?
+Restarted w/ four tasks at 3:22PM.

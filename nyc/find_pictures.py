@@ -16,6 +16,7 @@ import math
 import json
 from scipy.ndimage.morphology import binary_opening, binary_closing
 from scipy import ndimage
+import subprocess
 
 # Algorithm constants
 MIN_PHOTO_SIZE = 150  # minimum in both dimensions
@@ -178,5 +179,15 @@ def ProcessImage(path):
 
 if __name__ == '__main__':
   assert len(sys.argv) >= 2
-  for path in sys.argv[1:]:
-    ProcessImage(path)
+  if sys.argv[1].startswith('http://'):
+    assert len(sys.argv) == 2, 'Cannot read tasks from argv and http'
+    try:
+      while True:
+        path = subprocess.check_output(['curl', '--silent', 'localhost:8765']).strip()
+        ProcessImage(path)
+    except subprocess.CalledProcessError:
+      # Done, we hope!
+      pass
+  else:
+    for path in sys.argv[1:]:
+      ProcessImage(path)
