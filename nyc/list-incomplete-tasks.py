@@ -18,7 +18,11 @@ completed = set()
 
 assert len(sys.argv) == 2
 for line in file(sys.argv[1]):
-  d = json.loads(line)
+  try:
+    d = json.loads(line)
+  except ValueError as e:
+    sys.stderr.write('Failed to parse %s\n' % line)
+    raise e
   f = d['file']
   completed.add(os.path.basename(f))
 sys.argv.pop()
