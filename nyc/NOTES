@@ -330,3 +330,19 @@ $ cat milstein-crops/?crops.txt | sort | uniq > milstein-crops/crops.txt
 
 (Convert to JSON)
 $ ./crops-to-json.py crops.txt > photos.json
+
+
+There are three images that the find_pictures algorithm failed on:
+705891f.jpg
+706199f.jpg
+712817f.jpg
+
+These all say "Plate Wanting" in big black type on a white background.
+
+Here's what I've got:
+- 37632 full-size JPG files (58GB) from the Milstein collection (converted MrSID files).
+- 37629 images on which I ran the photo detector.
+- 34194 images where a photo was detected & extracted.
+- 52369 smaller JPGs (19GB) for photos that I extracted from the originals.
+
+The algorithm declined to do anything with ~9% of the original images.
