@@ -346,3 +346,17 @@ Here's what I've got:
 - 52369 smaller JPGs (19GB) for photos that I extracted from the originals.
 
 The algorithm declined to do anything with ~9% of the original images.
+
+Here's the distribution of # of detected photos per original image:
+0: 3435
+1: 22246
+2: 6545
+3: 4662
+4: 689
+5: 34
+6: 11
+7: 2
+8: 4
+9: 1
+
+The image on which nine photos were detected really does have nine photos!
