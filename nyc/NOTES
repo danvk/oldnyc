@@ -296,3 +296,53 @@ of 36475 images in the evening.
 
 After looking through 200 random images, I didn't see any egregious errors.
 -> We're good to go!
+
+With four jobs, I'm cropping 6.5images/sec.
+
+Total disk usage:
+  58G originals
+  18G crops
+  (23G crops + accepted originals)
+  75.28G total
+
+Commands to do everything:
+
+(Serve up paths to images which haven't had find_pictures.py run on them)
+$ ls milstein/*.jpg | ./list-incomplete-tasks.py detected-photos.txt | ./task-server.py
+
+(Run a few find_pictures.py tasks)
+$ ./find_pictures.py http://localhost:8765 | tee 1detected-photos.txt
+$ ./find_pictures.py http://localhost:8765 | tee 2detected-photos.txt
+...
+
+(Combine detected photos)
+$ cat ?detected* | sort | uniq > detected-photos.txt
+
+(Serve up cropping tasks)
+$ ./task-server.py detected-photos.txt
+
+(Run a few extract-photos.py instances)
+$ ./extract-photos.py http://localhost:8765 ~/milstein-crops | tee -a ~/milstein-crops/1crops.txt
+$ ./extract-photos.py http://localhost:8765 ~/milstein-crops | tee -a ~/milstein-crops/2crops.txt
+
+(Combine crops files)
+$ cat milstein-crops/?crops.txt | sort | uniq > milstein-crops/crops.txt
+
+(Convert to JSON)
+$ ./crops-to-json.py crops.txt > photos.json
+
+
+There are three images that the find_pictures algorithm failed on:
+705891f.jpg
+706199f.jpg
+712817f.jpg
+
+These all say "Plate Wanting" in big black type on a white background.
+
+Here's what I've got:
+- 37632 full-size JPG files (58GB) from the Milstein collection (converted MrSID files).
+- 37629 images on which I ran the photo detector.
+- 34194 images where a photo was detected & extracted.
+- 52369 smaller JPGs (19GB) for photos that I extracted from the originals.
+
+The algorithm declined to do anything with ~9% of the original images.
