@@ -360,3 +360,59 @@ Here's the distribution of # of detected photos per original image:
 9: 1
 
 The image on which nine photos were detected really does have nine photos!
+
+
+2013-04-23
+With the photos extracted, it's time to move back to geocoding.
+
+I found a bunch of photos of the old Google NY building. But it took the
+descriptions for me to confirm what I was looking at (particularly when it was
+a hole in the ground). Having these in OldNYC would make it a way more
+compelling product.
+
+- What fraction of photos have descriptions?
+  -> 86% have a metadata image; 66% have one with extra information (not just date/place).
+- Is the typewriter font consistent?
+  -> Seems to be!
+
+(730166f -- great view of Central Park http://digitalgallery.nypl.org/nypldigital/id?730166f)
+
+------
+2013-05-08/12
+
+I want to look into some of the geocoding issues.
+Looks like I'm only geocoding 'A & B' and forgot I was doing that!
+
+Next step: Look at the non-city/borough part of the address for a sample of 100
+to get a sense of what these look like.
+
+ 38 "A (&|and) B, Borough, NY"   69th Street & York Avenue, Manhattan, NY
+  6 (missing)
+  3 "Place Name, Borough, NY"    Kill Van Kull, Staten Island, N.Y.
+  1 "Address .*, Borough, NY"    929 Park Avenue. Near Eighty-first Street., Manhattan, NY
+  1 "A - B, .*, Borough, NY"     38th Street (West) - Twelfth Avenue, northeast corner -, Manhattan, NY
+  1 "A, Borough, NY"             Elizabeth Street, Manhattan, NY
+  1 (too vague)                  General view of fishing facilities., Manhattan, NY
+
+Notes:
+- Try removing the "(West)" to improve geocoding ('62nd Street (West) & Amsterdam Avenue')
+- "N.Y." and "NY" are freely intermixed.
+- Sometimes there are lots of extra spaces before a comma
+- Sometimes have county + borough, e.g. "Church of St. Andrew, Richmond, Staten Island, N.Y."
+
+In any case, the vast majority (84%) of the addresses are cross-streets with
+either a '&' or 'and' in them. It make sense to start by getting the geocoding
+really good for just this class of records.
+
+The '&|and' check gets me:
+  Parsed 30337 / 36328 = 0.8351 records
+
+
+There are still some addresses floating in free text:
+  The  Mannados, 17 East  Ninety-seventh Street, northwest corner Madison Avenue, Manhattan, NY
+  The  Maranamay, 611 West 112th Street , Manhattan, NY
+  The Apartment House Surrounded By Gardens, St. George Gardens, Inc. 90 St. Marks(sic) Place, St. George, Staten Island, N.Y.
+
+Parsed 34023 / 36328 = 0.9366 records
+
+There are 2305 remaining.

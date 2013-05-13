@@ -7,13 +7,16 @@ var start_date = 1850;
 var end_date = 2000;
 
 function isOldNycImage(photo_id) {
-  return (photo_id.charAt(photo_id.length - 1) == 'f');
+  // NYC images have IDs like '123f' or '345f-b'.
+  return /f(-[a-z])?$/.test(photo_id);
 }
 
 // Multiplex between OldSF and OldNYC
 function thumbnailImageUrl(photo_id) {
   if (isOldNycImage(photo_id)) {
-    return 'http://images.nypl.org/index.php?id=' + photo_id + '&t=r';
+    // return 'http://images.nypl.org/index.php?id=' + photo_id + '&t=r';
+    // return 'http://dv.nyc:8000/' + photo_id + '.jpg';
+    return 'http://localhost:8001/milstein-thumb/' + photo_id + '.jpg';
   } else {
     return 'http://s3-us-west-1.amazonaws.com/oldsf/thumb/' + photo_id + '.jpg';
   }
@@ -21,7 +24,9 @@ function thumbnailImageUrl(photo_id) {
 
 function expandedImageUrl(photo_id) {
   if (isOldNycImage(photo_id)) {
-    return 'http://images.nypl.org/index.php?id=' + photo_id + '&t=w';
+    // return 'http://images.nypl.org/index.php?id=' + photo_id + '&t=w';
+    // return 'http://dv.nyc:8000/' + photo_id + '.jpg';
+    return 'http://localhost:8001/milstein-600/' + photo_id + '.jpg';
   } else {
     return 'http://s3-us-west-1.amazonaws.com/oldsf/images/' + photo_id + '.jpg'
   }

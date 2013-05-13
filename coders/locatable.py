@@ -44,7 +44,7 @@ class Locatable(object):
     if self.loc_type == LAT_LON:
       self._latlon = (self.lat, self.lon)
     elif self.loc_type == ADDRESS:
-      self._latlon = locateAddress(g, self.address)
+      self._latlon = locateAddress(g, self.address, self.city)
     elif self.loc_type == BLOCK:
       self._latlon = locateBlock(g, self.block_num, self.block_street)
     elif self.loc_type == TINY:
@@ -68,7 +68,7 @@ def fromLatLon(lat, lon, source=None):
   return l
 
 
-def fromAddress(address, source=None):
+def fromAddress(address, city=None, source=None):
   l = Locatable()
   l.loc_type = ADDRESS
   l.address = address
@@ -76,6 +76,8 @@ def fromAddress(address, source=None):
     l.source = source
   else:
     l.source = address
+  if city:
+    l.city = city
   return l
 
 
@@ -204,8 +206,8 @@ def LatLonDistance(lat1, lon1, lat2, lon2):
   return d
 
 
-def locateAddress(g, address):
-  x = Locate(g, address)
+def locateAddress(g, address, city):
+  x = Locate(g, address, suffix=city)
   if not x or x.accuracy != 8:
     sys.stderr.write('Failure: %s -> %s\n' % (address, x))
     return None
