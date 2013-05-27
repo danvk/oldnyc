@@ -416,3 +416,11 @@ There are still some addresses floating in free text:
 Parsed 34023 / 36328 = 0.9366 records
 
 There are 2305 remaining.
+
+------
+2013-05-27
+
+I want to implement "is this geocode in the right borough" logic and look at
+some of the failures.
+
+
