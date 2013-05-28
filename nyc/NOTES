@@ -423,4 +423,29 @@ There are 2305 remaining.
 I want to implement "is this geocode in the right borough" logic and look at
 some of the failures.
 
+I found 911 examples of borough mismatches. The vast majority are geocoded into
+Brooklyn when they should have been in Manhattan:
 
+ 592 Found Brooklyn expected Manhattan
+  84 Found Queens expected Manhattan
+  76 Found Manhattan expected Brooklyn
+  39 Found None expected Manhattan
+  36 Found Bronx expected Manhattan
+  34 Found Manhattan expected Queens
+  18 Found Queens expected Brooklyn
+   9 Found Brooklyn expected Queens
+   6 Found Bronx expected Brooklyn
+   5 Found Brooklyn expected Staten Island
+   3 Found None expected Brooklyn
+   3 Found Manhattan expected Bronx
+   2 Found Staten Island expected Manhattan
+   2 Found Queens expected Bronx
+   2 Found Manhattan expected Staten Island
+   1 Found Queens expected Staten Island
+   1 Found None expected Queens
+   1 Found Bronx expected Queens
+
+These are typically cross-streets which could be in either borough. The
+locatable string is always listed as something like '20th Street (East) & 4th
+Avenue, Manhattan, NY', however, so I'm not sure why they show up in the wrong
+place.

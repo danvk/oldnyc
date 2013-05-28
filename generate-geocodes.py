@@ -7,6 +7,7 @@
 # o XML for all records, including geocodable strings and lat/lons.
 
 import sys
+import xml
 from collections import defaultdict
 from optparse import OptionParser
 import coders.registration
@@ -103,7 +104,15 @@ if __name__ == '__main__':
         located_rec = (r, c.name(), locatable)
         break
 
-      lat_lon = locatable.getLatLon(g)
+      try:
+        lat_lon = locatable.getLatLon(g)
+      except xml.parsers.expat.ExpatError as e:
+        # some sort of unicode error? Just ignore it.
+        lat_lon = None
+      except Exception as e:
+        sys.stderr.write('ERROR locating %s\n' % locatable)
+        raise e
+
       if lat_lon:
         if options.print_recs:
           print '%s\t%f,%f\t%s\t%s' % (

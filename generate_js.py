@@ -10,6 +10,10 @@ from collections import defaultdict
 from json import encoder
 encoder.FLOAT_REPR = lambda o: format(o, '.6f')
 
+# http://stackoverflow.com/questions/1342000/how-to-replace-non-ascii-characters-in-string
+def removeNonAscii(s): return "".join(i for i in s if ord(i)<128)
+
+
 def loadBlacklist():
   bl = set()
   for line in file('blacklist.lat-lons.js'):
@@ -84,10 +88,10 @@ def printRecordsJson(located_recs):
   for r, coder, locatable in located_recs:
     rec = {
       'id': r.photo_id(),
-      'folder': r.location().replace('Folder: ', ''),
+      'folder': removeNonAscii(r.location().replace('Folder: ', '')),
       'date': record.CleanDate(r.date()),
-      'title': record.CleanTitle(r.title()),
-      'description': r.description(),
+      'title': removeNonAscii(record.CleanTitle(r.title())),
+      'description': removeNonAscii(r.description()),
       'url': r.preferred_url,
       'extracted': {
         'date_range': [ None, None ]
@@ -103,8 +107,14 @@ def printRecordsJson(located_recs):
 
     if coder:
       rec['extracted']['latlon'] = locatable.getLatLon()
-      rec['extracted']['located_str'] = str(locatable)
+      rec['extracted']['located_str'] = removeNonAscii(str(locatable))
       rec['extracted']['technique'] = coder
+
+    try:
+      x = json.dumps(rec)
+    except Exception as e:
+      sys.stderr.write('%s\n' % rec)
+      raise e
 
     recs.append(rec)
   print json.dumps(recs, indent=2)
@@ -129,7 +139,9 @@ def printLocations(located_recs):
   locs = defaultdict(int)
   for r, coder, locatable in located_recs:
     if not locatable: continue
-    lat, lon = locatable.getLatLon()
+    lat_lon = locatable.getLatLon()
+    if not lat_lon: continue
+    lat, lon = lat_lon
     locs['%.6f,%.6f' % (lat, lon)] += 1
 
   for ll, count in locs.iteritems():

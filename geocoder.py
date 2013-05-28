@@ -48,13 +48,17 @@ class Location:
       self.city = cities[0].firstChild.nodeValue
 
     # Zip Code
-    zips = place.getElementsByTagName("PostalCodeNumber")
-    if len(zips) >= 1:
-      z = zips[0].firstChild.nodeValue
-      if len(z) == 10:
-        self.zipcode = float(z[0:5]) + float(z[6:])/10000
-      else:
-        self.zipcode = int(z)
+    try:
+      zips = place.getElementsByTagName("PostalCodeNumber")
+      if len(zips) >= 1:
+        z = zips[0].firstChild.nodeValue
+        if len(z) == 10:
+          self.zipcode = float(z[0:5]) + float(z[6:])/10000
+        else:
+          self.zipcode = int(z)
+    except ValueError:
+      # Maybe an international address?
+      pass
 
   def __str__(self):
     if self.lat and self.lon:
@@ -87,6 +91,7 @@ class FakeLocation:
 def _cache_file(loc):
   key = base64.b64encode(loc)[:-2]  # minus the trailing '=='
   key = key.replace('/', '-')  # '/' is bad in a file name.
+  key = key[:255]  # longest possible filename
   return "%s/%s" % (CacheDir, key)
 
 class Geocoder:

@@ -181,6 +181,7 @@ def InNYC(lat, lon):
 
 
 def Locate(g, addr, suffix=None):
+  if not g: return None
   x = g.Locate(addr, suffix=suffix)
   if x.status != 200:
     sys.stderr.write("%s -> status %d\n" % (addr, x.status))
