@@ -70,12 +70,12 @@ class RecordFetcher(webapp2.RequestHandler):
     """Responds to AJAX requests for record information."""
     photo_ids = self.request.get_all("id")
     default_response = {
-      'title': 'Pat and Mike Dugan running around their aunt, Carla Vanni, in Washington Square Park who was super awesome!',
+      'title': '(not here yet!)',
       'date': '1926 Feb. 18',
       'folder': 'S.F. Streets / Alemany Boulevard',
       'library_url': 'http://sflib1.sfpl.org:82/record=b1000001~S0',
-      'width': 474,
-      'height': 400
+      'width': 600,
+      'height': 500
     }
 
     rs = GetImageRecords(photo_ids)
@@ -85,6 +85,8 @@ class RecordFetcher(webapp2.RequestHandler):
         #self.response.out.write("no record for '%s'" % id)
         # This is just to aid local testing:
         response[id] = default_response.copy()
+        orig_id = id.split('-')[0]
+        response[id]['library_url'] = 'http://digitalgallery.nypl.org/nypldigital/id?' + orig_id
       else:
         title = r.title
         if r.description:
