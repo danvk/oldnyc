@@ -507,3 +507,8 @@ Things I'd like to keep:
 - The "geocache" layer.
 - Separate coders.
 - A toggle for whether to hit the network or not.
+
+Rerunning geocodes using the new API is helping the Brooklyn geocodes, even
+without algorithm changes. With 5000 new geocodes (my per-IP limit is
+2500/day), I've picked up 353 new images in Brooklyn, raising the recall from
+31.67% --> 37.62%.

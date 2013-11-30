@@ -104,7 +104,10 @@ if __name__ == '__main__':
 
   stats = defaultdict(int)
   located_recs = []  # array of (record, coder name, location_data) tuples
-  for r in rs:
+  for idx, r in enumerate(rs):
+    if idx % 100 == 0 and idx > 0:
+      sys.stderr.write('%5d / %5d records processed\n' % (1+idx, len(rs)))
+      
     located_rec = (r, None, None)
 
     # Early-out if we've already successfully geocoded this record.
@@ -134,6 +137,9 @@ if __name__ == '__main__':
         geocode_result = g.Locate(location_data['address'])
         if geocode_result:
           lat_lon = c.getLatLonFromGeocode(geocode_result, location_data, r)
+        else:
+          sys.stderr.write('Failed to geocode %s: %s\n' % (
+              r.photo_id(), location_data['address']))
       except Exception as e:
         sys.stderr.write('ERROR locating %s / %s with %s\n' % (
             r.photo_id(), json.dumps(location_data), c.name()))
