@@ -7,11 +7,11 @@
 import fileinput
 import re
 import sys
+import json
 
 if __name__ == '__main__':
   sys.path += (sys.path[0] + '/..')
 
-import coders.locatable
 import coders.registration
 import record
 
@@ -78,12 +78,12 @@ class MilsteinCoder:
       m = re.match(pattern, loc)
       if m: break
     if m:
-      parsed_form = '|%s| + |%s|' % (m.group(1), m.group(2))
-      l = coders.locatable.fromCross(
-          m.group(1), m.group(2), city=m.group(3), source=loc)
-      if not l:
-        sys.stderr.write('(%s)(%s) Failed on: %s\n' % (r.photo_id(), m.group(3), loc))
-      return l
+      crosses = sorted([m.group(1), m.group(2)])
+      return {
+          'address': '%s and %s %s' % (crosses[0], crosses[1], m.group(3)),
+          'source': loc,
+          'type': 'intersection'
+      }
     
     for pattern in addr_patterns:
       m = re.match(pattern, loc)
@@ -97,26 +97,34 @@ class MilsteinCoder:
       except ValueError:
         number, street = street, number
 
-      parsed_form = '|%s| |%s|' % (number, street)
-      l = coders.locatable.fromAddress(
-          '%s %s' % (number, street), city=city, source=loc)
-      if not l:
-        assert False, loc
-      return l
+      return {
+          'address': '%s %s %s' % (number, street, city),
+          'source': loc,
+          'type': 'street_address'
+      }
     
     for pattern in place_patterns:
       m = re.match(pattern, loc)
       if m: break
     if m:
       place, city = m.groups()
-      parsed_form = '|%s| |%s|' % (place, city)
-      l = coders.locatable.fromAddress(
-          '%s %s' % (place, city), source=loc)
-      if not l:
-        assert False, loc
-      return l
+      return {
+          'address': '%s %s' % (place, city),
+          'source': loc,
+          'type': 'street_address'
+      }
 
     sys.stderr.write('(%s) Bad location: %s\n' % (r.photo_id(), loc));
+    return None
+
+  def getLatLonFromGeocode(self, geocode, data, r):
+    '''Extract (lat, lon) from a Google Maps API response. None = failure.'''
+    for result in geocode['results']:
+      # data['type'] is something like 'address' or 'intersection'.
+      if data['type'] in result['types']:
+        loc = result['geometry']['location']
+        return (loc['lat'], loc['lng'])
+
     return None
 
   def name(self):

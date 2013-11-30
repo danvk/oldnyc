@@ -449,3 +449,61 @@ These are typically cross-streets which could be in either borough. The
 locatable string is always listed as something like '20th Street (East) & 4th
 Avenue, Manhattan, NY', however, so I'm not sure why they show up in the wrong
 place.
+
+
+------
+2013-11-29
+
+I want to increase the coverage of geocoding for Brooklyn images.
+
+There are 5391 images with "Brooklyn" as their borough. 
+
+Generate all geocodes (takes ~1 minute):
+$ ./generate-geocodes.py --coders milstein --pickle_path nyc/records.pickle --output_format records.js --geocode > /tmp/records.json
+$ cd nyc
+$ ./coverage-by-borough.py /tmp/records.json
+
+0.3092 (  746 /  2413) Bronx (5 to wrong borough)
+0.3167 ( 1880 /  5936) Brooklyn (103 to wrong borough)
+0.5728 (12494 / 21812) Manhattan (753 to wrong borough)
+0.4009 ( 1439 /  3589) Queens (45 to wrong borough)
+0.1784 (  439 /  2461) Staten Island (8 to wrong borough)
+0.0000 (    0 /  7152) Unknown (0 to wrong borough)
+
+So Brooklyn has about half the geocode success rate that Manhattan does.
+
+I made the coverage-by-borough script dump Brooklyn failures into a temp
+file. Digging into one of these:
+703739f Columbia Street & State Street, Brooklyn, NY
+
+$ ./generate-geocodes.py --ids_filter 703739f --coders milstein --pickle_path nyc/records.pickle --output_format records.js --geocode
+Failure: Columbia Street and State Street -> (40.689251, -73.988736)
+
+That lat/lon is a few blocks down the street, at a lower degree of accuracy
+than indicates a successful cross-street geocode. This is strange because
+when I type "Columbia Street & State Street, Brooklyn, NY" into Google
+Maps, it gets it. I modified geocoder.py to print the cache files it checks
+and deleted the one for this record to force it back to Google Maps.
+
+At this point, I discover that the Google Maps geocoding API I've been
+using for the past ~5 years has ceased to exist! I need to upgrade to v3 of
+the geocoding API.
+
+This is a good opportunity to rewrite the geocoder. This grew organically
+while I developed OldSF and I shoehorned NYC geocoding into it.
+
+Things I'd like to change:
+- Each coder should be responsible for determining whether its own
+  locatable string was geocoded successfully.
+- Get rid of locatable.py. Coders should simply output a string.
+- Coders should output a complete locatable string, including city name.
+- generate-geocodes should have a way to build on existing successful
+  geocodes. Once there's a successful geocode, it should never be lost.
+- There should be a consistent "debug mode" or info logging.
+- The "coder cache" hasn't been that useful.
+- The different output types of generate-geocodes. It should do one thing.
+
+Things I'd like to keep:
+- The "geocache" layer.
+- Separate coders.
+- A toggle for whether to hit the network or not.

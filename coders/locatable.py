@@ -286,7 +286,7 @@ def locateCrosses(g, crosses, city):
       x = geocoder.FakeLocation(float(ll[0]), float(ll[1]), 7)
 
     if not x or (x.accuracy != 7 and not take_it):
-      sys.stderr.write('Failure: %s -> %s\n' % (locatable, x))
+      sys.stderr.write('Failure: %s -> %s, acc=%s\n' % (locatable, x, x.accuracy))
     else:
       lat_lons.append((x.lat, x.lon))
       loc_strs.append(locatable)

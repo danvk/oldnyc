@@ -34,13 +34,12 @@ def printJson(located_recs, lat_lon_map):
   # load a blacklist as a side input
   blacklist = loadBlacklist()
 
-  for r, coder, locatable in located_recs:
-    if not locatable: continue
+  for r, coder, location_data in located_recs:
+    if not location_data: continue
     photo_id = r.photo_id()
 
-    lat_lon = locatable.getLatLon()
-    assert lat_lon
-    lat, lon = lat_lon
+    lat = location_data['lat']
+    lon = location_data['lon']
     ll_str = '%.6f,%.6f' % (lat, lon)
     if lat_lon_map and ll_str in lat_lon_map:
       claimed_in_map[ll_str] = True
@@ -85,7 +84,7 @@ def printJson(located_recs, lat_lon_map):
 
 def printRecordsJson(located_recs):
   recs = []
-  for r, coder, locatable in located_recs:
+  for r, coder, location_data in located_recs:
     rec = {
       'id': r.photo_id(),
       'folder': removeNonAscii(r.location().replace('Folder: ', '')),
@@ -106,8 +105,8 @@ def printRecordsJson(located_recs):
         end.year, end.month, end.day)
 
     if coder:
-      rec['extracted']['latlon'] = locatable.getLatLon()
-      rec['extracted']['located_str'] = removeNonAscii(str(locatable))
+      rec['extracted']['latlon'] = (location_data['lat'], location_data['lon'])
+      rec['extracted']['located_str'] = removeNonAscii(location_data['address'])
       rec['extracted']['technique'] = coder
 
     try:
@@ -121,14 +120,16 @@ def printRecordsJson(located_recs):
 
 
 def printRecordsText(located_recs):
-  for r, coder, locatable in located_recs:
+  for r, coder, location_data in located_recs:
     date = record.CleanDate(r.date())
     title = record.CleanTitle(r.title())
     folder = r.location()
     if folder: folder = record.CleanFolder(folder)
 
-    if locatable:
-      loc = (str(locatable.getLatLon()) or '') + '\t' + str(locatable)
+    if location_data:
+      lat = location_data['lat']
+      lon = location_data['lon']
+      loc = (str((lat, lon)) or '') + '\t' + location_data['address']
     else:
       loc = 'n/a\tn/a'
 
@@ -137,11 +138,12 @@ def printRecordsText(located_recs):
 
 def printLocations(located_recs):
   locs = defaultdict(int)
-  for r, coder, locatable in located_recs:
-    if not locatable: continue
-    lat_lon = locatable.getLatLon()
-    if not lat_lon: continue
-    lat, lon = lat_lon
+  for r, coder, location_data in located_recs:
+    if not locatable_data: continue
+    if not 'lat' in location_data: continue
+    if not 'lon' in location_data: continue
+    lat = location_data['lat']
+    lon = location_data['lon']
     locs['%.6f,%.6f' % (lat, lon)] += 1
 
   for ll, count in locs.iteritems():

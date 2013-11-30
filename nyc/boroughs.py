@@ -2,6 +2,7 @@
 
 import json
 import shape_utils
+import re
 
 boroughs = None
 
@@ -15,3 +16,7 @@ def PointToBorough(lat, lon):
     if shape_utils.PointInPolygon(pt, v):
       return k
   return None
+
+
+if __name__ == '__main__':
+    re.match()
