@@ -32,6 +32,10 @@ if __name__ == '__main__':
                     help='Point to an alternative records.pickle file.')
   parser.add_option('', '--ids_filter', default='', dest='ids_filter',
                     help='Comma-separated list of Photo IDs to consider.')
+  parser.add_option('', '--previous_geocode_json', default='',
+                    dest='previous_geocode_json',
+                    help='Path to a JSON file containing existing geocodes, ' +
+                    'as output by this script with --output_format=records.js')
 
   parser.add_option('-c', '--coders', dest='ok_coders', default='all',
                     help='Set to a comma-separated list of coders')
@@ -84,10 +88,34 @@ if __name__ == '__main__':
     ids = set(options.ids_filter.split(','))
     rs = [r for r in rs if r.photo_id() in ids]
 
+  # Load existing geocodes, if applicable.
+  id_to_located_rec = {}
+  if options.previous_geocode_json:
+    prev_recs = json.load(file(options.previous_geocode_json))
+    for rec in prev_recs:
+      if 'extracted' in rec and 'latlon' in rec['extracted']:
+        x = rec['extracted']
+        id_to_located_rec[rec['id']] = (None, x['technique'], {
+              'address': x['located_str'],
+              'lat': x['latlon'][0],
+              'lon': x['latlon'][1]
+            })
+
+
   stats = defaultdict(int)
   located_recs = []  # array of (record, coder name, location_data) tuples
   for r in rs:
     located_rec = (r, None, None)
+
+    # Early-out if we've already successfully geocoded this record.
+    if r.photo_id() in id_to_located_rec:
+      rec = id_to_located_rec[r.photo_id()]
+      located_rec = (r, rec[1], rec[2])
+      located_recs.append(located_rec)
+      stats[rec[1]] += 1
+      continue
+
+    # Give each coder a crack at the record, in turn.
     for c in geocoders:
       location_data = c.codeRecord(r)
       if not location_data: continue
@@ -95,17 +123,20 @@ if __name__ == '__main__':
 
       if not g:
         if options.print_recs:
-          print '%s\t%s\t%s' % (c.name(), r.photo_id(), json.dumps(location_data))
+          print '%s\t%s\t%s' % (
+              c.name(), r.photo_id(), json.dumps(location_data))
         stats[c.name()] += 1
         located_rec = (r, c.name(), location_data)
         break
 
+      lat_lon = None
       try:
         geocode_result = g.Locate(location_data['address'])
-        lat_lon = c.getLatLonFromGeocode(geocode_result, location_data, r)
+        if geocode_result:
+          lat_lon = c.getLatLonFromGeocode(geocode_result, location_data, r)
       except Exception as e:
-        sys.stderr.write('ERROR locating %s with %s\n' % (
-            json.dumps(location_data), c.name()))
+        sys.stderr.write('ERROR locating %s / %s with %s\n' % (
+            r.photo_id(), json.dumps(location_data), c.name()))
         raise
 
       if lat_lon:

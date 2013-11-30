@@ -14,7 +14,8 @@ import urllib
 GeocodeUrlTemplate = 'https://maps.googleapis.com/maps/api/geocode/json?sensor=false&address=%s'
 CacheDir = "geocache"
 
-CacheDebug = True
+CacheDebug = False
+# CacheDebug = True
 
 
 def _cache_file(loc):
@@ -43,12 +44,6 @@ class Geocoder:
   def _cache_result(self, loc, result):
     cache_file = _cache_file(loc)
     file(cache_file, "w").write(result)
-
-  def _parse_xml(self, xml_str):
-    """Returns a (lat, lon) pair based on XML"""
-    dom = xml.dom.minidom.parseString(xml_str)
-    loc = Location(dom)
-    return loc
 
   def _fetch(self, url):
     """Attempts to fetch the URL. Does rate throttling. Returns XML."""
@@ -81,6 +76,9 @@ class Geocoder:
         return None
       data = self._fetch(url)
 
+    if not data:
+      return None
+
     response = json.loads(data)
     if response['status'] != 'OK':
       return None
@@ -97,4 +95,4 @@ class Geocoder:
     """Like Locate, but never goes to the network to get a location."""
     data = self._check_cache(loc)
     if not data: return None
-    return self._parse_xml(data)
+    return json.loads(data)

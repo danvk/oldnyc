@@ -80,7 +80,7 @@ class MilsteinCoder:
     if m:
       crosses = sorted([m.group(1), m.group(2)])
       return {
-          'address': '%s and %s %s' % (crosses[0], crosses[1], m.group(3)),
+          'address': '%s and %s, %s' % (crosses[0], crosses[1], m.group(3)),
           'source': loc,
           'type': 'intersection'
       }
@@ -98,7 +98,7 @@ class MilsteinCoder:
         number, street = street, number
 
       return {
-          'address': '%s %s %s' % (number, street, city),
+          'address': '%s %s, %s' % (number, street, city),
           'source': loc,
           'type': 'street_address'
       }
@@ -109,7 +109,7 @@ class MilsteinCoder:
     if m:
       place, city = m.groups()
       return {
-          'address': '%s %s' % (place, city),
+          'address': '%s, %s' % (place, city),
           'source': loc,
           'type': 'street_address'
       }
