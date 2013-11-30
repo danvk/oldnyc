@@ -49,12 +49,13 @@ class Geocoder:
     """Attempts to fetch the URL. Does rate throttling. Returns XML."""
     now = time.time()
     diff = now - self._last_fetch
-    print "now=%f, then=%f, diff=%f vs. %f" % (now, self._last_fetch, diff, self._wait_time)
+    sys.stderr.write("now=%f, then=%f, diff=%f vs. %f\n" % (
+        now, self._last_fetch, diff, self._wait_time))
     if diff < self._wait_time:
       time.sleep(self._wait_time - diff)
     self._last_fetch = time.time()
 
-    print "Fetching %s" % url
+    sys.stderr.write("Fetching %s\n" % url)
     f = urllib.URLopener().open(url)
     return f.read()
 
@@ -81,6 +82,8 @@ class Geocoder:
 
     response = json.loads(data)
     if response['status'] != 'OK':
+      sys.stderr.write('Error status %s %s\n' % (
+          response['status'], json.dumps(response)))
       return None
     if not from_cache and response:
       self._cache_result(address, data)
