@@ -99,3 +99,8 @@ class Geocoder:
     data = self._check_cache(loc)
     if not data: return None
     return json.loads(data)
+
+
+if __name__ == '__main__':
+  for arg in sys.argv[1:]:
+    print '%s --> %s' % (arg, _cache_file(arg))

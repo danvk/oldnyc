@@ -512,3 +512,17 @@ Rerunning geocodes using the new API is helping the Brooklyn geocodes, even
 without algorithm changes. With 5000 new geocodes (my per-IP limit is
 2500/day), I've picked up 353 new images in Brooklyn, raising the recall from
 31.67% --> 37.62%.
+
+
+2013-12-01
+After re-running all the geocodes, per-borough coverage has improved across
+the board:
+0.6581 ( 1588 /  2413) Bronx (26 to wrong borough)
+0.7011 ( 4162 /  5936) Brooklyn (154 to wrong borough)
+0.7362 (16057 / 21812) Manhattan (981 to wrong borough)
+0.6890 ( 2473 /  3589) Queens (82 to wrong borough)
+0.4738 ( 1166 /  2461) Staten Island (11 to wrong borough)
+0.0000 (    0 /  7152) Unknown (0 to wrong borough)
+
+Geocodes of Brooklyn images have gone from 32% --> 70%!
+I could get another 13-14% by geocoding the top 100 addresses by hand.
