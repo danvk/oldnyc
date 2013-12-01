@@ -81,7 +81,7 @@ class Geocoder:
       return None
 
     response = json.loads(data)
-    if response['status'] != 'OK':
+    if response['status'] not in ['OK', 'ZERO_RESULTS']:
       sys.stderr.write('Error status %s %s\n' % (
           response['status'], json.dumps(response)))
       return None
