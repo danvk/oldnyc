@@ -81,9 +81,12 @@ class Geocoder:
       return None
 
     response = json.loads(data)
-    if response['status'] not in ['OK', 'ZERO_RESULTS']:
-      sys.stderr.write('Error status %s %s\n' % (
-          response['status'], json.dumps(response)))
+    status = response['status']
+    if status not in ['OK', 'ZERO_RESULTS']:
+      sys.stderr.write('Error status %s %s\n' % (status, json.dumps(response)))
+      if status == 'OVER_QUERY_LIMIT':
+        raise Exception('Over your quota for the day!')
+        
       return None
     if not from_cache and response:
       self._cache_result(address, data)

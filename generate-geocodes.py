@@ -63,7 +63,7 @@ if __name__ == '__main__':
   (options, args) = parser.parse_args()
 
   if options.geocode:
-    g = geocoder.Geocoder(options.use_network, 5)
+    g = geocoder.Geocoder(options.use_network, 2)  # 2s between geocodes
   else:
     g = None
 
