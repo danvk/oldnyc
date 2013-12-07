@@ -526,3 +526,9 @@ the board:
 
 Geocodes of Brooklyn images have gone from 32% --> 70%!
 I could get another 13-14% by geocoding the top 100 addresses by hand.
+
+
+2013-12-07
+Goal today is to see the new geocodes on a map and get some hard numbers about
+JSON file size before & after clumping by neighborhoods.
+
