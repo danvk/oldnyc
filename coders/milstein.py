@@ -8,6 +8,7 @@ import fileinput
 import re
 import sys
 import json
+import nyc.boroughs
 
 if __name__ == '__main__':
   sys.path += (sys.path[0] + '/..')
@@ -17,6 +18,8 @@ import record
 
 
 boros = '(?:New York|Manhattan|Brooklyn|Bronx|Queens|Staten Island), (?:NY|N\.Y\.)'
+boros_re = r'(New York|Manhattan|Brooklyn|Bronx|Queens|Staten Island), (?:NY|N\.Y\.)$'
+
 streets = '(?:St\.|Street|Place|Pl\.|Road|Rd\.|Avenue|Ave\.|Av\.|Boulevard|Blvd\.|Broadway|Parkway|Pkwy\.|Pky\.|Street \(West\)|Street \(East\))'
 
 # example: "100th Street (East) & 1st Avenue, Manhattan, NY"
@@ -67,11 +70,7 @@ class MilsteinCoder:
   def codeRecord(self, r):
     if r.source() != 'Milstein Division': return None
 
-    raw_loc = r.location().strip()
-    loc = re.sub(r'^[ ?\t"\[]+|[ ?\t"\]]+$', '', raw_loc)
-    if not loc: return None
-
-    # loc = RemoveStatenIslandNeighborhood(loc)
+    loc = self._extractLocationStringFromRecord(r)
 
     m = None
     for pattern in cross_patterns:
@@ -117,15 +116,51 @@ class MilsteinCoder:
     sys.stderr.write('(%s) Bad location: %s\n' % (r.photo_id(), loc));
     return None
 
-  def getLatLonFromGeocode(self, geocode, data, r):
-    '''Extract (lat, lon) from a Google Maps API response. None = failure.'''
+
+  def _extractLocationStringFromRecord(self, r):
+    raw_loc = r.location().strip()
+    loc = re.sub(r'^[ ?\t"\[]+|[ ?\t"\]]+$', '', raw_loc)
+    return loc
+
+
+  def _getLatLonFromGeocode(self, geocode, data):
     for result in geocode['results']:
       # data['type'] is something like 'address' or 'intersection'.
       if data['type'] in result['types']:
         loc = result['geometry']['location']
         return (loc['lat'], loc['lng'])
 
-    return None
+
+  def _getBoroughFromAddress(self, address):
+    m = re.search(boros_re, address)
+    assert m, 'Failed to find borough in "%s"' % address
+    record_boro = m.group(1)
+    if record_boro == 'New York':
+      record_boro = 'Manhattan'
+    return record_boro
+
+
+  def getLatLonFromGeocode(self, geocode, data, r):
+    '''Extract (lat, lon) from a Google Maps API response. None = failure.
+    
+    This ensures that the geocode is in the correct borough. This helps catch
+    errors involving identically-named crosstreets in multiple boroughs.
+    '''
+    latlon = self._getLatLonFromGeocode(geocode, data)
+    if not latlon:
+      return None
+    lat, lon = latlon
+
+    geocode_boro = nyc.boroughs.PointToBorough(lat, lon)
+    record_boro = self._getBoroughFromAddress(data['address'])
+
+    if geocode_boro != record_boro:
+      sys.stderr.write('Borough mismatch: "%s" (%s) geocoded to %s\n' % (
+          self._extractLocationStringFromRecord(r), record_boro, geocode_boro))
+      return None
+    
+    return (lat, lon)
+
 
   def name(self):
     return 'milstein'
