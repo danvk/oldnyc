@@ -16,8 +16,9 @@ function thumbnailImageUrl(photo_id) {
   if (isOldNycImage(photo_id)) {
     // return 'http://images.nypl.org/index.php?id=' + photo_id + '&t=r';
     // return 'http://dv.nyc:8000/' + photo_id + '.jpg';
+    return 'http://localhost:8001/thumb/' + photo_id + '.jpg';
     // return 'http://localhost:8001/milstein-thumb/' + photo_id + '.jpg';
-    return 'https://s3.amazonaws.com/oldnyc/thumb/' + photo_id + '.jpg';
+    // return 'https://s3.amazonaws.com/oldnyc/thumb/' + photo_id + '.jpg';
   } else {
     return 'http://s3-us-west-1.amazonaws.com/oldsf/thumb/' + photo_id + '.jpg';
   }
@@ -26,9 +27,9 @@ function thumbnailImageUrl(photo_id) {
 function expandedImageUrl(photo_id) {
   if (isOldNycImage(photo_id)) {
     // return 'http://images.nypl.org/index.php?id=' + photo_id + '&t=w';
-    // return 'http://dv.nyc:8000/' + photo_id + '.jpg';
+    return 'http://localhost:8001/600px/' + photo_id + '.jpg';
     // return 'http://localhost:8001/milstein-600/' + photo_id + '.jpg';
-    return 'https://s3.amazonaws.com/oldnyc/600px/' + photo_id + '.jpg';
+    // return 'https://s3.amazonaws.com/oldnyc/600px/' + photo_id + '.jpg';
   } else {
     return 'http://s3-us-west-1.amazonaws.com/oldsf/images/' + photo_id + '.jpg'
   }

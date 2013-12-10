@@ -138,11 +138,12 @@ if __name__ == '__main__':
         if geocode_result:
           lat_lon = c.getLatLonFromGeocode(geocode_result, location_data, r)
         else:
-          sys.stderr.write('Failed to geocode %s: %s\n' % (
-              r.photo_id(), location_data['address']))
+          sys.stderr.write('Failed to geocode %s\n' % r.photo_id())
+          # sys.stderr.write('Location: %s\n' % location_data['address'])
       except Exception as e:
-        sys.stderr.write('ERROR locating %s / %s with %s\n' % (
-            r.photo_id(), json.dumps(location_data), c.name()))
+        sys.stderr.write('ERROR locating %s with %s\n' % (
+            r.photo_id(), c.name()))
+        #sys.stderr.write('ERROR location: "%s"\n' % json.dumps(location_data))
         raise
 
       if lat_lon:

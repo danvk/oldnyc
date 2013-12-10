@@ -15,20 +15,37 @@ import sys
 import httplib
 import MultipartPostHandler, urllib2, urllib
 import json
+from optparse import OptionParser
 
 
 CHUNK_SIZE = 100  # number of records to set per HTTP POST
 
-assert 3 <= len(sys.argv) <= 5
-pickle_path = sys.argv[1]
-lat_lons_js_path = sys.argv[2]
-upload_url = sys.argv[3] if len(sys.argv) >= 4 else 'http://localhost:8080/upload'
-start_chunk = int(sys.argv[4]) if len(sys.argv) >= 5 else 0
+parser = OptionParser()
+parser.add_option('', '--pickle_path', default=None, dest='pickle_path',
+                  help='Point to a records.pickle file.')
+parser.add_option('', '--lat_lons_js_path', default=None,
+                  dest='lat_lons_js_path',
+                  help='Point to a lat-lons.js file. Used as a filter.')
+parser.add_option('', '--image_sizes_path', default='', dest='image_sizes_path',
+                  help='Path to a file of images sizes, as output by ' +
+                  'extract-sizes.py.')
+parser.add_option('', '--upload_url', dest='upload_url',
+                  default='http://localhost:8080/upload',
+                  help='Upload endpoint. Default is local dev_appserver.')
+parser.add_option('', '--start_chunk', default=0, dest='start_chunk',
+                  help='Which chunk to start with. Used to resume uploads.')
 
-all_rs = record.AllRecords(pickle_path)
+(options, args) = parser.parse_args()
+
+assert options.pickle_path
+assert options.lat_lons_js_path
+assert options.image_sizes_path
+
+
+all_rs = record.AllRecords(options.pickle_path)
 
 # The JS file has a leading 'var foo = {' and a trailing '};' that we don't want.
-js_data = file(lat_lons_js_path).readlines()
+js_data = file(options.lat_lons_js_path).readlines()
 js_data = '{'+ ''.join(js_data[1:-1]) + '}'
 lat_lons = json.loads(js_data)
 
@@ -37,11 +54,19 @@ for ll, images in lat_lons.iteritems():
   for _, _, photo_id in images:
     ok_ids.add(photo_id)
 
+id_to_dims = {}
+for line in file(options.image_sizes_path):
+  image_id, width, height = line.strip().split(',')
+  id_to_dims[image_id] = (width, height)
+
 rs = [r for r in all_rs if r.photo_id() in ok_ids]
+for r in rs:
+  assert r.photo_id() in id_to_dims, 'Missing dimensions for %s' % r.photo_id()
 
 sys.stderr.write('Have %d full records\n' % len(rs))
 
-print 'Will upload via %s' % upload_url
+print 'Will upload via %s' % options.upload_url
+
 
 opener = urllib2.build_opener(MultipartPostHandler.MultipartPostHandler)
 
@@ -53,7 +78,7 @@ def chunks(l, n):
 
 
 for i, chunk_rs in enumerate(chunks(rs, CHUNK_SIZE)):
-  if i < start_chunk:
+  if i < options.start_chunk:
     continue
 
   print 'Chunk %d of %d' % (i, int(len(rs)/CHUNK_SIZE))
@@ -78,6 +103,8 @@ for i, chunk_rs in enumerate(chunks(rs, CHUNK_SIZE)):
     folder = r.location()
     if folder: folder = record.CleanFolder(folder)
 
+    width, height = id_to_dims[r.photo_id()]
+
     q = {
       'photo_id': r.photo_id(),
       'title': title,
@@ -85,12 +112,14 @@ for i, chunk_rs in enumerate(chunks(rs, CHUNK_SIZE)):
       'folder': folder,
       'description': desc,
       'note': (r.note() or ''),
-      'library_url': r.preferred_url
+      'library_url': r.preferred_url,
+      'width': width,
+      'height': height
     }
     vals.append(json.dumps(q))
 
   q_pairs = [('r', val) for val in vals]
-  opener.open(upload_url, urllib.urlencode(q_pairs))
+  opener.open(options.upload_url, urllib.urlencode(q_pairs))
 
 # To clear the data store, run:
 # import db

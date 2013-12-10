@@ -18,7 +18,6 @@ handlers:
 - url: /
   static_files: viewer.html
   upload: viewer.html
-  login: admin
 - url: /about
   static_files: about.html
   upload: about.html
@@ -37,7 +36,6 @@ handlers:
   upload: (.*\.(gif|png|jpg|css|js|zip))
 - url: .*
   script: app.app
-  login: admin
 
 
 builtins:
