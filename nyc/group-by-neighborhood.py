@@ -27,7 +27,7 @@ for idx, rec in enumerate(records):
   if not n:
     n = 'Unknown'
   neighborhood_to_counts[n] += 1
-  rec['neighborhood'] = n
+  rec['extracted']['neighborhood'] = n
 
 for k, v in neighborhood_to_counts.iteritems():
   print '%s\t%s' % (v, k)
