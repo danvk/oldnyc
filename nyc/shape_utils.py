@@ -1,5 +1,6 @@
 import copy
 import sys
+import math
 
 def SplitIntoPolygons(shape):
   """Returns a list of closed polygons."""
@@ -48,6 +49,44 @@ def CenterOfMass(points):
     cx += ((x_i + x_ip1) * part)
     cy += ((y_i + y_ip1) * part)
   return (cx/(6*A), cy/(6*A), abs(A))
+
+
+def _dot(a, b):
+  return a[0] * b[0] + a[1] * b[1]
+
+def _norm(x):
+  return math.sqrt(_dot(x, x))
+
+def _norm2(x):
+  return _dot(x, x)
+
+def _minus(a, b):
+  return (a[0] - b[0], a[1] - b[1])
+
+def DistanceToPolygon(point, points):
+  """Returns the distance from a point to the edge of a polygon."""
+  minDist = float('inf')
+  for p1, p2 in zip(points[:-1], points[1:]):
+    p2_p1 = (p2[0] - p1[0], p2[1] - p1[1])
+    x_p1 = (point[0] - p1[0], point[1] - p1[1])
+    np2_p1 = _norm(p2_p1)
+    if np2_p1 == 0:
+      continue
+    r = 1. * _dot(p2_p1, x_p1) / (np2_p1 ** 2)
+    
+    if r < 0:
+      dist = _norm(x_p1)
+    elif r > 1:
+      dist = _norm( (p2[0] - point[0], p2[1] - point[1]) )
+    else:
+      n = (p2_p1[0] / np2_p1, p2_p1[1] / np2_p1)
+      k = _dot(x_p1, n)
+      n = (n[0] * k, n[1] * k)
+      dist = _norm(_minus(x_p1, n))
+      #dist = math.sqrt(_norm2(x_p1) - r * _norm2(p2_p1))
+    minDist = min(dist, minDist)
+
+  return minDist
 
 
 def CenterOfMassForShape(shape):
