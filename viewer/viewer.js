@@ -5,7 +5,8 @@ var marker_dates = [];
 var map;
 var start_date = 1850;
 var end_date = 2000;
-var polygons = [];
+var polygons = {};
+var neighborhood_to_markers = {};
 
 function isOldNycImage(photo_id) {
   // NYC images have IDs like '123f' or '345f-b'.
@@ -192,17 +193,17 @@ function initialize_map() {
     });
 
     polygon.setMap(map);
-    polygons.push(polygon);
+    polygons[neighborhood] = polygon;
     google.maps.event.addListener(polygon, 'click', (function(neighborhood) {
       return function() {
         displayInfoForLatLon(neighborhood_photos[neighborhood]);
+        explodeNeighborhood(neighborhood);
         stateWasChanged();
       };
     })(neighborhood));
   }
 
-  /*
-  // Create markers for each number.
+  // Create marker icons for each number.
   marker_icons.push(null);  // it's easier to be 1-based.
   selected_marker_icons.push(null);
   for (var i = 0; i < 100; i++) {
@@ -221,6 +222,50 @@ function initialize_map() {
       new google.maps.Point((size - 1) / 2, (size - 1)/2)
     ));
   }
+}
+
+// Hide a polygon and show markers for the locations in that neighborhood.
+function explodeNeighborhood(neighborhood) {
+  var markers = neighborhood_to_markers[neighborhood];
+  if (!markers) {
+    // First click: figure out which markers are in this neighborhood.
+    var records = neighborhood_photos[neighborhood];
+    var ids = {};
+    $.each(records, function(_, rec) {
+      ids[rec[2]] = true;
+    });
+    markers = [];
+    for (var lat_lon in lat_lons) {
+      var ll_recs = lat_lons[lat_lon];
+      var id = ll_recs[0][2];
+      if (!(id in ids)) continue;
+      var ll = lat_lon.split(',');
+
+      var marker = new google.maps.Marker({
+        position: new google.maps.LatLng(parseFloat(ll[0]), parseFloat(ll[1])),
+        map: map,
+        flat: true,
+        visible: true,
+        icon: marker_icons[ll_recs.length > 100 ? 100 : ll_recs.length],
+        title: lat_lon
+      });
+      markers.push(marker);
+      google.maps.event.addListener(marker, 'click', makeCallback(ll, marker));
+    }
+    neighborhood_to_markers[neighborhood] = markers;
+  }
+
+  polygons[neighborhood].setMap(null);  // hide the polygon
+  $.each(markers, function(marker) {
+    marker.setMap(map);
+  });
+}
+
+// Hide all the markers for a neighborhood and show the polygon.
+function collapseNeighborhood(neighborhood) {
+}
+
+  /*
 
   var total = 0;
   var init_marker = null;
@@ -251,8 +296,8 @@ function initialize_map() {
     setCount(total);
     makeCallback(init_lat_lon, init_marker)();
   }
-  */
 }
+  */
 
 function updateVisibleMarkers(date1, date2) {
   var total = 0;
