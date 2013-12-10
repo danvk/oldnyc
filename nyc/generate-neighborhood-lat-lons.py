@@ -29,6 +29,9 @@ for lat_lon, photos_list in lat_lons.iteritems():
   if count % 2000 == 0:
     sys.stderr.write('%d...\n' % count)
 
+for k, v in neighborhood_to_photos.iteritems():
+  v.sort(key=lambda x: x[1])
+
 # TODO(danvk): less precision in polygons to save space!
 print 'var neighborhood_photos = %s;' % json.dumps(
     neighborhood_to_photos, separators=(',', ':'))

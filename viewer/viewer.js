@@ -173,6 +173,9 @@ function initialize_map() {
 
 
   for (var neighborhood in neighborhood_polygons) {
+    var photos = neighborhood_photos[neighborhood];
+    if (!photos || photos.length == 0) continue;
+
     var coords = neighborhood_polygons[neighborhood];
     var gmap_coords = $.map(coords, function(lat_lon) {
       return new google.maps.LatLng(lat_lon[1], lat_lon[0]);
