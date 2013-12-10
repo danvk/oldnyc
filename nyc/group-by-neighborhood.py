@@ -1,20 +1,23 @@
 #!/usr/bin/python
 '''
-Uses a record JSON file and neighborhoods.xml file to aggregate records into
-neighborhoods.
+Adds neighborhoods to a records.json file, in the 'extracted' section of each
+record.
+
+A neighborhood gets added to all geocoded records. If we can't match a
+neighborhood, it gets set to 'Unknown'.
 '''
 
 import boroughs
 import sys
 import json
 from collections import defaultdict
- 
+
 neighborhood_to_counts = defaultdict(int)
 
 records = json.load(file(sys.argv[1]))
 for idx, rec in enumerate(records):
   if idx % 2000 == 0:
-    sys.stderr.write('%d...\n' % idx)
+    sys.stderr.write('%d / %d...\n' % (idx, len(records))
 
   if 'extracted' not in rec:
     continue

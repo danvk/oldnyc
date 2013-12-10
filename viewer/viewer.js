@@ -5,6 +5,7 @@ var marker_dates = [];
 var map;
 var start_date = 1850;
 var end_date = 2000;
+var polygons = [];
 
 function isOldNycImage(photo_id) {
   // NYC images have IDs like '123f' or '345f-b'.
@@ -96,6 +97,8 @@ function makeCallback(lat_lon, marker) {
 }
 
 function initialize_map() {
+  // google.maps.visualRefresh = true;
+
   // Give them something to look at while the map loads:
   init_lat_lon = "37.771393,-122.428618";
 
@@ -165,6 +168,30 @@ function initialize_map() {
   // google.maps.event.addListener(map, 'idle', stateWasChanged);
   // ... but it's still annoying.
 
+
+  for (var neighborhood in neighborhood_polygons) {
+    var coords = neighborhood_polygons[neighborhood];
+    var gmap_coords = $.map(coords, function(lat_lon) {
+      return new google.maps.LatLng(lat_lon[1], lat_lon[0]);
+    });
+
+    var polygon = new google.maps.Polygon({
+      path: gmap_coords,
+      geodesic: true,
+      strokeColor: '#FFFFFF',
+      strokeOpacity: 1.0,
+      strokeWeight: 2,
+      fillColor: '#000000',
+      fillOpacity: 0.25
+    });
+
+    polygon.setMap(map);
+    polygons.push(polygon);
+    google.maps.event.addListener(polygon, 'click', function() {
+    });
+  }
+
+  /*
   // Create markers for each number.
   marker_icons.push(null);  // it's easier to be 1-based.
   selected_marker_icons.push(null);
@@ -214,6 +241,7 @@ function initialize_map() {
     setCount(total);
     makeCallback(init_lat_lon, init_marker)();
   }
+  */
 }
 
 function updateVisibleMarkers(date1, date2) {

@@ -8,6 +8,7 @@ import sys
 
 boroughs = None
 neighborhoods = None
+_neighborhood_cache = {}
 
 def _getBoroughJsonPath():
   for path in ['borough-polygons.json', 'nyc/borough-polygons.json']:
@@ -46,8 +47,12 @@ def PointToNeighborhood(lat, lon):
     neighborhoods = json.load(file(_getNeighborhoodJsonPath()))
 
   pt = (lon, lat)
+  if pt in _neighborhood_cache:
+    return _neighborhood_cache[pt]
+
   for k, v in neighborhoods.iteritems():
     if shape_utils.PointInPolygon(pt, v):
+      _neighborhood_cache[pt] = k
       return k
   
   # Check if it's _really_ close to a neighborhood.
@@ -59,9 +64,11 @@ def PointToNeighborhood(lat, lon):
   for k, v in neighborhoods.iteritems():
     d = shape_utils.DistanceToPolygon(pt, v)
     if d < 0.0002:
+      _neighborhood_cache[pt] = k
       return k
 
   sys.stderr.write('minDist to (%s, %s) = %f\n' % (lat, lon, d))
+  _neighborhood_cache[pt] = None
   return None
 
 
