@@ -197,7 +197,7 @@ function initialize_map() {
     google.maps.event.addListener(polygon, 'click', (function(neighborhood) {
       return function() {
         displayInfoForLatLon(neighborhood_photos[neighborhood]);
-        explodeNeighborhood(neighborhood);
+        showIndividualLocations(neighborhood);
         stateWasChanged();
       };
     })(neighborhood));
@@ -224,21 +224,23 @@ function initialize_map() {
   }
 }
 
-// Hide a polygon and show markers for the locations in that neighborhood.
-function explodeNeighborhood(neighborhood) {
-  var markers = neighborhood_to_markers[neighborhood];
-  if (!markers) {
-    // First click: figure out which markers are in this neighborhood.
-    var records = neighborhood_photos[neighborhood];
-    var ids = {};
-    $.each(records, function(_, rec) {
-      ids[rec[2]] = true;
-    });
-    markers = [];
+// Hides the neighborhood polygons and show markers for each location.
+function showIndividualLocations(neighborhood) {
+  // The sequence:
+  // 1. Zoom to the neighborhood.
+  // 2. Show polygons for the neighborhood.
+  // 3. Show polygons for other neighborhoods.
+
+  var polygon = polygons[neighborhood];
+  map.fitBounds(polygon.getBounds());
+
+  for (neighborhood in polygons) {
+    polygons[neighborhood].setMap(null);  // hide the polygon
+  }
+
+  if (markers.length == 0) {
     for (var lat_lon in lat_lons) {
       var ll_recs = lat_lons[lat_lon];
-      var id = ll_recs[0][2];
-      if (!(id in ids)) continue;
       var ll = lat_lon.split(',');
 
       var marker = new google.maps.Marker({
@@ -252,13 +254,11 @@ function explodeNeighborhood(neighborhood) {
       markers.push(marker);
       google.maps.event.addListener(marker, 'click', makeCallback(ll, marker));
     }
-    neighborhood_to_markers[neighborhood] = markers;
+  } else {
+    $.each(markers, function(_, marker) {
+      marker.setMap(map);
+    });
   }
-
-  polygons[neighborhood].setMap(null);  // hide the polygon
-  $.each(markers, function(marker) {
-    marker.setMap(map);
-  });
 }
 
 // Hide all the markers for a neighborhood and show the polygon.
@@ -491,6 +491,22 @@ function fillPhotoPane(photo_id, $pane, opt_info) {
   $('.library-link', $pane)
     .attr('href', info.library_url);
   $pane.attr('photo_id', photo_id);
+}
+
+// From https://code.google.com/p/google-maps-extensions
+if (!google.maps.Polygon.prototype.getBounds) {
+  google.maps.Polygon.prototype.getBounds = function(latLng) {
+    var bounds = new google.maps.LatLngBounds();
+    var paths = this.getPaths();
+    var path;
+    for (var p = 0; p < paths.getLength(); p++) {
+      path = paths.getAt(p);
+      for (var i = 0; i < path.getLength(); i++) {
+        bounds.extend(path.getAt(i));
+      }
+    }
+    return bounds;
+  }
 }
 
 $(function() {
