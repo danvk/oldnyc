@@ -43,8 +43,8 @@ function spinnerKiller() {
 
 // The callback gets fired when the info for all lat/lons at this location
 // become available (i.e. after the /info RPC returns).
-function displayInfoForLatLon(lat_lon, marker, opt_callback) {
-  var recs = lat_lons[lat_lon];
+function displayInfoForLatLon(recs, marker, opt_callback) {
+  // var recs = lat_lons[lat_lon];
   var photo_ids = [];
   for (var i = 0; i < recs.length; i++) {
     if (recs[i][0] >= start_date && recs[i][1] <= end_date) {
@@ -79,10 +79,13 @@ function displayInfoForLatLon(lat_lon, marker, opt_callback) {
     zIndex = selected_marker.getZIndex();
     selected_marker.setIcon(selected_icon);
   }
-  selected_marker = marker;
-  selected_icon = marker.getIcon();
-  marker.setIcon(selected_marker_icons[photo_ids.length > 100 ? 100 : photo_ids.length]);
-  marker.setZIndex(100000 + zIndex);
+
+  if (marker) {
+    selected_marker = marker;
+    selected_icon = marker.getIcon();
+    marker.setIcon(selected_marker_icons[photo_ids.length > 100 ? 100 : photo_ids.length]);
+    marker.setZIndex(100000 + zIndex);
+  }
 
   loadInfoForPhotoIds(photo_ids, opt_callback);
   loadPictures();
@@ -91,7 +94,7 @@ function displayInfoForLatLon(lat_lon, marker, opt_callback) {
 // TODO(danvk): possible to just use the event?
 function makeCallback(lat_lon, marker) {
   return function(e) {
-    displayInfoForLatLon(lat_lon, marker);
+    displayInfoForLatLon(lat_lons[lat_lon], marker);
     stateWasChanged();
   };
 }
@@ -187,8 +190,12 @@ function initialize_map() {
 
     polygon.setMap(map);
     polygons.push(polygon);
-    google.maps.event.addListener(polygon, 'click', function() {
-    });
+    google.maps.event.addListener(polygon, 'click', (function(neighborhood) {
+      return function() {
+        displayInfoForLatLon(neighborhood_photos[neighborhood]);
+        stateWasChanged();
+      };
+    })(neighborhood));
   }
 
   /*
