@@ -27,32 +27,6 @@ a{
   bottom: 0px;
 }
 
-#rightpanel {
-  position: absolute;
-  top: 8px;
-  right: 8px;
-  width: 240px;
-  bottom: 19px;
-  background: #fff;
-  z-index: 2;
-  border-top: 54px solid #d34f4f;
-/* -webkit-box-shadow: 0px 0px 3px 1px #bbb;
-  -moz-box-shadow: 0px 0px 3px 1px #bbb;
-  box-shadow: 0px 0px 3px 1px #bbb;*/
- /* border-top: 1px solid #CCCCCA;*/
-  overflow-x: hidden;
-}
-
-#carousel {
-  position: absolute;
-  top: 8px;
-  right: 7px;
-  width: 220px;
-  bottom: 8px;
-  overflow: hidden;
-  overflow-y: scroll;
-}
-
 #about {
   position: absolute;
   top: 8px;
@@ -286,9 +260,6 @@ a{
   padding: 2px;
   background-color: #c33c3c;
   border-left: none;
- /*  -webkit-box-shadow: 0px 0px 3px 0px #aaa;
-  -moz-box-shadow: 0px 0px 3px 0px #aaa;
-  box-shadow: 0px 0px 3px 0px #aaa;*/
 }
 
 .thumb {
@@ -297,17 +268,6 @@ a{
   background-repeat:no-repeat;
   background-position:center;
   text-align: center;
-}
-
-#carousel .thumb {
-/* border: 1px solid #FCFBF9; */
-  padding-top: 5px;
-  padding-bottom: 5px;
-}
-
-#carousel .thumb:hover {
-  /* border: 1px solid #F5F0E6; */
-  background-color: #F5F0E6;
 }
 
 .thumb > a {
@@ -327,6 +287,19 @@ a{
   background: #111;
   opacity: 0.95;
   z-index: 100;
+}
+
+#exit-slideshow {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 50px;
+  height: 50px;
+  background-image: url('close-grey-50.png');
+  z-index: 101;
+}
+#exit-slideshow:hover {
+  background-image: url('close-white-50.png');
 }
 
 #expanded-carousel {
@@ -405,22 +378,6 @@ a{
   position: absolute;
   bottom: 5px;
   left: 10px;
-}
-
-/* Credit: http://numerosign.com/notebook/styling-webkit-scrollbars-with-css3/ */
-#carousel::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
-  padding: 18px;
-  -webkit-border-radius: 1ex
-}
-
-#carousel::-webkit-scrollbar-thumb {
-  background-color: rgba(053,057,071,0.3);
-  padding: 8px;
-  width: 6px;
-  height: 6px;
-  -webkit-border-radius: 1ex;
 }
 
 .description {

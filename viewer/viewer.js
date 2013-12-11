@@ -343,6 +343,7 @@ function showExpanded(photo_ids) {
   $('#expanded-carousel')
     .jcarousel('scroll', selected_idx, false /* no animation */);
 
+  map.set('keyboardShortcuts', false);
   $(document).bind('keyup', function(e) {
     // handle cursor keys
     // TODO(danvk): hitting left/right quickly results in dropped scrolls.
@@ -362,6 +363,7 @@ function hideExpanded() {
   $('#expanded').hide();
   $('#expanded-carousel').jcarousel('destroy');
   $(document).unbind('keyup');
+  map.set('keyboardShortcuts', true);
   stateWasChanged();
 }
 
@@ -421,7 +423,7 @@ function GetCentroid(path) {
 }
 
 $(function() {
-  $('#curtains').click(hideExpanded);
+  $('#curtains, #exit-slideshow').click(hideExpanded);
 
   $('#expanded-carousel')
     .delegate('li', 'itemtargetin.jcarousel', function(event, carousel) {
