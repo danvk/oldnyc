@@ -196,8 +196,7 @@ function initialize_map() {
     polygons[neighborhood] = polygon;
     google.maps.event.addListener(polygon, 'click', (function(neighborhood) {
       return function() {
-        displayInfoForLatLon(neighborhood_photos[neighborhood]);
-        showIndividualLocations(neighborhood);
+        handleNeighorhoodClick(neighborhood);
         stateWasChanged();
       };
     })(neighborhood));
@@ -222,25 +221,67 @@ function initialize_map() {
       new google.maps.Point((size - 1) / 2, (size - 1)/2)
     ));
   }
+
+  // When the map is idle, check if we should expand/collapse polygons.
+  // Thresholds:
+  // zoom level 0-12: only show polygons
+  // zoom level 15+: only show individual points
+  google.maps.event.addListener(map, 'idle', function() {
+    var mapBounds = map.getBounds();
+    $.each(polygons, function(neighborhood, polygon) {
+      if (polygon.getBounds().intersects(mapBounds)) {
+        var isManhattan = neighborhood.substr(-11) == ', Manhattan';
+        if (map.getZoom() >= 15) {
+          showIndividualPhotosForNeighborhood(neighborhood);
+        } else {
+          collapseNeighborhood(neighborhood);
+        }
+      }
+    });
+  });
 }
 
 // Hides the neighborhood polygons and show markers for each location.
-function showIndividualLocations(neighborhood) {
+function handleNeighorhoodClick(neighborhood) {
   // The sequence:
-  // 1. Zoom to the neighborhood.
-  // 2. Show polygons for the neighborhood.
-  // 3. Show polygons for other neighborhoods.
+  // 1. Show points for this neighborhood.
+  // 2. Zoom to the neighborhood.
+  // (deferred) Show polygons for other visible neighborhoods.
 
+  showIndividualPhotosForNeighborhood(neighborhood);
+
+  // This will fire event listeners which will expand the other neighborhoods,
+  // as needed.
   var polygon = polygons[neighborhood];
-  map.fitBounds(polygon.getBounds());
+  var centroid = GetCentroid(polygon.getPath());
+  map.setCenter(centroid);
+  map.setZoom(15);
 
-  for (neighborhood in polygons) {
-    polygons[neighborhood].setMap(null);  // hide the polygon
+  window.setTimeout(function() {
+    displayInfoForLatLon(neighborhood_photos[neighborhood]);
+  }, 200);
+}
+
+function showIndividualPhotosForNeighborhood(neighborhood) {
+  var polygon = polygons[neighborhood];
+  if (polygon.getMap() == null) {
+    return;  // We're already showing individual photos for this neighborhood
   }
 
-  if (markers.length == 0) {
+  polygon.setMap(null);  // hide the polygon
+  var markers = neighborhood_to_markers[neighborhood];
+  if (!markers) {
+    // First click: figure out which markers are in this neighborhood.
+    var records = neighborhood_photos[neighborhood];
+    var ids = {};
+    $.each(records, function(_, rec) {
+      ids[rec[2]] = true;
+    });
+    markers = [];
     for (var lat_lon in lat_lons) {
       var ll_recs = lat_lons[lat_lon];
+      var id = ll_recs[0][2];
+      if (!(id in ids)) continue;
       var ll = lat_lon.split(',');
 
       var marker = new google.maps.Marker({
@@ -254,6 +295,7 @@ function showIndividualLocations(neighborhood) {
       markers.push(marker);
       google.maps.event.addListener(marker, 'click', makeCallback(ll, marker));
     }
+    neighborhood_to_markers[neighborhood] = markers;
   } else {
     $.each(markers, function(_, marker) {
       marker.setMap(map);
@@ -263,6 +305,21 @@ function showIndividualLocations(neighborhood) {
 
 // Hide all the markers for a neighborhood and show the polygon.
 function collapseNeighborhood(neighborhood) {
+  var polygon = polygons[neighborhood];
+  if (polygon.getMap() != null) {
+    return;  // We're already showing the polygon for this neighborhood.
+  }
+
+  var markers = neighborhood_to_markers[neighborhood];
+  if (!markers) {
+    // this really shouldn't happen...
+  } else {
+    $.each(markers, function(_, marker) {
+      marker.setMap(null);
+    });
+  }
+
+  polygon.setMap(map);
 }
 
   /*
@@ -507,6 +564,30 @@ if (!google.maps.Polygon.prototype.getBounds) {
     }
     return bounds;
   }
+}
+
+// From http://stackoverflow.com/questions/5187806/trying-to-get-the-cente-lat-lon-of-a-polygon
+function GetCentroid(path) {
+  var f;
+  var x = 0;
+  var y = 0;
+  var nPts = path.length;
+  var j = nPts-1;
+  var area = 0;
+  
+  for (var i = 0; i < nPts; j=i++) {   
+    var pt1 = path.getAt(i);
+    var pt2 = path.getAt(j);
+    f = pt1.lat() * pt2.lng() - pt2.lat() * pt1.lng();
+    x += (pt1.lat() + pt2.lat()) * f;
+    y += (pt1.lng() + pt2.lng()) * f;
+
+    area += pt1.lat() * pt2.lng();
+    area -= pt1.lng() * pt2.lat();        
+  }
+  area /= 2;
+  f = area * 6;
+  return new google.maps.LatLng(x/f, y/f);
 }
 
 $(function() {
