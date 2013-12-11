@@ -423,7 +423,14 @@ function GetCentroid(path) {
 }
 
 $(function() {
+  // Clicks on the background or "exit" button should leave the slideshow.
+  // Clicks on the strip itself should only exit if they're not on an image.
   $('#curtains, #exit-slideshow').click(hideExpanded);
+  $('#expanded-carousel').click(function(e) {
+    if ($(e.target).parent('li').length == 0 && !$(e.target).is('li')) {
+      hideExpanded();
+    }
+  });
 
   $('#expanded-carousel')
     .delegate('li', 'itemtargetin.jcarousel', function(event, carousel) {
