@@ -45,35 +45,12 @@ function spinnerKiller() {
 // The callback gets fired when the info for all lat/lons at this location
 // become available (i.e. after the /info RPC returns).
 function displayInfoForLatLon(recs, marker, opt_callback) {
-  // var recs = lat_lons[lat_lon];
   var photo_ids = [];
   for (var i = 0; i < recs.length; i++) {
     if (recs[i][0] >= start_date && recs[i][1] <= end_date) {
       photo_ids.push(recs[i][2]);
     }
   }
-
-  var thumb_panes = $.map(photo_ids, function(photo_id, idx) {
-    var img_path = thumbnailImageUrl(photo_id);
-
-    var $pane =
-      $('#thumbnail-template')
-      .clone()
-      .removeAttr('id')
-      .attr('photo_id', photo_id);
-
-    $('img', $pane).attr('path', img_path);
-
-    if (idx == photo_ids.length - 1) {
-      $('hr', $pane).hide();
-    }
-    return $pane.get();
-  });
-
-  $('#carousel')
-    .scrollTop(0)
-    .empty()
-    .append($(thumb_panes).show());
 
   var zIndex = 0;
   if (selected_marker) {
@@ -88,8 +65,10 @@ function displayInfoForLatLon(recs, marker, opt_callback) {
     marker.setZIndex(100000 + zIndex);
   }
 
-  loadInfoForPhotoIds(photo_ids, opt_callback);
-  loadPictures();
+  loadInfoForPhotoIds(photo_ids, opt_callback).done(function() {
+    showExpanded(photo_ids);
+  }).fail(function() {
+  });
 }
 
 // TODO(danvk): possible to just use the event?
@@ -166,12 +145,6 @@ function initialize_map() {
       function() {
         $('.streetview-hide').toggle(!streetView.getVisible());
       });
-
-  // This event fires when a pan/zoom operation has completed and the map is no
-  // longer in motion. It reduces the number of URL parameter updates we do.
-  // google.maps.event.addListener(map, 'idle', stateWasChanged);
-  // ... but it's still annoying.
-
 
   for (var neighborhood in neighborhood_polygons) {
     var photos = neighborhood_photos[neighborhood];
@@ -256,10 +229,6 @@ function handleNeighorhoodClick(neighborhood) {
   var centroid = GetCentroid(polygon.getPath());
   map.setCenter(centroid);
   map.setZoom(15);
-
-  window.setTimeout(function() {
-    displayInfoForLatLon(neighborhood_photos[neighborhood]);
-  }, 200);
 }
 
 function showIndividualPhotosForNeighborhood(neighborhood) {
@@ -322,136 +291,9 @@ function collapseNeighborhood(neighborhood) {
   polygon.setMap(map);
 }
 
-  /*
-
-  var total = 0;
-  var init_marker = null;
-  for (var lat_lon in lat_lons) {
-    var ll = lat_lon.split(",");
-    var recs = lat_lons[ll];
-    marker = new google.maps.Marker({
-      position: new google.maps.LatLng(parseFloat(ll[0]), parseFloat(ll[1])),
-      map: map,
-      flat: true,
-      visible: true,
-      icon: marker_icons[recs.length > 100 ? 100 : recs.length],
-      title: lat_lon
-    });
-    markers.push(marker);
-    google.maps.event.addListener(marker, 'click', makeCallback(ll, marker));
-    // google.maps.event.addListener(marker, 'mouseover', makePreloadCallback(ll));
-
-    total += recs.length;
-
-    if (lat_lon == init_lat_lon) init_marker = marker;
-  }
-
-  if (location.hash) {
-    setUIFromUrlHash();
-  }
-  if (!hashToState(location.hash).hasOwnProperty('ll')) {
-    setCount(total);
-    makeCallback(init_lat_lon, init_marker)();
-  }
-}
-  */
-
-function updateVisibleMarkers(date1, date2) {
-  var total = 0;
-  for (var i = 0; i < markers.length; i++) {
-    var marker = markers[i];
-    var ll = marker.getTitle();
-    var vis = marker.getVisible();
-    var icon = marker.getIcon();
-    var count = 0;
-    var recs = lat_lons[ll];
-    for (var j = 0; j < recs.length; j++) {
-      if (recs[j][0] >= date1 && recs[j][1] <= date2) count += 1;
-    }
-    if (count == 0) {
-      if (vis) marker.setVisible(false);
-    } else {
-      total += count;
-      if (!vis) marker.setVisible(true);
-      var new_icon = marker_icons[count > 100 ? 100 : count];
-      if (marker == selected_marker) {
-        new_icon = selected_marker_icons[count > 100 ? 100 : count];
-      }
-      if (icon != new_icon) marker.setIcon(new_icon);
-    }
-  }
-  start_date = date1;
-  end_date = date2;
-  setCount(total);
-}
-
-function setCount(total) {
-  total += '';
-  var rgx = /(\d+)(\d{3})/;
-  while (rgx.test(total)) {
-    total = total.replace(rgx, '$1' + ',' + '$2');
-  }
-  
-  $('#count').html(total);
-}
-
-function slide(event, ui) {
-  var dates = null
-  if (typeof(ui) != 'undefined') {
-    dates = ui.values;
-  } else {
-    dates = $('#slider').slider('values');
-  }
-  var date1 = dates[0];
-  var date2 = dates[1];
-  $('#date_range_years').html(date1 + '&ndash;' + date2);
-  updateVisibleMarkers(date1, date2);
-}
-
-function createSlider() {
-  $('#slider').slider({
-    range: true,
-    values: [1850, 2000],
-    min: 1850,
-    max: 2000,
-    slide: slide,
-    change: function(event, ui) {
-      // TODO(danvk): on slow browsers, the update should actually happen here
-      stateWasChanged();
-    }
-  });
-
-  for (var year = 1850; year <= 2000; year += 10) {
-    var pct = (year - 1850) / (2000 - 1850) * 100;
-    var html = '<div class=tick style="left:' + pct + '%;"></div>';
-    if (year % 50 == 0) {
-      html += '<div class=tick_text style="left:' + pct + '%;">' + year + '</div>';
-    }
-    document.getElementById('slider_ticks').innerHTML += html;
-  }
-}
-
-// The thumbnails div has scrolled or changed. Maybe we should load some
-// pictures.
-function loadPictures() {
-  var $carousel = $('#carousel');
-
-  var padding = 100;
-  var bottom_edge = $carousel.scrollTop() + $carousel.height() + padding;
-  $('#carousel img').each(function(i, imgEl) {
-    var $img = $(imgEl);
-    if ($img.offset().top < bottom_edge && !$img.attr('src')) {
-      $img
-        .attr('src', $img.attr('path'))
-        .load(spinnerKiller);
-    }
-  });
-}
-
 
 // This creates the holder "pane" for an expanded image.
 // The expanded image slideshow consists of many of these.
-// id 
 function buildHolder(photo_id, img_width, is_visible) {
   var info = infoForPhotoId(photo_id);
   var $holder = $('#expanded-image-holder-template').clone().removeAttr('id');
@@ -470,25 +312,17 @@ function buildHolder(photo_id, img_width, is_visible) {
 
 // NOTE: This can only be called when the info for all photo_ids at the current
 // position have been loaded (in particular the image widths).
-function showExpanded(id) {
+function showExpanded(photo_ids) {
   $('#expanded').hide();
 
-  var photo_ids =
-    $('#rightpanel .thumbnail-pane')
-    .map(function() { return $(this).attr('photo_id'); })
-    .get();
-
   var selected_idx = 0;
+  var selected_id = photo_ids[0];
   var expanded_images = $.map(photo_ids, function(photo_id, idx) {
     var info = infoForPhotoId(photo_id);
     var img_width = info.width;
 
-    if (photo_id == id) {
-      selected_idx = idx;
-    }
-
     // TODO(danvk): show prev/next as well
-    return buildHolder(photo_id, img_width, photo_id == id).get();
+    return buildHolder(photo_id, img_width, photo_id == selected_id).get();
   });
 
   if (expanded_images.length > 1) {
@@ -542,11 +376,7 @@ function fillPhotoPane(photo_id, $pane, opt_info) {
   $('.description', $pane).html(descriptionForPhotoId(photo_id));
 
   var info = opt_info || infoForPhotoId(photo_id);
-  // TODO(danvk): this is kinda gross
-  $('.thumb a', $pane)
-      .attr('href', "javascript:showExpanded('" + photo_id + "')");
-  $('.library-link', $pane)
-    .attr('href', info.library_url);
+  $('.library-link', $pane).attr('href', info.library_url);
   $pane.attr('photo_id', photo_id);
 }
 
@@ -634,13 +464,4 @@ $(function() {
 
     return true;
   });
-
-  $('#date_range').click(function(e) {
-    e.preventDefault();
-    $('#slider-container').toggle();
-  });
-
-  // $('#expanded-carousel')
-  //   .delegate('img', 'load', function() {
-  //   });
 });

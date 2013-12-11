@@ -14,19 +14,9 @@ function loadInfoForPhotoIds(photo_ids, opt_callback) {
     data += (i ? '&' : '') + 'id=' + photo_ids[i];
   }
 
-  $.post('/info', data, function(data, status, xhr) {
+  return $.post('/info', data, function(response_data, status, xhr) {
     // Add these values to the cache.
-    $.extend(photo_id_to_info, data);
-
-    // Update any on-screen elements.
-    $.each(data, function(photo_id, info) {
-      var $pane = $('[photo_id=' + photo_id + ']');
-      fillPhotoPane(photo_id, $pane, info);
-    });
-
-    if (opt_callback) {
-      opt_callback(photo_ids);
-    }
+    $.extend(photo_id_to_info, response_data);
   }, 'json');
 }
 

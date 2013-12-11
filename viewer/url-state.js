@@ -81,6 +81,7 @@ var current_state = null;  // this is a state dictionary
 
 // Call this whenever something happens to change the state of the page.
 function stateWasChanged() {
+  return;
   if (block_update) return;
   var old_state = current_state;
   current_state = currentState();
