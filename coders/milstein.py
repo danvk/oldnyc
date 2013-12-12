@@ -62,6 +62,8 @@ place_re = r'(.*? (?:%s))\.?, ((?:(?:%s), )?%s)' % (place_suffixes, staten_neigh
 ps_re = '((?:PS|P\.S\.|Public School) (?:#|No\. )?\d+\.?), ((?:(?:%s), )?%s)' % (staten_neighborhoods, boros)
 place_patterns = [place_re, ps_re]
 
+ps_cleanup_re = r'(?:PS|P\.S\.|Public School) (?:#|No\. )?(\d+)\.?'
+
 
 class MilsteinCoder:
   def __init__(self):
@@ -107,10 +109,11 @@ class MilsteinCoder:
       if m: break
     if m:
       place, city = m.groups()
+      place = re.sub(ps_cleanup_re, r'Public School \1', place)
       return {
           'address': '%s, %s' % (place, city),
           'source': loc,
-          'type': 'street_address'
+          'type': 'street_address'  # or 'point_of_interest' or 'establishment'
       }
 
     sys.stderr.write('(%s) Bad location: %s\n' % (r.photo_id(), loc));
