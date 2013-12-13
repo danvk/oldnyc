@@ -574,3 +574,13 @@ Sample command to view a record using the interactive console on the admin site:
 
 There are ~2000 geocoded images which have a neighborhood of 'None'. What up
 with that?
+
+
+What are the limits to geocoding?
+There are 43363 records. Of these, 7054 are missing location data.
+--> 36309 max
+--> I have 25657 / 36309 = 70%.
+
+For some, the geocodable data is in a different field, e.g. 723915f. This has “Wall Street” as its address, which is not locatable, but the “alternate title” field is “40 Wall Street, Bank of Manhattan Co.", which obviously is.
+
+

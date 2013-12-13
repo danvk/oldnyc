@@ -21,15 +21,28 @@
   
   <script type="text/javascript" src="url-state.js"></script>
   <script type="text/javascript" src="photo-info.js"></script>
+  <script type="text/javascript" src="social.js"></script>
   <script type="text/javascript" src="viewer.js"></script>
+
+  <meta property="fb:app_id" content="598168753565519"/>
 </head>
 
 <body onload="initialize_map()">
+  <div id="fb-root"></div>
+  <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=598168753565519";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));</script>
+
   <div id="header" class="streetview-hide">
-      <div id="twitter">
-        <a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="Old_SF">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
-      </div>
-      <div id="about"><a href="/about" target="_blank">About</a></div>
+    <div id="twitter">
+      <a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="Old_SF">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+    </div>
+    <div id="about"><a href="/about" target="_blank">About</a></div>
+
     <div id="logo">
     	<div class="wrapper">
       <a href="/">OldSF</a>
@@ -63,6 +76,7 @@
     <img class='expanded-image thumb' height=500 />
     <div class='description'></div>
     <a class='library-link'><i>via</i> NYPL</a>
+    <div class="comments">&hellip; comments</div>
   </li>
 
   <div style="position: absolute; left: -1000px;">

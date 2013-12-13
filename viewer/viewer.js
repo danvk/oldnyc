@@ -315,6 +315,8 @@ function buildHolder(photo_id, img_width, is_visible) {
 function showExpanded(photo_ids) {
   $('#expanded').hide();
 
+  var $commentsDeferred = getCommentCount(photo_ids);
+
   var selected_idx = 0;
   var selected_id = photo_ids[0];
   var expanded_images = $.map(photo_ids, function(photo_id, idx) {
@@ -332,6 +334,13 @@ function showExpanded(photo_ids) {
   $('#expanded-carousel ul')
     .empty()
     .append($(expanded_images).show());
+
+  // When the comment counts come back, place them in the DOM.
+  $commentsDeferred.done(function(photoIdToCount) {
+    for (var id in photoIdToCount) {
+      $('[photo_id=' + id + '] .comments').text(photoIdToCount[id]);
+    }
+  });
 
   $('#expanded-carousel')
     .jcarousel({
@@ -380,6 +389,11 @@ function fillPhotoPane(photo_id, $pane, opt_info) {
   var info = opt_info || infoForPhotoId(photo_id);
   $('.library-link', $pane).attr('href', info.library_url);
   $pane.attr('photo_id', photo_id);
+
+  // $('<fb:comments numPosts="5" colorscheme="light"/>')
+  //     .attr('href', getCanonicalUrlForPhoto(photo_id))
+  //     .appendTo($('.comments', $pane));
+  // FB.XFBML.parse($pane.get(0));
 }
 
 // From https://code.google.com/p/google-maps-extensions
