@@ -302,10 +302,20 @@ a{
   background-image: url('close-white-50.png');
 }
 
+#expanded .info-pane {
+  position: absolute;
+  right: 10px;
+  top: 80px;  /* #exit-slideshow.{top + height} + 15 */
+  bottom: 10px;
+  width: 200px;
+  background: hotpink;
+  z-index: 100;
+}
+
 #expanded-carousel {
   position: absolute;
   left: 0;
-  right: 0;
+  right: 210px;  /* .info-pane.{right + width} + 10 */
   top: 50%;
   margin-top: -300px;
   height: 700px;
@@ -360,7 +370,7 @@ a{
   border-left:50px solid #fff;
 }
 #next-link {
-  right: 40px;
+  right: 250px;  /* #expanded-carousel.right + 40 */
 }
 
 #prev-link {

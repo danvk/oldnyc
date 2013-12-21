@@ -18,7 +18,8 @@ function thumbnailImageUrl(photo_id) {
   if (isOldNycImage(photo_id)) {
     // return 'http://images.nypl.org/index.php?id=' + photo_id + '&t=r';
     // return 'http://dv.nyc:8000/' + photo_id + '.jpg';
-    return 'http://localhost:8001/thumb/' + photo_id + '.jpg';
+    // return 'http://localhost:8001/thumb/' + photo_id + '.jpg';
+    return 'http://192.168.1.7:8001/thumb/' + photo_id + '.jpg';
     // return 'http://localhost:8001/milstein-thumb/' + photo_id + '.jpg';
     // return 'https://s3.amazonaws.com/oldnyc/thumb/' + photo_id + '.jpg';
   } else {
@@ -27,9 +28,11 @@ function thumbnailImageUrl(photo_id) {
 }
 
 function expandedImageUrl(photo_id) {
+  return 'http://192.168.1.7:8001/600px/' + photo_id + '.jpg';
   if (isOldNycImage(photo_id)) {
     // return 'http://images.nypl.org/index.php?id=' + photo_id + '&t=w';
-    return 'http://localhost:8001/600px/' + photo_id + '.jpg';
+    // return 'http://localhost:8001/600px/' + photo_id + '.jpg';
+    return 'http://192.168.1.7:8001/600px/' + photo_id + '.jpg';
     // return 'http://localhost:8001/milstein-600/' + photo_id + '.jpg';
     // return 'https://s3.amazonaws.com/oldnyc/600px/' + photo_id + '.jpg';
   } else {
@@ -315,8 +318,6 @@ function buildHolder(photo_id, img_width, is_visible) {
 function showExpanded(photo_ids) {
   $('#expanded').hide();
 
-  var $commentsDeferred = getCommentCount(photo_ids);
-
   var selected_idx = 0;
   var selected_id = photo_ids[0];
   var expanded_images = $.map(photo_ids, function(photo_id, idx) {
@@ -334,13 +335,6 @@ function showExpanded(photo_ids) {
   $('#expanded-carousel ul')
     .empty()
     .append($(expanded_images).show());
-
-  // When the comment counts come back, place them in the DOM.
-  $commentsDeferred.done(function(photoIdToCount) {
-    for (var id in photoIdToCount) {
-      $('[photo_id=' + id + '] .comments').text(photoIdToCount[id]);
-    }
-  });
 
   $('#expanded-carousel')
     .jcarousel({
@@ -389,11 +383,15 @@ function fillPhotoPane(photo_id, $pane, opt_info) {
   var info = opt_info || infoForPhotoId(photo_id);
   $('.library-link', $pane).attr('href', info.library_url);
   $pane.attr('photo_id', photo_id);
+}
 
-  // $('<fb:comments numPosts="5" colorscheme="light"/>')
-  //     .attr('href', getCanonicalUrlForPhoto(photo_id))
-  //     .appendTo($('.comments', $pane));
-  // FB.XFBML.parse($pane.get(0));
+function currentCarouselItemChanged(el) {
+  var photo_id = $(el).attr('photo_id');
+  $('#side-description').text(photo_id);
+  $('#comments').empty().append(
+      $('<fb:comments width="200" numPosts="5" colorscheme="light"/>')
+          .attr('href', getCanonicalUrlForPhoto(photo_id)))
+  FB.XFBML.parse($('#comments').get(0));
 }
 
 // From https://code.google.com/p/google-maps-extensions
@@ -472,6 +470,7 @@ $(function() {
       // Show left/right arrows when appropriate.
       $('.arrow-left').toggle($(this).prev().is('li'));
       $('.arrow-right').toggle($(this).next().is('li'));
+      currentCarouselItemChanged(this);
       stateWasChanged();
     });
   $('#expanded-carousel').on('scroll.jcarousel', function(event, carousel, target, animate) {
