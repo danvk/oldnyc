@@ -28,13 +28,13 @@ function thumbnailImageUrl(photo_id) {
 }
 
 function expandedImageUrl(photo_id) {
-  return 'http://192.168.1.7:8001/600px/' + photo_id + '.jpg';
+  return 'https://s3.amazonaws.com/oldnyc/600px/' + photo_id + '.jpg';
+  // return 'http://192.168.1.7:8001/600px/' + photo_id + '.jpg';
   if (isOldNycImage(photo_id)) {
     // return 'http://images.nypl.org/index.php?id=' + photo_id + '&t=w';
     // return 'http://localhost:8001/600px/' + photo_id + '.jpg';
     return 'http://192.168.1.7:8001/600px/' + photo_id + '.jpg';
     // return 'http://localhost:8001/milstein-600/' + photo_id + '.jpg';
-    // return 'https://s3.amazonaws.com/oldnyc/600px/' + photo_id + '.jpg';
   } else {
     return 'http://s3-us-west-1.amazonaws.com/oldsf/images/' + photo_id + '.jpg'
   }
@@ -387,9 +387,13 @@ function fillPhotoPane(photo_id, $pane, opt_info) {
 
 function currentCarouselItemChanged(el) {
   var photo_id = $(el).attr('photo_id');
-  $('#side-description').text(photo_id);
+  var info = infoForPhotoId(photo_id);
+  $('#side-description').text(info.title);
+
+  var width = $('#comments').parent().width();
   $('#comments').empty().append(
-      $('<fb:comments width="200" numPosts="5" colorscheme="light"/>')
+      $('<fb:comments numPosts="5" colorscheme="light"/>')
+          .attr('width', width)
           .attr('href', getCanonicalUrlForPhoto(photo_id)))
   FB.XFBML.parse($('#comments').get(0));
 }
