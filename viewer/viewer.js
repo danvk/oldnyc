@@ -74,6 +74,17 @@ function displayInfoForLatLon(recs, marker, opt_callback) {
   });
 }
 
+function opacityForNumPhotos(num) {
+  if (num == 0) return 0.0;
+  if (num <= 20) return 0.2;
+  if (num <= 50) return 0.3;
+  if (num <= 100) return 0.4;
+  if (num <= 200) return 0.5;
+  if (num <= 500) return 0.6;
+  if (num <= 1000) return 0.7;
+  return 0.8;
+}
+
 // TODO(danvk): possible to just use the event?
 function makeCallback(lat_lon, marker) {
   return function(e) {
@@ -165,7 +176,7 @@ function initialize_map() {
       strokeOpacity: 1.0,
       strokeWeight: 2,
       fillColor: '#000000',
-      fillOpacity: 0.25
+      fillOpacity: opacityForNumPhotos(neighborhood_photos[neighborhood].length)
     });
 
     polygon.setMap(map);
