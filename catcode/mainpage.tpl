@@ -17,7 +17,9 @@
     }
 
     function initialize_map() {
-      var latlng = new google.maps.LatLng(37.77493, -122.419416);
+      // var latlng = new google.maps.LatLng(37.77493, -122.419416);
+      var latlng = new google.maps.LatLng(40.74421, -73.97370);
+
       var opts = {
         zoom: 13,
         center: latlng,
@@ -96,6 +98,11 @@
 </head>
 <body onload="initialize_map()">
   <p>Category: <b>{{ category }}</b></p>
+  <p>Examples<br/>
+  {% for example_url in examples %}
+    <a href="{{ example_url }}">{{forloop.counter}}</a>
+  {% endfor %}
+  </p>
   <div id="map" style="width: 800px; height: 500px;"></div>
   <div id="stats" style="position: absolute; left: 850px; top: 50px;">
   Total done: <b>{{ total_done }}</b>
