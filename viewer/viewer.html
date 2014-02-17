@@ -28,6 +28,12 @@
 </head>
 
 <body onload="initialize_map()">
+  <script>
+    var href = document.location.href;
+    if (href.indexof('appspot.com') >= 0 && href.indexOf('?ruhlruhlsecure') == -1) {
+      document.location.href = 'http://www.google.com';
+    }
+  </script>
   <div id="fb-root"></div>
   <script>(function(d, s, id) {
     var js, fjs = d.getElementsByTagName(s)[0];
