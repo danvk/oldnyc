@@ -77,7 +77,7 @@ islands = {
 # - Midland Beach, Staten Island, NY
 
 boros_re = '(?:New York|Manhattan|Brooklyn|Bronx|Queens|Staten Island)'
-park_re = r'^%s: ([A-Za-z ]+ Park) ' % boros_re
+park_re = r'^%s: ([A-Za-z ]+ Park)(?: |$)' % boros_re
 non_parks_re = r'Park (?:Avenue|West|East|North|South|Court|Place|Row|Terrace|Blvd|Boulevard)'
 
 class NycParkCoder:
@@ -86,11 +86,12 @@ class NycParkCoder:
 
   def codeRecord(self, r):
     if r.source() != 'Milstein Division': return None
+    title = re.sub(r'\.$', '', r.title())
 
-    m = re.search(park_re, r.title())
+    m = re.search(park_re, title)
     if m:
       park = m.group(1)
-      if not re.search(non_parks_re, r.title()):
+      if not re.search(non_parks_re, title):
         return {
             'address': park,
             'source': m.group(0),
