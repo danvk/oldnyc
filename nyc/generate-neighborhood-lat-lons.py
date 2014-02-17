@@ -24,7 +24,7 @@ for lat_lon, photos_list in lat_lons.iteritems():
   neighborhood = boroughs.PointToNeighborhood(lat, lon)
   if not neighborhood:
     if (lat, lon) not in previous_failures:
-      sys.stderr.write('  %d http://digitalgallery.nypl.org/nypldigital/id?%s\n' % (len(photos_list), photos_list[0][2]))
+      sys.stderr.write('  %d photos, e.g. http://digitalgallery.nypl.org/nypldigital/id?%s\n' % (len(photos_list), photos_list[0][2]))
       previous_failures.add((lat, lon))
     continue
 

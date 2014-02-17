@@ -59,7 +59,17 @@ Note that _both_ of these files JS are required. They're for zoomed-in and -out 
 
 The neighborhood polygons come from the OkCupid neighborhood mapping project, plus some "neighborhoods" I added to fill in gaps: https://mapsengine.google.com/map/edit?mid=zDeZKgCz5T0g.kjlr8d-9Cczk
 
-From that "My Map", export KML. This creates "City Island.kml".
+From that "My Map", export KML. This creates "City Island.kml", which you should copy to nyc/extra-neighborhoods.kml
+
+Run:
+
+./create-neighborhood-json.py
+
+to create nyc/neighborhood-polygons.json. Then run:
+
+./generate-neighborhood-lat-lons.py ../viewer/nyc-lat-lons.js > ../viewer/nyc-neighborhood-photos.js
+
+to regenerate the JS file used by the frontend (which contains both polygons & image data).
 
 ## Generate photos.pickle
 
