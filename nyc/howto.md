@@ -16,7 +16,8 @@ The images won't be correctly-sized or have metadata in the slideshow. To get th
 (takes ~10 minutes)
 
 Be sure to flush memcache on the development instance after you do this! To do
-so, visit http://localhost:8080/memcache
+so, visit http://localhost:8000/memcache.
+I also had to kill devappserver.py (Control-C) and restart it to see the data.
 
 
 ## Iterate on geocoding
