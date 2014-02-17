@@ -36,17 +36,21 @@ from Google Maps. If you want to do that, add --use_network:
 
 ./generate-geocodes.py --coders milstein --pickle_path nyc/records.pickle --output_format records.js --geocode --use_network > /tmp/records.json
 
+Geocoding is done based on the "Full Address" column of milstein.csv. You can see this by running:
+
+csvcut -c7,15 nyc/milstein.csv
 
 If you want to determine per-borough geocoding coverage, run
 ./nyc/coverage-by-borough /tmp/records.json
 
 
-## Regenerate geocodes for the viewer (nyc-lat-lons.js)
+## Regenerate geocodes for the viewer (nyc-neighborhood-photos.js)
 To get new geocodes into the frontend, you need to geocode photos.pickle. Do so
 with:
 
 ./generate-geocodes.py --coders milstein --pickle_path nyc/photos.pickle --output_format lat-lons.js --geocode > viewer/nyc-lat-lons.js
 
+...
 
 ## Generate photos.pickle
 
@@ -60,3 +64,13 @@ cd nyc
 ## Generate crops.txt
 ...
 
+
+## Generate records.pickle from CSV
+The original source for the data is a CSV file that Matt K gave me, milstein.csv.
+
+To convert this to a records.pickle file, run:
+
+cd nyc
+./csv-to-record.py
+
+This will read "mistein.csv" and create a "records.pickle" file in the nyc directory.
