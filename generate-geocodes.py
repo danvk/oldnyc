@@ -19,6 +19,7 @@ import cPickle
 # Import order here determines the order in which coders get a crack at each
 # record. We want to go in order from precise to imprecise.
 import coders.milstein
+import coders.nyc_parks
 import coders.sf_residences
 import coders.sf_streets
 import coders.free_streets
@@ -73,6 +74,9 @@ if __name__ == '__main__':
   if options.ok_coders != 'all':
     ok_coders = options.ok_coders.split(',')
     geocoders = [c for c in geocoders if c.name() in ok_coders]
+    if len(geocoders) != len(ok_coders):
+      sys.stderr.write('Coder mismatch: %s vs %s\n' % (options.ok_coders, ','.join([c.name() for c in geocoders])))
+      sys.exit(1)
 
   # TODO(danvk): does this belong here?
   lat_lon_map = {}
@@ -159,6 +163,9 @@ if __name__ == '__main__':
 
     located_recs.append(located_rec)
 
+  # Let each geocoder know we're done. This is useful for printing debug info.
+  for c in geocoders:
+    c.finalize()
 
   successes = 0
   for c in geocoders:

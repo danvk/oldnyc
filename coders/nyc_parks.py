@@ -3,6 +3,7 @@
 # Look for well-known NYC parks.
 
 
+from collections import defaultdict
 import fileinput
 import re
 import sys
@@ -16,31 +17,61 @@ import record
 
 
 parks = {
-  'Bronx: Bronx Park': (40.856389, -73.876667),
-  'Bronx: Claremont Park': (40.840546, -73.907469),
-  'Bronx: Crotona Park': (40.8388, -73.8952),
-  'Bronx: Fulton Park': None,
-  'Bronx: Morris Park Race Track': (40.85, -73.855556),
-  'Bronx: Poe Park': (40.865278, -73.894444),
-  'Bronx: Pulaski Park': (40.805239, -73.924409),
-  'Bronx: Starlight Park': (40.834176, -73.881968),
-  'Brooklyn: Highland Park': (40.688370, -73.887480),
-  'Brooklyn: Marine Park': (40.59804, -73.92083),
-  'Brooklyn: Prospect Park Plaza': (40.6743, -73.9702),
-  'Brooklyn: Prospect Park': (40.66143, -73.97035),  # BIG!
-  'Manhattan: Battery Park': (40.703717, -74.016094),
-  'Manhattan: Bryant Park': (40.753792, -73.983607),
-  'Manhattan: Central Park': (40.782865, -73.965355),  # BIG!
-  'Manhattan: Colonial Park': (40.824293, -73.942172),
-  'Manhattan: Cooper Park': (40.716014, -73.937268),
-  'Manhattan: Jefferson Park': (40.793366, -73.935247),
-  'Manhattan: Morningside Park': (40.805093, -73.959127),
-  'Manhattan: Riverside Park': (40.801234, -73.972310),
-  'Queens: Astoria Park': (40.775934, -73.925275),
-  'Queens: Baisley Park': (40.677778, -73.784722),
-  'Queens: Chisholm Park': (40.792833, -73.851857),
-  'Queens: Rainey Park': (40.766070, -73.940758),
-  'Richmond: Barrett Park': (40.6251, -74.1157)
+  'Bronx Park': (40.856389, -73.876667),
+  'Claremont Park': (40.840546, -73.907469),
+  'Crotona Park': (40.8388, -73.8952),
+  # 'Fulton Park': None,
+  'Morris Park Race Track': (40.85, -73.855556),
+  'Poe Park': (40.865278, -73.894444),
+  'Pulaski Park': (40.805239, -73.924409),
+  'Starlight Park': (40.834176, -73.881968),
+  'Highland Park': (40.688370, -73.887480),
+  'Marine Park': (40.59804, -73.92083),
+  'Prospect Park Plaza': (40.6743, -73.9702),
+  'Prospect Park': (40.66143, -73.97035),  # BIG!
+  'Battery Park': (40.703717, -74.016094),
+  'Bryant Park': (40.753792, -73.983607),
+  'Central Park': (40.782865, -73.965355),  # BIG!
+  'Colonial Park': (40.824293, -73.942172),
+  'Cooper Park': (40.716014, -73.937268),
+  'Jefferson Park': (40.793366, -73.935247),
+  'Morningside Park': (40.805093, -73.959127),
+  'Riverside Park': (40.801234, -73.972310),
+  'Astoria Park': (40.775934, -73.925275),
+  'Baisley Park': (40.677778, -73.784722),
+  'Chisholm Park': (40.792833, -73.851857),
+  'Rainey Park': (40.766070, -73.940758),
+  'Barrett Park': (40.6251, -74.1157),
+  'Flushing Meadow Park': (40.739714, -73.840785),
+  'City Hall Park': (40.713160, -74.006389),
+  'Pelham Bay Park': (40.861500, -73.797200),
+  'Van Cortlandt Park': (40.894709, -73.890918),
+  'Inwood Hill Park': (40.871542, -73.925695),
+  'Carl Schurz Park': (40.775130, -73.943697),
+  'Jacob Riis Park': (40.566623, -73.876081),
+  'High Bridge Park': (40.843104, -73.932910),
+  'Fort Tryon Park': (40.861619, -73.933622),
+  'Fort Greene Park': (40.690344, -73.973833),
+  'Morris Park': (40.852201, -73.850728),  # Neighborhood
+  'Fort Washington Park': (40.849475, -73.946673),
+  'Washington Square Park': (40.730823, -73.997332),
+  'Mount Morris Park': (40.804508, -73.944046),
+  'Union Square Park': (40.735708, -73.990442),
+  'Stuyvesant Square Park': (40.733611, -73.984000),
+  'Juniper Valley Park': (40.720101, -73.881488),
+  'Starlight Amusement Park': (40.834176, -73.881968),
+  'Seton Falls Park': (40.886753, -73.838231),
+  'Madison Square Park': (40.742216, -73.988036),
+  'Golden City Park': (40.629194, -73.883929),
+  'Golden City Amusement Park': (40.629194, -73.883929),
+  'Corlears Hook Park': (40.711697, -73.979697),
+  'College Point Park': (40.785778, -73.846501),
+  'Marine Park at Marine Park': (40.595700, -73.921198),
+  'Hamilton Fish Park': (40.720029, -73.981559),
+  'Garden City Amusement Park': (40.629194, -73.883929),
+  # 'Fulton Park': (),
+  'Fort Green Park': (40.690344, -73.973833),
+  'Canarsie Beach Park': (40.629194, -73.883929)
 }
 
 islands = {
@@ -69,6 +100,12 @@ islands = {
   'Welfare Island': (40.762161, -73.949964)
 }
 
+bridges = {
+}
+
+beaches = {
+}
+
 # Bridges
 # "East River - River scenes - View of Brooklyn Bridge and financial district from Manhattan Bridge"
 # "East River - River scenes - Brooklyn Bridge -Early shipping."
@@ -79,6 +116,8 @@ islands = {
 boros_re = '(?:New York|Manhattan|Brooklyn|Bronx|Queens|Staten Island)'
 park_re = r'^%s: ([A-Za-z ]+ Park)(?: |$)' % boros_re
 non_parks_re = r'Park (?:Avenue|West|East|North|South|Court|Place|Row|Terrace|Blvd|Boulevard)'
+
+missing_parks = defaultdict(int)
 
 class NycParkCoder:
   def __init__(self):
@@ -92,16 +131,40 @@ class NycParkCoder:
     if m:
       park = m.group(1)
       if not re.search(non_parks_re, title):
-        return {
-            'address': park,
-            'source': m.group(0),
-            'type': 'Point of Interest'
-        }
+        if park not in parks:
+          missing_parks[park] += 1
+        else:
+          latlon = parks[park]
+          return {
+              'address': '@%s,%s' % latlon,
+              'source': m.group(0),
+              'type': 'point_of_interest'
+          }
 
     return None
 
+  def _getLatLonFromGeocode(self, geocode, data):
+    for result in geocode['results']:
+      # data['type'] is something like 'address' or 'intersection'.
+      if data['type'] in result['types']:
+        loc = result['geometry']['location']
+        return (loc['lat'], loc['lng'])
+
   def getLatLonFromGeocode(self, geocode, data, r):
-    pass
+    latlon = self._getLatLonFromGeocode(geocode, data)
+    if not latlon:
+      return None
+    return latlon
+
+  def finalize(self):
+    vs = [(v, k) for k, v in missing_parks.iteritems()]
+    for v, k in reversed(sorted(vs)):
+      sys.stderr.write('%4d\t%s\n' % (v, k))
+
+  def name(self):
+    return 'nyc-parks'
+
+coders.registration.registerCoderClass(NycParkCoder)
 
 
 # For fast iteration

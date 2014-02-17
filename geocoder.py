@@ -6,6 +6,7 @@
 
 import base64
 import os
+import re
 import sys
 import time
 import json
@@ -16,6 +17,14 @@ CacheDir = "geocache"
 
 CacheDebug = False
 # CacheDebug = True
+
+# For lat/lon requests, where we can skip the geocoder.
+FakeResponse = """
+{ "results" : [ {
+   "geometry" : { "location" : { "lat" : %s, "lng" : %s } },
+   "types" : [ "point_of_interest" ]
+  } ], "status" : "OK" }
+"""
 
 
 def _cache_file(loc):
@@ -59,6 +68,12 @@ class Geocoder:
     f = urllib.URLopener().open(url)
     return f.read()
 
+  def _check_for_lat_lon(self, address):
+    """For addresses of the form "@(lat),(lon)", skip the geocoder."""
+    m = re.match(r'@([-0-9.]+),([-0-9.]+)$', address)
+    if m:
+      return FakeResponse % (m.group(1), m.group(2))
+
   def Locate(self, address, check_cache=True):
     """Returns a maps API JSON response for the address or None.
     
@@ -72,6 +87,8 @@ class Geocoder:
     if check_cache:
       data = self._check_cache(address)
       from_cache = data != None
+    if not data:
+      data = self._check_for_lat_lon(address)
     if not data:
       if not self._network_allowed:
         return None

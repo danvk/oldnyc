@@ -164,6 +164,8 @@ class MilsteinCoder:
     
     return (lat, lon)
 
+  def finalize(self):
+    pass
 
   def name(self):
     return 'milstein'
