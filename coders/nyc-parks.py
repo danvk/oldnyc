@@ -2,6 +2,19 @@
 #
 # Look for well-known NYC parks.
 
+
+import fileinput
+import re
+import sys
+import json
+
+if __name__ == '__main__':
+  sys.path += (sys.path[0] + '/..')
+
+import coders.registration
+import record
+
+
 parks = {
   'Bronx: Bronx Park': (40.856389, -73.876667),
   'Bronx: Claremont Park': (40.840546, -73.907469),
@@ -56,6 +69,39 @@ islands = {
   'Welfare Island': (40.762161, -73.949964)
 }
 
+# Bridges
+# "East River - River scenes - View of Brooklyn Bridge and financial district from Manhattan Bridge"
+# "East River - River scenes - Brooklyn Bridge -Early shipping."
+
+# Beaches
+# - Midland Beach, Staten Island, NY
+
+boros_re = '(?:New York|Manhattan|Brooklyn|Bronx|Queens|Staten Island)'
+park_re = r'^%s: ([A-Za-z ]+ Park) ' % boros_re
+non_parks_re = r'Park (?:Avenue|West|East|North|South|Court|Place|Row|Terrace)'
+
+class NycParkCoder:
+  def __init__(self):
+    pass
+
+  def codeRecord(self, r):
+    if r.source() != 'Milstein Division': return None
+
+    m = re.search(park_re, r.title())
+    if m:
+      park = m.group(1)
+      if not re.search(non_parks_re, park):
+        return {
+            'address': park,
+            'source': m.group(0),
+            'type': 'Point of Interest'
+        }
+
+    return None
+
+  def getLatLonFromGeocode(self, geocode, data, r):
+    pass
+
 
 # For fast iteration
 if __name__ == '__main__':
@@ -67,14 +113,14 @@ if __name__ == '__main__':
     if not addr: continue
     r.tabular = {
       'i': ['PHOTO_ID'],
-      'l': [addr],
-      'a': ['Milstein Division']
+      'a': ['Milstein Division'],
+      't': [addr]
     }
     result = coder.codeRecord(r)
 
-    print '"%s" -> %s' % (addr, result)
     if result:
       num_ok += 1
+      print '"%s" -> %s' % (addr, result)
     else:
       num_bad += 1
 
