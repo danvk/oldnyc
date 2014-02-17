@@ -12,7 +12,7 @@ Then visit http://localhost:8080/
 You can iterate on JS, HTML & CSS as you usually would.
 The images won't be correctly-sized or have metadata in the slideshow. To get this to work, run:
 
-./upload_to_appengine.py --pickle_path nyc/photos.pickle --lat_lons_js_path viewer/nyc-lat-lons.js --image_sizes_path nyc-image-sizes.txt
+./upload_to_appengine.py --pickle_path nyc/photos.pickle --image_sizes_path nyc-image-sizes.txt
 (takes ~10 minutes)
 
 Be sure to flush memcache on the development instance after you do this! To do
@@ -34,7 +34,7 @@ This is out of 43363 total records in the Milstein collection.
 By default, this only uses the local "geocache"--it doesn't fetch any geocodes
 from Google Maps. If you want to do that, add --use_network:
 
-./generate-geocodes.py --coders milstein --pickle_path nyc/records.pickle --output_format records.js --geocode --use_network > /tmp/records.json
+./generate-geocodes.py --coders milstein,nyc-parks --pickle_path nyc/records.pickle --output_format records.js --geocode --use_network > /tmp/records.json
 
 Geocoding is done based on the "Full Address" column of milstein.csv. You can see this by running:
 
@@ -48,9 +48,18 @@ If you want to determine per-borough geocoding coverage, run
 To get new geocodes into the frontend, you need to geocode photos.pickle. Do so
 with:
 
-./generate-geocodes.py --coders milstein --pickle_path nyc/photos.pickle --output_format lat-lons.js --geocode > viewer/nyc-lat-lons.js
+./generate-geocodes.py --coders milstein,nyc-parks --pickle_path nyc/photos.pickle --output_format lat-lons.js --geocode > viewer/nyc-lat-lons.js
 
-...
+cd nyc
+./generate-neighborhood-lat-lons.py ../viewer/nyc-lat-lons.js > ../viewer/nyc-neighborhood-photos.js
+
+Note that _both_ of these files JS are required. They're for zoomed-in and -out views respectively.
+
+## Update neighborhoods
+
+The neighborhood polygons come from the OkCupid neighborhood mapping project, plus some "neighborhoods" I added to fill in gaps: https://mapsengine.google.com/map/edit?mid=zDeZKgCz5T0g.kjlr8d-9Cczk
+
+From that "My Map", export KML. This creates "City Island.kml".
 
 ## Generate photos.pickle
 

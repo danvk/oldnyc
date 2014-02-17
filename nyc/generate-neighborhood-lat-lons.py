@@ -16,11 +16,16 @@ json_data = file(sys.argv[1]).read().replace('var lat_lons = ', '').replace('};'
 lat_lons = json.loads(json_data)
 
 neighborhood_to_photos = defaultdict(list)
+previous_failures = set()
+
 count = 0
 for lat_lon, photos_list in lat_lons.iteritems():
   lat, lon = [float(x) for x in lat_lon.split(',')]
   neighborhood = boroughs.PointToNeighborhood(lat, lon)
   if not neighborhood:
+    if (lat, lon) not in previous_failures:
+      sys.stderr.write('  %d http://digitalgallery.nypl.org/nypldigital/id?%s\n' % (len(photos_list), photos_list[0][2]))
+      previous_failures.add((lat, lon))
     continue
 
   neighborhood_to_photos[neighborhood].extend(photos_list)
