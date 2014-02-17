@@ -78,7 +78,7 @@ islands = {
 
 boros_re = '(?:New York|Manhattan|Brooklyn|Bronx|Queens|Staten Island)'
 park_re = r'^%s: ([A-Za-z ]+ Park) ' % boros_re
-non_parks_re = r'Park (?:Avenue|West|East|North|South|Court|Place|Row|Terrace)'
+non_parks_re = r'Park (?:Avenue|West|East|North|South|Court|Place|Row|Terrace|Blvd|Boulevard)'
 
 class NycParkCoder:
   def __init__(self):
@@ -90,7 +90,7 @@ class NycParkCoder:
     m = re.search(park_re, r.title())
     if m:
       park = m.group(1)
-      if not re.search(non_parks_re, park):
+      if not re.search(non_parks_re, r.title()):
         return {
             'address': park,
             'source': m.group(0),
