@@ -30,7 +30,7 @@
 <body onload="initialize_map()">
   <script>
     var href = document.location.href;
-    if (href.indexof('appspot.com') >= 0 && href.indexOf('?ruhlruhlsecure') == -1) {
+    if (href.indexOf('appspot.com') >= 0 && href.indexOf('?ruhlruhlsecure') == -1) {
       document.location.href = 'http://www.google.com';
     }
   </script>
@@ -64,6 +64,14 @@
   <div id="map"></div>
 
   <div id="feedback"><a href="/feedback">Send feedback</a></div>
+
+  <!-- Popular Photos -->
+  <div id="popular">
+    <h2>Popular Photos</h2>
+    <img class="popular-image" src="https://s3.amazonaws.com/oldnyc/thumb/708760f-a.jpg" width=161 height=200 />
+    <img class="popular-image" src="https://s3.amazonaws.com/oldnyc/thumb/1508783-a.jpg" width=200 height=157 />
+    <img class="popular-image" src="https://s3.amazonaws.com/oldnyc/thumb/708795f-a.jpg" width=200 height=145 />
+  </div>
 
   <!-- Expanded Image Slideshow -->
   <div style="display:none;" id="expanded">

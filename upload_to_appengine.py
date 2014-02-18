@@ -32,7 +32,7 @@ parser.add_option('', '--image_sizes_path', default='', dest='image_sizes_path',
 parser.add_option('', '--upload_url', dest='upload_url',
                   default='http://localhost:8080/upload',
                   help='Upload endpoint. Default is local dev_appserver.')
-parser.add_option('', '--start_chunk', default=0, dest='start_chunk',
+parser.add_option('', '--start_chunk', default=0, dest='start_chunk', type=int,
                   help='Which chunk to start with. Used to resume uploads.')
 
 (options, args) = parser.parse_args()

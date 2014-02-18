@@ -20,6 +20,14 @@ so, visit http://localhost:8000/memcache.
 I also had to kill devappserver.py (Control-C) and restart it to see the data.
 
 
+## Push a new version to App Engine
+
+Change "version" in viewer/app.yaml to match today's date. Then, from the "viewer directory" run:
+
+appcfg.py --email danvdk@gmail.com update .
+
+Visit appengine.google.com and make the new version the default.
+
 ## Iterate on geocoding
 It's easiest to do this by iterating on the records.pickle file, which has one
 entry per milstein card, rather than one entry per photo.
