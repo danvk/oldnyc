@@ -1,0 +1,32 @@
+<h3>Is this image awesome?</h3>
+
+<style>
+</style>
+
+<img src="https://s3.amazonaws.com/oldnyc/600px/${photo_id}.jpg" />
+<p>${title} <a href="${url}" target="_blank">NYPL</a></p>
+
+<p>
+  <input type="submit" name="judgment" value="Great" />
+  <input type="submit" name="judgment" value="Meh" />
+</p>
+
+<input type="text" size=100 name="notes" />
+
+<!--
+
+Generate tasks via:
+
+$ python
+>>> import record
+>>> rs = record.AllRecords(path="nyc/photos.pickle")
+Loaded 55804 records
+
+>>> import csv
+>>> writer = csv.writer(open('/tmp/tasks.csv', 'wb'))
+>>> writer.writerow(['photo_id', 'title', 'url'])
+>>> for i in range(0, 1000):
+...   r = rs[i]
+...   writer.writerow([r.photo_id(), r.title(), r.preferred_url])
+
+-->
