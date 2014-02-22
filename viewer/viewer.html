@@ -28,12 +28,6 @@
 </head>
 
 <body onload="initialize_map()">
-  <script>
-    var href = document.location.href;
-    if (href.indexOf('appspot.com') >= 0 && href.indexOf('?ruhlruhlsecure') == -1) {
-      document.location.href = 'http://www.google.com';
-    }
-  </script>
   <div id="fb-root"></div>
   <script>(function(d, s, id) {
     var js, fjs = d.getElementsByTagName(s)[0];
@@ -68,9 +62,21 @@
   <!-- Popular Photos -->
   <div id="popular">
     <h2>Popular Photos</h2>
+    <!--
     <img class="popular-image" src="https://s3.amazonaws.com/oldnyc/thumb/708760f-a.jpg" width=161 height=200 />
-    <img class="popular-image" src="https://s3.amazonaws.com/oldnyc/thumb/1508783-a.jpg" width=200 height=157 />
-    <img class="popular-image" src="https://s3.amazonaws.com/oldnyc/thumb/708795f-a.jpg" width=200 height=145 />
+    -->
+    <div class="popular-photo">
+      <a href="/#708795f-a"><img class="popular-image" src="https://s3.amazonaws.com/oldnyc/600px/708795f-a.jpg" width=200 height=145 /></a>
+      <p>Early motor-drawn bus / 5th &amp; 42nd / 1912</p>
+    </div>
+    <div class="popular-photo">
+      <a href="/#1508783-a"><img class="popular-image" src="https://s3.amazonaws.com/oldnyc/600px/1508783-a.jpg" width=200 height=157 /></a>
+      <p>Trolley car conductor / 5th &amp; 42nd / 1936</p>
+    </div>
+    <div class="popular-photo">
+      <a href="/#709480f-a"><img class="popular-image" src="https://s3.amazonaws.com/oldnyc/600px/709480f-a.jpg" width=200 height=159 /></a>
+      <p>Demolition of the "El" / 6th &amp; 42nd / 1939</p>
+    </div>
   </div>
 
   <!-- Expanded Image Slideshow -->

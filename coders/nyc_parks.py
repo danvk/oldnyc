@@ -74,33 +74,128 @@ parks = {
   'Canarsie Beach Park': (40.629194, -73.883929)
 }
 
+central_park = {
+  'The Pond': (40.766014, -73.974004),
+  'Pond in winter': (40.766014, -73.974004),
+  'The Lake': (40.776223, -73.973085),
+  'Reservoirs - Lower reservoir': (40.781289, -73.966664),
+  'Reservoirs - Upper reservoir': (40.785719, -73.963902),
+  # 'Pathways': (),
+  'The Mall': (40.772352, -73.971590),
+  # 'Playgrounds': (),
+  # 'Transverse roads': (),
+  # 'Miscellaneous': (),
+  'Bridal path': (42.756451, -78.736008),
+  '[View of the Arsenal Building]': (40.767618, -73.971311),
+  # 'The Seal Pool': (),
+  'The Obelisk': (40.779638, -73.965400),
+  'Transportation of the Obelisk': (40.779638, -73.965400),
+  'Terrace Fountain and the Lake': (40.753982, -73.984127),
+  # 'looking west from Fifth Avenue apartment': (),
+  # 'Sailboat pond': (),
+  # 'Rustic Arbor': (),
+  'Harlem Mere': (40.796464, -73.951596),
+  # 'West Drive': (),
+  # 'The Sailboat Pool': (),
+  # 'Drives': (),
+  # 'Cliffs': (),
+}
+
+
 islands = {
   'Barren Island': (40.592778, -73.893056),
+  'Barren': (40.592778, -73.893056),
   'Bedloe\'s Island': (40.690050, -74.045068),
   'City Island': (40.846820, -73.787498),
+  'City': (40.846820, -73.787498),
   'Coney Island beach': (40.572130, -73.979330),
   'Coney Island pier': (40.571413, -73.983822),
   'Coney Island': (40.574926, -73.985941),
+  'Coney': (40.574926, -73.985941),
   'Ellis Island': (40.699472, -74.039560),
+  'Ellis': (40.699472, -74.039560),
   'Governor\'s Island': (40.689450, -74.016792),
   'Governors Island': (40.689450, -74.016792),
+  'Governors': (40.689450, -74.016792),
   'Hart\'s Island': (40.853627, -73.770585),
   'High Island': (40.859525, -73.785639),
   'Hoffman Island': (40.578873, -74.053688),
+  'Hoffman': (40.578873, -74.053688),
   'Hunter Island': (40.875028, -73.790219),
+  'Hunter': (40.875028, -73.790219),
   'North Brother Island': (40.800720, -73.898137),
   'North Brothers Island': (40.800720, -73.898137),
+  'North Brothers': (40.800720, -73.898137),
+  'North Brother': (40.800720, -73.898137),
   'Plumb Island': (40.584722, -73.915000),
   'Randall\'s Island': (40.793227, -73.921286),
   'Randalls Island': (40.793227, -73.921286),
   'Rikers Island': (40.793128, -73.886010),
   'Shooters Island': (40.643333, -74.159722),
   'South Brother Island': (40.796402, -73.898137),
+  'South Brother': (40.796402, -73.898137),
   'Ward\'s Island': (40.793227, -73.921286),
-  'Welfare Island': (40.762161, -73.949964)
+  'Welfare Island': (40.762161, -73.949964),
+  'Welfare': (40.762161, -73.949964)
 }
 
 bridges = {
+  'Brooklyn Bridge': (40.706096, -73.996823),
+  'Triborough Bridge': (40.788232, -73.927871),
+  'triborough Bridge': (40.788232, -73.927871),
+  'Triborough Bridge and': (40.788232, -73.927871),
+  'Queensboro Bridge': (40.756732, -73.954224),
+  'Queensborough Bridge': (40.756732, -73.954224),
+  'Manhattan Bridge': (40.707471, -73.990774),
+  'George Washington Bridge': (40.850425, -73.945942),
+  'Washington Bridge': (40.846944, -73.928056),
+  'Hell Gate Bridge': (40.782596, -73.921913),
+  'Williamsburg Bridge': (40.713690, -73.972616),
+  'Harlem River Bridges': (40.815139, -73.933096),
+  'Bayonne Bridge': (40.639706, -74.142963),
+  'Kill Van Kull Bridge': (40.639706, -74.142963),
+  'High Bridge': (40.842308, -73.930277),
+  'Penny Bridge': (40.72777, -73.9292),
+  'Washington Bridge over Harlem River': (40.846944, -73.928056),
+  'Verrazano Narrows Bridge': (40.606589, -74.044648),
+  'Triborough and Hell Gate Bridge': (40.788232, -73.927871),
+  'Northern Boulevard Bridge': (40.763428, -73.751743),
+  'Marine Parkway Bridge': (40.573697, -73.885145),
+  'Lemon Creek Bridge': (40.521727, -74.202524),
+  'Kosciusko Bridge': (40.72777, -73.9292),
+  'Henry Hudson Bridge': (40.877713, -73.922302),
+  'Gowanus Canal Bridge': (40.674106, -73.996503),
+  'Ninth Street drawbridge Bridge': (40.674106, -73.996503),
+  'Vernon Boulevard Bridge': (40.760673, -73.943330),
+  'Triborough and Hell Gate Bridges': (40.788232, -73.927871),
+  'Henry Hudson Memorial Bridge': (40.877713, -73.922302),
+  'Goethals Bridge': (40.635381, -74.195978),
+#   2	'Flushing Creek Bridge': (),
+#   2	'City Island Bridge': (),
+#   2	'Broadway Bridge': (),
+#   2	'Bridge over Coney Island': ()
+#   1	Throgs Neck Bridge
+#   1	Strongs Causeway Bridge
+#   1	Pelham Bridge
+#   1	Outerbridge Crossing site Bridge
+#   1	Outerbridge Crossing Bridge
+#   1	New York and Putnam Railroad Bridge
+#   1	New York Central Railroad Bridge
+#   1	Metropolitan Avenue Bridge
+#   1	Madison Avenue Bridge
+#   1	Kosciusko Bridge over Newtown Creek in
+#   1	Kings Bridge
+#   1	Hells Gate Bridge
+#   1	Hell Gate and Triborough Bridge
+#   1	Harlem River Bridge
+#   1	Flushing River Bridge
+#   1	Farmers Bridge
+#   1	East River Bridge
+#   1	Cross Bay Veterans Memorial Bridge
+#   1	Cross Bay Boulevard Bridge
+#   1	Brroklyn Bridge
+#   1	Brooklyn and Manhattan Bridges over East
+#   1	Baltimore and Ohio Railroad Bridge
 }
 
 beaches = {
@@ -117,7 +212,12 @@ boros_re = '(?:New York|Manhattan|Brooklyn|Bronx|Queens|Staten Island)'
 park_re = r'^%s: ([A-Za-z ]+ Park)(?: |$)' % boros_re
 non_parks_re = r'Park (?:Avenue|West|East|North|South|Court|Place|Row|Terrace|Blvd|Boulevard)'
 
+island_re = r'^Islands - ([A-Za-z ]+) '
+bridge_re = r'^Bridges - ([A-Za-z ]+) '
+
 missing_parks = defaultdict(int)
+missing_islands = defaultdict(int)
+missing_bridges = defaultdict(int)
 
 class NycParkCoder:
   def __init__(self):
@@ -134,12 +234,46 @@ class NycParkCoder:
         if park not in parks:
           missing_parks[park] += 1
         else:
-          latlon = parks[park]
+          latlon = None
+          if park == 'Central Park':
+            for place in central_park:
+              if ('Central Park - %s' % place) in title:
+                latlon = central_park[place]
+          if not latlon:
+            latlon = parks[park]
           return {
               'address': '@%s,%s' % latlon,
               'source': m.group(0),
               'type': 'point_of_interest'
           }
+    
+    m = re.search(island_re, title)
+    if m:
+      island = m.group(1)
+      if island not in islands:
+        missing_islands[island] += 1
+      else:
+        latlon = islands[island]
+        return {
+            'address': '@%s,%s' % latlon,
+            'source': m.group(0),
+            'type': 'point_of_interest'
+        }
+
+    m = re.search(bridge_re, title)
+    if m:
+      bridge = m.group(1)
+      if not 'Bridge' in bridge or 'bridge' in bridge:
+        bridge += ' Bridge'
+      if bridge not in bridges:
+        missing_bridges[bridge] += 1
+      else:
+        latlon = bridges[bridge]
+        return {
+            'address': '@%s,%s' % latlon,
+            'source': m.group(0),
+            'type': 'point_of_interest'
+        }
 
     return None
 
@@ -157,9 +291,10 @@ class NycParkCoder:
     return latlon
 
   def finalize(self):
-    vs = [(v, k) for k, v in missing_parks.iteritems()]
-    for v, k in reversed(sorted(vs)):
-      sys.stderr.write('%4d\t%s\n' % (v, k))
+    for missing in [missing_parks, missing_islands, missing_bridges]:
+      vs = [(v, k) for k, v in missing.iteritems()]
+      for v, k in reversed(sorted(vs)):
+        sys.stderr.write('%4d\t%s\n' % (v, k))
 
   def name(self):
     return 'nyc-parks'
@@ -187,6 +322,8 @@ if __name__ == '__main__':
       print '"%s" -> %s' % (addr, result)
     else:
       num_bad += 1
+
+  coder.finalize()
 
   sys.stderr.write('Parsed %d / %d = %.4f records\n' % (
     num_ok, num_ok + num_bad, 1. * num_ok / (num_ok + num_bad)))
