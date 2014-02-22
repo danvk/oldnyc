@@ -85,7 +85,7 @@ central_park = {
   # 'Playgrounds': (),
   # 'Transverse roads': (),
   # 'Miscellaneous': (),
-  'Bridal path': (42.756451, -78.736008),
+  'Bridal path': (40.796840, -73.957826),
   '[View of the Arsenal Building]': (40.767618, -73.971311),
   # 'The Seal Pool': (),
   'The Obelisk': (40.779638, -73.965400),

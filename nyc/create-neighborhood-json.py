@@ -20,9 +20,10 @@ def ReadKmlFile(path):
     lon_lats = [(xyz[0], xyz[1]) for xyz in xyzs]
     center_lon, center_lat, _ = shape_utils.CenterOfMass(lon_lats)
     boro = boroughs.PointToBorough(center_lat, center_lon)
-    assert boro
+    # assert boro
     # Distinguish "Chelsea, Manhattan" from "Chelsea, Staten Island".
-    neighborhood = '%s, %s' % (neighborhood, boro)
+    if boro:
+      neighborhood = '%s, %s' % (neighborhood, boro)
     neighborhood_to_coords[neighborhood] = lon_lats
 
   return neighborhood_to_coords
@@ -31,8 +32,11 @@ def ReadKmlFile(path):
 okc = ReadKmlFile('nyc-neighborhoods.xml')
 custom = ReadKmlFile('extra-neighborhoods.kml')
 
+del okc["Randall's Island, Manhattan"]
+del okc["Roosevelt Island, Manhattan"]
+
 overlap = set(okc.keys()).intersection(set(custom.keys()))
-assert len(overlap) == 0
+assert len(overlap) == 0, ', '.join(overlap)
 
 neighborhood_to_coords = {}
 neighborhood_to_coords.update(okc)
