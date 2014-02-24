@@ -9,6 +9,16 @@
 var recs = {"712208f-a": {"height": 489, "date": "1939", "width": 600, "folder": "35th Street (East) & 1st Avenue, Manhattan, NY", "library_url": "http://digitalgallery.nypl.org/nypldigital/id?712208f", "title": "Manhattan: 35th Street (East) - 1st Avenue"}, "1508659": {"height": 369, "date": "", "width": 600, "folder": "First Avenue / 35th Street, Manhattan, NY", "library_url": "http://digitalgallery.nypl.org/nypldigital/id?1508659", "title": "First Avenue - 35th Street"}, "723097f-b": {"height": 600, "date": "1934;   \t\t\t\t\t\t\t  \t\t\t\t\t\t\t\t1936", "width": 398, "folder": "1st Avenue & 35th Street (East), Manhattan, NY", "library_url": "http://digitalgallery.nypl.org/nypldigital/id?723097f", "title": "Manhattan: 1st Avenue - 35th Street (East)"}, "712209f-a": {"height": 490, "date": "1939", "width": 600, "folder": "35th Street (East) & 1st Avenue, Manhattan, NY", "library_url": "http://digitalgallery.nypl.org/nypldigital/id?712209f", "title": "Manhattan: 35th Street (East) - 1st Avenue"}, "723097f-a": {"height": 600, "date": "1934;   \t\t\t\t\t\t\t  \t\t\t\t\t\t\t\t1936", "width": 402, "folder": "1st Avenue & 35th Street (East), Manhattan, NY", "library_url": "http://digitalgallery.nypl.org/nypldigital/id?723097f", "title": "Manhattan: 1st Avenue - 35th Street (East)"}, "707579f-a": {"height": 491, "date": "1939", "width": 600, "folder": "1st Ave. & 35th St. E., Manhattan, NY", "library_url": "http://digitalgallery.nypl.org/nypldigital/id?707579f", "title": "Manhattan: 1st Ave. - 35th St. E."}, "707577f-a": {"height": 490, "date": "1939", "width": 600, "folder": "1st Ave. & 35th St. E., Manhattan, NY", "library_url": "http://digitalgallery.nypl.org/nypldigital/id?707577f", "title": "Manhattan: 1st Ave. - 35th St. E."}, "707578f-a": {"height": 403, "date": "1931;   \t\t\t\t\t\t\t  \t\t\t\t\t\t\t\t1936", "width": 600, "folder": "1st Ave. & 35th St. E., Manhattan, NY", "library_url": "http://digitalgallery.nypl.org/nypldigital/id?707578f", "title": "Manhattan: 1st Ave. - 35th St. E."}, "707578f-b": {"height": 404, "date": "1931;   \t\t\t\t\t\t\t  \t\t\t\t\t\t\t\t1936", "width": 600, "folder": "1st Ave. & 35th St. E., Manhattan, NY", "library_url": "http://digitalgallery.nypl.org/nypldigital/id?707578f", "title": "Manhattan: 1st Ave. - 35th St. E."}, "707578f-c": {"height": 402, "date": "1931;   \t\t\t\t\t\t\t  \t\t\t\t\t\t\t\t1936", "width": 600, "folder": "1st Ave. & 35th St. E., Manhattan, NY", "library_url": "http://digitalgallery.nypl.org/nypldigital/id?707578f", "title": "Manhattan: 1st Ave. - 35th St. E."}, "712210f-a": {"height": 600, "date": "", "width": 395, "folder": "35th Street (East) & 1st Avenue, Manhattan, NY", "library_url": "http://digitalgallery.nypl.org/nypldigital/id?712210f", "title": "Manhattan: 35th Street (East) - 1st Avenue"}, "707580f-b": {"height": 600, "date": "1930;   \t\t\t\t\t\t\t  \t\t\t\t\t\t\t\t1931", "width": 397, "folder": "1st Ave. & 35th St. E., Manhattan, NY", "library_url": "http://digitalgallery.nypl.org/nypldigital/id?707580f", "title": "Manhattan: 1st Ave. - 35th St. E."}, "707580f-a": {"height": 600, "date": "1930;   \t\t\t\t\t\t\t  \t\t\t\t\t\t\t\t1931", "width": 402, "folder": "1st Ave. & 35th St. E., Manhattan, NY", "library_url": "http://digitalgallery.nypl.org/nypldigital/id?707580f", "title": "Manhattan: 1st Ave. - 35th St. E."}, "707575f": {"height": 388, "date": "1939", "width": 600, "folder": "1st Ave. & 35th St. E., Manhattan, NY", "library_url": "http://digitalgallery.nypl.org/nypldigital/id?707575f", "title": "Manhattan: 1st Ave. - 35th St. E."}, "723095f-a": {"height": 404, "date": "1931", "width": 600, "folder": "1st Avenue & 35th Street (East), Manhattan, NY", "library_url": "http://digitalgallery.nypl.org/nypldigital/id?723095f", "title": "Manhattan: 1st Avenue - 35th Street (East)"}};
   </script>
   <style>
+*,
+*:after,
+*:before {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+
 .og-grid {
 	list-style: none;
 	padding: 20px 0;
@@ -21,7 +31,7 @@ var recs = {"712208f-a": {"height": 489, "date": "1939", "width": 600, "folder":
 	display: inline-block;
 	margin: 10px 5px 0 5px;
 	vertical-align: top;
-	height: 250px;
+	height: 200px;
 }
 
 .og-grid li > a,
@@ -209,12 +219,12 @@ var recs = {"712208f-a": {"height": 489, "date": "1939", "width": 600, "folder":
 <body>
   <div class="main">
     <ul id="og-grid" class="og-grid">
-      <li id="og-template" style="display:none" class="og-grid-item">
-        <a href="http://danvk.org" data-largesrc="" data-title="Title" data-description="Description">
-          <img src="" alt="blah" />
-        </a>
-      </li>
     </ul>
+    <li id="og-template" style="display:none" class="og-grid-item">
+      <a href="http://danvk.org" data-largesrc="" data-title="Title" data-description="Description">
+        <img src="" alt="blah" />
+      </a>
+    </li>
   </div>
 
   <script type="text/javascript">
@@ -232,17 +242,53 @@ var recs = {"712208f-a": {"height": 489, "date": "1939", "width": 600, "folder":
       };
     }
 
+    var rowHeight = 200;
+    var imageMargin = 12;
+
+    // Returns an array of { height: XXX, infos: [] }
+    // Each entry in info should have a height/width.
+    function partitionIntoRows(infos, containerWidth) {
+      var rows = [];
+      var currentRow = [];
+      for (var i = 0; i < infos.length; i++) {
+        currentRow.push(infos[i]);
+        var denom = 0;
+        for (var j = 0; j < currentRow.length; j++) {
+          var info = currentRow[j];
+          denom += info.width / info.height;
+        }
+        var height = (containerWidth - imageMargin * currentRow.length) / denom;
+        if (height < rowHeight) {
+          rows.push({ height: height, infos: currentRow });
+          currentRow = [];
+        }
+      }
+      if (currentRow.length > 0) {
+        rows.push({ height: rowHeight, infos: currentRow });
+      }
+      return rows;
+    }
+
     $(function() {
-      var lis = $.map(recs, function(info, id) {
-        var $li = $('#og-template').clone().removeAttr('id');
-        var size = thumbSize(info);
-        $li.find('img').attr({
-          'src': thumbUrl(id),
-          'width': size.width,
-          'height': size.height
+      var infos = $.map(recs, function(info, id) { info.id = id; return info });
+      var rows = partitionIntoRows(infos, $('#og-grid').width());
+
+      var lis = [];
+      $.each(rows, function(_, row) {
+        var height = Math.round(row.height);
+        $.each(row.infos, function(_, info) {
+          var $li = $('#og-template').clone().removeAttr('id');
+          var id = info.id;
+          var size = thumbSize(info);
+          $li.find('img').attr({
+            'src': thumbUrl(id),
+            'width': Math.floor(size.width * (height / size.height)),
+            'height': height
+          });
+          $li.find('a').attr('data-largesrc', imageUrl(id));
+          lis.push($li.get(0));
         });
-        $li.find('a').attr('data-largesrc', imageUrl(id));
-        return $li.get(0);
+        // line wrap happens naturally here.
       });
       $('#og-grid').append(lis);
       $(lis).show();

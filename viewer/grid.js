@@ -367,6 +367,7 @@ var Grid = (function() {
 			}
 			
 			// if already expanded remove class "og-expanded" from current item and add it to new item
+      // $('.og-grid li').removeClass('og-expanded');
 			if( current !== -1 ) {
 				var $currentItem = $items.eq( current );
 				$currentItem.removeClass( 'og-expanded' );
@@ -427,9 +428,7 @@ var Grid = (function() {
 
 			var self = this,
 				onEndFn = function() {
-					if( support ) {
-						$( this ).off( transEndEventName );
-					}
+          console.log('close.onEndFn');
 					self.$item.removeClass( 'og-expanded' );
 					self.$previewEl.remove();
 				};
@@ -442,7 +441,8 @@ var Grid = (function() {
 				this.$previewEl.css( 'height', 0 );
 				// the current expanded item (might be different from this.$item)
 				var $expandedItem = $items.eq( this.expandedIdx );
-				$expandedItem.css( 'height', $expandedItem.data( 'height' ) ).on( transEndEventName, onEndFn );
+        console.log('adding ', transEndEventName, ' handler to ', $expandedItem);
+				$expandedItem.css( 'height', $expandedItem.data( 'height' ) ).one( transEndEventName, onEndFn );
 
 				if( !support ) {
 					onEndFn.call();
@@ -471,15 +471,12 @@ var Grid = (function() {
 
 			var self = this,
 				onEndFn = function() {
-					if( support ) {
-						self.$item.off( transEndEventName );
-					}
 					self.$item.addClass( 'og-expanded' );
 				};
 
 			this.calcHeight();
 			this.$previewEl.css( 'height', this.height );
-			this.$item.css( 'height', this.itemHeight ).on( transEndEventName, onEndFn );
+			this.$item.css( 'height', this.itemHeight ).one( transEndEventName, onEndFn );
 
 			if( !support ) {
 				onEndFn.call();
