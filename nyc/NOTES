@@ -584,3 +584,9 @@ There are 43363 records. Of these, 7054 are missing location data.
 For some, the geocodable data is in a different field, e.g. 723915f. This has “Wall Street” as its address, which is not locatable, but the “alternate title” field is “40 Wall Street, Bank of Manhattan Co.", which obviously is.
 
 
+2/23/2014
+References for doing an image grid layout/UI like Google Image Search:
+http://stackoverflow.com/questions/16767195/ui-similar-to-google-image-search
+http://blog.vjeux.com/2012/image/image-layout-algorithm-google-plus.html
+http://tympanus.net/codrops/2013/03/19/thumbnail-grid-with-expanding-preview/
+http://tympanus.net/Tutorials/ThumbnailGridExpandingPreview/

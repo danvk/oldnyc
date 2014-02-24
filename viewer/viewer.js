@@ -308,16 +308,17 @@ function collapseNeighborhood(neighborhood) {
 
 // This creates the holder "pane" for an expanded image.
 // The expanded image slideshow consists of many of these.
-function buildHolder(photo_id, img_width, is_visible) {
+function buildHolder(photo_id, is_visible) {
   var info = infoForPhotoId(photo_id);
   var $holder = $('#expanded-image-holder-template').clone().removeAttr('id');
   $holder.find('img')
     .attr(is_visible ? 'src' : 'future-src', expandedImageUrl(photo_id))
-    .attr('width', img_width)
+    .attr('width', info.width)
+    .attr('height', info.height)
     .load(spinnerKiller);
 
   $holder.find('.description')
-    .css('max-width', img_width + 'px');
+    .css('max-width', info.width + 'px');
 
   fillPhotoPane(photo_id, $holder);
   return $holder;
@@ -332,11 +333,7 @@ function showExpanded(photo_ids) {
   var selected_idx = 0;
   var selected_id = photo_ids[0];
   var expanded_images = $.map(photo_ids, function(photo_id, idx) {
-    var info = infoForPhotoId(photo_id);
-    var img_width = info.width;
-
-    // TODO(danvk): show prev/next as well
-    return buildHolder(photo_id, img_width, photo_id == selected_id).get();
+    return buildHolder(photo_id, photo_id == selected_id).get();
   });
 
   if (expanded_images.length > 1) {

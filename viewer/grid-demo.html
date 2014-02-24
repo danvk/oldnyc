@@ -1,0 +1,254 @@
+<!doctype html>
+<html>
+<head>
+  <title>Expandable grid demo</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="modernizr.custom.js"></script>
+  <script src="grid.js"></script>
+  <script type="text/javascript">
+var recs = {"712208f-a": {"height": 489, "date": "1939", "width": 600, "folder": "35th Street (East) & 1st Avenue, Manhattan, NY", "library_url": "http://digitalgallery.nypl.org/nypldigital/id?712208f", "title": "Manhattan: 35th Street (East) - 1st Avenue"}, "1508659": {"height": 369, "date": "", "width": 600, "folder": "First Avenue / 35th Street, Manhattan, NY", "library_url": "http://digitalgallery.nypl.org/nypldigital/id?1508659", "title": "First Avenue - 35th Street"}, "723097f-b": {"height": 600, "date": "1934;   \t\t\t\t\t\t\t  \t\t\t\t\t\t\t\t1936", "width": 398, "folder": "1st Avenue & 35th Street (East), Manhattan, NY", "library_url": "http://digitalgallery.nypl.org/nypldigital/id?723097f", "title": "Manhattan: 1st Avenue - 35th Street (East)"}, "712209f-a": {"height": 490, "date": "1939", "width": 600, "folder": "35th Street (East) & 1st Avenue, Manhattan, NY", "library_url": "http://digitalgallery.nypl.org/nypldigital/id?712209f", "title": "Manhattan: 35th Street (East) - 1st Avenue"}, "723097f-a": {"height": 600, "date": "1934;   \t\t\t\t\t\t\t  \t\t\t\t\t\t\t\t1936", "width": 402, "folder": "1st Avenue & 35th Street (East), Manhattan, NY", "library_url": "http://digitalgallery.nypl.org/nypldigital/id?723097f", "title": "Manhattan: 1st Avenue - 35th Street (East)"}, "707579f-a": {"height": 491, "date": "1939", "width": 600, "folder": "1st Ave. & 35th St. E., Manhattan, NY", "library_url": "http://digitalgallery.nypl.org/nypldigital/id?707579f", "title": "Manhattan: 1st Ave. - 35th St. E."}, "707577f-a": {"height": 490, "date": "1939", "width": 600, "folder": "1st Ave. & 35th St. E., Manhattan, NY", "library_url": "http://digitalgallery.nypl.org/nypldigital/id?707577f", "title": "Manhattan: 1st Ave. - 35th St. E."}, "707578f-a": {"height": 403, "date": "1931;   \t\t\t\t\t\t\t  \t\t\t\t\t\t\t\t1936", "width": 600, "folder": "1st Ave. & 35th St. E., Manhattan, NY", "library_url": "http://digitalgallery.nypl.org/nypldigital/id?707578f", "title": "Manhattan: 1st Ave. - 35th St. E."}, "707578f-b": {"height": 404, "date": "1931;   \t\t\t\t\t\t\t  \t\t\t\t\t\t\t\t1936", "width": 600, "folder": "1st Ave. & 35th St. E., Manhattan, NY", "library_url": "http://digitalgallery.nypl.org/nypldigital/id?707578f", "title": "Manhattan: 1st Ave. - 35th St. E."}, "707578f-c": {"height": 402, "date": "1931;   \t\t\t\t\t\t\t  \t\t\t\t\t\t\t\t1936", "width": 600, "folder": "1st Ave. & 35th St. E., Manhattan, NY", "library_url": "http://digitalgallery.nypl.org/nypldigital/id?707578f", "title": "Manhattan: 1st Ave. - 35th St. E."}, "712210f-a": {"height": 600, "date": "", "width": 395, "folder": "35th Street (East) & 1st Avenue, Manhattan, NY", "library_url": "http://digitalgallery.nypl.org/nypldigital/id?712210f", "title": "Manhattan: 35th Street (East) - 1st Avenue"}, "707580f-b": {"height": 600, "date": "1930;   \t\t\t\t\t\t\t  \t\t\t\t\t\t\t\t1931", "width": 397, "folder": "1st Ave. & 35th St. E., Manhattan, NY", "library_url": "http://digitalgallery.nypl.org/nypldigital/id?707580f", "title": "Manhattan: 1st Ave. - 35th St. E."}, "707580f-a": {"height": 600, "date": "1930;   \t\t\t\t\t\t\t  \t\t\t\t\t\t\t\t1931", "width": 402, "folder": "1st Ave. & 35th St. E., Manhattan, NY", "library_url": "http://digitalgallery.nypl.org/nypldigital/id?707580f", "title": "Manhattan: 1st Ave. - 35th St. E."}, "707575f": {"height": 388, "date": "1939", "width": 600, "folder": "1st Ave. & 35th St. E., Manhattan, NY", "library_url": "http://digitalgallery.nypl.org/nypldigital/id?707575f", "title": "Manhattan: 1st Ave. - 35th St. E."}, "723095f-a": {"height": 404, "date": "1931", "width": 600, "folder": "1st Avenue & 35th Street (East), Manhattan, NY", "library_url": "http://digitalgallery.nypl.org/nypldigital/id?723095f", "title": "Manhattan: 1st Avenue - 35th Street (East)"}};
+  </script>
+  <style>
+.og-grid {
+	list-style: none;
+	padding: 20px 0;
+	margin: 0 auto;
+	text-align: left;
+	width: 100%;
+}
+
+.og-grid li {
+	display: inline-block;
+	margin: 10px 5px 0 5px;
+	vertical-align: top;
+	height: 250px;
+}
+
+.og-grid li > a,
+.og-grid li > a img {
+	border: none;
+	outline: none;
+	display: block;
+	position: relative;
+}
+
+.og-grid li.og-expanded > a::after {
+	top: auto;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+	border-bottom-color: #ddd;
+	border-width: 15px;
+	left: 50%;
+	margin: -20px 0 0 -15px;
+}
+
+.og-expander {
+	position: absolute;
+	background: #ddd;
+	top: auto;
+	left: 0;
+	width: 100%;
+	margin-top: 10px;
+	text-align: left;
+	height: 0;
+	overflow: hidden;
+}
+
+.og-expander-inner {
+	padding: 50px 30px;
+	height: 100%;
+}
+
+.og-close {
+	position: absolute;
+	width: 40px;
+	height: 40px;
+	top: 20px;
+	right: 20px;
+	cursor: pointer;
+}
+
+.og-close::before,
+.og-close::after {
+	content: '';
+	position: absolute;
+	width: 100%;
+	top: 50%;
+	height: 1px;
+	background: #888;
+	-webkit-transform: rotate(45deg);
+	-moz-transform: rotate(45deg);
+	transform: rotate(45deg);
+}
+
+.og-close::after {
+	-webkit-transform: rotate(-45deg);
+	-moz-transform: rotate(-45deg);
+	transform: rotate(-45deg);
+}
+
+.og-close:hover::before,
+.og-close:hover::after {
+	background: #333;
+}
+
+.og-fullimg,
+.og-details {
+	width: 50%;
+	float: left;
+	height: 100%;
+	overflow: hidden;
+	position: relative;
+}
+
+.og-details {
+	padding: 0 40px 0 20px;
+}
+
+.og-fullimg {
+	text-align: center;
+}
+
+.og-fullimg img {
+	display: inline-block;
+	max-height: 100%;
+	max-width: 100%;
+}
+
+.og-details h3 {
+	font-weight: 300;
+	font-size: 52px;
+	padding: 40px 0 10px;
+	margin-bottom: 10px;
+}
+
+.og-details p {
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 22px;
+	color: #999;
+}
+
+.og-details a {
+	font-weight: 700;
+	font-size: 16px;
+	color: #333;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	padding: 10px 20px;
+	border: 3px solid #333;
+	display: inline-block;
+	margin: 30px 0 0;
+	outline: none;
+}
+
+.og-details a::before {
+	content: '\2192';
+	display: inline-block;
+	margin-right: 10px;
+}
+
+.og-details a:hover {
+	border-color: #999;
+	color: #999;
+}
+
+.og-loading {
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+	background: #ddd;
+	box-shadow: 0 0 1px #ccc, 15px 30px 1px #ccc, -15px 30px 1px #ccc;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin: -25px 0 0 -25px;
+	-webkit-animation: loader 0.5s infinite ease-in-out both;
+	-moz-animation: loader 0.5s infinite ease-in-out both;
+	animation: loader 0.5s infinite ease-in-out both;
+}
+
+@-webkit-keyframes loader {
+	0% { background: #ddd; }
+	33% { background: #ccc; box-shadow: 0 0 1px #ccc, 15px 30px 1px #ccc, -15px 30px 1px #ddd; }
+	66% { background: #ccc; box-shadow: 0 0 1px #ccc, 15px 30px 1px #ddd, -15px 30px 1px #ccc; }
+}
+
+@-moz-keyframes loader {
+	0% { background: #ddd; }
+	33% { background: #ccc; box-shadow: 0 0 1px #ccc, 15px 30px 1px #ccc, -15px 30px 1px #ddd; }
+	66% { background: #ccc; box-shadow: 0 0 1px #ccc, 15px 30px 1px #ddd, -15px 30px 1px #ccc; }
+}
+
+@keyframes loader {
+	0% { background: #ddd; }
+	33% { background: #ccc; box-shadow: 0 0 1px #ccc, 15px 30px 1px #ccc, -15px 30px 1px #ddd; }
+	66% { background: #ccc; box-shadow: 0 0 1px #ccc, 15px 30px 1px #ddd, -15px 30px 1px #ccc; }
+}
+
+@media screen and (max-width: 830px) {
+
+	.og-expander h3 { font-size: 32px; }
+	.og-expander p { font-size: 13px; }
+	.og-expander a { font-size: 12px; }
+
+}
+
+@media screen and (max-width: 650px) {
+
+	.og-fullimg { display: none; }
+	.og-details { float: none; width: 100%; }
+	
+}
+  </style>
+</head>
+<body>
+  <div class="main">
+    <ul id="og-grid" class="og-grid">
+      <li id="og-template" style="display:none" class="og-grid-item">
+        <a href="http://danvk.org" data-largesrc="" data-title="Title" data-description="Description">
+          <img src="" alt="blah" />
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <script type="text/javascript">
+    function thumbUrl(id) {
+      return 'https://s3.amazonaws.com/oldnyc/thumb/' + id + '.jpg';
+    }
+    function imageUrl(id) {
+      return 'https://s3.amazonaws.com/oldnyc/600px/' + id + '.jpg';
+    }
+    function thumbSize(size) {
+      var scale = 200 / Math.max(size.width, size.height);
+      return {
+        width: Math.round(size.width * scale),
+        height: Math.round(size.height * scale)
+      };
+    }
+
+    $(function() {
+      var lis = $.map(recs, function(info, id) {
+        var $li = $('#og-template').clone().removeAttr('id');
+        var size = thumbSize(info);
+        $li.find('img').attr({
+          'src': thumbUrl(id),
+          'width': size.width,
+          'height': size.height
+        });
+        $li.find('a').attr('data-largesrc', imageUrl(id));
+        return $li.get(0);
+      });
+      $('#og-grid').append(lis);
+      $(lis).show();
+
+      Grid.init();
+    });
+  </script>
+</body>
+</html>
