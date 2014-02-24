@@ -344,10 +344,11 @@ var Grid = (function() {
 	Preview.prototype = {
 		create : function() {
 			// create Preview structure:
-			this.$title = $( '<h3></h3>' );
-			this.$description = $( '<p></p>' );
-			this.$href = $( '<a href="#">Visit website</a>' );
-			this.$details = $( '<div class="og-details"></div>' ).append( this.$title, this.$description, this.$href );
+			// this.$title = $( '<h3></h3>' );
+			// this.$description = $( '<p></p>' );
+			// this.$href = $( '<a href="#">Visit website</a>' );
+			// this.$details = $( '<div class="og-details"></div>' ).append( this.$title, this.$description, this.$href );
+      this.$details = $( '#og-details-template' ).clone().removeAttr('id').show();
 			this.$loading = $( '<div class="og-loading"></div>' );
 			this.$fullimage = $( '<div class="og-fullimg"></div>' ).append( this.$loading );
 			this.$closePreview = $( '<span class="og-close"></span>' );
@@ -382,15 +383,10 @@ var Grid = (function() {
 			// update preview´s content
 			var $itemEl = this.$item.children( 'a' ),
 				eldata = {
-					href : $itemEl.attr( 'href' ),
 					largesrc : $itemEl.data( 'largesrc' ),
-					title : $itemEl.data( 'title' ),
-					description : $itemEl.data( 'description' )
 				};
 
-			this.$title.html( eldata.title );
-			this.$description.html( eldata.description );
-			this.$href.attr( 'href', eldata.href );
+      $(this.$item).trigger('og-select', this.$details);
 
 			var self = this;
 			
@@ -428,7 +424,6 @@ var Grid = (function() {
 
 			var self = this,
 				onEndFn = function() {
-          console.log('close.onEndFn');
 					self.$item.removeClass( 'og-expanded' );
 					self.$previewEl.remove();
 				};
@@ -441,7 +436,6 @@ var Grid = (function() {
 				this.$previewEl.css( 'height', 0 );
 				// the current expanded item (might be different from this.$item)
 				var $expandedItem = $items.eq( this.expandedIdx );
-        console.log('adding ', transEndEventName, ' handler to ', $expandedItem);
 				$expandedItem.css( 'height', $expandedItem.data( 'height' ) ).one( transEndEventName, onEndFn );
 
 				if( !support ) {

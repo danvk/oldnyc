@@ -225,6 +225,9 @@ var recs = {"712208f-a": {"height": 489, "date": "1939", "width": 600, "folder":
         <img src="" alt="blah" />
       </a>
     </li>
+    <div id="og-details-template" style="display:none" class="og-details">
+      <h3 class="title">TESTING</h3>
+    </div>
   </div>
 
   <script type="text/javascript">
@@ -286,6 +289,7 @@ var recs = {"712208f-a": {"height": 489, "date": "1939", "width": 600, "folder":
             'height': height
           });
           $li.find('a').attr('data-largesrc', imageUrl(id));
+          $li.data('photo_id', id);
           lis.push($li.get(0));
         });
         // line wrap happens naturally here.
@@ -294,6 +298,11 @@ var recs = {"712208f-a": {"height": 489, "date": "1939", "width": 600, "folder":
       $(lis).show();
 
       Grid.init();
+
+      $('#og-grid').on('og-select', 'li', function(e, div) {
+        var id = $(this).data('photo_id');
+        $(div).find('.title').text(recs[id].title);
+      });
     });
   </script>
 </body>
