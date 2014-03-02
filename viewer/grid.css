@@ -170,6 +170,22 @@
 	animation: loader 0.5s infinite ease-in-out both;
 }
 
+.og-previous, .og-next {
+  position: absolute;
+  top: 50%;
+  margin-top: -20px;
+  width: 20px;
+  height: 40px;
+  line-height: 40px;
+  border: 1px solid hotpink;
+}
+.og-previous {
+  left: 0;
+}
+.og-next {
+  right: 0;
+}
+
 @-webkit-keyframes loader {
 	0% { background: #ddd; }
 	33% { background: #ccc; box-shadow: 0 0 1px #ccc, 15px 30px 1px #ccc, -15px 30px 1px #ddd; }

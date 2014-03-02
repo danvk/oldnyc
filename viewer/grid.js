@@ -350,7 +350,6 @@ var Grid = (function() {
   }
 
   function showPreview( $item ) {
-
     var preview = $.data( this, 'preview' ),
       // item´s offset top
       position = $item.data( 'offsetTop' );
@@ -403,16 +402,14 @@ var Grid = (function() {
   Preview.prototype = {
     create : function() {
       // create Preview structure:
-      // this.$title = $( '<h3></h3>' );
-      // this.$description = $( '<p></p>' );
-      // this.$href = $( '<a href="#">Visit website</a>' );
-      // this.$details = $( '<div class="og-details"></div>' ).append( this.$title, this.$description, this.$href );
       this.$details = $( '#og-details-template' ).clone().removeAttr('id').show();
       this.$loading = $( '<div class="og-loading"></div>' );
       this.$fullimage = $( '<div class="og-fullimg"></div>' ).append( this.$loading );
       this.$closePreview = $( '<span class="og-close"></span>' );
       this.$previewInner = $( '<div class="og-expander-inner"></div>' ).append( this.$closePreview, this.$fullimage, this.$details );
-      this.$previewEl = $( '<div class="og-expander"></div>' ).append( this.$previewInner );
+      this.$previewLeft = $('<div class="og-previous">&lt;</div>');
+      this.$previewRight = $('<div class="og-next">&gt;</div>');
+      this.$previewEl = $( '<div class="og-expander"></div>' ).append( this.$previewInner, this.$previewLeft, this.$previewRight );
       // append preview element to the item
       this.$item.append( this.getEl() );
       // set the transitions for the preview and the item
@@ -420,6 +417,7 @@ var Grid = (function() {
         this.setTransition();
       }
     },
+
     update : function( $item ) {
 
       if( $item ) {
@@ -470,6 +468,8 @@ var Grid = (function() {
       }
 
     },
+
+    // Open the preview pane
     open : function() {
       setTimeout( $.proxy( function() {  
         // set the height for the preview and the item
@@ -478,8 +478,30 @@ var Grid = (function() {
         this.positionPreview();
       }, this ), 25 );
 
+      var self = this;
+      $('.og-previous, .og-next').on('click', function() {
+        // XXX not quite working... maybe just click the images?
+        if ($(this).is('.og-previous')) {
+          if (current > 0) {
+            current--;
+            var $li = $items.eq(current);
+            self.update($li);
+            // showPreview($li);
+          }
+        } else {
+          if (current < $items.length) {
+            current++;
+            var $li = $items.eq(current);
+            self.update($li);
+            // showPreview($li);
+          }
+        }
+      });
     },
+
+    // Close the preview pane
     close : function() {
+      $('.og-previous, .og-next').off('click');
 
       var self = this,
         onEndFn = function() {
