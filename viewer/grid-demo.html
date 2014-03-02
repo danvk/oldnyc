@@ -10,14 +10,9 @@
 </head>
 <body>
   <div class="main">
-    <li id="og-template" style="display:none" class="og-grid-item">
-      <a href="#" data-largesrc="" data-title="Title" data-description="Description">
-        <img src="" alt="blah" />
-      </a>
-    </li>
-    <div id="og-details-template" style="display:none" class="og-details">
-      <h3 class="title">TESTING</h3>
-    </div>
+  </div>
+  <div id="og-details-template" style="display:none" class="og-details">
+    <h3 class="title">TESTING</h3>
   </div>
 
   <script type="text/javascript">
@@ -43,10 +38,8 @@
         rowHeight: 200
       }, infos);
 
-      // Grid.init();
-
       $('.main').on('og-select', 'li', function(e, div) {
-        var id = $(this).data('photo_id');
+        var id = $(this).data('image-id');
         $(div).find('.title').text(recs[id].title);
       });
     });

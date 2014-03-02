@@ -223,9 +223,9 @@ $.fn.imagesLoaded = function( callback ) {
 var Grid = (function() {
 
     // list of items
-  var $grid = $( '#og-grid' ),
+  var $grid = null,
     // the items
-    $items = $grid.children( 'li' ),
+    $items = null,
     // current expanded item's index
     current = -1,
     // position (top) of the expanded item
@@ -255,10 +255,10 @@ var Grid = (function() {
       easing : 'ease'
     };
 
-  function init( config ) {
-                $grid = $('#og-grid');
+  function init( grid, config ) {
+                $grid = $(grid);
                 $items = $grid.children('li');
-    
+
     // the settings..
     settings = $.extend( true, {}, settings, config );
 
@@ -484,6 +484,7 @@ var Grid = (function() {
       var self = this,
         onEndFn = function() {
           self.$item.removeClass( 'og-expanded' );
+          self.$item.css('height', '');
           self.$previewEl.remove();
         };
 
@@ -529,7 +530,9 @@ var Grid = (function() {
 
       this.calcHeight();
       this.$previewEl.css( 'height', this.height );
-      this.$item.css( 'height', this.itemHeight ).one( transEndEventName, onEndFn );
+      this.$item
+        .css( 'height', this.itemHeight )
+        .one( transEndEventName, onEndFn );
 
       if( !support ) {
         onEndFn.call();
@@ -579,7 +582,7 @@ function partitionIntoRows(images, containerWidth) {
     currentRow.push(image);
     var denom = 0;
     $.each(currentRow, function(_, image) {
-      denom += $(image).data('width') / $(image).data('height');
+      denom += $(image).data('eg-width') / $(image).data('eg-height');
     });
     var height = (containerWidth - imageMargin * currentRow.length) / denom;
     if (height < rowHeight) {
@@ -599,8 +602,8 @@ function flowImages(lis, width) {
   $.each(rows, function(_, row) {
     var height = Math.round(row.height);
     $.each(row.images, function(_, li) {
-      var imgW = $(li).data('width'),
-          imgH = $(li).data('height');
+      var imgW = $(li).data('eg-width'),
+          imgH = $(li).data('eg-height');
       $(li).find('img').attr({
         'width': Math.floor(imgW * (height / imgH)),
         'height': height
@@ -622,20 +625,28 @@ $.fn.expandableGrid = function(options, images) {
     $li.find('img').attr({
       'src': image.src,
     });
-    $li.find('a').attr('data-largesrc', image.largesrc);
+    $li.find('a').attr({
+      'data-largesrc': image.largesrc,
+      'data-title': 'title',
+      'data-description': 'description',
+      'href': '#'
+    });
     if (image.hasOwnProperty('id')) {
       $li.data('image-id', image.id);
     }
     $li.data({
-      'width': image.width,
-      'height': image.height
+      'eg-width': image.width,
+      'eg-height': image.height
     });
     return $li.get(0);
   });
 
-  $('<ul class=og-grid>').append($(lis).hide()).appendTo(this.empty());
+  var $ul = $('<ul class=og-grid>').append($(lis).hide());
+  $ul.appendTo(this.empty());
   flowImages(lis, $(this).width());
   $(lis).show();
+
+  Grid.init($ul.get(0));
 
   return this;
 };
