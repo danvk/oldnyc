@@ -389,7 +389,7 @@ function fillPhotoPane(photo_id, $pane, opt_info) {
   $('.description', $pane).html(descriptionForPhotoId(photo_id));
 
   var info = opt_info || infoForPhotoId(photo_id);
-  $('.library-link', $pane).attr('href', info.library_url);
+  $('.library-link', $pane).attr('href', libraryUrlForPhotoId(photo_id));
   $pane.attr('photo_id', photo_id);
 }
 

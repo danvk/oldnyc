@@ -28,8 +28,12 @@ function infoForPhotoId(photo_id) {
       { title: '', date: '', library_url: '' };
 }
 
-// Would it make more sense to incorporate this into infoForPhotoId?
+// Would it make more sense to incorporate these into infoForPhotoId?
 function descriptionForPhotoId(photo_id) {
   var info = infoForPhotoId(photo_id);
   return info.title + '<br/>' + info.date;
+}
+
+function libraryUrlForPhotoId(photo_id) {
+  return 'http://digitalcollections.nypl.org/items/image_id/' + photo_id.replace(/-[a-z]$/, '');
 }
