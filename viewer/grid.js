@@ -403,7 +403,7 @@ var Grid = (function() {
   Preview.prototype = {
     create : function() {
       // create Preview structure:
-      this.$details = $( '#og-details-template' ).clone().removeAttr('id').show();
+      this.$details = $( '<div class="og-details" />' );
       this.$loading = $( '<div class="og-loading"></div>' );
       this.$fullimage = $( '<div class="og-fullimg"></div>' ).append( this.$loading );
       this.$closePreview = $( '<span class="og-close"></span>' );
@@ -583,7 +583,6 @@ var Grid = (function() {
         previewOffsetT = this.$previewEl.offset().top - scrollExtra,
         scrollVal = this.height + this.$item.data( 'height' ) + marginExpanded <= winsize.height ? position : this.height < winsize.height ? previewOffsetT - ( winsize.height - this.height ) : previewOffsetT;
       
-      console.log(position, previewOffsetT, scrollVal);
       $body.animate( { scrollTop : scrollVal }, settings.speed );
 
     },
@@ -662,8 +661,6 @@ $.fn.expandableGrid = function(options, images) {
     });
     $li.find('a').attr({
       'data-largesrc': image.largesrc,
-      'data-title': 'title',
-      'data-description': 'description',
       'href': '#'
     });
     if (image.hasOwnProperty('id')) {

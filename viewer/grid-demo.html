@@ -11,7 +11,7 @@
 <body>
   <div class="main">
   </div>
-  <div id="og-details-template" style="display:none" class="og-details">
+  <div id="og-details-template" style="display:none">
     <h3 class="title">TESTING</h3>
   </div>
 
@@ -40,6 +40,8 @@
 
       $('.main').on('og-select', 'li', function(e, div) {
         var id = $(this).data('image-id');
+        $(div).empty().append(
+            $('#og-details-template').clone().removeAttr('id').show());
         $(div).find('.title').text(recs[id].title);
       });
     });
