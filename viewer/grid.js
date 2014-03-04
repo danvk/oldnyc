@@ -236,7 +236,7 @@ var Grid = (function() {
     // extra margin when expanded (between preview overlay and the next items)
     marginExpanded = 10,
     $window = $( window ), winsize,
-    $body = $( 'html, body' ),
+    $body = null,
     // transitionend events
     transEndEventNames = {
       'WebkitTransition' : 'webkitTransitionEnd',
@@ -258,6 +258,7 @@ var Grid = (function() {
   function init( grid, config ) {
                 $grid = $(grid);
                 $items = $grid.children('li');
+                $body = $( 'html, body' );
 
     // the settings..
     settings = $.extend( true, {}, settings, config );
@@ -582,6 +583,7 @@ var Grid = (function() {
         previewOffsetT = this.$previewEl.offset().top - scrollExtra,
         scrollVal = this.height + this.$item.data( 'height' ) + marginExpanded <= winsize.height ? position : this.height < winsize.height ? previewOffsetT - ( winsize.height - this.height ) : previewOffsetT;
       
+      console.log(position, previewOffsetT, scrollVal);
       $body.animate( { scrollTop : scrollVal }, settings.speed );
 
     },
