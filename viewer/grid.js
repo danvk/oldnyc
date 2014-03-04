@@ -479,22 +479,32 @@ var Grid = (function() {
       }, this ), 25 );
 
       var self = this;
+      var goLeft = function() {
+        if (current > 0) {
+          var $li = $items.eq(current - 1);
+          $li.children('a').click();
+        }
+      };
+      var goRight = function() {
+        if (current < $items.length) {
+          var $li = $items.eq(current + 1);
+          $li.children('a').click();
+        }
+      };
       $('.og-previous, .og-next').on('click', function() {
-        // XXX not quite working... maybe just click the images?
         if ($(this).is('.og-previous')) {
-          if (current > 0) {
-            current--;
-            var $li = $items.eq(current);
-            self.update($li);
-            // showPreview($li);
-          }
+          goLeft();
         } else {
-          if (current < $items.length) {
-            current++;
-            var $li = $items.eq(current);
-            self.update($li);
-            // showPreview($li);
-          }
+          goRight();
+        }
+      });
+      $(document).on('keyup.og', function(e) {
+        if (e.keyCode == 37) {
+          goLeft();
+        } else if (e.keyCode == 39) {
+          goRight();
+        } else if (e.keyCode == 27) {  // escape
+          self.close();
         }
       });
     },
@@ -502,6 +512,7 @@ var Grid = (function() {
     // Close the preview pane
     close : function() {
       $('.og-previous, .og-next').off('click');
+      $(document).off('keyup.og');
 
       var self = this,
         onEndFn = function() {
