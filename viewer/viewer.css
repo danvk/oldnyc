@@ -286,7 +286,9 @@ a{
   bottom: 0;
   background: #111;
   opacity: 0.95;
-  z-index: 100;
+}
+
+#grid-container {
 }
 
 #exit-slideshow {
@@ -437,11 +439,11 @@ hr {
   top: 80px;
   width: 213px;
   bottom: 30px;
-  left: 50px;
+  right: 8px;
   background: lightgray;
   overflow-y: scroll;
   padding: 0 10px;
-  box-shadow:         0px 0px 5px 0px rgba(50, 50, 50, 0.75);
+  box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.75);
 }
 
 .popular-photo {

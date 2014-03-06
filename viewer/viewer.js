@@ -19,9 +19,9 @@ function thumbnailImageUrl(photo_id) {
     // return 'http://images.nypl.org/index.php?id=' + photo_id + '&t=r';
     // return 'http://dv.nyc:8000/' + photo_id + '.jpg';
     // return 'http://localhost:8001/thumb/' + photo_id + '.jpg';
-    return 'http://192.168.1.7:8001/thumb/' + photo_id + '.jpg';
+    // return 'http://192.168.1.7:8001/thumb/' + photo_id + '.jpg';
     // return 'http://localhost:8001/milstein-thumb/' + photo_id + '.jpg';
-    // return 'https://s3.amazonaws.com/oldnyc/thumb/' + photo_id + '.jpg';
+    return 'https://s3.amazonaws.com/oldnyc/thumb/' + photo_id + '.jpg';
   } else {
     return 'http://s3-us-west-1.amazonaws.com/oldsf/thumb/' + photo_id + '.jpg';
   }
@@ -306,6 +306,7 @@ function collapseNeighborhood(neighborhood) {
 }
 
 
+/*
 // This creates the holder "pane" for an expanded image.
 // The expanded image slideshow consists of many of these.
 function buildHolder(photo_id, is_visible) {
@@ -323,13 +324,26 @@ function buildHolder(photo_id, is_visible) {
   fillPhotoPane(photo_id, $holder);
   return $holder;
 }
+*/
 
 
 // NOTE: This can only be called when the info for all photo_ids at the current
 // position have been loaded (in particular the image widths).
 function showExpanded(photo_ids) {
-  $('#expanded').hide();
+  $('#expanded').show();
+  var images = $.map(photo_ids, function(photo_id, idx) {
+    var info = infoForPhotoId(photo_id);
+    return $.extend({
+      id: photo_id,
+      largesrc: expandedImageUrl(photo_id),
+      src: thumbnailImageUrl(photo_id),
+    }, info);
+  });
+  $('#grid-container').expandableGrid({
+    rowHeight: 200
+  }, images);
 
+  /*
   var selected_idx = 0;
   var selected_id = photo_ids[0];
   var expanded_images = $.map(photo_ids, function(photo_id, idx) {
@@ -352,7 +366,7 @@ function showExpanded(photo_ids) {
 
   $('#expanded').show();
   $('#expanded-carousel')
-    .jcarousel('scroll', selected_idx, false /* no animation */);
+    .jcarousel('scroll', selected_idx, false);
 
   map.set('keyboardShortcuts', false);
   $(document).bind('keyup', function(e) {
@@ -366,6 +380,7 @@ function showExpanded(photo_ids) {
       hideExpanded();
     }
   });
+  */
 
   stateWasChanged();
 }

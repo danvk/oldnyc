@@ -609,7 +609,7 @@ var Grid = (function() {
 // Returns an array of { height: XXX, images: [] }
 // Each entry in images should have a height/width data field.
 // TODO(danvk): could just return {height, startIndex, limitIndex} objects.
-function partitionIntoRows(images, containerWidth) {
+function partitionIntoRows(images, containerWidth, maxRowHeight) {
   var rows = [];
   var currentRow = [];
   $.each(images, function(i, image) {
@@ -619,20 +619,20 @@ function partitionIntoRows(images, containerWidth) {
       denom += $(image).data('eg-width') / $(image).data('eg-height');
     });
     var height = (containerWidth - imageMargin * currentRow.length) / denom;
-    if (height < rowHeight) {
+    if (height < maxRowHeight) {
       rows.push({ height: height, images: currentRow });
       currentRow = [];
     }
   });
   if (currentRow.length > 0) {
-    rows.push({ height: rowHeight, images: currentRow });
+    rows.push({ height: maxRowHeight, images: currentRow });
   }
   return rows;
 }
 
 
-function flowImages(lis, width) {
-  var rows = partitionIntoRows(lis, width);
+function flowImages(lis, width, maxRowHeight) {
+  var rows = partitionIntoRows(lis, width, maxRowHeight);
   $.each(rows, function(_, row) {
     var height = Math.round(row.height);
     $.each(row.images, function(_, li) {
@@ -675,7 +675,7 @@ $.fn.expandableGrid = function(options, images) {
 
   var $ul = $('<ul class=og-grid>').append($(lis).hide());
   $ul.appendTo(this.empty());
-  flowImages(lis, $(this).width());
+  flowImages(lis, $(this).width(), options.rowHeight);
   $(lis).show();
 
   Grid.init($ul.get(0));
