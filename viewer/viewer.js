@@ -1,7 +1,5 @@
-var markers = [];
 var marker_icons = [];
 var selected_marker_icons = [];
-var marker_dates = [];
 var map;
 var start_date = 1850;
 var end_date = 2000;
@@ -38,11 +36,6 @@ function expandedImageUrl(photo_id) {
   } else {
     return 'http://s3-us-west-1.amazonaws.com/oldsf/images/' + photo_id + '.jpg'
   }
-}
-
-// Intended to be used as an img.onLoad handler.
-function spinnerKiller() {
-  $(this).css('backgroundImage', 'none');
 }
 
 // The callback gets fired when the info for all lat/lons at this location
@@ -306,27 +299,6 @@ function collapseNeighborhood(neighborhood) {
 }
 
 
-/*
-// This creates the holder "pane" for an expanded image.
-// The expanded image slideshow consists of many of these.
-function buildHolder(photo_id, is_visible) {
-  var info = infoForPhotoId(photo_id);
-  var $holder = $('#expanded-image-holder-template').clone().removeAttr('id');
-  $holder.find('img')
-    .attr(is_visible ? 'src' : 'future-src', expandedImageUrl(photo_id))
-    .attr('width', info.width)
-    .attr('height', info.height)
-    .load(spinnerKiller);
-
-  $holder.find('.description')
-    .css('max-width', info.width + 'px');
-
-  fillPhotoPane(photo_id, $holder);
-  return $holder;
-}
-*/
-
-
 // NOTE: This can only be called when the info for all photo_ids at the current
 // position have been loaded (in particular the image widths).
 function showExpanded(photo_ids) {
@@ -337,64 +309,22 @@ function showExpanded(photo_ids) {
       id: photo_id,
       largesrc: expandedImageUrl(photo_id),
       src: thumbnailImageUrl(photo_id),
+      width: 600,   // these are fallbacks
+      height: 400
     }, info);
   });
   $('#grid-container').expandableGrid({
     rowHeight: 200
   }, images);
 
-  /*
-  var selected_idx = 0;
-  var selected_id = photo_ids[0];
-  var expanded_images = $.map(photo_ids, function(photo_id, idx) {
-    return buildHolder(photo_id, photo_id == selected_id).get();
-  });
-
-  if (expanded_images.length > 1) {
-    expanded_images.push($('<div class=expanded-right-gutter />').get(0));
-  }
-
-  $('#expanded-carousel ul')
-    .empty()
-    .append($(expanded_images).show());
-
-  $('#expanded-carousel')
-    .jcarousel({
-      scroll: 1,
-      center: true
-    })
-
-  $('#expanded').show();
-  $('#expanded-carousel')
-    .jcarousel('scroll', selected_idx, false);
-
-  map.set('keyboardShortcuts', false);
-  $(document).bind('keyup', function(e) {
-    // handle cursor keys
-    // TODO(danvk): hitting left/right quickly results in dropped scrolls.
-    if (e.keyCode == 37) {
-      scrollExpanded('-=1');  // go left
-    } else if (e.keyCode == 39) {
-      scrollExpanded('+=1');  // go right
-    } else if (e.keyCode == 27) {  // escape
-      hideExpanded();
-    }
-  });
-  */
-
   stateWasChanged();
 }
 
 function hideExpanded() {
   $('#expanded').hide();
-  $('#expanded-carousel').jcarousel('destroy');
   $(document).unbind('keyup');
   map.set('keyboardShortcuts', true);
   stateWasChanged();
-}
-
-function scrollExpanded(target) {
-  $('#expanded-carousel').jcarousel('scroll', target);
 }
 
 // This fills out details for either a thumbnail or the expanded image pane.
@@ -465,55 +395,4 @@ $(function() {
   // Clicks on the background or "exit" button should leave the slideshow.
   // Clicks on the strip itself should only exit if they're not on an image.
   $('#curtains, #exit-slideshow').click(hideExpanded);
-  $('#expanded-carousel').click(function(e) {
-    if ($(e.target).parent('li').length == 0 && !$(e.target).is('li')) {
-      hideExpanded();
-    }
-  });
-
-  $('#expanded-carousel')
-    .delegate('li', 'itemtargetin.jcarousel', function(event, carousel) {
-      // Load the next/previous images.
-      // "this" refers to the item element
-      // "carousel" is the jCarousel instance
-      var els = $('#expanded-carousel li');
-      var this_idx = $(els).index(this);
-      if (this_idx == -1) throw 'eh?';
-      for (var i = -1; i < 2; i++) {
-        if (!els[this_idx + i]) continue;
-        var $el = $(els[this_idx + i]);
-        var $img = $el.find('img');
-        if (!$img.attr('src')) {
-          $img
-            .attr('src', $img.attr('future-src'))
-            .removeAttr('future-src');
-        }
-      }
-    })
-    .delegate('li', 'itemtargetin.jcarousel', function(event, carousel) {
-      // Set a "current" class on the target element but no others.
-      $('#expanded-carousel li').removeClass('current');
-      $(this).addClass('current');
-      // Show left/right arrows when appropriate.
-      $('.arrow-left').toggle($(this).prev().is('li'));
-      $('.arrow-right').toggle($(this).next().is('li'));
-      currentCarouselItemChanged(this);
-      stateWasChanged();
-    });
-  $('#expanded-carousel').on('scroll.jcarousel', function(event, carousel, target, animate) {
-    // Why does $(carousel) not work here? It gives initialization errors.
-    var $carousel = $('#expanded-carousel');
-
-    // Drop attempts to scroll to the right-most element in multi-element lists.
-    // This is a "fake" element which is added to help with centering.
-    if (target == '+=1') {
-      var $items = $carousel.jcarousel('items');
-      var idx = $items.index($carousel.jcarousel('target'));
-      if (idx == $items.length - 2) {
-        return false;
-      }
-    }
-
-    return true;
-  });
 });

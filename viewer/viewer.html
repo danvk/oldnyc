@@ -17,7 +17,6 @@
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
   <script type="text/javascript" src="jquery.ba-hashchange.min.js"></script>
   <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
-  <script type="text/javascript" src="jquery/jquery.jcarousel.min.js"></script>
   
   <script type="text/javascript" src="url-state.js"></script>
   <script type="text/javascript" src="photo-info.js"></script>
@@ -41,6 +40,8 @@
     fjs.parentNode.insertBefore(js, fjs);
   }(document, 'script', 'facebook-jssdk'));</script>
 
+  <div id="map"></div>
+
   <div id="header" class="streetview-hide">
     <div id="twitter">
       <a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="Old_SF">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
@@ -59,16 +60,11 @@
     </div>
   </div>
 
-  <div id="map"></div>
-
   <div id="feedback"><a href="/feedback">Send feedback</a></div>
 
   <!-- Popular Photos -->
   <div id="popular">
     <h2>Popular Photos</h2>
-    <!--
-    <img class="popular-image" src="https://s3.amazonaws.com/oldnyc/thumb/708760f-a.jpg" width=161 height=200 />
-    -->
     <div class="popular-photo">
       <a href="/#708795f-a"><img class="popular-image" src="https://s3.amazonaws.com/oldnyc/600px/708795f-a.jpg" width=200 height=145 /></a>
       <p>Early motor-drawn bus / 5th &amp; 42nd / 1912</p>
@@ -88,29 +84,7 @@
     <div id="curtains"></div>
     <div id="exit-slideshow" title="Exit Slideshow"></div>
     <div id="grid-container"></div>
-    <!--
-    <div id="expanded-carousel">
-      <ul></ul>
-    </div>
-    <a class='expanded-link arrow-left' id='prev-link' href='javascript:scrollExpanded("-=1");'></a>
-    <a class='expanded-link arrow-right' id='next-link' href='javascript:scrollExpanded("+=1");'></a>
-    -->
-    <!--
-    <div class="info-pane">
-      <h3>Description</h3>
-      <div id="side-description"></div>
-      <h3>Comments</h3>
-      <div id="comments"></div>
-    </div>
-    -->
   </div>
-  <!--
-  <li id="expanded-image-holder-template" class='expanded-image-holder'>
-    <img class='expanded-image thumb' height=500 />
-    <div class='description'></div>
-    <a class='library-link' target='_blank'><i>via</i> NYPL</a>
-  </li>
-  -->
 
   <div style="position: absolute; left: -1000px;">
     <img src="blank.gif" />
