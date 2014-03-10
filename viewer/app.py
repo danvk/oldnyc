@@ -92,7 +92,6 @@ class RecordFetcher(webapp2.RequestHandler):
         # This is just to aid local testing:
         response[id] = default_response.copy()
         orig_id = id.split('-')[0]
-        response[id]['library_url'] = 'http://digitalgallery.nypl.org/nypldigital/id?' + orig_id
       else:
         title = r.title
         if r.description:
@@ -103,7 +102,6 @@ class RecordFetcher(webapp2.RequestHandler):
           'title': title,
           'date': r.date,
           'folder': r.folder,
-          'library_url': r.library_url,
           'width': r.width,
           'height': r.height
         }
