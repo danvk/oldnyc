@@ -127,7 +127,7 @@ a {
 }
 
 #curtains {
-  position: absolute;
+  position: fixed;
   left: 0;
   top: 0;
   right: 0;
@@ -138,6 +138,7 @@ a {
 
 #grid-container {
   z-index: 1;
+  margin-right: 50px;
 }
 
 #exit-slideshow {
