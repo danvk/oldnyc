@@ -408,4 +408,20 @@ $(function() {
       .css('transform', 'rotate(' + currentRotation + 'deg)')
       .data('rotate', currentRotation);
   });
+
+  var photoIdFromATag = function(a) {
+    return $(a).attr('href').replace('/#', '');
+  };
+  $('.popular-photo').on('click', 'a', function(e) {
+    e.preventDefault();
+    var selectedPhotoId = photoIdFromATag(this);
+    var photoIds = $('.popular-photo a').map(function(_, a) {
+      return photoIdFromATag(a);
+    }).toArray();
+
+    loadInfoForPhotoIds(photoIds).done(function() {
+      showExpanded(photoIds);
+    }).fail(function() {
+    });
+  });
 });
