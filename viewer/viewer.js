@@ -328,27 +328,21 @@ function hideExpanded() {
 }
 
 // This fills out details for either a thumbnail or the expanded image pane.
-function fillPhotoPane(photo_id, $pane, opt_info) {
+function fillPhotoPane(photo_id, $pane) {
   // This could be either a thumbnail on the right-hand side or an expanded
   // image, front and center.
   $('.description', $pane).html(descriptionForPhotoId(photo_id));
 
-  var info = opt_info || infoForPhotoId(photo_id);
-  $('.library-link', $pane).attr('href', libraryUrlForPhotoId(photo_id));
-  $pane.attr('photo_id', photo_id);
-}
-
-function currentCarouselItemChanged(el) {
-  var photo_id = $(el).attr('photo_id');
   var info = infoForPhotoId(photo_id);
-  $('#side-description').text(info.title);
+  $('.library-link', $pane).attr('href', libraryUrlForPhotoId(photo_id));
 
-  var width = $('#comments').parent().width();
-  $('#comments').empty().append(
+  var $comments = $pane.find('.comments');
+  var width = $comments.parent().width();
+  $comments.empty().append(
       $('<fb:comments numPosts="5" colorscheme="light"/>')
           .attr('width', width)
           .attr('href', getCanonicalUrlForPhoto(photo_id)))
-  FB.XFBML.parse($('#comments').get(0));
+  FB.XFBML.parse($comments.get(0));
 }
 
 // From https://code.google.com/p/google-maps-extensions
@@ -395,4 +389,14 @@ $(function() {
   // Clicks on the background or "exit" button should leave the slideshow.
   // Clicks on the strip itself should only exit if they're not on an image.
   $('#curtains, #exit-slideshow').click(hideExpanded);
+
+  $('#grid-container').on('og-select', 'li', function(e, div) {
+    var id = $(this).data('image-id');
+    $(div).empty().append(
+        $('#image-details-template').clone().removeAttr('id').show());
+    fillPhotoPane(id, $(div));
+  }).on('click', '.og-fullimg', function() {
+    var photo_id = $(this).closest('li').data('image-id')
+    window.open(libraryUrlForPhotoId(photo_id), '_blank');
+  });
 });

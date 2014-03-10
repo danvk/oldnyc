@@ -154,6 +154,10 @@ a {
   background-image: url('close-white-50.png');
 }
 
+#expanded .og-fullimg img:hover {
+  cursor: pointer;
+}
+
 .arrow-right {
   width: 0; 
   height: 0; 
@@ -210,13 +214,13 @@ a {
 }
 
 #content-area {
-font: 1em;
-width: 960px;
-margin: 0 auto;
-margin-bottom: 50px;
+  font: 1em;
+  width: 960px;
+  margin: 0 auto;
+  margin-bottom: 50px;
 }
 #content-area h3{
-	padding: 0;
-	margin: 0;
-	padding-top: 15px;
+  padding: 0;
+  margin: 0;
+  padding-top: 15px;
 }
