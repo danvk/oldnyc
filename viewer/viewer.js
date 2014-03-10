@@ -399,4 +399,13 @@ $(function() {
     var photo_id = $(this).closest('li').data('image-id')
     window.open(libraryUrlForPhotoId(photo_id), '_blank');
   });
+
+  $('#grid-container').on('click', '.rotate-image-button', function() {
+    var $img = $(this).closest('li').find('.og-fullimg img');
+    var currentRotation = $img.data('rotate') || 0;
+    currentRotation += 90;
+    $img
+      .css('transform', 'rotate(' + currentRotation + 'deg)')
+      .data('rotate', currentRotation);
+  });
 });
