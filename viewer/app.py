@@ -15,6 +15,8 @@ try:
 except:
   VERSION = ''
 
+MEMCACHE_ENABLED = not os.environ['SERVER_SOFTWARE'].startswith('Development')
+
 
 class ImageRecord(db.Model):
   # key = photo_id
@@ -37,16 +39,20 @@ class ThumbnailRecord(db.Model):
 def GetImageRecords(photo_ids):
   """Queries the ImageRecord db, w/ memcaching. Returns photo_id -> rec dict"""
   # check if we've got the whole thing in memcache
-  multi_key = VERSION + 'MIR' + ','.join(photo_ids)
-  recs = memcache.get(multi_key)
-  if recs: return recs
-
   keys_no_prefix = photo_ids[:]
-  key_prefix = VERSION + 'IR'
+  if MEMCACHE_ENABLED:
+    multi_key = VERSION + 'MIR' + ','.join(photo_ids)
+    recs = memcache.get(multi_key)
+    if recs: return recs
 
-  record_map = memcache.get_multi(keys_no_prefix, key_prefix=key_prefix)
-  missing_ids = list(set(keys_no_prefix) - set(record_map.keys()))
-  if not missing_ids: return record_map
+    key_prefix = VERSION + 'IR'
+
+    record_map = memcache.get_multi(keys_no_prefix, key_prefix=key_prefix)
+    missing_ids = list(set(keys_no_prefix) - set(record_map.keys()))
+    if not missing_ids: return record_map
+  else:
+    missing_ids = keys_no_prefix
+    record_map = {}
 
   config = db.create_config(read_policy=db.EVENTUAL_CONSISTENCY)
   db_recs = ImageRecord.get_by_key_name(missing_ids, config=config)
@@ -56,7 +62,7 @@ def GetImageRecords(photo_ids):
     record_map[id] = r
     memcache_map[id] = r
 
-  if memcache_map:
+  if MEMCACHE_ENABLED and memcache_map:
     memcache.add_multi(memcache_map, key_prefix=key_prefix)
     memcache.add(multi_key, record_map)
   return record_map
