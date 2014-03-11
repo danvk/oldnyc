@@ -13,20 +13,23 @@ function isOldNycImage(photo_id) {
 
 // Multiplex between OldSF and OldNYC
 function thumbnailImageUrl(photo_id) {
+  return 'http://oldnyc.s3.amazonaws.com/thumb/' + photo_id + '.jpg';
   if (isOldNycImage(photo_id)) {
     // return 'http://images.nypl.org/index.php?id=' + photo_id + '&t=r';
     // return 'http://dv.nyc:8000/' + photo_id + '.jpg';
     // return 'http://localhost:8001/thumb/' + photo_id + '.jpg';
     // return 'http://192.168.1.7:8001/thumb/' + photo_id + '.jpg';
     // return 'http://localhost:8001/milstein-thumb/' + photo_id + '.jpg';
-    return 'https://s3.amazonaws.com/oldnyc/thumb/' + photo_id + '.jpg';
+    // return 'https://s3.amazonaws.com/oldnyc/thumb/' + photo_id + '.jpg';
+    return 'http://oldnyc.s3.amazonaws.com/thumb/' + photo_id + '.jpg';
   } else {
     return 'http://s3-us-west-1.amazonaws.com/oldsf/thumb/' + photo_id + '.jpg';
   }
 }
 
 function expandedImageUrl(photo_id) {
-  return 'https://s3.amazonaws.com/oldnyc/600px/' + photo_id + '.jpg';
+  // return 'https://s3.amazonaws.com/oldnyc/600px/' + photo_id + '.jpg';
+  return 'http://oldnyc.s3.amazonaws.com/600px/' + photo_id + '.jpg';
   // return 'http://192.168.1.7:8001/600px/' + photo_id + '.jpg';
   if (isOldNycImage(photo_id)) {
     // return 'http://images.nypl.org/index.php?id=' + photo_id + '&t=w';
@@ -40,7 +43,8 @@ function expandedImageUrl(photo_id) {
 
 // The callback gets fired when the info for all lat/lons at this location
 // become available (i.e. after the /info RPC returns).
-function displayInfoForLatLon(recs, marker, opt_callback) {
+function displayInfoForLatLon(lat_lon, marker, opt_callback) {
+  var recs = lat_lons[lat_lon];
   var photo_ids = [];
   for (var i = 0; i < recs.length; i++) {
     if (recs[i][0] >= start_date && recs[i][1] <= end_date) {
@@ -62,7 +66,11 @@ function displayInfoForLatLon(recs, marker, opt_callback) {
   }
 
   loadInfoForPhotoIds(photo_ids, opt_callback).done(function() {
-    showExpanded(photo_ids);
+    var selectedId = null;
+    if (photo_ids.length <= 10) {
+      selectedId = photo_ids[0];
+    }
+    showExpanded(lat_lon.join(','), photo_ids, selectedId);
   }).fail(function() {
   });
 }
@@ -81,8 +89,7 @@ function opacityForNumPhotos(num) {
 // TODO(danvk): possible to just use the event?
 function makeCallback(lat_lon, marker) {
   return function(e) {
-    displayInfoForLatLon(lat_lons[lat_lon], marker);
-    stateWasChanged();
+    displayInfoForLatLon(lat_lon, marker);
   };
 }
 
@@ -177,7 +184,6 @@ function initialize_map() {
     google.maps.event.addListener(polygon, 'click', (function(neighborhood) {
       return function() {
         handleNeighorhoodClick(neighborhood);
-        stateWasChanged();
       };
     })(neighborhood));
   }
@@ -219,6 +225,8 @@ function initialize_map() {
       }
     });
   });
+
+  setUIFromUrlHash();
 }
 
 // Hides the neighborhood polygons and show markers for each location.
@@ -301,8 +309,9 @@ function collapseNeighborhood(neighborhood) {
 
 // NOTE: This can only be called when the info for all photo_ids at the current
 // position have been loaded (in particular the image widths).
-function showExpanded(photo_ids) {
-  $('#expanded').show();
+// key is used to construct URL fragments.
+function showExpanded(key, photo_ids, opt_selected_id) {
+  $('#expanded').show().data('grid-key', key);
   var images = $.map(photo_ids, function(photo_id, idx) {
     var info = infoForPhotoId(photo_id);
     return $.extend({
@@ -316,6 +325,9 @@ function showExpanded(photo_ids) {
   $('#grid-container').expandableGrid({
     rowHeight: 200
   }, images);
+  if (opt_selected_id) {
+    $('#grid-container').expandableGrid('select', opt_selected_id);
+  }
 
   stateWasChanged();
 }
@@ -385,6 +397,16 @@ function GetCentroid(path) {
   return new google.maps.LatLng(x/f, y/f);
 }
 
+function photoIdFromATag(a) {
+  return $(a).attr('href').replace('/#', '');
+}
+
+function getPopularPhotoIds() {
+  return $('.popular-photo a').map(function(_, a) {
+    return photoIdFromATag(a);
+  }).toArray();
+}
+
 $(function() {
   // Clicks on the background or "exit" button should leave the slideshow.
   // Clicks on the strip itself should only exit if they're not on an image.
@@ -395,8 +417,13 @@ $(function() {
     $(div).empty().append(
         $('#image-details-template').clone().removeAttr('id').show());
     fillPhotoPane(id, $(div));
-  }).on('click', '.og-fullimg', function() {
-    var photo_id = $(this).closest('li').data('image-id')
+    stateWasChanged(id);
+  })
+  .on('og-deselect', function() {
+    stateWasChanged(null);
+  })
+  .on('click', '.og-fullimg', function() {
+    var photo_id = $('#grid-container').expandableGrid('selectedId');
     window.open(libraryUrlForPhotoId(photo_id), '_blank');
   });
 
@@ -409,18 +436,13 @@ $(function() {
       .data('rotate', currentRotation);
   });
 
-  var photoIdFromATag = function(a) {
-    return $(a).attr('href').replace('/#', '');
-  };
   $('.popular-photo').on('click', 'a', function(e) {
     e.preventDefault();
     var selectedPhotoId = photoIdFromATag(this);
-    var photoIds = $('.popular-photo a').map(function(_, a) {
-      return photoIdFromATag(a);
-    }).toArray();
+    var photoIds = getPopularPhotoIds();
 
     loadInfoForPhotoIds(photoIds).done(function() {
-      showExpanded(photoIds);
+      showExpanded('pop', photoIds, selectedPhotoId);
     }).fail(function() {
     });
   });

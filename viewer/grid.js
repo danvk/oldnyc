@@ -410,6 +410,8 @@ var Grid = (function() {
         }
 
       }, this ), 25 );
+
+      $grid.trigger('og-deselect');
       
       return false;
 
@@ -533,7 +535,24 @@ function flowImages(lis, width, maxRowHeight) {
  * }
  * images = [ { src: "", width: M, height: N, largesrc: "", id: "" }, ... ]
  */
-$.fn.expandableGrid = function(options, images) {
+$.fn.expandableGrid = function(arg1) {
+  var meth = null;
+  if ($.type(arg1) === 'object') {
+    meth = createExpandableGrid;
+  } else if ($.type(arg1) === 'string') {
+    if (arg1 === 'select') {
+      meth = selectImage;
+    } else if (arg1 == 'selectedId') {
+      meth = selectedId;
+    }
+  }
+  if (!meth) {
+    throw "Invalid expandableGrid call";
+  }
+  return meth.apply(this, arguments);
+};
+
+var createExpandableGrid = function(options, images) {
   var lis = $.map(images, function(image) {
     var $li = $('<li><a><img /></a></li>');
     $li.find('img').attr({
@@ -563,6 +582,26 @@ $.fn.expandableGrid = function(options, images) {
   Grid.init($ul.get(0));
 
   return this;
+};
+
+var selectImage = function(_, id) {
+  var $li = null;
+  $(this).find('li').each(function(_, li) {
+    if ($(li).data('image-id') == id) {
+      $li = $(li);
+      return false;
+    }
+  });
+  if (!$li) {
+    return false;
+  }
+
+  $li.children('a').click();
+  return true;
+};
+
+var selectedId = function() {
+  return $(this).find('li.og-expanded').data('image-id');
 };
 
 $(window).on('resize', function( event ) {

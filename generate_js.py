@@ -53,6 +53,7 @@ def printJson(located_recs, lat_lon_map):
   points = 0
   photos = 0
   print "var lat_lons = {"
+  is_first = True
   for lat_lon, recs in ll_to_id.iteritems():
     sorted_recs = sorted([r for r in recs
                             if r.date_range() and r.date_range()[1]],
@@ -71,10 +72,14 @@ def printJson(located_recs, lat_lon_map):
     if out_recs:
       points += 1
       photos += len(out_recs)
-      print '"%s": [%s],' % (lat_lon, ','.join(out_recs))
+      if not is_first:
+        print ',',
+      else:
+        is_first = False
+      print '"%s": [%s]' % (lat_lon, ','.join(out_recs))
 
 
-  print '"40.719595,-73.964204": [[1850,2000,"egg"]]'
+  # print '"40.719595,-73.964204": [[1850,2000,"egg"]]'
   print "};"
 
   sys.stderr.write('Dropped w/ no date: %d\n' % no_date)
