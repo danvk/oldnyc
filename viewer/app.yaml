@@ -16,8 +16,7 @@ handlers:
   static_files: favicon.ico
   upload: favicon.ico
 - url: /
-  static_files: viewer.html
-  upload: viewer.html
+  script: app.app
 - url: /about
   static_files: about.html
   upload: about.html
@@ -37,6 +36,10 @@ handlers:
 - url: .*
   script: app.app
 
+# TODO(danvk): restore this before launching
+# - url: /
+#   static_files: viewer.html
+#   upload: viewer.html
 
 builtins:
 - remote_api: on
