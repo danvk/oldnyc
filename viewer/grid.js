@@ -293,7 +293,6 @@ var Grid = (function() {
     },
 
     update : function( $item ) {
-
       if( $item ) {
         this.$item = $item;
       }
@@ -542,6 +541,8 @@ $.fn.expandableGrid = function(arg1) {
   } else if ($.type(arg1) === 'string') {
     if (arg1 === 'select') {
       meth = selectImage;
+    } else if (arg1 == 'deselect') {
+      meth = deselect;
     } else if (arg1 == 'selectedId') {
       meth = selectedId;
     }
@@ -584,7 +585,14 @@ var createExpandableGrid = function(options, images) {
   return this;
 };
 
+var deselect = function(_) {
+  // TODO(danvk): remove this use of a global
+  // $.data(window, 'preview').close();
+  $(this).find('li.og-expanded > a').click();
+};
+
 var selectImage = function(_, id) {
+  // TODO(danvk): use $.data(this, 'preview').open() ?
   var $li = null;
   $(this).find('li').each(function(_, li) {
     if ($(li).data('image-id') == id) {

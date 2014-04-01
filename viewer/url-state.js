@@ -67,21 +67,32 @@ function transitionToStateObject(state) {
     return;
   }
 
-  // Show a different photo?
-  $('#grid-container').expandableGrid('select', state.id);
+  if (currentState.id && !state.id) {
+    // Hide the selected photo
+    $('#grid-container').expandableGrid('deselect');
+  } else {
+    // Show a different photo
+    $('#grid-container').expandableGrid('select', state.id);
+  }
 }
 
 
 // Updates the URL hash to reflect the new state, adding history as appropriate.
 function updateHash(newState) {
   var oldState = hashToStateObject(window.location.hash.substr(1));
-  var addToHistory = oldState.g !== newState.g;
+  var addToHistory = (oldState.g !== newState.g || !oldState.id);
   var newHash = stateObjectToHash(newState);
-  hashChangesToIgnore[newHash] = true;
+  if (JSON.stringify(oldState) == JSON.stringify(newState)) {
+    return;  // nothing to do
+  }
   if (addToHistory) {
-    location.assign('#' + newHash);
+    history.pushState(null, null, '#' + newHash);
+    console.log('history.pushState', newHash);
+    // location.assign('#' + newHash);
   } else {
-    location.replace('#' + newHash);
+    history.replaceState(null, null, '#' + newHash);
+    console.log('history.replaceState', newHash);
+    // location.replace('#' + newHash);
   }
 }
 
@@ -97,12 +108,7 @@ function findLatLonForPhoto(photo_id) {
   return null;
 }
 
-var selected_marker = null;
-var selected_icon = 0;
-
-
 var block_update = false;  // used when loading from a hash
-var hashChangesToIgnore = {};
 
 
 // Call this whenever something happens to change the state of the page.
@@ -118,8 +124,11 @@ function setUIFromUrlHash() {
   transitionToStateObject(state);
 }
 
-// This enables pasting hashed URLs
-// $(window).hashchange(function() {
-//   var hash = location.hash.substr(1);
-//   setUIFromUrlHash();
-// });
+window.addEventListener('popstate', function(e) {
+  // this fires when the page loads, and when the user hits the back button.
+  // if the user is coming back from another site or reloading, then e.state
+  // might be non-null.
+  // window.location.hash is the _new_ hash, after user hits back.
+  console.log('popstate', location.hash);
+  setUIFromUrlHash();
+});
