@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head>
+  <title>HTML history playground</title>
+</head>
+<body>
+  <p>Playground for HTML5 history features.</p>
+  <div id="state"></div>
+
+  <button state="a">Push A</button>
+  <button state="b">Push B</button>
+  <a href="http://www.google.com">external link</a>
+
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script type="text/javascript">
+  $(function() {
+      $('button').click(function() {
+        var state = $(this).attr('state');
+        console.log('Calling pushState', state);
+        // This never causes hashchange to fire!
+        history.pushState(state, null, '#' + state);
+      });
+
+      window.addEventListener('popstate', function(e) {
+        // this fires when the page loads, and when the user hits the back button.
+        // if the user is coming back from another site or reloading, then e.state might be non-null.
+        console.log('popstate event', e.state, window.location.hash);
+      });
+
+      if (history.state) {
+        console.log('Initial state', history.state);
+      }
+      if (document.location.hash.substr(1)) {
+        console.log('Initial hash', document.location.hash.substr(1));
+      }
+  });
+  </script>
+</body>
+</html>
