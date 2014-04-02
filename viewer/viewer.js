@@ -1,5 +1,6 @@
 var marker_icons = [];
 var selected_marker_icons = [];
+var selected_marker;
 var map;
 var start_date = 1850;
 var end_date = 2000;
