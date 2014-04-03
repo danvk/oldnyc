@@ -1,10 +1,12 @@
 var markers = [];
 var marker_icons = [];
+var lat_lon_to_marker = {};
 var selected_marker_icons = [];
 var selected_marker;
 var map;
 var start_date = 1850;
 var end_date = 2000;
+var markers_set_for_zoom;
 
 function isOldNycImage(photo_id) {
   // NYC images have IDs like '123f' or '345f-b'.
@@ -78,6 +80,8 @@ function displayInfoForLatLon(lat_lon, marker, opt_callback) {
 // TODO(danvk): possible to just use the event?
 function makeCallback(lat_lon, marker) {
   return function(e) {
+    // lat_lon = e.latLng.lat().toFixed(6) + ',' + e.latLng.lng().toFixed(6)
+    // marker = ...
     displayInfoForLatLon(lat_lon, marker);
   };
 }
@@ -85,7 +89,7 @@ function makeCallback(lat_lon, marker) {
 function initialize_map() {
   var latlng = new google.maps.LatLng(40.74421, -73.97370);
   var opts = {
-    zoom: 14,
+    zoom: 15,
     maxZoom: 18,
     minZoom: 10,
     center: latlng,
@@ -163,7 +167,6 @@ function initialize_map() {
     ));
   }
 
-  
   for (var lat_lon in lat_lons) {
     var recs = lat_lons[lat_lon];
     var ll = lat_lon.split(",");
@@ -176,10 +179,39 @@ function initialize_map() {
       title: lat_lon
     });
     markers.push(marker);
+    lat_lon_to_marker[lat_lon] = marker;
     google.maps.event.addListener(marker, 'click', makeCallback(ll, marker));
   }
 
+  markers_set_for_zoom = opts.zoom;
+  google.maps.event.addListener(map, 'zoom_changed', setMarkerIcons);
+
   setUIFromUrlHash();
+}
+
+
+function clamp(x, min, max) {
+  return Math.min(max, Math.max(min, x));
+}
+
+
+// Called in response to a zoom event.
+function setMarkerIcons() {
+  var oldFactor = Math.min(1, Math.pow(4, markers_set_for_zoom - 15));
+  var scaleFactor = Math.min(1, Math.pow(4, map.getZoom() - 15));
+
+  if (oldFactor == scaleFactor) return;
+
+  for (var lat_lon in lat_lons) {
+    var marker = lat_lon_to_marker[lat_lon];
+    var numPoints = lat_lons[lat_lon].length;
+    var oldIdx = clamp(Math.floor(numPoints * oldFactor), 1, 100);
+    var newIdx = clamp(Math.floor(numPoints * scaleFactor), 1, 100);
+    if (oldIdx != newIdx) {
+      marker.setIcon(marker_icons[newIdx]);
+    }
+  }
+  markers_set_for_zoom = map.getZoom();
 }
 
 
