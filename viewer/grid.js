@@ -98,7 +98,7 @@ $special = $event.special.throttledresize = {
 
 })(jQuery);
 
-var Grid = (function() {
+var Grid = function() {
 
     // list of items
   var $grid = null,
@@ -474,7 +474,7 @@ var Grid = (function() {
     addItems : addItems
   };
 
-})();
+};
 
 (function($) {
 
@@ -580,7 +580,9 @@ var createExpandableGrid = function(options, images) {
   reflow(this);
   $(lis).show();
 
-  Grid.init($ul.get(0));
+  g = Grid();
+  g.init($ul.get(0));
+  $(this).data('og-grid', g);
 
   return this;
 };
