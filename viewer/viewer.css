@@ -13,6 +13,7 @@ a {
   left: 0px;
   right: 0px;
   height: 55px;
+  background: #fff;
   min-width:800px;
 }
 
@@ -26,65 +27,56 @@ a {
 
 #about {
   position: absolute;
-  top: 8px;
-  right: 8px;
-  font-family: Arial, Tahoma, Sans-serif;
-  font-size: 1.3em;
-  padding: 18px 20px 16px 20px;
-  background: #d34f4f;
+  right: 0px;
+  font-size: 1.1em;
+  padding: 20px 20px 19px 20px;
+  color: #fff;
 }
 #about:hover{
-  background: #dc5b5b;
-  color: #fff;
-  text-decoration: none;
+  background: #f6f6f6;
 }
 #about a, #about a:visited {
-  color: #fff;
+  color: #111;
 }
 #logo {
   position: absolute;
-  top: 8px;
-  left: 8px;
+  left: 0px;
   font-size: 2.2em;
   height: 54px;
-  width: 110px;
-  background: #111;
+  width: 130px;
   text-align: center;
 }
+/*#logo:hover{
+  background: #f6f6f6;
+  }*/
 #logo .wrapper{
   padding: 11px 0;
 }
 #logo a{
-  color: #ddd;
+  color: #111;
   font-family: 'Adobe Garamond Pro', serif;
-}
-#logo:hover{
-  color: #fff;
-  background: #1c1c1c;
 }
 #slider-arrow-white-down{
   width: 0; 
   height: 0;
   position: absolute;
-  top: 32px;
-  left: 257px;
+  top: 25px;
+  left: 268px;
   border-left: 6px solid transparent;
   border-right: 6px solid transparent;
-  border-top: 10px solid #fff;
+  border-top: 8px solid #111;
 }
 #date_range {
-  font-size: 1.8em;
-  background: #111;
+  font-size: 1.7em;
   width: 145px;
   text-align: center;
   height: 54px;
-  color: #fff;
-  font-weight: light;
+  color: #111;
+  font-weight: normal;
   font-weight: 300;
   padding-right: 20px;
-  margin: 8px 0 0 118px;
+  margin: 0px 0 0 132px;
   cursor: pointer;
-  border-left: 1px solid #222;
 
   /* prevents selecting the date range on click */
   -webkit-touch-callout: none;
@@ -98,8 +90,8 @@ a {
   padding: 15px 0;
 }
 #date_range:hover, #date_range:active {
-  background: #1c1c1c;
   text-decoration: none;
+  background: #f6f6f6;
 }
 #date_range a, #date_range a:hover {
   text-decoration: none;
@@ -145,13 +137,13 @@ a {
   position: absolute;
   top: 15px;
   right: 15px;
-  width: 50px;
-  height: 50px;
-  background-image: url('close-grey-50.png');
+  width: 35px;
+  height: 35px;
+  background-image: url('close-thin-white.png');
   z-index: 101;
 }
 #exit-slideshow:hover {
-  background-image: url('close-white-50.png');
+  background-image: url('close-thin-white.png');
 }
 
 #expanded .og-fullimg img:hover {

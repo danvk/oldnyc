@@ -281,8 +281,8 @@ var Grid = (function() {
       this.$fullimage = $( '<div class="og-fullimg"></div>' ).append( this.$loading );
       this.$closePreview = $( '<span class="og-close"></span>' );
       this.$previewInner = $( '<div class="og-expander-inner"></div>' ).append( this.$closePreview, this.$fullimage, this.$details );
-      this.$previewLeft = $('<div class="og-previous">&lt;</div>');
-      this.$previewRight = $('<div class="og-next">&gt;</div>');
+      this.$previewLeft = $('<div class="og-previous"></div>');
+      this.$previewRight = $('<div class="og-next"></div>');
       this.$previewEl = $( '<div class="og-expander"></div>' ).append( this.$previewInner, this.$previewLeft, this.$previewRight );
       // append preview element to the item
       this.$item.append( this.getEl() );
