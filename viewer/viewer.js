@@ -1,11 +1,10 @@
+var markers = [];
 var marker_icons = [];
 var selected_marker_icons = [];
 var selected_marker;
 var map;
 var start_date = 1850;
 var end_date = 2000;
-var polygons = {};
-var neighborhood_to_markers = {};
 
 function isOldNycImage(photo_id) {
   // NYC images have IDs like '123f' or '345f-b'.
@@ -76,17 +75,6 @@ function displayInfoForLatLon(lat_lon, marker, opt_callback) {
   });
 }
 
-function opacityForNumPhotos(num) {
-  if (num == 0) return 0.0;
-  if (num <= 20) return 0.2;
-  if (num <= 50) return 0.3;
-  if (num <= 100) return 0.4;
-  if (num <= 200) return 0.5;
-  if (num <= 500) return 0.6;
-  if (num <= 1000) return 0.7;
-  return 0.8;
-}
-
 // TODO(danvk): possible to just use the event?
 function makeCallback(lat_lon, marker) {
   return function(e) {
@@ -95,12 +83,6 @@ function makeCallback(lat_lon, marker) {
 }
 
 function initialize_map() {
-  // google.maps.visualRefresh = true;
-
-  // Give them something to look at while the map loads:
-  init_lat_lon = "37.771393,-122.428618";
-
-  // var latlng = new google.maps.LatLng(37.79216, -122.41753);
   var latlng = new google.maps.LatLng(40.74421, -73.97370);
   var opts = {
     zoom: 14,
@@ -161,34 +143,6 @@ function initialize_map() {
         $('.streetview-hide').toggle(!streetView.getVisible());
       });
 
-  for (var neighborhood in neighborhood_polygons) {
-    var photos = neighborhood_photos[neighborhood];
-    if (!photos || photos.length == 0) continue;
-
-    var coords = neighborhood_polygons[neighborhood];
-    var gmap_coords = $.map(coords, function(lat_lon) {
-      return new google.maps.LatLng(lat_lon[1], lat_lon[0]);
-    });
-
-    var polygon = new google.maps.Polygon({
-      path: gmap_coords,
-      geodesic: true,
-      strokeColor: '#FFFFFF',
-      strokeOpacity: 1.0,
-      strokeWeight: 2,
-      fillColor: '#000000',
-      fillOpacity: opacityForNumPhotos(neighborhood_photos[neighborhood].length)
-    });
-
-    polygon.setMap(map);
-    polygons[neighborhood] = polygon;
-    google.maps.event.addListener(polygon, 'click', (function(neighborhood) {
-      return function() {
-        handleNeighorhoodClick(neighborhood);
-      };
-    })(neighborhood));
-  }
-
   // Create marker icons for each number.
   marker_icons.push(null);  // it's easier to be 1-based.
   selected_marker_icons.push(null);
@@ -209,102 +163,23 @@ function initialize_map() {
     ));
   }
 
-  // When the map is idle, check if we should expand/collapse polygons.
-  // Thresholds:
-  // zoom level 0-12: only show polygons
-  // zoom level 15+: only show individual points
-  google.maps.event.addListener(map, 'idle', function() {
-    var mapBounds = map.getBounds();
-    $.each(polygons, function(neighborhood, polygon) {
-      if (polygon.getBounds().intersects(mapBounds)) {
-        var isManhattan = neighborhood.substr(-11) == ', Manhattan';
-        if (map.getZoom() >= 15) {
-          showIndividualPhotosForNeighborhood(neighborhood);
-        } else {
-          collapseNeighborhood(neighborhood);
-        }
-      }
+  
+  for (var lat_lon in lat_lons) {
+    var recs = lat_lons[lat_lon];
+    var ll = lat_lon.split(",");
+    marker = new google.maps.Marker({
+      position: new google.maps.LatLng(parseFloat(ll[0]), parseFloat(ll[1])),
+      map: map,
+      flat: true,
+      visible: true,
+      icon: marker_icons[recs.length > 100 ? 100 : recs.length],
+      title: lat_lon
     });
-  });
+    markers.push(marker);
+    google.maps.event.addListener(marker, 'click', makeCallback(ll, marker));
+  }
 
   setUIFromUrlHash();
-}
-
-// Hides the neighborhood polygons and show markers for each location.
-function handleNeighorhoodClick(neighborhood) {
-  // The sequence:
-  // 1. Show points for this neighborhood.
-  // 2. Zoom to the neighborhood.
-  // (deferred) Show polygons for other visible neighborhoods.
-
-  showIndividualPhotosForNeighborhood(neighborhood);
-
-  // This will fire event listeners which will expand the other neighborhoods,
-  // as needed.
-  var polygon = polygons[neighborhood];
-  var centroid = GetCentroid(polygon.getPath());
-  map.setCenter(centroid);
-  map.setZoom(15);
-}
-
-function showIndividualPhotosForNeighborhood(neighborhood) {
-  var polygon = polygons[neighborhood];
-  if (polygon.getMap() == null) {
-    return;  // We're already showing individual photos for this neighborhood
-  }
-
-  polygon.setMap(null);  // hide the polygon
-  var markers = neighborhood_to_markers[neighborhood];
-  if (!markers) {
-    // First click: figure out which markers are in this neighborhood.
-    var records = neighborhood_photos[neighborhood];
-    var ids = {};
-    $.each(records, function(_, rec) {
-      ids[rec[2]] = true;
-    });
-    markers = [];
-    for (var lat_lon in lat_lons) {
-      var ll_recs = lat_lons[lat_lon];
-      var id = ll_recs[0][2];
-      if (!(id in ids)) continue;
-      var ll = lat_lon.split(',');
-
-      var marker = new google.maps.Marker({
-        position: new google.maps.LatLng(parseFloat(ll[0]), parseFloat(ll[1])),
-        map: map,
-        flat: true,
-        visible: true,
-        icon: marker_icons[ll_recs.length > 100 ? 100 : ll_recs.length],
-        title: lat_lon
-      });
-      markers.push(marker);
-      google.maps.event.addListener(marker, 'click', makeCallback(ll, marker));
-    }
-    neighborhood_to_markers[neighborhood] = markers;
-  } else {
-    $.each(markers, function(_, marker) {
-      marker.setMap(map);
-    });
-  }
-}
-
-// Hide all the markers for a neighborhood and show the polygon.
-function collapseNeighborhood(neighborhood) {
-  var polygon = polygons[neighborhood];
-  if (polygon.getMap() != null) {
-    return;  // We're already showing the polygon for this neighborhood.
-  }
-
-  var markers = neighborhood_to_markers[neighborhood];
-  if (!markers) {
-    // this really shouldn't happen...
-  } else {
-    $.each(markers, function(_, marker) {
-      marker.setMap(null);
-    });
-  }
-
-  polygon.setMap(map);
 }
 
 
@@ -357,46 +232,6 @@ function fillPhotoPane(photo_id, $pane) {
           .attr('width', width)
           .attr('href', getCanonicalUrlForPhoto(photo_id)))
   FB.XFBML.parse($comments.get(0));
-}
-
-// From https://code.google.com/p/google-maps-extensions
-if (!google.maps.Polygon.prototype.getBounds) {
-  google.maps.Polygon.prototype.getBounds = function(latLng) {
-    var bounds = new google.maps.LatLngBounds();
-    var paths = this.getPaths();
-    var path;
-    for (var p = 0; p < paths.getLength(); p++) {
-      path = paths.getAt(p);
-      for (var i = 0; i < path.getLength(); i++) {
-        bounds.extend(path.getAt(i));
-      }
-    }
-    return bounds;
-  }
-}
-
-// From http://stackoverflow.com/questions/5187806/trying-to-get-the-cente-lat-lon-of-a-polygon
-function GetCentroid(path) {
-  var f;
-  var x = 0;
-  var y = 0;
-  var nPts = path.length;
-  var j = nPts-1;
-  var area = 0;
-  
-  for (var i = 0; i < nPts; j=i++) {   
-    var pt1 = path.getAt(i);
-    var pt2 = path.getAt(j);
-    f = pt1.lat() * pt2.lng() - pt2.lat() * pt1.lng();
-    x += (pt1.lat() + pt2.lat()) * f;
-    y += (pt1.lng() + pt2.lng()) * f;
-
-    area += pt1.lat() * pt2.lng();
-    area -= pt1.lng() * pt2.lat();        
-  }
-  area /= 2;
-  f = area * 6;
-  return new google.maps.LatLng(x/f, y/f);
 }
 
 function photoIdFromATag(a) {
