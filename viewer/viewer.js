@@ -72,18 +72,15 @@ function displayInfoForLatLon(lat_lon, marker, opt_callback) {
     if (photo_ids.length <= 10) {
       selectedId = photo_ids[0];
     }
-    showExpanded(lat_lon.join(','), photo_ids, selectedId);
+    showExpanded(lat_lon, photo_ids, selectedId);
   }).fail(function() {
   });
 }
 
-// TODO(danvk): possible to just use the event?
-function makeCallback(lat_lon, marker) {
-  return function(e) {
-    // lat_lon = e.latLng.lat().toFixed(6) + ',' + e.latLng.lng().toFixed(6)
-    // marker = ...
-    displayInfoForLatLon(lat_lon, marker);
-  };
+function handleClick(e) {
+  var lat_lon = e.latLng.lat().toFixed(6) + ',' + e.latLng.lng().toFixed(6)
+  var marker = lat_lon_to_marker[lat_lon];
+  displayInfoForLatLon(lat_lon, marker);
 }
 
 function initialize_map() {
@@ -180,7 +177,7 @@ function initialize_map() {
     });
     markers.push(marker);
     lat_lon_to_marker[lat_lon] = marker;
-    google.maps.event.addListener(marker, 'click', makeCallback(ll, marker));
+    google.maps.event.addListener(marker, 'click', handleClick);
   }
 
   markers_set_for_zoom = opts.zoom;
@@ -256,6 +253,15 @@ function fillPhotoPane(photo_id, $pane) {
 
   var info = infoForPhotoId(photo_id);
   $('.library-link', $pane).attr('href', libraryUrlForPhotoId(photo_id));
+
+  if (photo_id.match('[0-9]f')) {
+    $pane.find('.more-on-back > a').attr(
+        'href', backOfCardUrlForPhotoId(photo_id));
+        // libraryUrlForPhotoId(photo_id.replace('f', 'b')));
+    $pane.find('.more-on-back').show();
+  } else {
+    $pane.find('.more-on-back').hide();
+  }
 
   var $comments = $pane.find('.comments');
   var width = $comments.parent().width();
