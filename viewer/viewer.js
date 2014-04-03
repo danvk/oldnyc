@@ -312,6 +312,7 @@ function collapseNeighborhood(neighborhood) {
 // position have been loaded (in particular the image widths).
 // key is used to construct URL fragments.
 function showExpanded(key, photo_ids, opt_selected_id) {
+  map.set('keyboardShortcuts', false);
   $('#expanded').show().data('grid-key', key);
   var images = $.map(photo_ids, function(photo_id, idx) {
     var info = infoForPhotoId(photo_id);
