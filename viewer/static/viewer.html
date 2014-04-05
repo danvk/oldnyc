@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>OldSF</title>
+
+  <link type="text/css" href="jquery/jquery-ui-1.8.14.custom.css" rel="stylesheet" />
+  <link type="text/css" href="viewer.css" rel="stylesheet" />
+
+  <!-- Google Maps API -->
+  <script type="text/javascript"
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyClCA1LViYi4KLQfgMlfr3PS0tyxwqzYjA&sensor=false">
+  </script>
+  <!--<script type="text/javascript" src="lat-lons.js"></script>-->
+  <script type="text/javascript" src="nyc-lat-lons.js"></script>
+  <script type="text/javascript" src="nyc-neighborhood-photos.js"></script>
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+  <script type="text/javascript" src="jquery.ba-hashchange.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
+  
+  <script type="text/javascript" src="url-state.js"></script>
+  <script type="text/javascript" src="photo-info.js"></script>
+  <script type="text/javascript" src="social.js"></script>
+  <script type="text/javascript" src="viewer.js"></script>
+
+  <script src="modernizr.custom.js"></script>
+  <script src="grid.js"></script>
+  <link rel="stylesheet" href="grid.css" />
+
+  <meta property="fb:app_id" content="598168753565519"/>
+</head>
+
+<body onload="initialize_map()">
+  <div id="fb-root"></div>
+  <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=598168753565519";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));</script>
+
+  <div id="map"></div>
+
+  <div id="header" class="streetview-hide">
+    <div id="twitter">
+      <a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="Old_SF">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+    </div>
+    <div id="about"><a href="/about" target="_blank">About</a></div>
+
+    <div id="logo">
+    	<div class="wrapper">
+      <a href="/">OldSF</a>
+      	</div>
+    </div>
+    <div id="date_range">
+    	<a><div class="wrapper">
+    		<span id="date_range_years">1850&ndash;2000</span></a><div id="slider-arrow-white-down"></div>
+    	</div></a>
+    </div>
+  </div>
+
+  <div id="feedback"><a href="/feedback">Send feedback</a></div>
+
+  <!-- Popular Photos -->
+  <div id="popular">
+    <h2>Popular Photos</h2>
+    <div class="popular-photo">
+      <a href="/#708795f-a"><img class="popular-image" src="https://s3.amazonaws.com/oldnyc/600px/708795f-a.jpg" width=200 height=145 /></a>
+      <p>Early motor-drawn bus / 5th &amp; 42nd / 1912</p>
+    </div>
+    <div class="popular-photo">
+      <a href="/#1508783-a"><img class="popular-image" src="https://s3.amazonaws.com/oldnyc/600px/1508783-a.jpg" width=200 height=157 /></a>
+      <p>Trolley car conductor / 5th &amp; 42nd / 1936</p>
+    </div>
+    <div class="popular-photo">
+      <a href="/#709480f-a"><img class="popular-image" src="https://s3.amazonaws.com/oldnyc/600px/709480f-a.jpg" width=200 height=159 /></a>
+      <p>Demolition of the "El" / 6th &amp; 42nd / 1939</p>
+    </div>
+  </div>
+
+  <!-- Expanded Image Slideshow -->
+  <div style="display:none;" id="expanded">
+    <div id="curtains"></div>
+    <div id="exit-slideshow" title="Exit Slideshow"></div>
+    <div id="grid-container"></div>
+  </div>
+
+  <div id="image-details-template" style="display: none;">
+    <button class="rotate-image-button">Rotate</button>
+    <h3>Description</h3>
+    <div class="description"></div>
+    <h3>Comments</h3>
+    <div class="comments"></div>
+  </div>
+
+  <div style="position: absolute; left: -1000px;">
+    <img src="blank.gif" />
+    <img src="spinner.gif" />
+  </div>
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-769809-3']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</body>
+</html>

@@ -210,7 +210,7 @@ class RootHandler(webapp2.RequestHandler):
   def get(self):
     logging.info('hello')
     self.response.headers['Content-type'] = 'text/html'
-    self.response.out.write(open('viewer.html').read())
+    self.response.out.write(open('static/viewer.html').read())
 
 
 app = webapp2.WSGIApplication(

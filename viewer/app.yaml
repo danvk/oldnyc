@@ -1,5 +1,4 @@
-#application: sf-viewer
-application: old-nyc
+application: oldbostonphotos
 
 version: 2014-03-10
 runtime: python27
@@ -9,30 +8,38 @@ api_version: 1
 
 handlers:
 - url: /jquery
-  static_dir: jquery
+  static_dir: static/jquery
 - url: /dots
-  static_dir: dots
+  static_dir: static/dots
 - url: /favicon.ico
-  static_files: favicon.ico
-  upload: favicon.ico
+  static_files: static/favicon.ico
+  upload: static/favicon.ico
 - url: /
   script: app.app
 - url: /about
-  static_files: about.html
-  upload: about.html
+  static_files: static/about.html
+  upload: static/about.html
 - url: /feedback
-  static_files: feedback.html
-  upload: feedback.html
+  static_files: static/feedback.html
+  upload: static/feedback.html
 - url: /upload
   script: app.app
-- url: /lat-lons.js
-  static_files: lat-lons.js
-  upload: lat-lons.js
 - url: /thumb/.*
   script: app.app
-- url: /(.*\.(gif|png|jpg|css|js|zip))
-  static_files: \1
-  upload: (.*\.(gif|png|jpg|css|js|zip))
+  
+- url: /records.js.zip
+  static_files: static/records.js.zip
+  upload: static/records.js.zip
+- url: /(.*\.js)
+  static_files: static/js/\1
+  upload: static/js/.*\.js
+- url: /(.*\.css)
+  static_files: static/styles/\1
+  upload: static/styles/.*\.css
+- url: /(.*\.(gif|png|jpg))
+  static_files: static/imageresources/\1
+  upload: static/imageresources/.*\.(gif|png|jpg)
+  
 - url: .*
   script: app.app
 

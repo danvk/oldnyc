@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+<head>
+  <title>Expandable grid demo</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="modernizr.custom.js"></script>
+  <script src="grid.js"></script>
+  <script src="grid-data.js"></script>
+  <link rel="stylesheet" href="grid.css" />
+</head>
+<body>
+  <div class="main">
+  </div>
+  <div id="og-details-template" style="display:none">
+    <h3 class="title">TESTING</h3>
+  </div>
+
+  <script type="text/javascript">
+    function thumbUrl(id) {
+      return 'https://s3.amazonaws.com/oldnyc/thumb/' + id + '.jpg';
+    }
+    function imageUrl(id) {
+      return 'https://s3.amazonaws.com/oldnyc/600px/' + id + '.jpg';
+    }
+
+    var rowHeight = 200;
+
+    $(function() {
+      var infos = $.map(recs, function(info, id) {
+        return $.extend({
+          id: id,
+          largesrc: imageUrl(id),
+          src: thumbUrl(id)
+        }, info);
+      });
+
+      $('.main').expandableGrid({
+        rowHeight: 200
+      }, infos);
+
+      $('.main').on('og-select', 'li', function(e, div) {
+        var id = $(this).data('image-id');
+        $(div).empty().append(
+            $('#og-details-template').clone().removeAttr('id').show());
+        $(div).find('.title').text(recs[id].title);
+      });
+    });
+  </script>
+</body>
+</html>
