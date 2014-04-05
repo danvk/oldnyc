@@ -1,5 +1,0 @@
-for x in $(seq 2 9); convert -size 13x13 xc:none -fill '#FB7164' -stroke black -draw 'circle 6,6 10,10' -stroke none -fill black -pointsize 10 -gravity center -draw "text 1,0 '$x'" dots/$x.png
-for x in $(seq 10 19); convert -size 25x25 xc:none -fill '#FB7164' -stroke black -draw 'circle 12,12 20,20' -stroke none -fill black -pointsize 16 -gravity center -draw "text 0,1 '$x'" dots/$x.png
-for x in $(seq 20 99); convert -size 25x25 xc:none -fill '#FB7164' -stroke black -draw 'circle 12,12 20,20' -stroke none -fill black -pointsize 16 -gravity center -draw "text 1,1 '$x'" dots/$x.png
-convert -size 39x39 xc:none -fill '#FB7164' -stroke black -draw 'circle 19,19 32,32' -stroke none -fill black -pointsize 16 -gravity center -draw "text 1,1 '100+'" dots/100.png
-cd dots; montage $(ls ?.png ??.png ???.png | sort -n | xargs) -background transparent -gravity NorthWest -geometry '39x39>+0+0' -tile 10x sprite.png
