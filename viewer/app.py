@@ -16,7 +16,7 @@ try:
 except:
   VERSION = ''
 
-MEMCACHE_ENABLED = not os.environ['SERVER_SOFTWARE'].startswith('Development')
+MEMCACHE_ENABLED = True
 
 
 class ImageRecord(db.Model):

@@ -98,7 +98,7 @@ $special = $event.special.throttledresize = {
 
 })(jQuery);
 
-var Grid = (function() {
+var Grid = function() {
 
     // list of items
   var $grid = null,
@@ -281,8 +281,8 @@ var Grid = (function() {
       this.$fullimage = $( '<div class="og-fullimg"></div>' ).append( this.$loading );
       this.$closePreview = $( '<span class="og-close"></span>' );
       this.$previewInner = $( '<div class="og-expander-inner"></div>' ).append( this.$closePreview, this.$fullimage, this.$details );
-      this.$previewLeft = $('<div class="og-previous">&lt;</div>');
-      this.$previewRight = $('<div class="og-next">&gt;</div>');
+      this.$previewLeft = $('<div class="og-previous"></div>');
+      this.$previewRight = $('<div class="og-next"></div>');
       this.$previewEl = $( '<div class="og-expander"></div>' ).append( this.$previewInner, this.$previewLeft, this.$previewRight );
       // append preview element to the item
       this.$item.append( this.getEl() );
@@ -293,7 +293,6 @@ var Grid = (function() {
     },
 
     update : function( $item ) {
-
       if( $item ) {
         this.$item = $item;
       }
@@ -475,7 +474,7 @@ var Grid = (function() {
     addItems : addItems
   };
 
-})();
+};
 
 (function($) {
 
@@ -542,6 +541,8 @@ $.fn.expandableGrid = function(arg1) {
   } else if ($.type(arg1) === 'string') {
     if (arg1 === 'select') {
       meth = selectImage;
+    } else if (arg1 == 'deselect') {
+      meth = deselect;
     } else if (arg1 == 'selectedId') {
       meth = selectedId;
     }
@@ -579,12 +580,21 @@ var createExpandableGrid = function(options, images) {
   reflow(this);
   $(lis).show();
 
-  Grid.init($ul.get(0));
+  g = Grid();
+  g.init($ul.get(0));
+  $(this).data('og-grid', g);
 
   return this;
 };
 
+var deselect = function(_) {
+  // TODO(danvk): remove this use of a global
+  // $.data(window, 'preview').close();
+  $(this).find('li.og-expanded > a').click();
+};
+
 var selectImage = function(_, id) {
+  // TODO(danvk): use $.data(this, 'preview').open() ?
   var $li = null;
   $(this).find('li').each(function(_, li) {
     if ($(li).data('image-id') == id) {
