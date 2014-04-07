@@ -59,7 +59,7 @@ with:
 ./generate-geocodes.py --coders milstein,nyc-parks --pickle_path nyc/photos.pickle --output_format lat-lons.js --geocode > viewer/nyc-lat-lons.js
 
 cd nyc
-./generate-neighborhood-lat-lons.py ../viewer/nyc-lat-lons.js > ../viewer/nyc-neighborhood-photos.js
+./generate-neighborhood-lat-lons.py ../viewer/static/js/nyc-lat-lons.js > ../viewer/static/js/nyc-neighborhood-photos.js
 
 Note that _both_ of these files JS are required. They're for zoomed-in and -out views respectively.
 
@@ -75,7 +75,7 @@ Run:
 
 to create nyc/neighborhood-polygons.json. Then run:
 
-./generate-neighborhood-lat-lons.py ../viewer/nyc-lat-lons.js > ../viewer/nyc-neighborhood-photos.js
+./generate-neighborhood-lat-lons.py ../viewer/static/js/nyc-lat-lons.js > ../viewer/static/js/nyc-neighborhood-photos.js
 
 to regenerate the JS file used by the frontend (which contains both polygons & image data).
 

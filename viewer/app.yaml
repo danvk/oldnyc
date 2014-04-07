@@ -11,8 +11,6 @@ api_version: 1
 handlers:
 - url: /jquery
   static_dir: static/jquery
-- url: /dots
-  static_dir: static/dots
 - url: /favicon.ico
   static_files: static/favicon.ico
   upload: static/favicon.ico
@@ -39,8 +37,8 @@ handlers:
   static_files: static/styles/\1
   upload: static/styles/.*\.css
 - url: /(.*\.(gif|png|jpg))
-  static_files: static/imageresources/\1
-  upload: static/imageresources/.*\.(gif|png|jpg)
+  static_files: static/images/\1
+  upload: static/images/.*\.(gif|png|jpg)
   
 - url: .*
   script: app.app
