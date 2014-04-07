@@ -1,6 +1,7 @@
 #Eclipse Metadata
 .project
 .pydevproject
+.settings/
 
 #Ignore Python Build Files
 *.pyc
