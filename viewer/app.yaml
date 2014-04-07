@@ -1,5 +1,5 @@
 #application: sf-viewer
--application: old-nyc
+application: old-nyc
 #application: oldbostonphotos
 
 version: 2014-04-02
