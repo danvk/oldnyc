@@ -151,13 +151,13 @@ function initialize_map() {
     var num = i + 1;
     var size = (num == 1 ? 9 : (num < 10 ? 13 : (num < 100 ? 25 : 39)));
     marker_icons.push(new google.maps.MarkerImage(
-      'dots/sprite-2013-01-14.png',
+      'sprite-2013-01-14.png',
       new google.maps.Size(size, size),
       new google.maps.Point((i%10)*39, Math.floor(i/10)*39),
       new google.maps.Point((size - 1) / 2, (size - 1)/2)
     ));
     selected_marker_icons.push(new google.maps.MarkerImage(
-      'dots/selected-2013-01-14.png',
+      'selected-2013-01-14.png',
       new google.maps.Size(size, size),
       new google.maps.Point((i%10)*39, Math.floor(i/10)*39),
       new google.maps.Point((size - 1) / 2, (size - 1)/2)

@@ -30,7 +30,7 @@ Here's the sequence to bring up an instance of the viewer app:
 $ ./generate-geocodes.py --geocode --maps_key (your key) > /tmp/geocodes.txt
 
 # Convert these geocodes into JSON:
-$ ./generate-js.py > viewer/lat-lons.js
+$ ./generate-js.py > viewer/static/js/lat-lons.js
 
 # Upload JSON to AppEngine
 $ cat /tmp/password | appcfg.py update --passin --email danvdk@gmail.com viewer
