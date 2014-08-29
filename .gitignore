@@ -5,3 +5,5 @@
 
 #Ignore Python Build Files
 *.pyc
+
+nyc/images
