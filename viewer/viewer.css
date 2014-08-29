@@ -216,3 +216,40 @@ a {
   margin: 0;
   padding-top: 15px;
 }
+
+/* image grid */
+.rotate-image-button{
+  color: blue;
+  background: #fff;
+  border: none;
+  font-family: Helvetica, sans-serif;
+  font-size: 100%;
+}
+.rotate-image-button:hover{
+  text-decoration: underline;
+}
+.rotate-image-button:active{
+  border: none;
+}
+
+.comments{
+  margin-top: 35px !important;
+}
+
+.description{
+  font-size: 125%;
+  line-height: 125%;
+  margin-bottom: 1px !important;
+}
+
+.og-grid li.og-expanded > a::after {
+  border-bottom-color: #fff;
+}
+
+.og-expander {
+  background: #fff;
+}
+
+.og-details h3 {
+  font-size: 22px;
+}
