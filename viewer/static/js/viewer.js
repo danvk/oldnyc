@@ -6,7 +6,6 @@ var selected_marker;
 var map;
 var start_date = 1850;
 var end_date = 2000;
-var markers_set_for_zoom;
 
 function isOldNycImage(photo_id) {
   // NYC images have IDs like '123f' or '345f-b'.
@@ -121,18 +120,19 @@ function initialize_map() {
   selected_marker_icons.push(null);
   for (var i = 0; i < 100; i++) {
     var num = i + 1;
-    var size = (num == 1 ? 9 : (num < 10 ? 13 : (num < 100 ? 25 : 39)));
+    var size = (num == 1 ? 9 : 13);
+    var selectedSize = (num == 1 ? 9 : (num < 10 ? 13 : (num < 100 ? 25 : 39)));
     marker_icons.push(new google.maps.MarkerImage(
-      'sprite-2013-01-14.png',
+      'sprite-2014-08-29.png',
       new google.maps.Size(size, size),
       new google.maps.Point((i%10)*39, Math.floor(i/10)*39),
       new google.maps.Point((size - 1) / 2, (size - 1)/2)
     ));
     selected_marker_icons.push(new google.maps.MarkerImage(
       'selected-2013-01-14.png',
-      new google.maps.Size(size, size),
+      new google.maps.Size(selectedSize, selectedSize),
       new google.maps.Point((i%10)*39, Math.floor(i/10)*39),
-      new google.maps.Point((size - 1) / 2, (size - 1)/2)
+      new google.maps.Point((selectedSize - 1) / 2, (selectedSize - 1)/2)
     ));
   }
 
@@ -152,35 +152,7 @@ function initialize_map() {
     google.maps.event.addListener(marker, 'click', handleClick);
   }
 
-  markers_set_for_zoom = opts.zoom;
-  google.maps.event.addListener(map, 'zoom_changed', setMarkerIcons);
-
   setUIFromUrlHash();
-}
-
-
-function clamp(x, min, max) {
-  return Math.min(max, Math.max(min, x));
-}
-
-
-// Called in response to a zoom event.
-function setMarkerIcons() {
-  var oldFactor = Math.min(1, Math.pow(4, markers_set_for_zoom - 15));
-  var scaleFactor = Math.min(1, Math.pow(4, map.getZoom() - 15));
-
-  if (oldFactor == scaleFactor) return;
-
-  for (var lat_lon in lat_lons) {
-    var marker = lat_lon_to_marker[lat_lon];
-    var numPoints = lat_lons[lat_lon].length;
-    var oldIdx = clamp(Math.floor(numPoints * oldFactor), 1, 100);
-    var newIdx = clamp(Math.floor(numPoints * scaleFactor), 1, 100);
-    if (oldIdx != newIdx) {
-      marker.setIcon(marker_icons[newIdx]);
-    }
-  }
-  markers_set_for_zoom = map.getZoom();
 }
 
 

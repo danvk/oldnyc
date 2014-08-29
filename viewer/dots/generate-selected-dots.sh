@@ -7,7 +7,7 @@ stroke_color=$color
 text_color='#ffffff'
 font=Helvetica-Bold
 
-convert -size 9x9 xc:none -fill $color -draw 'circle 4,4 7,7' dots/1.png
+convert -size 9x9 xc:none -fill $color -draw 'circle 4,4 7,7' 1.png
 
 for x in $(seq 2 9); do
   convert -size 13x13 xc:none -fill $color -stroke $stroke_color -draw 'circle 6,6 10,10' -stroke none -fill $text_color -pointsize 10 -font $font -gravity center -draw "text 1,1 '$x'" $x.png
