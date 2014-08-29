@@ -55,8 +55,8 @@ if __name__ == '__main__':
                     action='store_true', default=False,
                     help='Set to print out records as they\'re coded.')
   parser.add_option('-o', '--output_format', default='',
-                    help='Set to either lat-lons.js, records.js or entries.txt '
-                    'to output one of these formats.')
+                    help='Set to either lat-lons.js, lat-lons-ny.js, records.js'
+                    ' or entries.txt to output one of these formats.')
   parser.add_option('', '--lat_lon_map', default='', dest='lat_lon_map',
                     help='Lat/lon cluster map, built by cluster-locations.py. '
                     'Only used when outputting lat-lons.js')
@@ -176,6 +176,8 @@ if __name__ == '__main__':
 
   if options.output_format == 'lat-lons.js':
     generate_js.printJson(located_recs, lat_lon_map)
+  if options.output_format == 'lat-lons-ny.js':
+    generate_js.printJsonNoYears(located_recs, lat_lon_map)
   elif options.output_format == 'records.js':
     generate_js.printRecordsJson(located_recs)
   elif options.output_format == 'entries.txt':

@@ -56,7 +56,7 @@ If you want to determine per-borough geocoding coverage, run
 To get new geocodes into the frontend, you need to geocode photos.pickle. Do so
 with:
 
-./generate-geocodes.py --coders milstein,nyc-parks --pickle_path nyc/photos.pickle --output_format lat-lons.js --geocode > viewer/nyc-lat-lons.js
+./generate-geocodes.py --coders milstein,nyc-parks --pickle_path nyc/photos.pickle --output_format lat-lons.js --geocode > viewer/static/js/nyc-lat-lons.js
 
 cd nyc
 ./generate-neighborhood-lat-lons.py ../viewer/static/js/nyc-lat-lons.js > ../viewer/static/js/nyc-neighborhood-photos.js

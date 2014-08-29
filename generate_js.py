@@ -24,7 +24,8 @@ def loadBlacklist():
   return bl
 
 
-def printJson(located_recs, lat_lon_map):
+def _generateJson(located_recs, lat_lon_map):
+  out = {}
   # "lat,lon" -> list of photo_ids
   ll_to_id = defaultdict(list)
 
@@ -52,7 +53,6 @@ def printJson(located_recs, lat_lon_map):
   no_date = 0
   points = 0
   photos = 0
-  print "var lat_lons = {"
   is_first = True
   for lat_lon, recs in ll_to_id.iteritems():
     sorted_recs = sorted([r for r in recs
@@ -66,25 +66,37 @@ def printJson(located_recs, lat_lon_map):
       assert date_range
       assert date_range[0]
       assert date_range[1]
-      out_recs.append('[%d,%d,"%s"]' % (
-        date_range[0].year, date_range[1].year, r.photo_id()))
+      out_recs.append([
+        date_range[0].year, date_range[1].year, r.photo_id()])
 
     if out_recs:
       points += 1
       photos += len(out_recs)
-      if not is_first:
-        print ',',
-      else:
-        is_first = False
-      print '"%s": [%s]' % (lat_lon, ','.join(out_recs))
-
-
-  # print '"40.719595,-73.964204": [[1850,2000,"egg"]]'
-  print "};"
+      out[lat_lon] = out_recs
 
   sys.stderr.write('Dropped w/ no date: %d\n' % no_date)
   sys.stderr.write('Unique lat/longs: %d\n' % points)
   sys.stderr.write('Total photographs: %d\n' % photos)
+
+  return out
+
+
+def printJson(located_recs, lat_lon_map):
+  data = _generateJson(located_recs, lat_lon_map)
+
+  print "var lat_lons = "
+  print json.dumps(data)
+  print "};"
+
+
+def printJsonNoYears(located_recs, lat_lon_map):
+  data = _generateJson(located_recs, lat_lon_map)
+  for k, v in data.iteritems():
+      data[k] = v[2]  # drop both year elements.
+
+  print "var lat_lons = "
+  print json.dumps(data)
+  print "};"
 
 
 def printRecordsJson(located_recs):
