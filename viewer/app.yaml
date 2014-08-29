@@ -2,7 +2,7 @@
 application: old-nyc
 #application: oldbostonphotos
 
-version: 2014-04-02
+version: 2014-08-29
 runtime: python27
 threadsafe: true
 
