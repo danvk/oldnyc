@@ -22,7 +22,7 @@ function expandedImageUrl(photo_id) {
 
 // The callback gets fired when the info for all lat/lons at this location
 // become available (i.e. after the /info RPC returns).
-function displayInfoForLatLon(lat_lon, marker, opt_callback) {
+function displayInfoForLatLon(lat_lon, marker, opt_selectCallback) {
   var photo_ids = lat_lons[lat_lon];
 
   var zIndex = 0;
@@ -38,12 +38,15 @@ function displayInfoForLatLon(lat_lon, marker, opt_callback) {
     marker.setZIndex(100000 + zIndex);
   }
 
-  loadInfoForPhotoIds(photo_ids, opt_callback).done(function() {
+  loadInfoForPhotoIds(photo_ids).done(function() {
     var selectedId = null;
     if (photo_ids.length <= 10) {
       selectedId = photo_ids[0];
     }
     showExpanded(lat_lon, photo_ids, selectedId);
+    if (opt_selectCallback && selectedId) {
+      opt_selectCallback(selectedId);
+    }
   }).fail(function() {
   });
 }
@@ -51,7 +54,10 @@ function displayInfoForLatLon(lat_lon, marker, opt_callback) {
 function handleClick(e) {
   var lat_lon = e.latLng.lat().toFixed(6) + ',' + e.latLng.lng().toFixed(6)
   var marker = lat_lon_to_marker[lat_lon];
-  displayInfoForLatLon(lat_lon, marker);
+  displayInfoForLatLon(lat_lon, marker, function(photo_id) {
+    $(window).trigger('openPreviewPanel');
+    $(window).trigger('showPhotoPreview', photo_id);
+  });
   $(window).trigger('showGrid', lat_lon);
 }
 
@@ -258,6 +264,8 @@ $(function() {
     loadInfoForPhotoIds(photoIds).done(function() {
       showExpanded('pop', photoIds, selectedPhotoId);
       $(window).trigger('showGrid', 'pop');
+      $(window).trigger('openPreviewPanel');
+      $(window).trigger('showPhotoPreview', selectedPhotoId);
     }).fail(function() {
     });
   });

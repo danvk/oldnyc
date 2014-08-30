@@ -8,7 +8,7 @@ var photo_id_to_info = {};
 // The callback is called with the photo_ids that were just loaded, after the
 // UI updates.  The callback may assume that infoForPhotoId() will return data
 // for all the newly-available photo_ids.
-function loadInfoForPhotoIds(photo_ids, opt_callback) {
+function loadInfoForPhotoIds(photo_ids) {
   var data = ''
   for (var i = 0; i < photo_ids.length; i++) {
     data += (i ? '&' : '') + 'id=' + photo_ids[i];
