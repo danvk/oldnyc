@@ -52,6 +52,7 @@ function handleClick(e) {
   var lat_lon = e.latLng.lat().toFixed(6) + ',' + e.latLng.lng().toFixed(6)
   var marker = lat_lon_to_marker[lat_lon];
   displayInfoForLatLon(lat_lon, marker);
+  $(window).trigger('showGrid', lat_lon);
 }
 
 function initialize_map() {
@@ -151,8 +152,6 @@ function initialize_map() {
     lat_lon_to_marker[lat_lon] = marker;
     google.maps.event.addListener(marker, 'click', handleClick);
   }
-
-  setUIFromUrlHash();
 }
 
 
@@ -178,15 +177,12 @@ function showExpanded(key, photo_ids, opt_selected_id) {
   if (opt_selected_id) {
     $('#grid-container').expandableGrid('select', opt_selected_id);
   }
-
-  stateWasChanged();
 }
 
 function hideExpanded() {
   $('#expanded').hide();
   $(document).unbind('keyup');
   map.set('keyboardShortcuts', true);
-  stateWasChanged();
 }
 
 // This fills out details for either a thumbnail or the expanded image pane.
@@ -229,17 +225,16 @@ function getPopularPhotoIds() {
 $(function() {
   // Clicks on the background or "exit" button should leave the slideshow.
   // Clicks on the strip itself should only exit if they're not on an image.
-  $('#curtains, #exit-slideshow').click(hideExpanded);
+  $('#curtains, #exit-slideshow').click(function() {
+    hideExpanded();
+    $(window).trigger('hideGrid');
+  });
 
-  $('#grid-container').on('og-select', 'li', function(e, div) {
+  $('#grid-container').on('og-fill', 'li', function(e, div) {
     var id = $(this).data('image-id');
     $(div).empty().append(
         $('#image-details-template').clone().removeAttr('id').show());
     fillPhotoPane(id, $(div));
-    stateWasChanged(id);
-  })
-  .on('og-deselect', function() {
-    stateWasChanged(null);
   })
   .on('click', '.og-fullimg', function() {
     var photo_id = $('#grid-container').expandableGrid('selectedId');
@@ -262,6 +257,7 @@ $(function() {
 
     loadInfoForPhotoIds(photoIds).done(function() {
       showExpanded('pop', photoIds, selectedPhotoId);
+      $(window).trigger('showGrid', 'pop');
     }).fail(function() {
     });
   });
