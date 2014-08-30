@@ -6,6 +6,7 @@ var selected_marker;
 var map;
 var start_date = 1850;
 var end_date = 2000;
+var LOG_HISTORY_EVENTS = true;
 
 function isOldNycImage(photo_id) {
   // NYC images have IDs like '123f' or '345f-b'.
