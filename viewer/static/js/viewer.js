@@ -261,4 +261,12 @@ $(function() {
     }).fail(function() {
     });
   });
+
+  $('#grid-container').on('og-select', 'li', function() {
+    $(window).trigger('showPhotoPreview', $(this).data('image-id'));
+  }).on('og-deselect', function() {
+    $(window).trigger('closePreviewPanel');
+  }).on('og-openpreview', function() {
+    $(window).trigger('openPreviewPanel');
+  });
 });
