@@ -62,17 +62,17 @@ function transitionToStateObject(state) {
       photo_ids = getPopularPhotoIds();
     }
     loadInfoForPhotoIds(photo_ids).done(function() {
-      showExpanded(state.g, photo_ids, state.id);
+      showExpanded(state.g, photo_ids, state.photo_id);
     });
     return;
   }
 
-  if (currentState.id && !state.id) {
+  if (currentState.photo_id && !state.photo_id) {
     // Hide the selected photo
     $('#grid-container').expandableGrid('deselect');
   } else {
     // Show a different photo
-    $('#grid-container').expandableGrid('select', state.id);
+    $('#grid-container').expandableGrid('select', state.photo_id);
   }
 }
 

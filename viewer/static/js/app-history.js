@@ -60,12 +60,21 @@ $(function() {
       var g = $('#expanded').data('grid-key');
       var state = {photo_id:photo_id};
       if (g == 'pop') state.g = 'pop';
-      h.pushState(state, title(state), fragment(state));
+      h.replaceState(state, title(state), fragment(state));
     }).on('closePreviewPanel', function() {
       var g = $('#expanded').data('grid-key');
       var state = {g: g};
-      h.replaceState(state, title(state), fragment(state));
+      h.goBackUntil('g', [state, title(state), fragment(state)]);
     });
+
+  // Update the UI in response to hitting the back/forward button,
+  // a hash fragment on initial page load or the user editing the URL.
+  $(h).on('setStateInResponseToUser setStateInResponseToPageLoad',
+  function(e, state) {
+    // It's important that these methods only configure the UI.
+    // They must not trigger events, or they could cause a loop!
+    transitionToStateObject(state);
+  });
 
   h.initialize();
 });
