@@ -23,6 +23,11 @@ function expandedImageUrl(photo_id) {
   return 'http://oldnyc.s3.amazonaws.com/600px/' + photo_id + '.jpg';
 }
 
+// lat_lon is a "lat,lon" string.
+function makeStaticMapsUrl(lat_lon) {
+  return 'http://maps.googleapis.com/maps/api/staticmap?center=' + lat_lon + '&zoom=15&size=150x150&maptype=roadmap&markers=color:red%7C' + lat_lon;
+}
+
 // The callback gets fired when the info for all lat/lons at this location
 // become available (i.e. after the /info RPC returns).
 function displayInfoForLatLon(lat_lon, marker, opt_selectCallback) {
@@ -182,6 +187,7 @@ function showExpanded(key, photo_ids, opt_selected_id) {
       height: 400
     }, info);
   });
+  $('#preview-map').attr('src', makeStaticMapsUrl(key));
   $('#grid-container').expandableGrid({
     rowHeight: 200
   }, images);
@@ -233,10 +239,18 @@ function getPopularPhotoIds() {
   }).toArray();
 }
 
+// User selected a photo in the "popular" grid. Update the static map.
+function updateStaticMapsUrl(photo_id) {
+  var key = 'New York City';
+  var lat_lon = findLatLonForPhoto(photo_id);
+  if (lat_lon) key = lat_lon;
+  $('#preview-map').attr('src', makeStaticMapsUrl(key));
+}
+
 $(function() {
   // Clicks on the background or "exit" button should leave the slideshow.
   // Clicks on the strip itself should only exit if they're not on an image.
-  $('#curtains, #exit-slideshow').click(function() {
+  $('#curtains, #exit-slideshow, #preview-map').click(function() {
     hideExpanded();
     $(window).trigger('hideGrid');
   });
@@ -246,6 +260,11 @@ $(function() {
     $(div).empty().append(
         $('#image-details-template').clone().removeAttr('id').show());
     fillPhotoPane(id, $(div));
+
+    var g = $('#expanded').data('grid-key');
+    if (g == 'pop') {
+      updateStaticMapsUrl(id);
+    }
   })
   .on('click', '.og-fullimg', function() {
     var photo_id = $('#grid-container').expandableGrid('selectedId');
@@ -276,7 +295,8 @@ $(function() {
   });
 
   $('#grid-container').on('og-select', 'li', function() {
-    $(window).trigger('showPhotoPreview', $(this).data('image-id'));
+    var photo_id = $(this).data('image-id')
+    $(window).trigger('showPhotoPreview', photo_id);
   }).on('og-deselect', function() {
     $(window).trigger('closePreviewPanel');
   }).on('og-openpreview', function() {

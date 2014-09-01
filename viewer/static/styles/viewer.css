@@ -129,21 +129,50 @@ a {
 }
 
 #grid-container {
+  z-index: 2;
+  margin-right: 170px;
+}
+
+#expanded-controls {
   z-index: 1;
-  margin-right: 50px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 150px;  /* matches #grid-container.margin-right */
+  padding: 20px;
+  padding-top: 30px;
+}
+#expanded-controls a, #expanded-controls a:visited {
+  color: white;
+}
+#expanded-controls .links {
+  text-align: center;
 }
 
 #exit-slideshow {
+  /*
   position: absolute;
   top: 15px;
   right: 15px;
+  */
   width: 35px;
   height: 35px;
   background-image: url('close-thin-white.png');
   z-index: 101;
+  display: none;
 }
 #exit-slideshow:hover {
   background-image: url('close-thin-white.png');
+}
+
+.og-grid {
+  padding-top: 10px;
+}
+
+#preview-map {
+  width: 150px;
+  height: 150px;
 }
 
 #expanded .og-fullimg img:hover {
