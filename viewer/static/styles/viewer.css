@@ -258,3 +258,22 @@ a {
 .og-details h3 {
   font-size: 22px;
 }
+
+.email-share-form {
+  position: absolute;
+  margin-top: 25px;
+  padding: 5px;
+  border: 1px solid #111;
+  background: #eee;
+  text-align: left;
+  line-height: 1.5em;
+  box-shadow: 2px 2px 4px #999;
+  left: 0;
+}
+.email-share-form div {
+  text-align: right;
+}
+
+.social > div {
+  display: inline-block;
+}

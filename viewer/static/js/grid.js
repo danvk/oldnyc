@@ -339,7 +339,7 @@ var Grid = function() {
       // create Preview structure:
       this.$details = $( '<div class="og-details" />' );
       this.$loading = $( '<div class="og-loading"></div>' );
-      this.$fullimage = $( '<div class="og-fullimg"></div>' ).append( this.$loading );
+      this.$fullimage = $( '<div class="og-fullimg"></div>' ).append( this.$loading ).append($('<div class="og-details-left" style="display:none">'));
       this.$closePreview = $( '<span class="og-close"></span>' );
       this.$previewInner = $( '<div class="og-expander-inner"></div>' ).append( this.$closePreview, this.$fullimage, this.$details );
       this.$previewLeft = $('<div class="og-previous"></div>');
@@ -361,9 +361,9 @@ var Grid = function() {
       // if already expanded remove class "og-expanded" from current item and add it to new item
       // $('.og-grid li').removeClass('og-expanded');
       if( current !== -1 ) {
-        var $currentItem = $items.eq( current );
-        $currentItem.removeClass( 'og-expanded' );
-        this.$item.addClass( 'og-expanded' );
+        var $currentItem = $items.eq(current);
+        $currentItem.removeClass('og-expanded');
+        this.$item.addClass('og-expanded');
         // position the preview correctly
         this.positionPreview();
       }
@@ -372,45 +372,49 @@ var Grid = function() {
       current = this.$item.index();
 
       // update preview´s content
-      var $itemEl = this.$item.children( 'a' ),
+      var $itemEl = this.$item.children('a'),
         eldata = {
-          largesrc : $itemEl.data( 'largesrc' ),
+          largesrc: $itemEl.data('largesrc'),
         };
 
+      this.$details.empty();
+      this.$fullimage.find('.og-details-left').empty();
       $(this.$item).trigger('og-fill', this.$details);
 
       var self = this;
       
       // remove the current image in the preview
-      if( typeof self.$largeImg != 'undefined' ) {
+      if (typeof self.$largeImg != 'undefined') {
         self.$largeImg.remove();
       }
 
       // preload large image and add it to the preview
       // for smaller screens we don´t display the large image (the media query will hide the fullimage wrapper)
-      if( self.$fullimage.is( ':visible' ) ) {
+      if (self.$fullimage.is(':visible')) {
         this.$loading.show();
-        $( '<img/>' ).load( function() {
-          var $img = $( this );
-          if( $img.attr( 'src' ) === self.$item.children('a').data( 'largesrc' ) ) {
+        $('<img/>').load(function() {
+          var $img = $(this);
+          if ($img.attr('src') === self.$item.children('a').data('largesrc')) {
+            var $fullimage = self.$fullimage;
             self.$loading.hide();
-            self.$fullimage.find( 'img' ).remove();
-            self.$largeImg = $img.fadeIn( 350 );
-            self.$fullimage.append( self.$largeImg );
+            $fullimage.find('img').remove();
+            self.$largeImg = $img.fadeIn(350);  // TODO: settings.speed
+            $fullimage.append([
+                self.$largeImg,
+                self.$fullimage.find('.og-details-left').show()]);
           }
-        } ).attr( 'src', eldata.largesrc );  
+        }).attr('src', eldata.largesrc);
       }
-
     },
 
     // Open the preview pane
-    open : function() {
-      setTimeout( $.proxy( function() {  
+    open: function() {
+      setTimeout($.proxy(function() {  
         // set the height for the preview and the item
         this.setHeights();
         // scroll to position the preview in the right place
         this.positionPreview();
-      }, this ), 25 );
+      }, this), 25);
 
       var self = this;
       var goLeft = function() {
@@ -510,10 +514,11 @@ var Grid = function() {
       // case 1 : preview height + item height fits in window´s height
       // case 2 : preview height + item height does not fit in window´s height and preview height is smaller than window´s height
       // case 3 : preview height + item height does not fit in window´s height and preview height is bigger than window´s height
-      var position = this.$item.data( 'offsetTop' ),
+      var position = this.$item.data('offsetTop'),
         previewOffsetT = this.$previewEl.offset().top - scrollExtra,
-        scrollVal = this.height + this.$item.data( 'height' ) + marginExpanded <= winsize.height ? position : this.height < winsize.height ? previewOffsetT - ( winsize.height - this.height ) : previewOffsetT;
-      
+        scrollVal = this.height + this.$item.data('height') + marginExpanded <= winsize.height ? position : this.height < winsize.height ? previewOffsetT - (winsize.height - this.height) : previewOffsetT;
+       
+      // TODO: change $body to $scrollParent
       $body.animate({ scrollTop : scrollVal }, settings.speed);
     },
 

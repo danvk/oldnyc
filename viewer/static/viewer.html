@@ -13,6 +13,9 @@
   </script>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
+  <meta name="twitter:widgets:csp" content="on">
+  <script src="//platform.twitter.com/widgets.js"></script>
+
   <script src="nyc-lat-lons-ny.js"></script>
   <script src="popular-photos.js"></script>
   
@@ -61,7 +64,7 @@
     <h2>Popular Photos</h2>
     <div class="popular-photo" id="popular-photo-template" style="display:none">
       <a href=""><img class="popular-image" src="" width=200 height=0 /></a>
-      <p><span class="desc">Trolley car conductor</span><br><span class="loc">5th &amp; 42nd</span><span class="date"></span></p>
+      <p><span class="desc"></span><br><span class="loc"></span><span class="date"></span></p>
     </div>
   </div>
   <script type="text/javascript">fillPopularImagesPanel()</script>
@@ -92,6 +95,16 @@
     <div class="comments"></div>
 
     <div class="more-on-back">You might find good stuff on the <a target="_blank" href="">back of the photo</a>.</div>
+  </div>
+  <div id="image-share-template" style="display: none" class="social">
+    <div class="email-share-form" style="display:none">
+      share a link to this photo<br>
+      <input type="text" size=50 value="" onfocus="this.select();" onmouseup="return false;" >
+      <div><a class="close" href="#">close</a></div>
+    </div>
+    <div class="share"><a href="#" class="email-share">Share</a></div>
+    <div class="tweet"></div>
+    <fb:like href="https://developers.facebook.com/docs/plugins/" layout="button" action="like" show_faces="false" share="true"></fb:like>
   </div>
 
   <div style="position: absolute; left: -1000px;">

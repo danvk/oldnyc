@@ -214,7 +214,6 @@ function fillPhotoPane(photo_id, $pane) {
   if (photo_id.match('[0-9]f')) {
     $pane.find('.more-on-back > a').attr(
         'href', backOfCardUrlForPhotoId(photo_id));
-        // libraryUrlForPhotoId(photo_id.replace('f', 'b')));
     $pane.find('.more-on-back').show();
   } else {
     $pane.find('.more-on-back').hide();
@@ -227,6 +226,19 @@ function fillPhotoPane(photo_id, $pane) {
           .attr('width', width)
           .attr('href', getCanonicalUrlForPhoto(photo_id)))
   FB.XFBML.parse($comments.get(0));
+
+  var $detailsLeft = $pane.parent().find('.og-details-left');
+  $detailsLeft.append(
+      $('#image-share-template').clone().removeAttr('id').show());
+
+  twttr.widgets.createShareButton(
+      document.location.href,
+      $detailsLeft.find('.tweet').get(0), {
+        count: 'none',
+        text: info.title + ' - ' + info.date,
+        via: 'Old_NYC'
+      });
+  FB.XFBML.parse($detailsLeft.get(0));
 }
 
 function photoIdFromATag(a) {
@@ -296,7 +308,7 @@ $(function() {
       updateStaticMapsUrl(id);
     }
   })
-  .on('click', '.og-fullimg', function() {
+  .on('click', '.og-fullimg img', function() {
     var photo_id = $('#grid-container').expandableGrid('selectedId');
     window.open(libraryUrlForPhotoId(photo_id), '_blank');
   });
@@ -308,6 +320,19 @@ $(function() {
     $img
       .css('transform', 'rotate(' + currentRotation + 'deg)')
       .data('rotate', currentRotation);
+  });
+
+  $('#grid-container').on('click', 'a.email-share', function(e) {
+    var $social = $(this).parents('.og-details-left');
+    var $form = $social.find('.email-share-form');
+    $form.find('input').val(document.location.href);
+    $form.toggle();
+    $form.find('input').focus();
+    e.preventDefault();
+  }).on('click', '.email-share-form .close', function(e) {
+    var $form = $(this).parents('.email-share-form');
+    $form.toggle();
+    e.preventDefault();
   });
 
   $('.popular-photo').on('click', 'a', function(e) {
