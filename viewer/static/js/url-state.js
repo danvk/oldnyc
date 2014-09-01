@@ -49,10 +49,20 @@ function stateObjectToHash(state) {
 
 // Change whatever is currently displayed to reflect the state in obj.
 // This won't affect the URL hash.
-function transitionToStateObject(state) {
+function transitionToStateObject(targetState) {
   var currentState = getCurrentStateObject();
+
+  // This normalizes the state, i.e. adds a 'g' field to if it's implied.
+  // (it also strips out extraneous fields)
+  var state = hashToStateObject(stateObjectToHash(targetState))
+
   if (JSON.stringify(currentState) == JSON.stringify(state)) {
     return;  // nothing to do.
+  }
+
+  // Reset to map view.
+  if (JSON.stringify(state) == '{}') {
+    hideExpanded();
   }
 
   // Show a different grid?
