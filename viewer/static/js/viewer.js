@@ -249,12 +249,12 @@ function updateStaticMapsUrl(photo_id) {
 
 $(function() {
   // Clicks on the background or "exit" button should leave the slideshow.
-  // Clicks on the strip itself should only exit if they're not on an image.
-  $('#curtains, #exit-slideshow, #preview-map').click(function() {
+  $('#curtains, .exit').click(function() {
     hideExpanded();
     $(window).trigger('hideGrid');
   });
 
+  // Fill in the expanded preview pane.
   $('#grid-container').on('og-fill', 'li', function(e, div) {
     var id = $(this).data('image-id');
     $(div).empty().append(

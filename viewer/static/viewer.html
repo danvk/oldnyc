@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="utf-8">
   <title>OldNYC</title>
 
   <link rel="stylesheet" href="grid.css" />
@@ -39,21 +40,16 @@
 
   <div id="map"></div>
 
-  <div id="header" class="streetview-hide">
+  <div class="header streetview-hide">
     <div id="twitter">
       <a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="Old_NYC">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
     </div>
     <div id="about"><a href="/about" target="_blank">About</a></div>
 
-    <div id="logo">
-    	<div class="wrapper">
-      <a href="/">OldNYC</a>
-      	</div>
-    </div>
-    <div id="date_range">
-    	<a><div class="wrapper">
-    		<span id="date_range_years">1850&ndash;2000</span></a><div id="slider-arrow-white-down"></div>
-    	</div></a>
+    <div class="logo">
+      <div class="wrapper">
+        <a href="/">OldNYC</a>
+      </div>
     </div>
   </div>
 
@@ -79,14 +75,20 @@
   <!-- Expanded Image Slideshow -->
   <div style="display:none;" id="expanded">
     <div id="curtains"></div>
-    <div id="expanded-controls">
-      <div id="exit-slideshow" title="Exit Slideshow"></div>
-      <img id="preview-map" title="Exit Slideshow" src="blank.gif" width=150 height=150>
-      <div class="links">
-        <a href='/#'>(back to the map)
-        <h2>Old NYC</h2></a>
+
+    <div class="header">
+      <div class="logo">
+        <div class="wrapper">
+          <a class="exit" href="#">OldNYC</a>
+        </div>
       </div>
+      <div id="exit-slideshow" class="exit" title="Exit Slideshow">✕</div>
     </div>
+
+    <div id="expanded-controls">
+      <img id="preview-map" class="exit" title="Exit Slideshow" src="blank.gif" width=150 height=150>
+    </div>
+
     <div id="grid-container"></div>
   </div>
 

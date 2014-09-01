@@ -1,14 +1,20 @@
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
 body {
   background-color: #fff;
   font-family: 'Helvetica Neue','Helvetica','Arial',sans-serif;
   font-size: 0.8em;
   text-rendering: optimizeLegibility;
+  margin: 0;
 }
 a {
   text-decoration: none;
 }
-#header {
-  position: absolute;
+.header {
+  position: fixed;
   top: 0px;
   left: 0px;
   right: 0px;
@@ -38,7 +44,7 @@ a {
 #about a, #about a:visited {
   color: #111;
 }
-#logo {
+.logo {
   position: absolute;
   left: 0px;
   font-size: 2.2em;
@@ -46,55 +52,12 @@ a {
   width: 130px;
   text-align: center;
 }
-/*#logo:hover{
-  background: #f6f6f6;
-  }*/
-#logo .wrapper{
+.logo .wrapper {
   padding: 11px 0;
 }
-#logo a{
+.logo a {
   color: #111;
   font-family: 'Adobe Garamond Pro', serif;
-}
-#slider-arrow-white-down{
-  width: 0; 
-  height: 0;
-  position: absolute;
-  top: 25px;
-  left: 268px;
-  border-left: 6px solid transparent;
-  border-right: 6px solid transparent;
-  border-top: 8px solid #111;
-}
-#date_range {
-  font-size: 1.7em;
-  width: 145px;
-  text-align: center;
-  height: 54px;
-  color: #111;
-  font-weight: normal;
-  font-weight: 300;
-  padding-right: 20px;
-  margin: 0px 0 0 132px;
-  cursor: pointer;
-
-  /* prevents selecting the date range on click */
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-#date_range .wrapper{
-  padding: 15px 0;
-}
-#date_range:hover, #date_range:active {
-  text-decoration: none;
-  background: #f6f6f6;
-}
-#date_range a, #date_range a:hover {
-  text-decoration: none;
 }
 
 #twitter {
@@ -125,58 +88,67 @@ a {
   right: 0;
   bottom: 0;
   background: #111;
-  opacity: 0.95;
+  opacity: 0.9;
 }
 
 #grid-container {
+  position: fixed;
   z-index: 2;
-  margin-right: 170px;
+  top: 55px;
+  left: 180px;
+  right: 0;
+  bottom: 0;
+  overflow: auto;
 }
 
 #expanded-controls {
-  z-index: 1;
   position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
+  top: 55px;
+  left: 0;
+  height: 150px;
   width: 150px;  /* matches #grid-container.margin-right */
-  padding: 20px;
-  padding-top: 30px;
-}
-#expanded-controls a, #expanded-controls a:visited {
-  color: white;
-}
-#expanded-controls .links {
-  text-align: center;
+  padding: 15px;
+  padding-top: 0px;
 }
 
 #exit-slideshow {
-  /*
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  */
+  position: fixed;
+  top: 10px;
+  right: 10px;
   width: 35px;
   height: 35px;
-  background-image: url('close-thin-white.png');
-  z-index: 101;
-  display: none;
+  font-size: 35px;
+  line-height: 35px;
+  color: white;
+  cursor: pointer;
 }
 #exit-slideshow:hover {
-  background-image: url('close-thin-white.png');
+  color: gray;
 }
 
 .og-grid {
-  padding-top: 10px;
+  padding-top: 0;
 }
 
 #preview-map {
   width: 150px;
   height: 150px;
+  cursor: pointer
 }
 
 #expanded .og-fullimg img:hover {
   cursor: pointer;
+}
+
+#expanded .header {
+  background: transparent;
+}
+#expanded .logo a {
+  color: white;
+  cursor: pointer;
+}
+#expanded .logo a:hover {
+  color: gray;
 }
 
 .arrow-right {
@@ -269,6 +241,10 @@ a {
   font-size: 125%;
   line-height: 125%;
   margin-bottom: 1px !important;
+}
+
+.og-grid li {
+  margin: 0 5px 10px 5px;  /* moves margin from top to bottom */
 }
 
 .og-grid li.og-expanded > a::after {

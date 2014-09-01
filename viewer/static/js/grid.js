@@ -654,7 +654,7 @@ var createExpandableGrid = function(options, images) {
   $(lis).show();
   loadVisibleImages(this);
   var container = this;
-  $([this, document]).on('scroll', function() {
+  $([this.get(0), document]).on('scroll', function() {
     loadVisibleImages($(container));  // new images may have become visible.
   });
 
