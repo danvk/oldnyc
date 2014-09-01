@@ -234,7 +234,7 @@ function photoIdFromATag(a) {
 }
 
 function getPopularPhotoIds() {
-  return $('.popular-photo a').map(function(_, a) {
+  return $('.popular-photo:visible a').map(function(_, a) {
     return photoIdFromATag(a);
   }).toArray();
 }
