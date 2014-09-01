@@ -136,7 +136,7 @@ function initialize_map() {
   for (var i = 0; i < 100; i++) {
     var num = i + 1;
     var size = (num == 1 ? 9 : 13);
-    var selectedSize = (num == 1 ? 9 : (num < 10 ? 13 : (num < 100 ? 25 : 39)));
+    var selectedSize = (num == 1 ? 15 : 21);
     marker_icons.push(new google.maps.MarkerImage(
       'sprite-2014-08-29.png',
       new google.maps.Size(size, size),
@@ -144,7 +144,7 @@ function initialize_map() {
       new google.maps.Point((size - 1) / 2, (size - 1)/2)
     ));
     selected_marker_icons.push(new google.maps.MarkerImage(
-      'selected-2013-01-14.png',
+      'selected-2014-08-29.png',
       new google.maps.Size(selectedSize, selectedSize),
       new google.maps.Point((i%10)*39, Math.floor(i/10)*39),
       new google.maps.Point((selectedSize - 1) / 2, (selectedSize - 1)/2)

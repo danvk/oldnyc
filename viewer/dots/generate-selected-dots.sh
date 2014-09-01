@@ -4,24 +4,15 @@
 #color='#26264A'
 color='#d34f4f'
 stroke_color=$color
-text_color='#ffffff'
+text_color=$color  # '#ffffff'
 font=Helvetica-Bold
 
-convert -size 9x9 xc:none -fill $color -draw 'circle 4,4 7,7' 1.png
+# Third & fourth circle parameters are a point on the circle's circumference.
+convert -size 15x15 xc:none -fill $color -draw 'circle 7,7 13,7' 1.png
 
-for x in $(seq 2 9); do
-  convert -size 13x13 xc:none -fill $color -stroke $stroke_color -draw 'circle 6,6 10,10' -stroke none -fill $text_color -pointsize 10 -font $font -gravity center -draw "text 1,1 '$x'" $x.png
+for x in $(seq 2 100); do
+  convert -size 21x21 xc:none -fill $color -stroke $stroke_color -draw 'circle 10,10 19,10' $x.png
 done
-
-for x in $(seq 10 19); do
-  convert -size 25x25 xc:none -fill $color -stroke $stroke_color -draw 'circle 12,12 20,20' -stroke none -fill $text_color -pointsize 14 -font $font -gravity center -draw "text 0,1 '$x'" $x.png
-done
-
-for x in $(seq 20 99); do
-  convert -size 25x25 xc:none -fill $color -stroke $stroke_color -draw 'circle 12,12 20,20' -stroke none -fill $text_color -pointsize 14 -font $font -gravity center -draw "text 1,2 '$x'" $x.png
-done
-
-convert -size 39x39 xc:none -fill $color -stroke $stroke_color -draw 'circle 19,19 32,32' -stroke none -fill $text_color -pointsize 16 -font $font -gravity center -draw "text 1,1 '100+'" 100.png
 
 montage $(ls ?.png ??.png ???.png | sort -n | xargs) -background transparent -gravity NorthWest -geometry '39x39>+0+0' -tile 10x ../static/images/selected-2014-08-29.png
 
