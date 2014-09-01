@@ -247,6 +247,36 @@ function updateStaticMapsUrl(photo_id) {
   $('#preview-map').attr('src', makeStaticMapsUrl(key));
 }
 
+function fillPopularImagesPanel() {
+  var makePanel = function(row) {
+    var $panel = $('#popular-photo-template').clone().removeAttr('id');
+    $panel.find('a').attr('href', '/#' + row.id);
+    $panel.find('img')
+        .attr('data-src', expandedImageUrl(row.id))
+        .attr('height', row.height);
+    $panel.find('.desc').text(row.desc);
+    $panel.find('.loc').text(row.loc);
+    if (row.date) $panel.find('.date').text(' (' + row.date + ')');
+    return $panel.get(0);
+  };
+
+  var popularPhotos = $.map(popular_photos, makePanel);
+  $('#popular').append($(popularPhotos).show());
+  loadNewlyVisibleImages($('#popular').get(0));
+}
+
+function loadNewlyVisibleImages(container) {
+  $(container).find('img[data-src]').each(function(i, imgEl) {
+    var $img = $(imgEl);
+    if (isElementInViewport($img)) {
+      $img
+        .attr('src', $img.attr('data-src'))
+        .removeAttr('data-src');
+    }
+  });
+}
+
+
 $(function() {
   // Clicks on the background or "exit" button should leave the slideshow.
   $('#curtains, .exit').click(function() {
@@ -292,6 +322,10 @@ $(function() {
       $(window).trigger('showPhotoPreview', selectedPhotoId);
     }).fail(function() {
     });
+  });
+
+  $('#popular').on('scroll', function() {
+    loadNewlyVisibleImages($('#popular').get(0));
   });
 
   $('#grid-container').on('og-select', 'li', function() {

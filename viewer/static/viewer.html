@@ -11,16 +11,17 @@
   <script type="text/javascript"
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyClCA1LViYi4KLQfgMlfr3PS0tyxwqzYjA&sensor=false">
   </script>
-  <script type="text/javascript" src="nyc-lat-lons-ny.js"></script>
-
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+  <script src="nyc-lat-lons-ny.js"></script>
+  <script src="popular-photos.js"></script>
   
-  <script type="text/javascript" src="url-state.js"></script>
-  <script type="text/javascript" src="photo-info.js"></script>
-  <script type="text/javascript" src="social.js"></script>
-  <script type="text/javascript" src="viewer.js"></script>
-  <script type="text/javascript" src="history.js"></script>
-  <script type="text/javascript" src="app-history.js"></script>
+  <script src="url-state.js"></script>
+  <script src="photo-info.js"></script>
+  <script src="social.js"></script>
+  <script src="viewer.js"></script>
+  <script src="history.js"></script>
+  <script src="app-history.js"></script>
 
   <script src="modernizr.custom.js"></script>
   <script src="grid.js"></script>
@@ -58,19 +59,12 @@
   <!-- Popular Photos -->
   <div id="popular">
     <h2>Popular Photos</h2>
-    <div class="popular-photo">
-      <a href="/#708795f-a"><img class="popular-image" src="https://s3.amazonaws.com/oldnyc/600px/708795f-a.jpg" width=200 height=145 /></a>
-      <p>Early motor-drawn bus<br>5th &amp; 42nd (1912)</p>
-    </div>
-    <div class="popular-photo">
-      <a href="/#1508783-a"><img class="popular-image" src="https://s3.amazonaws.com/oldnyc/600px/1508783-a.jpg" width=200 height=157 /></a>
-      <p>Trolley car conductor<br>5th &amp; 42nd (1936)</p>
-    </div>
-    <div class="popular-photo">
-      <a href="/#709480f-a"><img class="popular-image" src="https://s3.amazonaws.com/oldnyc/600px/709480f-a.jpg" width=200 height=159 /></a>
-      <p>Demolition of the "El"<br>6th &amp; 42nd (1939)</p>
+    <div class="popular-photo" id="popular-photo-template" style="display:none">
+      <a href=""><img class="popular-image" src="" width=200 height=0 /></a>
+      <p><span class="desc">Trolley car conductor</span><br><span class="loc">5th &amp; 42nd</span><span class="date">(1936)</span></p>
     </div>
   </div>
+  <script type="text/javascript">fillPopularImagesPanel()</script>
 
   <!-- Expanded Image Slideshow -->
   <div style="display:none;" id="expanded">
