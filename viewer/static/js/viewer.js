@@ -8,6 +8,8 @@ var start_date = 1850;
 var end_date = 2000;
 var LOG_HISTORY_EVENTS = true;
 
+var mapPromise = $.Deferred();
+
 function isOldNycImage(photo_id) {
   // NYC images have IDs like '123f' or '345f-b'.
   return /f(-[a-z])?$/.test(photo_id);
@@ -159,6 +161,8 @@ function initialize_map() {
     lat_lon_to_marker[lat_lon] = marker;
     google.maps.event.addListener(marker, 'click', handleClick);
   }
+
+  mapPromise.resolve(map);
 }
 
 

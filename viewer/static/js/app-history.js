@@ -78,5 +78,8 @@ $(function() {
     transitionToStateObject(state);
   });
 
-  h.initialize();
+  // To load from a URL fragment, the map object must be ready.
+  mapPromise.done(function() {
+    h.initialize();
+  });
 });
