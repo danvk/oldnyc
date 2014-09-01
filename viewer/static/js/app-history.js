@@ -1,6 +1,8 @@
 // This should go in the $(function()) block below.
 // It's exposed to facilitate debugging.
-h = new History(hashToStateObject);
+h = new History(function(hash) {
+  return hashToStateObject(hash.substr(1));
+});
 
 $(function() {
   if (LOG_HISTORY_EVENTS) {
