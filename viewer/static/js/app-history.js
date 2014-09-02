@@ -4,6 +4,13 @@ h = new History(function(hash) {
   return hashToStateObject(hash.substr(1));
 });
 
+// Ping Google Analytics with the current URL (e.g. after history.pushState).
+// See http://stackoverflow.com/a/4813223/388951
+function trackAnalyticsPageView() {
+  var url = location.pathname + location.search  + location.hash;
+  ga('send', 'pageview', { 'page': url });
+}
+
 $(function() {
   if (LOG_HISTORY_EVENTS) {
     $(window)
@@ -51,6 +58,7 @@ $(function() {
     .on('showGrid', function(e, pos) {
       var state = {g:pos};
       h.pushState(state, title(state), fragment(state));
+      trackAnalyticsPageView();
     }).on('hideGrid', function() {
       var state = {initial: true};
       h.goBackUntil('initial', [state, title(state), fragment(state)]);
@@ -63,6 +71,7 @@ $(function() {
       var state = {photo_id:photo_id};
       if (g == 'pop') state.g = 'pop';
       h.replaceState(state, title(state), fragment(state));
+      trackAnalyticsPageView();
     }).on('closePreviewPanel', function() {
       var g = $('#expanded').data('grid-key');
       var state = {g: g};
@@ -76,6 +85,10 @@ $(function() {
     // It's important that these methods only configure the UI.
     // They must not trigger events, or they could cause a loop!
     transitionToStateObject(state);
+  });
+
+  $(h).on('setStateInResponseToPageLoad', function(e, state) {
+    trackAnalyticsPageView();  // hopefully this helps track social shares
   });
 
   // To load from a URL fragment, the map object must be ready.

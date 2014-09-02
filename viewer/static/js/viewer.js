@@ -6,7 +6,7 @@ var selected_marker, selected_icon;
 var map;
 var start_date = 1850;
 var end_date = 2000;
-var LOG_HISTORY_EVENTS = true;
+var LOG_HISTORY_EVENTS = false;
 
 var mapPromise = $.Deferred();
 
