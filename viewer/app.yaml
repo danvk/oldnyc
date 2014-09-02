@@ -19,9 +19,6 @@ handlers:
 - url: /about
   static_files: static/about.html
   upload: static/about.html
-- url: /feedback
-  static_files: static/feedback.html
-  upload: static/feedback.html
 - url: /upload
   script: app.app
 - url: /thumb/.*
