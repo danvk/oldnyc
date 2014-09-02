@@ -151,23 +151,49 @@ function initialize_map() {
     ));
   }
 
-  for (var lat_lon in lat_lons) {
-    var recs = lat_lons[lat_lon];
-    var ll = lat_lon.split(",");
-    marker = new google.maps.Marker({
-      position: new google.maps.LatLng(parseFloat(ll[0]), parseFloat(ll[1])),
-      map: map,
-      flat: true,
-      visible: true,
-      icon: marker_icons[recs.length > 100 ? 100 : recs.length],
-      title: lat_lon
-    });
-    markers.push(marker);
-    lat_lon_to_marker[lat_lon] = marker;
-    google.maps.event.addListener(marker, 'click', handleClick);
-  }
+  // Adding markers is expensive -- it's important to defer this when possible.
+  var idleListener = google.maps.event.addListener(map, 'idle', function() {
+    google.maps.event.removeListener(idleListener);
+    addNewlyVisibleMarkers();
+    mapPromise.resolve(map);
+  });
 
-  mapPromise.resolve(map);
+  google.maps.event.addListener(map, 'bounds_changed', function() {
+    addNewlyVisibleMarkers();
+  });
+}
+
+function addNewlyVisibleMarkers() {
+  var bounds = map.getBounds();
+
+  for (var lat_lon in lat_lons) {
+    if (lat_lon in lat_lon_to_marker) continue;
+
+    var pos = parseLatLon(lat_lon);
+    if (!bounds.contains(pos)) continue;
+
+    createMarker(lat_lon, pos);
+  }
+}
+
+function parseLatLon(lat_lon) {
+  var ll = lat_lon.split(",");
+  return new google.maps.LatLng(parseFloat(ll[0]), parseFloat(ll[1]));
+}
+
+function createMarker(lat_lon, latLng) {
+  var recs = lat_lons[lat_lon];
+  var marker = new google.maps.Marker({
+    position: latLng,
+    map: map,
+    flat: true,
+    visible: true,
+    icon: marker_icons[recs.length > 100 ? 100 : recs.length],
+    title: lat_lon
+  });
+  markers.push(marker);
+  lat_lon_to_marker[lat_lon] = marker;
+  google.maps.event.addListener(marker, 'click', handleClick);
 }
 
 

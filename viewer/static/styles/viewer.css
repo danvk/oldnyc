@@ -60,7 +60,7 @@ a {
   font-family: 'Adobe Garamond Pro', serif;
 }
 
-#twitter {
+.header .social {
   position: absolute;
   top: 26px;
   right: 122px;
@@ -276,4 +276,15 @@ a {
 
 .social > div {
   display: inline-block;
+}
+
+.social-twitter, .social-facebook {
+  position: absolute;
+  top: 16px;
+}
+.social-twitter {
+  right: 240px;
+}
+.social-facebook {
+  right: 100px;
 }
