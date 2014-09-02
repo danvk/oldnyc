@@ -519,7 +519,8 @@ var Grid = function() {
         scrollVal = this.height + this.$item.data('height') + marginExpanded <= winsize.height ? position : this.height < winsize.height ? previewOffsetT - (winsize.height - this.height) : previewOffsetT;
        
       // TODO: change $body to $scrollParent
-      $body.animate({ scrollTop : scrollVal }, settings.speed);
+      var scrollParents = scrollableParents($grid);
+      $(scrollParents.get(0)).animate({ scrollTop : scrollVal }, settings.speed);
     },
 
     setTransition: function() {
@@ -661,6 +662,15 @@ var createExpandableGrid = function(options, images) {
   var container = this;
   $([this.get(0), document]).on('scroll', function() {
     loadVisibleImages($(container));  // new images may have become visible.
+  });
+  this.on('og-deselect', function() {
+    // hack to load new images through the transition.
+    var interval = window.setInterval(function() {
+      loadVisibleImages($(container));
+    }, 100);
+    window.setTimeout(function() {
+      window.clearInterval(interval);
+    }, 400);
   });
 
   // This should really be an object...
