@@ -336,6 +336,12 @@ $(function() {
     hideExpanded();
     $(window).trigger('hideGrid');
   });
+  $('#grid-container, #expanded .header').on('click', function(e) {
+    if (e.target == this) {
+      hideExpanded();
+      $(window).trigger('hideGrid');
+    }
+  });
 
   // Fill in the expanded preview pane.
   $('#grid-container').on('og-fill', 'li', function(e, div) {
