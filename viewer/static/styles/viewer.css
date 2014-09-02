@@ -288,3 +288,18 @@ a {
 .social-facebook {
   right: 100px;
 }
+
+#popular::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+  padding: 18px;
+  -webkit-border-radius: 1ex
+}
+
+#popular::-webkit-scrollbar-thumb {
+  background-color: rgba(053,057,071,0.3);
+  padding: 8px;
+  width: 6px;
+  height: 6px;
+  -webkit-border-radius: 1ex;
+}
