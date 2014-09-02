@@ -2,7 +2,7 @@ var markers = [];
 var marker_icons = [];
 var lat_lon_to_marker = {};
 var selected_marker_icons = [];
-var selected_marker;
+var selected_marker, selected_icon;
 var map;
 var start_date = 1850;
 var end_date = 2000;
@@ -28,11 +28,9 @@ function makeStaticMapsUrl(lat_lon) {
   return 'http://maps.googleapis.com/maps/api/staticmap?center=' + lat_lon + '&zoom=15&size=150x150&maptype=roadmap&markers=color:red%7C' + lat_lon;
 }
 
-// The callback gets fired when the info for all lat/lons at this location
-// become available (i.e. after the /info RPC returns).
-function displayInfoForLatLon(lat_lon, marker, opt_selectCallback) {
-  var photo_ids = lat_lons[lat_lon];
-
+// Make the given marker the currently selected marker.
+// This is purely UI code, it doesn't touch anything other than the marker.
+function selectMarker(marker, numPhotos) {
   var zIndex = 0;
   if (selected_marker) {
     zIndex = selected_marker.getZIndex();
@@ -42,9 +40,17 @@ function displayInfoForLatLon(lat_lon, marker, opt_selectCallback) {
   if (marker) {
     selected_marker = marker;
     selected_icon = marker.getIcon();
-    marker.setIcon(selected_marker_icons[photo_ids.length > 100 ? 100 : photo_ids.length]);
+    marker.setIcon(selected_marker_icons[numPhotos > 100 ? 100 : numPhotos]);
     marker.setZIndex(100000 + zIndex);
   }
+}
+
+// The callback gets fired when the info for all lat/lons at this location
+// become available (i.e. after the /info RPC returns).
+function displayInfoForLatLon(lat_lon, marker, opt_selectCallback) {
+  var photo_ids = lat_lons[lat_lon];
+
+  selectMarker(marker, photo_ids.length);
 
   loadInfoForPhotoIds(photo_ids).done(function() {
     var selectedId = null;
@@ -194,6 +200,7 @@ function createMarker(lat_lon, latLng) {
   markers.push(marker);
   lat_lon_to_marker[lat_lon] = marker;
   google.maps.event.addListener(marker, 'click', handleClick);
+  return marker;
 }
 
 
