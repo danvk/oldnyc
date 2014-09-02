@@ -321,6 +321,14 @@ function loadNewlyVisibleImages(container) {
   });
 }
 
+function hidePopular() {
+  $('#popular').hide();
+  $('.popular-link').show();
+}
+function showPopular() {
+  $('#popular').show();
+  $('.popular-link').hide();
+}
 
 $(function() {
   // Clicks on the background or "exit" button should leave the slideshow.
@@ -385,6 +393,20 @@ $(function() {
   $('#popular').on('scroll', function() {
     loadNewlyVisibleImages($('#popular').get(0));
   });
+
+  // Show/hide popular images
+  $('#popular .close').on('click', function() {
+    document.cookie = 'nopop';
+    hidePopular();
+  });
+  $('.popular-link a').on('click', function(e) {
+    showPopular();
+    document.cookie = '';
+    e.preventDefault();
+  });
+  if (document.cookie.indexOf('nopop') >= 0) {
+    hidePopular();
+  }
 
   $('#grid-container').on('og-select', 'li', function() {
     var photo_id = $(this).data('image-id')

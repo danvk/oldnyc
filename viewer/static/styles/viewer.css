@@ -303,3 +303,25 @@ a {
   height: 6px;
   -webkit-border-radius: 1ex;
 }
+
+#popular .close {
+  position: absolute;
+  top: 15px;
+  right: 10px;
+  height: 1.5em;
+  line-height: 1.5em;
+  font-size: 1.5em;
+  cursor: pointer;
+}
+
+#popular .close:hover {
+  color: gray;
+}
+
+.popular-link {
+  position: absolute;
+  left: 150px;
+  top: 22px;
+  font-size: medium;
+  display: none;
+}
