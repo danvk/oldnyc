@@ -16,11 +16,11 @@ function isOldNycImage(photo_id) {
 }
 
 function thumbnailImageUrl(photo_id) {
-  return 'http://oldnyc.s3.amazonaws.com/thumb/' + photo_id + '.jpg';
+  return 'http://images.oldnyc.org/thumb/' + photo_id + '.jpg';
 }
 
 function expandedImageUrl(photo_id) {
-  return 'http://oldnyc.s3.amazonaws.com/600px/' + photo_id + '.jpg';
+  return 'http://images.oldnyc.org/600px/' + photo_id + '.jpg';
 }
 
 // lat_lon is a "lat,lon" string.
