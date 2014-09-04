@@ -162,8 +162,11 @@ History.prototype.goBackUntil = function(predicate, alternativeState) {
   } else {
     // no state fulfilled predicate. Clear the stack to just one state and
     // replace it with alternativeState.
-    lastState.expectingBack = true;
-    history.go(-(numBack - 1));
+    var stackLen = numBack;
+    if (stackLen != 1) {
+      lastState.expectingBack = true;
+      history.go(-(stackLen - 1));
+    }
     this.replaceState(alternativeState[0], alternativeState[1], alternativeState[2]);
   }
 };
