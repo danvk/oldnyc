@@ -261,6 +261,10 @@ a {
   background: #fff;
 }
 
+.og-details {
+  overflow-y: auto;
+}
+
 .og-details h3 {
   font-size: 22px;
 }
@@ -289,14 +293,14 @@ a {
   vertical-align: top;
 }
 
-#popular::-webkit-scrollbar {
+#popular::-webkit-scrollbar, .og-details::-webkit-scrollbar-thumb {
   width: 6px;
   height: 6px;
   padding: 18px;
   -webkit-border-radius: 1ex
 }
 
-#popular::-webkit-scrollbar-thumb {
+#popular::-webkit-scrollbar-thumb, .og-details::-webkit-scrollbar-thumb {
   background-color: rgba(053,057,071,0.3);
   padding: 8px;
   width: 6px;
