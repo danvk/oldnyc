@@ -35,7 +35,6 @@ a {
   position: absolute;
   right: 0px;
   font-size: 1.1em;
-  padding: 20px 20px 19px 20px;
   color: #fff;
 }
 #about:hover{
@@ -43,6 +42,8 @@ a {
 }
 #about a, #about a:visited {
   color: #111;
+  padding: 20px 20px 19px 20px;
+  display: block;
 }
 .logo {
   position: absolute;
@@ -63,7 +64,7 @@ a {
 .header .social {
   position: absolute;
   top: 0;
-  right: 78px;
+  right: 83px;
   padding: 19px 0 13px;
 }
 
