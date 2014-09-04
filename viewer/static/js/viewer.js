@@ -10,11 +10,6 @@ var LOG_HISTORY_EVENTS = false;
 
 var mapPromise = $.Deferred();
 
-function isOldNycImage(photo_id) {
-  // NYC images have IDs like '123f' or '345f-b'.
-  return /f(-[a-z])?$/.test(photo_id);
-}
-
 function thumbnailImageUrl(photo_id) {
   return 'http://images.oldnyc.org/thumb/' + photo_id + '.jpg';
 }
@@ -333,7 +328,7 @@ function showPopular() {
 
 $(function() {
   // Clicks on the background or "exit" button should leave the slideshow.
-  $('#curtains, .exit, .og-spacer').click(function() {
+  $(document).on('click', '#curtains, .exit, .og-spacer', function() {
     hideExpanded();
     $(window).trigger('hideGrid');
   });
