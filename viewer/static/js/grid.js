@@ -189,6 +189,7 @@ var Grid = function() {
     // default settings
     settings = {
       minHeight: 500,
+      maxHeight: 750,
       speed: 350,
       easing: 'ease'
     };
@@ -479,17 +480,22 @@ var Grid = function() {
       return false;
     },
 
+    // TODO: document, rename all these horrible variables.
+    // this.$previewEl is the gray area
+    // this.$item is the <li>, so its height must include the thumbnail's height!
     calcHeight: function() {
-      var heightPreview = winsize.height - this.$item.data( 'height' ) - marginExpanded,
-        itemHeight = winsize.height;
+      var maxMargin = 100;  // image height + margin == previewHeight
+      var scrollParents = scrollableParents($grid),
+          $scrollParent = $(scrollParents.get(0)),
+          thumbnailHeight = this.$item.data('height'),
+          previewHeight = $scrollParent.height() - thumbnailHeight - 50;
 
-      if (heightPreview < settings.minHeight) {
-        heightPreview = settings.minHeight;
-        itemHeight = settings.minHeight + this.$item.data('height') + marginExpanded;
+      if (previewHeight > settings.maxHeight) {
+        previewHeight = settings.maxHeight;
       }
 
-      this.height = heightPreview;
-      this.itemHeight = itemHeight;
+      this.previewHeight = previewHeight;  // this.$item.data('eg-height');  // height of image
+      this.itemHeight = $scrollParent.height() - 40;
     },
 
     setHeights: function() {
@@ -499,7 +505,7 @@ var Grid = function() {
         };
 
       this.calcHeight();
-      this.$previewEl.css('height', this.height);
+      this.$previewEl.css('height', this.previewHeight);
       this.$item
         .css('height', this.itemHeight)
         .one(transEndEventName, onEndFn);
@@ -514,13 +520,13 @@ var Grid = function() {
       // case 1 : preview height + item height fits in window´s height
       // case 2 : preview height + item height does not fit in window´s height and preview height is smaller than window´s height
       // case 3 : preview height + item height does not fit in window´s height and preview height is bigger than window´s height
-      var position = this.$item.data('offsetTop'),
-        previewOffsetT = this.$previewEl.offset().top - scrollExtra,
-        scrollVal = this.height + this.$item.data('height') + marginExpanded <= winsize.height ? position : this.height < winsize.height ? previewOffsetT - (winsize.height - this.height) : previewOffsetT;
-       
-      // TODO: change $body to $scrollParent
-      var scrollParents = scrollableParents($grid);
-      $(scrollParents.get(0)).animate({ scrollTop : scrollVal }, settings.speed);
+      var $item = this.$item;
+      var scrollParents = scrollableParents($grid),
+          $scrollParent = $(scrollParents.get(0)),
+          scrollTop = $scrollParent.scrollTop();
+      $scrollParent.animate(
+          {scrollTop: $item.position().top + scrollTop},
+          settings.speed);
     },
 
     setTransition: function() {
@@ -658,6 +664,7 @@ var createExpandableGrid = function(options, images) {
   $ul.appendTo(this.empty());
   reflow(this);
   $(lis).show();
+  $ul.append($('<div class=og-spacer>'));
   loadVisibleImages(this);
   var container = this;
   $([this.get(0), document]).on('scroll', function() {
@@ -675,8 +682,12 @@ var createExpandableGrid = function(options, images) {
 
   // This should really be an object...
   g = Grid();
-  g.init($ul.get(0));
+  g.init($ul.get(0), options);
   $(this).data('og-grid', g);
+
+  // The initial display may have resulted in new scroll bars.
+  // It would be nice to avoid this.
+  reflow(this);
 
   return this;
 };

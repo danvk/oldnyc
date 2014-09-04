@@ -113,7 +113,7 @@
 
 .og-fullimg img {
 	display: inline-block;
-	max-height: 100%;
+	max-height: 90%;
 	max-width: 100%;
 }
 
@@ -153,6 +153,11 @@
 }
 .og-next:hover {
   background-image:url('arrow-right-hover.png');
+}
+
+/* prevent some issues around scrolling at the bottom during transitions */
+.og-spacer {
+  height: 1000px;
 }
 
 @-webkit-keyframes loader {
