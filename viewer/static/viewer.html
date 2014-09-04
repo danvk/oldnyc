@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>OldNYC</title>
+  <title>OldNYC - Historic Photographs of New York City</title>
 
   <link rel="stylesheet" href="grid.css" />
   <link type="text/css" href="viewer.css" rel="stylesheet" />
@@ -30,6 +30,14 @@
   <script src="grid.js"></script>
 
   <meta property="fb:app_id" content="598168753565519"/>
+  <meta property="og:title" content="OldNYC" />
+  <meta property="og:site_name" content="OldNYC" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="http://www.oldnyc.org/" />
+  <meta property="og:description" content="OldNYC shows 40,000 historical images from the New York Public Library's Milstein Collection on a map. Find photos of your apartment, work, or favorite park!" />
+  <meta property="og:image" content="http://images.oldnyc.org/600px/723905f-a.jpg" />
+
+  <meta name="Description" content="OldNYC shows 40,000 historical images from the New York Public Library's Milstein Collection on a map. Find photos of your apartment, work, or favorite park!" />
 </head>
 
 <body onload="initialize_map()">
@@ -47,7 +55,7 @@
   <div class="header streetview-hide">
     <div class="social">
       <div id="facebook">
-        <div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button_count" data-action="like" data-show-faces="false" data-share="true"></div>
+        <div class="fb-like" data-href="http://www.oldnyc.org" data-layout="button_count" data-action="like" data-show-faces="false" data-share="true"></div>
       </div>
       <div id="twitter">
         <a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="Old_NYC">Tweet</a>
@@ -115,7 +123,7 @@
     </div>
     <div class="share"><a href="#" class="email-share">Share</a></div>
     <div class="tweet"></div>
-    <fb:like href="https://developers.facebook.com/docs/plugins/" layout="button" action="like" show_faces="false" share="true"></fb:like>
+    <div class="facebook-holder"></div>
   </div>
 
   <div style="position: absolute; left: -1000px;">

@@ -239,6 +239,8 @@ function fillPhotoPane(photo_id, $pane) {
   var info = infoForPhotoId(photo_id);
   $('.library-link', $pane).attr('href', libraryUrlForPhotoId(photo_id));
 
+  var canonicalUrl = getCanonicalUrlForPhoto(photo_id);
+
   if (photo_id.match('[0-9]f')) {
     $pane.find('.more-on-back > a').attr(
         'href', backOfCardUrlForPhotoId(photo_id));
@@ -252,7 +254,7 @@ function fillPhotoPane(photo_id, $pane) {
   $comments.empty().append(
       $('<fb:comments numPosts="5" colorscheme="light"/>')
           .attr('width', width)
-          .attr('href', getCanonicalUrlForPhoto(photo_id)))
+          .attr('href', canonicalUrl))
   FB.XFBML.parse($comments.get(0));
 
   var $detailsLeft = $pane.parent().find('.og-details-left');
@@ -266,6 +268,14 @@ function fillPhotoPane(photo_id, $pane) {
         text: info.title + ' - ' + info.date,
         via: 'Old_NYC'
       });
+
+  $detailsLeft.find('.facebook-holder').empty().append($('<fb:like>').attr({
+      'href': canonicalUrl,
+      'layout': 'button',
+      'action': 'like',
+      'show_faces': 'false',
+      'share': 'true'
+    }));
   FB.XFBML.parse($detailsLeft.get(0));
 }
 

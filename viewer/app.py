@@ -178,37 +178,9 @@ class UploadHandler(webapp2.RequestHandler):
       record.put()
       self.response.out.write('%s image record %s\n' % (verb, id))
 
-# From http://stackoverflow.com/questions/9461085/password-protect-static-page-appengine-howto
-def basicAuth(func):
-  def callf(webappRequest, *args, **kwargs):
-    # Parse the header to extract a user/password combo.
-    # We're expecting something like "Basic XZxgZRTpbjpvcGVuIHYlc4FkZQ=="
-    auth_header = webappRequest.request.headers.get('Authorization')
-
-    if auth_header == None:
-      webappRequest.response.set_status(401, message="Authorization Required")
-      webappRequest.response.headers['WWW-Authenticate'] = 'Basic realm="OldNYC"'
-    else:
-      # Isolate the encoded user/passwd and decode it
-      auth_parts = auth_header.split(' ')
-      user_pass_parts = base64.b64decode(auth_parts[1]).split(':')
-      user_arg = user_pass_parts[0]
-      pass_arg = user_pass_parts[1]
-
-      if user_arg != "robert" or pass_arg != "moses":
-        webappRequest.response.set_status(401, message="Authorization Required")
-        webappRequest.response.headers['WWW-Authenticate'] = 'Basic realm="Secure Area"'
-        # Rendering a 401 Error page is a good way to go...
-        self.response.out.write('sorry!', {})
-      else:
-        return func(webappRequest, *args, **kwargs)
-
-  return callf
 
 class RootHandler(webapp2.RequestHandler):
-  @basicAuth
   def get(self):
-    logging.info('hello')
     self.response.headers['Content-type'] = 'text/html'
     self.response.out.write(open('static/viewer.html').read())
 

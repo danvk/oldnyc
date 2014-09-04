@@ -68,6 +68,10 @@ a {
   padding: 19px 0 13px;
 }
 
+#facebook {
+  margin-right: 100px;
+}
+
 #feedback a {
   background-image: url('feedback_tab_white.png');
   text-indent: -1000px;
