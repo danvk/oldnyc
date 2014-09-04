@@ -333,7 +333,7 @@ function showPopular() {
 
 $(function() {
   // Clicks on the background or "exit" button should leave the slideshow.
-  $('#curtains, .exit').click(function() {
+  $('#curtains, .exit, .og-spacer').click(function() {
     hideExpanded();
     $(window).trigger('hideGrid');
   });
