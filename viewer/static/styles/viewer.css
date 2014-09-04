@@ -62,8 +62,9 @@ a {
 
 .header .social {
   position: absolute;
-  top: 26px;
-  right: 122px;
+  top: 0;
+  right: 78px;
+  padding: 19px 0 13px;
 }
 
 #feedback a {
@@ -259,6 +260,10 @@ a {
   font-size: 22px;
 }
 
+.share {
+  padding-top: 3px;
+}
+
 .email-share-form {
   position: absolute;
   margin-top: 25px;
@@ -276,17 +281,7 @@ a {
 
 .social > div {
   display: inline-block;
-}
-
-.social-twitter, .social-facebook {
-  position: absolute;
-  top: 16px;
-}
-.social-twitter {
-  right: 240px;
-}
-.social-facebook {
-  right: 100px;
+  vertical-align: top;
 }
 
 #popular::-webkit-scrollbar {
