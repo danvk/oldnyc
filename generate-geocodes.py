@@ -20,11 +20,6 @@ import cPickle
 # record. We want to go in order from precise to imprecise.
 import coders.milstein
 import coders.nyc_parks
-import coders.sf_residences
-import coders.sf_streets
-import coders.free_streets
-import coders.catcodes
-import coders.generalizations
 
 
 if __name__ == '__main__':
