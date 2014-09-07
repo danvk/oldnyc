@@ -7,28 +7,6 @@
   <link rel="stylesheet" href="grid.css" />
   <link type="text/css" href="viewer.css" rel="stylesheet" />
 
-  <!-- Google Maps API -->
-  <script type="text/javascript"
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyClCA1LViYi4KLQfgMlfr3PS0tyxwqzYjA&sensor=false">
-  </script>
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-
-  <meta name="twitter:widgets:csp" content="on">
-  <script src="//platform.twitter.com/widgets.js"></script>
-
-  <script src="nyc-lat-lons-ny.js"></script>
-  <script src="popular-photos.js"></script>
-  
-  <script src="url-state.js"></script>
-  <script src="photo-info.js"></script>
-  <script src="social.js"></script>
-  <script src="viewer.js"></script>
-  <script src="history.js"></script>
-  <script src="app-history.js"></script>
-
-  <script src="modernizr.custom.js"></script>
-  <script src="grid.js"></script>
-
   <meta property="fb:app_id" content="598168753565519"/>
   <meta property="og:title" content="OldNYC" />
   <meta property="og:site_name" content="OldNYC" />
@@ -40,7 +18,7 @@
   <meta name="Description" content="OldNYC shows 40,000 historical images from the New York Public Library's Milstein Collection on a map. Find photos of your apartment, work, or favorite park!" />
 </head>
 
-<body onload="initialize_map()">
+<body>
   <div id="fb-root"></div>
   <script>(function(d, s, id) {
     var js, fjs = d.getElementsByTagName(s)[0];
@@ -50,7 +28,7 @@
     fjs.parentNode.insertBefore(js, fjs);
   }(document, 'script', 'facebook-jssdk'));</script>
 
-  <div id="map"></div>
+  <div id="map">Loading&hellip;</div>
 
   <div class="header streetview-hide">
     <div class="social">
@@ -86,7 +64,6 @@
       <p><span class="desc"></span><br><span class="loc"></span><span class="date"></span></p>
     </div>
   </div>
-  <script type="text/javascript">fillPopularImagesPanel()</script>
 
   <!-- Expanded Image Slideshow -->
   <div style="display:none;" id="expanded">
@@ -130,6 +107,35 @@
     <img src="blank.gif" />
     <img src="spinner.gif" />
   </div>
+
+  <!-- Google Maps API -->
+  <script type="text/javascript"
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyClCA1LViYi4KLQfgMlfr3PS0tyxwqzYjA&sensor=false">
+  </script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+  <meta name="twitter:widgets:csp" content="on">
+  <script src="//platform.twitter.com/widgets.js"></script>
+
+  <script src="nyc-lat-lons-ny.js"></script>
+  <script src="popular-photos.js"></script>
+  
+  <script src="url-state.js"></script>
+  <script src="photo-info.js"></script>
+  <script src="social.js"></script>
+  <script src="viewer.js"></script>
+  <script src="history.js"></script>
+  <script src="app-history.js"></script>
+
+  <script src="modernizr.custom.js"></script>
+  <script src="grid.js"></script>
+  <script>
+    $(function() {
+      fillPopularImagesPanel();
+      initialize_map();
+    });
+  </script>
+
 
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
