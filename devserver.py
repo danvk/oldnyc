@@ -10,20 +10,11 @@ import sys
 import yaml
 from flask import Flask, send_from_directory, request
 
-def make_app(yaml_file, script_handler):
+def make_app(yaml_file, script_handlers):
     app_yaml_dir = os.path.abspath(os.path.dirname(yaml_file))
     app_yaml = yaml.load(open(yaml_file))
 
-    sys.stderr.write('static_folder=%s\n' % app_yaml_dir)
     app = Flask(__name__, static_folder=app_yaml_dir)
-    
-    # static_dir
-    # static_files
-    # script
-    
-    # app.send_static_file
-    # send_from_directory('/path/to/static/files', filename)
-    
     
     def serve_handler(handler, path):
         pattern = handler['url']
@@ -33,14 +24,16 @@ def make_app(yaml_file, script_handler):
         if 'static_dir' in handler:
             m = re.match(pattern, path)
             path = path[m.end():]
-            sys.stderr.write('Serving %s out of %s\n' % (path, handler['static_dir']))
             return app.send_static_file(handler['static_dir'] + path)
         if 'script' in handler:
-            return script_handler(path, request)
+            for pattern, handler in script_handlers:
+                m = re.match(pattern, path)
+                if not m: continue
+                return handler(path, request)  # not very similar to WSGI args
     
     
-    @app.route('/', defaults={'path': ''})
-    @app.route('/<path:path>')
+    @app.route('/', defaults={'path': ''}, methods=['GET', 'POST'])
+    @app.route('/<path:path>', methods=['GET', 'POST'])
     def catch_all(path):
         path = '/' + path
         for handler in app_yaml['handlers']:
@@ -50,17 +43,17 @@ def make_app(yaml_file, script_handler):
             if re.match(pattern, path):
                 sys.stderr.write('Matched %s to %s\n' % (path, pattern))
                 return serve_handler(handler, path)
-            else:
-                sys.stderr.write('No match %s / %s\n' % (path, pattern))
         return "Didn't match any handlers"
 
     return app
 
+
 def script_handler(path, req):
-    return "Script response for %s" % path
+    return "Script response for %s\nquerystring=%r\nform=%r" % (
+            path, req.args, req.form)
 
 
 if __name__ == '__main__':
     yaml_file = sys.argv[1]
-    app = make_app(yaml_file, script_handler)
+    app = make_app(yaml_file, [('.*', script_handler)])
     app.run(host='0.0.0.0', debug=True)
