@@ -19,16 +19,6 @@ import fileinput
 
 output_mode = 'map'  # 'urls'
 
-catcodes = {}
-for line in file('cat-codes.txt'):
-  line = line.strip()
-  if not line: continue
-  lat_lon = line.split(':')[0].split(',')
-  assert len(lat_lon) == 2, line
-  lat = float(lat_lon[0])
-  lon = float(lat_lon[1])
-  catcodes['%.6f,%.6f' % (lat, lon)] = True
-
 counts = []
 lat_lons = []
 orig_points = 0
@@ -39,12 +29,6 @@ for line in fileinput.input():
   count, ll = line.split('\t')
   lat, lon = [float(x) for x in ll.split(',')]
   count = int(count)
-
-  # 188 clusters, 451/2378 points
-  # ignore large catcodes -- these should be left unaltered
-  key = '%.6f,%.6f' % (lat, lon)
-  if key in catcodes and count >= 10:
-    continue
 
   counts.append(count)
   lat_lons.append((lat, lon))
