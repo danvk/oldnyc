@@ -17,6 +17,8 @@ TODO:
 from collections import defaultdict
 import fileinput
 
+DISTANCE_THRESHOLD = 20
+
 output_mode = 'map'  # 'urls'
 
 counts = []
@@ -68,7 +70,7 @@ for i in range(0, len(lat_lons)):
   for j in range(i + 1, len(lat_lons)):
     b = lat_lons[j]
     d = dist(a, b)
-    if d > 4: continue
+    if d > DISTANCE_THRESHOLD: continue
     neighbors.append((-d, j))
   neighbors.sort()
 

@@ -15,13 +15,8 @@ def removeNonAscii(s): return "".join(i for i in s if ord(i)<128)
 
 
 def loadBlacklist():
-  bl = set()
-  for line in file('blacklist.lat-lons.js'):
-    line = line.strip()
-    if not line: continue
-    if line[0] == '#': continue
-    bl.add(line)
-  return bl
+  # unused for now
+  return set()
 
 
 def _generateJson(located_recs, lat_lon_map):
@@ -86,17 +81,15 @@ def printJson(located_recs, lat_lon_map):
 
   print "var lat_lons = "
   print json.dumps(data)
-  print "};"
 
 
 def printJsonNoYears(located_recs, lat_lon_map):
   data = _generateJson(located_recs, lat_lon_map)
   for k, v in data.iteritems():
-      data[k] = v[2]  # drop both year elements.
+      data[k] = [x[2] for x in v]  # drop both year elements.
 
   print "var lat_lons = "
   print json.dumps(data)
-  print "};"
 
 
 def printRecordsJson(located_recs):
