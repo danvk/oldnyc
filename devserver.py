@@ -26,10 +26,11 @@ def make_app(yaml_file, script_handlers):
             path = path[m.end():]
             return app.send_static_file(handler['static_dir'] + path)
         if 'script' in handler:
-            for pattern, handler in script_handlers:
-                m = re.match(pattern, path)
+            for pattern, script_handler in script_handlers:
+                m = re.match(pattern + '$', path)
                 if not m: continue
-                return handler(path, request)  # not very similar to WSGI args
+                return script_handler(path, request)  # not very similar to WSGI args
+        return "I'm afraid I don't know how to handle %r for %s" % (handler, path)
     
     
     @app.route('/', defaults={'path': ''}, methods=['GET', 'POST'])

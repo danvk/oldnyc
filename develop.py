@@ -3,7 +3,7 @@
 
 import csv
 import json
-from Flask import Response, current_app
+from flask import Response, current_app, jsonify
 
 import devserver
 import record
@@ -17,11 +17,31 @@ for photo_id, width, height in csv.reader(open('nyc-image-sizes.txt')):
 
 
 def RootHandler(path, request):
-    return current_app().send_static_file('static/viewer.html')
+    return current_app.send_static_file('static/viewer.html')
 
 
 def RecordFetcher(path, request):
-    pass
+    response = {}
+    photo_ids = request.form.getlist('id')
+    for photo_id in photo_ids:
+        r = id_to_record[photo_id]
+        w, h = id_to_dims[photo_id]
+
+        # copied from viewer/app.py
+        title = r.title()
+        if r.description():
+          title += '; ' + r.description()
+        if r.note():
+          title += '; ' + r.note()
+        response[photo_id] = {
+          'title': title,
+          'date': r.date(),
+          'folder': r.location(),
+          'width': w,
+          'height': h
+        }
+
+    return jsonify(response)
 
 
 if __name__ == '__main__':
