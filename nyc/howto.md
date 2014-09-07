@@ -3,22 +3,17 @@
 (Suggest opening this file in TextMate or another editor that understands Markdown.)
 
 ## Bring up a demo
-Start the appengine app locally via:
-cd viewer
-dev_appserver.py .
+Set up the Python environment:
 
-Then visit http://localhost:8080/
+virtualenv env
+source env/bin/activate
+pip install -r requirements.txt
 
-You can iterate on JS, HTML & CSS as you usually would.
-The images won't be correctly-sized or have metadata in the slideshow. To get this to work, run:
+Then start the appengine app locally via:
 
-./upload_to_appengine.py --pickle_path nyc/photos.pickle --image_sizes_path nyc-image-sizes.txt
-(takes ~10 minutes)
+./develop.py
 
-Be sure to flush memcache on the development instance after you do this! To do
-so, visit http://localhost:8000/memcache.
-I also had to kill devappserver.py (Control-C) and restart it to see the data.
-
+Note: this doesn't actually run AppEngine, just a hacked up local server that emulates it.
 
 ## Push a new version to App Engine
 
@@ -56,28 +51,12 @@ If you want to determine per-borough geocoding coverage, run
 To get new geocodes into the frontend, you need to geocode photos.pickle. Do so
 with:
 
-./generate-geocodes.py --coders milstein,nyc-parks --pickle_path nyc/photos.pickle --output_format lat-lons.js --geocode > viewer/static/js/nyc-lat-lons.js
+./generate-geocodes.py --coders milstein,nyc-parks --pickle_path nyc/photos.pickle --lat_lon_map lat-lon-map.txt --output_format lat-lons-ny.js --geocode > viewer/static/js/nyc-lat-lons-ny.js
 
-cd nyc
-./generate-neighborhood-lat-lons.py ../viewer/static/js/nyc-lat-lons.js > ../viewer/static/js/nyc-neighborhood-photos.js
+The lat-lon-map.txt file can be generated via:
 
-Note that _both_ of these files JS are required. They're for zoomed-in and -out views respectively.
-
-## Update neighborhoods
-
-The neighborhood polygons come from the OkCupid neighborhood mapping project, plus some "neighborhoods" I added to fill in gaps: https://mapsengine.google.com/map/edit?mid=zDeZKgCz5T0g.kjlr8d-9Cczk
-
-From that "My Map", export KML. This creates "City Island.kml", which you should copy to nyc/extra-neighborhoods.kml
-
-Run:
-
-./create-neighborhood-json.py
-
-to create nyc/neighborhood-polygons.json. Then run:
-
-./generate-neighborhood-lat-lons.py ../viewer/static/js/nyc-lat-lons.js > ../viewer/static/js/nyc-neighborhood-photos.js
-
-to regenerate the JS file used by the frontend (which contains both polygons & image data).
+./generate-geocodes.py --coders milstein,nyc-parks --pickle_path nyc/records.pickle --output_format locations.txt --geocode > locations.txt
+./cluster-locations.py locations.txt > lat-lon-map.txt
 
 ## Generate photos.pickle
 
