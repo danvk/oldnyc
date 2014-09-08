@@ -136,6 +136,21 @@ a {
   padding-top: 0;
 }
 
+/* reclaim some space */
+.og-close {
+  display: none;
+}
+.og-expander-inner {
+  padding: 20px 30px;
+}
+.og-details {
+  padding-right: 0;
+  width: 40%;
+}
+.og-fullimg {
+  width: 60%;
+}
+
 #preview-map {
   width: 150px;
   height: 150px;
