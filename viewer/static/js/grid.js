@@ -399,7 +399,7 @@ var Grid = function() {
             var $fullimage = self.$fullimage;
             self.$loading.hide();
             $fullimage.find('img').remove();
-            self.$largeImg = $img.fadeIn(350);  // TODO: settings.speed
+            self.$largeImg = $img.fadeIn(settings.speed);
             $fullimage.append([
                 self.$largeImg,
                 self.$fullimage.find('.og-details-left').show()]);
@@ -412,9 +412,11 @@ var Grid = function() {
     open: function() {
       setTimeout($.proxy(function() {  
         // set the height for the preview and the item
-        this.setHeights();
-        // scroll to position the preview in the right place
-        this.positionPreview();
+        var self = this;
+        this.setHeights().then(function() {
+          // scroll to position the preview in the right place
+          self.positionPreview();
+        });
       }, this), 25);
 
       var self = this;
@@ -487,21 +489,24 @@ var Grid = function() {
       var maxMargin = 100;  // image height + margin == previewHeight
       var scrollParents = scrollableParents($grid),
           $scrollParent = $(scrollParents.get(0)),
+          scrollParentHeight = Math.min($scrollParent.height(), $(window).height()),
           thumbnailHeight = this.$item.data('height'),
-          previewHeight = $scrollParent.height() - thumbnailHeight - 50;
+          previewHeight = scrollParentHeight - thumbnailHeight - 50;
 
       if (previewHeight > settings.maxHeight) {
         previewHeight = settings.maxHeight;
       }
 
       this.previewHeight = previewHeight;  // this.$item.data('eg-height');  // height of image
-      this.itemHeight = $scrollParent.height() - 40;
+      this.itemHeight = scrollParentHeight - 40;
     },
 
     setHeights: function() {
+      var deferred = $.Deferred();
       var self = this,
         onEndFn = function() {
           self.$item.addClass('og-expanded');
+          deferred.resolve({});
         };
 
       this.calcHeight();
@@ -513,19 +518,17 @@ var Grid = function() {
       if (!support) {
         onEndFn.call();
       }
+      return deferred;
     },
 
     positionPreview: function() {
-      // scroll page
-      // case 1 : preview height + item height fits in window´s height
-      // case 2 : preview height + item height does not fit in window´s height and preview height is smaller than window´s height
-      // case 3 : preview height + item height does not fit in window´s height and preview height is bigger than window´s height
+      // Scroll the newly-selected item to the top of the page.
       var $item = this.$item;
       var scrollParents = scrollableParents($grid),
           $scrollParent = $(scrollParents.get(0)),
-          scrollTop = $scrollParent.scrollTop();
+          parentTop = $item.parent().position().top;
       $scrollParent.animate(
-          {scrollTop: $item.position().top + scrollTop},
+          {scrollTop: $item.position().top - parentTop},
           settings.speed);
     },
 
@@ -664,7 +667,6 @@ var createExpandableGrid = function(options, images) {
   $ul.appendTo(this.empty());
   reflow(this);
   $(lis).show();
-  $ul.append($('<div class=og-spacer>'));
   loadVisibleImages(this);
   var container = this;
   $([this.get(0), document]).on('scroll', function() {

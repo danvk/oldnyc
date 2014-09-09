@@ -217,7 +217,8 @@ function showExpanded(key, photo_ids, opt_selected_id) {
   });
   $('#preview-map').attr('src', makeStaticMapsUrl(key));
   $('#grid-container').expandableGrid({
-    rowHeight: 200
+    rowHeight: 200,
+    speed: 200 /* ms for transitions */
   }, images);
   if (opt_selected_id) {
     $('#grid-container').expandableGrid('select', opt_selected_id);

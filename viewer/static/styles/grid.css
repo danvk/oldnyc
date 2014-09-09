@@ -155,11 +155,6 @@
   background-image:url('arrow-right-hover.png');
 }
 
-/* prevent some issues around scrolling at the bottom during transitions */
-.og-spacer {
-  height: 1000px;
-}
-
 @-webkit-keyframes loader {
 	0% { background: #ddd; }
 	33% { background: #ccc; box-shadow: 0 0 1px #ccc, 15px 30px 1px #ccc, -15px 30px 1px #ddd; }
