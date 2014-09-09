@@ -16,4 +16,4 @@ pip install -r requirements.txt
 
 Then hit up http://localhost:5000/
 
-See nyc/howto.md for more details on how to perform specific tasks.
+See [nyc/howto.md](nyc/howto.md) for more details on how to perform specific tasks.
