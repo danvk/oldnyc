@@ -258,26 +258,23 @@ function fillPhotoPane(photo_id, $pane) {
           .attr('href', canonicalUrl))
   FB.XFBML.parse($comments.get(0));
 
-  var $detailsLeft = $pane.parent().find('.og-details-left');
-  $detailsLeft.append(
-      $('#image-share-template').clone().removeAttr('id').show());
-
   twttr.widgets.createShareButton(
       document.location.href,
-      $detailsLeft.find('.tweet').get(0), {
+      $pane.find('.tweet').get(0), {
         count: 'none',
         text: info.title + ' - ' + info.date,
         via: 'Old_NYC'
       });
 
-  $detailsLeft.find('.facebook-holder').empty().append($('<fb:like>').attr({
+  var $fb_holder = $pane.find('.facebook-holder');
+  $fb_holder.empty().append($('<fb:like>').attr({
       'href': canonicalUrl,
       'layout': 'button',
       'action': 'like',
       'show_faces': 'false',
       'share': 'true'
     }));
-  FB.XFBML.parse($detailsLeft.get(0));
+  FB.XFBML.parse($fb_holder.get(0));
 }
 
 function photoIdFromATag(a) {
@@ -377,7 +374,7 @@ $(function() {
   });
 
   $('#grid-container').on('click', 'a.email-share', function(e) {
-    var $social = $(this).parents('.og-details-left');
+    var $social = $(this).parents('.social');
     var $form = $social.find('.email-share-form');
     $form.find('input').val(document.location.href);
     $form.toggle();

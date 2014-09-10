@@ -68,6 +68,10 @@ a {
   padding: 19px 0 13px;
 }
 
+.header .social > div {
+  display: inline-block;
+}
+
 #facebook {
   margin-right: 100px;
 }
@@ -255,7 +259,7 @@ a {
 }
 
 .comments{
-  margin-top: 35px !important;
+  margin-top: 10px !important;
 }
 
 .description{
@@ -303,9 +307,16 @@ a {
   text-align: right;
 }
 
-.social > div {
+.og-details .tweet, .og-details .facebook-holder {
   display: inline-block;
   vertical-align: top;
+  height: 23px;
+}
+.og-details .social, .more-on-back {
+  margin: 10px 0;
+}
+.og-details .share {
+  padding-bottom: 5px;
 }
 
 #popular::-webkit-scrollbar, .og-details::-webkit-scrollbar-thumb {

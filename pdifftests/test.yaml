@@ -42,3 +42,10 @@ tests:
   - name: tall-photo
     url: http://localhost:5000/#708378f-a
     config: *stdconfig
+
+  - name: negative-height-regression
+    url: http://localhost:5000/#723626f-a
+    config:
+      viewportSize:
+        width: 1334
+        height: 806
