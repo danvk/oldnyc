@@ -48,4 +48,4 @@ if __name__ == '__main__':
     devserver.make_app('viewer/app.yaml', [
         ('/', RootHandler),
         ('/info', RecordFetcher),
-    ]).run(host='0.0.0.0', debug=True)
+    ]).run(host='0.0.0.0')  # set debug=True if you want to iterate on Python, not static content.

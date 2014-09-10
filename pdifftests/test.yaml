@@ -1,0 +1,44 @@
+# This is run once before any individual test.
+# It's a good place to start your demo server.
+setup: |
+    ./develop.py
+
+waitFor: |
+    timeout=$(($(date +%s) + 10))  # 10 second timeout
+    until \
+        curl --silent -I 'http://localhost:5000/' | grep '200 OK' || \
+        [[ $(date +%s) -gt $timeout ]]; do
+      echo 'Waiting for server to start up...'
+      sleep 1
+    done
+
+    if [[ $(date +%s) -gt $timeout ]]; then
+      echo 'Server failed to start.' 1>&2
+      exit 1
+    else
+      echo 'Server started!'
+    fi
+
+# Base configuration shared by all tests
+# This is shared via YAML references, not anything dpxdt-specific.
+standard-config: &stdconfig
+    viewportSize:
+      width: 1024
+      height: 768
+    injectCss: |
+      body {
+        background-color: white;
+      }
+
+tests:
+  - name: homepage
+    url: http://localhost:5000/
+    config: *stdconfig
+
+  - name: selected-photo
+    url: http://localhost:5000/#717399f-a
+    config: *stdconfig
+
+  - name: tall-photo
+    url: http://localhost:5000/#708378f-a
+    config: *stdconfig
