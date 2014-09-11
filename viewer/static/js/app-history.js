@@ -11,22 +11,10 @@ function trackAnalyticsPageView() {
   ga('send', 'pageview', { 'page': url });
 }
 
-$(function() {
-  if (LOG_HISTORY_EVENTS) {
-    $(window)
-      .on('showGrid', function(e, pos) {
-        console.log('showGrid', pos);
-      }).on('hideGrid', function() {
-        console.log('hideGrid');
-      }).on('showPhotoPreview', function(e, photo_id) {
-        console.log('showPhotoPreview', photo_id);
-      }).on('closePreviewPanel', function() {
-        console.log('closePreviewPanel');
-      }).on('openPreviewPanel', function() {
-        console.log('openPreviewPanel');
-      });
-  }
+// var LOG_HISTORY_EVENTS = false;
+var LOG_HISTORY_EVENTS = true;
 
+$(function() {
   // Relevant UI methods:
   // - transitionToStateObject(obj)
   //
@@ -91,8 +79,29 @@ $(function() {
     trackAnalyticsPageView();  // hopefully this helps track social shares
   });
 
+  if (LOG_HISTORY_EVENTS) {
+    $(window)
+      .on('showGrid', function(e, pos) {
+        console.log('showGrid', pos);
+      }).on('hideGrid', function() {
+        console.log('hideGrid');
+      }).on('showPhotoPreview', function(e, photo_id) {
+        console.log('showPhotoPreview', photo_id);
+      }).on('closePreviewPanel', function() {
+        console.log('closePreviewPanel');
+      }).on('openPreviewPanel', function() {
+        console.log('openPreviewPanel');
+      });
+    $(h).on('setStateInResponseToUser', function(e, state) {
+      console.log('setStateInResponseToUser', state);
+    }).on('setStateInResponseToPageLoad', function(e, state) {
+      console.log('setStateInResponseToPageLoad', state);
+    });
+  }
+
   // To load from a URL fragment, the map object must be ready.
   mapPromise.done(function() {
     h.initialize();
   });
+
 });

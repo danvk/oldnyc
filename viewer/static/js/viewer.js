@@ -6,7 +6,6 @@ var selected_marker, selected_icon;
 var map;
 var start_date = 1850;
 var end_date = 2000;
-var LOG_HISTORY_EVENTS = false;
 
 var mapPromise = $.Deferred();
 
@@ -397,6 +396,7 @@ $(function() {
     $('#grid-container .feedback').fadeOut();
     $('#grid-container .details').fadeIn();
   });
+  $(document).on('keyup', 'input, textarea', function(e) { e.stopPropagation(); });
 
   $('#grid-container').on('click', 'a.email-share', function(e) {
     var $social = $(this).parents('.social');

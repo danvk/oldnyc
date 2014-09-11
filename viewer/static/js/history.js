@@ -11,20 +11,22 @@ History.prototype.initialize = function() {
     that.handlePopState(e.originalEvent.state);
   });
 
-  var state = history.state;
-  if (!state) {
-    // Create an artificial initial state.
-    var state = {initial: true};
-    if (this.hashToStateAdapter) {
-      // Need to honor any hash fragments that the user navigated to.
-      state = this.hashToStateAdapter(document.location.hash);
-    }
-    this.replaceState(state, document.title, document.location.href);
+  // Create an artificial initial state
+  var state = {initial: true};
+  var didSetState = false;
+  if (this.hashToStateAdapter && document.location.hash) {
+    // Need to honor any hash fragments that the user navigated to.
+    state = this.hashToStateAdapter(document.location.hash);
+    didSetState = true;
   }
 
-  // This sets state both in response to a load w/ a hash fragment in the URL
-  // and in response to having a true state (as occurs when you reload).
-  $(this).trigger('setStateInResponseToPageLoad', state);
+  // Blow away the current state -- it's only going to cause trouble.
+  history.replaceState({}, '', document.location.href);
+  this.replaceState(state, document.title, document.location.href);
+
+  if (didSetState) {
+    $(this).trigger('setStateInResponseToPageLoad', state);
+  }
 };
 
 History.prototype.makeState = function(obj) {
