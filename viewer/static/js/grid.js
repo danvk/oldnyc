@@ -66,9 +66,10 @@ function isElementScrollable(el) {
 }
 
 function scrollableParents(node) {
-  return $(node).parents().filter(function(_, e) {
+  var $parents = $(node).parents().filter(function(_, e) {
     return isElementScrollable(e);
   });
+  return ($parents.length > 0 ? $parents : $('body'));
 }
 
 $special = $event.special.debouncedresize = {
@@ -527,6 +528,9 @@ var Grid = function() {
       var scrollParents = scrollableParents($grid),
           $scrollParent = $(scrollParents.get(0)),
           parentTop = $item.parent().position().top;
+      if ($scrollParent.get(0).tagName == 'BODY') {
+        parentTop = 0;  // .position() already accounts for <body>
+      }
       $scrollParent.animate(
           {scrollTop: $item.position().top - parentTop},
           settings.speed);
