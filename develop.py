@@ -55,4 +55,4 @@ if __name__ == '__main__':
         ('/', RootHandler),
         ('/info', RecordFetcher),
         ('/rec_feedback', RecordFeedback),
-    ]).run(debug=True, host='0.0.0.0')  # set debug=True if you want to iterate on Python, not static content.
+    ]).run(host='0.0.0.0')  # set debug=True if you want to iterate on Python, not static content.
