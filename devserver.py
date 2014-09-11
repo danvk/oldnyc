@@ -22,9 +22,10 @@ def make_app(yaml_file, script_handlers):
             static_path = re.sub(pattern + '$', handler['static_files'], path)
             return app.send_static_file(static_path)
         if 'static_dir' in handler:
+            if not pattern.endswith('/'): pattern += '/'
             m = re.match(pattern, path)
             path = path[m.end():]
-            return app.send_static_file(handler['static_dir'] + path)
+            return app.send_static_file(handler['static_dir'] + '/' + path)
         if 'script' in handler:
             for pattern, script_handler in script_handlers:
                 m = re.match(pattern + '$', path)
@@ -41,6 +42,8 @@ def make_app(yaml_file, script_handlers):
             pattern = handler['url']
             if 'static_dir' not in handler:
                 pattern += '$'
+            else:
+                if not pattern.endswith('/'): pattern += '/'
             if re.match(pattern, path):
                 sys.stderr.write('Matched %s to %s\n' % (path, pattern))
                 return serve_handler(handler, path)
