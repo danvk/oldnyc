@@ -336,12 +336,12 @@ function showPopular() {
 
 $(function() {
   // Clicks on the background or "exit" button should leave the slideshow.
-  $(document).on('click', '#curtains, .exit, .og-spacer', function() {
+  $(document).on('click', '#curtains, .exit', function() {
     hideExpanded();
     $(window).trigger('hideGrid');
   });
   $('#grid-container, #expanded .header').on('click', function(e) {
-    if (e.target == this) {
+    if (e.target == this || $(e.target).is('.og-grid')) {
       hideExpanded();
       $(window).trigger('hideGrid');
     }
