@@ -302,6 +302,7 @@ a {
   line-height: 1.5em;
   box-shadow: 2px 2px 4px #999;
   left: 0;
+  z-index: 1;
 }
 .email-share-form div {
   text-align: right;
