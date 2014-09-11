@@ -439,25 +439,21 @@ $(function() {
     hidePopular();
   }
 
-  // Record feedback on images
+  // Record feedback on images. Can have a parameter or not.
   var thanks = function(button) { return function() { $(button).text('Thanks!'); }; };
-  $('#grid-container').on('click', '.feedback > button[feedback]', function() {
-    var button = this;
-    $(button).prop('disabled', true).text('...');
+  $('#grid-container').on('click', '.feedback button[feedback]', function() {
+    var $button = $(this);
+    var value = true;
+    if ($button.attr('feedback-param')) {
+      var $input = $button.siblings('input, textarea');
+      value = $input.val();
+      if (value == '') return;
+      $input.prop('disabled', true);
+    }
+    $button.prop('disabled', true);
     var photo_id = $('#grid-container').expandableGrid('selectedId');
-    sendFeedback(photo_id, {
-        'feedback': $(button).attr('feedback')
-    }).then(thanks(button));
-  }).on('click', '.feedback p button', function() {
-    var $container = $(this).parents('p');
-    var button = this;
-    var $input = $container.find('input,textarea');
-    var value = $input.val();
-    if (value == '') return;
-    $([button, $input.get(0)]).prop('disabled', true);
-    var photo_id = $('#grid-container').expandableGrid('selectedId');
-    var obj = {}; obj[$(button).attr('feedback')] = value;
-    sendFeedback(photo_id, obj).then(thanks(button));
+    var obj = {}; obj[$button.attr('feedback')] = value;
+    sendFeedback(photo_id, obj).then(thanks($button.get(0)));
   });
 
   $('#grid-container').on('og-select', 'li', function() {
