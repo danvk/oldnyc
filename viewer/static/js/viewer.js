@@ -310,18 +310,19 @@ function fillPopularImagesPanel() {
 
   var popularPhotos = $.map(popular_photos, makePanel);
   $('#popular').append($(popularPhotos).show());
-  loadNewlyVisibleImages($('#popular').get(0));
+  $(popularPhotos).appear({force_process:true});
+  $('#popular').on('appear', '.popular-photo', function() {
+    var $img = $(this).find('img[data-src]');
+    loadDeferredImage($img.get(0));
+  });
 }
 
-function loadNewlyVisibleImages(container) {
-  $(container).find('img[data-src]').each(function(i, imgEl) {
-    var $img = $(imgEl);
-    if (isElementInViewport($img)) {
-      $img
-        .attr('src', $img.attr('data-src'))
-        .removeAttr('data-src');
-    }
-  });
+function loadDeferredImage(img) {
+  var $img = $(img);
+  if ($img.attr('src')) return;
+  $(img)
+    .attr('src', $(img).attr('data-src'))
+    .removeAttr('data-src');
 }
 
 function hidePopular() {
@@ -331,6 +332,7 @@ function hidePopular() {
 function showPopular() {
   $('#popular').show();
   $('.popular-link').hide();
+  $('#popular').appear({force_process: true});
 }
 
 function sendFeedback(photo_id, feedback_obj) {
@@ -425,8 +427,9 @@ $(function() {
     });
   });
 
+  // ... it's annoying that we have to do this. jquery.appear.js should work!
   $('#popular').on('scroll', function() {
-    loadNewlyVisibleImages($('#popular').get(0));
+    $(this).appear({force_process: true});
   });
 
   // Show/hide popular images
