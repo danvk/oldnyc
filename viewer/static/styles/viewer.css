@@ -245,17 +245,13 @@ a {
 
 /* image grid */
 .rotate-image-button{
-  color: blue;
-  background: #fff;
-  border: none;
   font-family: Helvetica, sans-serif;
   font-size: 100%;
 }
-.rotate-image-button:hover{
-  text-decoration: underline;
-}
-.rotate-image-button:active{
-  border: none;
+.feedback-button {
+  margin-left: 10px;
+  padding-left: 10px;
+  border-left: 1px solid #777;
 }
 
 .comments{
@@ -319,6 +315,20 @@ a {
 .og-details .share {
   padding-bottom: 5px;
 }
+
+.feedback p, .feedback button {
+  padding: 5px;
+  margin: 10px 0;
+  display: block;
+}
+.feedback input {
+  padding: 5px;
+}
+.feedback p { padding-left: 0; }
+.feedback .suggest-date button {
+  display: inline-block;
+}
+
 
 #popular::-webkit-scrollbar, .og-details::-webkit-scrollbar-thumb {
   width: 6px;

@@ -86,23 +86,52 @@
   </div>
 
   <div id="image-details-template" style="display: none;">
-    <div class="description"></div>
-    <button class="rotate-image-button">Rotate</button>
+    <div class="details">
+      <div class="description"></div>
+      <a href='#' class="rotate-image-button">Rotate</a>
+      <a href='#' class="feedback-button">Feedback on this photo</a>
 
-    <div class="more-on-back">Read a description on the <a target="_blank" href="">back of the photo</a>.</div>
+      <div class="more-on-back">Read a description on the <a target="_blank" href="">back of the photo</a>.</div>
 
-    <div class="social">
-      <div class="email-share-form" style="display:none">
-        share a link to this photo<br>
-        <input type="text" size=50 value="" onfocus="this.select();" onmouseup="return false;" >
-        <div><a class="close" href="#">close</a></div>
+      <div class="social">
+        <div class="email-share-form" style="display:none">
+          share a link to this photo<br>
+          <input type="text" size=50 value="" onfocus="this.select();" onmouseup="return false;" >
+          <div><a class="close" href="#">close</a></div>
+        </div>
+        <div class="share"><a href="#" class="email-share">Link to this photo</a></div>
+        <div class="tweet"></div>
+        <div class="facebook-holder"></div>
       </div>
-      <div class="share"><a href="#" class="email-share">Link to this photo</a></div>
-      <div class="tweet"></div>
-      <div class="facebook-holder"></div>
-    </div>
 
-    <div class="comments"></div>
+      <div class="comments"></div>
+    </div>
+    <div class="feedback" style="display: none;">
+      <p>Tell us more about this image!</p>
+      <button feedback='cut-in-half'>It's only part of an image</button>
+      <button feedback='large-border'>It has an excessively large border</button>
+      <button feedback='multiples'>It's actually multiple images</button>
+      <button feedback='wrong-location'>It's in the wrong location</button>
+
+      <p class='suggest-date'>Suggest a date:
+      <input type="text" placeholder="Sept. 7, 1941">
+      <button feedback="date">Suggest</button></p>
+
+      <p class='transcribe more-on-back'>Transcribe text from <a target="_blank" href='#'>the back</a>:
+      <textarea rows=5 cols=40></textarea>
+      <button feedback="transcription">Submit</button>
+      </p>
+
+      <!-- Thing for the user to tell us:
+      - Rotated
+      - Cut in half
+      - Has a large border
+      - Is actually multiple photos 
+      - Transcription of the text on the back
+      - Suggest a date
+      - Wrong location
+      -->
+    </div>
   </div>
 
   <div style="position: absolute; left: -1000px;">

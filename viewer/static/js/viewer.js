@@ -335,13 +335,13 @@ function showPopular() {
 }
 
 function sendFeedback(photo_id, feedback_obj) {
-  $.ajax('/rec_feedback', {
+  ga('send', 'event', 'link', 'feedback', { 'page': '/#' + photo_id });
+  return $.ajax('/rec_feedback', {
     data: { 'id': photo_id, 'feedback': JSON.stringify(feedback_obj) },
     method: 'post'
   }).fail(function() {
     console.warn('Unable to send feedback on', photo_id)
   });
-  ga('send', 'event', 'link', 'feedback', { 'page': '/#' + photo_id });
 }
 
 $(function() {
@@ -374,7 +374,8 @@ $(function() {
     window.open(libraryUrlForPhotoId(photo_id), '_blank');
   });
 
-  $('#grid-container').on('click', '.rotate-image-button', function() {
+  $('#grid-container').on('click', '.rotate-image-button', function(e) {
+    e.preventDefault();
     var $img = $(this).closest('li').find('.og-fullimg img');
     var currentRotation = $img.data('rotate') || 0;
     currentRotation += 90;
@@ -387,6 +388,10 @@ $(function() {
       'page': '/#' + photo_id + '(' + currentRotation + ')'
     });
     sendFeedback(photo_id, {'rotate': currentRotation});
+  }).on('click', '.feedback-button', function(e) {
+    e.preventDefault();
+    $('#grid-container .details').fadeOut();
+    $('#grid-container .feedback').fadeIn();
   });
 
   $('#grid-container').on('click', 'a.email-share', function(e) {
@@ -433,6 +438,27 @@ $(function() {
   if (document.cookie.indexOf('nopop') >= 0) {
     hidePopular();
   }
+
+  // Record feedback on images
+  var thanks = function(button) { return function() { $(button).text('Thanks!'); }; };
+  $('#grid-container').on('click', '.feedback > button[feedback]', function() {
+    var button = this;
+    $(button).prop('disabled', true).text('...');
+    var photo_id = $('#grid-container').expandableGrid('selectedId');
+    sendFeedback(photo_id, {
+        'feedback': $(button).attr('feedback')
+    }).then(thanks(button));
+  }).on('click', '.feedback p button', function() {
+    var $container = $(this).parents('p');
+    var button = this;
+    var $input = $container.find('input,textarea');
+    var value = $input.val();
+    if (value == '') return;
+    $([button, $input.get(0)]).prop('disabled', true);
+    var photo_id = $('#grid-container').expandableGrid('selectedId');
+    var obj = {}; obj[$(button).attr('feedback')] = value;
+    sendFeedback(photo_id, obj).then(thanks(button));
+  });
 
   $('#grid-container').on('og-select', 'li', function() {
     var photo_id = $(this).data('image-id')
