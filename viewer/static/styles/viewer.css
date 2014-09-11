@@ -316,6 +316,10 @@ a {
   padding-bottom: 5px;
 }
 
+.details, .feedback {
+  position: absolute;
+}
+
 .feedback p, .feedback button {
   padding: 5px;
   margin: 10px 0;
@@ -328,6 +332,7 @@ a {
 .feedback .suggest-date button {
   display: inline-block;
 }
+.feedback a.back { style: italic; }
 
 
 #popular::-webkit-scrollbar, .og-details::-webkit-scrollbar-thumb {

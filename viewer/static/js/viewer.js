@@ -392,6 +392,10 @@ $(function() {
     e.preventDefault();
     $('#grid-container .details').fadeOut();
     $('#grid-container .feedback').fadeIn();
+  }).on('click', 'a.back', function(e) {
+    e.preventDefault();
+    $('#grid-container .feedback').fadeOut();
+    $('#grid-container .details').fadeIn();
   });
 
   $('#grid-container').on('click', 'a.email-share', function(e) {
