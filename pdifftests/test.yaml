@@ -25,9 +25,12 @@ standard-config: &stdconfig
     viewportSize:
       width: 1024
       height: 768
-    injectCss: |
+    injectCss: >
       body {
         background-color: white;
+      }
+      #curtains {
+        opacity: 1.0;  /* blackout! covers Google Maps flakiness */
       }
 
 tests:
@@ -46,6 +49,14 @@ tests:
   - name: negative-height-regression
     url: http://localhost:5000/#723626f-a
     config:
+      <<: *stdconfig
       viewportSize:
         width: 1334
         height: 806
+
+  - name: email-form-open
+    url: http://localhost:5000/#717399f-a
+    config:
+      <<: *stdconfig
+      injectJs: |
+        $('.email-share:visible').click();
