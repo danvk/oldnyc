@@ -44,8 +44,15 @@ def RecordFetcher(path, request):
     return jsonify(response)
 
 
+def RecordFeedback(path, request):
+    form = request.form
+    print 'Feedback: (%s) %s' % (form.get('id'), form.get('feedback'))
+    return "OK"
+
+
 if __name__ == '__main__':
     devserver.make_app('viewer/app.yaml', [
         ('/', RootHandler),
         ('/info', RecordFetcher),
+        ('/rec_feedback', RecordFeedback),
     ]).run(host='0.0.0.0')  # set debug=True if you want to iterate on Python, not static content.

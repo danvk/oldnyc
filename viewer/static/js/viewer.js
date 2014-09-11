@@ -334,6 +334,16 @@ function showPopular() {
   $('.popular-link').hide();
 }
 
+function sendFeedback(photo_id, feedback_obj) {
+  $.ajax('/rec_feedback', {
+    data: { 'id': photo_id, 'feedback': JSON.stringify(feedback_obj) },
+    method: 'post'
+  }).fail(function() {
+    console.warn('Unable to send feedback on', photo_id)
+  });
+  ga('send', 'event', 'link', 'feedback', { 'page': '/#' + photo_id });
+}
+
 $(function() {
   // Clicks on the background or "exit" button should leave the slideshow.
   $(document).on('click', '#curtains, .exit', function() {
@@ -371,6 +381,12 @@ $(function() {
     $img
       .css('transform', 'rotate(' + currentRotation + 'deg)')
       .data('rotate', currentRotation);
+
+    var photo_id = $('#grid-container').expandableGrid('selectedId');
+    ga('send', 'event', 'link', 'rotate', {
+      'page': '/#' + photo_id + '(' + currentRotation + ')'
+    });
+    sendFeedback(photo_id, {'rotate': currentRotation});
   });
 
   $('#grid-container').on('click', 'a.email-share', function(e) {

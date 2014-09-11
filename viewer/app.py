@@ -10,6 +10,9 @@ import os
 import simplejson as json
 import logging
 
+import feedback
+
+
 # See https://developers.google.com/appengine/docs/python/runtime#The_Environment
 try:
   VERSION = os.environ['CURRENT_VERSION_ID']
@@ -220,6 +223,8 @@ app = webapp2.WSGIApplication(
                                ('/upload', UploadHandler),
                                #('/thumb.*', ThumbnailFetcher),
                                ('/addegg', AddEgg),
+                               ('/rec_feedback', feedback.RecordFeedback),
+                               ('/clear_cookie', feedback.ClearCookie)
                                #('/adddims', AddDims),
                               ],
                               debug=True)
