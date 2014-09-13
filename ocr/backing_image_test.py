@@ -21,5 +21,5 @@ def test_getBackOfPhotoUrl():
     eq_('http://images.nypl.org/?id=720946b&t=w',
         backing_image.getBackOfPhotoUrl(makeRecord('720946f')))
 
-    assert_raises(backing_image.NothingOnBackError,
-            backing_image.getBackOfPhotoUrl, '2903480')
+    with assert_raises(backing_image.NothingOnBackError):
+        backing_image.getBackOfPhotoUrl('2903480')
