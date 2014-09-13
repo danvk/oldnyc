@@ -231,7 +231,7 @@ class Record:
     # Special case: "-1906"
     if txt == '-1906':
       return [date(1850, 1, 1), date(1906, 4, 17)]
-    
+
     # A year range, e.g "1925-1928" or "1925-28"
     yr = re.search(r'^(\d{4}) *- *(\d{2,4})$', txt)
     if yr:
@@ -271,7 +271,6 @@ class Record:
       return Record.ExtractDateRange(txt.replace('?', '').replace('ca', ''))
 
     return None
-    
 
   def date_range(self):
     if self._date_range:
