@@ -1,0 +1,57 @@
+<input type="hidden" name="x1">
+<input type="hidden" name="y1">
+<input type="hidden" name="x2">
+<input type="hidden" name="y2">
+<input type="hidden" name="pp-line">
+<input type="hidden" name="pp-col">
+</form>
+
+<script src='//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js'></script>
+<script src='//ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/jquery-ui.min.js'></script>
+<script src='//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js'></script>
+<!--<script src='http://d3js.org/d3.v3.min.js' charset='utf-8'></script>-->
+<script src='http://d3js.org/d3.v3.js' charset='utf-8'></script>
+<script src='https://rawgit.com/jeresig/jquery.hotkeys/master/jquery.hotkeys.js'></script>
+<script src='https://rawgit.com/tombigel/detect-zoom/master/detect-zoom.min.js'></script>
+
+<link rel='stylesheet' href='http://code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css' />
+
+<style>
+img {
+  position: absolute;
+}
+#container {
+  position: absolute;
+}
+#controls {
+  position: absolute;
+  left: 600px;
+}
+
+input {
+  height: 1.5em;
+  font-size: large;
+}
+
+/* svg */
+.line, .vline {
+  stroke: red;
+  stroke-width: 0.5;
+}
+.dot {
+  fill: red;
+}
+</style>
+
+<img src='${image}'>
+<div id='container'></div>
+
+<div id='controls'>
+  <p>Pixels/Line: <input id='pp-line' type=number size=6 min='1' value='8'></p>
+  <p>Pixels/Column: <input id='pp-col' type=number size=6 min='1' value='5'></p>
+  <p><input id='show-cols' type=checkbox><label for='show-cols'> Show Columns</label></p>
+</div>
+
+<script src="ocr/turk/ui.js"></script>
+
+<form>

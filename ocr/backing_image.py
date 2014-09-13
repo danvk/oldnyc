@@ -32,6 +32,6 @@ if __name__ == '__main__':
     rs = record.AllRecords('nyc/records.pickle')
     for r in rs:
         try:
-            print getBackOfPhotoUrl(r)
+            print '\t'.join(['ocr/images/%s.jpg' % r.photo_id(), getBackOfPhotoUrl(r)])
         except NothingOnBackError:
             pass

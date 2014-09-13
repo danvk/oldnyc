@@ -8,10 +8,11 @@ Usage:
 '''
 
 import fileinput
+import os
 import requests
 import requests_cache
-import sys
 import time
+import sys
 
 
 class NotInCacheError(Exception):
@@ -68,6 +69,14 @@ class Fetcher(object):
 if __name__ == '__main__':
     f = Fetcher()
     for i, line in enumerate(fileinput.input()):
-        url = line.strip()
+        line = line.strip()
+        if '\t' in line:
+            filename, url = line.split('\t')
+        else:
+            filename = None
+            url = line
+
         print '%5d Fetching %s' % (i + 1, url)
-        f.fetch_url(url)
+        content = f.fetch_url(url)
+        if filename:
+            open(filename, 'wb').write(content)
