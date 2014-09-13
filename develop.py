@@ -3,6 +3,8 @@
 
 import csv
 import json
+import sys
+
 from flask import Response, current_app, jsonify
 
 import devserver
@@ -51,8 +53,13 @@ def RecordFeedback(path, request):
 
 
 if __name__ == '__main__':
+    try:
+        port = int(sys.argv[1])
+    except IndexError:
+        port = 5000
+
     devserver.make_app('viewer/app.yaml', [
         ('/', RootHandler),
         ('/info', RecordFetcher),
         ('/rec_feedback', RecordFeedback),
-    ]).run(host='0.0.0.0')  # set debug=True if you want to iterate on Python, not static content.
+    ]).run(host='0.0.0.0', port=port)  # set debug=True if you want to iterate on Python, not static content.

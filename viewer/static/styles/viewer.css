@@ -315,9 +315,14 @@ a {
 .og-details .share {
   padding-bottom: 5px;
 }
+.og-details > div {
+  position: relative;
+}
 
 .details, .feedback {
   position: absolute;
+  left: 0;
+  right: 0;
 }
 
 .feedback p, .feedback button {

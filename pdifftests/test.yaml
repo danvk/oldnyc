@@ -1,23 +1,9 @@
-# This is run once before any individual test.
-# It's a good place to start your demo server.
 setup: |
-    ./develop.py
+    ./develop.py 5001
 
-waitFor: |
-    timeout=$(($(date +%s) + 10))  # 10 second timeout
-    until \
-        curl --silent -I 'http://localhost:5000/' | grep '200 OK' || \
-        [[ $(date +%s) -gt $timeout ]]; do
-      echo 'Waiting for server to start up...'
-      sleep 1
-    done
-
-    if [[ $(date +%s) -gt $timeout ]]; then
-      echo 'Server failed to start.' 1>&2
-      exit 1
-    else
-      echo 'Server started!'
-    fi
+waitFor:
+    url: 'http://localhost:5001/'
+    timeout_secs: 10
 
 # Base configuration shared by all tests
 # This is shared via YAML references, not anything dpxdt-specific.
@@ -35,19 +21,19 @@ standard-config: &stdconfig
 
 tests:
   - name: homepage
-    url: http://localhost:5000/
+    url: http://localhost:5001/
     config: *stdconfig
 
   - name: selected-photo
-    url: http://localhost:5000/#717399f-a
+    url: http://localhost:5001/#717399f-a
     config: *stdconfig
 
   - name: tall-photo
-    url: http://localhost:5000/#708378f-a
+    url: http://localhost:5001/#708378f-a
     config: *stdconfig
 
   - name: negative-height-regression
-    url: http://localhost:5000/#723626f-a
+    url: http://localhost:5001/#723626f-a
     config:
       <<: *stdconfig
       viewportSize:
@@ -55,8 +41,24 @@ tests:
         height: 806
 
   - name: email-form-open
-    url: http://localhost:5000/#717399f-a
+    url: http://localhost:5001/#717399f-a
     config:
       <<: *stdconfig
       injectJs: |
         $('.email-share:visible').click();
+
+  - name: small-screen-landscape
+    url: http://localhost:5001/#1558433
+    config:
+      <<: *stdconfig
+      viewportSize:
+        width: 960
+        height: 640
+
+  - name: small-screen-portrait
+    url: http://localhost:5001/#1558433
+    config:
+      <<: *stdconfig
+      viewportSize:
+        width: 640
+        height: 960
