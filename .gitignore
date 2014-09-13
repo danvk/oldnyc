@@ -7,3 +7,6 @@
 *.pyc
 
 nyc/images
+nyc/ocr/images
+
+*.sqlite
