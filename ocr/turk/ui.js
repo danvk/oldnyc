@@ -5,13 +5,17 @@ var pixelsPerLine = 8;
 var pixelsPerColumn = 5;
 var showColumns = false;
 var epsilon = 1e-10;
+var rotateDeg = 0.0;
 
 function drawLines() {
   var svg = d3.select('svg');
+  var g = svg.select('g');
   var zoom = detectZoom.device();
 
+  g.style('transform', 'rotate(' + rotateDeg + 'deg)');
+
   var horizontalYs = d3.range(topLeft.y, bottomRight.y + epsilon, pixelsPerLine);
-  var lines = svg.selectAll('.line')
+  var lines = g.selectAll('.line')
       .data(horizontalYs);
 
   lines
@@ -28,7 +32,7 @@ function drawLines() {
   lines.exit().remove();
 
   var verticalXs = d3.range(topLeft.x, bottomRight.x + epsilon, pixelsPerColumn);
-  var vertLines = svg.selectAll('.vline')
+  var vertLines = g.selectAll('.vline')
       .data(verticalXs);
 
   vertLines
@@ -50,28 +54,71 @@ function drawLines() {
 }
 
 function makeDots() {
-  var svg = d3.select('svg');
+  var g = d3.select('g');
 
+  var mode = function() {
+    return $('#move').is(':checked') ? 'move' : 'rotate';
+  };
+
+  var calcRotation = function(a, b) {
+    return Math.atan2(b.y - a.y, b.x - a.x) * 180 / Math.PI;
+  };
+  var offsetEventCoord = function(base, mouseStart) {
+    var coord = {x: d3.event.sourceEvent.pageX, y: d3.event.sourceEvent.pageY};
+    var dx = coord.x - startRotateCoord.x,
+        dy = coord.y - startRotateCoord.y;
+    return {x: startBR.x + dx, y: startBR.y + dy};
+  };
+
+  var startRotation, startRotateDeg;
+  var startRotateCoord;
+  var startTL = _.clone(topLeft), startBR = _.clone(bottomRight);
   var dragTL = d3.behavior.drag()
-    .origin(function() { return topLeft })
+    .origin(function() { return startTL })
     .on('drag', function() {
+      if (mode() == 'move') {
         topLeft = {x: d3.event.x, y: d3.event.y};
-        drawLines();
+      } else {
+        var newRotation = calcRotation(topLeft, offsetEventCoord(startBR, startRotateCoord));
+        rotateDeg = startRotateDeg - (newRotation - startRotation);
+      }
+      drawLines();
+    }).on('dragstart', function() {
+      startTL = topLeft;
+      startRotation = calcRotation(topLeft, bottomRight);
+      startRotateDeg = rotateDeg;
+      startRotateCoord = {x: d3.event.sourceEvent.pageX, y: d3.event.sourceEvent.pageY};
+      d3.event.sourceEvent.stopPropagation(); // silence other listeners
+    }).on('dragend', function() {
+      startTL = topLeft;
     });
 
   var dragBR = d3.behavior.drag()
-    .origin(function() { return bottomRight })
+    .origin(function() { return startBR })
     .on('drag', function() {
+      if (mode() == 'move') {
         bottomRight = {x: d3.event.x, y: d3.event.y};
-        drawLines();
+      } else {
+        var newRotation = calcRotation(topLeft, offsetEventCoord(startBR, startRotateCoord));
+        rotateDeg = startRotateDeg + (newRotation - startRotation);
+      }
+      drawLines();
+    }).on('dragstart', function() {
+      startBR = bottomRight;
+      startRotation = calcRotation(topLeft, bottomRight);
+      startRotateDeg = rotateDeg;
+      startRotateCoord = {x: d3.event.sourceEvent.pageX, y: d3.event.sourceEvent.pageY};
+      d3.event.sourceEvent.stopPropagation(); // silence other listeners
+    }).on('dragend', function() {
+      startBR = bottomRight;
     });
 
-  var dotTL = svg.append('circle')
+  var dotTL = g.append('circle')
       .attr('class', 'dot')
       .attr('r', 5)
       .call(dragTL);
 
-  var dotBR = svg.append('circle')
+  var dotBR = g.append('circle')
       .attr('class', 'dot')
       .attr('r', 5)
       .call(dragBR);
@@ -105,6 +152,7 @@ $('img').on('load', function() {
   var svg = d3.select('#container').append('svg')
       .attr('width', width)
       .attr('height', height)
+  var g = svg.append('g');
 
   makeDots();
   drawLines();

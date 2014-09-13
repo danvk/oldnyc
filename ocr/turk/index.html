@@ -9,7 +9,6 @@
 <script src='//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js'></script>
 <script src='//ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/jquery-ui.min.js'></script>
 <script src='//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js'></script>
-<!--<script src='http://d3js.org/d3.v3.min.js' charset='utf-8'></script>-->
 <script src='http://d3js.org/d3.v3.js' charset='utf-8'></script>
 <script src='https://rawgit.com/jeresig/jquery.hotkeys/master/jquery.hotkeys.js'></script>
 <script src='https://rawgit.com/tombigel/detect-zoom/master/detect-zoom.min.js'></script>
@@ -41,6 +40,9 @@ input {
 .dot {
   fill: red;
 }
+g {
+  transform-origin: center;
+}
 </style>
 
 <img src='${image}'>
@@ -50,6 +52,10 @@ input {
   <p>Pixels/Line: <input id='pp-line' type=number size=6 min='1' value='8'></p>
   <p>Pixels/Column: <input id='pp-col' type=number size=6 min='1' value='5'></p>
   <p><input id='show-cols' type=checkbox><label for='show-cols'> Show Columns</label></p>
+  <p>Mode:
+    <input name='mode' id='move' type='radio' checked><label for='move'> Move</label>
+    <input name='mode' id='rotate' type='radio'><label for='rotate'> Rotate</label>
+    <p>
 </div>
 
 <script src="ocr/turk/ui.js"></script>
