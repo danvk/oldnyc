@@ -1,7 +1,12 @@
+<input id="transcription" type="hidden" name="transcription">
 <script src='//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js'></script>
 <script src='//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js'></script>
 
 <style>
+input[type="text"] {
+    font-family: monospace;
+    font-size: 8px;
+}
 </style>
 
 <div id="container"></div>
@@ -10,6 +15,7 @@
 var photo_id = "${photo_id}";
 var num_rows = ${num_rows};
 var num_cols = ${num_cols};
+var char_width = ${char_width}, char_height = ${char_height};
 
 function fmt(n) {
   return (n < 10 ? '0' : '') + n;
@@ -18,12 +24,41 @@ function fmt(n) {
 var lis = _.range(0, num_rows).map(function(row) {
   var imgs = _.range(0, num_cols).map(function(col) {
     var url = 'ocr/images/letters/' + photo_id + '-' + fmt(row) + '-' + fmt(col) + '.png';
-    return $('<img>').attr('src', url).get(0);
+    return $('<img>')
+        .attr('src', url)
+        .attr('width', char_width)
+        .attr('height', char_height)
+        .get(0);
   })
-  return $('<li>').append(imgs).get(0);
+  return $('<li>').append(imgs, $('<br>'), $('<input type="text">')).get(0);
 });
 
 var $ul = $('<ul>').append(lis);
+$ul.find('input').attr('size', num_cols + 2);
 $ul.appendTo($('#container'));
+
+function dimLetters(li) {
+  var numChars = $(li).find('input').val().length;
+  $(li).find('img').each(function(i, img) {
+      if (i < numChars) {
+        $(img).css('opacity', 0.5);
+      } else {
+        $(img).css('opacity', 1.0);
+      }
+  });
+}
+
+function setHiddenForm() {
+  $('#transcription').val(
+      $(document).find('li input')
+        .map(function(_, x) { return $(x).val(); })
+        .toArray()
+        .join('\n'));
+}
+
+$ul.on('keyup', 'input[type="text"]', function() {
+    dimLetters($(this).parents('li').get(0));
+    setHiddenForm();
+});
 
 </script>

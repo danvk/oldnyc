@@ -12,7 +12,7 @@ def frange(x, y, jump):
 
 
 summary = csv.DictWriter(open('ocr/transcribe/tasks.csv', 'w'),
-                         fieldnames=['photo_id', 'num_rows', 'num_cols'])
+                         fieldnames=['photo_id', 'num_rows', 'num_cols', 'char_width', 'char_height'])
 summary.writeheader()
 
 for row in csv.DictReader(open('ocr/turk/output.csv')):
@@ -39,7 +39,13 @@ for row in csv.DictReader(open('ocr/turk/output.csv')):
             outfile = 'ocr/images/letters/%s-%02d-%02d.png' % (photo_id, j, i)
             letter_im.save(outfile)
 
-    summary.writerow({'photo_id': photo_id, 'num_rows': len(ys), 'num_cols': len(xs)})
+    summary.writerow({
+        'photo_id': photo_id,
+        'num_rows': len(ys),
+        'num_cols': len(xs),
+        'char_width': pixels_per_column,
+        'char_height': pixels_per_line
+        })
 
     # im.show()  # writes to a temp file, opens Preview
     #break
