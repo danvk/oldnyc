@@ -4,3 +4,4 @@ dpxdt
 requests
 requests-cache
 nose
+Pillow

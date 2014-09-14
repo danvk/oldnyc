@@ -144,6 +144,7 @@ function setHiddenForm() {
   $('[name="y2"]').val(bottomRight.y);
   $('[name="pp-line"]').val(pixelsPerLine);
   $('[name="pp-col"]').val(pixelsPerColumn);
+  $('[name="rotate-deg"]').val(rotateDeg);
 }
 
 $('img').on('load', function() {
@@ -213,7 +214,15 @@ $(document).on('keydown', null, 'up', function(e) {
 }).on('keydown', null, 'x', function(e) {
   showColumns = !showColumns;
   updateUI();
-});
+}).on('keydown', null, 'r', function(e) {
+  $('#rotate').click();
+}).on('keydown', null, 'm', function(e) {
+  $('#move').click();
+})
+
+$('button').on('click', function() {
+  document.forms[0].submit();
+})
 
 var zoom = detectZoom.device();
 $(window).resize(function() {
