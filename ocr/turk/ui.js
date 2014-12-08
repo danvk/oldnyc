@@ -1,13 +1,19 @@
 // d3 state
-var topLeft = {x: 100, y: 100};
-var bottomRight = {x: 200, y: 200};
-var pixelsPerLine = 8;
-var pixelsPerColumn = 5;
+var topLeft = {x: 500, y: 2200};
+var bottomRight = {x: 3400, y: 2600};
+var numLines = 10;
+var numCols = 80;
+// var pixelsPerLine = 67.5;
+// var pixelsPerColumn = 40.8;
+var pixelsPerColumn, pixelsPerLine;
 var showColumns = false;
 var epsilon = 1e-10;
 var rotateDeg = 0.0;
 
 function drawLines() {
+  pixelsPerLine = (bottomRight.y - topLeft.y) / numLines;
+  pixelsPerColumn = (bottomRight.x - topLeft.x) / numCols;
+
   var svg = d3.select('svg');
   var g = svg.select('g');
   var zoom = detectZoom.device();
@@ -148,6 +154,7 @@ function setHiddenForm() {
 }
 
 $('img').on('load', function() {
+  updateUI();
   var width = $('img').width(),
       height = $('img').height();
   var svg = d3.select('#container').append('svg')
@@ -175,41 +182,47 @@ $('#show-cols').on('change', function(e) {
 function updateUI() {
   $('#pp-line').val(pixelsPerLine)
   $('#pp-col').val(pixelsPerColumn)
+  $('#num-lines').text(numLines)
+  $('#num-cols').text(numCols)
   $('#show-cols').prop('checked', showColumns);
   drawLines();
 }
 
 $(document).on('keydown', null, 'up', function(e) {
-  topLeft.y -= 0.1;
-  bottomRight.y -= 0.1;
+  topLeft.y -= 1;
+  bottomRight.y -= 1;
   updateUI();
   e.preventDefault();
 }).on('keydown', null, 'down', function(e) {
-  topLeft.y += 0.1;
-  bottomRight.y += 0.1;
+  topLeft.y += 1;
+  bottomRight.y += 1;
   updateUI();
   e.preventDefault();
 }).on('keydown', null, 'left', function(e) {
-  topLeft.x -= 0.1;
-  bottomRight.x -= 0.1;
+  topLeft.x -= 1;
+  bottomRight.x -= 1;
   updateUI();
   e.preventDefault();
 }).on('keydown', null, 'right', function(e) {
-  topLeft.x += 0.1;
-  bottomRight.x += 0.1;
+  topLeft.x += 1;
+  bottomRight.x += 1;
   updateUI();
   e.preventDefault();
 }).on('keydown', null, 'h', function(e) {
-  pixelsPerColumn -= 0.01;
+  // pixelsPerColumn -= 0.1;
+  numCols -= 1;
   updateUI();
 }).on('keydown', null, 'l', function(e) {
-  pixelsPerColumn += 0.01;
+  // pixelsPerColumn += 0.1;
+  numCols += 1;
   updateUI();
 }).on('keydown', null, 'j', function(e) {
-  pixelsPerLine += 0.05;
+  // pixelsPerLine += 0.5;
+  numLines += 1;
   updateUI();
 }).on('keydown', null, 'k', function(e) {
-  pixelsPerLine -= 0.05;
+  // pixelsPerLine -= 0.5;
+  numLines -= 1;
   updateUI();
 }).on('keydown', null, 'x', function(e) {
   showColumns = !showColumns;
@@ -234,3 +247,17 @@ $(window).resize(function() {
     zoom = zoomNew
   }
 });
+
+// Set the state based on the output of a previous run. Useful for debugging.
+function setState(csv_line) {
+  "    0,       1,     2,      3,         4, 5, 6, 7, 8";
+  "image,photo_id,pp-col,pp-line,rotate-deg,x1,x2,y1,y2";
+  "ocr/large-images/700078bu.jpg,700078f,40.8,67.6,0.8909002235013688,622,3448.959228515625,2453,3217.71240234375";
+  var p = csv_line.split(",");
+  topLeft = {x: parseFloat(p[5]), y: parseFloat(p[7])};
+  bottomRight = {x: parseFloat(p[6]), y: parseFloat(p[8])};
+  pixelsPerLine = parseFloat(p[3]);
+  pixelsPerColumn = parseFloat(p[2]);
+  rotateDeg = parseFloat(p[4]);
+  updateUI();
+}

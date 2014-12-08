@@ -5,7 +5,7 @@
 <style>
 input[type="text"] {
     font-family: monospace;
-    font-size: 8px;
+    font-size: 68px;
 }
 </style>
 
@@ -23,7 +23,7 @@ function fmt(n) {
 
 var lis = _.range(0, num_rows).map(function(row) {
   var imgs = _.range(0, num_cols).map(function(col) {
-    var url = 'ocr/images/letters/' + photo_id + '-' + fmt(row) + '-' + fmt(col) + '.png';
+    var url = 'ocr/large-images/letters/' + photo_id + '-' + fmt(row) + '-' + fmt(col) + '.png';
     return $('<img>')
         .attr('src', url)
         .attr('width', char_width)

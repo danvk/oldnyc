@@ -24,7 +24,7 @@ img {
   position: absolute;
 }
 #controls {
-  position: absolute;
+  position: fixed;
   left: 600px;
 }
 
@@ -50,8 +50,11 @@ g {
 <div id='container'></div>
 
 <div id='controls'>
-  <p>Pixels/Line: <input id='pp-line' type=number size=6 min='1' value='8'></p>
-  <p>Pixels/Column: <input id='pp-col' type=number size=6 min='1' value='5'></p>
+  <p>Pixels/Line: <input id='pp-line' type=number size=6 min='1' value='8'>,
+    Num Lines: <span id='num-lines'></span></p>
+  <p>Pixels/Column: <input id='pp-col' type=number size=6 min='1' value='5'>,
+    Num Columns: <span id='num-cols'></span></p>
+  </p>
   <p><input id='show-cols' type=checkbox><label for='show-cols'> Show Columns</label></p>
   <p>Mode:
     <input name='mode' id='move' type='radio' checked><label for='move'> Move</label>

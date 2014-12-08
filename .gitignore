@@ -8,6 +8,7 @@
 
 nyc/images
 ocr/images
+ocr/large-images
 ocr/backing-images.urls.txt
 
 *.sqlite
