@@ -1,0 +1,8 @@
+General approach:
+- Write a script to crop an image based on tesseract boxes
+  -> Assess accuracy on 10 images
+- Write a script to generate histograms of box widths
+- Write a script to split boxes & add artificial white lines
+- Compare accuracy of boxes on:
+  - Cropped + binarized images (using Otsu or local adaptive)
+  - Cropped + split images
