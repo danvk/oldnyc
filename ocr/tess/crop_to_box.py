@@ -12,14 +12,27 @@ from PIL import Image, ImageFilter
 
 
 class BoxLine(object):
-    def __init__(self, line):
-        letter, left, top, right, bottom, page = line.split(' ')
+    def __init__(self, letter, left, top, right, bottom, page):
         self.letter = letter
         self.left = int(left)
         self.top = int(top)
         self.right = int(right)
         self.bottom = int(bottom)
         self.page = int(page)
+
+    @staticmethod
+    def parse_line(line):
+        letter, left, bottom, right, top, page = line.split(' ')
+        return BoxLine(letter, left, top, right, bottom, page)
+
+    def __repr__(self):
+        return ' '.join(str(x) for x in [
+            self.letter,
+            self.left,
+            self.top,
+            self.right,
+            self.bottom,
+            self.page])
 
 
 def load_box_file(path):
@@ -29,14 +42,47 @@ def load_box_file(path):
     """
     out = []
     for line in open(path):
-        out.append(BoxLine(line))
+        out.append(BoxLine.parse_line(line))
     return out
 
 
+def find_box_extrema(boxes):
+    """Returns a BoxLine with the extreme values of the boxes."""
+    left = min(b.left for b in boxes)
+    right = max(b.right for b in boxes)
+    bottom = min(b.bottom for b in boxes)
+    top = max(b.top for b in boxes)
+    page = max(b.page for b in boxes)
+    return BoxLine('', left, top, right, bottom, page)
+
+
+def padded_box(box, pad_width, pad_height):
+    """Adds some additional margin around the box."""
+    return BoxLine(box.letter,
+                   box.left - pad_width,
+                   box.top + pad_height,
+                   box.right + pad_width,
+                   box.bottom - pad_height,
+                   box.page)
+
+
+def crop_image_to_box(im, box):
+    """Returns a new image containing the pixels inside box.
+    
+    This accounts for BoxLine measuring pixels from the bottom up, whereas
+    Image objects measure from the top down.
+    """
+    w, h = im.size
+    box = [int(round(v)) for v in (box.left, h - box.top, box.right, h - box.bottom)]
+    return im.crop(box)
+
+
 if __name__ == '__main__':
-    _, path = sys.argv
-    boxes = load_box_file(path)
-    print 'left: %d' % min(b.left for b in boxes)
-    print 'right: %d' % max(b.right for b in boxes)
-    print 'bottom: %d' % min(b.bottom for b in boxes)
-    print 'top: %d' % max(b.top for b in boxes)
+    _, box_path, image_path = sys.argv
+    boxes = load_box_file(box_path)
+    big_box = find_box_extrema(boxes)
+    pad_box = padded_box(big_box, 20, 20)
+
+    im = Image.open(image_path)
+    cropped_im = crop_image_to_box(im, pad_box)
+    cropped_im.show()
