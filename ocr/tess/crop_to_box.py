@@ -10,40 +10,7 @@ import sys
 
 from PIL import Image, ImageFilter
 
-
-class BoxLine(object):
-    def __init__(self, letter, left, top, right, bottom, page):
-        self.letter = letter
-        self.left = int(left)
-        self.top = int(top)
-        self.right = int(right)
-        self.bottom = int(bottom)
-        self.page = int(page)
-
-    @staticmethod
-    def parse_line(line):
-        letter, left, bottom, right, top, page = line.split(' ')
-        return BoxLine(letter, left, top, right, bottom, page)
-
-    def __repr__(self):
-        return ' '.join(str(x) for x in [
-            self.letter,
-            self.left,
-            self.top,
-            self.right,
-            self.bottom,
-            self.page])
-
-
-def load_box_file(path):
-    """Load the box data in the file at path.
-
-    Output is a list of BoxLines.
-    """
-    out = []
-    for line in open(path):
-        out.append(BoxLine.parse_line(line))
-    return out
+from box import BoxLine, load_box_file
 
 
 def find_box_extrema(boxes):
@@ -78,11 +45,11 @@ def crop_image_to_box(im, box):
 
 
 if __name__ == '__main__':
-    _, box_path, image_path = sys.argv
+    _, box_path, image_path, out_image_path = sys.argv
     boxes = load_box_file(box_path)
     big_box = find_box_extrema(boxes)
     pad_box = padded_box(big_box, 20, 20)
 
     im = Image.open(image_path)
     cropped_im = crop_image_to_box(im, pad_box)
-    cropped_im.show()
+    cropped_im.save(out_image_path)

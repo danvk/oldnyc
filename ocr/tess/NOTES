@@ -1,8 +1,48 @@
 General approach:
-- Write a script to crop an image based on tesseract boxes
+x Write a script to crop an image based on tesseract boxes
   -> Assess accuracy on 10 images
-- Write a script to generate histograms of box widths
-- Write a script to split boxes & add artificial white lines
+    710374b perfect
+    715705b minor problem: missing first line ("(1)")
+    718035b major problem: missing first line, last 4 and rightmost ~20 cols
+            Box detection fails spectacularly on this one! Contrast is low.
+            A better crop fixes this --> re-use my image cropper?
+            Running unpaper with no arguments helps, too.
+    721046b perfect (dark)
+    722975b perfect
+    726132b perfect
+    726232b perfect
+    726358b perfect (rotated)
+    727425b perfect
+    732437b perfect
+
+  Running unpaper as a pre-processor (before makebox) fixes the major problem
+  but not the minor problem --> probably a win?
+
+  This sequence generates accurate crops:
+    for x in $(ls *.reconstructed.jpg); do convert $x /tmp/blah.pgm; unpaper --overwrite /tmp/blah.pgm /tmp/unpaper.pgm; convert /tmp/unpaper.pgm ${x/reconstructed/unpapered}.png; done
+    for x in $(ls *.unpapered.png); tesseract $x $(basename $x .png) batch.nochop makebox
+    for x in $(ls *.unpapered.box); ~/github/oldnyc/ocr/tess/crop_to_box.py $x ${x/unpapered.box/reconstructed.jpg} ${x/unpapered.box/cropped.png}
+
+x Write a script to generate histograms of box widths
+
+    See https://docs.google.com/spreadsheets/d/1X7myP815ruxSD-UJ1CTp2BoP95svQJCvaEl-Wy2yO7Q/edit#gid=0
+
+    Clear peaks @ 12, 24, 36
+    Almost nothing @ w=16, 17, 18, 19
+
+    16: (bad, handwritten) 727425b.cropped.box ” 138 101 154 105 0
+    16: (legit; oddly wide) 732437b.cropped.box m 292 26 308 38 0
+    17: (bad, handwritten) 727425b.cropped.box * 257 169 274 180 0
+    17: (bad, handwritten) 727425b.cropped.box 3 317 157 334 177 0
+    17: (bad, handwritten) 727425b.cropped.box 5 335 156 352 177 0
+    18: (bad, handwritten) 727425b.cropped.box Z 113 90 131 113 0
+    19: (bad, handwritten) 718035b.cropped.box m 525 107 544 119 0
+    19: (bad, handwritten) 721046b.cropped.box 7 225 21 244 52 0
+
+    --> 20+, split it!
+
+x Write a script to split boxes & add artificial white lines
+
 - Compare accuracy of boxes on:
   - Cropped + binarized images (using Otsu or local adaptive)
   - Cropped + split images
