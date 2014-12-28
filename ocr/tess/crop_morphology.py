@@ -74,8 +74,8 @@ if __name__ == '__main__':
 
             count = len(contours)
 
-        Image.fromarray(edges).show()
-        Image.fromarray(255 * dilated_image).show()
+        # Image.fromarray(edges).show()
+        # Image.fromarray(255 * dilated_image).show()
 
         c_info = props_for_contours(contours, edges)
         c_info.sort(key=lambda x: -x['sum'])
