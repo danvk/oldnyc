@@ -11,15 +11,15 @@ import numpy as np
 from scipy.ndimage.filters import rank_filter
 
 
-def dilate(ary, N): 
+def dilate(ary, N, iterations): 
     """Dilate using an NxN '+' sign shape. ary is np.uint8."""
     kernel = np.zeros((N,N), dtype=np.uint8)
     kernel[(N-1)/2,:] = 1
-    dilated_image = cv2.dilate(ary / 255, kernel, iterations=2)
+    dilated_image = cv2.dilate(ary / 255, kernel, iterations=iterations)
 
     kernel = np.zeros((N,N), dtype=np.uint8)
     kernel[:,(N-1)/2] = 1
-    dilated_image = cv2.dilate(dilated_image, kernel, iterations=2)
+    dilated_image = cv2.dilate(dilated_image, kernel, iterations=iterations)
     return dilated_image
 
 
@@ -52,30 +52,66 @@ def crop_area(crop):
     return (x2 - x1) * (y2 - y1)
 
 
+def find_border_components(contours, ary):
+    borders = []
+    area = ary.shape[0] * ary.shape[1]
+    for i, c in enumerate(contours):
+        x,y,w,h = cv2.boundingRect(c)
+        if w * h > 0.5 * area:
+            borders.append((i, x, y, x + w - 1, y + h - 1))
+    return borders
+
+
+def remove_border(contour, ary):
+    """Remove everything outside a border contour."""
+    c_im = np.zeros(ary.shape)
+    r = cv2.minAreaRect(contour)
+    box = cv2.cv.BoxPoints(r)
+    box = np.int0(box)
+    cv2.drawContours(c_im, [box], 0, 255, -1)
+    cv2.drawContours(c_im, [box], 0, 0, 4)
+    return np.minimum(c_im, edges)
+
+
 if __name__ == '__main__':
     for path in sys.argv[1:]:
         im = Image.open(path)
         edges = cv2.Canny(np.asarray(im), 100, 200)
 
+        contours, hierarchy = cv2.findContours(edges, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+        borders = find_border_components(contours, edges)
+        borders.sort(key=lambda (i, x1, y1, x2, y2): (x2 - x1) * (y2 - y1))
+
+        # print '%r' % borders
+
+        if len(borders):
+            border_contour = contours[borders[0][0]]
+            edges = remove_border(border_contour, edges)
+
+        edges = 255 * (edges > 0).astype(np.uint8)
+
         # Remove ~1px borders using a rank filter.
         maxed_rows = rank_filter(edges, -4, size=(1, 20))
         maxed_cols = rank_filter(edges, -4, size=(20, 1))
-        edges = np.minimum(np.minimum(edges, maxed_rows), maxed_cols)
+        debordered = np.minimum(np.minimum(edges, maxed_rows), maxed_cols)
+        edges = debordered
 
         # Perform increasingly aggressive dilation until there are just a few
         # connected components.
         count = 21
-        dilation = 9
+        dilation = 5
+        n = 1
         while count > 16:
-            dilation += 2
-            dilated_image = dilate(edges, dilation)
+            n += 1
+            dilated_image = dilate(edges, N=3, iterations=n)
 
             contours, hierarchy = cv2.findContours(dilated_image, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
 
             count = len(contours)
 
-        # Image.fromarray(edges).show()
-        # Image.fromarray(255 * dilated_image).show()
+        #print dilation
+        #Image.fromarray(edges).show()
+        #Image.fromarray(255 * dilated_image).show()
 
         c_info = props_for_contours(contours, edges)
         c_info.sort(key=lambda x: -x['sum'])
@@ -83,7 +119,7 @@ if __name__ == '__main__':
         area = edges.shape[0] * edges.shape[1]
 
         crop = None
-        covered_sum = None
+        covered_sum = 0
         while len(c_info) and 1.0 * c_info[0]['sum'] / total > 0.1:
             c = c_info[0]
             del c_info[0]
@@ -95,11 +131,12 @@ if __name__ == '__main__':
                 crop = union_crops(crop, this_crop)
                 covered_sum += c['sum']
 
-        while True:
+        while covered_sum < total:
             changed = False
             recall = 1.0 * covered_sum / total
             prec = 1 - 1.0 * crop_area(crop) / area
             f1 = 2 * (prec * recall / (prec + recall))
+            #print '----'
             for i, c in enumerate(c_info):
                 this_crop = c['x1'], c['y1'], c['x2'], c['y2']
                 new_crop = union_crops(crop, this_crop)
@@ -107,16 +144,27 @@ if __name__ == '__main__':
                 new_recall = 1.0 * new_sum / total
                 new_prec = 1 - 1.0 * crop_area(new_crop) / area
                 new_f1 = 2 * new_prec * new_recall / (new_prec + new_recall)
-                if new_f1 > f1:
+
+                # Add this crop if it improves f1 score,
+                # _or_ it adds 25% of the remaining pixels for <15% crop expansion.
+                # ^^^ very ad-hoc! make this smoother
+                if new_f1 > f1 or (
+                        c['sum'] / (total - covered_sum) > 0.25 and
+                        (crop_area(new_crop) / crop_area(crop) - 1) < 0.15):
                     crop = new_crop
                     covered_sum = new_sum
                     del c_info[i]
                     changed = True
                     break
+                #else:
+                #    print '%d %s -> %s / %s, %s -> %s / %s' % (
+                #            i, covered_sum, new_sum, total,
+                #            crop_area(crop), crop_area(new_crop), area)
 
             if not changed:
                 break
 
         draw = ImageDraw.Draw(im)
         draw.rectangle(crop, outline='red')
+        draw.text((50, 50), path, fill='red')
         im.show()

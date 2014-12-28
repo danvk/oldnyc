@@ -97,3 +97,43 @@ pixels. This is greedy, which prevents it from working.
   -> maybe crop x & y independently?
 
 Or do dilation to come up with larger components.
+
+----
+
+Sample of 50:
+  - With four groups of text, missing the bottom-most (this is the worst issue)
+  - Missing attribution block at the bottom (be more aggressive about recall?)
+  - Missing "(1)", "(2)" on left side
+  - Missing "(1)", "(2)" on left side
+  - Missing "(1)", "(2)" on left side
+  - Missing "(1)" on top, includes stamp outside border
+  - Missing "(1)", "(2)" on left side
+  - Includes "NYPL" stamp (solution: remove areas outside any borders)
+  - Includes a smudge outside the border
+  - Inluding a stamp outside the border
+  - Inluding a stamp outside the border
+  (other 39 were perfect)
+
+Another sample of 25:
+  - 724844b -- missing "(1)", "(2)" on left side
+  - 721235b -- missing "(1)" on top
+  - 722563b -- including a stamp on the bottom
+  - 721028b -- missing a "(1)" on the top
+
+(added a special condition for adding high-impact rectangles to get the last few bits)
+
+Another sample of 25:
+  + 713992b -- grab a wrinkle on the left side of the paper
+  - 724294b -- entire sheet
+  + 714291b -- includes stamp outside border
+  - 724548b -- entire sheet
+  - 710461b -- entire paper
+
+My border detection technique is also affecting the text.
+Maybe detecting & removing borders explicitly is a better idea.
+
+Another sample of 25, it was basically perfect.
+Another sample of 25,
+
+  1 overcropped
+  2 undercropped (708848b, 729772b)
