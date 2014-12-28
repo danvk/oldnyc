@@ -46,3 +46,54 @@ x Write a script to split boxes & add artificial white lines
 - Compare accuracy of boxes on:
   - Cropped + binarized images (using Otsu or local adaptive)
   - Cropped + split images
+
+
+-----
+
+  The "unpaper" step helped with my initial sample of 10, but in a subsequent
+pass on a sample of 25 there was another over-cropped image, even after
+unpapering. I'm thinking that an image morphology approach (similar to what I
+did for detecting photos on cards) might be better.
+
+    brew install homebrew/python/scipy
+
+Of my 25 sample images,
+
+    _ have no border
+
+    1 has a small border and brown paper
+    6 have a small border and gray paper
+
+    -> 7 have black border + text on gray paper
+    -> 18 have black border, gray border, text on white paper
+
+    1 has a watermark
+
+    -> In all cases, cropping to the bbox of the largest black component will
+       get rid of the first border.
+
+    The text is typically centered. I could come up with some kind of score
+    function for each row that gives greater weight to:
+      1. white pixels near the center
+      2. runs of white pixels
+
+    Maybe each pixel is worth:
+      e^-|distance from center| * (length of run)
+
+    ... this doesn't distinguish short, off-center lines from the background.
+
+Another approach is to:
+1. Remove borders
+2. Run canny edge detector
+3. Select areas with lots of variance
+  
+  
+Want to find the smallest rectangle that accounts for the most content.
+-> f1 score!
+
+My strategy was to start with the full image rectangle, then keep removing a
+row or column from the left/right/top/bottom, whichever had the fewest white
+pixels. This is greedy, which prevents it from working.
+  -> maybe crop x & y independently?
+
+Or do dilation to come up with larger components.

@@ -12,3 +12,5 @@ ocr/large-images
 ocr/backing-images.urls.txt
 
 *.sqlite
+*.ipynb
+
