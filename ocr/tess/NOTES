@@ -137,3 +137,19 @@ Another sample of 25,
 
   1 overcropped
   2 undercropped (708848b, 729772b)
+
+-- Tweaks: fix a floating point vs. int bug (new_area_frac = 0 always!)
+           start with the largest component, allow a component to be dropped
+           even if it has >10% of the pixels.
+    .. pretty much perfect!
+
+    718518b: overcrop!
+    730339b: slight overcrop
+    708376b: slight overcrop, dropped date
+
+    721028b: cut off "(1)"
+    730616b: cut off "(1)"
+    724264b: cut off "(1)", "(2)", "(3)"
+    705413b: cut off "(1)"
+
+    --> 97% accuracy

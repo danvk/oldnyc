@@ -62,14 +62,28 @@ def find_border_components(contours, ary):
     return borders
 
 
+def angle_from_right(deg):
+    return min(deg % 90, 90 - (deg % 90))
+
+
 def remove_border(contour, ary):
     """Remove everything outside a border contour."""
+    # Use a rotated rectangle (should be a good approximation of a border).
+    # If it's far from a right angle, it's probably two sides of a border and
+    # we should use the bounding box instead.
     c_im = np.zeros(ary.shape)
     r = cv2.minAreaRect(contour)
-    box = cv2.cv.BoxPoints(r)
-    box = np.int0(box)
-    cv2.drawContours(c_im, [box], 0, 255, -1)
-    cv2.drawContours(c_im, [box], 0, 0, 4)
+    degs = r[2]
+    if angle_from_right(degs) <= 10.0:
+        box = cv2.cv.BoxPoints(r)
+        box = np.int0(box)
+        cv2.drawContours(c_im, [box], 0, 255, -1)
+        cv2.drawContours(c_im, [box], 0, 0, 4)
+    else:
+        x1, y1, x2, y2 = cv2.boundingRect(contour)
+        cv2.rectangle(c_im, (x1, y1), (x2, y2), 255, -1)
+        cv2.rectangle(c_im, (x1, y1), (x2, y2), 0, 4)
+
     return np.minimum(c_im, edges)
 
 
@@ -120,16 +134,12 @@ if __name__ == '__main__':
 
         crop = None
         covered_sum = 0
-        while len(c_info) and 1.0 * c_info[0]['sum'] / total > 0.1:
-            c = c_info[0]
-            del c_info[0]
-            this_crop = c['x1'], c['y1'], c['x2'], c['y2']
-            if crop is None:
-                crop = this_crop
-                covered_sum = c['sum']
-            else:
-                crop = union_crops(crop, this_crop)
-                covered_sum += c['sum']
+        # while len(c_info) and 1.0 * c_info[0]['sum'] / total > 0.1:
+        c = c_info[0]
+        del c_info[0]
+        this_crop = c['x1'], c['y1'], c['x2'], c['y2']
+        crop = this_crop
+        covered_sum = c['sum']
 
         while covered_sum < total:
             changed = False
@@ -148,9 +158,14 @@ if __name__ == '__main__':
                 # Add this crop if it improves f1 score,
                 # _or_ it adds 25% of the remaining pixels for <15% crop expansion.
                 # ^^^ very ad-hoc! make this smoother
+                remaining_frac = c['sum'] / (total - covered_sum)
+                new_area_frac = 1.0 * crop_area(new_crop) / crop_area(crop) - 1
                 if new_f1 > f1 or (
-                        c['sum'] / (total - covered_sum) > 0.25 and
-                        (crop_area(new_crop) / crop_area(crop) - 1) < 0.15):
+                        remaining_frac > 0.25 and new_area_frac < 0.15):
+                    print '%d %s -> %s / %s (%s), %s -> %s / %s (%s), %s -> %s' % (
+                            i, covered_sum, new_sum, total, remaining_frac,
+                            crop_area(crop), crop_area(new_crop), area, new_area_frac,
+                            f1, new_f1)
                     crop = new_crop
                     covered_sum = new_sum
                     del c_info[i]
@@ -167,4 +182,7 @@ if __name__ == '__main__':
         draw = ImageDraw.Draw(im)
         draw.rectangle(crop, outline='red')
         draw.text((50, 50), path, fill='red')
-        im.show()
+        #im.show()
+        out_path = path.replace('.jpg', '.crop.png')
+        im.save(out_path)
+        print '%s -> %s' % (path, out_path)
