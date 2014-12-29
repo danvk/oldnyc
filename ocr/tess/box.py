@@ -1,3 +1,5 @@
+import sys
+
 class BoxLine(object):
     def __init__(self, letter, left, top, right, bottom, page):
         self.letter = letter
@@ -9,7 +11,11 @@ class BoxLine(object):
 
     @staticmethod
     def parse_line(line):
-        letter, left, bottom, right, top, page = line.split(' ')
+        try:
+            letter, left, bottom, right, top, page = line.split(' ')
+        except ValueError as e:
+            sys.stderr.write('Bad line: "%s"' % line)
+            raise e
         return BoxLine(letter, left, top, right, bottom, page)
 
     def __repr__(self):
