@@ -179,10 +179,11 @@ if __name__ == '__main__':
             if not changed:
                 break
 
-        draw = ImageDraw.Draw(im)
-        draw.rectangle(crop, outline='red')
-        draw.text((50, 50), path, fill='red')
+        #draw = ImageDraw.Draw(im)
+        #draw.rectangle(crop, outline='red')
+        #draw.text((50, 50), path, fill='red')
         #im.show()
         out_path = path.replace('.jpg', '.crop.png')
-        im.save(out_path)
+        text_im = im.crop(crop)
+        text_im.save(out_path)
         print '%s -> %s' % (path, out_path)
