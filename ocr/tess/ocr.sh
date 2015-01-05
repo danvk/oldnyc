@@ -29,4 +29,7 @@ for img in "$@"; do
   # 4. Run final-pass OCR
   tesseract /tmp/crop.separated.png $img
   test -f $img.txt
+
+  # Generate raw tesseract output for comparison
+  tesseract $img $img.raw
 done
