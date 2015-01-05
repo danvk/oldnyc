@@ -153,3 +153,108 @@ Another sample of 25,
     705413b: cut off "(1)"
 
     --> 97% accuracy
+
+---
+
+Now that cropping is working well, I'm sad to see that it doesn't improve OCR
+accuracy that much. I need to come up with a way of quantifying this, but I was
+hoping for a clear win.
+
+I transcribed 25 images manually.
+First stab at a score was Levenshtein(golden, actual) / len(golden). This
+produces a score in [0, 1], but it's a very easy curve. Even transcriptions
+which don't look very great score above 90%.
+
+The average of raw tesseract on these images was 0.772.
+
+Ideas to test:
+
+- Crop
+
+    Brings the average up from 0.772 --> 0.863; Scores above 0.9 from 7-->14.
+    All crops were perfect.
+
+- Crop & apply box splitting
+
+    Average: 0.855, i.e. worse than with cropping alone
+    --> if this is going to work, it needs to be more targeted.
+
+    Splitting the wide letters is having side effects: it results in letters
+    being vertically joined, which is far worse! I asked about this on the
+    tesseract-ocr list.
+
+- Crop & apply adaptive filter
+    --> doesn't work very well! The image is mostly background.
+
+- Apply box splitting w/o cropping
+
+- Use a higher-resolution image
+
+- Get consensus forms for each letter and convolve the image with each.
+
+
+---------
+
+New ideas for approaches forward:
+
+- Extract images for each character (using modified box files) and run them
+  through Tesseract with psm=10 (single character mode).
+
+  --> This won't work without additional Tesseract training.
+      Of four sample "b" images, it only gets two correct.
+
+- Extract images for each character (using modified box files) and look for the
+  closest match amongst a large set of hand-extracted characters from other
+  images.
+
+    --> cv2.matchTemplate works well. I can match just the three 'a's in a line
+        with a threshold of r=0.9.
+        A strict threshold might not even be necessary—I could use the max
+        correlation of any letter image within a box.
+
+- Use something other than Tesseract
+  --> ocropy has really nice segmentation tools
+  --> works significantly better on the higher-resolution imagery
+
+  A way forward with ocropy would be to use its segmentation/page layout tools
+  to get down to individual lines, then do pattern matching on each of these.
+  Binarization may be too much of a reduction for the 15px letters.
+  Four- or eight-level grayscale might work better for pattern matching.
+
+  I initially had some trouble training ocropy because I fed it whole images
+  plus ground truth for the whole images. In reality, it wants binarized lines
+  plus ground truth for those binarized lines. It was only in watching the
+  YouTube video about training ocropy that I realized this.
+
+  I ran ocropus-rtrain for about 48 hours before killing it. Results started to
+  get worse around 50,000 or 60,000 iterations. I suspect overall results will
+  be decent. One thing I find baffling about ocropy is that there's no simple
+  way to get plain text out of it!
+
+  I believe ocropy would do significantly better with higher resolution imagery.
+
+  A downside of ocropy is that it's quite slow.
+
+  --> FineReader Pro is amazing.
+      Its average out of the box is 0.86, but that's a serious under-estimate.
+      It's being penalized for OCRing hand-written text which I didn't put in
+      the truth data. It has 12/25 docs at >0.95.
+
+      This is a bit demoralizing. Open source OCR is way behind.
+
+
+ocropus
+-------
+Using training/typewriterb-00050000.pyrnn.gz as model
+Running over 25 images (which were used in training).
+
+  evaluate_ocr.py average is 0.818
+  Most errors are due to layout issues, i.e. ordering of the output lines.
+  The text transcription itself is fantastic.
+
+  Could I do better myself? Using a variant of ordering from top to bottom
+  might work well.
+  --> This gets the average up to 0.932, the best score I've seen yet.
+      18/25 have scores >0.9 and 16/25 have scores >0.95.
+
+  Using my cropper might help it, too. And it could make it run faster.
