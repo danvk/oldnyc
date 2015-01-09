@@ -7,13 +7,14 @@ top to bottom.
 It orders the fragments by y-midpoint, then uses x coordinates to order
 overlapping fragments.
 
-Input is a lines.json file (from ocropus-gpageseg --output_json).
+Input is an hOCR file (from ocropus-hocr).
 Output is text, printed to stdout.
 """
 
-import json
-import os
+import re
 import sys
+
+from bs4 import BeautifulSoup
 
 
 def overlapping(a, b):
@@ -48,25 +49,34 @@ def sort_lines(lines):
     return lines
 
 
-def attach_text(lines):
-    lines = lines[:]
+def hocr_to_lines(hocr_path):
+    lines = []
+    soup = BeautifulSoup(file(hocr_path))
+    for tag in soup.select('.ocr_line'):
+        m = re.match(r'bbox (\d+) (\d+) (\d+) (\d+)', tag.get('title'))
+        assert m
+        x0, y0, x1, y1 = (int(v) for v in m.groups())
+        lines.append({
+            'text': tag.text,
+            'x1': x0,
+            'y1': y1,
+            'x2': x1,
+            'y2': y0  # note swap
+        })
+    # hOCR specifies that y-coordinates are from the bottom.
+    # We fix that here. We don't know the height of the image, so we use the
+    # largest y-value in its place.
+    h = max(line['y1'] for line in lines)
     for line in lines:
-        path = line['file'].replace('.bin.png', '.txt')
-        txt = ''
-        try:
-            txt = open(path).read()
-        except IOError:
-            sys.stderr.write('%s is missing\n' % path)
-        if txt:
-            line['text'] = txt.strip()
+        line['y1'] = h - line['y1']
+        line['y2'] = h - line['y2']
     return lines
 
 
 if __name__ == '__main__':
-    _, json_path = sys.argv
-    lines = json.load(open(json_path))['lines']
+    _, hocr_path = sys.argv
+    lines = hocr_to_lines(hocr_path)
     lines = sort_lines(lines)
-    lines = attach_text(lines)
 
     output = ''
     for idx, line in enumerate(lines):
