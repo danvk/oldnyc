@@ -257,4 +257,128 @@ Running over 25 images (which were used in training).
   --> This gets the average up to 0.932, the best score I've seen yet.
       18/25 have scores >0.9 and 16/25 have scores >0.95.
 
-  Using my cropper might help it, too. And it could make it run faster.
+  Things to try:
+  - Using my cropper (would remove noisy extracted lines & improve speed)
+  - Set `-n` on `ocropus-rpred` to pick up "(1)"-style lines.
+  - Train with a smaller character set (only letters in the truth data).
+      (this might not matter—it's unlikely to find a letter it's never seen)
+  - Run evaluate_ocr.py on the .ocr.txt files that David provided.
+      --> It scores 0.729. 5/24 >0.95, 10/24 > 0.9.
+          Anecdotally, ocropus does much better, though there are counterexamples.
+  - Create a setup for blind comparisons: which does better?
+  - Train a model starting with the pre-built one
+  - Run all ~70 models (from every 1000 iterations) on test set to figure out
+    when it maxes out.
+
+Timing:
+  nlbin:    8.0s/image
+  gpageseg: 4.7s/image
+  rpred:    1.6s/image (model loading amortized)
+  Total in practice is ~15s/image
+
+There are a decent number of images which are rotated 90 or 180 degrees (or
+flipped).
+
+  On a pure test set (no inputs it's seen before), ocropy gets a score of
+  0.860. This includes a 0.0 for an image with no type-written text. Excluding
+  that, it gets a 0.90 average. 11/24 are >0.95 and 14/24 are >0.9.
+
+#### Cropping
+
+crop_morphology.py takes ~1s/image.
+It reduces the runtime for nlbin to ~1.5s/image (from 8s/image).
+gpageseg is also faster: ~1s/image (from 4.7s/image).
+
+The images of lines are notably lighter, but also clearer to my eyes.
+
+Using the typewriterb-00048000 model (which was trained on the darker images),
+it gets an average of 0.908, with 19/25 >0.95. There are two particularly bad
+ones (0.284 and 0.489). There's a new type of error on 734090b: two lines get
+merged together, wreaking havoc on the character recognition. Training wouldn't
+fix this issue. (702261b is another example)
+
+Setting a max height would help. This happens for exactly 1/238 images.
+Setting --scale 11 --minscale 11 does the trick.
+But will that have other negative consequences?
+  --> for ocropy-25, there was only one problematic split w/ scale=11.
+  --> for 2-ocropy-25, there were no problematic merges w/o explicit scale.
+      there were a few bad splits with scale=11. :(
+  --> not setting scale is the lesser of two evils. If I deal with this issue,
+      it's going to be by modifying gpageseg.
+
+Overall, cropping seems like a win!
+
+
+#### The pre-built ocropus model.
+
+The en-default.pyrnn.gz performs quite poorly out of the box.
+This is likely because it's never seen ALLCAPS data, or typewriter fonts, as
+they say on the ocropus web site.
+
+Presumably it knows something about English and letter forms, though, so it
+might be worth training on top of it, rather than from scratch.
+
+For reference, transcribing 437 lines by hand took just north of an hour using
+Preview and vim. Using localturk, another 417 took about 40 minutes.
+
+- Training off of the pre-built model works amazingly well!!!
+  With 2000 generations of training on top of it using the ~800 hand-labeled,
+  cropped lines, I got a score of 0.936 on the test set.
+  Excluding the 0.0 image, that's a ridiculous score of 0.975. 20/25 are >0.95.
+
+After ~15,000 iterations, the model is insanely good.
+As I look through the errors, I'm finding more typos in the ground truth than
+genuine mistakes, e.g. the one image where it actually says "NO REPRIDUCTIONS."
+  722265b-crop-010001.png is a great example: it has a typo: "ia" instead of "is".
+
+  Fixing these errors in the GT dropped the error rate on the 14k model from
+  0.57% to 0.39%.
+
+After 21,000 iterations, average score is 0.942, 0.981 excluding the
+hand-written card. Most of the mistakes are single-character errors which might
+be catchable with a spell checker.
+
+#### What is the "ALN" line in training?
+
+It seems to be much more accurate than the "OUT" line, and it improves much
+more quickly at the beginning.
+
+When you run `ocropus-rpred`, you get the OUT line, not the ALN line.
+
+tomdev says that it incorporates the truth data, so it's cheating.
+
+
+#### Learning history
+
+See http://goo.gl/t5kUoi for a spreadsheet.
+I trained ocropus using ~400 input images and tested its accuracy on both those
+images and another set of ~400 test images. The performance on the two tracked
+each other very well, with the test error rate consistently about 3% higher
+than the train error rate.
+
+- The model seems to diverge—the chart is essential for picking a good stop.
+- Occasionally the model gets much worse. Is this an intentional shake-up, to
+  get out of a local minimum? Or something else?
+
+
+#### Page Orientation
+
+Of the 809 images David sent me, seven are landscape views.
+  - 3 are rotated 90 degrees clockwise
+  - 4 are legitimately landscape (though they don't have any typewritten text)
+
+Some are probably upside-down, too.
+  --> maybe not? I looked at 200 of the images and didn't see a single one.
+      724096b is upside-down
+
+So: rotate landscape images counterclockwise 90 degrees. Easy!
+
+  705207b is an example of over-cropping.
+
+#### Tesseract/Ocropus comparison
+
+I did a blind trial where I chose between raw Tesseract & Ocropus output for
+each of 20 images. For all 20, I either chose Ocropus or said that they were
+about the same. In many cases the difference was dramatic. Ocropus had a few
+typos, but the only really bad problem was with an upside-down image.
+
