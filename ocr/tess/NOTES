@@ -459,3 +459,34 @@ If I were to keep working on this, there are a few things I would do:
   could help make a better decision.
     705208b 0004: Mar(u)h 1925.  u=0.633, c=0.196
     705208b 0006: REP(P)ODUCED.  P=0.962, R=0.211 (more a binarization bug)
+
+
+---
+2015-02-17
+
+David passed along the rest of the backing images, so I can complete this
+subproject!
+
+A few things to get working:
+- Make the cropper less aggressive. David ran ocropy on the raw images, and
+  many of its mistakes are due to lack of cropping. I'd like to make the
+  cropper a bit more cautious--so long as it gets rid of the borders (and
+  everything outside them), it will make the OCR work better.
+- Gibberish detector. Some lines should be rejected entirely.
+- Rotation detector. Some fraction of landscape images are rotated. But which
+  way? Running OCR on both rotations (and the original) and picking the most
+  English-like result should work well.
+
+Cropper
+On 25 images...
+
+  700553b clips "(1)"
+  708542b clips "of Empire", includes stamp
+
+  701003b perfect crop, upside-down text
+  704287b perfect crop, rotated cw
+  734506b this is a foreground image
+
+  (some fraction of the images are B&W -- and these are in a different font)
+  2/25 (4%) failed initially. Both were fixed by gentle expansion of the crop box.
+  Downscaling the images to 2048px max dimension was a big performance win.

@@ -59,9 +59,15 @@ def union_crops(crop1, crop2):
     return min(x11, x12), min(y11, y12), max(x21, x22), max(y21, y22)
 
 
+def intersect_crops(crop1, crop2):
+    x11, y11, x21, y21 = crop1
+    x12, y12, x22, y22 = crop2
+    return max(x11, x12), max(y11, y12), min(x21, x22), min(y21, y22)
+
+
 def crop_area(crop):
     x1, y1, x2, y2 = crop
-    return (x2 - x1) * (y2 - y1)
+    return max(0, x2 - x1) * max(0, y2 - y1)
 
 
 def find_border_components(contours, ary):
@@ -99,28 +105,10 @@ def remove_border(contour, ary):
     return np.minimum(c_im, ary)
 
 
-def process_image(path, out_path):
-    im = Image.open(path)
-    edges = cv2.Canny(np.asarray(im), 100, 200)
+def find_components(edges, max_components=16):
+    """Dilate the image until there are just a few connected components.
 
-    contours, hierarchy = cv2.findContours(edges, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
-    borders = find_border_components(contours, edges)
-    borders.sort(key=lambda (i, x1, y1, x2, y2): (x2 - x1) * (y2 - y1))
-
-    # print '%r' % borders
-
-    if len(borders):
-        border_contour = contours[borders[0][0]]
-        edges = remove_border(border_contour, edges)
-
-    edges = 255 * (edges > 0).astype(np.uint8)
-
-    # Remove ~1px borders using a rank filter.
-    maxed_rows = rank_filter(edges, -4, size=(1, 20))
-    maxed_cols = rank_filter(edges, -4, size=(20, 1))
-    debordered = np.minimum(np.minimum(edges, maxed_rows), maxed_cols)
-    edges = debordered
-
+    Returns contours for these components."""
     # Perform increasingly aggressive dilation until there are just a few
     # connected components.
     count = 21
@@ -129,23 +117,24 @@ def process_image(path, out_path):
     while count > 16:
         n += 1
         dilated_image = dilate(edges, N=3, iterations=n)
-
         contours, hierarchy = cv2.findContours(dilated_image, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
-
         count = len(contours)
-
     #print dilation
     #Image.fromarray(edges).show()
     #Image.fromarray(255 * dilated_image).show()
+    return contours
 
+
+def find_optimal_components_subset(contours, edges):
+    """Find a crop which strikes a good balance of coverage/compactness.
+
+    Returns an (x1, y1, x2, y2) tuple.
+    """
     c_info = props_for_contours(contours, edges)
     c_info.sort(key=lambda x: -x['sum'])
     total = np.sum(edges) / 255
     area = edges.shape[0] * edges.shape[1]
 
-    crop = None
-    covered_sum = 0
-    # while len(c_info) and 1.0 * c_info[0]['sum'] / total > 0.1:
     c = c_info[0]
     del c_info[0]
     this_crop = c['x1'], c['y1'], c['x2'], c['y2']
@@ -182,22 +171,102 @@ def process_image(path, out_path):
                 del c_info[i]
                 changed = True
                 break
-            #else:
-            #    print '%d %s -> %s / %s, %s -> %s / %s' % (
-            #            i, covered_sum, new_sum, total,
-            #            crop_area(crop), crop_area(new_crop), area)
 
         if not changed:
             break
 
-    # TODO: expand the resulting box 15px in all directions, and past any
-    # components it intersects.
+    return crop
 
-    #draw = ImageDraw.Draw(im)
+
+def pad_crop(crop, contours, edges, border_contour, pad_px=15):
+    """Slightly expand the crop to get full contours.
+
+    This will expand to include any contours it currently intersects, but will
+    not expand past a border.
+    """
+    bx1, by1, bx2, by2 = 0, 0, edges.shape[0], edges.shape[1]
+    if len(border_contour) > 0:
+        c = props_for_contours([border_contour], edges)[0]
+        bx1, by1, bx2, by2 = c['x1'] + 5, c['y1'] + 5, c['x2'] - 5, c['y2'] - 5
+
+    x1, y1, x2, y2 = crop
+    x1 = max(x1 - pad_px, bx1)
+    y1 = max(y1 - pad_px, by1)
+    x2 = min(x2 + pad_px, bx2)
+    y2 = min(y2 + pad_px, by2)
+    crop = x1, y1, x2, y2
+
+    c_info = props_for_contours(contours, edges)
+    changed = False
+    for c in c_info:
+        this_crop = c['x1'], c['y1'], c['x2'], c['y2']
+        this_area = crop_area(this_crop)
+        int_area = crop_area(intersect_crops(crop, this_crop))
+        if 0 < int_area < this_area:
+            new_crop = union_crops(crop, this_crop)
+            print '%s -> %s' % (str(crop), str(new_crop))
+            changed = True
+            crop = new_crop
+
+    if changed:
+        return pad_crop(crop, contours, edges, border_contour, pad_px)
+    else:
+        return crop
+
+
+def downscale_image(im, max_dim=2048):
+    """Shrink im until its longest dimension is <= max_dim.
+
+    Returns new_image, scale (where scale <= 1).
+    """
+    a, b = im.size
+    if max(a, b) <= max_dim:
+        return 1.0, im
+
+    scale = 1.0 * max_dim / max(a, b)
+    new_im = im.resize((int(a * scale), int(b * scale)), Image.ANTIALIAS)
+    return scale, new_im
+
+
+def process_image(path, out_path):
+    orig_im = Image.open(path)
+    scale, im = downscale_image(orig_im)
+
+    edges = cv2.Canny(np.asarray(im), 100, 200)
+
+    # TODO: dilate image _before_ finding a border. This is crazy sensitive!
+    contours, hierarchy = cv2.findContours(edges, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+    borders = find_border_components(contours, edges)
+    borders.sort(key=lambda (i, x1, y1, x2, y2): (x2 - x1) * (y2 - y1))
+
+    border_contour = None
+    if len(borders):
+        border_contour = contours[borders[0][0]]
+        edges = remove_border(border_contour, edges)
+
+    edges = 255 * (edges > 0).astype(np.uint8)
+
+    # Remove ~1px borders using a rank filter.
+    maxed_rows = rank_filter(edges, -4, size=(1, 20))
+    maxed_cols = rank_filter(edges, -4, size=(20, 1))
+    debordered = np.minimum(np.minimum(edges, maxed_rows), maxed_cols)
+    edges = debordered
+
+    contours = find_components(edges)
+    crop = find_optimal_components_subset(contours, edges)
+    crop = pad_crop(crop, contours, edges, border_contour)
+
+    crop = [int(x / scale) for x in crop]  # upscale to the original image size.
+    #draw = ImageDraw.Draw(orig_im)
+    #c_info = props_for_contours(contours, edges)
+    #for c in c_info:
+    #    this_crop = c['x1'], c['y1'], c['x2'], c['y2']
+    #    draw.rectangle(this_crop, outline='blue')
     #draw.rectangle(crop, outline='red')
     #draw.text((50, 50), path, fill='red')
+    #orig_im.save(out_path)
     #im.show()
-    text_im = im.crop(crop)
+    text_im = orig_im.crop(crop)
     text_im.save(out_path)
     print '%s -> %s' % (path, out_path)
 
