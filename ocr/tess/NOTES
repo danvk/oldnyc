@@ -382,3 +382,80 @@ each of 20 images. For all 20, I either chose Ocropus or said that they were
 about the same. In many cases the difference was dramatic. Ocropus had a few
 typos, but the only really bad problem was with an upside-down image.
 
+
+
+#### Performance
+
+For the default+800 set, training averaged 2.86s/sample:
+-rw-r--r--  1 danvk  staff    27M Jan  7 12:03 default+800-00101000.pyrnn.gz
+-rw-r--r--  1 danvk  staff    65M Jan  8 10:18 default+800-00129000.pyrnn.gz
+
+There's a huge variation in file size across the iterations, from 27M to 117M
+and everywhere in between. It's not a consistent trend, either. I don't see any
+obvious correlation between model size and improvements/deteriorations in
+performance.
+
+Ran:
+brew install homebrew/versions/gcc49
+
+and then changed the gcc in `ocrolib/native.py`. There was no noticeably imapct on performance.
+
+### LSTM
+
+What do all these variables in Ocropus mean?
+This is helpful: https://github.com/pybrain/pybrain/blob/master/pybrain/structure/modules/lstm.py
+# W = Weight, P = Peep, G = Gate
+# I = Input, O = Output, F = Forget, C = Core
+na = 1 + ni + ns
+input 0 is hard-coded as 1
+WGI = ns x na
+WGF = ns x na
+WGO = ns x na
+WCI = ns x na
+WIP = ns x 1
+WFP = ns x 1
+WOP = ns x 1
+
+# Variables related to current state of the network
+ci
+cix
+gf
+gfx
+gi
+gix
+go
+gox
+state
+
+He uses f=sigmoid, g=tanh
+"peepholes add state as additional recurrent input"
+Crazy video of RNN weight evolution: https://www.youtube.com/watch?v=tAtQW6tPWpA
+"how does LSTM solve tasks like OCR? still hard to determine"
+
+
+
+# Path forward
+
+OCR is working quite well with the Ocropus model I trained on top of the
+default model. I'm almost entirely blocked on the NYPL just getting me the
+images, so this is a good time to checkpoint and move on.
+
+If I were to keep working on this, there are a few things I would do:
+
+- Generate more training data and continue learning for more iterations.
+  The last iteration I trained was the best-performing, so there's no reason to
+  think it's plateaued. OTOH, with a 0.2% error rate there are relatively few
+  mistakes for it to learn from.
+- Detect when a line is gibberish.
+  Handwriting or smudges often comes out this way.
+  Perhaps with something like https://github.com/rrenaud/Gibberish-Detector
+- Detect when a page is upside-down.
+  This is one sure way to throw off OCR.
+  The simplest approach I can think of is to run ocropus-pred on both normal
+  and upside-down lines. Whichever has the strongest detections of
+  non-symmetric characters (like 'A' but not 'O') is right.
+- Incorporate a language model.
+  The errors are often because of ambiguous characters where a language model
+  could help make a better decision.
+    705208b 0004: Mar(u)h 1925.  u=0.633, c=0.196
+    705208b 0006: REP(P)ODUCED.  P=0.962, R=0.211 (more a binarization bug)
