@@ -11,6 +11,9 @@ For details on the methodology, see
 http://www.danvk.org/2015/01/07/finding-blocks-of-text-in-an-image-using-python-opencv-and-numpy.html
 '''
 
+import glob
+import os
+import random
 import sys
 import random
 import math
@@ -185,16 +188,19 @@ def pad_crop(crop, contours, edges, border_contour, pad_px=15):
     not expand past a border.
     """
     bx1, by1, bx2, by2 = 0, 0, edges.shape[0], edges.shape[1]
-    if len(border_contour) > 0:
+    if border_contour is not None and len(border_contour) > 0:
         c = props_for_contours([border_contour], edges)[0]
         bx1, by1, bx2, by2 = c['x1'] + 5, c['y1'] + 5, c['x2'] - 5, c['y2'] - 5
 
-    x1, y1, x2, y2 = crop
-    x1 = max(x1 - pad_px, bx1)
-    y1 = max(y1 - pad_px, by1)
-    x2 = min(x2 + pad_px, bx2)
-    y2 = min(y2 + pad_px, by2)
-    crop = x1, y1, x2, y2
+    def crop_in_border(crop):
+        x1, y1, x2, y2 = crop
+        x1 = max(x1 - pad_px, bx1)
+        y1 = max(y1 - pad_px, by1)
+        x2 = min(x2 + pad_px, bx2)
+        y2 = min(y2 + pad_px, by2)
+        return crop
+    
+    crop = crop_in_border(crop)
 
     c_info = props_for_contours(contours, edges)
     changed = False
@@ -202,8 +208,8 @@ def pad_crop(crop, contours, edges, border_contour, pad_px=15):
         this_crop = c['x1'], c['y1'], c['x2'], c['y2']
         this_area = crop_area(this_crop)
         int_area = crop_area(intersect_crops(crop, this_crop))
-        if 0 < int_area < this_area:
-            new_crop = union_crops(crop, this_crop)
+        new_crop = crop_in_border(union_crops(crop, this_crop))
+        if 0 < int_area < this_area and crop != new_crop:
             print '%s -> %s' % (str(crop), str(new_crop))
             changed = True
             crop = new_crop
@@ -253,16 +259,21 @@ def process_image(path, out_path):
     edges = debordered
 
     contours = find_components(edges)
+    if len(contours) == 0:
+        print '%s -> (no text!)' % path
+        return
+
     crop = find_optimal_components_subset(contours, edges)
     crop = pad_crop(crop, contours, edges, border_contour)
 
     crop = [int(x / scale) for x in crop]  # upscale to the original image size.
-    #draw = ImageDraw.Draw(orig_im)
+    #draw = ImageDraw.Draw(im)
     #c_info = props_for_contours(contours, edges)
     #for c in c_info:
     #    this_crop = c['x1'], c['y1'], c['x2'], c['y2']
     #    draw.rectangle(this_crop, outline='blue')
     #draw.rectangle(crop, outline='red')
+    #im.save(out_path)
     #draw.text((50, 50), path, fill='red')
     #orig_im.save(out_path)
     #im.show()
@@ -272,6 +283,16 @@ def process_image(path, out_path):
 
 
 if __name__ == '__main__':
-    for path in sys.argv[1:]:
+    if len(sys.argv) == 2 and '*' in sys.argv[1]:
+        files = glob.glob(sys.argv[1])
+        random.shuffle(files)
+    else:
+        files = sys.argv[1:]
+
+    for path in files:
         out_path = path.replace('.jpg', '.crop.png')
-        process_image(path, out_path)
+        if os.path.exists(out_path): continue
+        try:
+            process_image(path, out_path)
+        except Exception as e:
+            print '%s %s' % (path, e)
