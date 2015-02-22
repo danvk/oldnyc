@@ -53,7 +53,7 @@ def hocr_to_lines(hocr_path):
     lines = []
     soup = BeautifulSoup(file(hocr_path))
     for tag in soup.select('.ocr_line'):
-        m = re.match(r'bbox (\d+) (\d+) (\d+) (\d+)', tag.get('title'))
+        m = re.match(r'bbox (-?\d+) (-?\d+) (-?\d+) (-?\d+)', tag.get('title'))
         assert m
         x0, y0, x1, y1 = (int(v) for v in m.groups())
         lines.append({
