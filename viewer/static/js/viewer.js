@@ -249,6 +249,11 @@ function fillPhotoPane(photo_id, $pane) {
     $pane.find('.more-on-back').hide();
   }
 
+  // OCR'd text
+  if (info.text) {
+    $pane.find('.text').text(info.text);
+  }
+
   var $comments = $pane.find('.comments');
   var width = $comments.parent().width();
   $comments.empty().append(
