@@ -2,7 +2,7 @@
 '''Generate a static version of oldnyc.org consisting entirely of JSON.'''
 
 import chardet
-from collections import defaultdict
+from collections import defaultdict, OrderedDict
 import csv
 import json
 import record
@@ -40,7 +40,7 @@ def decode(b):
 
 
 def make_response(photo_ids):
-    response = {}
+    response = OrderedDict()
     for photo_id in photo_ids:
         r = id_to_record[photo_id]
         w, h = id_to_dims[photo_id]
