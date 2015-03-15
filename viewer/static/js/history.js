@@ -14,18 +14,26 @@ History.prototype.initialize = function() {
   // Create an artificial initial state
   var state = {initial: true};
   var didSetState = false;
+
+  var rest = function() {
+    // Blow away the current state -- it's only going to cause trouble.
+    history.replaceState({}, '', document.location.href);
+    this.replaceState(state, document.title, document.location.href);
+
+    if (didSetState) {
+      $(this).trigger('setStateInResponseToPageLoad', state);
+    }
+  }.bind(this);
+
   if (this.hashToStateAdapter && document.location.hash) {
-    // Need to honor any hash fragments that the user navigated to.
-    state = this.hashToStateAdapter(document.location.hash);
     didSetState = true;
-  }
-
-  // Blow away the current state -- it's only going to cause trouble.
-  history.replaceState({}, '', document.location.href);
-  this.replaceState(state, document.title, document.location.href);
-
-  if (didSetState) {
-    $(this).trigger('setStateInResponseToPageLoad', state);
+    // Need to honor any hash fragments that the user navigated to.
+    this.hashToStateAdapter(document.location.hash, function(newState) {
+      state = newState;
+      rest();
+    });
+  } else {
+    rest();
   }
 };
 
@@ -61,11 +69,17 @@ History.prototype.handlePopState = function(state) {
     }
   }
 
+  var trigger = function() {
+    $(this).trigger('setStateInResponseToUser', state);
+  }.bind(this);
   if (!state && this.hashToStateAdapter) {
-    state = this.hashToStateAdapter(document.location.hash);
+    this.hashToStateAdapter(document.location.hash, function(newState) {
+      state = newState;
+      trigger();
+    });
+  } else {
+    trigger();
   }
-
-  $(this).trigger('setStateInResponseToUser', state);
 };
 
 // Just like history.pushState.

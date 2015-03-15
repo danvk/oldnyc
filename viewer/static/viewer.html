@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <title>OldNYC - Historic Photographs of New York City</title>
 
-  <link rel="stylesheet" href="grid.css" />
-  <link type="text/css" href="viewer.css" rel="stylesheet" />
+  <link rel="stylesheet" href="styles/grid.css" />
+  <link rel="stylesheet" href="styles/viewer.css" />
 
   <meta property="fb:app_id" content="598168753565519"/>
   <meta property="og:title" content="OldNYC" />
@@ -79,7 +79,7 @@
     </div>
 
     <div id="expanded-controls">
-      <img id="preview-map" class="exit" title="Exit Slideshow" src="blank.gif" width=150 height=150>
+      <img id="preview-map" class="exit" title="Exit Slideshow" src="images/blank.gif" width=150 height=150>
     </div>
 
     <div id="grid-container"></div>
@@ -128,32 +128,36 @@
   </div>
 
   <div style="position: absolute; left: -1000px;">
-    <img src="blank.gif" />
-    <img src="spinner.gif" />
+    <img src="images/blank.gif" />
+    <img src="images/spinner.gif" />
   </div>
+
+  <!-- Proxy XHRs to oldnyc.github.io using xdomain -->
+  <script src="//cdn.rawgit.com/jpillora/xdomain/0.6.17/dist/xdomain.min.js" slave="http://oldnyc.github.io/proxy.html"></script>
 
   <!-- Google Maps API -->
   <script type="text/javascript"
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyClCA1LViYi4KLQfgMlfr3PS0tyxwqzYjA&sensor=false">
   </script>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  
 
   <meta name="twitter:widgets:csp" content="on">
   <script src="//platform.twitter.com/widgets.js"></script>
 
-  <script src="nyc-lat-lons-ny.js"></script>
-  <script src="popular-photos.js"></script>
-  
-  <script src="url-state.js"></script>
-  <script src="photo-info.js"></script>
-  <script src="social.js"></script>
-  <script src="viewer.js"></script>
-  <script src="history.js"></script>
-  <script src="app-history.js"></script>
+  <!-- <script src="nyc-lat-lons-ny.js"></script> -->
+  <script src="http://oldnyc.github.io/lat-lon-counts.js"></script>
 
-  <script src="modernizr.custom.js"></script>
-  <script src="jquery.appear.js"></script>
-  <script src="grid.js"></script>
+  <script src="js/popular-photos.js"></script>
+  <script src="js/url-state.js"></script>
+  <script src="js/photo-info.js"></script>
+  <script src="js/social.js"></script>
+  <script src="js/viewer.js"></script>
+  <script src="js/history.js"></script>
+  <script src="js/app-history.js"></script>
+  <script src="js/modernizr.custom.js"></script>
+  <script src="js/jquery.appear.js"></script>
+  <script src="js/grid.js"></script>
   <script>
     $(function() {
       fillPopularImagesPanel();

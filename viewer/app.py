@@ -219,12 +219,12 @@ class RootHandler(webapp2.RequestHandler):
 app = webapp2.WSGIApplication(
                               [
                                ('/', RootHandler),
-                               ('/info', RecordFetcher),
-                               ('/upload', UploadHandler),
+                               #('/info', RecordFetcher),
+                               #('/upload', UploadHandler),
                                #('/thumb.*', ThumbnailFetcher),
-                               ('/addegg', AddEgg),
-                               ('/rec_feedback', feedback.RecordFeedback),
-                               ('/clear_cookie', feedback.ClearCookie)
+                               #('/addegg', AddEgg),
+                               #('/rec_feedback', feedback.RecordFeedback),
+                               #('/clear_cookie', feedback.ClearCookie)
                                #('/adddims', AddDims),
                               ],
                               debug=True)

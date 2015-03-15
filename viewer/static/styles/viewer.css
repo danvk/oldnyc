@@ -77,7 +77,7 @@ a {
 }
 
 #feedback a {
-  background-image: url('feedback_tab_white.png');
+  background-image: url('../images/feedback_tab_white.png');
   text-indent: -1000px;
   width: 22px;
   height: 90px;
@@ -262,6 +262,10 @@ a {
   font-size: 125%;
   line-height: 125%;
   margin-bottom: 1px !important;
+}
+
+.text {
+  white-space: pre-line;
 }
 
 .og-grid li {

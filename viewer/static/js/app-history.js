@@ -1,7 +1,7 @@
 // This should go in the $(function()) block below.
 // It's exposed to facilitate debugging.
-h = new History(function(hash) {
-  return hashToStateObject(hash.substr(1));
+h = new History(function(hash, cb) {
+  hashToStateObject(hash.substr(1), cb);
 });
 
 // Ping Google Analytics with the current URL (e.g. after history.pushState).
