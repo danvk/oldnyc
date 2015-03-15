@@ -1,7 +1,7 @@
 // This should go in the $(function()) block below.
 // It's exposed to facilitate debugging.
-h = new History(function(hash) {
-  return hashToStateObject(hash.substr(1));
+h = new History(function(hash, cb) {
+  hashToStateObject(hash.substr(1), cb);
 });
 
 // Ping Google Analytics with the current URL (e.g. after history.pushState).
@@ -42,7 +42,6 @@ $(function() {
     }
   };
 
-  /*
   $(window)
     .on('showGrid', function(e, pos) {
       var state = {g:pos};
@@ -66,7 +65,6 @@ $(function() {
       var state = {g: g};
       h.goBackUntil('g', [state, title(state), fragment(state)]);
     });
-    */
 
   // Update the UI in response to hitting the back/forward button,
   // a hash fragment on initial page load or the user editing the URL.

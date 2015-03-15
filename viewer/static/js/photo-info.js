@@ -5,18 +5,20 @@
 // Maps photo_id -> { title: ..., date: ..., library_url: ... }
 var photo_id_to_info = {};
 
-var JSON_BASE = 'http://oldnyc.github.io/by-location';
+var SITE = 'http://oldnyc.github.io';
+var JSON_BASE = SITE + '/by-location';
 
 // The callback is called with the photo_ids that were just loaded, after the
 // UI updates.  The callback may assume that infoForPhotoId() will return data
 // for all the newly-available photo_ids.
 function loadInfoForLatLon(lat_lon) {
+  var url;
   if (lat_lon == 'pop') {
-    // TODO: implement this.
-    lat_lon = '40.512875,-74.248982';
+    url = SITE + '/popular.json';
+  } else {
+    url = JSON_BASE + '/' + lat_lon.replace(',', '') + '.json';
   }
 
-  var url = JSON_BASE + '/' + lat_lon.replace(',', '') + '.json';
   return $.getJSON(url).then(function(response_data, status, xhr) {
     // Add these values to the cache.
     $.extend(photo_id_to_info, response_data);
