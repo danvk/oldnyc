@@ -42,16 +42,14 @@ function selectMarker(marker, numPhotos) {
 // The callback gets fired when the info for all lat/lons at this location
 // become available (i.e. after the /info RPC returns).
 function displayInfoForLatLon(lat_lon, marker, opt_selectCallback) {
-  var photo_ids = lat_lons[lat_lon];
+  selectMarker(marker, lat_lons[lat_lon]);
 
-  selectMarker(marker, photo_ids.length);
-
-  loadInfoForPhotoIds(photo_ids).done(function() {
+  loadInfoForLatLon(lat_lon).done(function(photoIds) {
     var selectedId = null;
-    if (photo_ids.length <= 10) {
-      selectedId = photo_ids[0];
+    if (photoIds.length <= 10) {
+      selectedId = photoIds[0];
     }
-    showExpanded(lat_lon, photo_ids, selectedId);
+    showExpanded(lat_lon, photoIds, selectedId);
     if (opt_selectCallback && selectedId) {
       opt_selectCallback(selectedId);
     }
@@ -138,13 +136,13 @@ function initialize_map() {
     var size = (num == 1 ? 9 : 13);
     var selectedSize = (num == 1 ? 15 : 21);
     marker_icons.push(new google.maps.MarkerImage(
-      'sprite-2014-08-29.png',
+      'images/sprite-2014-08-29.png',
       new google.maps.Size(size, size),
       new google.maps.Point((i%10)*39, Math.floor(i/10)*39),
       new google.maps.Point((size - 1) / 2, (size - 1)/2)
     ));
     selected_marker_icons.push(new google.maps.MarkerImage(
-      'selected-2014-08-29.png',
+      'images/selected-2014-08-29.png',
       new google.maps.Size(selectedSize, selectedSize),
       new google.maps.Point((i%10)*39, Math.floor(i/10)*39),
       new google.maps.Point((selectedSize - 1) / 2, (selectedSize - 1)/2)
@@ -182,13 +180,13 @@ function parseLatLon(lat_lon) {
 }
 
 function createMarker(lat_lon, latLng) {
-  var recs = lat_lons[lat_lon];
+  var count = lat_lons[lat_lon];
   var marker = new google.maps.Marker({
     position: latLng,
     map: map,
     flat: true,
     visible: true,
-    icon: marker_icons[recs.length > 100 ? 100 : recs.length],
+    icon: marker_icons[Math.min(count, 100)],
     title: lat_lon
   });
   markers.push(marker);
@@ -421,9 +419,8 @@ $(function() {
   $('.popular-photo').on('click', 'a', function(e) {
     e.preventDefault();
     var selectedPhotoId = photoIdFromATag(this);
-    var photoIds = getPopularPhotoIds();
 
-    loadInfoForPhotoIds(photoIds).done(function() {
+    loadInfoForLatLon('pop').done(function(photoIds) {
       showExpanded('pop', photoIds, selectedPhotoId);
       $(window).trigger('showGrid', 'pop');
       $(window).trigger('openPreviewPanel');

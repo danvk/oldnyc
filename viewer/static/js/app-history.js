@@ -42,6 +42,7 @@ $(function() {
     }
   };
 
+  /*
   $(window)
     .on('showGrid', function(e, pos) {
       var state = {g:pos};
@@ -65,6 +66,7 @@ $(function() {
       var state = {g: g};
       h.goBackUntil('g', [state, title(state), fragment(state)]);
     });
+    */
 
   // Update the UI in response to hitting the back/forward button,
   // a hash fragment on initial page load or the user editing the URL.

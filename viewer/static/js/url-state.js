@@ -68,9 +68,9 @@ function transitionToStateObject(targetState) {
   // Show a different grid?
   if (currentState.g != state.g) {
     var lat_lon = state.g;
-    var photo_ids = lat_lons[lat_lon];
+    var count = lat_lons[lat_lon];
     if (state.g == 'pop') {
-      photo_ids = getPopularPhotoIds();
+      count = getPopularPhotoIds().length;
     } else {
       // Highlight the marker, creating it if necessary.
       var marker = lat_lon_to_marker[lat_lon];
@@ -79,13 +79,13 @@ function transitionToStateObject(targetState) {
         marker = createMarker(lat_lon, latLng);
       }
       if (marker) {
-        selectMarker(marker, photo_ids.length);
+        selectMarker(marker, count);
         if (!map.getBounds().contains(latLng)) {
           map.panTo(latLng);
         }
       }
     }
-    loadInfoForPhotoIds(photo_ids).done(function() {
+    loadInfoForLatLon(lat_lon).done(function(photo_ids) {
       showExpanded(state.g, photo_ids, state.photo_id);
     });
     return;
