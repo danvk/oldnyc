@@ -7,8 +7,6 @@ threadsafe: true
 api_version: 1
 
 handlers:
-- url: /jquery
-  static_dir: static/jquery
 - url: /favicon.ico
   static_files: static/favicon.ico
   upload: static/favicon.ico
@@ -17,6 +15,7 @@ handlers:
 - url: /about
   static_files: static/about.html
   upload: static/about.html
+
 - url: /upload
   script: app.app
 - url: /thumb/.*
@@ -25,18 +24,18 @@ handlers:
 - url: /records.js.zip
   static_files: static/records.js.zip
   upload: static/records.js.zip
-- url: /(.*\.js)
+- url: /js/(.*)
   static_files: static/js/\1
   upload: static/js/.*\.js
-- url: /(.*\.css)
+- url: /styles/(.*)
   static_files: static/styles/\1
   upload: static/styles/.*\.css
-- url: /(.*\.(gif|png|jpg))
+- url: /images/(.*\.(gif|png|jpg))
   static_files: static/images/\1
   upload: static/images/.*\.(gif|png|jpg)
   
-- url: .*
-  script: app.app
+# - url: .*
+#   script: app.app
 
 # TODO(danvk): restore this before launching
 # - url: /
