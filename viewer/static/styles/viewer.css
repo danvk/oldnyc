@@ -264,6 +264,10 @@ a {
   margin-bottom: 1px !important;
 }
 
+.text {
+  white-space: pre-line;
+}
+
 .og-grid li {
   margin: 0 5px 10px 5px;  /* moves margin from top to bottom */
 }
