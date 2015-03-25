@@ -50,7 +50,7 @@ If you want to determine per-borough geocoding coverage, run
     ./nyc/coverage-by-borough /tmp/records.json
 
 
-## Regenerate geocodes for the viewer (nyc-neighborhood-photos.js)
+## Regenerate geocodes for the viewer (nyc-lat-lons-ny.js)
 To get new geocodes into the frontend, you need to geocode photos.pickle. Do so
 with:
 
@@ -60,6 +60,18 @@ The lat-lon-map.txt file can be generated via:
 
     ./generate-geocodes.py --coders milstein,nyc-parks --pickle_path nyc/records.pickle --output_format locations.txt --geocode > locations.txt
     ./cluster-locations.py locations.txt > lat-lon-map.txt
+
+## Update the static site (oldnyc.github.io)
+
+OldNYC issues XHRs to GitHub pages using XDomain. This allows a site consisting of completely static content. To update the static site, first clone it into a sibling directory to this repo:
+
+    cd ..
+    git clone https://github.com/oldnyc/oldnyc.github.io
+
+And then run the update script:
+
+    cd oldnyc
+    ./generate_static_site.py
 
 ## Generate photos.pickle
 
