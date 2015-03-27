@@ -148,42 +148,6 @@ var mapstyle = [
             }
         ]
     },
-    // {
-    //     "featureType": "road.arterial",
-    //     "elementType": "labels",
-    //     "stylers": [
-    //         {
-    //             "hue": "#bbc0c4"
-    //         },
-    //         {
-    //             "saturation": -93
-    //         },
-    //         {
-    //             "lightness": -2
-    //         },
-    //         {
-    //             "visibility": "simplified"
-    //         }
-    //     ]
-    // },
-    // {
-    //     "featureType": "road.local",
-    //     "elementType": "geometry",
-    //     "stylers": [
-    //         {
-    //             "hue": "#e9ebed"
-    //         },
-    //         {
-    //             "saturation": -90
-    //         },
-    //         {
-    //             "lightness": -8
-    //         },
-    //         {
-    //             "visibility": "simplified"
-    //         }
-    //     ]
-    // },
     {
         "featureType": "water",
         "elementType": "labels",
@@ -264,7 +228,7 @@ function initialize_map() {
     center: latlng,
     mapTypeId: google.maps.MapTypeId.ROADMAP,
     mapTypeControl: false,
-    streetViewControl: false,
+    streetViewControl: true,
     panControl: false,
     zoomControlOptions: {
       position: google.maps.ControlPosition.LEFT_TOP
