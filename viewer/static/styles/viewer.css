@@ -292,6 +292,7 @@ h2 a {
 .description{
   font-size: 150%;
   line-height: 125%;
+  font-weight: bold;
   margin-bottom: 1px !important;
 }
 
