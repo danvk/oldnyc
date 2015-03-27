@@ -13,6 +13,15 @@ body {
 a {
   text-decoration: none;
 }
+
+h2 {
+  font-size: 20px;
+  margin: 7px 0px;
+}
+h2 a {
+  display: block;
+  color: #111;
+}
 .header {
   position: fixed;
   top: 0px;
@@ -33,51 +42,66 @@ a {
 
 #about {
   position: absolute;
-  right: 0px;
+  right: 10px;
   font-size: 1.1em;
   color: #fff;
+  top: 10px;
+  background: rgb(190,0,0);
 }
 #about:hover{
   background: #f6f6f6;
 }
 #about a, #about a:visited {
   color: #111;
-  padding: 20px 20px 19px 20px;
+  padding: 18px 15px 17px;
   display: block;
 }
 .logo {
   position: absolute;
   left: 40px;
   top: 10px;
-  height: 75px;
-  width: 300px;
+  width: 420px;
   background-color: #fff;
 }
 .logo .wrapper {
   padding: 11px;
   font-family: 'Adobe Garamond Pro', 'Times New Roman', Times, serif;
   font-size: 1.5em;
+  padding: 12px 12px 2px;
 }
 
 .logo a {
   font-size: 2em;
   color: #111;
   line-height: 1em;
+  display: block;
+  float: left;
+  width: 140px;
+}
+
+.logo .slogan {
+  display: block;
+  margin: 0 10px;
+  float: left;
+  width: 230px;
+  font-size: 0.85em;
+  line-height: 1em;
 }
 
 .header .social {
   position: absolute;
-  top: 0;
+  top: 10px;
   right: 78px;
-  padding: 19px 0 13px;
+  padding: 14px 14px;
+  background: rgb(190,0,0);
 }
 
 .header .social > div {
-  display: inline-block;
+  float: left;
 }
 
 #facebook {
-  margin-right: 100px;
+  margin-right: 10px;
 }
 
 #feedback a {
@@ -172,6 +196,10 @@ a {
 #expanded .header {
   background: transparent;
 }
+#expanded .logo {
+  background: transparent;
+}
+
 #expanded .logo a {
   color: white;
   cursor: pointer;
@@ -179,7 +207,6 @@ a {
 #expanded .logo a:hover {
   color: gray;
 }
-
 .arrow-right {
   width: 0; 
   height: 0; 
@@ -208,14 +235,14 @@ a {
 /* Popular Photos */
 #popular {
   position: absolute;
-  top: 80px;
-  width: 213px;
+  top: 61px;
+  width: 314px;
   bottom: 30px;
-  right: 8px;
+  right: 10px;
   background: lightgray;
   overflow-y: scroll;
   padding: 0 10px;
-  box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.75);
+  box-shadow: 0px 4px 4px -1px rgba(50, 50, 50, 0.75);
 }
 
 .popular-photo {
@@ -263,12 +290,14 @@ a {
 }
 
 .description{
-  font-size: 125%;
+  font-size: 150%;
   line-height: 125%;
   margin-bottom: 1px !important;
 }
 
 .text {
+  margin: 20px 0;
+  font-size: 1.3em;
   white-space: pre-line;
 }
 
@@ -365,7 +394,7 @@ a {
 
 #popular .close {
   position: absolute;
-  top: 15px;
+  top: 6px;
   right: 10px;
   height: 1.5em;
   line-height: 1.5em;
@@ -379,8 +408,10 @@ a {
 
 .popular-link {
   position: absolute;
-  left: 150px;
-  top: 22px;
-  font-size: medium;
-  display: none;
+  top: 61px;
+  width: 314px;
+  right: 10px;
+  background: lightgray;
+  padding: 0 10px;
+  box-shadow: 0px 4px 4px -1px rgba(50, 50, 50, 0.75);
 }

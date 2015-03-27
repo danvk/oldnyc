@@ -11,7 +11,7 @@ var mapstyle = [
     {"stylers": [ {"visibility": "off" } ] },
     {"featureType": "water","stylers": [{"visibility": "simplified"} ] },
     {"featureType": "poi","stylers": [ {"visibility": "simplified"} ]},
-    {"featureType": "transit","stylers": [{ "visibility": "simplified"}] },
+    {"featureType": "transit","stylers": [{ "visibility": "off"}] },
     { "featureType": "landscape","stylers": [ { "visibility": "simplified" } ] },
     { "featureType": "road", "stylers": [{ "visibility": "simplified" } ] },
     { "featureType": "administrative",  "stylers": [{ "visibility": "simplified" } ] },
@@ -83,51 +83,6 @@ var mapstyle = [
         ]
     },
     {
-        "featureType": "transit",
-        "elementType": "labels.icon",
-        "stylers": [
-            {
-                "visibility": "off"
-            }
-        ]
-    },
-    {
-        "featureType": "transit.line",
-        "elementType": "geometry",
-        "stylers": [
-            {
-                "visibility": "off"
-            }
-        ]
-    },
-    {
-        "featureType": "transit.line",
-        "elementType": "labels.text",
-        "stylers": [
-            {
-                "visibility": "off"
-            }
-        ]
-    },
-    {
-        "featureType": "transit.station.airport",
-        "elementType": "geometry",
-        "stylers": [
-            {
-                "visibility": "off"
-            }
-        ]
-    },
-    {
-        "featureType": "transit.station.airport",
-        "elementType": "labels",
-        "stylers": [
-            {
-                "visibility": "off"
-            }
-        ]
-    },
-    {
         "featureType": "water",
         "elementType": "geometry",
         "stylers": [
@@ -171,7 +126,10 @@ function expandedImageUrl(photo_id) {
 
 // lat_lon is a "lat,lon" string.
 function makeStaticMapsUrl(lat_lon) {
-  return 'http://maps.googleapis.com/maps/api/staticmap?center=' + lat_lon + '&zoom=15&size=150x150&maptype=roadmap&markers=color:red%7C' + lat_lon;
+  var style = buildStaticStyle(mapstyle);
+  url = 'http://maps.googleapis.com/maps/api/staticmap?center=' + lat_lon + '&zoom=15&size=150x150&maptype=roadmap&markers=color:red%7C' + lat_lon + '&style=' + style;
+  console.log(url);
+  return url;
 }
 
 // Make the given marker the currently selected marker.
@@ -474,6 +432,26 @@ function sendFeedback(photo_id, feedback_obj) {
   }).fail(function() {
     console.warn('Unable to send feedback on', photo_id)
   });
+}
+
+function buildStaticStyle(styleStruct) {
+  var style = "";
+  for(var i=0;i<mapstyle.length;i++){
+    s = mapstyle[i];
+    strs = [];
+    if (s.featureType != null) strs.push( "feature:" + s.featureType );
+    if (s.elementType != null) strs.push( "element:" + s.elementType );
+    if (s.stylers != null) {
+      for (var j=0;j<s.stylers.length;j++) {
+        for (var key in s.stylers[j]){
+          strs.push( key + ":" + s.stylers[j][key].replace(/#/, '0x') );
+        }
+      }
+    }
+    var str = "&style=" + strs.join("%7C");
+    style += str;
+  }
+  return style;
 }
 
 $(function() {
