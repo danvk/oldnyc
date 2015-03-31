@@ -2,7 +2,7 @@
 
 #color='#111111'
 #color='#26264A'
-color='#d34f4f'
+color='#0000A0'
 stroke_color=$color
 text_color=$color  # '#ffffff'
 font=Helvetica-Bold
