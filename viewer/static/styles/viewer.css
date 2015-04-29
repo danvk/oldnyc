@@ -58,32 +58,26 @@ h2 a {
 }
 .logo {
   position: absolute;
-  left: 40px;
+  left: 10px;
   top: 10px;
-  width: 420px;
   background-color: #fff;
+  box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.75);
 }
 .logo .wrapper {
-  padding: 11px;
-  font-family: 'Adobe Garamond Pro', 'Times New Roman', Times, serif;
-  font-size: 1.5em;
-  padding: 12px 12px 2px;
+  font-size: 1.2em;
+  padding: 10px;
 }
 
 .logo a {
   font-size: 2em;
   color: #111;
   line-height: 1em;
-  display: block;
-  float: left;
-  width: 140px;
+  display: inline-block;
 }
 
 .logo .slogan {
-  display: block;
-  margin: 0 10px;
-  float: left;
-  width: 230px;
+  display: inline-block;
+  margin-left: 10px;
   font-size: 0.85em;
   line-height: 1em;
 }
@@ -233,16 +227,19 @@ h2 a {
 }
 
 /* Popular Photos */
-#popular {
+#popular, .popular-link {
   position: absolute;
-  top: 61px;
-  width: 314px;
-  bottom: 30px;
+  top: 71px;
+  width: 213px;
   right: 10px;
-  background: lightgray;
-  overflow-y: scroll;
+  background: #eee;
   padding: 0 10px;
-  box-shadow: 0px 4px 4px -1px rgba(50, 50, 50, 0.75);
+  box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.75);
+}
+
+#popular {
+  overflow-y: scroll;
+  bottom: 30px;
 }
 
 .popular-photo {
@@ -405,14 +402,4 @@ h2 a {
 
 #popular .close:hover {
   color: gray;
-}
-
-.popular-link {
-  position: absolute;
-  top: 61px;
-  width: 314px;
-  right: 10px;
-  background: lightgray;
-  padding: 0 10px;
-  box-shadow: 0px 4px 4px -1px rgba(50, 50, 50, 0.75);
 }

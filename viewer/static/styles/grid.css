@@ -142,17 +142,17 @@
 }
 .og-previous {
   left: 10px;
-  background-image:url('arrow-left.png');
+  background-image:url('../images/arrow-left.png');
 }
 .og-previous:hover {
-  background-image:url('arrow-left-hover.png');
+  background-image:url('../images/arrow-left-hover.png');
 }
 .og-next {
   right: 5px;
-  background-image:url('arrow-right.png');
+  background-image:url('../images/arrow-right.png');
 }
 .og-next:hover {
-  background-image:url('arrow-right-hover.png');
+  background-image:url('../images/arrow-right-hover.png');
 }
 
 @-webkit-keyframes loader {
