@@ -177,6 +177,7 @@ function createMarker(lat_lon, latLng) {
 // position have been loaded (in particular the image widths).
 // key is used to construct URL fragments.
 function showExpanded(key, photo_ids, opt_selected_id) {
+  hideAbout();
   map.set('keyboardShortcuts', false);
   $('#expanded').show().data('grid-key', key);
   var images = $.map(photo_ids, function(photo_id, idx) {
@@ -315,6 +316,21 @@ function showPopular() {
   $('#popular').appear({force_process: true});
 }
 
+function showAbout() {
+  hideExpanded();
+  $('#about-page').show();
+  // Hack! There's probably a way to do this with CSS
+  var $container = $('#about-page .container');
+  var w = $container.width();
+  var mw = parseInt($container.css('max-width'), 0);
+  if (w < mw) {
+    $container.css('margin-left', '-' + (w / 2) + 'px');
+  }
+}
+function hideAbout() {
+  $('#about-page').hide();
+}
+
 function sendFeedback(photo_id, feedback_obj) {
   ga('send', 'event', 'link', 'feedback', { 'page': '/#' + photo_id });
   return $.ajax('/rec_feedback', {
@@ -436,22 +452,16 @@ $(function() {
   // Display the about page on top of the map.
   $('#about a').on('click', function(e) {
     e.preventDefault();
-    $('#about-page').show();
-    // Hack! There's probably a way to do this with CSS
-    var $container = $('#about-page .container');
-    var w = $container.width();
-    var mw = parseInt($container.css('max-width'), 0);
-    console.log(w, mw);
-    if (w < mw) {
-      $container.css('margin-left', '-' + (w / 2) + 'px');
-    }
+    showAbout();
   });
   $('#about-page .curtains, #about-page .exit').on('click', function(e) {
-    $('#about-page').hide();
+    hideAbout();
   });
 
   // Record feedback on images. Can have a parameter or not.
-  var thanks = function(button) { return function() { $(button).text('Thanks!'); }; };
+  var thanks = function(button) {
+    return function() { $(button).text('Thanks!'); };
+  };
   $('#grid-container').on('click', '.feedback button[feedback]', function() {
     var $button = $(this);
     var value = true;
