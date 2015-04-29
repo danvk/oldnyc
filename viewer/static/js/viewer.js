@@ -335,7 +335,7 @@ function setCookie(name, value) {
 
 $(function() {
   // Clicks on the background or "exit" button should leave the slideshow.
-  $(document).on('click', '#expanded .curtains, .exit', function() {
+  $(document).on('click', '#expanded .curtains, #expanded .exit', function() {
     hideExpanded();
     $(window).trigger('hideGrid');
   });
@@ -432,6 +432,23 @@ $(function() {
   if (document.cookie.indexOf('nopop=') >= 0) {
     hidePopular();
   }
+
+  // Display the about page on top of the map.
+  $('#about a').on('click', function(e) {
+    e.preventDefault();
+    $('#about-page').show();
+    // Hack! There's probably a way to do this with CSS
+    var $container = $('#about-page .container');
+    var w = $container.width();
+    var mw = parseInt($container.css('max-width'), 0);
+    console.log(w, mw);
+    if (w < mw) {
+      $container.css('margin-left', '-' + (w / 2) + 'px');
+    }
+  });
+  $('#about-page .curtains, #about-page .exit').on('click', function(e) {
+    $('#about-page').hide();
+  });
 
   // Record feedback on images. Can have a parameter or not.
   var thanks = function(button) { return function() { $(button).text('Thanks!'); }; };
