@@ -64,6 +64,7 @@ function transitionToStateObject(targetState) {
 
     // Reset to map view.
     if (JSON.stringify(state) == '{}') {
+      hideAbout();
       hideExpanded();
     }
 

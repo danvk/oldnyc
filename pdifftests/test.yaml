@@ -15,7 +15,7 @@ standard-config: &stdconfig
       body {
         background-color: white;
       }
-      #curtains {
+      .curtains {
         opacity: 1.0;  /* blackout! covers Google Maps flakiness */
       }
 

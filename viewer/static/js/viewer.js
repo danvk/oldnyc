@@ -6,113 +6,6 @@ var selected_marker, selected_icon;
 var map;
 var start_date = 1850;
 var end_date = 2000;
-var mapstyle = [
-    // to remove buildings
-    {"stylers": [ {"visibility": "off" } ] },
-    {"featureType": "water","stylers": [{"visibility": "simplified"} ] },
-    {"featureType": "poi","stylers": [ {"visibility": "simplified"} ]},
-    {"featureType": "transit","stylers": [{ "visibility": "off"}] },
-    { "featureType": "landscape","stylers": [ { "visibility": "simplified" } ] },
-    { "featureType": "road", "stylers": [{ "visibility": "simplified" } ] },
-    { "featureType": "administrative",  "stylers": [{ "visibility": "simplified" } ] },
-    // end remove buildings
-    {
-        "featureType": "administrative",
-        "elementType": "labels",
-        "stylers": [
-            {
-                "visibility": "off"
-            }
-        ]
-    },
-    {
-        "featureType": "administrative.country",
-        "elementType": "geometry.stroke",
-        "stylers": [
-            {
-                "visibility": "off"
-            }
-        ]
-    },
-    {
-        "featureType": "administrative.province",
-        "elementType": "geometry.stroke",
-        "stylers": [
-            {
-                "visibility": "off"
-            }
-        ]
-    },
-    {
-        "featureType": "landscape",
-        "elementType": "geometry",
-        "stylers": [
-            {
-                "visibility": "on"
-            },
-            {
-                "color": "#e3e3e3"
-            }
-        ]
-    },
-    {
-        "featureType": "landscape.natural",
-        "elementType": "labels",
-        "stylers": [
-            {
-                "visibility": "off"
-            }
-        ]
-    },
-    {
-        "featureType": "poi",
-        "elementType": "all",
-        "stylers": [
-            {
-                "visibility": "off"
-            }
-        ]
-    },
-    {
-        "featureType": "road",
-        "elementType": "all",
-        "stylers": [
-            {
-                "color": "#cccccc"
-            }
-        ]
-    },
-    {
-        "featureType": "water",
-        "elementType": "geometry",
-        "stylers": [
-            {
-                "color": "#FFFFFF"
-            }
-        ]
-    },
-    {
-        "featureType": "road",
-        "elementType": "labels",
-        "stylers": [
-            {
-                "color": "#94989C"
-            },
-            {
-                "visibility": "simplified"
-            }
-        ]
-    },
-    {
-        "featureType": "water",
-        "elementType": "labels",
-        "stylers": [
-            {
-                "visibility": "off"
-            }
-        ]
-    }
-];
 
 var mapPromise = $.Deferred();
 
@@ -126,9 +19,7 @@ function expandedImageUrl(photo_id) {
 
 // lat_lon is a "lat,lon" string.
 function makeStaticMapsUrl(lat_lon) {
-  var style = buildStaticStyle(mapstyle);
-  url = 'http://maps.googleapis.com/maps/api/staticmap?center=' + lat_lon + '&zoom=15&size=150x150&maptype=roadmap&markers=color:red%7C' + lat_lon + '&style=' + style;
-  console.log(url);
+  url = 'http://maps.googleapis.com/maps/api/staticmap?center=' + lat_lon + '&zoom=15&size=150x150&maptype=roadmap&markers=color:red%7C' + lat_lon + '&style=' + STATIC_MAP_STYLE;
   return url;
 }
 
@@ -191,7 +82,7 @@ function initialize_map() {
     zoomControlOptions: {
       position: google.maps.ControlPosition.LEFT_TOP
     },
-    styles: mapstyle
+    styles: MAP_STYLE
   };
   
   map = new google.maps.Map($('#map').get(0), opts);
@@ -286,6 +177,7 @@ function createMarker(lat_lon, latLng) {
 // position have been loaded (in particular the image widths).
 // key is used to construct URL fragments.
 function showExpanded(key, photo_ids, opt_selected_id) {
+  hideAbout();
   map.set('keyboardShortcuts', false);
   $('#expanded').show().data('grid-key', key);
   var images = $.map(photo_ids, function(photo_id, idx) {
@@ -351,7 +243,7 @@ function fillPhotoPane(photo_id, $pane) {
       $pane.find('.tweet').get(0), {
         count: 'none',
         text: info.title + ' - ' + info.date,
-        via: 'Old_NYC'
+        via: 'Old_NYC @NYPL'
       });
 
   var $fb_holder = $pane.find('.facebook-holder');
@@ -424,6 +316,21 @@ function showPopular() {
   $('#popular').appear({force_process: true});
 }
 
+function showAbout() {
+  hideExpanded();
+  $('#about-page').show();
+  // Hack! There's probably a way to do this with CSS
+  var $container = $('#about-page .container');
+  var w = $container.width();
+  var mw = parseInt($container.css('max-width'), 0);
+  if (w < mw) {
+    $container.css('margin-left', '-' + (w / 2) + 'px');
+  }
+}
+function hideAbout() {
+  $('#about-page').hide();
+}
+
 function sendFeedback(photo_id, feedback_obj) {
   ga('send', 'event', 'link', 'feedback', { 'page': '/#' + photo_id });
   return $.ajax('/rec_feedback', {
@@ -434,29 +341,17 @@ function sendFeedback(photo_id, feedback_obj) {
   });
 }
 
-function buildStaticStyle(styleStruct) {
-  var style = "";
-  for(var i=0;i<mapstyle.length;i++){
-    s = mapstyle[i];
-    strs = [];
-    if (s.featureType != null) strs.push( "feature:" + s.featureType );
-    if (s.elementType != null) strs.push( "element:" + s.elementType );
-    if (s.stylers != null) {
-      for (var j=0;j<s.stylers.length;j++) {
-        for (var key in s.stylers[j]){
-          strs.push( key + ":" + s.stylers[j][key].replace(/#/, '0x') );
-        }
-      }
-    }
-    var str = "&style=" + strs.join("%7C");
-    style += str;
-  }
-  return style;
+function deleteCookie(name) {
+  document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+}
+
+function setCookie(name, value) {
+  document.cookie = name + "=" + value + "; path=/";
 }
 
 $(function() {
   // Clicks on the background or "exit" button should leave the slideshow.
-  $(document).on('click', '#curtains, .exit', function() {
+  $(document).on('click', '#expanded .curtains, #expanded .exit', function() {
     hideExpanded();
     $(window).trigger('hideGrid');
   });
@@ -542,20 +437,31 @@ $(function() {
 
   // Show/hide popular images
   $('#popular .close').on('click', function() {
-    document.cookie = 'nopop';
+    setCookie('nopop', '1');
     hidePopular();
   });
   $('.popular-link a').on('click', function(e) {
     showPopular();
-    document.cookie = '';
+    deleteCookie('nopop');
     e.preventDefault();
   });
-  if (document.cookie.indexOf('nopop') >= 0) {
+  if (document.cookie.indexOf('nopop=') >= 0) {
     hidePopular();
   }
 
+  // Display the about page on top of the map.
+  $('#about a').on('click', function(e) {
+    e.preventDefault();
+    showAbout();
+  });
+  $('#about-page .curtains, #about-page .exit').on('click', function(e) {
+    hideAbout();
+  });
+
   // Record feedback on images. Can have a parameter or not.
-  var thanks = function(button) { return function() { $(button).text('Thanks!'); }; };
+  var thanks = function(button) {
+    return function() { $(button).text('Thanks!'); };
+  };
   $('#grid-container').on('click', '.feedback button[feedback]', function() {
     var $button = $(this);
     var value = true;

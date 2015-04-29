@@ -36,11 +36,11 @@
         <div class="fb-like" data-href="http://www.oldnyc.org" data-layout="button_count" data-action="like" data-show-faces="false" data-share="true"></div>
       </div>
       <div id="twitter">
-        <a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="Old_NYC">Tweet</a>
+        <a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="Old_NYC @NYPL">Tweet</a>
       </div>
     </div>
 
-    <div id="about"><a href="/about" target="_blank">About</a></div>
+    <div id="about"><a href="/about">About</a></div>
 
     <div class="logo">
       <div class="wrapper">
@@ -49,7 +49,7 @@
       </div>
     </div>
 
-    <div class="popular-link">
+    <div class="popular-link" style="display: none">
       <h2><a href="#">Popular Photos</a></h2>
     </div>
   </div>
@@ -68,7 +68,7 @@
 
   <!-- Expanded Image Slideshow -->
   <div style="display:none;" id="expanded">
-    <div id="curtains"></div>
+    <div class="curtains"></div>
 
     <div class="header">
       <div class="logo">
@@ -128,6 +128,16 @@
     </div>
   </div>
 
+  <!-- About Page -->
+  <div id="about-page" style="display: none;">
+    <div class="curtains"></div>
+    <div id="exit-about" class="exit" title="Exit About">✕</div>
+    <div class="container">
+    <iframe src="/about" scrolling="auto" frameborder="0" width="100%" height="100%">
+    </iframe>
+    </div>
+  </div>
+
   <div style="position: absolute; left: -1000px;">
     <img src="images/blank.gif" />
     <img src="images/spinner.gif" />
@@ -141,7 +151,6 @@
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyClCA1LViYi4KLQfgMlfr3PS0tyxwqzYjA&sensor=false">
   </script>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-  
 
   <meta name="twitter:widgets:csp" content="on">
   <script src="//platform.twitter.com/widgets.js"></script>
@@ -149,6 +158,7 @@
   <!-- <script src="nyc-lat-lons-ny.js"></script> -->
   <script src="http://oldnyc.github.io/lat-lon-counts.js"></script>
 
+  <script src="js/map-styles.js"></script>
   <script src="js/popular-photos.js"></script>
   <script src="js/url-state.js"></script>
   <script src="js/photo-info.js"></script>

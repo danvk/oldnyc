@@ -113,7 +113,7 @@ h2 a {
   border-left: none;
 }
 
-#curtains {
+.curtains {
   position: fixed;
   left: 0;
   top: 0;
@@ -143,7 +143,7 @@ h2 a {
   padding-top: 0px;
 }
 
-#exit-slideshow {
+div.exit {
   position: fixed;
   top: 10px;
   right: 10px;
@@ -154,7 +154,7 @@ h2 a {
   color: white;
   cursor: pointer;
 }
-#exit-slideshow:hover {
+div.exit:hover {
   color: gray;
 }
 
@@ -261,9 +261,10 @@ h2 a {
 
 #content-area {
   font: 1em;
-  width: 960px;
+  max-width: 960px;
   margin: 0 auto;
   margin-bottom: 50px;
+  padding: 0 20px;
 }
 #content-area h3{
   padding: 0;
@@ -402,4 +403,22 @@ h2 a {
 
 #popular .close:hover {
   color: gray;
+}
+
+#about-page {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+#about-page .container {
+  background: #fff;
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  width: 100%;
+  max-width: 960px;
+  margin-left: -480px;
+  bottom: 20px;
 }
