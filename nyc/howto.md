@@ -19,7 +19,7 @@ Note: this doesn't actually run AppEngine, just a hacked up local server that em
 
 ## Push a new version to App Engine
 
-Change "version" in viewer/app.yaml to match today's date. Then, from the "viewer directory" run:
+Change `version` in viewer/app.yaml to match today's date. Then, from the `viewer` directory run:
 
     appcfg.py --email danvdk@gmail.com update .
 
