@@ -351,7 +351,7 @@ function fillPhotoPane(photo_id, $pane) {
       $pane.find('.tweet').get(0), {
         count: 'none',
         text: info.title + ' - ' + info.date,
-        via: 'Old_NYC'
+        via: 'Old_NYC @NYPL'
       });
 
   var $fb_holder = $pane.find('.facebook-holder');
