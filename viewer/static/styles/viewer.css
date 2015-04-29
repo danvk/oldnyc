@@ -61,10 +61,9 @@ h2 a {
   left: 10px;
   top: 10px;
   background-color: #fff;
+  box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.75);
 }
 .logo .wrapper {
-  /* font-family: 'Adobe Garamond Pro', 'Times New Roman', Times, serif; */
-  font-family: 'Helvetica Neue Light', 'Helvetica', sans-serif;
   font-size: 1.2em;
   padding: 10px;
 }
@@ -230,12 +229,12 @@ h2 a {
 /* Popular Photos */
 #popular, .popular-link {
   position: absolute;
-  top: 61px;
+  top: 71px;
   width: 213px;
   right: 10px;
-  background: lightgray;
+  background: #eee;
   padding: 0 10px;
-  box-shadow: 0px 4px 4px -1px rgba(50, 50, 50, 0.75);
+  box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.75);
 }
 
 #popular {
