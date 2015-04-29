@@ -8,6 +8,8 @@ import json
 import record
 import re
 
+from ocr import cleaner
+
 # strip leading 'var popular_photos = ' and trailing ';'
 popular_photos = json.loads(open('viewer/static/js/popular-photos.js', 'rb').read()[20:-2])
 pop_ids = {x['id'] for x in popular_photos}
@@ -24,6 +26,8 @@ for photo_id, width, height in csv.reader(open('nyc-image-sizes.txt')):
 
 # ocr.json maps "12345b" -> text. We need photo id -> text.
 back_id_to_text = json.load(open('ocr/ocr.json', 'rb'))
+for k, txt in back_id_to_text.iteritems():
+    back_id_to_text[k] = cleaner.clean(txt)
 id_to_text = {}
 for photo_id in id_to_record.iterkeys():
     back_id = 'book' + re.sub(r'f?(?:-[a-z])?$', 'b', photo_id)
