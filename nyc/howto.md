@@ -25,6 +25,21 @@ Change "version" in viewer/app.yaml to match today's date. Then, from the "viewe
 
 Visit appengine.google.com and make the new version the default.
 
+
+## Update the data
+
+Data (lat/lon→image lists, image metadata), is hosted on GitHub pages. To
+update this, run something like this sequence:
+
+    cd ..
+    git clone https://github.com/oldnyc/oldnyc.github.io.git
+    cd ../oldnyc
+    ./generate_static_site.py
+    cd ../oldnyc.github.io
+    git add .
+    git commit -a -m 'Update site'
+    git push
+
 ## Iterate on geocoding
 It's easiest to do this by iterating on the records.pickle file, which has one
 entry per milstein card, rather than one entry per photo.
