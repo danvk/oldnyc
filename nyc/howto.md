@@ -40,6 +40,11 @@ update this, run something like this sequence:
     git commit -a -m 'Update site'
     git push
 
+## Update the JavaScript bundle
+
+    cd viewer/static/js
+    cat $(cat files.txt) > bundle.js
+
 ## Iterate on geocoding
 It's easiest to do this by iterating on the records.pickle file, which has one
 entry per milstein card, rather than one entry per photo.
