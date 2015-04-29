@@ -335,7 +335,7 @@ function setCookie(name, value) {
 
 $(function() {
   // Clicks on the background or "exit" button should leave the slideshow.
-  $(document).on('click', '#curtains, .exit', function() {
+  $(document).on('click', '#expanded .curtains, .exit', function() {
     hideExpanded();
     $(window).trigger('hideGrid');
   });
