@@ -6,113 +6,6 @@ var selected_marker, selected_icon;
 var map;
 var start_date = 1850;
 var end_date = 2000;
-var mapstyle = [
-    // to remove buildings
-    {"stylers": [ {"visibility": "off" } ] },
-    {"featureType": "water","stylers": [{"visibility": "simplified"} ] },
-    {"featureType": "poi","stylers": [ {"visibility": "simplified"} ]},
-    {"featureType": "transit","stylers": [{ "visibility": "off"}] },
-    { "featureType": "landscape","stylers": [ { "visibility": "simplified" } ] },
-    { "featureType": "road", "stylers": [{ "visibility": "simplified" } ] },
-    { "featureType": "administrative",  "stylers": [{ "visibility": "simplified" } ] },
-    // end remove buildings
-    {
-        "featureType": "administrative",
-        "elementType": "labels",
-        "stylers": [
-            {
-                "visibility": "off"
-            }
-        ]
-    },
-    {
-        "featureType": "administrative.country",
-        "elementType": "geometry.stroke",
-        "stylers": [
-            {
-                "visibility": "off"
-            }
-        ]
-    },
-    {
-        "featureType": "administrative.province",
-        "elementType": "geometry.stroke",
-        "stylers": [
-            {
-                "visibility": "off"
-            }
-        ]
-    },
-    {
-        "featureType": "landscape",
-        "elementType": "geometry",
-        "stylers": [
-            {
-                "visibility": "on"
-            },
-            {
-                "color": "#e3e3e3"
-            }
-        ]
-    },
-    {
-        "featureType": "landscape.natural",
-        "elementType": "labels",
-        "stylers": [
-            {
-                "visibility": "off"
-            }
-        ]
-    },
-    {
-        "featureType": "poi",
-        "elementType": "all",
-        "stylers": [
-            {
-                "visibility": "off"
-            }
-        ]
-    },
-    {
-        "featureType": "road",
-        "elementType": "all",
-        "stylers": [
-            {
-                "color": "#cccccc"
-            }
-        ]
-    },
-    {
-        "featureType": "water",
-        "elementType": "geometry",
-        "stylers": [
-            {
-                "color": "#FFFFFF"
-            }
-        ]
-    },
-    {
-        "featureType": "road",
-        "elementType": "labels",
-        "stylers": [
-            {
-                "color": "#94989C"
-            },
-            {
-                "visibility": "simplified"
-            }
-        ]
-    },
-    {
-        "featureType": "water",
-        "elementType": "labels",
-        "stylers": [
-            {
-                "visibility": "off"
-            }
-        ]
-    }
-];
 
 var mapPromise = $.Deferred();
 
@@ -126,9 +19,7 @@ function expandedImageUrl(photo_id) {
 
 // lat_lon is a "lat,lon" string.
 function makeStaticMapsUrl(lat_lon) {
-  var style = buildStaticStyle(mapstyle);
-  url = 'http://maps.googleapis.com/maps/api/staticmap?center=' + lat_lon + '&zoom=15&size=150x150&maptype=roadmap&markers=color:red%7C' + lat_lon + '&style=' + style;
-  console.log(url);
+  url = 'http://maps.googleapis.com/maps/api/staticmap?center=' + lat_lon + '&zoom=15&size=150x150&maptype=roadmap&markers=color:red%7C' + lat_lon + '&style=' + STATIC_MAP_STYLE;
   return url;
 }
 
@@ -191,7 +82,7 @@ function initialize_map() {
     zoomControlOptions: {
       position: google.maps.ControlPosition.LEFT_TOP
     },
-    styles: mapstyle
+    styles: MAP_STYLE
   };
   
   map = new google.maps.Map($('#map').get(0), opts);
@@ -432,26 +323,6 @@ function sendFeedback(photo_id, feedback_obj) {
   }).fail(function() {
     console.warn('Unable to send feedback on', photo_id)
   });
-}
-
-function buildStaticStyle(styleStruct) {
-  var style = "";
-  for(var i=0;i<mapstyle.length;i++){
-    s = mapstyle[i];
-    strs = [];
-    if (s.featureType != null) strs.push( "feature:" + s.featureType );
-    if (s.elementType != null) strs.push( "element:" + s.elementType );
-    if (s.stylers != null) {
-      for (var j=0;j<s.stylers.length;j++) {
-        for (var key in s.stylers[j]){
-          strs.push( key + ":" + s.stylers[j][key].replace(/#/, '0x') );
-        }
-      }
-    }
-    var str = "&style=" + strs.join("%7C");
-    style += str;
-  }
-  return style;
 }
 
 $(function() {
