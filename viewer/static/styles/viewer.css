@@ -58,32 +58,27 @@ h2 a {
 }
 .logo {
   position: absolute;
-  left: 40px;
+  left: 10px;
   top: 10px;
-  width: 420px;
   background-color: #fff;
 }
 .logo .wrapper {
-  padding: 11px;
-  font-family: 'Adobe Garamond Pro', 'Times New Roman', Times, serif;
-  font-size: 1.5em;
-  padding: 12px 12px 2px;
+  /* font-family: 'Adobe Garamond Pro', 'Times New Roman', Times, serif; */
+  font-family: 'Helvetica Neue Light', 'Helvetica', sans-serif;
+  font-size: 1.2em;
+  padding: 10px;
 }
 
 .logo a {
   font-size: 2em;
   color: #111;
   line-height: 1em;
-  display: block;
-  float: left;
-  width: 140px;
+  display: inline-block;
 }
 
 .logo .slogan {
-  display: block;
-  margin: 0 10px;
-  float: left;
-  width: 230px;
+  display: inline-block;
+  margin-left: 10px;
   font-size: 0.85em;
   line-height: 1em;
 }
