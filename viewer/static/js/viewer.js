@@ -325,6 +325,14 @@ function sendFeedback(photo_id, feedback_obj) {
   });
 }
 
+function deleteCookie(name) {
+  document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+}
+
+function setCookie(name, value) {
+  document.cookie = name + "=" + value + "; path=/";
+}
+
 $(function() {
   // Clicks on the background or "exit" button should leave the slideshow.
   $(document).on('click', '#curtains, .exit', function() {
@@ -413,15 +421,15 @@ $(function() {
 
   // Show/hide popular images
   $('#popular .close').on('click', function() {
-    document.cookie = 'nopop';
+    setCookie('nopop', '1');
     hidePopular();
   });
   $('.popular-link a').on('click', function(e) {
     showPopular();
-    document.cookie = '';
+    deleteCookie('nopop');
     e.preventDefault();
   });
-  if (document.cookie.indexOf('nopop') >= 0) {
+  if (document.cookie.indexOf('nopop=') >= 0) {
     hidePopular();
   }
 
