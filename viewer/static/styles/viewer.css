@@ -185,6 +185,9 @@ div.exit:hover {
 .og-fullimg {
   width: 60%;
 }
+.og-fullimg > img {
+  transition: transform 200ms;
+}
 
 #preview-map {
   width: 150px;
@@ -281,9 +284,10 @@ div.exit:hover {
 }
 
 /* image grid */
-.rotate-image-button{
-  font-family: Helvetica, sans-serif;
-  font-size: 100%;
+.rotate {
+  position: absolute;
+  bottom: 0;
+  right: 0;
 }
 .feedback-button {
   margin-left: 10px;

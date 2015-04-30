@@ -89,7 +89,6 @@
   <div id="image-details-template" style="display: none;">
     <div class="details">
       <div class="description"></div>
-      <a href='#' class="rotate-image-button">Rotate</a>
       <a href='#' class="feedback-button">Feedback on this photo</a>
 
       <div class="text"></div>
@@ -128,6 +127,12 @@
     </div>
   </div>
 
+  <div id="image-details-left-template" class="rotate" style="display: none;">
+    <a href='#' class="rotate-image-button">
+      <img src="/images/rotate.png" width="29" height="29" />
+    </a>
+  </div>
+
   <!-- About Page -->
   <div id="about-page" style="display: none;">
     <div class="curtains"></div>
@@ -159,7 +164,6 @@
   <script src="http://oldnyc.github.io/lat-lon-counts.js"></script>
 
   <!-- Drop the bundle & uncomment the individual files for development -->
-  <!--
   <script src="js/map-styles.js"></script>
   <script src="js/popular-photos.js"></script>
   <script src="js/url-state.js"></script>
@@ -171,8 +175,9 @@
   <script src="js/modernizr.custom.js"></script>
   <script src="js/jquery.appear.js"></script>
   <script src="js/grid.js"></script>
-  -->
+  <!--
   <script src="js/bundle.js"></script>
+  -->
   <script>
     $(function() {
       fillPopularImagesPanel();
