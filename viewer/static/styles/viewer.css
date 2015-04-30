@@ -289,27 +289,35 @@ div.exit:hover {
   bottom: 0;
   right: 0;
 }
-.feedback-button {
-  margin-left: 10px;
-  padding-left: 10px;
-  border-left: 1px solid #777;
-}
-
-.comments{
-  margin-top: 10px !important;
-}
 
 .description{
-  font-size: 150%;
+  font-weight: bold;
+  font-size: 28px;
+  /*
   line-height: 125%;
   font-weight: bold;
   margin-bottom: 1px !important;
+  */
 }
 
 .text {
   margin: 20px 0;
-  font-size: 1.3em;
+  font-size: 18px;
   white-space: pre-line;
+}
+
+.more-on-back {
+  margin: 20px 0;
+  font-size: 18px;
+}
+
+.feedback-link {
+  margin: 20px 0;
+  font-size: 14px;
+}
+
+.comments{
+  margin-top: 10px !important;
 }
 
 .og-grid li {
@@ -334,6 +342,7 @@ div.exit:hover {
 
 .share {
   padding-top: 3px;
+  display: inline-block;
 }
 
 .email-share-form {
