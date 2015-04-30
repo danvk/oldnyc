@@ -399,7 +399,7 @@ var Grid = function() {
           if ($img.attr('src') === self.$item.children('a').data('largesrc')) {
             var $fullimage = self.$fullimage;
             self.$loading.hide();
-            $fullimage.find('img').remove();
+            $fullimage.find('.og-loading img').remove();
             self.$largeImg = $img.fadeIn(settings.speed);
             $fullimage.append([
                 self.$largeImg,

@@ -41,7 +41,7 @@ function infoForPhotoId(photo_id) {
 // Would it make more sense to incorporate these into infoForPhotoId?
 function descriptionForPhotoId(photo_id) {
   var info = infoForPhotoId(photo_id);
-  return info.title + '<br/>' + info.date;
+  return info.title + ' ' + info.date;
 }
 
 function libraryUrlForPhotoId(photo_id) {

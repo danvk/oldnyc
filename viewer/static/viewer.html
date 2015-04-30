@@ -89,12 +89,10 @@
   <div id="image-details-template" style="display: none;">
     <div class="details">
       <div class="description"></div>
-      <a href='#' class="rotate-image-button">Rotate</a>
-      <a href='#' class="feedback-button">Feedback on this photo</a>
-
       <div class="text"></div>
+      <div class="more-on-back"><a target="_blank" href="">View the back of the photo</a>.</div>
 
-      <div class="more-on-back">Read a description on the <a target="_blank" href="">back of the photo</a>.</div>
+      <div class="feedback-link">Typos? Errors? <a href='#' class="feedback-button">Send feedback</a></div>
 
       <div class="social">
         <div class="email-share-form" style="display:none">
@@ -126,6 +124,12 @@
       <button feedback-param=true feedback="transcription">Submit</button>
       </p>
     </div>
+  </div>
+
+  <div id="image-details-left-template" class="rotate" style="display: none;">
+    <a href='#' class="rotate-image-button">
+      <img src="/images/rotate.png" width="29" height="29" />
+    </a>
   </div>
 
   <!-- About Page -->

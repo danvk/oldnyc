@@ -289,7 +289,7 @@ function infoForPhotoId(photo_id) {
 // Would it make more sense to incorporate these into infoForPhotoId?
 function descriptionForPhotoId(photo_id) {
   var info = infoForPhotoId(photo_id);
-  return info.title + '<br/>' + info.date;
+  return info.title + ' ' + info.date;
 }
 
 function libraryUrlForPhotoId(photo_id) {
@@ -692,19 +692,22 @@ $(function() {
         $('#image-details-template').clone().removeAttr('id').show());
     fillPhotoPane(id, $(div));
 
+    $(div).parent().find('.og-details-left').empty().append(
+        $('#image-details-left-template').clone().removeAttr('id').show());
+
     var g = $('#expanded').data('grid-key');
     if (g == 'pop') {
       updateStaticMapsUrl(id);
     }
   })
-  .on('click', '.og-fullimg img', function() {
+  .on('click', '.og-fullimg > img', function() {
     var photo_id = $('#grid-container').expandableGrid('selectedId');
     window.open(libraryUrlForPhotoId(photo_id), '_blank');
   });
 
   $('#grid-container').on('click', '.rotate-image-button', function(e) {
     e.preventDefault();
-    var $img = $(this).closest('li').find('.og-fullimg img');
+    var $img = $(this).closest('li').find('.og-fullimg > img');
     var currentRotation = $img.data('rotate') || 0;
     currentRotation += 90;
     $img
@@ -1620,7 +1623,7 @@ var Grid = function() {
           if ($img.attr('src') === self.$item.children('a').data('largesrc')) {
             var $fullimage = self.$fullimage;
             self.$loading.hide();
-            $fullimage.find('img').remove();
+            $fullimage.find('.og-loading img').remove();
             self.$largeImg = $img.fadeIn(settings.speed);
             $fullimage.append([
                 self.$largeImg,
