@@ -333,11 +333,11 @@ var end_date = 2000;
 var mapPromise = $.Deferred();
 
 function thumbnailImageUrl(photo_id) {
-  return 'http://images.oldnyc.org/thumb/' + photo_id + '.jpg';
+  return 'http://oldnyc-assets.nypl.org/thumb/' + photo_id + '.jpg';
 }
 
 function expandedImageUrl(photo_id) {
-  return 'http://images.oldnyc.org/600px/' + photo_id + '.jpg';
+  return 'http://oldnyc-assets.nypl.org/600px/' + photo_id + '.jpg';
 }
 
 // lat_lon is a "lat,lon" string.
