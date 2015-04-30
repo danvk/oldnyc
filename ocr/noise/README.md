@@ -33,6 +33,9 @@ E5 2  w. wJ
 2N48wwww--
 7: N6e -e
 
+3 7:8:\ne2E\nH\nW b)1\na. 2E\nSpge  Hf ewhi\ns2  ed tb\norN:\nE w4 N\n' -\nL.. 6h  Eo  w 1\nsg  BN..\nM 0:\nr8 o 44\ne~w\nEPa\nNzw. d\nS E 2\nE o\nE P I\ntw W N\n- pE\nMw hi ct\nt cw 0\nrrR\ng's\ng: Mf nn.\nEY k-\nBs\nE.E\n8ac3\nS y aE\ni oo w\ng ~\nNs\nS\nEa:\n
+Ee3R:EEfSPE1T3S1  ..NS~SSpEz2M228260--\n90SP17\nCac V0gE\nCabe.e. 2-( eeATY 2A /~ J~\nNeg. ~ SO21
+
 
 Upside-down:
 
