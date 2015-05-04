@@ -43,7 +43,7 @@ function descriptionForPhotoId(photo_id) {
   var info = infoForPhotoId(photo_id);
   var desc = info.title;
   if (desc) desc += ' ';
-  var date = info.date.replace(/n\.d\./, 'No Date');
+  var date = info.date.replace(/n\.d\.?/, 'No Date');
   if (!date) date = 'No Date';
   desc += date;
   return desc;

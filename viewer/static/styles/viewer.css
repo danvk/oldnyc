@@ -40,12 +40,6 @@ h2 a {
   bottom: 0px;
 }
 
-/*
-.boxed {
-  box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.75);
-}
-*/
-
 #about {
   font-size: 1.1em;
   width: 38px;
@@ -96,10 +90,8 @@ h2 a {
   position: absolute;
   top: 10px;
   left: 300px;
-  /* width: 300px; */
   padding: 15px;
   padding-bottom: 12px;
-  /* background: #eee; */
 }
 
 .header .social-about > div {
@@ -300,11 +292,6 @@ div.exit:hover {
 .description{
   font-weight: bold;
   font-size: 20px;
-  /*
-  line-height: 125%;
-  font-weight: bold;
-  margin-bottom: 1px !important;
-  */
 }
 
 

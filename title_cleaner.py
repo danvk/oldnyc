@@ -7,8 +7,6 @@ Manhattan: 8th Avenue - 24th Street (West)
 import fileinput
 import re
 
-from coders import milstein
-
 boros = r'(?:New York|Manhattan|Brooklyn|Bronx|Queens|Staten Island|Richmond)'
 streets = r'(?:St\.|Street|Place|Pl\.|Road|Rd\.|Avenue|Ave\.|Av\.|Boulevard|Blvd\.?|Broadway|Parkway|Pkwy\.?|Pky\.?|Street \(West\)|Street \(East\)|Drive|Lane)'
 
