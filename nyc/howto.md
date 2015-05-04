@@ -42,8 +42,7 @@ update this, run something like this sequence:
 
 ## Update the JavaScript bundle
 
-    cd viewer/static/js
-    cat $(cat files.txt) > bundle.js
+    ./update-js-bundle.sh
 
 ## Iterate on geocoding
 It's easiest to do this by iterating on the records.pickle file, which has one
