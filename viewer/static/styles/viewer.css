@@ -40,10 +40,6 @@ h2 a {
   bottom: 0px;
 }
 
-.boxed {
-  box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.75);
-}
-
 #about {
   font-size: 1.1em;
   width: 38px;
@@ -76,6 +72,7 @@ h2 a {
 }
 
 .logo a {
+  font-family: Georgia, serif;
   font-size: 2em;
   color: #111;
   line-height: 1em;
@@ -86,17 +83,15 @@ h2 a {
   display: inline-block;
   margin-left: 10px;
   font-size: 0.85em;
-  line-height: 1em;
+  line-height: 1.2em;
 }
 
 .header .social-about {
   position: absolute;
   top: 10px;
-  right: 10px;
-  /* width: 300px; */
+  left: 300px;
   padding: 15px;
   padding-bottom: 12px;
-  background: #eee;
 }
 
 .header .social-about > div {
@@ -241,7 +236,7 @@ div.exit:hover {
 /* Popular Photos */
 #popular, .popular-link {
   position: absolute;
-  top: 71px;
+  top: 10px;
   width: 213px;
   right: 10px;
   background: #eee;
@@ -251,6 +246,10 @@ div.exit:hover {
 #popular {
   overflow-y: scroll;
   bottom: 30px;
+}
+
+#popular h2, .popular-link h2 {
+  font-size: 16px;
 }
 
 .popular-photo {
@@ -292,23 +291,21 @@ div.exit:hover {
 
 .description{
   font-weight: bold;
-  font-size: 28px;
-  /*
-  line-height: 125%;
-  font-weight: bold;
-  margin-bottom: 1px !important;
-  */
+  font-size: 20px;
 }
+
 
 .text {
   margin: 20px 0;
-  font-size: 18px;
+  margin-top: 10px;
+  padding-right: 30px;
+  font-size: 16px;
   white-space: pre-line;
 }
 
 .more-on-back {
-  margin: 20px 0;
-  font-size: 18px;
+  margin: 10px 0;
+  font-size: 16px;
 }
 
 .feedback-link {
