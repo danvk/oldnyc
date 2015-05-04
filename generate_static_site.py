@@ -9,6 +9,7 @@ import record
 import re
 
 from ocr import cleaner
+import title_cleaner
 
 # strip leading 'var popular_photos = ' and trailing ';'
 popular_photos = json.loads(open('viewer/static/js/popular-photos.js', 'rb').read()[20:-2])
@@ -50,14 +51,14 @@ def make_response(photo_ids):
         w, h = id_to_dims[photo_id]
         ocr_text = id_to_text.get(photo_id)
 
-        # copied from viewer/app.py
-        title = r.title()
-        if r.description():
-          title += '; ' + r.description()
-        if r.note():
-          title += '; ' + r.note()
+        # See also viewer/app.py
+        title = decode(r.title())
+        if title_cleaner.is_pure_location(title):
+            title = ''
+        assert r.description() == ''
+        assert r.note() == ''
         response[photo_id] = {
-          'title': decode(title),
+          'title': title,
           'date': re.sub(r'\s+', ' ', r.date()),
           'folder': decode(r.location()),
           'width': w,
@@ -82,7 +83,6 @@ json.dump(make_response(pop_ids),
 
 with open('../oldnyc.github.io/lat-lon-counts.js', 'wb') as f:
     f.write('var lat_lons = %s;' % json.dumps(latlon_to_count, indent=2))
-
 
 for id4, id_to_latlon in id4_to_latlon.iteritems():
     json.dump(id_to_latlon,
