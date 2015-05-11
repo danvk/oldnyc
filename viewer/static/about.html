@@ -17,6 +17,13 @@
   ul {
     list-style: disc inside;
   }
+  li {
+    list-style-position: inside;
+  }
+  body {
+    font-size: 1em;
+    line-height: 1.4em;
+  }
   </style>
 
   <!-- Open all links in the top frame -->
@@ -53,11 +60,24 @@ discover the history behind the places you see every day.</p>
   &mdash; credit for that massive undertaking belongs entirely to the
   Library.</p>
 
+  <p>For more information about the collection, <a href="#photographic-views">see below</a>.</p>
+
   <h3>Who built this site?</h3>
   <p>The site was built by <a
   href="http://twitter.com/#!/danvdk">@danvdk</a>, with help from <a
   href="http://twitter.com/#!/ravejk">@ravejk</a> and <a href="https://twitter.com/mdezube">@mdezube</a>. Assistance from the library came from <a href="https://twitter.com/riordan">@riordan</a>, <a href="https://twitter.com/mattknutzen">@mattknutzen</a> and the whole <a href="https://twitter.com/nypl_labs">@nypl_labs</a> team.</p>
 
+  <h3>What's the story of this project?</h3>
+  <p>Several years ago, <a href="http://twitter.com/#!/danvdk">@danvdk</a>
+  created <a href="http://oldsf.org/">OldSF</a> using a collection of imagery
+  from the SFPL. What with the nature of engineering projects, by the time he
+  published it, he'd already moved from San Francisco to New York City.
+  Extending the project to his new home seemed like a great idea. He met with
+  <a href="https://twitter.com/mattknutzen">@mattknutzen</a>, who introduced
+  him to the Milstein collection. It seemed like a perfect fit! After about 18
+  months of on-again off-again effort, the site was ready for launch.</p>
+
+  <a href="/#711343f-a"><div class="google-building"></div></a>
   <h3>What did this site do?</h3>
   <p>The creators of this site associated <a
   href="http://en.wikipedia.org/wiki/Latitude">latitudes</a> and <a
@@ -69,37 +89,45 @@ discover the history behind the places you see every day.</p>
 
   <p>They also detected individual photos on the original Milstein scans and
   extracted them. This reduced the appearance of large borders or multiple
-  small images. You can read more about this process <a
-  href="http://www.danvk.org/wp/2013-02-09/finding-pictures-in-pictures/">here</a>
-and <a
-href="http://www.danvk.org/wp/2013-04-20/generating-training-data/">here</a>.</p>
+  small images. You can read more about this process in these blog posts:</p>
+  
+  <ol>
+    <li><a href="http://www.danvk.org/wp/2013-02-09/finding-pictures-in-pictures/">Finding Pictures in Pictures</a>
+    <li><a href="http://www.danvk.org/wp/2013-04-20/generating-training-data/">Generating Training Data</a>
+  </ol>
 
+  <p>The reverse side of the photographs often contains typewritten text, and this had to be <a href="http://en.wikipedia.org/wiki/Optical_character_recognition">OCR'd</a> to be incorporated into OldNYC. This was done using a custom-trained <a href="https://github.com/tmbdev/ocropy">Ocropus</a> model. You can read more about this in these three blog posts:</p>
 
-  <a href="/#711343f-a"><div class="google-building"></div></a>
-  <h3>What's the story of this project?</h3>
-  <p>Several years ago, <a href="http://twitter.com/#!/danvdk">@danvdk</a>
-  created <a href="http://oldsf.org/">OldSF</a> using a collection of imagery
-  from the SFPL. What with the nature of engineering projects, by the time he
-  published it, he'd already moved from San Francisco to New York City.
-  Extending the project to his new home seemed like a great idea. He met with
-  <a href="https://twitter.com/mattknutzen">@mattknutzen</a>, who introduced
-  him to the Milstein collection. It seemed like a perfect fit! After about 18
-  months of on-again off-again effort, the site was ready for launch.</p>
+  <ol>
+    <li><a href="http://www.danvk.org/2015/01/07/finding-blocks-of-text-in-an-image-using-python-opencv-and-numpy.html">Finding blocks of text in an image using Python, OpenCV and numpy</a>
+    <li><a href="http://www.danvk.org/2015/01/09/extracting-text-from-an-image-using-ocropus.html">Extracting text from an image using Ocropus</a>
+    <li><a href="http://www.danvk.org/2015/01/11/training-an-ocropus-ocr-model.html">Training an Ocropus OCR model</a>
+  </ol>
+
 
   <h3>How can you help?</h3>
   <p>Please:</p>
   <ul>
-    <li>Like or Tweet the photos you enjoy. This helps us find the best
-  photos.
-    <li>Leave comments on the photos from your area telling us what's
-  there now, what's changed, and what's stayed the same. These comments will enrich the site for everyone.
-    <li>Transcribe text on "the back of the image" and leave it in a comment when you see these links.
-    <li>Click that "rotate" link when you see rotated images.  It will help us
-      fix these glitches in the future.
+    <li>Like or Tweet the photos you enjoy. This helps us find the best photos.
+    <li>Leave comments on the photos from your area telling us what's there now, what's changed, and what's stayed the same. These comments will enrich the site for everyone.
+    <li>Improve the transcribed text from the back of photos (click the "Improve this transcription").
+    <li>Click that "rotate" link when you see rotated images.  It will help us fix these glitches in the future.
   </ul>
 
   <p>If you're more technically minded, you can find the source code for Old
   NYC <a href="http://github.com/danvk/sfhistory">on github</a>.</p>
+
+  <h3 id="photographic-views">Photographic Views of New York City, 1870s-1970s</h3>
+
+  <p>This collection of over 80,000? original photographs (and their captioned versos) of New York City from around the 1870s to 1970 is the most outstanding resource in the New York Public Library’s Irma and Paul Milstein Division of United States History, Local History and Genealogy.</p>
+
+  <h4>Collection History</h4>
+
+  <p>The New York City photograph collection began in the 1920s, not long after the opening of the new central library at Fifth Avenue and 42nd Street. The goal was to document the changing face of New York City, with a particular emphasis on new building construction, and on the structures torn down and replaced. The method is clear in this 1937 progress report by librarian Sylvester L. Vigilante on obtaining photographs: "The old Union League Building and site was taken care of and the erection of the new building is being covered.... Through the newspapers and tips from interested people, we get a line on demolitions, events and street changes."</p>
+
+  <p>Historical photographs complemented contemporary images, as the collection continued to grow systematically through commissioned photographs, purchases, and gifts into the early 1970s. The original photographs in the collection are mounted on heavy paper with identifying address information. Extensive captions are provided on the reverse.</p>
+
+  <p>Among the well-known photographers represented are Berenice Abbott, Alexander Alland, A. Tennyson Beals and his wife Jessie Tarbox Beals, Ewing Galloway, Samuel H. Gottscho, Fay Sturtevant Lincoln, and Irving Underhill, as well as photo agencies such as Brown Brothers, Culver Service, International Photos, Underwood and Underwood, and Wurtz Brothers. In addition, a Staten Island-based commercial photographer, Percy Loomis Sperr (1890-1964), working under contract and directed by Library staff, produced nearly 30,000 of the collection's photographs to document changes in the City from the late 1920s to the early 1940s.</p>
 
 </div>
 
