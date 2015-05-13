@@ -1029,8 +1029,8 @@ function trackAnalyticsPageView() {
   ga('send', 'pageview', { 'page': url });
 }
 
-// var LOG_HISTORY_EVENTS = false;
-var LOG_HISTORY_EVENTS = true;
+var LOG_HISTORY_EVENTS = false;
+// var LOG_HISTORY_EVENTS = true;
 
 $(function() {
   // Relevant UI methods:
@@ -1728,7 +1728,8 @@ var Grid = function() {
       }
 
       this.previewHeight = previewHeight;  // this.$item.data('eg-height');  // height of image
-      this.itemHeight = scrollParentHeight - 40;
+
+      this.itemHeight = previewHeight + thumbnailHeight + 10;
     },
 
     setHeights: function() {
