@@ -499,7 +499,8 @@ var Grid = function() {
       }
 
       this.previewHeight = previewHeight;  // this.$item.data('eg-height');  // height of image
-      this.itemHeight = scrollParentHeight - 40;
+
+      this.itemHeight = previewHeight + thumbnailHeight + 10;
     },
 
     setHeights: function() {
