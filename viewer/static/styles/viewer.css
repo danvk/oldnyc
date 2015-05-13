@@ -23,7 +23,7 @@ h2 a {
   color: #111;
 }
 .header {
-  position: fixed;
+  position: absolute;
   top: 0px;
   left: 0px;
   right: 0px;
