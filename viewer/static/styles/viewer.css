@@ -363,7 +363,8 @@ div.exit:hover {
 .og-details .tweet, .og-details .facebook-holder {
   display: inline-block;
   vertical-align: top;
-  height: 23px;
+  height: 20px;
+  overflow: hidden;  /* this hides the "Like" flyout */
 }
 .og-details .social, .more-on-back {
   margin: 10px 0;
