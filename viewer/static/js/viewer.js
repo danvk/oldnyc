@@ -7,6 +7,8 @@ var map;
 var start_date = 1850;
 var end_date = 2000;
 
+var FEEDBACK_URL = 'http://www.oldnyc.org/rec_feedback';
+
 var mapPromise = $.Deferred();
 
 function thumbnailImageUrl(photo_id) {
@@ -333,7 +335,7 @@ function hideAbout() {
 
 function sendFeedback(photo_id, feedback_obj) {
   ga('send', 'event', 'link', 'feedback', { 'page': '/#' + photo_id });
-  return $.ajax('/rec_feedback', {
+  return $.ajax(FEEDBACK_URL, {
     data: { 'id': photo_id, 'feedback': JSON.stringify(feedback_obj) },
     method: 'post'
   }).fail(function() {

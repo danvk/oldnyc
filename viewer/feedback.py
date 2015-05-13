@@ -21,6 +21,13 @@ COOKIE_NAME = 'feedback_cookie'
 
 
 class RecordFeedback(webapp2.RequestHandler):
+    def options(self):
+        r = self.response
+        r.headers.add_header('Access-Control-Allow-Origin', '*')
+        r.headers.add_header('Access-Control-Allow-Methods',
+                             'GET, POST, OPTIONS')
+        r.out.write('OK')
+
     def post(self):
         self.get()
 

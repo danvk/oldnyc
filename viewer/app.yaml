@@ -1,6 +1,6 @@
 application: old-nyc
 
-version: 2015-05-11
+version: 2015-05-13
 runtime: python27
 threadsafe: true
 
@@ -15,6 +15,8 @@ handlers:
 - url: /about
   static_files: static/about.html
   upload: static/about.html
+- url: /rec_feedback
+  script: app.app
 
 - url: /upload
   script: app.app
