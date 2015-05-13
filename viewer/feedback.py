@@ -15,6 +15,7 @@ class UserFeedback(db.Model):
     datetime = db.DateTimeProperty(auto_now_add=True)
     user_agent = db.TextProperty()
     location = db.TextProperty()
+    origin = db.StringProperty()
 
 COOKIE_NAME = 'feedback_cookie'
 
@@ -22,14 +23,15 @@ COOKIE_NAME = 'feedback_cookie'
 class RecordFeedback(webapp2.RequestHandler):
     def post(self):
         self.get()
-    
+
     def get(self):
+        self.response.headers.add_header('Access-Control-Allow-Origin', '*')
         cookie = None
         if not self.request.cookies.get(COOKIE_NAME):
             cookie = str(uuid.uuid4())
             expire_time = datetime.now() + timedelta(weeks=4)
             self.response.set_cookie(COOKIE_NAME, cookie, expires=expire_time, path='/')
-            
+
         else:
             cookie  = self.request.cookies[COOKIE_NAME]
 
@@ -44,6 +46,7 @@ class RecordFeedback(webapp2.RequestHandler):
         feedback.user_ip = self.request.remote_addr
         feedback.location = '-'.join([headers.get(x, '??') for x in [
             'X-AppEngine-Country', 'X-AppEngine-Region', 'X-AppEngine-City']])
+        feedback.origin = headers.get('Origin')
 
         feedback.put()
         self.response.out.write('OK')

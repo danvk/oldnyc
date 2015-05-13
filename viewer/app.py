@@ -223,7 +223,7 @@ app = webapp2.WSGIApplication(
                                #('/upload', UploadHandler),
                                #('/thumb.*', ThumbnailFetcher),
                                #('/addegg', AddEgg),
-                               #('/rec_feedback', feedback.RecordFeedback),
+                               ('/rec_feedback', feedback.RecordFeedback),
                                #('/clear_cookie', feedback.ClearCookie)
                                #('/adddims', AddDims),
                               ],
