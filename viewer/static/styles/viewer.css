@@ -48,11 +48,13 @@ h2 a {
   padding-top: 18px;
 }
 #about:hover{
-  background: #f6f6f6;
+  text-decoration: underline;
 }
 #about a, #about a:visited {
-  color: #111;
   display: block;
+  color: #404040;
+  font-weight: bold;
+  text-shadow: 0 1px 1px rgba(255,255,255,.9);
 }
 #facebook {
   width: 121px;
