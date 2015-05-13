@@ -244,7 +244,7 @@ function fillPhotoPane(photo_id, $pane) {
       document.location.href,
       $pane.find('.tweet').get(0), {
         count: 'none',
-        text: info.title + ' - ' + info.date,
+        text: (info.original_title || info.title) + ' - ' + info.date,
         via: 'Old_NYC @NYPL'
       });
 
