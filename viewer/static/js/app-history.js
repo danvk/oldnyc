@@ -11,8 +11,8 @@ function trackAnalyticsPageView() {
   ga('send', 'pageview', { 'page': url });
 }
 
-// var LOG_HISTORY_EVENTS = false;
-var LOG_HISTORY_EVENTS = true;
+var LOG_HISTORY_EVENTS = false;
+// var LOG_HISTORY_EVENTS = true;
 
 $(function() {
   // Relevant UI methods:
