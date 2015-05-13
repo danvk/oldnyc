@@ -53,7 +53,9 @@ def make_response(photo_ids):
 
         # See also viewer/app.py
         title = decode(r.title())
+        original_title = None
         if title_cleaner.is_pure_location(title):
+            original_title = title
             title = ''
         assert r.description() == ''
         assert r.note() == ''
@@ -65,6 +67,8 @@ def make_response(photo_ids):
           'height': h,
           'text': ocr_text
         }
+        if original_title:
+            response[photo_id]['original_title'] = original_title
     return response
 
 
