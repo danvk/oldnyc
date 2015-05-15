@@ -219,13 +219,7 @@ function fillPhotoPane(photo_id, $pane) {
 
   var canonicalUrl = getCanonicalUrlForPhoto(photo_id);
 
-  if (photo_id.match('[0-9]f')) {
-    $pane.find('.more-on-back > a').attr(
-        'href', backOfCardUrlForPhotoId(photo_id));
-    $pane.find('.more-on-back').show();
-  } else {
-    $pane.find('.more-on-back').hide();
-  }
+  $('.nypl-link > a', $pane).attr('href', libraryUrlForPhotoId(photo_id));
 
   // OCR'd text
   if (info.text) {
