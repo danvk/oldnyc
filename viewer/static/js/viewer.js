@@ -182,6 +182,7 @@ function showExpanded(key, photo_ids, opt_selected_id) {
   hideAbout();
   map.set('keyboardShortcuts', false);
   $('#expanded').show().data('grid-key', key);
+  $('.location').text(nameForLatLon(key));
   var images = $.map(photo_ids, function(photo_id, idx) {
     var info = infoForPhotoId(photo_id);
     return $.extend({

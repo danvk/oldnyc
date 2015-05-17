@@ -26,6 +26,9 @@ function loadInfoForLatLon(lat_lon) {
     for (var k in response_data) {
       photo_ids.push(k);
     }
+    if (lat_lon != 'pop') {
+      lat_lon_to_name[lat_lon] = extractName(response_data);
+    }
     return photo_ids;
   });
 }
@@ -55,4 +58,21 @@ function libraryUrlForPhotoId(photo_id) {
 
 function backOfCardUrlForPhotoId(photo_id) {
   return 'http://images.nypl.org/?id=' + photo_id.replace('f', 'b').replace(/-[a-z]$/, '') + '&t=w';
+}
+
+
+var lat_lon_to_name = {};
+
+// Does this lat_lon have a name, e.g. "Manhattan: 14th Street - 8th Avenue"?
+function nameForLatLon(lat_lon) {
+  var v = lat_lon_to_name[lat_lon] || '';
+  return v.replace(/: | - | & /g, '\n');
+}
+
+function extractName(lat_lon_json) {
+  // if any entries have an original_title, it's got to be a pure location.
+  for (var k in lat_lon_json) {
+    var v = lat_lon_json[k];
+    if (v.original_title) return v.original_title;
+  }
 }
