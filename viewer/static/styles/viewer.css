@@ -149,6 +149,14 @@ h2 a {
   padding-top: 0px;
 }
 
+#expanded-controls .location {
+  color: white;
+  font-size: 1.6em;
+  white-space: pre-line;
+  width: 150px;
+  margin-top: 5px;
+}
+
 div.exit {
   position: fixed;
   top: 10px;
