@@ -321,9 +321,18 @@ div.exit:hover {
   font-style: italic;
 }
 
-.feedback-link, .nypl-link {
+.feedback-link {
   margin: 20px 0;
   font-size: 14px;
+}
+
+.nypl-link {
+  font-style: italic;
+  font-size: 14px;
+  margin-top: 10px;
+}
+.nypl-link a {
+  color: rgb(87, 54, 25);
 }
 
 .comments{
@@ -351,8 +360,16 @@ div.exit:hover {
 }
 
 .share {
-  padding-top: 3px;
+  padding: 3px;
+  background: #eee;
+  border-radius: 3px;
+  font-size: 0.8em;
+  font-weight: bold;
   display: inline-block;
+  border: 1px solid #bbb;
+}
+.share a {
+  color: #333;
 }
 
 .email-share-form {
@@ -379,9 +396,6 @@ div.exit:hover {
 }
 .og-details .social, .more-on-back {
   margin: 10px 0;
-}
-.og-details .share {
-  padding-bottom: 5px;
 }
 .og-details > div {
   position: relative;
