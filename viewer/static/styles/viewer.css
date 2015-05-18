@@ -5,13 +5,23 @@ html, body {
 
 body {
   background-color: #fff;
-  font-family: 'Helvetica Neue','Helvetica','Arial',sans-serif;
-  font-size: 0.8em;
+  font-family: "rooney-sans", 'Helvetica Neue','Helvetica','Arial',sans-serif;
+  font-weight: 300;
+  /*font-size: 0.8em;*/
   text-rendering: optimizeLegibility;
   margin: 0;
 }
+
 a {
   text-decoration: none;
+}
+
+a:link {
+  color: #bd0712;
+}
+
+a:visited {
+  color: #90050E;
 }
 
 h2 {
@@ -69,12 +79,12 @@ h2 a {
   background-color: #fff;
 }
 .logo .wrapper {
-  font-size: 1.2em;
+  font-size: 1em;
   padding: 10px;
 }
 
 .logo a {
-  font-family: Georgia, serif;
+  font-family: Garamond, Georgia, serif;
   font-size: 2em;
   color: #111;
   line-height: 1em;
@@ -82,6 +92,7 @@ h2 a {
 }
 
 .logo .slogan {
+  font-family: Garamond, Georgia, serif;
   display: inline-block;
   margin-left: 10px;
   font-size: 0.85em;
@@ -259,7 +270,7 @@ div.exit:hover {
 }
 
 #popular h2, .popular-link h2 {
-  font-size: 16px;
+  font-size: 1.3em;
 }
 
 .popular-photo {
@@ -267,12 +278,14 @@ div.exit:hover {
 }
 .popular-photo p {
   margin: 0 auto;
+  font-size: 0.8em;
 }
 
 /* for "About" page */
 
 #title {
-  font-size: 24px;
+  font-weight: 800;
+  font-size: 2.4em;
   margin: 0;
   padding: 0;
   margin-top: 16px;
@@ -280,16 +293,44 @@ div.exit:hover {
 }
 
 #content-area {
-  font: 1em;
+  font: 1.2em;
   max-width: 960px;
   margin: 0 auto;
   margin-bottom: 50px;
   padding: 0 20px;
 }
-#content-area h3{
+
+#content-area h3 {
+  font-weight: 800;
   padding: 0;
   margin: 0;
   padding-top: 15px;
+}
+
+#content-area p, #content-area ul {
+  max-width: 450px;
+}
+
+#content-area li {
+  list-style-position: outside;
+}
+
+#content-area .image {
+  margin: 0px 0px 50px 50px;
+  float: right;
+  width: 60%;
+}
+
+#content-area .image img {
+  display: block;
+  width: 100%;
+}
+
+#content-area .google-building {
+  width: 100%;
+  height: 400px;
+  background: transparent url("http://oldnyc-assets.nypl.org/600px/711343f-a.jpg") no-repeat scroll 50% center / 160% auto;
+  border: 2px solid black;
 }
 
 /* image grid */
@@ -301,7 +342,8 @@ div.exit:hover {
 
 .description{
   font-weight: bold;
-  font-size: 20px;
+  font-size: 22px;
+  line-height: 22px;
 }
 
 
@@ -311,6 +353,13 @@ div.exit:hover {
   padding-right: 30px;
   font-size: 16px;
   white-space: pre-line;
+}
+
+.nypl-link {
+  margin: 20px 0;
+  font-size: 13px;
+  text-align: left;
+  width: 150px;
 }
 
 .more-on-back {
@@ -378,8 +427,18 @@ div.exit:hover {
   margin: 10px 0;
 }
 .og-details .share {
-  padding-bottom: 5px;
+  background: #bd0712;
+  padding: 2px 4px;
+  border-radius: 3px;
+  border: 1px solid #90050e;
+  font-size: .8em;
+  font-weight: 800;
 }
+
+.og-details .share a:link, .og-details .share a:visited {
+  color: white;
+}
+
 .og-details > div {
   position: relative;
 }
