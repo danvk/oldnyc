@@ -220,18 +220,36 @@ function fillPhotoPane(photo_id, $pane) {
 
   var canonicalUrl = getCanonicalUrlForPhoto(photo_id);
 
-  if (photo_id.match('[0-9]f')) {
-    $pane.find('.more-on-back > a').attr(
-        'href', backOfCardUrlForPhotoId(photo_id));
-    $pane.find('.more-on-back').show();
-  } else {
-    $pane.find('.more-on-back').hide();
-  }
+  var hasBack = photo_id.match('[0-9]f');
+  // if (hasBack) {
+  //   $pane.find('.more-on-back > a').attr(
+  //       'href', backOfCardUrlForPhotoId(photo_id));
+  //   $pane.find('.more-on-back').show();
+  // } else {
+  //   $pane.find('.more-on-back').hide();
+  // }
 
   // OCR'd text
+  var ocr_url = '/ocr.html#' + photo_id;
   if (info.text) {
-    $pane.find('.text').text(info.text);
+    var $text = $pane.find('.text');
+    $text.text(info.text.replace(/\n*$/, ''));
+    $text.append($('<i>&nbsp; &nbsp; Typos? Help <a target=_blank href>fix them</a>.</i>'));
+    $text.find('a').attr('href', ocr_url);
+  } else if (hasBack) {
+    var $more = $pane.find('.more-on-back');
+    $more.find('a.ocr-tool').attr('href', ocr_url);
+    $more.find('a.nypl').attr('href', libraryUrlForPhotoId(photo_id));
+    $more.show();
   }
+
+  /*
+  fg: 510d47dd-0618-a3d9-e040-e00a18064a99
+  bg: 510d47dd-0617-a3d9-e040-e00a18064a99
+
+  fg: http://digitalcollections.nypl.org/items/510d47dc-e46c-a3d9-e040-e00a18064a99
+  bg: http://digitalcollections.nypl.org/items/510d47dc-e46b-a3d9-e040-e00a18064a99
+  */
 
   var $comments = $pane.find('.comments');
   var width = $comments.parent().width();

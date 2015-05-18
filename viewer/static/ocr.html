@@ -108,9 +108,8 @@ function submit(feedback_obj) {
       // Go to another image at the same location.
       var next_id = next_image(id);
       var url = location.protocol + '//' + location.host + location.pathname +
-                '?thanks#' + next_id;
+                '?thanks&id=' + next_id + '#' + next_id;
       window.location = url;
-      window.location.reload();
     });
 }
 

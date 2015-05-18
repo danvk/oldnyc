@@ -305,20 +305,23 @@ div.exit:hover {
 }
 
 
-.text {
+.text,
+.more-on-back {
   margin: 20px 0;
   margin-top: 10px;
   padding-right: 30px;
   font-size: 16px;
+}
+
+.text {
   white-space: pre-line;
 }
 
 .more-on-back {
-  margin: 10px 0;
-  font-size: 16px;
+  font-style: italic;
 }
 
-.feedback-link {
+.feedback-link, .nypl-link {
   margin: 20px 0;
   font-size: 14px;
 }

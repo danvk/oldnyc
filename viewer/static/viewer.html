@@ -91,9 +91,16 @@
     <div class="details">
       <div class="description"></div>
       <div class="text"></div>
-      <div class="more-on-back"><a target="_blank" href="">View the back of the photo</a>.</div>
+      <div class="more-on-back" style="display:none">
+        There's no description available for this photo, but there may be some
+        text on the back of the image in the
+        <a class="nypl" href="/" target="_blank">NYPL Digital Collections</a>.
+        If so, you can help OldNYC by
+        <a class="ocr-tool" href="/" target="_blank">transcribing it</a>.
+      </div>
 
-      <div class="feedback-link">Typos? Errors? <a href='#' class="feedback-button">Send feedback</a></div>
+      <div class="feedback-link">Errors? <a href='#' class="feedback-button">Send feedback</a>.</div>
+      <div class="nypl-link"><a target="_blank" href="">View complete item in NYPL Digital Collections</a>.</div>
 
       <div class="social">
         <div class="email-share-form" style="display:none">
@@ -119,10 +126,6 @@
       <p class='suggest-date'>Suggest a date:
       <input type="text" placeholder="Sept. 7, 1941">
       <button feedback-param=true feedback="date">Suggest</button></p>
-
-      <p class='transcribe more-on-back'>Transcribe text from <a target="_blank" href='#'>the back</a>:
-      <textarea rows=5 cols=40></textarea>
-      <button feedback-param=true feedback="transcription">Submit</button>
       </p>
     </div>
   </div>
@@ -164,7 +167,6 @@
   <script src="http://oldnyc.github.io/lat-lon-counts.js"></script>
 
   <!-- Drop the bundle & uncomment the individual files for development -->
-  <!--
   <script src="js/map-styles.js"></script>
   <script src="js/popular-photos.js"></script>
   <script src="js/url-state.js"></script>
@@ -176,8 +178,9 @@
   <script src="js/modernizr.custom.js"></script>
   <script src="js/jquery.appear.js"></script>
   <script src="js/grid.js"></script>
-  -->
+  <!--
   <script src="js/bundle.js"></script>
+  -->
   <script>
     $(function() {
       fillPopularImagesPanel();
