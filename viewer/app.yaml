@@ -15,6 +15,9 @@ handlers:
 - url: /about
   static_files: static/about.html
   upload: static/about.html
+- url: /ocr.html
+  static_files: static/ocr.html
+  upload: static/ocr.html
 - url: /rec_feedback
   script: app.app
 
