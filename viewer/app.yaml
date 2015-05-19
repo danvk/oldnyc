@@ -1,6 +1,6 @@
 application: old-nyc
 
-version: 2015-05-13
+version: 2015-05-18
 runtime: python27
 threadsafe: true
 
@@ -31,10 +31,10 @@ handlers:
   upload: static/records.js.zip
 - url: /js/(.*)
   static_files: static/js/\1
-  upload: static/js/.*\.js
+  upload: static/js/.*
 - url: /styles/(.*)
   static_files: static/styles/\1
-  upload: static/styles/.*\.css
+  upload: static/styles/.*
 - url: /images/(.*\.(gif|png|jpg))
   static_files: static/images/\1
   upload: static/images/.*\.(gif|png|jpg)
