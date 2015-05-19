@@ -362,6 +362,8 @@ div.exit:hover {
 .share {
   padding: 3px;
   background: #eee;
+  background: linear-gradient(to bottom,  #ffffff 0%,#eeeeee 100%); /* W3C */
+  
   border-radius: 3px;
   font-size: 0.8em;
   font-weight: bold;
@@ -370,6 +372,9 @@ div.exit:hover {
 }
 .share a {
   color: #333;
+}
+.share .octicon {
+  font-size: 12px;
 }
 
 .email-share-form {
