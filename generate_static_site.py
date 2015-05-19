@@ -7,6 +7,9 @@ import csv
 import json
 import record
 import re
+from distutils.dir_util import copy_tree
+from shutil import copyfile
+import os
 
 from ocr import cleaner
 import title_cleaner
@@ -92,3 +95,21 @@ for id4, id_to_latlon in id4_to_latlon.iteritems():
     json.dump(id_to_latlon,
               open('../oldnyc.github.io/id4-to-location/%s.json' % id4, 'wb'),
               indent=2)
+
+# Copy over the static site
+# TODO: generate bundled JS and make viewer.html source it.
+mapping = {
+  'viewer/static/viewer.html': 'xyz.html',
+  'viewer/static/ocr.html': 'ocr.html',
+  'viewer/static/about.html': 'about.html',
+  'viewer/static/images/favicon.ico': 'favicon.ico',
+  'viewer/static/js': 'js',
+  'viewer/static/styles': 'styles',
+  'viewer/static/images': 'images',
+}
+for src, dst in mapping.iteritems():
+    full_dst = '../oldnyc.github.io/' + dst
+    if os.path.isdir(src):
+        copy_tree(src, full_dst)
+    else:
+        copyfile(src, full_dst)
