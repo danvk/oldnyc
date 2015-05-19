@@ -211,7 +211,7 @@ def basicAuth(func):
 class RootHandler(webapp2.RequestHandler):
   @basicAuth
   def get(self):
-    logging.info('hello')
+    print os.getcwd()
     self.response.headers['Content-type'] = 'text/html'
     self.response.out.write(open('static/viewer.html').read())
 

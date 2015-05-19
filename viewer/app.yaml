@@ -39,9 +39,9 @@ handlers:
   static_files: static/images/\1
   upload: static/images/.*\.(gif|png|jpg)
 
-- url: /xyz.html
-  static_files: static/viewer.html
-  upload: static/viewer.html
+# - url: /xyz.html
+#   static_files: static/viewer.html
+#   upload: static/viewer.html
   
 # - url: .*
 #   script: app.app
