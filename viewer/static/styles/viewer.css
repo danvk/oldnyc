@@ -305,22 +305,34 @@ div.exit:hover {
 }
 
 
-.text {
+.text,
+.more-on-back {
   margin: 20px 0;
   margin-top: 10px;
   padding-right: 30px;
   font-size: 16px;
+}
+
+.text {
   white-space: pre-line;
 }
 
 .more-on-back {
-  margin: 10px 0;
-  font-size: 16px;
+  font-style: italic;
 }
 
 .feedback-link {
   margin: 20px 0;
   font-size: 14px;
+}
+
+.nypl-link {
+  font-style: italic;
+  font-size: 14px;
+  margin-top: 10px;
+}
+.nypl-link a {
+  color: rgb(87, 54, 25);
 }
 
 .comments{
@@ -348,8 +360,29 @@ div.exit:hover {
 }
 
 .share {
-  padding-top: 3px;
+  padding: 3px;
+  background: #eee;
+  background: linear-gradient(to bottom, #fff 0%, #eee 100%); /* W3C */
+  
+  border-radius: 3px;
+  font-size: 0.8em;
+  font-weight: bold;
   display: inline-block;
+  border: 1px solid #bbb;
+  text-align: center;
+}
+.share.zeroclipboard-is-hover {
+  background: #d7d7d7;
+  background: linear-gradient(to bottom, #f7f7f7 0%, #e7e7e7 100%); /* W3C */
+}
+.share a {
+  color: #333;
+}
+.share .octicon {
+  font-size: 12px;
+}
+.share.clicked {
+  background: #dddddd;
 }
 
 .email-share-form {
@@ -376,9 +409,6 @@ div.exit:hover {
 }
 .og-details .social, .more-on-back {
   margin: 10px 0;
-}
-.og-details .share {
-  padding-bottom: 5px;
 }
 .og-details > div {
   position: relative;
