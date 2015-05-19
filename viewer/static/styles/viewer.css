@@ -362,19 +362,27 @@ div.exit:hover {
 .share {
   padding: 3px;
   background: #eee;
-  background: linear-gradient(to bottom,  #ffffff 0%,#eeeeee 100%); /* W3C */
+  background: linear-gradient(to bottom, #fff 0%, #eee 100%); /* W3C */
   
   border-radius: 3px;
   font-size: 0.8em;
   font-weight: bold;
   display: inline-block;
   border: 1px solid #bbb;
+  text-align: center;
+}
+.share.zeroclipboard-is-hover {
+  background: #d7d7d7;
+  background: linear-gradient(to bottom, #f7f7f7 0%, #e7e7e7 100%); /* W3C */
 }
 .share a {
   color: #333;
 }
 .share .octicon {
   font-size: 12px;
+}
+.share.clicked {
+  background: #dddddd;
 }
 
 .email-share-form {

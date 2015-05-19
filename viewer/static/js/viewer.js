@@ -221,13 +221,6 @@ function fillPhotoPane(photo_id, $pane) {
   var canonicalUrl = getCanonicalUrlForPhoto(photo_id);
 
   var hasBack = photo_id.match('[0-9]f');
-  // if (hasBack) {
-  //   $pane.find('.more-on-back > a').attr(
-  //       'href', backOfCardUrlForPhotoId(photo_id));
-  //   $pane.find('.more-on-back').show();
-  // } else {
-  //   $pane.find('.more-on-back').hide();
-  // }
 
   // OCR'd text
   var ocr_url = '/ocr.html#' + photo_id;
@@ -243,14 +236,6 @@ function fillPhotoPane(photo_id, $pane) {
     $more.show();
   }
 
-  /*
-  fg: 510d47dd-0618-a3d9-e040-e00a18064a99
-  bg: 510d47dd-0617-a3d9-e040-e00a18064a99
-
-  fg: http://digitalcollections.nypl.org/items/510d47dc-e46c-a3d9-e040-e00a18064a99
-  bg: http://digitalcollections.nypl.org/items/510d47dc-e46b-a3d9-e040-e00a18064a99
-  */
-
   var $comments = $pane.find('.comments');
   var width = $comments.parent().width();
   $comments.empty().append(
@@ -258,6 +243,20 @@ function fillPhotoPane(photo_id, $pane) {
           .attr('width', width)
           .attr('href', canonicalUrl))
   FB.XFBML.parse($comments.get(0));
+
+  // Social links
+  var client = new ZeroClipboard($pane.find('.share'));
+  client.on('ready', function() {
+    client.on('copy', function(event) {
+      var clipboard = event.clipboardData;
+      clipboard.setData('text/plain', window.location.href);
+    });
+    client.on( 'aftercopy', function( event ) {
+      var $btn = $(event.target);
+      $btn.css({width: $btn.get(0).offsetWidth}).addClass('clicked').text('Copied!');
+    });
+  });
+  
 
   twttr.widgets.createShareButton(
       document.location.href,
