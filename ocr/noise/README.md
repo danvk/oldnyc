@@ -77,6 +77,65 @@ Cac V0gE
 Cabe.e. 2-( eeATY 2A /~ J~
 Neg. ~ SO21
 
+711177f (rotated):
+ub-N8 C70M1  EF
+E5oRSSLY eY O)  O0 0 - o ov
+S,.oo o  Edr
+N:  sNSga
+o'oo d  s oAS ow
+D5 g4 ew 1  Sw  d d pr Si c
+r3 5nO P- s d  8  f ed 0 :e ~4
+Eoei ct ~ bd wi
+0O 0. et -  4  E1  I3 FO0 d
+M- p o
+o:Ni  27Te.  w gS
+M- bd w
+wC s e~
+D5 d r . M:  d MSEY' o)
+d 2 p;w h
+L0  A 'i 9- F  E em o e
+~ NW y8 9)tj
+d IS f. et  ow 6 a r
+ow p o  357s
+wr R60S am
+O ~ O3 L. et
+322.229  s a ;e
+f Me
+R3So S o)  o d --
+0F-
+o ba s c  b o s 9
+o) o. R  EE.3
+p I D0 b  s o) o o f  o ct rr E:
+o F Ni 5 t2
+r OO eN L.i-
+M- fM  3 o a s
+W .22o 7 d)  E- oree
+e 9D 9  o o YL)
+S e Ao 2  r.~ S
+LY Nw B  ee S4e 2
+Tw o R'
+2d Ci ot o  azewy RS
+M. r o P8  aee'
+00 2.  --o3N.3r0
+eE9 o,.  S72
+~ o f 1
+uoo w3 oS  ev Loy E.
+N 1A411  E o -
+. i-Deo  ow e ow
+o W W r
+e 3 o
+ti hf o
+cd 3S  ot M- M4 M-
+E o g s
+(O FN ; 0  w t E 30
+E
+E5o Nw  - O 7
+o ~,P
+u6-
+oo W: ICe
+
+
+
 
 Upside-down:
 
