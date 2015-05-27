@@ -75,6 +75,7 @@ def make_response(photo_ids):
     return response
 
 
+all_photos = []
 latlon_to_count = {}
 id4_to_latlon = defaultdict(lambda: {})  # first 4 of id -> id -> latlon
 for latlon, photo_ids in lat_lon_to_ids.iteritems():
@@ -84,6 +85,17 @@ for latlon, photo_ids in lat_lon_to_ids.iteritems():
     json.dump(response, open(outfile, 'wb'), indent=2)
     for id_ in photo_ids:
         id4_to_latlon[id_[:4]][id_] = latlon
+
+    for photo_id, response in response.iteritems():
+        lat, lon = [float(x) for x in latlon.split(',')]
+        response['photo_id'] = photo_id
+        response['location'] = {
+            'lat': lat,
+            'lon': lon
+        }
+        response['width'] = int(response['width'])
+        response['height'] = int(response['height'])
+        all_photos.append(response)
 
 json.dump(make_response(pop_ids),
           open('../oldnyc.github.io/popular.json', 'wb'), indent=2)
@@ -96,20 +108,8 @@ for id4, id_to_latlon in id4_to_latlon.iteritems():
               open('../oldnyc.github.io/id4-to-location/%s.json' % id4, 'wb'),
               indent=2)
 
-# Copy over the static site
-# TODO: generate bundled JS and make viewer.html source it.
-mapping = {
-  'viewer/static/viewer.html': 'xyz.html',
-  'viewer/static/ocr.html': 'ocr.html',
-  'viewer/static/about.html': 'about.html',
-  'viewer/static/images/favicon.ico': 'favicon.ico',
-  'viewer/static/js': 'js',
-  'viewer/static/styles': 'styles',
-  'viewer/static/images': 'images',
-}
-for src, dst in mapping.iteritems():
-    full_dst = '../oldnyc.github.io/' + dst
-    if os.path.isdir(src):
-        copy_tree(src, full_dst)
-    else:
-        copyfile(src, full_dst)
+# Complete data dump
+all_photos.sort(key=lambda photo: photo['photo_id'])
+json.dump(all_photos,
+          open('../oldnyc.github.io/data.json', 'wb'),
+          indent=2)
