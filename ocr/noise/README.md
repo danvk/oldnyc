@@ -136,6 +136,16 @@ oo W: ICe
 
 
 
+702890f
+9NS
+'T
+. s 1  1E3eE4 6  1 :E  ]E  1 1 C e; ~1:1S2S8  1 3-S oD
+u.l :1 2  1NSe
+SN  P1
+1: 1
+1E
+
+
 
 Upside-down:
 
