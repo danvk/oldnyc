@@ -44,6 +44,7 @@ for photo_id in id_to_record.iterkeys():
         id_to_text[photo_id] = back_id_to_text[book_id]
     if back_id in manual_fixes:
         id_to_text[photo_id] = manual_fixes[back_id]
+    # TODO: apply cleaner to manual OCR, too
 
 back_id_to_text = None  # clear
 
