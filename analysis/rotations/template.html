@@ -1,0 +1,35 @@
+<!--
+Template for evaluating the accuracy of user-generated rotations with
+localturk.
+-->
+<style>
+img {
+  transform: rotate(${rotation}deg);
+}
+.holder {
+  position: absolute;
+  left: 25%;
+  top: 25%;
+}
+</style>
+
+<h3>${photo_id} (${rotation}°)</h3>
+
+<button type="submit" id=1 name="label" value="Yes">Yes (1)</button>&nbsp;<button type="submit" id=2 name="label" value="No">No (2)</button>
+
+<p class="holder"><img src="http://oldnyc-assets.nypl.org/600px/${photo_id}.jpg"></p>
+
+<script>
+window.addEventListener("keydown", function(e) {
+  var code = e.keyCode;
+  var num = null;
+  if (code >= 48 && code <= 57) num = code - 48;  // numbers above keyboard
+  if (code >= 96 && code <= 105) num = code - 96;  // numpad
+  if (num === null) return;
+  var el = document.getElementById(num);
+  if (el) {
+    e.preventDefault();
+    el.click();
+  }
+});
+</script>

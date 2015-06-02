@@ -14,3 +14,6 @@ ocr/backing-images.urls.txt
 *.sqlite
 *.ipynb
 
+# user-generated data
+user-feedback.csv
+corrections.json
