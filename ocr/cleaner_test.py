@@ -135,3 +135,7 @@ Alexaneer Alland
 Ap7-:  Wg ~E 33~4
 ''',
     cleaner.merge_lines(txt))
+
+    # This has no trailing newline
+    txt = 'Hello\nThere'
+    eq_('Hello\nThere', cleaner.clean(txt))

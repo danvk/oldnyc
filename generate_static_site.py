@@ -34,8 +34,6 @@ id_to_rotation = json.load(open('analysis/rotations/rotations.json'))
 # ocr.json maps "12345b" -> text. We need photo id -> text.
 back_id_to_text = json.load(open('ocr/ocr.json', 'rb'))
 manual_fixes = json.load(open('ocr/feedback/fixes.json', 'rb'))
-for k, txt in back_id_to_text.iteritems():
-    back_id_to_text[k] = cleaner.clean(txt)
 id_to_text = {}
 for photo_id in id_to_record.iterkeys():
     back_id = re.sub(r'f?(?:-[a-z])?$', 'b', photo_id)
@@ -45,6 +43,9 @@ for photo_id in id_to_record.iterkeys():
     if back_id in manual_fixes:
         id_to_text[photo_id] = manual_fixes[back_id]
     # TODO: apply cleaner to manual OCR, too
+
+for k, txt in id_to_text.iteritems():
+    id_to_text[k] = cleaner.clean(txt)
 
 back_id_to_text = None  # clear
 

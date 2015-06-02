@@ -51,6 +51,8 @@ def merge_lines(txt):
     essential for letting the browser reflow the text, especially on narrower
     screens.
     '''
+    if not txt: return txt
+    has_trailing_newline = (txt[-1] == '\n')
     lines = txt.split('\n')
     width = max(len(line) for line in lines)
     join_width = width - 15
@@ -73,6 +75,8 @@ def merge_lines(txt):
         else:
             txt += ' '
     if txt.endswith('\n\n'):
+        txt = txt[:-1]
+    if txt[-1] == '\n' and not has_trailing_newline:
         txt = txt[:-1]
     return txt
 
