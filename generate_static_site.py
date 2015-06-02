@@ -28,15 +28,23 @@ id_to_dims = {}
 for photo_id, width, height in csv.reader(open('nyc-image-sizes.txt')):
     id_to_dims[photo_id] = (width, height)
 
+# rotated images based on user feedback
+id_to_rotation = json.load(open('analysis/rotations/rotations.json'))
+
 # ocr.json maps "12345b" -> text. We need photo id -> text.
 back_id_to_text = json.load(open('ocr/ocr.json', 'rb'))
+manual_fixes = json.load(open('ocr/feedback/fixes.json', 'rb'))
 for k, txt in back_id_to_text.iteritems():
     back_id_to_text[k] = cleaner.clean(txt)
 id_to_text = {}
 for photo_id in id_to_record.iterkeys():
-    back_id = 'book' + re.sub(r'f?(?:-[a-z])?$', 'b', photo_id)
-    if back_id in back_id_to_text:
-        id_to_text[photo_id] = back_id_to_text[back_id]
+    back_id = re.sub(r'f?(?:-[a-z])?$', 'b', photo_id)
+    book_id = 'book' + back_id
+    if book_id in back_id_to_text:
+        id_to_text[photo_id] = back_id_to_text[book_id]
+    if back_id in manual_fixes:
+        id_to_text[photo_id] = manual_fixes[back_id]
+
 back_id_to_text = None  # clear
 
 
@@ -72,6 +80,8 @@ def make_response(photo_ids):
         }
         if original_title:
             response[photo_id]['original_title'] = original_title
+        if photo_id in id_to_rotation:
+            response[photo_id]['rotation'] = id_to_rotation[photo_id]
     return response
 
 
