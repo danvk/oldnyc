@@ -17,3 +17,4 @@ ocr/backing-images.urls.txt
 # user-generated data
 user-feedback.csv
 corrections.json
+ocr/feedback/validation
