@@ -14,6 +14,7 @@ import os
 from ocr import cleaner
 import title_cleaner
 
+
 # strip leading 'var popular_photos = ' and trailing ';'
 popular_photos = json.loads(open('viewer/static/js/popular-photos.js', 'rb').read()[20:-2])
 pop_ids = {x['id'] for x in popular_photos}
@@ -26,7 +27,7 @@ id_to_record = {r.photo_id(): r for r in rs}
 
 id_to_dims = {}
 for photo_id, width, height in csv.reader(open('nyc-image-sizes.txt')):
-    id_to_dims[photo_id] = (width, height)
+    id_to_dims[photo_id] = (int(width), int(height))
 
 # rotated images based on user feedback
 id_to_rotation = json.load(open('analysis/rotations/rotations.json'))
@@ -42,12 +43,21 @@ for photo_id in id_to_record.iterkeys():
         id_to_text[photo_id] = back_id_to_text[book_id]
     if back_id in manual_fixes:
         id_to_text[photo_id] = manual_fixes[back_id]
-    # TODO: apply cleaner to manual OCR, too
 
 for k, txt in id_to_text.iteritems():
     id_to_text[k] = cleaner.clean(txt)
 
 back_id_to_text = None  # clear
+
+
+def image_url(photo_id, is_thumb):
+    degrees = id_to_rotation.get(photo_id)
+    if not degrees:
+        return 'http://oldnyc-assets.nypl.org/%s/%s.jpg' % (
+            'thumb' if is_thumb else '600px', photo_id)
+    else:
+        return 'http://www.oldnyc.org/rotated-assets/%s/%s.%s.jpg' % (
+            'thumb' if is_thumb else '600px', photo_id, degrees)
 
 
 def decode(b):
@@ -72,18 +82,23 @@ def make_response(photo_ids):
             title = ''
         assert r.description() == ''
         assert r.note() == ''
+
+        rotation = id_to_rotation.get(photo_id)
+        if rotation and (rotation % 180 == 90):
+            w, h = h, w
+
         response[photo_id] = {
           'title': title,
           'date': re.sub(r'\s+', ' ', r.date()),
           'folder': decode(r.location()),
           'width': w,
           'height': h,
-          'text': ocr_text
+          'text': ocr_text,
+          'image_url': image_url(photo_id, is_thumb=False),
+          'thumb_url': image_url(photo_id, is_thumb=True)
         }
         if original_title:
             response[photo_id]['original_title'] = original_title
-        if photo_id in id_to_rotation:
-            response[photo_id]['rotation'] = id_to_rotation[photo_id]
     return response
 
 
