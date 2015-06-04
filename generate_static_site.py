@@ -99,6 +99,9 @@ def make_response(photo_ids):
         }
         if original_title:
             response[photo_id]['original_title'] = original_title
+        if rotation:
+            response[photo_id]['rotation'] = rotation
+
     return response
 
 
