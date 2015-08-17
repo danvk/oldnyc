@@ -128,6 +128,8 @@ class MilsteinCoder:
 
   def _getLatLonFromGeocode(self, geocode, data):
     for result in geocode['results']:
+      # partial matches tend to be inaccurate.
+      # if result.get('partial_match'): continue
       # data['type'] is something like 'address' or 'intersection'.
       if data['type'] in result['types']:
         loc = result['geometry']['location']
