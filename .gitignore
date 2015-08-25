@@ -15,6 +15,6 @@ ocr/backing-images.urls.txt
 *.ipynb
 
 # user-generated data
-user-feedback.csv
+user-feedback*.csv
 corrections.json
 ocr/feedback/validation
