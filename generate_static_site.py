@@ -30,19 +30,23 @@ for photo_id, width, height in csv.reader(open('nyc-image-sizes.txt')):
     id_to_dims[photo_id] = (int(width), int(height))
 
 # rotated images based on user feedback
-id_to_rotation = json.load(open('analysis/rotations/rotations.json'))
+user_rotations = json.load(open('analysis/rotations/rotations.json'))
+id_to_rotation = user_rotations['fixes']
 
-# ocr.json maps "12345b" -> text. We need photo id -> text.
-back_id_to_text = json.load(open('ocr/ocr.json', 'rb'))
-manual_fixes = json.load(open('ocr/feedback/fixes.json', 'rb'))
+# Load the previous iteration of OCR. Corrections are applied on top of
+# this.
+old_data = json.load(open('../oldnyc.github.io/data.json', 'rb'))
+old_photo_id_to_text = {r['photo_id']: r['text'] for r in old_data['photos'] if r['text']}
+manual_ocr_fixes = json.load(open('ocr/feedback/fixes.json', 'rb'))
+back_id_to_correction = manual_ocr_fixes['fixes']
 id_to_text = {}
 for photo_id in id_to_record.iterkeys():
     back_id = re.sub(r'f?(?:-[a-z])?$', 'b', photo_id)
     book_id = 'book' + back_id
-    if book_id in back_id_to_text:
-        id_to_text[photo_id] = back_id_to_text[book_id]
-    if back_id in manual_fixes:
-        id_to_text[photo_id] = manual_fixes[back_id]
+    if photo_id in old_photo_id_to_text:
+        id_to_text[photo_id] = old_photo_id_to_text[photo_id]
+    if back_id in back_id_to_correction:
+        id_to_text[photo_id] = back_id_to_correction[back_id]
 
 for k, txt in id_to_text.iteritems():
     id_to_text[k] = cleaner.clean(txt)
@@ -140,6 +144,11 @@ for id4, id_to_latlon in id4_to_latlon.iteritems():
 
 # Complete data dump
 all_photos.sort(key=lambda photo: photo['photo_id'])
-json.dump(all_photos,
+json.dump({
+            'photos': all_photos,
+            'timestamp': time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()),
+            'rotation_time': user_rotations['last_date'],
+            'ocr_time': manual_ocr_fixes['last_date']
+          },
           open('../oldnyc.github.io/data.json', 'wb'),
           indent=2)

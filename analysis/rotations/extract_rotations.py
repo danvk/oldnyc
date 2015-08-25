@@ -16,10 +16,18 @@ def histogram(lst):
     return list(reversed(sorted(count_keys)))
 
 
+last_date = ''
 id_to_rotation = defaultdict(list)
-for row in csv.DictReader(open('../../ocr/feedback/user-feedback.csv')):
+for row in csv.DictReader(open('../../feedback/user-feedback.csv')):
+    last_date = max(last_date, row['datetime'])
     if not row['feedback']: continue
     o = json.loads(row['feedback'])
+
+    if 'original' in o:
+        # This image was already confirmed as rotated & a fix was applied.
+        # For now, just ignore any further rotations of it.
+        continue
+
     if 'rotate' in o:
         row['rotate'] = o['rotate']
         del row['feedback']
@@ -59,6 +67,9 @@ for photo_id, rotations in id_to_rotation.iteritems():
 print 'mismatches: %d' % num_mismatches
 print 'confirmations: %d' % len(id_to_confirmed)
 
-json.dump(id_to_confirmed, open('rotations.json', 'wb'), indent=2)
+json.dump({
+    'last_date': last_date,
+    'fixes': id_to_confirmed
+}, open('rotations.json', 'wb'), indent=2)
 
 # 1193 rotations came out of this. From a sample of 100, all were correct.

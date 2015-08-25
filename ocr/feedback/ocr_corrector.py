@@ -10,14 +10,6 @@ Input: corrections.json
 Output: fixes.json
 '''
 
-# Only consider corrections after a certain time.
-# Update this after pushing out new corrections.
-# TODO: the second update should be on top of the first.
-#       as is, it will produce a much smaller set of diffs,
-#       which will adversely affect generate_static_site, which uses
-#       ocr/ocr.json, which comes directly from Ocropus.
-TIMESTAMP = '2015-05-27 20:19:51.707030'
-
 import editdistance
 import re
 import json
@@ -64,8 +56,6 @@ for backing_id, info in data.iteritems():
     for c in corrections:
         ip = c['user_ip']
         timestamp = c['datetime']
-        if timestamp < TIMESTAMP:
-            continue
 
         latest_timestamp = max(latest_timestamp, timestamp)
         if ip not in ips:
@@ -113,4 +103,7 @@ print 'Extreme:    %4d' % extreme
 print ''
 print 'Last timestamp: %s' % latest_timestamp
 
-json.dump(backing_id_to_fix, open('fixes.json', 'wb'), indent=2)
+json.dump({
+    'fixes': backing_id_to_fix,
+    'last_date': latest_timestamp
+    }, open('fixes.json', 'wb'), indent=2)
