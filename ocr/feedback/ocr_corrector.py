@@ -4,7 +4,7 @@
 This:
     - merges corrections to different photos with the same backing image
     - de-dupes corrections by IP
-    - picks one, either based on agreement or extremeness
+    - picks one, either based on agreement or recency
 
 Input: corrections.json
 Output: fixes.json
@@ -43,13 +43,13 @@ for photo_id, info in data.iteritems():
 data = newdata
 latest_timestamp = ''
 
-# Sort by extremeness of edit, then de-dupe based on IP
+# Sort by recency (most recent first), then de-dupe based on IP
 for backing_id, info in data.iteritems():
     original = info['original'] or ''
     corrections = info['corrections']
     for c in corrections:
         c['text'] = clean(c['text'])
-    corrections.sort(key=lambda c: -editdistance.eval(original, c['text']))
+    corrections.sort(key=lambda c: c['datetime'], reverse=True)
 
     ips = set()
     uniq_corrections = []
@@ -67,9 +67,9 @@ for backing_id, info in data.iteritems():
 # Criteria are:
 # 1. Only one? Then take it.
 # 2. Agreement between any pair? Use that.
-# 3. Take the most extreme.
+# 3. Take the most recent.
 backing_id_to_fix = {}
-solos, consensus, extreme = 0, 0, 0
+solos, consensus, recency = 0, 0, 0
 for backing_id, info in data.iteritems():
     corrections = info['corrections']
     if len(corrections) == 0:
@@ -93,13 +93,13 @@ for backing_id, info in data.iteritems():
         consensus += 1
         continue
     
-    # pick the most extreme
-    extreme += 1
+    # pick the most recent
+    recency += 1
     backing_id_to_fix[backing_id] = corrections[0]['text']
 
 print 'Solo fixes: %4d' % solos
 print 'Consensus:  %4d' % consensus
-print 'Extreme:    %4d' % extreme
+print 'Recency:    %4d' % recency
 print ''
 print 'Last timestamp: %s' % latest_timestamp
 
