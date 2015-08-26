@@ -22,7 +22,7 @@ for record in site_data['photos']:
     id_to_text[photo_id] = text
 
 
-badwords = ['http', 'www', 'shit', 'ass', 'cunt', 'fuck']
+badwords = ['http', 'www', 'shit', 'cunt', 'fuck']
 
 def likely_spam(text):
     for word in badwords:
