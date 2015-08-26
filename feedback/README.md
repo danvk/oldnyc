@@ -1,10 +1,63 @@
-This is an AppEngine DB -> CSV dumper for OldNYC. It pulls down all forms of user feedback.
+# User-generated feedback
 
-Adapted from https://github.com/gergelyorosz/gae-export-as-csv.git
+OldNYC incorporates user feedback in a variety of ways, most notably:
+
+  * Detection of rotated images
+  * OCR correction
+
+This document describes how to pull in new user feedback and push the
+changes to the site.
+
+This assumes that the `oldnyc` and `oldnyc.github.io` repos are
+side-by-side on the file system.
+
+### Step 1: Pull down data from AppEngine
+
+`export_as_csv.py` is an AppEngine DB -> CSV dumper for OldNYC. It pulls down all forms of user feedback. It's adapted from https://github.com/gergelyorosz/gae-export-as-csv
 
 Usage:
 
-  remote_api_shell.py -s old-nyc.appspot.com
-  import export_as_csv
+    cd feedback
+    remote_api_shell.py -s old-nyc.appspot.com
+    import export_as_csv
 
-This will update `user-feedback.csv`.
+This will update `feedback/user-feedback.csv`.
+
+### Step 2: Update rotations
+
+Run:
+
+    cd analysis/rotations
+    ./extract_rotations.py
+
+This will update `analysis/rotations/corrections.json`
+
+### Step 3: Update OCR
+
+Run:
+
+    cd ocr/feedback
+    ./extract_user_ocr.py
+    ./ocr_corrector.py
+
+This will update `ocr/feedback/{corrections,fixes}.json`.
+`corrections.json` is an exhaustive list of new OCR corrections, while
+`fixes.json` includes just one corrected version of the text for each
+image.
+
+### Step 4: Update the static site
+
+Run:
+
+    ./generate_static_site.py
+    cd ../oldnyc.github.io
+    git diff
+
+Look over the changes to make sure they seem reasonable. Then update the
+rotated image assets (if needed):
+
+
+    ./generate_rotated_images.py
+
+Finally, commit and push. You may need to purge the CloudFlare cache to
+see the changes.

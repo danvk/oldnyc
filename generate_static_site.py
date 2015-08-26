@@ -9,6 +9,7 @@ import record
 import re
 from distutils.dir_util import copy_tree
 from shutil import copyfile
+import time
 import os
 
 from ocr import cleaner
@@ -42,16 +43,19 @@ back_id_to_correction = manual_ocr_fixes['fixes']
 id_to_text = {}
 for photo_id in id_to_record.iterkeys():
     back_id = re.sub(r'f?(?:-[a-z])?$', 'b', photo_id)
-    book_id = 'book' + back_id
     if photo_id in old_photo_id_to_text:
         id_to_text[photo_id] = old_photo_id_to_text[photo_id]
     if back_id in back_id_to_correction:
         id_to_text[photo_id] = back_id_to_correction[back_id]
 
-for k, txt in id_to_text.iteritems():
-    id_to_text[k] = cleaner.clean(txt)
+
+# (This was only helpful on the initial run, when data came straight from
+# Ocropus.)
+# for k, txt in id_to_text.iteritems():
+#     id_to_text[k] = cleaner.clean(txt)
 
 back_id_to_text = None  # clear
+
 
 
 def image_url(photo_id, is_thumb):
