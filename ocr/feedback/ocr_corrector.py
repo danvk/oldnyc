@@ -6,13 +6,18 @@ This:
     - de-dupes corrections by IP
     - picks one, either based on agreement or recency
 
-Input: corrections.json
+Input: corrections.json, list of rejected changes
 Output: fixes.json
+
+Usage:
+
+    ./ocr_corrector.py (rejected_photo_id1) (rejected_photo_id2)
 '''
 
 import editdistance
-import re
 import json
+import re
+import sys
 from collections import defaultdict
 
 data = json.load(open('corrections.json'))
@@ -28,15 +33,20 @@ def clean(text):
     text = re.sub(r' *$', '', text, flags=re.M)
     return text
 
+# These changes have been rejected, presumably via the OCR review tool.
+rejected_back_ids = set(map(photo_id_to_backing_id, sys.argv[1:]))
 
 # Regroup based on backing_id, not photo_id.
 newdata = {}
+backing_id_to_fix = {}
+backing_id_to_photo_id = {}
 for photo_id, info in data.iteritems():
     backing_id = photo_id_to_backing_id(photo_id)
     if not backing_id in newdata:
         newdata[backing_id] = {
             'corrections': []
         }
+        backing_id_to_photo_id[backing_id] = photo_id
     newdata[backing_id]['original'] = info['original']
     newdata[backing_id]['corrections'].extend(info['corrections'])
 
@@ -68,12 +78,15 @@ for backing_id, info in data.iteritems():
 # 1. Only one? Then take it.
 # 2. Agreement between any pair? Use that.
 # 3. Take the most recent.
-backing_id_to_fix = {}
-solos, consensus, recency = 0, 0, 0
+solos, consensus, recency, rejected = 0, 0, 0, 0
 for backing_id, info in data.iteritems():
     corrections = info['corrections']
     if len(corrections) == 0:
         continue  # nothing to do
+
+    if backing_id in rejected_back_ids:
+        rejected += 1
+        continue
 
     # pick the only fix
     if len(corrections) == 1:
@@ -97,9 +110,19 @@ for backing_id, info in data.iteritems():
     recency += 1
     backing_id_to_fix[backing_id] = corrections[0]['text']
 
+# For manual review
+changes = []
+for backing_id, new_text in backing_id_to_fix.iteritems():
+    changes.append({
+        'photo_id': backing_id_to_photo_id[backing_id],
+        'before': data[backing_id]['original'],
+        'after': new_text
+    })
+
 print 'Solo fixes: %4d' % solos
 print 'Consensus:  %4d' % consensus
 print 'Recency:    %4d' % recency
+print '(Rejected): %4d' % rejected
 print ''
 print 'Last timestamp: %s' % latest_timestamp
 
@@ -107,3 +130,6 @@ json.dump({
     'fixes': backing_id_to_fix,
     'last_date': latest_timestamp
     }, open('fixes.json', 'wb'), indent=2)
+
+open('review/changes.js', 'w').write('var changes = %s;' %
+        json.dumps(changes, indent=2, sort_keys=True))

@@ -1,0 +1,99 @@
+<link rel="stylesheet" href="codediff.css">
+<style>
+button, select {
+  font-size: 1em;
+}
+button#reject {
+  margin-left: 5em;
+}
+#rejects {
+  margin-top: 1em;
+  font-family: monospace;
+}
+</style>
+<script src="jquery-1.8.3.min.js"></script>
+<script src="difflib.js"></script>
+<script src="codediff.js"></script>
+
+<script src="changes.js"></script> <!-- the data -->
+
+<button id="prev">Prev (k)</button> &nbsp;
+<select></select>
+<button id="next">Next (j)</button> &nbsp;
+<a id="tool-link" target="_blank" href="#">OCR Tool (v)</a>
+<button id="reject">Reject (x)</button>
+
+<h2 id="photo-id"></h2>
+<div id="diff"></div>
+
+<div id="rejects">Reject command:
+./ocr_corrector.py <span id="rejected-ids"></span></div>
+
+<script>
+
+var rejected_ids = [];
+var options = changes.map(function(change, idx) {
+  var txt = (1 + idx) + '/' + changes.length + ': ' + change.photo_id;
+  return $('<option>').val(idx).text(txt).get(0);
+});
+$('select').append(options);
+
+function selectedIndex() {
+  return $('select').find(':selected').index();
+}
+
+$('select').on('change', function(e) {
+  buildUI(changes[selectedIndex()]);
+});
+$('#next').on('click', function(e) {
+  var idx = selectedIndex();
+  idx = (idx + 1) % changes.length;
+  $('select').val(idx);
+  buildUI(changes[idx]);
+});
+$('#prev').on('click', function(e) {
+  var idx = selectedIndex();
+  idx = (idx + changes.length - 1) % changes.length;
+  $('select').val(idx);
+  buildUI(changes[idx]);
+});
+
+$('#reject').on('click', function(e) {
+  rejected_ids.push(changes[selectedIndex()].photo_id);
+  $('#next').click();
+});
+
+$(window).on('keypress', function(e) {
+  if (e.which == 'j'.charCodeAt(0)) {
+    $('#next').click();
+  } else if (e.which == 'k'.charCodeAt(0)) {
+    $('#prev').click();
+  } else if (e.which == 'x'.charCodeAt(0)) {
+    $('#reject').click();
+  } else if (e.which == 'v'.charCodeAt(0)) {
+    var url = $('#tool-link').attr('href');
+    window.open(url, '_blank');
+  }
+});
+
+function buildUI(record) {
+  var photo_id = record.photo_id;
+
+  $('#photo-id').text(photo_id);
+  $('#tool-link').attr('href', 'http://www.oldnyc.org/ocr.html#' + photo_id);
+
+  $('#diff').empty().append(
+    codediff.buildView(record.before || '', record.after, {}));
+
+  $('#rejected-ids').text(rejected_ids.join(' '));
+}
+
+buildUI(changes[0]);
+</script>
+
+<!--
+
+To-do:
+- Re-run the "remove MAY BE REPRODUCED" code on new corrections
+
+-->

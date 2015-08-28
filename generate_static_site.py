@@ -9,12 +9,19 @@ import record
 import re
 from distutils.dir_util import copy_tree
 from shutil import copyfile
+import subprocess
+import sys
 import time
 import os
 
 from ocr import cleaner
 import title_cleaner
 
+# Make sure the oldnyc.github.io repo is in a clean state.
+git_status = subprocess.check_output('git -C ../oldnyc.github.io status --porcelain'.split(' '))
+if git_status.strip():
+    sys.stderr.write('Make sure the ../oldnyc.github.io repo exists and is clean.\n')
+    sys.exit(1)
 
 # strip leading 'var popular_photos = ' and trailing ';'
 popular_photos = json.loads(open('viewer/static/js/popular-photos.js', 'rb').read()[20:-2])
