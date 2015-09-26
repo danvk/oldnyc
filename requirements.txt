@@ -1,8 +1,7 @@
-Flask
-PyYAML
 dpxdt
 requests
 requests-cache
 nose
 Pillow
 chardet
+editdistance

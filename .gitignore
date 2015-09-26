@@ -19,3 +19,4 @@ user-feedback*.csv
 fixes.json
 corrections.json
 ocr/feedback/validation
+ocr/feedback/review/changes.js
