@@ -7,7 +7,6 @@ from google.appengine.ext.webapp import template
 
 import base64
 import os
-import simplejson as json
 import logging
 
 import feedback
