@@ -1,11 +1,12 @@
 #!/usr/bin/env python
 """Convert CSV feedback to JSON for Firebase import."""
 
-import json
-import csv
-import sys
 from collections import defaultdict
+import csv
 import dateutil.parser
+import json
+import re
+import sys
 import time
 
 import firebase_pushid
@@ -15,6 +16,10 @@ types = set(['rotate', 'large-border', 'text', 'wrong-location', 'multiples', 'n
 def iso8601_to_millis(iso8601):
     dt = dateutil.parser.parse(iso8601)
     return int(time.mktime(dt.timetuple())*1e3 + dt.microsecond/1e3)
+
+
+def back_id(photo_id):
+    return re.sub(r'-[a-z]$', '', photo_id.replace('f', 'b'))
 
 
 feedback = defaultdict(lambda: {})
@@ -34,6 +39,9 @@ for row in csv.DictReader(open('user-feedback.csv')):
     assert feedback_type, json.dumps(data)
 
     photo_id = row['photo_id']
+    if not photo_id:
+        continue
+
     datetime_str = row['datetime']
     user_ip = row['user_ip']
     cookie = row['cookie']
@@ -41,16 +49,16 @@ for row in csv.DictReader(open('user-feedback.csv')):
 
     datetime_ms = iso8601_to_millis(datetime_str)
 
-    # TODO: change between front ID and back ID depending on feedback_type
-
-    # TODO: use push ids instead of an array
+    if feedback_type in ['text', 'rotate-backing', 'notext']:
+        photo_id = back_id(photo_id)
 
     entry = {
         'metadata': {
             'user_ip': user_ip,
             'cookie': cookie,
             'user_agent': user_agent,
-            'timestamp': datetime_ms
+            'timestamp': datetime_ms,
+            'location': row['location']
         }
     }
     entry.update(data)
