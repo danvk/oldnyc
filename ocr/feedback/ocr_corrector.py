@@ -36,21 +36,14 @@ def clean(text):
 # These changes have been rejected, presumably via the OCR review tool.
 rejected_back_ids = set(map(photo_id_to_backing_id, sys.argv[1:]))
 
-# Regroup based on backing_id, not photo_id.
-newdata = {}
-backing_id_to_fix = {}
 backing_id_to_photo_id = {}
-for photo_id, info in data.iteritems():
-    backing_id = photo_id_to_backing_id(photo_id)
-    if not backing_id in newdata:
-        newdata[backing_id] = {
-            'corrections': []
-        }
-        backing_id_to_photo_id[backing_id] = photo_id
-    newdata[backing_id]['original'] = info['original']
-    newdata[backing_id]['corrections'].extend(info['corrections'])
+site_data = json.load(open('../../../oldnyc.github.io/data.json'))
+for record in site_data['photos']:
+    photo_id = record['photo_id']
+    back_id = re.sub(r'f?(?:-[a-z])?$', 'b', photo_id)
+    backing_id_to_photo_id[back_id] = photo_id
 
-data = newdata
+backing_id_to_fix = {}
 latest_timestamp = ''
 
 # Sort by recency (most recent first), then de-dupe based on IP

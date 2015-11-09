@@ -8,6 +8,7 @@ Rotations are only output if they're confirmed by multiple IPs.
 import csv
 import json
 from collections import defaultdict
+from datetime import datetime
 from itertools import groupby
 
 
@@ -16,23 +17,28 @@ def histogram(lst):
     return list(reversed(sorted(count_keys)))
 
 
-last_date = ''
+last_date_ms = 0
 id_to_rotation = defaultdict(list)
-for row in csv.DictReader(open('../../feedback/user-feedback.csv')):
-    last_date = max(last_date, row['datetime'])
-    if not row['feedback']: continue
-    o = json.loads(row['feedback'])
+all_feedback = json.load(open('../../feedback/user-feedback.json'))['feedback']
 
-    if 'original' in o:
-        # This image was already confirmed as rotated & a fix was applied.
-        # For now, just ignore any further rotations of it.
-        continue
+for photo_id, feedback in all_feedback.iteritems():
+    if 'rotate' not in feedback: continue
+    rotations = feedback['rotate']
 
-    if 'rotate' in o:
-        row['rotate'] = o['rotate']
-        del row['feedback']
-        id_to_rotation[row['photo_id']].append(row)
+    for rotation in rotations.itervalues():
+        last_date_ms = max(last_date_ms, rotation['metadata']['timestamp'])
+        if 'original' in rotation:
+            # This image was already confirmed as rotated & a fix was applied.
+            # For now, just ignore any further rotations of it.
+            continue
 
+        row = rotation['metadata']
+        row['rotate'] = rotation['rotate']
+        id_to_rotation[photo_id].append(row)
+
+last_date = datetime.fromtimestamp(last_date_ms / 1000.0).strftime('%Y-%m-%dT%H:%M:%S')
+
+print 'Last date: %s' % last_date
 print 'Rotations w/o photo ids: %d' % len(id_to_rotation[''])
 del id_to_rotation['']
 print 'Rotations with photo ids: %d' % len(id_to_rotation)

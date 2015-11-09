@@ -11,17 +11,15 @@ changes to the site.
 This assumes that the `oldnyc` and `oldnyc.github.io` repos are
 side-by-side on the file system.
 
-### Step 1: Pull down data from AppEngine
+### Step 1: Pull down data from Firebase
 
-`export_as_csv.py` is an AppEngine DB -> CSV dumper for OldNYC. It pulls down all forms of user feedback. It's adapted from https://github.com/gergelyorosz/gae-export-as-csv
 
 Usage:
 
-    cd feedback
-    remote_api_shell.py -s old-nyc.appspot.com
-    import export_as_csv
+    curl "https://brilliant-heat-1088.firebaseio.com/.json?print=pretty&auth=..." -o feedback/user-feedback.json
+    cp feedback/user-feedback.json feedback/user-feedback.$(date +%Y-%m-%dT%H:%M:%S).json
 
-This will update `feedback/user-feedback.csv`.
+This will update `feedback/user-feedback.json`.
 
 ### Step 2: Update rotations
 
