@@ -11,6 +11,11 @@ from collections import defaultdict
 from datetime import datetime
 from itertools import groupby
 
+# Sometimes users get it wrong.
+BLACKLIST = {
+    '717291f-a'
+}
+
 
 def histogram(lst):
     count_keys = [(len(list(v)), k) for k, v in groupby(sorted(lst))]
@@ -23,6 +28,7 @@ all_feedback = json.load(open('../../feedback/user-feedback.json'))['feedback']
 
 for photo_id, feedback in all_feedback.iteritems():
     if 'rotate' not in feedback: continue
+    if photo_id in BLACKLIST: continue
     rotations = feedback['rotate']
 
     for rotation in rotations.itervalues():
