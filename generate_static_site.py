@@ -41,6 +41,9 @@ for photo_id, width, height in csv.reader(open('nyc-image-sizes.txt')):
 user_rotations = json.load(open('analysis/rotations/rotations.json'))
 id_to_rotation = user_rotations['fixes']
 
+def get_back_id(photo_id):
+    return re.sub(r'f?(?:-[a-z])?$', 'b', photo_id)
+
 # Load the previous iteration of OCR. Corrections are applied on top of
 # this.
 old_data = json.load(open('../oldnyc.github.io/data.json', 'rb'))
@@ -49,7 +52,7 @@ manual_ocr_fixes = json.load(open('ocr/feedback/fixes.json', 'rb'))
 back_id_to_correction = manual_ocr_fixes['fixes']
 id_to_text = {}
 for photo_id in id_to_record.iterkeys():
-    back_id = re.sub(r'f?(?:-[a-z])?$', 'b', photo_id)
+    back_id = get_back_id(photo_id)
     if photo_id in old_photo_id_to_text:
         id_to_text[photo_id] = old_photo_id_to_text[photo_id]
     if back_id in back_id_to_correction:
@@ -123,6 +126,7 @@ def make_response(photo_ids):
 all_photos = []
 latlon_to_count = {}
 id4_to_latlon = defaultdict(lambda: {})  # first 4 of id -> id -> latlon
+textless_photo_ids = []
 for latlon, photo_ids in lat_lon_to_ids.iteritems():
     outfile = '../oldnyc.github.io/by-location/%s.json' % latlon.replace(',', '')
     response = make_response(photo_ids)
@@ -132,6 +136,8 @@ for latlon, photo_ids in lat_lon_to_ids.iteritems():
         id4_to_latlon[id_[:4]][id_] = latlon
 
     for photo_id, response in response.iteritems():
+        if not response['text'] and 'f' in photo_id:
+            textless_photo_ids.append(photo_id)
         lat, lon = [float(x) for x in latlon.split(',')]
         response['photo_id'] = photo_id
         response['location'] = {
@@ -152,6 +158,12 @@ for id4, id_to_latlon in id4_to_latlon.iteritems():
     json.dump(id_to_latlon,
               open('../oldnyc.github.io/id4-to-location/%s.json' % id4, 'wb'),
               indent=2)
+
+# List of photos IDs without backing text
+json.dump({
+            'photo_ids': textless_photo_ids
+          }, 
+          open('../oldnyc.github.io/notext.json', 'wb'))
 
 # Complete data dump
 all_photos.sort(key=lambda photo: photo['photo_id'])
