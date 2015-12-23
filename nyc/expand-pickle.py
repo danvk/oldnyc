@@ -29,6 +29,7 @@ for idx, r in enumerate(rs):
   digital_id = r.photo_id()
   image_file = '%s.jpg' % digital_id
   if image_file not in expansions:
+    # XXX: why skip any images?
     skipped += 1
     continue
   

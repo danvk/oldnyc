@@ -18,6 +18,7 @@ import cPickle
 
 # Import order here determines the order in which coders get a crack at each
 # record. We want to go in order from precise to imprecise.
+import coders.extended_grid
 import coders.milstein
 import coders.nyc_parks
 

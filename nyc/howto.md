@@ -80,18 +80,6 @@ The lat-lon-map.txt file can be generated via:
     ./generate-geocodes.py --coders milstein,nyc-parks --pickle_path nyc/records.pickle --output_format locations.txt --geocode > locations.txt
     ./cluster-locations.py locations.txt > lat-lon-map.txt
 
-## Update the static site (oldnyc.github.io)
-
-OldNYC issues XHRs to GitHub pages using XDomain. This allows a site consisting of completely static content. To update the static site, first clone it into a sibling directory to this repo:
-
-    cd ..
-    git clone https://github.com/oldnyc/oldnyc.github.io
-
-And then run the update script:
-
-    cd oldnyc
-    ./generate_static_site.py
-
 ## Generate photos.pickle
 
 photos.pickle is like records.pickle, but it duplicates each record across all its photos.
