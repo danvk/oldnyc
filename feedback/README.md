@@ -43,7 +43,7 @@ This will update `ocr/feedback/{corrections,fixes}.json`.
 `fixes.json` includes just one corrected version of the text for each
 image.
 
-To manually review updates, open ocr/feedback/review/index.html in a browser.
+To manually review updates, open review/index.html in a browser.
 
 To reject some changes, re-run `ocr_corrector.py` as it suggests.
 

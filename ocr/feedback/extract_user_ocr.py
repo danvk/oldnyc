@@ -70,7 +70,14 @@ sys.stderr.write('# spam: %d\n' % num_spam)
 
 out = {}
 for back_id, corrections in id_to_corrections.iteritems():
+    if back_id not in back_to_front:
+        # This is most likely due to a photo being dropped from the site,
+        # e.g. because of a geocoding update which removes it.
+        print 'Dropping OCR for %s' % back_id
+        continue
+
     photo_id = back_to_front[back_id][0]
+
     out[back_id] = {
         'original': id_to_text[photo_id],
         'corrections': corrections
