@@ -106,6 +106,9 @@ for backing_id, info in data.iteritems():
 # For manual review
 changes = []
 for backing_id, new_text in backing_id_to_fix.iteritems():
+    before = data[backing_id]['original']
+    if before == new_text:
+        continue  # this just confirms the existing text; no need to review.
     changes.append({
         'photo_id': backing_id_to_photo_id[backing_id],
         'before': data[backing_id]['original'],
