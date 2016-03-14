@@ -49,7 +49,8 @@ for record in site_data['photos']:
     backing_id_to_photo_id[back_id] = photo_id
 
 backing_id_to_fix = {}
-latest_timestamp = ''
+latest_timestamp = 0
+latest_datetime = ''
 
 # Sort by recency (most recent first), then de-dupe based on IP
 for backing_id, info in data.iteritems():
@@ -63,8 +64,10 @@ for backing_id, info in data.iteritems():
     uniq_corrections = []
     for c in corrections:
         ip = c['user_ip']
-        timestamp = c['datetime']
+        datetime = c['datetime']
+        timestamp = c['timestamp']
 
+        latest_datetime = max(latest_datetime, datetime)
         latest_timestamp = max(latest_timestamp, timestamp)
         if ip not in ips:
             ips.add(ip)
@@ -126,10 +129,12 @@ print 'Recency:    %4d' % recency
 print '(Rejected): %4d' % rejected
 print ''
 print 'Last timestamp: %s' % latest_timestamp
+print 'Last datetime: %s' % latest_datetime
 
 json.dump({
     'fixes': backing_id_to_fix,
-    'last_date': latest_timestamp
+    'last_date': latest_datetime,
+    'last_timestamp': latest_timestamp
     }, open('fixes.json', 'wb'), indent=2)
 
 open('review/changes.js', 'w').write('var changes = %s;' %
