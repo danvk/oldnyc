@@ -123,6 +123,14 @@ def make_response(photo_ids):
     return response
 
 
+def merge(*args):
+    '''Merge dictionaries.'''
+    o = {}
+    for x in args:
+        o.update(x)
+    return o
+
+
 all_photos = []
 latlon_to_count = {}
 id4_to_latlon = defaultdict(lambda: {})  # first 4 of id -> id -> latlon
@@ -167,11 +175,18 @@ json.dump({
 
 # Complete data dump
 all_photos.sort(key=lambda photo: photo['photo_id'])
-json.dump({
+timestamps = {
+        'timestamp': time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()),
+        'rotation_time': user_rotations['last_date'],
+        'ocr_time': manual_ocr_fixes['last_date']
+    }
+
+json.dump(merge({
             'photos': all_photos,
-            'timestamp': time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()),
-            'rotation_time': user_rotations['last_date'],
-            'ocr_time': manual_ocr_fixes['last_date']
-          },
+          }, timestamps),
           open('../oldnyc.github.io/data.json', 'wb'),
+          indent=2)
+
+json.dump(timestamps,
+          open('../oldnyc.github.io/timestamps.json', 'wb'),
           indent=2)
