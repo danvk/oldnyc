@@ -12,6 +12,11 @@ Output: fixes.json
 Usage:
 
     ./ocr_corrector.py (rejected_photo_id1) (rejected_photo_id2)
+
+Things that should be improved:
+1. The review UI should include user-agent, location & cookies for the
+   contributor. Changes should be grouped by the contributor, for easier
+   bulk-approval.
 '''
 
 import editdistance

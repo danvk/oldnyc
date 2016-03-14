@@ -61,5 +61,8 @@ rotated image assets (if needed):
 
     ./generate_rotated_images.py
 
+Look over the rotated images. If any are incorrect, add them to the blacklist
+in `extract_rotations.py` and rerun that step (and `generate_static_site.py`).
+
 Finally, commit and push. You may need to purge the CloudFlare cache to
 see the changes.

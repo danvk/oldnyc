@@ -13,7 +13,8 @@ from itertools import groupby
 
 # Sometimes users get it wrong.
 BLACKLIST = {
-    '717291f-a'
+    '717291f-a',
+    '713043f'
 }
 
 
