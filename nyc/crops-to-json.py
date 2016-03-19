@@ -4,9 +4,15 @@
 Output looks like:
   {
     '702370f.jpg': {
-      '702370f-1.jpg': { top: 10, left: 20, width: 400, height: 300},
-      '702370f-2.jpg': { top: 10, left: 20, width: 400, height: 300},
-      '702370f-3.jpg': { top: 10, left: 20, width: 400, height: 300}
+      'crops': {
+        '702370f-1.jpg': { top: 10, left: 20, width: 400, height: 300},
+        '702370f-2.jpg': { top: 10, left: 20, width: 400, height: 300},
+        '702370f-3.jpg': { top: 10, left: 20, width: 400, height: 300}
+      },
+      'metadata': {
+        'width': 1000,
+        'height': 800
+      }
     }
   }
 '''
@@ -18,15 +24,21 @@ import fileinput
 out = {}
 for line in fileinput.input():
   d = json.loads(line)
-  entry = {}
+  crops = {}
   if 'rects' in d:
     for r in d['rects']:
-      entry[os.path.basename(r['file'])] = {
+      crops[os.path.basename(r['file'])] = {
         'top': r['top'],
         'left': r['left'],
         'width': r['right'] - r['left'],
         'height': r['bottom'] - r['top']
       }
-  out[os.path.basename(d['file'])] = entry
+  out[os.path.basename(d['file'])] = {
+    'crops': crops,
+    'metadata': {
+      'width': d['shape']['w'],
+      'height': d['shape']['h']
+    }
+  }
 
 print json.dumps(out, indent=2, sort_keys=True)
