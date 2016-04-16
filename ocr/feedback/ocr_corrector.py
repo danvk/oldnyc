@@ -91,36 +91,39 @@ for backing_id, info in data.iteritems():
 
     # pick the only fix
     if len(corrections) == 1:
-        backing_id_to_fix[backing_id] = corrections[0]['text']
+        backing_id_to_fix[backing_id] = corrections[0]
         solos += 1
         continue
 
     # pick the consensus fix
-    counts = defaultdict(int)
-    for c in corrections:
-        counts[c['text']] += 1
-    count_text = [(v, k) for k, v in counts.iteritems()]
-    count_text.sort()
-    count_text.reverse()
-    if count_text[0][0] > 1:
-        backing_id_to_fix[backing_id] = count_text[0][1]
-        consensus += 1
-        continue
+    # counts = defaultdict(int)
+    # for c in corrections:
+    #     counts[c['text']] += 1
+    # count_text = [(v, k) for k, v in counts.iteritems()]
+    # count_text.sort()
+    # count_text.reverse()
+    # if count_text[0][0] > 1:
+    #     backing_id_to_fix[backing_id] = count_text[0][1]
+    #     consensus += 1
+    #     continue
     
     # pick the most recent
     recency += 1
-    backing_id_to_fix[backing_id] = corrections[0]['text']
+    backing_id_to_fix[backing_id] = corrections[0]
 
 # For manual review
 changes = []
-for backing_id, new_text in backing_id_to_fix.iteritems():
+for backing_id, fix in backing_id_to_fix.iteritems():
+    new_text = fix['text']
+    del fix['text']
     before = data[backing_id]['original']
     if before == new_text:
         continue  # this just confirms the existing text; no need to review.
     changes.append({
         'photo_id': backing_id_to_photo_id[backing_id],
         'before': data[backing_id]['original'],
-        'after': new_text
+        'after': new_text,
+        'metadata': fix
     })
 
 print 'Solo fixes: %4d' % solos
@@ -136,6 +139,9 @@ json.dump({
     'last_date': latest_datetime,
     'last_timestamp': latest_timestamp
     }, open('fixes.json', 'wb'), indent=2)
+
+# Group changes by user for the review UI
+changes.sort(key=lambda r: (r['metadata']['cookie'], r['metadata']['datetime']))
 
 open('review/changes.js', 'w').write('var changes = %s;' %
         json.dumps(changes, indent=2, sort_keys=True))

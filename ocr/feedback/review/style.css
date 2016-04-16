@@ -1,0 +1,14 @@
+button, select {
+  font-size: 1em;
+}
+button#reject {
+  margin-left: 5em;
+}
+
+#rejects {
+  margin-top: 1em;
+  font-family: monospace;
+}
+
+#metadata {
+}
