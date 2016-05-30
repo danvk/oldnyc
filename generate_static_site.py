@@ -56,7 +56,7 @@ for photo_id in id_to_record.iterkeys():
     if photo_id in old_photo_id_to_text:
         id_to_text[photo_id] = old_photo_id_to_text[photo_id]
     if back_id in back_id_to_correction:
-        id_to_text[photo_id] = back_id_to_correction[back_id]
+        id_to_text[photo_id] = back_id_to_correction[back_id]['text']
 
 
 # (This was only helpful on the initial run, when data came straight from

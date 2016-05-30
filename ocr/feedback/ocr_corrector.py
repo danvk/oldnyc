@@ -14,6 +14,7 @@ Usage:
     ./ocr_corrector.py (rejected_photo_id1) (rejected_photo_id2)
 '''
 
+import copy
 import json
 import re
 import sys
@@ -109,7 +110,8 @@ for backing_id, info in data.iteritems():
 changes = []
 for backing_id, fix in backing_id_to_fix.iteritems():
     new_text = fix['text']
-    del fix['text']
+    metadata = copy.deepcopy(fix)
+    del metadata['text']
     before = data[backing_id]['original']
     if before == new_text:
         continue  # this just confirms the existing text; no need to review.
@@ -117,7 +119,7 @@ for backing_id, fix in backing_id_to_fix.iteritems():
         'photo_id': backing_id_to_photo_id[backing_id],
         'before': data[backing_id]['original'],
         'after': new_text,
-        'metadata': fix
+        'metadata': metadata
     })
 
 print 'Solo fixes: %4d' % solos
