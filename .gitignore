@@ -22,3 +22,5 @@ corrections.json
 ocr/feedback/validation
 ocr/feedback/review/changes.js
 feedback.json
+
+.vscode
