@@ -58,7 +58,6 @@ Run:
 Look over the changes to make sure they seem reasonable. Then update the
 rotated image assets (if needed):
 
-
     ./generate_rotated_images.py
 
 Look over the rotated images. If any are incorrect, add them to the blacklist
