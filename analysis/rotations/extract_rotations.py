@@ -14,7 +14,16 @@ from itertools import groupby
 # Sometimes users get it wrong.
 BLACKLIST = {
     '717291f-a',
-    '713043f'
+    '713043f',
+    '702794f-a',
+    '704236f-a',
+    '708766f-a',
+    '715090f-a',
+    '717198f',
+    '721772f-a',
+    '722116f-a',
+    '730894f',
+    '732423f-b'
 }
 
 

@@ -14,6 +14,7 @@ import sys
 import time
 import os
 
+from dates import extract_years
 from ocr import cleaner
 import title_cleaner
 
@@ -105,9 +106,11 @@ def make_response(photo_ids):
         if rotation and (rotation % 180 == 90):
             w, h = h, w
 
+        date = re.sub(r'\s+', ' ', r.date())
         response[photo_id] = {
           'title': title,
-          'date': re.sub(r'\s+', ' ', r.date()),
+          'date': date,
+          'years': extract_years(date),
           'folder': decode(r.location()),
           'width': w,
           'height': h,
@@ -120,7 +123,9 @@ def make_response(photo_ids):
         if rotation:
             response[photo_id]['rotation'] = rotation
 
-    return response
+    # Sort by earliest date; undated photos go to the back.
+    ids = sorted(photo_ids, key=lambda id: min(response[id]['years']) or 'z')
+    return OrderedDict((id_, response[id_]) for id_ in ids)
 
 
 def merge(*args):
@@ -131,6 +136,14 @@ def merge(*args):
     return o
 
 
+def group_by_year(response):
+    counts = defaultdict(int)
+    for record in response.values():
+        for year in extract_years(record['date']):
+            counts[year] += 1
+    return OrderedDict((y, counts[y]) for y in sorted(counts.keys()))
+
+
 all_photos = []
 latlon_to_count = {}
 id4_to_latlon = defaultdict(lambda: {})  # first 4 of id -> id -> latlon
@@ -138,7 +151,7 @@ textless_photo_ids = []
 for latlon, photo_ids in lat_lon_to_ids.iteritems():
     outfile = '../oldnyc.github.io/by-location/%s.json' % latlon.replace(',', '')
     response = make_response(photo_ids)
-    latlon_to_count[latlon] = len(response)
+    latlon_to_count[latlon] = group_by_year(response)  # len(response)
     json.dump(response, open(outfile, 'wb'), indent=2)
     for id_ in photo_ids:
         id4_to_latlon[id_[:4]][id_] = latlon
@@ -170,7 +183,7 @@ for id4, id_to_latlon in id4_to_latlon.iteritems():
 # List of photos IDs without backing text
 json.dump({
             'photo_ids': textless_photo_ids
-          }, 
+          },
           open('../oldnyc.github.io/notext.json', 'wb'))
 
 # Complete data dump

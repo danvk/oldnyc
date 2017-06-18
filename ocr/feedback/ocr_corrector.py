@@ -18,6 +18,7 @@ import copy
 import json
 import re
 import sys
+from collections import Counter, OrderedDict
 
 data = json.load(open('corrections.json'))
 
@@ -101,7 +102,7 @@ for backing_id, info in data.iteritems():
     #     backing_id_to_fix[backing_id] = count_text[0][1]
     #     consensus += 1
     #     continue
-    
+
     # pick the most recent
     recency += 1
     backing_id_to_fix[backing_id] = corrections[0]
@@ -130,6 +131,12 @@ print ''
 print 'Last timestamp: %s' % latest_timestamp
 print 'Last datetime: %s' % latest_datetime
 
+# Sort changes from users with the most fixes to the front.
+# These are the quickest to validate / reject.
+cookie_to_count = Counter()
+for change in changes:
+    cookie_to_count[change['metadata']['cookie']] += 1
+
 json.dump({
     'fixes': backing_id_to_fix,
     'last_date': latest_datetime,
@@ -137,7 +144,7 @@ json.dump({
     }, open('fixes.json', 'wb'), indent=2)
 
 # Group changes by user for the review UI
-changes.sort(key=lambda r: (r['metadata']['cookie'], r['metadata']['datetime']))
+changes.sort(key=lambda r: (-cookie_to_count[r['metadata']['cookie']], r['metadata']['cookie'], r['metadata']['datetime']))
 
 open('review/changes.js', 'w').write('var changes = %s;' %
         json.dumps(changes, indent=2, sort_keys=True))

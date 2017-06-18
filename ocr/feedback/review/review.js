@@ -30,6 +30,20 @@ $('#prev').on('click', function(e) {
   $('select').val(idx);
   buildUI(changes[idx]);
 });
+$('#accept-all').on('click', function(e) {
+  let idx = selectedIndex();
+  const cookie = changes[idx].metadata.cookie;
+  for (; idx < changes.length; idx++) {
+    if (changes[idx].metadata.cookie !== cookie) {
+      $('select').val(idx);
+      buildUI(changes[idx]);
+      break;
+    }
+  }
+});
+$('#reject-all').on('click', function(e) {
+  alert('not implemented');
+});
 
 $('#reject').on('click', function(e) {
   rejected_ids.push(changes[selectedIndex()].photo_id);
@@ -43,6 +57,8 @@ $(window).on('keypress', function(e) {
     $('#prev').click();
   } else if (e.which == 'x'.charCodeAt(0)) {
     $('#reject').click();
+  } else if (e.which == 'a'.charCodeAt(0)) {
+    $('#accept-all').click();
   } else if (e.which == 'v'.charCodeAt(0)) {
     var url = $('#tool-link').attr('href');
     window.open(url, '_blank');
