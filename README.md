@@ -21,5 +21,8 @@ pip install -r requirements.txt
 
 See [nyc/howto.md](nyc/howto.md) for more details on how to perform specific tasks.
 
+If you're interested in building your own "Old" site using this code, check out [this great writeup][3] on Old Ravenna.
+
 [1]: https://github.com/oldnyc/oldnyc.github.io/
 [2]: https://github.com/oldnyc/oldnyc.github.io/blob/master/data.json
+[3]: http://www.opendatabassaromagna.it/2016/07/how-to-map-photos-of-your-city-like.html
