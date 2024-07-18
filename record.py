@@ -371,7 +371,7 @@ def AllRecords(path=None):
   """Reads all records from the pickled file and returns a list."""
   if not path:
     path = os.path.join(os.path.dirname(__file__), 'records.pickle')
-  unpickler = pickle.Unpickler(open(path, 'r'))
+  unpickler = pickle.Unpickler(open(path, 'rb'), encoding='latin-1', fix_imports=True)
 
   count = 0
   rs = []

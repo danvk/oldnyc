@@ -1,7 +1,7 @@
 Old NYC
 =======
 
-Live site: http://www.oldnyc.org
+Live site: https://www.oldnyc.org
 
 The static content for this site lives in [oldnyc/oldnyc.github.io][1].
 In particular you may be interested in the [giant JSON data file][2] which contains all

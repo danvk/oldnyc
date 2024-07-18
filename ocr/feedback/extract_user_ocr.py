@@ -27,7 +27,7 @@ for record in site_data['photos']:
     back_id = re.sub(r'f?(?:-[a-z])?$', 'b', photo_id)
     back_to_front[back_id].append(photo_id)
 
-print 'Last OCR update: %s' % last_timestamp
+print('Last OCR update: %s' % last_timestamp)
 
 badwords = ['http', 'www', 'shit', 'cunt', 'fuck']
 

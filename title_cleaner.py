@@ -27,4 +27,4 @@ def is_pure_location(title):
 if __name__ == '__main__':
     for line in fileinput.input():
         line = line.strip()
-        print '%s %s' % ('x' if is_pure_location(line) else ' ', line)
+        print('%s %s' % ('x' if is_pure_location(line) else ' ', line))

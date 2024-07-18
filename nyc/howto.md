@@ -3,6 +3,7 @@
 (Suggest opening this file in TextMate or another editor that understands Markdown.)
 
 ## Bring up a demo
+
 Set up the Python environment:
 
 ```bash
@@ -17,34 +18,30 @@ Then start the appengine app locally via:
 
 Note: this doesn't actually run AppEngine, just a hacked up local server that emulates it.
 
-## Push a new version to App Engine
-
-Change `version` in viewer/app.yaml to match today's date. Then, from the `viewer` directory run:
-
-    appcfg.py --email danvdk@gmail.com update .
-
-Visit appengine.google.com and make the new version the default.
-
+XXX: This doesn't work, there's no `develop.py`.
 
 ## Update the data
 
 Data (lat/lon→image lists, image metadata), is hosted on GitHub pages. To
 update this, run something like this sequence:
 
-    cd ..
-    git clone https://github.com/oldnyc/oldnyc.github.io.git
-    cd ../oldnyc
-    ./generate_static_site.py
-    cd ../oldnyc.github.io
-    git add .
-    git commit -a -m 'Update site'
-    git push
+```bash
+cd ..
+git clone https://github.com/oldnyc/oldnyc.github.io.git
+cd ../oldnyc
+./generate_static_site.py
+cd ../oldnyc.github.io
+git add .
+git commit -a -m 'Update site'
+git push
+```
 
 ## Update the JavaScript bundle
 
     ./update-js-bundle.sh
 
 ## Iterate on geocoding
+
 It's easiest to do this by iterating on the records.pickle file, which has one
 entry per milstein card, rather than one entry per photo.
 
@@ -68,8 +65,8 @@ If you want to determine per-borough geocoding coverage, run
 
     ./nyc/coverage-by-borough /tmp/records.json
 
-
 ## Regenerate geocodes for the viewer (nyc-lat-lons-ny.js)
+
 To get new geocodes into the frontend, you need to geocode photos.pickle. Do so
 with:
 
@@ -92,10 +89,11 @@ cd nyc
 ```
 
 ## Generate crops.txt
+
 ...
 
-
 ## Generate records.pickle from CSV
+
 The original source for the data is a CSV file that Matt K gave me, milstein.csv.
 
 To convert this to a records.pickle file, run:
