@@ -6,7 +6,7 @@
 #   print rs[0].photo_url
 #   ...
 
-import cPickle
+import pickle
 import os
 import re
 import time
@@ -371,7 +371,7 @@ def AllRecords(path=None):
   """Reads all records from the pickled file and returns a list."""
   if not path:
     path = os.path.join(os.path.dirname(__file__), 'records.pickle')
-  unpickler = cPickle.Unpickler(open(path, 'r'))
+  unpickler = pickle.Unpickler(open(path, 'r'))
 
   count = 0
   rs = []
@@ -388,18 +388,18 @@ def AllRecords(path=None):
 
 
 if __name__ == "__main__":
-  str = file("records/1032033").read()
+  str = open("records/1032033").read()
   r = Record.FromString(str)
-  print "photo_url: %s" % r.photo_url
-  print "thumb_url: %s" % r.thumbnail_url
-  print "preferred: %s" % r.preferred_url
-  print ""
-  print "location: %s" % r.location
-  print "date: %s" % r.date
-  print "desc: %s" % r.description
+  print("photo_url: %s" % r.photo_url)
+  print("thumb_url: %s" % r.thumbnail_url)
+  print("preferred: %s" % r.preferred_url)
+  print("")
+  print("location: %s" % r.location)
+  print("date: %s" % r.date)
+  print("desc: %s" % r.description)
   for k in sorted(r.tabular.keys()):
-    print "%s %s: (%d) %s" % (k, Record.MostCommonNameForTag(k),
-                              len(r.tabular[k]), r.tabular[k])
+    print("%s %s: (%d) %s" % (k, Record.MostCommonNameForTag(k),
+                              len(r.tabular[k]), r.tabular[k]))
 
 # Mostly-complete set of field tags (with frequency):
 #  a:
