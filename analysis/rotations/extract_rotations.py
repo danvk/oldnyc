@@ -5,7 +5,6 @@ Output is a JSON file mapping photo id --> degrees of rotation.
 Rotations are only output if they're confirmed by multiple IPs.
 '''
 
-import csv
 import json
 from collections import defaultdict
 from datetime import datetime
@@ -23,7 +22,19 @@ BLACKLIST = {
     '721772f-a',
     '722116f-a',
     '730894f',
-    '732423f-b'
+    '732423f-b',
+    '1558236',
+    '706476f-a',
+    '712147f',  # also segmentation failure
+    '714365f-a',
+    '716741f-a',
+    '718233f-b',
+    '719932f-a',
+    '720939f',
+    '721277f-a',
+    '723156f-a',
+    '727097f-a',
+    '727220f-a',
 }
 
 
@@ -36,12 +47,12 @@ last_date_ms = 0
 id_to_rotation = defaultdict(list)
 all_feedback = json.load(open('../../feedback/user-feedback.json'))['feedback']
 
-for photo_id, feedback in all_feedback.iteritems():
+for photo_id, feedback in all_feedback.items():
     if 'rotate' not in feedback: continue
     if photo_id in BLACKLIST: continue
     rotations = feedback['rotate']
 
-    for rotation in rotations.itervalues():
+    for rotation in rotations.values():
         last_date_ms = max(last_date_ms, rotation['metadata']['timestamp'])
         if 'original' in rotation:
             # This image was already confirmed as rotated & a fix was applied.
@@ -54,15 +65,15 @@ for photo_id, feedback in all_feedback.iteritems():
 
 last_date = datetime.fromtimestamp(last_date_ms / 1000.0).strftime('%Y-%m-%dT%H:%M:%S')
 
-print 'Last date: %s' % last_date
-print 'Rotations w/o photo ids: %d' % len(id_to_rotation[''])
+print('Last date: %s' % last_date)
+print('Rotations w/o photo ids: %d' % len(id_to_rotation['']))
 del id_to_rotation['']
-print 'Rotations with photo ids: %d' % len(id_to_rotation)
+print('Rotations with photo ids: %d' % len(id_to_rotation))
 
 # TODO: a single IP rotating the image twice at multiple times is also a good signal.
 id_to_confirmed = {}
 num_mismatches = 0
-for photo_id, rotations in id_to_rotation.iteritems():
+for photo_id, rotations in id_to_rotation.items():
     ip_to_max = defaultdict(int)
     for rot in rotations:
         ip = rot['user_ip']
@@ -71,7 +82,7 @@ for photo_id, rotations in id_to_rotation.iteritems():
 
     if len(ip_to_max) < 2:
         continue
-    vals = [r % 360 for r in ip_to_max.itervalues()]
+    vals = [r % 360 for r in ip_to_max.values()]
     counts = histogram(vals)
 
     num_plurality = counts[0][0]
@@ -86,12 +97,12 @@ for photo_id, rotations in id_to_rotation.iteritems():
         # print '%s / %s in %s %s' % (photo_id, len(counts), len(ip_to_max), ip_to_max)
 
 
-print 'mismatches: %d' % num_mismatches
-print 'confirmations: %d' % len(id_to_confirmed)
+print('mismatches: %d' % num_mismatches)
+print('confirmations: %d' % len(id_to_confirmed))
 
 json.dump({
     'last_date': last_date,
     'fixes': id_to_confirmed
-}, open('rotations.json', 'wb'), indent=2)
+}, open('rotations.json', 'w'), indent=2, sort_keys=True)
 
 # 1193 rotations came out of this. From a sample of 100, all were correct.
