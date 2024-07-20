@@ -133,7 +133,7 @@ def make_response(photo_ids):
           'text': ocr_text,
           'image_url': image_url(photo_id, is_thumb=False),
           'thumb_url': image_url(photo_id, is_thumb=True),
-          # 'nypl_url': nypl_url(photo_id),
+          'nypl_url': nypl_url(photo_id),
         }
         if original_title:
             response[photo_id]['original_title'] = original_title
