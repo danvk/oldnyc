@@ -11,17 +11,16 @@ changes to the site.
 This assumes that the `oldnyc` and `oldnyc.github.io` repos are
 side-by-side on the file system.
 
-### Step 1: Pull down data from Firebase
-
+## Step 1: Pull down data from Firebase
 
 Usage:
 
-    curl "https://brilliant-heat-1088.firebaseio.com/.json?print=pretty&auth=..." -o feedback/user-feedback.json
+    curl "https://brilliant-heat-1088.firebaseio.com/.json?print=pretty" -o feedback/user-feedback.json
     cp feedback/user-feedback.json feedback/user-feedback.$(date +%Y-%m-%dT%H:%M:%S).json
 
 This will update `feedback/user-feedback.json`.
 
-### Step 2: Update rotations
+## Step 2: Update rotations
 
 Run:
 
@@ -30,7 +29,7 @@ Run:
 
 This will update `analysis/rotations/corrections.json`
 
-### Step 3: Update OCR
+## Step 3: Update OCR
 
 Run:
 
@@ -47,7 +46,7 @@ To manually review updates, open review/index.html in a browser.
 
 To reject some changes, re-run `ocr_corrector.py` as it suggests.
 
-### Step 4: Update the static site
+## Step 4: Update the static site
 
 Run:
 
