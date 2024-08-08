@@ -18,13 +18,13 @@ import copy
 import json
 import re
 import sys
-from collections import Counter, OrderedDict
+from collections import Counter
 
 data = json.load(open('corrections.json'))
 
 
 def photo_id_to_backing_id(photo_id):
-    return re.sub(r'f?(?:-[a-z])?$', 'b', photo_id)
+    return re.sub(r'f?(?:-[a-z])?$', 'b', photo_id, count=1)
 
 
 def clean(text):
@@ -41,7 +41,7 @@ backing_id_to_photo_id = {}
 site_data = json.load(open('../../../oldnyc.github.io/data.json'))
 for record in site_data['photos']:
     photo_id = record['photo_id']
-    back_id = re.sub(r'f?(?:-[a-z])?$', 'b', photo_id)
+    back_id = photo_id_to_backing_id(photo_id)
     backing_id_to_photo_id[back_id] = photo_id
 
 backing_id_to_fix = {}
@@ -49,7 +49,7 @@ latest_timestamp = 0
 latest_datetime = ''
 
 # Sort by recency (most recent first), then de-dupe based on IP
-for backing_id, info in data.iteritems():
+for backing_id, info in data.items():
     original = info['original'] or ''
     corrections = info['corrections']
     for c in corrections:
@@ -76,7 +76,7 @@ for backing_id, info in data.iteritems():
 # 2. Agreement between any pair? Use that.
 # 3. Take the most recent.
 solos, consensus, recency, rejected = 0, 0, 0, 0
-for backing_id, info in data.iteritems():
+for backing_id, info in data.items():
     corrections = info['corrections']
     if len(corrections) == 0:
         continue  # nothing to do
@@ -109,7 +109,7 @@ for backing_id, info in data.iteritems():
 
 # For manual review
 changes = []
-for backing_id, fix in backing_id_to_fix.iteritems():
+for backing_id, fix in backing_id_to_fix.items():
     new_text = fix['text']
     metadata = copy.deepcopy(fix)
     del metadata['text']
@@ -123,13 +123,13 @@ for backing_id, fix in backing_id_to_fix.iteritems():
         'metadata': metadata
     })
 
-print 'Solo fixes: %4d' % solos
-print 'Consensus:  %4d' % consensus
-print 'Recency:    %4d' % recency
-print '(Rejected): %4d' % rejected
-print ''
-print 'Last timestamp: %s' % latest_timestamp
-print 'Last datetime: %s' % latest_datetime
+print('Solo fixes: %4d' % solos)
+print('Consensus:  %4d' % consensus)
+print('Recency:    %4d' % recency)
+print('(Rejected): %4d' % rejected)
+print('')
+print('Last timestamp: %s' % latest_timestamp)
+print('Last datetime: %s' % latest_datetime)
 
 # Sort changes from users with the most fixes to the front.
 # These are the quickest to validate / reject.
@@ -141,7 +141,7 @@ json.dump({
     'fixes': backing_id_to_fix,
     'last_date': latest_datetime,
     'last_timestamp': latest_timestamp
-    }, open('fixes.json', 'wb'), indent=2)
+    }, open('fixes.json', 'w'), indent=2)
 
 # Group changes by user for the review UI
 changes.sort(key=lambda r: (-cookie_to_count[r['metadata']['cookie']], r['metadata']['cookie'], r['metadata']['datetime']))

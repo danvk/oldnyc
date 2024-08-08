@@ -5,6 +5,7 @@ const knownCookies = {
 };
 
 var rejected_ids = [];
+var review_ids = [];
 var options = changes.map(function(change, idx) {
   var txt = (1 + idx) + '/' + changes.length + ': ' + change.photo_id;
   return $('<option>').val(idx).text(txt).get(0);
@@ -50,6 +51,11 @@ $('#reject').on('click', function(e) {
   $('#next').click();
 });
 
+$('#review').on('click', function(e) {
+  review_ids.push(changes[selectedIndex()].photo_id);
+  $('#next').click();
+});
+
 $(window).on('keypress', function(e) {
   if (e.which == 'j'.charCodeAt(0)) {
     $('#next').click();
@@ -59,6 +65,8 @@ $(window).on('keypress', function(e) {
     $('#reject').click();
   } else if (e.which == 'a'.charCodeAt(0)) {
     $('#accept-all').click();
+  } else if (e.which == 'r'.charCodeAt(0)) {
+    $('#review').click();
   } else if (e.which == 'v'.charCodeAt(0)) {
     var url = $('#tool-link').attr('href');
     window.open(url, '_blank');
@@ -105,6 +113,7 @@ function buildUI(record) {
       JSON.stringify(record.metadata, null, '  '));
 
   $('#rejected-ids').text(rejected_ids.join(' '));
+  $('#review-ids').text(review_ids.join(' '));
 }
 
 buildUI(changes[0]);
