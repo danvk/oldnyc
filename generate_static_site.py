@@ -90,6 +90,7 @@ def nypl_url(photo_id: str):
     uuid = photo_id_to_uuid.get(photo_id)
     if not uuid:
         sys.stderr.write(f'No UUID for {photo_id}\n')
+        return None
     return f'https://digitalcollections.nypl.org/items/{uuid}'
 
 

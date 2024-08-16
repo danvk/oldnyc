@@ -12,3 +12,9 @@ button#reject {
 
 #metadata {
 }
+
+img#image {
+  display: none;
+  position: absolute;
+  left: 130ch;
+}

@@ -4,6 +4,8 @@ const knownCookies = {
   '54a2c38e-2dee-433f-90b9-db0741e571c1': 'DANVK'
 };
 
+const BLANK_GIF = "data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==";
+
 var rejected_ids = [];
 var review_ids = [];
 var options = changes.map(function(change, idx) {
@@ -56,6 +58,11 @@ $('#review').on('click', function(e) {
   $('#next').click();
 });
 
+$('#show-image').on('click', () => {
+  const photoId = changes[selectedIndex()].photo_id;
+  $('#image').attr('src', backOfCardUrlForPhotoId(photoId)).show();
+});
+
 $(window).on('keypress', function(e) {
   if (e.which == 'j'.charCodeAt(0)) {
     $('#next').click();
@@ -70,6 +77,8 @@ $(window).on('keypress', function(e) {
   } else if (e.which == 'v'.charCodeAt(0)) {
     var url = $('#tool-link').attr('href');
     window.open(url, '_blank');
+  } else if (e.which == 'i'.charCodeAt(0)) {
+    $('#show-image').click();
   }
 });
 
@@ -95,6 +104,14 @@ function getCookieCounts(record) {
   return [before, total];
 }
 
+// from photo-info.ts
+function backId(photo_id) {
+  return photo_id.replace('f', 'b').replace(/-[a-z]$/, '');
+}
+function backOfCardUrlForPhotoId(photo_id) {
+  return 'http://images.nypl.org/?id=' + backId(photo_id) + '&t=w';
+}
+
 function buildUI(record) {
   var photo_id = record.photo_id;
 
@@ -114,6 +131,7 @@ function buildUI(record) {
 
   $('#rejected-ids').text(rejected_ids.join(' '));
   $('#review-ids').text(review_ids.join(' '));
+  $('#image').attr('src', BLANK_GIF).hide();
 }
 
 buildUI(changes[0]);

@@ -5,3 +5,4 @@ nose
 Pillow
 chardet
 editdistance
+python-dateutil

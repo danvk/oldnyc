@@ -29,14 +29,16 @@ Run:
 
 This will update `analysis/rotations/corrections.json`
 
+Commit all the rotations and you'll be able to review them via `git webdiff` when you run `generate_rotated_images.py` in the oldnyc.github.io repo.
+
+If there are bad rotations, add them to `BLACKLIST` in `extract_rotations.py`.
+
 To review the changes before committing, use this [localturk] template:
 
 ```bash
 (echo 'photo_id,rotation'; git diff rotations.json | grep '^\+' | grep -v 'last_date' | sed 1d | sed 's/\+ *"//' | sed 's/,//' | sed 's/": /,/') > /tmp/new-rotations.txt
 localturk template.html /tmp/new-rotations.txt checked-rotations.txt
 ```
-
-If there are bad rotations, add them to `BLACKLIST` in `extract_rotations.py`.
 
 [localturk]: https://github.com/danvk/localturk
 
