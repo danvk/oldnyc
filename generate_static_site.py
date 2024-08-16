@@ -110,7 +110,7 @@ def decode(b):
 
 
 def make_response(photo_ids):
-    response = OrderedDict()
+    response = []
     for photo_id in photo_ids:
         r = id_to_record[photo_id]
         w, h = id_to_dims[photo_id]
@@ -131,6 +131,7 @@ def make_response(photo_ids):
 
         date = re.sub(r'\s+', ' ', r.date())
         r = {
+          'id': photo_id,
           'title': title,
           'date': date,
           'years': extract_years(date),
@@ -150,19 +151,21 @@ def make_response(photo_ids):
         # sort the keys for more stable diffing
         # we can't just use sort_keys=True in json.dump because the photo_ids
         # in the response have a meaningful sort order.
-        response[photo_id] = {k: r[k] for k in sorted(r.keys())}
+        response.append({k: r[k] for k in sorted(r.keys())})
 
-    # Sort by earliest date; undated photos go to the back.
-    ids = sorted(photo_ids, key=lambda id: (min(response[id]['years']) or 'z', id))
-    return OrderedDict((id_, response[id_]) for id_ in ids)
+    # Sort by earliest date; undated photos go to the back. Use id as tie-breaker.
+    response.sort(key=lambda rec: (min(rec['years']) or 'z', rec['id']))
+    return response
 
 
 def group_by_year(response):
     counts = defaultdict(int)
-    for rec in response.values():
+    for rec in response:
         for year in extract_years(rec['date']):
             counts[year] += 1
     return OrderedDict((y, counts[y]) for y in sorted(counts.keys()))
+
+SORT_PRETTY = {'indent': 2, 'sort_keys': True}
 
 all_photos = []
 latlon_to_count = {}
@@ -170,14 +173,15 @@ id4_to_latlon = defaultdict(lambda: {})  # first 4 of id -> id -> latlon
 textless_photo_ids = []
 for latlon, photo_ids in lat_lon_to_ids.items():
     outfile = '../oldnyc.github.io/by-location/%s.json' % latlon.replace(',', '')
-    response = make_response(photo_ids)
-    latlon_to_count[latlon] = group_by_year(response)
-    # sort order of photoIds matters here; indentation has minimal impact on size here.
-    json.dump(response, open(outfile, 'w'), indent=2)
+    photos = make_response(photo_ids)
+    latlon_to_count[latlon] = group_by_year(photos)
+    # indentation has minimal impact on size here.
+    json.dump(photos, open(outfile, 'w'), indent=2, sort_keys=True)
     for id_ in photo_ids:
         id4_to_latlon[id_[:4]][id_] = latlon
 
-    for photo_id, response in response.items():
+    for response in photos:
+        photo_id = response['id']
         if not response['text'] and 'f' in photo_id:
             textless_photo_ids.append(photo_id)
         lat, lon = [float(x) for x in latlon.split(',')]
@@ -188,6 +192,7 @@ for latlon, photo_ids in lat_lon_to_ids.items():
         }
         response['width'] = int(response['width'])
         response['height'] = int(response['height'])
+        del response['id']
         all_photos.append(response)
 
 photo_ids_on_site = {photo['photo_id'] for photo in all_photos}
@@ -202,16 +207,15 @@ timestamps = {
     'ocr_ms': manual_ocr_fixes['last_timestamp']
 }
 
-SORT_PRETTY = {'indent': 2, 'sort_keys': True}
-
 # This file is part of the intial page load, but it's relatively small.
 json.dump(make_response(pop_ids),
           open('../oldnyc.github.io/popular.json', 'w'), **SORT_PRETTY)
 
+timestamps_json = json.dumps(timestamps, **SORT_PRETTY)
+
 # This is part of the initial page load for OldNYC. File size matters.
 with open('../oldnyc.github.io/lat-lon-counts.js', 'w') as f:
     lat_lons_json = json.dumps(latlon_to_count, sort_keys=True, separators=(',', ':'))
-    timestamps_json = json.dumps(timestamps, **SORT_PRETTY)
     f.write(f'''
         var lat_lons = {lat_lons_json};
         var timestamps = {timestamps_json};
@@ -242,10 +246,13 @@ json.dump({
           open('../oldnyc.github.io/data.json', 'w'),
           **SORT_PRETTY)
 
-# TODO: put this in a <script> tag somewhere, maybe in lat-lon-counts.js.
+# TODO: Remove this one and delete from repo once it's unused.
 json.dump(timestamps,
           open('../oldnyc.github.io/timestamps.json', 'w'),
           **SORT_PRETTY)
+
+with open('../oldnyc.github.io/timestamps.js', 'w') as f:
+    f.write(f'var timestamps = {timestamps_json};')
 
 sys.stderr.write(f'Unique photos on site: {len(photo_ids_on_site)}\n')
 sys.stderr.write(f'URL map hits/misses: {url_hits} / {url_misses}\n')
