@@ -198,6 +198,7 @@ for latlon, photo_ids in lat_lon_to_ids.items():
 photo_ids_on_site = {photo['photo_id'] for photo in all_photos}
 
 missing_popular = {id_ for id_ in pop_ids if id_ not in photo_ids_on_site}
+sys.stderr.write(f'Missing popular: {missing_popular}\n')
 
 timestamps = {
     # TODO: change back for new OCR fixes
@@ -207,7 +208,7 @@ timestamps = {
     'ocr_ms': manual_ocr_fixes['last_timestamp']
 }
 
-# This file is part of the intial page load, but it's relatively small.
+# This file may be unused.
 json.dump(make_response(pop_ids),
           open('../oldnyc.github.io/popular.json', 'w'), **SORT_PRETTY)
 
