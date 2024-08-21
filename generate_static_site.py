@@ -79,10 +79,10 @@ back_id_to_text = None  # clear
 def image_url(photo_id, is_thumb):
     degrees = id_to_rotation.get(photo_id)
     if not degrees:
-        return 'http://oldnyc-assets.nypl.org/%s/%s.jpg' % (
+        return 'https://oldnyc-assets.nypl.org/%s/%s.jpg' % (
             'thumb' if is_thumb else '600px', photo_id)
     else:
-        return 'http://www.oldnyc.org/rotated-assets/%s/%s.%s.jpg' % (
+        return 'https://www.oldnyc.org/rotated-assets/%s/%s.%s.jpg' % (
             'thumb' if is_thumb else '600px', photo_id, degrees)
 
 url_hits = 0
@@ -215,7 +215,7 @@ json.dump(make_response(pop_ids),
 timestamps_json = json.dumps(timestamps, **SORT_PRETTY)
 
 # This is part of the initial page load for OldNYC. File size matters.
-with open('../oldnyc.github.io/lat-lon-counts.js', 'w') as f:
+with open('../oldnyc.github.io/static/lat-lon-counts.js', 'w') as f:
     lat_lons_json = json.dumps(latlon_to_count, sort_keys=True, separators=(',', ':'))
     f.write(f'''
         var lat_lons = {lat_lons_json};
@@ -233,7 +233,7 @@ for id4, id_to_latlon in id4_to_latlon.items():
 json.dump({
             'photo_ids': [*sorted(textless_photo_ids)]
           },
-          open('../oldnyc.github.io/notext.json', 'w'),
+          open('../oldnyc.github.io/static/notext.json', 'w'),
           **SORT_PRETTY,
           )
 
@@ -252,7 +252,7 @@ json.dump(timestamps,
           open('../oldnyc.github.io/timestamps.json', 'w'),
           **SORT_PRETTY)
 
-with open('../oldnyc.github.io/timestamps.js', 'w') as f:
+with open('../oldnyc.github.io/static/timestamps.js', 'w') as f:
     f.write(f'var timestamps = {timestamps_json};')
 
 sys.stderr.write(f'Unique photos on site: {len(photo_ids_on_site)}\n')
