@@ -9,6 +9,7 @@ import record
 import re
 import subprocess
 import sys
+import time
 
 from dates import extract_years
 from title_cleaner import is_pure_location
@@ -21,12 +22,12 @@ if git_status.strip():
 
 # TODO: replace this with JSON
 # strip leading 'var popular_photos = ' and trailing ';'
-popular_photos = json.loads(open('viewer/static/js/popular-photos.js', 'rb').read()[20:-2])
+popular_photos = json.loads(open('viewer/static/js/popular-photos.js').read()[20:-2])
 pop_ids = {x['id'] for x in popular_photos}
 
 # TODO: replace this with JSON
 # strip leading 'var lat_lons = ' and trailing ';'
-lat_lon_to_ids = json.loads(open('viewer/static/js/nyc-lat-lons-ny.js', 'rb').read()[15:-1])
+lat_lon_to_ids = json.loads(open('viewer/static/js/nyc-lat-lons-ny.js').read()[15:-1])
 
 rs = record.AllRecords('nyc/photos.pickle')
 id_to_record = {r.photo_id(): r for r in rs}
@@ -46,18 +47,20 @@ user_rotations = json.load(open('analysis/rotations/rotations.json'))
 id_to_rotation = user_rotations['fixes']
 
 def get_back_id(photo_id):
-    return re.sub(r'f?(?:-[a-z])?$', 'b', photo_id)
+    return re.sub(r'f?(-[a-z])?$', 'b', photo_id, count=1)
 
 # Load the previous iteration of OCR. Corrections are applied on top of
 # this.
-old_data = json.load(open('../oldnyc.github.io/data.json', 'rb'))
+old_data = json.load(open('../oldnyc.github.io/data.json'))
 old_photo_id_to_text = {r['photo_id']: r['text'] for r in old_data['photos'] if r['text']}
-# manual_ocr_fixes = json.load(open('ocr/feedback/fixes.json', 'rb'))
-manual_ocr_fixes = {
-    'last_date': '2017-06-04T15:09:35',
-    'last_timestamp': 1496603375454,
-}
-back_id_to_correction = {}  # lost this file
+manual_ocr_fixes = json.load(open('ocr/feedback/fixes.json'))
+back_id_to_correction = manual_ocr_fixes['fixes']
+print(f'{len(back_id_to_correction)} OCR fixes')
+
+# manual_ocr_fixes = {
+#     'last_date': '2017-06-04T15:09:35',
+#     'last_timestamp': 1496603375454,
+# }
 id_to_text = {}
 for photo_id in id_to_record.keys():
     back_id = get_back_id(photo_id)
@@ -65,7 +68,6 @@ for photo_id in id_to_record.keys():
         id_to_text[photo_id] = old_photo_id_to_text[photo_id]
     if back_id in back_id_to_correction:
         id_to_text[photo_id] = back_id_to_correction[back_id]['text']
-
 
 # (This was only helpful on the initial run, when data came straight from
 # Ocropus.)
@@ -78,6 +80,7 @@ back_id_to_text = None  # clear
 
 def image_url(photo_id, is_thumb):
     degrees = id_to_rotation.get(photo_id)
+    # TODO: https
     if not degrees:
         return 'https://oldnyc-assets.nypl.org/%s/%s.jpg' % (
             'thumb' if is_thumb else '600px', photo_id)
@@ -202,7 +205,8 @@ sys.stderr.write(f'Missing popular: {missing_popular}\n')
 
 timestamps = {
     # TODO: change back for new OCR fixes
-    'timestamp': old_data['timestamp'],  # time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()),
+    # 'timestamp': old_data['timestamp'],  # time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()),
+    'timestamp': time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()),
     'rotation_time': user_rotations['last_date'],
     'ocr_time': manual_ocr_fixes['last_date'],
     'ocr_ms': manual_ocr_fixes['last_timestamp']
