@@ -125,6 +125,8 @@ changes = []
 for backing_id, fix in backing_id_to_fix.items():
     new_text = fix['text']
     metadata = copy.deepcopy(fix)
+    if 'cookie' not in metadata:
+        metadata['cookie'] = metadata['user_ip']
     del metadata['text']
     before = data[backing_id]['original']
     if before == new_text:
@@ -148,7 +150,7 @@ print('Last datetime: %s' % latest_datetime)
 # These are the quickest to validate / reject.
 cookie_to_count = Counter()
 for change in changes:
-    cookie_to_count[change['metadata']['cookie']] += 1
+    cookie_to_count[change['metadata'].get('cookie')] += 1
 
 json.dump({
     'fixes': backing_id_to_fix,
