@@ -15,7 +15,7 @@ side-by-side on the file system.
 
 Usage:
 
-    curl "https://brilliant-heat-1088.firebaseio.com/.json?print=pretty" -o feedback/user-feedback.json
+    curl "https://brilliant-heat-1088.firebaseio.com/.json?print=pretty&auth=..." -o feedback/user-feedback.json
     cp feedback/user-feedback.json feedback/user-feedback.$(date +%Y-%m-%dT%H:%M:%S).json
 
 This will update `feedback/user-feedback.json`.
