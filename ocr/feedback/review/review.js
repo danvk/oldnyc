@@ -77,6 +77,9 @@ $(window).on('keypress', function(e) {
   } else if (e.which == 'v'.charCodeAt(0)) {
     var url = $('#tool-link').attr('href');
     window.open(url, '_blank');
+  } else if (e.which == 'o'.charCodeAt(0)) {
+    var url = $('#oldnyc-link').attr('href');
+    window.open(url, '_blank');
   } else if (e.which == 'i'.charCodeAt(0)) {
     $('#show-image').click();
   }
@@ -116,7 +119,8 @@ function buildUI(record) {
   var photo_id = record.photo_id;
 
   $('#photo-id').text(photo_id);
-  $('#tool-link').attr('href', 'http://www.oldnyc.org/ocr.html#' + photo_id);
+  $('#tool-link').attr('href', 'https://www.oldnyc.org/ocr.html#' + photo_id);
+  $('#oldnyc-link').attr('href', 'https://www.oldnyc.org/#' + photo_id);
 
   $('#diff').empty().append(
     codediff.buildView(record.before || '', record.after, {}));

@@ -6,16 +6,20 @@ This:
     - de-dupes corrections by IP
     - picks one, either based on agreement or recency
 
-Input: corrections.json, list of rejected changes
-Output: fixes.json
+Input: corrections.json, list of rejected changes, ids.txt
+Output: fixes.json, review/changes.js
 
 Usage:
 
     ./ocr_corrector.py (rejected_photo_id1) (rejected_photo_id2)
+
+To review a subset of the changes, put the photo IDs in a file called ids.txt.
+
 '''
 
 import copy
 import json
+import os.path
 import re
 import sys
 from collections import Counter
@@ -36,6 +40,12 @@ def clean(text):
 
 # These changes have been rejected, presumably via the OCR review tool.
 rejected_back_ids = set(map(photo_id_to_backing_id, sys.argv[1:]))
+
+whitelist = set(
+    photo_id_to_backing_id(x) for x in open('ids.txt').read().splitlines()
+) if os.path.exists('ids.txt') else None
+if whitelist:
+    print(f'Photo ID whitelist {len(whitelist)}: {whitelist}')
 
 backing_id_to_photo_id = {}
 site_data = json.load(open('../../../oldnyc.github.io/data.json'))
@@ -77,6 +87,9 @@ for backing_id, info in data.items():
 # 3. Take the most recent.
 solos, consensus, recency, rejected = 0, 0, 0, 0
 for backing_id, info in data.items():
+    if whitelist and backing_id not in whitelist:
+        continue
+
     corrections = info['corrections']
     if len(corrections) == 0:
         continue  # nothing to do
