@@ -24,3 +24,4 @@ ocr/feedback/review/changes.js
 feedback.json
 
 .vscode
+.DS_Store

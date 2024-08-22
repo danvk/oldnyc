@@ -456,7 +456,7 @@ place.
 
 I want to increase the coverage of geocoding for Brooklyn images.
 
-There are 5391 images with "Brooklyn" as their borough. 
+There are 5391 images with "Brooklyn" as their borough.
 
 Generate all geocodes (takes ~1 minute):
 $ ./generate-geocodes.py --coders milstein --pickle_path nyc/records.pickle --output_format records.js --geocode > /tmp/records.json
