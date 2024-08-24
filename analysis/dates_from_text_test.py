@@ -171,6 +171,25 @@ Gift of Committee on Housing
 Charity Organization Society
 '''
 
+text_716310f = '''
+Amsterdam Avenue, north from West 124th Street. View 2 is limited to
+a northward perspective on the east side of this Avenue. No. 3 shows
+the blockfront extending from La Salle Street on the left to 124th
+Street on the right. Note the garage building in all three of these
+photos.
+
+No. 1: July, 1928
+No. 2: Spring, 1940
+No. 3: Sept., 1928
+
+No's 1 & 3
+George L. Balgue, photo
+
+No. 2
+P.L. Sperr
+
+'''
+
 def test_get_full_date():
     assert get_dates_from_text(text_701590f) == ['1938-01-25']
     assert get_dates_from_text(text_701593f) == ['1928-05-29', '1928-05-29', '1928-05-29']
@@ -205,3 +224,4 @@ def test_views():
 def test_seasons():
     assert get_dates_from_text(text_708722f) == ['1939']
     assert get_dates_from_text(text_711019f) == ['1938']
+    assert get_dates_from_text(text_716310f) == ['1928-07', '1928-09', '1940']

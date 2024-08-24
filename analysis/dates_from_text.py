@@ -15,14 +15,16 @@ by_full_line = 0
 by_leadin = 0
 
 def parse_mon_year(mon_year: str):
+    mon_year = mon_year.replace('Sept', 'Sep')
     dt = next(datefinder.find_dates(mon_year))
     return dt.strftime('%Y-%m')
 
 
 def parse_mon_year_date(mon_year_date: str):
+    mon_year_date = mon_year_date.replace('Sept', 'Sep')
     try:
         dt = next(datefinder.find_dates(mon_year_date))
-    except StopIteration as e:
+    except StopIteration:
         print(f'Failed to parse date: {mon_year_date=}')
         return
     return dt.strftime('%Y-%m-%d')
@@ -37,9 +39,9 @@ def match_full_date_datefinder(text: str) -> list[str] | None:
     ]
 
 
-mon_pat = r'(?:January|Jan|February|Feb|March|Mar|April|Apr|May|June|Jun|July|Jul|August|Aug|September|Sep|October|Oct|November|Nov|December|Dec)'
+mon_pat = r'(?:January|Jan.?|February|Feb.?|March|Mar.?|April|Apr.?|May|June|Jun.?|July|Jul.?|August|Aug.?|September|Sept?.?|October|Oct.?|November|Nov.?|December|Dec.?)'
 year_pat = r'(?:1[89]\d\d)'
-month_year_re = re.compile(r'^(%s) (%s)$' % (mon_pat, year_pat))
+month_year_re = re.compile(r'^(%s),? (%s)$' % (mon_pat, year_pat))
 year_re = re.compile(r'^%s$' % year_pat)
 
 def match_full_line_date(text: str) -> list[str] | None:
@@ -73,21 +75,27 @@ def match_full_date_re(text: str) -> list[str]:
 
 
 season_pat = r'winter|spring|summer|fall'
-leadin_pat = r'(?:about|prior to|circa|c\.|views?.{0,6}:|(?:%s,?))' % season_pat
+leadin_pat = r'(?:about|prior to|circa|c\.|views?.{0,6}:|(?:%s),?|(?:no\. \d:))' % season_pat
 leadin_re = re.compile(r'%s (%s)' % (leadin_pat, year_pat), re.I)
-leadin_mon_year_re = re.compile(r'%s ?(%s %s)' % (leadin_pat, mon_pat, year_pat), re.I)
+leadin_mon_year_re = re.compile(r'%s ?(%s,? %s)' % (leadin_pat, mon_pat, year_pat), re.I)
 
 def match_year_with_lead_in(text: str) -> list[str]:
     """Match 'about 1910' or 'prior to 1919'."""
     dates = []
+    spans = []
     for m in re.finditer(leadin_mon_year_re, text):
         dates.append(parse_mon_year(m.group(1)))
-    if dates:
-        return dates
-    return [
-        m.group(1)
-        for m in re.finditer(leadin_re, text)
-    ]
+        spans.append(m.span())
+    for m in re.finditer(leadin_re, text):
+        start, stop = m.span()
+        bad = False
+        for span in spans:
+            if start >= span[0] and stop <= span[1]:
+                bad = True
+                break
+        if not bad:
+            dates.append(m.group(1))
+    return dates
 
 
 def get_dates_from_text(text: str):
