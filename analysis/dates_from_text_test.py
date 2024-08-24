@@ -82,10 +82,63 @@ NEG # 3082
 '''
 
 text_704696f = '''
-Greene Avenue, north side, at Clermont Avenue, View 1 is east and shows St. Johns (R.C.)
+Greene Avenue, north side, at Clermont Avenue,
+View 1 is east and shows St. Johns (R.C.)
 Chapel. View 2 is west across Clermont Avenue.
 
 P. L. Sperr  September 20, 1941'''
+
+text_726086f = '''
+Astoria Boulevard, at the S.W. corner of 49th Street--the old Bowery Hay Road--
+showing the Queens County Hotel, built in 1873 by Mrs. Christian Scheurer
+and established as a hotel in 1875, with her son Wm. H. Scheurer as manager.
+The edge of St. Michaels Cemetery is on the extreme left.
+
+View 1: April, 1923
+View 2: April, 1925
+Views 3,4: June 3, 1927
+
+Views 1,2: Eugene L. Armbruster Collection
+
+Views 3,4: P. L. Sperr
+'''
+
+text_725053f = '''
+19th Avenue, north side, between 45th and 47th Streets,
+showing, in the distance, the white Cassabeer House, known in 1933 as
+Steinway Lodge. A large shingled barn can be seen on the right.
+The views are north from 19th Avenue, toward
+the East River, which the house overlooks.
+Eugene L. Armbruster Collection  Views 1,2: 1923
+MAY BE REPRODUCED  View 3: 1925
+'''
+
+text_708323f = '''
+Thirty, Fifth Ave., the new apartment building at Fifth ave. and W. Tenth Street,
+which has been financed by the American Bond & Mortgage Company, and
+which will be open for occupancy next week.
+
+Addition to Washington Square growing apartment colony.
+
+15 story Building at South West corner of 5th  Ave. and 10th Street.
+
+Neg # 529
+c. 1923
+'''
+
+text_726224f = '''
+Brnadwav, weat afde, betweew Coorona Avenue and St. dames Avenue,
+ahowing in the foreground in the three views the d.A. Taawrence
+house of 1873. The small house beyond it belonged to D. I. Rapelye.
+All houses seen in these views were either moved
+or demolished by October 1930.
+1oe2 E.
+Views 1 and 2
+Views 3:May 1923.
+Eugene L. Armbruster Collection
+May be reproduced.
+
+'''
 
 def test_get_full_date():
     assert get_dates_from_text(text_701590f) == ['1938-01-25']
@@ -102,10 +155,16 @@ def test_date_no_space():
     assert get_dates_from_text(text_709781f) == ['1914-11-08']
 
 
-def test_about_prior():
+def test_about_prior_circa():
     assert get_dates_from_text(text_723901f) == ['1930']
     assert get_dates_from_text(text_717267f) == ['1919']  # could be range: ['1800', '1919']
+    assert get_dates_from_text(text_708323f) == ['1923']
 
 
 def test_multiple_dates():
     assert get_dates_from_text(text_715761f) == ['1932', '1934-11-05', '1934-10-12']
+
+
+def test_views():
+    assert get_dates_from_text(text_725053f) == ['1923', '1925']
+    assert get_dates_from_text(text_726224f) == ['1923-05']

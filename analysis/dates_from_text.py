@@ -6,7 +6,6 @@ just some date mentioned in the photo.
 """
 
 import re
-from typing import Generator
 
 import datefinder
 
@@ -39,6 +38,8 @@ def match_full_line_date(text: str) -> list[str] | None:
     return dates
 
 
+leadin_re = re.compile(r'(?:about|prior to|circa|c\.|views?.{0,6}:) (1[89]\d\d)')
+
 def match_year_with_lead_in(text: str) -> list[str] | None:
     """Match 'about 1910' or 'prior to 1919'."""
     return [
@@ -55,3 +56,4 @@ def get_dates_from_text(text: str):
         return full_lines + full_dates
 
     return match_year_with_lead_in(text)
+
