@@ -93,9 +93,9 @@ def test_get_full_date():
     assert get_dates_from_text(text_704696f) == ['1941-09-20']
 
 def test_prioritize_lone_date():
-    assert get_dates_from_text(text_726768f) == ['March 1923']  # not 1891 or 1934
+    assert get_dates_from_text(text_726768f) == ['1923-03']  # not 1891 or 1934
     assert get_dates_from_text(text_705487f) == ['1922']  # not 1929
-    assert get_dates_from_text(text_728074f) == ['April 1925']  # not 1860 or 1896
+    assert get_dates_from_text(text_728074f) == ['1925-04']  # not 1860 or 1896
 
 
 def test_date_no_space():

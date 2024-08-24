@@ -32,6 +32,7 @@ def parse_month(mon):
   """Takes "Jan" -> 1"""
   return int(time.strptime(mon[0:3], "%b")[1])
 
+# XXX November is misspelled
 def AbbreviateMonths(txt):
   return txt.replace('January', 'Jan') \
             .replace('February', 'Feb') \
