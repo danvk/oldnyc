@@ -11,6 +11,7 @@ import subprocess
 import sys
 import time
 
+from analysis import dates_from_text
 from dates import extract_years
 from title_cleaner import is_pure_location
 
@@ -132,12 +133,21 @@ def make_response(photo_ids):
         if rotation and (rotation % 180 == 90):
             w, h = h, w
 
+        date_source = 'nypl'
         date = re.sub(r'\s+', ' ', r.date())
+        years = extract_years(date)
+        if (not date or date == 'n.d') and ocr_text:
+            new_dates = dates_from_text.get_dates_from_text(ocr_text)
+            if new_dates:
+                date_source = 'text'
+                date = ', '.join(new_dates)
+                years = [d[:4] for d in new_dates]
         r = {
           'id': photo_id,
           'title': title,
           'date': date,
-          'years': extract_years(date),
+          'date_source': date_source,
+          'years': years,
           'folder': decode(r.location()),
           'width': w,
           'height': h,
@@ -202,6 +212,8 @@ photo_ids_on_site = {photo['photo_id'] for photo in all_photos}
 
 missing_popular = {id_ for id_ in pop_ids if id_ not in photo_ids_on_site}
 sys.stderr.write(f'Missing popular: {missing_popular}\n')
+print('Date extraction stats:')
+dates_from_text.log_stats()
 
 timestamps = {
     # TODO: change back for new OCR fixes
