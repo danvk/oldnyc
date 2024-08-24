@@ -148,6 +148,29 @@ P. L. Sperr  View 1: April 25, 1936
 NO REPRODUCTIiNS  Views 2,3: November 5, 1936
 '''
 
+text_708722f = '''
+Fifth Avenue, west side, at 41st Street, showing the New York
+Public Library and one of its watchful lions.
+Winter 1939
+Alexander Alland
+
+'''
+
+text_711019f = '''
+E. 10th Street, north side, east from (No. 375, a three story building
+at the left and demolished in the Fall of 1938) a point between Avenue\'s
+B and C and towards the latter. This series of 4 photos was taken to
+show slum area, fire and health hazards. Additional material will be
+found under subject heading
+"Social Conditions."
+
+Fall, 1938
+Views : 1-4
+
+Gift of Committee on Housing
+Charity Organization Society
+'''
+
 def test_get_full_date():
     assert get_dates_from_text(text_701590f) == ['1938-01-25']
     assert get_dates_from_text(text_701593f) == ['1928-05-29', '1928-05-29', '1928-05-29']
@@ -177,3 +200,8 @@ def test_multiple_dates():
 def test_views():
     assert get_dates_from_text(text_725053f) == ['1923', '1925']
     assert get_dates_from_text(text_726224f) == ['1923-05']
+
+
+def test_seasons():
+    assert get_dates_from_text(text_708722f) == ['1939']
+    assert get_dates_from_text(text_711019f) == ['1938']

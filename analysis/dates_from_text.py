@@ -20,8 +20,11 @@ def parse_mon_year(mon_year: str):
 
 
 def parse_mon_year_date(mon_year_date: str):
-    # print(f'{mon_year_date=}')
-    dt = next(datefinder.find_dates(mon_year_date))
+    try:
+        dt = next(datefinder.find_dates(mon_year_date))
+    except StopIteration as e:
+        print(f'Failed to parse date: {mon_year_date=}')
+        return
     return dt.strftime('%Y-%m-%d')
 
 
@@ -63,11 +66,14 @@ def match_full_date_re(text: str) -> list[str]:
     dates = []
     for m in re.finditer(full_date_re, text):
         # print(f'{m.group(0)}')
-        dates.append(parse_mon_year_date(m.group(0)))
+        date = parse_mon_year_date(m.group(0))
+        if date:
+            dates.append(date)
     return dates
 
 
-leadin_pat = r'(?:about|prior to|circa|c\.|views?.{0,6}:)'
+season_pat = r'winter|spring|summer|fall'
+leadin_pat = r'(?:about|prior to|circa|c\.|views?.{0,6}:|(?:%s,?))' % season_pat
 leadin_re = re.compile(r'%s (%s)' % (leadin_pat, year_pat), re.I)
 leadin_mon_year_re = re.compile(r'%s ?(%s %s)' % (leadin_pat, mon_pat, year_pat), re.I)
 
