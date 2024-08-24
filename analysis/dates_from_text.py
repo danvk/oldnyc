@@ -60,7 +60,7 @@ def match_full_line_date(text: str) -> list[str] | None:
 
 
 full_date_re = re.compile(
-    r'%s (?:\d|[12]\d|3[01]),? ?%s' % (mon_pat, year_pat), re.I
+    r'%s (?:\d|[12]\d|3[01])(?:(?:st|nd|rd|th)\.?)?,? ?%s' % (mon_pat, year_pat), re.I
 )
 
 def match_full_date_re(text: str) -> list[str]:
@@ -100,7 +100,7 @@ def match_year_with_lead_in(text: str) -> list[str]:
 
 def get_dates_from_text(text: str):
     global by_full_line, by_full_date1, by_full_date2, by_leadin
-    full_dates1 = match_full_date_datefinder(text)
+    full_dates1 = []  # match_full_date_datefinder(text)
     full_dates2 = match_full_date_re(text)
     full_lines = match_full_line_date(text)
     if full_dates1:
