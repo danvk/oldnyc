@@ -6,3 +6,4 @@ Pillow
 chardet
 editdistance
 python-dateutil
+datefinder
