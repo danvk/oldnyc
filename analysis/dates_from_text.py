@@ -39,7 +39,7 @@ def match_full_date_datefinder(text: str) -> list[str] | None:
     ]
 
 
-mon_pat = r'(?:January|Jan.?|February|Feb.?|March|Mar.?|April|Apr.?|May|June|Jun.?|July|Jul.?|August|Aug.?|September|Sept?.?|October|Oct.?|November|Nov.?|December|Dec.?)'
+mon_pat = r'(?:January|Jan\.?|February|Feb\.?|March|Mar\.?|April|Apr\.?|May|June|Jun\.?|July|Jul\.?|August|Aug\.?|September|Sept?\.?|October|Oct\.?|November|Nov\.?|December|Dec\.?)'
 year_pat = r'(?:1[89]\d\d)'
 month_year_re = re.compile(r'^(%s),? (%s)$' % (mon_pat, year_pat))
 year_re = re.compile(r'^%s$' % year_pat)
