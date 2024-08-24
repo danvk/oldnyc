@@ -190,12 +190,20 @@ P.L. Sperr
 
 '''
 
+text_702545f = '''
+East 14th Street, west side, between Aves. E and Y. This is a
+2-story frame building.
+July 9. 1936.
+P. L. Sperr.
+
+'''
+
 def test_get_full_date():
     assert get_dates_from_text(text_701590f) == ['1938-01-25']
     assert get_dates_from_text(text_701593f) == ['1928-05-29', '1928-05-29', '1928-05-29']
     assert get_dates_from_text(text_704696f) == ['1941-09-20']
     assert get_dates_from_text(text_726214f) == ['1936-04-25', '1936-11-05']
-
+    assert get_dates_from_text(text_702545f) == ['1936-07-09']
 
 def test_prioritize_lone_date():
     assert get_dates_from_text(text_726768f) == ['1923-03']  # not 1891 or 1934

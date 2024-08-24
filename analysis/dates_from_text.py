@@ -60,7 +60,7 @@ def match_full_line_date(text: str) -> list[str] | None:
 
 
 full_date_re = re.compile(
-    r'%s (?:\d|[12]\d|3[01])(?:(?:st|nd|rd|th)\.?)?,? ?%s' % (mon_pat, year_pat), re.I
+    r'%s (?:\d|[12]\d|3[01])(?:(?:st|nd|rd|th)\.?)?[,.]? ?%s' % (mon_pat, year_pat), re.I
 )
 
 def match_full_date_re(text: str) -> list[str]:
