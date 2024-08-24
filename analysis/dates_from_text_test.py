@@ -140,10 +140,19 @@ May be reproduced.
 
 '''
 
+text_726214f = '''
+Broadway, north side, between Britton Avenue and Pettit Place,
+showing an old frame dwelling. It belonged to one
+Williamson in 1891.
+P. L. Sperr  View 1: April 25, 1936
+NO REPRODUCTIiNS  Views 2,3: November 5, 1936
+'''
+
 def test_get_full_date():
     assert get_dates_from_text(text_701590f) == ['1938-01-25']
-    assert get_dates_from_text(text_701593f) == ['1928-05-29', '1928-05-29','1928-05-29']
+    assert get_dates_from_text(text_701593f) == ['1928-05-29', '1928-05-29', '1928-05-29']
     assert get_dates_from_text(text_704696f) == ['1941-09-20']
+    assert get_dates_from_text(text_726214f) == ['1936-04-25', '1936-11-05']
 
 def test_prioritize_lone_date():
     assert get_dates_from_text(text_726768f) == ['1923-03']  # not 1891 or 1934

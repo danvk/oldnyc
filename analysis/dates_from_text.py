@@ -9,7 +9,8 @@ import re
 
 import datefinder
 
-by_full_date = 0
+by_full_date1 = 0
+by_full_date2 = 0
 by_full_line = 0
 by_leadin = 0
 
@@ -18,7 +19,13 @@ def parse_mon_year(mon_year: str):
     return dt.strftime('%Y-%m')
 
 
-def match_full_date(text: str) -> list[str] | None:
+def parse_mon_year_date(mon_year_date: str):
+    # print(f'{mon_year_date=}')
+    dt = next(datefinder.find_dates(mon_year_date))
+    return dt.strftime('%Y-%m-%d')
+
+
+def match_full_date_datefinder(text: str) -> list[str] | None:
     """Match any complete month day, year-style date."""
     return [
         date.strftime('%Y-%m-%d')
@@ -47,11 +54,24 @@ def match_full_line_date(text: str) -> list[str] | None:
     return dates
 
 
+full_date_re = re.compile(
+    r'%s (?:\d|[12]\d|3[01]),? ?%s' % (mon_pat, year_pat), re.I
+)
+
+def match_full_date_re(text: str) -> list[str]:
+    """Sometimes datefinder misses a date."""
+    dates = []
+    for m in re.finditer(full_date_re, text):
+        # print(f'{m.group(0)}')
+        dates.append(parse_mon_year_date(m.group(0)))
+    return dates
+
+
 leadin_pat = r'(?:about|prior to|circa|c\.|views?.{0,6}:)'
 leadin_re = re.compile(r'%s (%s)' % (leadin_pat, year_pat), re.I)
 leadin_mon_year_re = re.compile(r'%s ?(%s %s)' % (leadin_pat, mon_pat, year_pat), re.I)
 
-def match_year_with_lead_in(text: str) -> list[str] | None:
+def match_year_with_lead_in(text: str) -> list[str]:
     """Match 'about 1910' or 'prior to 1919'."""
     dates = []
     for m in re.finditer(leadin_mon_year_re, text):
@@ -65,16 +85,19 @@ def match_year_with_lead_in(text: str) -> list[str] | None:
 
 
 def get_dates_from_text(text: str):
-    global by_full_line, by_full_date, by_leadin
-    full_dates = match_full_date(text)
+    global by_full_line, by_full_date1, by_full_date2, by_leadin
+    full_dates1 = match_full_date_datefinder(text)
+    full_dates2 = match_full_date_re(text)
     full_lines = match_full_line_date(text)
-    if full_dates:
-        by_full_date += 1
+    if full_dates1:
+        by_full_date1 += 1
+    elif full_dates2:
+        by_full_date2 += 1
     elif full_lines:
         by_full_line += 1
-    if full_dates or full_lines:
+    if full_dates1 or full_dates2 or full_lines:
         # TODO: return order could match order in the text
-        return full_lines + full_dates
+        return full_lines + full_dates1 + [d for d in full_dates2 if d not in full_dates1]
 
     leadins = match_year_with_lead_in(text)
     if leadins:
@@ -83,4 +106,4 @@ def get_dates_from_text(text: str):
 
 
 def log_stats():
-    print(f'{by_full_date=}, {by_full_line=}, {by_leadin=}')
+    print(f'{by_full_date1=}, {by_full_date2=}, {by_full_line=}, {by_leadin=}')
