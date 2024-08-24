@@ -15,13 +15,13 @@ by_full_line = 0
 by_leadin = 0
 
 def parse_mon_year(mon_year: str):
-    mon_year = mon_year.replace('Sept', 'Sep')
+    mon_year = re.sub(r'sept\b', 'sep', mon_year, flags=re.I)
     dt = next(datefinder.find_dates(mon_year))
     return dt.strftime('%Y-%m')
 
 
 def parse_mon_year_date(mon_year_date: str):
-    mon_year_date = mon_year_date.replace('Sept', 'Sep')
+    mon_year_date = re.sub(r'sept\b', 'sep', mon_year_date, flags=re.I)
     try:
         dt = next(datefinder.find_dates(mon_year_date))
     except StopIteration:
