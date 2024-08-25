@@ -133,21 +133,26 @@ def make_response(photo_ids):
         if rotation and (rotation % 180 == 90):
             w, h = h, w
 
-        date_source = 'nypl'
         date = re.sub(r'\s+', ' ', r.date())
-        years = extract_years(date)
+        date_fields = {
+            'date_source': 'nypl',
+            'date': date,
+            'years': extract_years(date),
+        }
         if (not date or date == 'n.d') and ocr_text:
             new_dates = dates_from_text.get_dates_from_text(ocr_text)
             if new_dates:
-                date_source = 'text'
-                date = ', '.join(new_dates)
                 years = [d[:4] for d in new_dates]
+                date_fields = {
+                    'date_source': 'text',
+                    'date': '; '.join(sorted(set(years))),
+                    'dates_from_text': new_dates,
+                    'years': years,
+                }
         r = {
           'id': photo_id,
           'title': title,
-          'date': date,
-          'date_source': date_source,
-          'years': years,
+          **date_fields,
           'folder': decode(r.location()),
           'width': w,
           'height': h,
