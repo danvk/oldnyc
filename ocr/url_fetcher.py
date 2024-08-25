@@ -20,10 +20,11 @@ class NotInCacheError(Exception):
 
 
 class Fetcher(object):
-    def __init__(self, throttle_secs=1.0):
+    def __init__(self, throttle_secs=1.0, headers=None):
         self._session = requests_cache.CachedSession('.url_fetcher_cache')
         self._throttle_secs = throttle_secs
         self._last_fetch = 0.0
+        self._headers = headers
 
     def fetch_url(self, url, force_refetch=False):
         if force_refetch:
@@ -63,7 +64,7 @@ class Fetcher(object):
         # By constructing the request outside the Session, we avoid attaching
         # unwanted cookie headers to subsequent requests, which might break the
         # cache.
-        return requests.Request('GET', url).prepare()
+        return requests.Request('GET', url, headers=self._headers).prepare()
 
 
 if __name__ == '__main__':
@@ -76,7 +77,7 @@ if __name__ == '__main__':
             filename = None
             url = line
 
-        print '%5d Fetching %s' % (i + 1, url)
+        print('%5d Fetching %s' % (i + 1, url))
         content = f.fetch_url(url)
         if filename:
             open(filename, 'wb').write(content)
