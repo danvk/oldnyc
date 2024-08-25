@@ -22,5 +22,5 @@ if __name__ == '__main__':
         except KeyError:
             sys.stderr.write(f'Failed to get location for {uuid}...\n')
 
-    with open('crawl/milsteins.json', 'w') as out:
-        json.dump({'collections': milsteins}, out)
+        with open('crawl/milsteins.json', 'w') as out:
+            json.dump({'collections': milsteins}, out)

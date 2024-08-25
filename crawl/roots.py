@@ -4,9 +4,12 @@ import json
 from ocr.url_fetcher import Fetcher
 
 
-def get_nypl_fetcher():
+def get_nypl_fetcher(throttle_secs=1):
     token = open('.nypl-token.txt').read()
-    f = Fetcher(headers={'Authorization': f'Token token="{token}"'})
+    f = Fetcher(
+        headers={'Authorization': f'Token token="{token}"'},
+        throttle_secs=throttle_secs
+    )
     return f
 
 
