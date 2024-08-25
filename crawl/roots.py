@@ -3,9 +3,15 @@
 import json
 from ocr.url_fetcher import Fetcher
 
-if __name__ == '__main__':
+
+def get_nypl_fetcher():
     token = open('.nypl-token.txt').read()
     f = Fetcher(headers={'Authorization': f'Token token="{token}"'})
+    return f
+
+
+if __name__ == '__main__':
+    f = get_nypl_fetcher()
     roots_bytes = f.fetch_url('https://api.repo.nypl.org/api/v2/items/roots')
     roots = json.loads(roots_bytes)
     uuids = roots['nyplAPI']['response']['uuids']['uuid']
