@@ -78,7 +78,6 @@ for photo_id in id_to_record.keys():
 back_id_to_text = None  # clear
 
 
-
 def image_url(photo_id, is_thumb):
     degrees = id_to_rotation.get(photo_id)
     # TODO: https
@@ -134,6 +133,10 @@ def make_response(photo_ids):
             w, h = h, w
 
         date = re.sub(r'\s+', ' ', r.date())
+        if len(date) > 4 and re.match(r'^\d+$', date):
+            # There are some implausible dates like "13905" for https://www.oldnyc.org/#701590f-a
+            # Best to hide these or (better) extract them from the backing text.
+            date = ''
         date_fields = {
             'date_source': 'nypl',
             'date': date,
