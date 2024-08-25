@@ -1,6 +1,8 @@
 #!/usr/bin/env python
 
 import json
+import requests
+import time
 from crawl.roots import get_nypl_fetcher
 
 
@@ -59,12 +61,24 @@ if __name__ == '__main__':
                         queue.append(('collection', uuid))
         elif typ == 'items':
             url = items_url % item[1:]
-            raw = f.fetch_url(url)
+            try:
+                raw = f.fetch_url(url)
+            except requests.exceptions.HTTPError as e:
+                if '502 Server Error' in str(e):
+                    print(f'Got 502 on {url}, waiting 5s and trying again')
+                    time.sleep(5)
+                    queue.append(item)
+                    continue
+                else:
+                    raise e
             data = json.loads(raw)
+            response = data['nyplAPI']['response']
             if 'item' not in response:
                 # must have been a collection
                 # print(data)
                 continue
-            response = data['nyplAPI']['response']
             all_items += as_list(response['item'])
             print(f'All items: {len(all_items)}')
+
+    with open('crawl/milstein-items.json', 'w') as out:
+        json.dump({'items': all_items}, out, indent=None)
