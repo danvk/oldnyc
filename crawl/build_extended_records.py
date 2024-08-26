@@ -2,6 +2,7 @@
 """Write nyc-records.extended.json. This joins NYPL API data with the OldNYC data."""
 
 import csv
+import re
 import json
 from collections import Counter, defaultdict
 
@@ -58,11 +59,21 @@ for image_id, captures in image_id_to_captures.items():
     if len(x) == 1:
         image_id_to_capture[image_id] = captures[0]
 
+old_data = json.load(open('../oldnyc.github.io/data.json'))
+old_photo_id_to_text = {r['photo_id'].split('-')[0]: r['text'] for r in old_data['photos'] if r['text']}
+manual_ocr_fixes = json.load(open('ocr/feedback/fixes.json'))
+back_id_to_correction = manual_ocr_fixes['fixes']
+print(f'{len(back_id_to_correction)} OCR fixes')
+
+def get_back_id(photo_id):
+    return re.sub(r'f?(-[a-z])?$', 'b', photo_id, count=1)
+
 extended_records = []
 n_uuid = 0
 n_crawl = 0
 n_capture = 0
 n_either = 0
+n_text = 0
 for row in rows:
     r = {**row}
     photo_id = row['DIGITAL_ID']
@@ -91,8 +102,17 @@ for row in rows:
         n_either += 1
     if 'uuid' in r:
         n_uuid += 1
+
+    back_id = get_back_id(photo_id)
+    if photo_id in old_photo_id_to_text:
+        r['text'] = old_photo_id_to_text[photo_id]
+    if back_id in back_id_to_correction:
+        r['text'] = back_id_to_correction[back_id]['text']
+    if 'text' in r:
+        n_text += 1
+
     extended_records.append(r)
 
-print(f'{n_uuid=} {n_crawl=} {n_capture=} {n_either=} / {len(rows)=}')
+print(f'{n_uuid=} {n_crawl=} {n_capture=} {n_either=} {n_text=} / {len(rows)=}')
 with open('nyc-records.extended.json', 'w') as out:
     json.dump(extended_records, out)
