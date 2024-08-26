@@ -49,7 +49,7 @@ class Fetcher(object):
     def fetch_url_from_cache(self, url):
         req = self._make_request(url)
         cache_key = self._cache().create_key(req)
-        response, _ = self._cache().get_response_and_time(cache_key)
+        response = self._cache().get_response(cache_key)
         if not response:
             raise NotInCacheError()
         return response.content

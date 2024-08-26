@@ -6,7 +6,7 @@ import time
 from crawl.roots import get_nypl_fetcher
 
 
-collection_url = 'https://api.repo.nypl.org/api/v2/collections/%s/items'
+collection_url = 'https://api.repo.nypl.org/api/v2/collections/%s/items?per_page=100'
 items_url = 'https://api.repo.nypl.org/api/v2/collections/%s/items?per_page=%d&page=%d'
 
 ITEMS_PER_PAGE = 500
@@ -26,6 +26,7 @@ if __name__ == '__main__':
         ('collection', uuid) for uuid in uuids
     ]
     all_items = []
+    all_urls = []
 
     while queue:
         item = queue[0]
@@ -33,7 +34,9 @@ if __name__ == '__main__':
         queue = queue[1:]
         typ, uuid = item[:2]
         if typ == 'collection':
-            raw = f.fetch_url(collection_url % uuid)
+            url = collection_url % uuid
+            raw = f.fetch_url(url)
+            all_urls.append(url)
             data = json.loads(raw)
             response = data['nyplAPI']['response']
             num_sub = int(response['numSubCollections'])
@@ -41,7 +44,7 @@ if __name__ == '__main__':
             print(f'{uuid}: {num_sub} / {num_items}')
             if 'item' in response:
                 item_list = as_list(response['item'])
-                if len(item_list) < 10:
+                if len(item_list) < 100:
                     all_items += item_list
                     print(f'All items: {len(all_items)}')
                 else:
@@ -50,6 +53,8 @@ if __name__ == '__main__':
                         queue.append(('items', uuid, ITEMS_PER_PAGE, i))
             if 'collection' in response:
                 collections_list = as_list(response['collection'])
+                if num_sub > len(collections_list):
+                    print(f'{uuid} may have a truncated collections list')
                 for collection in collections_list:
                     uuid = collection['uuid']
                     num_sub = int(collection['numSubCollections'])
@@ -61,6 +66,7 @@ if __name__ == '__main__':
                         queue.append(('collection', uuid))
         elif typ == 'items':
             url = items_url % item[1:]
+            all_urls.append(url)
             try:
                 raw = f.fetch_url(url)
             except requests.exceptions.HTTPError as e:
@@ -82,3 +88,7 @@ if __name__ == '__main__':
 
     with open('crawl/milstein-items.json', 'w') as out:
         json.dump({'items': all_items}, out, indent=None)
+    with open('crawl/all-urls.txt', 'w') as out:
+        print(f'num urls: {len(all_urls)}')
+        out.write('\n'.join(all_urls))
+        out.write('\n')
