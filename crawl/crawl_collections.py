@@ -8,6 +8,7 @@ from crawl.roots import get_nypl_fetcher
 
 collection_url = 'https://api.repo.nypl.org/api/v2/collections/%s/items?per_page=100'
 items_url = 'https://api.repo.nypl.org/api/v2/collections/%s/items?per_page=%d&page=%d'
+captures_url = 'https://api.repo.nypl.org/api/v2/items/collection/%s?per_page=%d&page=%d'
 
 ITEMS_PER_PAGE = 500
 
@@ -27,6 +28,7 @@ if __name__ == '__main__':
     ]
     all_items = []
     all_urls = []
+    all_captures = []
 
     while queue:
         item = queue[0]
@@ -51,6 +53,7 @@ if __name__ == '__main__':
                     # it's one above the leaves. Re-crawl it as items.
                     for i, start in enumerate(range(0, num_items, ITEMS_PER_PAGE)):
                         queue.append(('items', uuid, ITEMS_PER_PAGE, i))
+                        queue.append(('captures', uuid, ITEMS_PER_PAGE, i))
             if 'collection' in response:
                 collections_list = as_list(response['collection'])
                 if num_sub > len(collections_list):
@@ -62,6 +65,7 @@ if __name__ == '__main__':
                     if num_sub == 0:
                         for i, start in enumerate(range(0, num_items, ITEMS_PER_PAGE)):
                             queue.append(('items', uuid, ITEMS_PER_PAGE, i))
+                            queue.append(('captures', uuid, ITEMS_PER_PAGE, i))
                     else:
                         queue.append(('collection', uuid))
         elif typ == 'items':
@@ -85,9 +89,34 @@ if __name__ == '__main__':
                 continue
             all_items += as_list(response['item'])
             print(f'All items: {len(all_items)}')
+        elif typ == 'captures':
+            url = captures_url % item[1:]
+            print(url)
+            all_urls.append(url)
+            try:
+                raw = f.fetch_url(url)
+            except requests.exceptions.HTTPError as e:
+                if '502 Server Error' in str(e):
+                    print(f'Got 502 on {url}, waiting 5s and trying again')
+                    time.sleep(5)
+                    queue.append(item)
+                    continue
+                else:
+                    raise e
+            data = json.loads(raw)
+            response = data['nyplAPI']['response']
+            try:
+                all_captures += as_list(response['capture'])
+                print(f'All captures: {len(all_captures)}')
+                with open('crawl/milstein-captures.json', 'w') as out:
+                    json.dump({'captures': all_captures}, out, indent=None)
+            except KeyError:
+                print('Failed to get captures')
 
     with open('crawl/milstein-items.json', 'w') as out:
         json.dump({'items': all_items}, out, indent=None)
+    with open('crawl/milstein-captures.json', 'w') as out:
+        json.dump({'captures': all_captures}, out, indent=None)
     with open('crawl/all-urls.txt', 'w') as out:
         print(f'num urls: {len(all_urls)}')
         out.write('\n'.join(all_urls))
