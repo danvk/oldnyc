@@ -43,7 +43,7 @@ This is out of 43363 total records in the Milstein collection.
 By default, this only uses the local "geocache"--it doesn't fetch any geocodes
 from Google Maps. If you want to do that, add --use_network:
 
-    ./generate-geocodes.py --coders milstein,nyc-parks --pickle_path nyc/records.pickle --output_format records.js --geocode --use_network > /tmp/records.json
+    ./generate-geocodes.py --pickle_path nyc/records.pickle --output_format records.js --geocode --use_network > /tmp/records.json
 
 Geocoding is done based on the "Full Address" column of milstein.csv. You can see this by running:
 
@@ -58,7 +58,7 @@ If you want to determine per-borough geocoding coverage, run
 To get new geocodes into the frontend, you need to geocode photos.pickle. Do so
 with:
 
-    ./generate-geocodes.py --coders milstein,nyc-parks --pickle_path nyc/photos.pickle --lat_lon_map lat-lon-map.txt --output_format lat-lons-ny.js --geocode > viewer/static/js/nyc-lat-lons-ny.js
+    ./generate-geocodes.py --pickle_path nyc/photos.pickle --lat_lon_map lat-lon-map.txt --output_format lat-lons-ny.js --geocode > viewer/static/js/nyc-lat-lons-ny.js
 
 The lat-lon-map.txt file can be generated via:
 

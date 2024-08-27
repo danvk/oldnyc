@@ -82,7 +82,7 @@ def printJson(located_recs, lat_lon_map):
     data = _generateJson(located_recs, lat_lon_map)
 
     print("var lat_lons = ")
-    print(json.dumps(data))
+    print(json.dumps(data, sort_keys=True))
 
 
 def printJsonNoYears(located_recs, lat_lon_map):
@@ -91,7 +91,7 @@ def printJsonNoYears(located_recs, lat_lon_map):
             data[k] = [x[2] for x in v]    # drop both year elements.
 
     print("var lat_lons = ")
-    print(json.dumps(data))
+    print(json.dumps(data, sort_keys=True))
 
 
 def printRecordsJson(located_recs):
@@ -129,7 +129,7 @@ def printRecordsJson(located_recs):
             raise e
 
         recs.append(rec)
-    print(json.dumps(recs, indent=2))
+    print(json.dumps(recs, indent=2, sort_keys=True))
 
 
 def printRecordsText(located_recs):
