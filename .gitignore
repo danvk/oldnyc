@@ -27,3 +27,4 @@ feedback.json
 .DS_Store
 .nypl-token.txt
 geocache
+nyc/records.pickle
