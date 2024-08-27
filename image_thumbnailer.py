@@ -12,5 +12,5 @@ for idx, r in enumerate(rs):
   in_image = f.CacheFile(r.photo_url)
   out_image = 'thumbnails/%s.jpg' % r.photo_id()
   cmd = 'convert %s -resize 200x200 %s' % (in_image, out_image)
-  print '%05d %s' % (idx, cmd)
+  print('%05d %s' % (idx, cmd))
   os.system(cmd)

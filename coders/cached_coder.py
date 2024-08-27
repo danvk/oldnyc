@@ -15,8 +15,8 @@ class CachedCoder:
       self._recs[photo_id] = loc
 
   def codeRecord(self, r):
-    if r.photo_id() not in self._recs: return None
-    return self._recs[r.photo_id()]
+    if r['id'] not in self._recs: return None
+    return self._recs[r['id']]
 
   def name(self):
     return self._name

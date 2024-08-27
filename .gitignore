@@ -27,4 +27,11 @@ feedback.json
 .DS_Store
 .nypl-token.txt
 geocache
+
+# Large files that can be generated
 nyc/records.pickle
+nyc/records.json
+crawl/all-urls.txt
+crawl/milstein-captures.json
+crawl/milstein-items.json
+nyc-records.extended.json

@@ -223,9 +223,9 @@ class NycParkCoder:
   def __init__(self):
     pass
 
-  def codeRecord(self, r):
-    if r.source() != 'Milstein Division': return None
-    title = re.sub(r'\.$', '', r.title())
+  def codeRecord(self, r: record.Record):
+    # if r.source() != 'Milstein Division': return None
+    title = re.sub(r'\.$', '', r['title'])
 
     m = re.search(park_re, title)
     if m:
@@ -306,6 +306,7 @@ coders.registration.registerCoderClass(NycParkCoder)
 
 # For fast iteration
 if __name__ == '__main__':
+  # XXX this won't work
   coder = NycParkCoder()
   r = record.Record()
   num_ok, num_bad = 0, 0

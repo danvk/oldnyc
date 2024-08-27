@@ -69,8 +69,8 @@ class MilsteinCoder:
   def __init__(self):
     pass
 
-  def codeRecord(self, r):
-    if r.source() != 'Milstein Division': return None
+  def codeRecord(self, r: record.Record):
+    # if r.source() != 'Milstein Division': return None
 
     loc = self._extractLocationStringFromRecord(r)
 
@@ -116,12 +116,12 @@ class MilsteinCoder:
           'type': 'street_address'  # or 'point_of_interest' or 'establishment'
       }
 
-    sys.stderr.write('(%s) Bad location: %s\n' % (r.photo_id(), loc))
+    sys.stderr.write('(%s) Bad location: %s\n' % (r['id'], loc))
     return None
 
 
-  def _extractLocationStringFromRecord(self, r):
-    raw_loc = r.location().strip()
+  def _extractLocationStringFromRecord(self, r: record.Record):
+    raw_loc = r['location'].strip()
     loc = re.sub(r'^[ ?\t"\[]+|[ ?\t"\]]+$', '', raw_loc)
     return loc
 
@@ -178,6 +178,7 @@ coders.registration.registerCoderClass(MilsteinCoder)
 
 # For fast iteration
 if __name__ == '__main__':
+  # XXX this won't work
   coder = MilsteinCoder()
   r = record.Record()
   num_ok, num_bad = 0, 0

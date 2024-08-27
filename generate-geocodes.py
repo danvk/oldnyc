@@ -9,11 +9,13 @@
 import sys
 from collections import defaultdict
 from optparse import OptionParser
+
 import coders.registration
-import record
+from coders.types import Coder, Location
 import geocoder
 import generate_js
 import json
+from record import Record
 
 # Import order here determines the order in which coders get a crack at each
 # record. We want to go in order from precise to imprecise.
@@ -64,17 +66,19 @@ if __name__ == '__main__':
     g = None
 
   geocoders = coders.registration.coderClasses()
-  geocoders = [coder() for coder in geocoders]
+  geocoders: list[Coder] = [coder() for coder in geocoders]
 
   if options.ok_coders != 'all':
     ok_coders = options.ok_coders.split(',')
     geocoders = [c for c in geocoders if c.name() in ok_coders]
     if len(geocoders) != len(ok_coders):
-      sys.stderr.write('Coder mismatch: %s vs %s\n' % (options.ok_coders, ','.join([c.name() for c in geocoders])))
+      sys.stderr.write('Coder mismatch: %s vs %s\n' % (
+        options.ok_coders, ','.join([c.name() for c in geocoders]))
+      )
       sys.exit(1)
 
   # TODO(danvk): does this belong here?
-  lat_lon_map = {}
+  lat_lon_map: dict[str, str] = {}
   if options.lat_lon_map:
     for line in open(options.lat_lon_map):
       line = line.strip()
@@ -82,13 +86,13 @@ if __name__ == '__main__':
       old, new = line.split('->')
       lat_lon_map[old] = new
 
-  rs = record.AllRecords(path=options.pickle_path)
+  rs: list[Record] = json.load(open(options.pickle_path))
   if options.ids_filter:
     ids = set(options.ids_filter.split(','))
-    rs = [r for r in rs if r.photo_id() in ids]
+    rs = [r for r in rs if r['id'] in ids]
 
   # Load existing geocodes, if applicable.
-  id_to_located_rec = {}
+  id_to_located_rec: dict[str, tuple[Record, str, Location]] = {}
   if options.previous_geocode_json:
     prev_recs = json.load(open(options.previous_geocode_json))
     for rec in prev_recs:
@@ -102,7 +106,7 @@ if __name__ == '__main__':
 
 
   stats = defaultdict(int)
-  located_recs = []  # array of (record, coder name, location_data) tuples
+  located_recs: list[tuple[Record, str, Location]] = []
   for idx, r in enumerate(rs):
     if idx % 100 == 0 and idx > 0:
       sys.stderr.write('%5d / %5d records processed\n' % (1+idx, len(rs)))
@@ -110,8 +114,8 @@ if __name__ == '__main__':
     located_rec = (r, None, None)
 
     # Early-out if we've already successfully geocoded this record.
-    if r.photo_id() in id_to_located_rec:
-      rec = id_to_located_rec[r.photo_id()]
+    if r['id'] in id_to_located_rec:
+      rec = id_to_located_rec[r['id']]
       located_rec = (r, rec[1], rec[2])
       located_recs.append(located_rec)
       stats[rec[1]] += 1
@@ -120,13 +124,14 @@ if __name__ == '__main__':
     # Give each coder a crack at the record, in turn.
     for c in geocoders:
       location_data = c.codeRecord(r)
-      if not location_data: continue
+      if not location_data:
+        continue
       assert 'address' in location_data
 
       if not g:
         if options.print_recs:
           print('%s\t%s\t%s' % (
-              c.name(), r.photo_id(), json.dumps(location_data)))
+              c.name(), r['id'], json.dumps(location_data)))
         stats[c.name()] += 1
         located_rec = (r, c.name(), location_data)
         break
@@ -137,11 +142,11 @@ if __name__ == '__main__':
         if geocode_result:
           lat_lon = c.getLatLonFromGeocode(geocode_result, location_data, r)
         else:
-          sys.stderr.write('Failed to geocode %s\n' % r.photo_id())
+          sys.stderr.write('Failed to geocode %s\n' % r['id'])
           # sys.stderr.write('Location: %s\n' % location_data['address'])
-      except Exception as e:
+      except Exception:
         sys.stderr.write('ERROR locating %s with %s\n' % (
-            r.photo_id(), c.name()))
+            r['id'], c.name()))
         #sys.stderr.write('ERROR location: "%s"\n' % json.dumps(location_data))
         raise
 
@@ -150,7 +155,7 @@ if __name__ == '__main__':
         location_data['lon'] = lat_lon[1]
         if options.print_recs:
           print('%s\t%f,%f\t%s\t%s' % (
-              r.photo_id(), lat_lon[0], lat_lon[1], c.name(),
+              r['id'], lat_lon[0], lat_lon[1], c.name(),
               json.dumps(location_data)))
         stats[c.name()] += 1
         located_rec = (r, c.name(), location_data)
