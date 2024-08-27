@@ -36,7 +36,7 @@ def ave_to_num(ave):
 def correl(xs_list, ys_list):
     xs = np.array(xs_list, dtype=float)
     ys = np.array(ys_list, dtype=float)
-    meanx = xs.mean() 
+    meanx = xs.mean()
     meany = ys.mean()
     stdx = xs.std()
     stdy = ys.std()
@@ -45,8 +45,8 @@ def correl(xs_list, ys_list):
 
 def extract_lat_lons(num_to_lls):
     '''Returns (xs, lats, lons) as parallel lists.'''
-    lats = sorted([(ave_to_num(x), num_to_lls[x][0]) for x in num_to_lls.iterkeys()])
-    lons = sorted([(ave_to_num(x), num_to_lls[x][1]) for x in num_to_lls.iterkeys()])
+    lats = sorted([(ave_to_num(x), num_to_lls[x][0]) for x in num_to_lls.keys()])
+    lons = sorted([(ave_to_num(x), num_to_lls[x][1]) for x in num_to_lls.keys()])
     ns = [x[0] for x in lats]
     lats = [x[1] for x in lats]
     lons = [x[1] for x in lons]
@@ -55,7 +55,7 @@ def extract_lat_lons(num_to_lls):
 
 def correl_lat_lons(num_to_lls):
     '''Measure how straight a street is.
-    
+
     Given a dict mapping street/ave # --> (lat, lon), returns min(r^2).
     '''
     xs, lats, lons = extract_lat_lons(num_to_lls)
@@ -66,7 +66,7 @@ def correl_lat_lons(num_to_lls):
 
 def get_line(num_to_lls):
     '''Get the line (lat=a*lon+b) for a street or avenue.
-    
+
     Returns (b, a), i.e. (intercept, slope)
     '''
     ns, lats, lons = extract_lat_lons(num_to_lls)
@@ -151,15 +151,14 @@ def code(avenue, street):
 
 
 if __name__ == '__main__':
-    print 'Avenues:'
+    print('Avenues:')
     for ave in sorted(by_avenue.keys()):
         r2 = correl_lat_lons(by_avenue[ave])
         if r2 < 0.99:
-            print '  %3s: %s' % (ave, r2)
+            print('  %3s: %s' % (ave, r2))
 
-    print 'Streets:'
+    print('Streets:')
     for street in sorted(by_street.keys()):
         r2 = correl_lat_lons(by_street[street])
         if r2 < 0.99:
-            print '  %3s: %s' % (street, r2)
-
+            print('  %3s: %s' % (street, r2))

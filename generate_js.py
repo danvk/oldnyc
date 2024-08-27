@@ -51,7 +51,7 @@ def _generateJson(located_recs, lat_lon_map):
     points = 0
     photos = 0
     is_first = True
-    for lat_lon, recs in ll_to_id.iteritems():
+    for lat_lon, recs in ll_to_id.items():
         sorted_recs = sorted([r for r in recs
                               if r.date_range() and r.date_range()[1]],
                              key=lambda r: r.date_range()[1])
@@ -81,17 +81,17 @@ def _generateJson(located_recs, lat_lon_map):
 def printJson(located_recs, lat_lon_map):
     data = _generateJson(located_recs, lat_lon_map)
 
-    print "var lat_lons = "
-    print json.dumps(data)
+    print("var lat_lons = ")
+    print(json.dumps(data, sort_keys=True))
 
 
 def printJsonNoYears(located_recs, lat_lon_map):
     data = _generateJson(located_recs, lat_lon_map)
-    for k, v in data.iteritems():
+    for k, v in data.items():
             data[k] = [x[2] for x in v]    # drop both year elements.
 
-    print "var lat_lons = "
-    print json.dumps(data)
+    print("var lat_lons = ")
+    print(json.dumps(data, sort_keys=True))
 
 
 def printRecordsJson(located_recs):
@@ -108,7 +108,8 @@ def printRecordsJson(located_recs):
                 'date_range': [ None, None ]
             }
         }
-        if r.note(): rec['note'] = r.note()
+        if r.note():
+            rec['note'] = r.note()
 
         start, end = r.date_range()
         rec['extracted']['date_range'][0] = '%04d-%02d-%02d' % (
@@ -128,7 +129,7 @@ def printRecordsJson(located_recs):
             raise e
 
         recs.append(rec)
-    print json.dumps(recs, indent=2)
+    print(json.dumps(recs, indent=2, sort_keys=True))
 
 
 def printRecordsText(located_recs):
@@ -145,18 +146,18 @@ def printRecordsText(located_recs):
         else:
             loc = 'n/a\tn/a'
 
-        print '\t'.join([r.photo_id(), date, folder, title, r.preferred_url, coder or 'failed', loc])
+        print('\t'.join([r.photo_id(), date, folder, title, r.preferred_url, coder or 'failed', loc]))
 
 
 def printLocations(located_recs):
     locs = defaultdict(int)
     for r, coder, location_data in located_recs:
         if not location_data: continue
-        if not 'lat' in location_data: continue
-        if not 'lon' in location_data: continue
+        if 'lat' not in location_data: continue
+        if 'lon' not in location_data: continue
         lat = location_data['lat']
         lon = location_data['lon']
         locs['%.6f,%.6f' % (lat, lon)] += 1
 
-    for ll, count in locs.iteritems():
-        print '%d\t%s' % (count, ll)
+    for ll, count in locs.items():
+        print('%d\t%s' % (count, ll))

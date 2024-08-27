@@ -1,7 +1,7 @@
 """Utility for mapping a lat/lon to a borough."""
 
 import json
-import shape_utils
+import nyc.shape_utils as shape_utils
 import re
 import os
 import sys
@@ -31,10 +31,10 @@ def PointToBorough(lat, lon):
   '''
   global boroughs
   if not boroughs:
-    boroughs = json.load(file(_getBoroughJsonPath()))
+    boroughs = json.load(open(_getBoroughJsonPath()))
 
   pt = (lon, lat)
-  for k, v in boroughs.iteritems():
+  for k, v in boroughs.items():
     if shape_utils.PointInPolygon(pt, v):
       return k
   return None
@@ -44,7 +44,7 @@ def PointToNeighborhood(lat, lon):
   '''Returns the name of a neighborhood, or None if the point is not in NYC.'''
   global neighborhoods
   if not neighborhoods:
-    neighborhoods = json.load(file(_getNeighborhoodJsonPath()))
+    neighborhoods = json.load(open(_getNeighborhoodJsonPath()))
 
   pt = (lon, lat)
   if pt in _neighborhood_cache:
@@ -54,7 +54,7 @@ def PointToNeighborhood(lat, lon):
     if shape_utils.PointInPolygon(pt, v):
       _neighborhood_cache[pt] = k
       return k
-  
+
   # Check if it's _really_ close to a neighborhood.
   # This can happen when a boundary road between neighborhoods isn't included
   # in them.
