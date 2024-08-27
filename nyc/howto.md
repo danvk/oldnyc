@@ -55,6 +55,10 @@ If you want to determine per-borough geocoding coverage, run
 
 ## Regenerate geocodes for the viewer (nyc-lat-lons-ny.js)
 
+Start by unpacking the geocache. This will speed up geocoding and help ensure stable results:
+
+    tar -xzf geocache.tgz
+
 To get new geocodes into the frontend, you need to geocode photos.pickle. Do so
 with:
 
@@ -67,7 +71,7 @@ The lat-lon-map.txt file can be generated via:
 
 ## Generate photos.pickle
 
-photos.pickle is like records.pickle, but it duplicates each record across all its photos.
+`photos.pickle` is like `records.pickle`, but it duplicates each record across all its photos.
 (There are potentially several photos on the Milstein card for each record.)
 
 ```bash
