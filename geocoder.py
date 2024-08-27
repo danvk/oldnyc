@@ -5,12 +5,12 @@
 # Maintains a cache of previously-geocoded locations and throttles traffic to the Geocoder.
 
 import base64
-import os
 import re
 import sys
 import time
 import json
 import urllib
+import urllib.parse
 
 GeocodeUrlTemplate = 'https://maps.googleapis.com/maps/api/geocode/json?sensor=false&address=%s'
 CacheDir = "geocache"
@@ -28,7 +28,7 @@ FakeResponse = """
 
 
 def _cache_file(loc):
-  key = base64.b64encode(loc)[:-2]  # minus the trailing '=='
+  key = base64.b64encode(loc.encode('utf8'))[:-2].decode('ascii')  # minus the trailing '=='
   key = key.replace('/', '-')  # '/' is bad in a file name.
   key = key[:255]  # longest possible filename
   return "%s/%s" % (CacheDir, key)
@@ -46,13 +46,13 @@ class Geocoder:
     if CacheDebug:
       sys.stderr.write('Checking %s\n' % cache_file);
     try:
-      return file(cache_file).read()
+      return open(cache_file).read()
     except:
       return None
 
   def _cache_result(self, loc, result):
     cache_file = _cache_file(loc)
-    file(cache_file, "w").write(result)
+    open(cache_file, "w").write(result)
 
   def _fetch(self, url):
     """Attempts to fetch the URL. Does rate throttling. Returns XML."""
@@ -80,13 +80,13 @@ class Geocoder:
     Address should be a fully-qualified address, e.g.
     '111 8th Avenue, New York, NY'.
     """
-    url = GeocodeUrlTemplate % urllib.quote(address)
+    url = GeocodeUrlTemplate % urllib.parse.quote(address)
 
     data = None
     from_cache = False
     if check_cache:
       data = self._check_cache(address)
-      from_cache = data != None
+      from_cache = data is not None
     if not data:
       data = self._check_for_lat_lon(address)
     if not data:
@@ -112,12 +112,13 @@ class Geocoder:
 
   def InCache(self, loc):
     data = self._check_cache(loc)
-    return data == None
+    return data is None # XXX this looks backwards
 
   def LocateFromCache(self, loc):
     """Like Locate, but never goes to the network to get a location."""
     data = self._check_cache(loc)
-    if not data: return None
+    if not data:
+      return None
     return json.loads(data)
 
 

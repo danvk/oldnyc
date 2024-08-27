@@ -85,7 +85,7 @@ class MilsteinCoder:
           'source': loc,
           'type': 'intersection'
       }
-    
+
     for pattern in addr_patterns:
       m = re.match(pattern, loc)
       if m: break
@@ -103,7 +103,7 @@ class MilsteinCoder:
           'source': loc,
           'type': 'street_address'
       }
-    
+
     for pattern in place_patterns:
       m = re.match(pattern, loc)
       if m: break
@@ -116,7 +116,7 @@ class MilsteinCoder:
           'type': 'street_address'  # or 'point_of_interest' or 'establishment'
       }
 
-    sys.stderr.write('(%s) Bad location: %s\n' % (r.photo_id(), loc));
+    sys.stderr.write('(%s) Bad location: %s\n' % (r.photo_id(), loc))
     return None
 
 
@@ -147,7 +147,7 @@ class MilsteinCoder:
 
   def getLatLonFromGeocode(self, geocode, data, r):
     '''Extract (lat, lon) from a Google Maps API response. None = failure.
-    
+
     This ensures that the geocode is in the correct borough. This helps catch
     errors involving identically-named crosstreets in multiple boroughs.
     '''
@@ -163,7 +163,7 @@ class MilsteinCoder:
       sys.stderr.write('Borough mismatch: "%s" (%s) geocoded to %s\n' % (
           self._extractLocationStringFromRecord(r), record_boro, geocode_boro))
       return None
-    
+
     return (lat, lon)
 
   def finalize(self):
@@ -191,7 +191,7 @@ if __name__ == '__main__':
     }
     result = coder.codeRecord(r)
 
-    print '"%s" -> %s' % (addr, result)
+    print('"%s" -> %s' % (addr, result))
     if result:
       num_ok += 1
     else:

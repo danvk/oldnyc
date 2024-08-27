@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python
 #
 # This is the main driver for the geocoding process.
 # Inputs are the records pickle and a collection of 'coders'.
@@ -14,7 +14,6 @@ import record
 import geocoder
 import generate_js
 import json
-import cPickle
 
 # Import order here determines the order in which coders get a crack at each
 # record. We want to go in order from precise to imprecise.
@@ -107,7 +106,7 @@ if __name__ == '__main__':
   for idx, r in enumerate(rs):
     if idx % 100 == 0 and idx > 0:
       sys.stderr.write('%5d / %5d records processed\n' % (1+idx, len(rs)))
-      
+
     located_rec = (r, None, None)
 
     # Early-out if we've already successfully geocoded this record.
@@ -126,8 +125,8 @@ if __name__ == '__main__':
 
       if not g:
         if options.print_recs:
-          print '%s\t%s\t%s' % (
-              c.name(), r.photo_id(), json.dumps(location_data))
+          print('%s\t%s\t%s' % (
+              c.name(), r.photo_id(), json.dumps(location_data)))
         stats[c.name()] += 1
         located_rec = (r, c.name(), location_data)
         break
@@ -150,9 +149,9 @@ if __name__ == '__main__':
         location_data['lat'] = lat_lon[0]
         location_data['lon'] = lat_lon[1]
         if options.print_recs:
-          print '%s\t%f,%f\t%s\t%s' % (
+          print('%s\t%f,%f\t%s\t%s' % (
               r.photo_id(), lat_lon[0], lat_lon[1], c.name(),
-              json.dumps(location_data))
+              json.dumps(location_data)))
         stats[c.name()] += 1
         located_rec = (r, c.name(), location_data)
         break

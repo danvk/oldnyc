@@ -246,7 +246,7 @@ class NycParkCoder:
               'source': m.group(0),
               'type': 'point_of_interest'
           }
-    
+
     m = re.search(island_re, title)
     if m:
       island = m.group(1)
@@ -263,7 +263,7 @@ class NycParkCoder:
     m = re.search(bridge_re, title)
     if m:
       bridge = m.group(1)
-      if not 'Bridge' in bridge or 'bridge' in bridge:
+      if not ('Bridge' in bridge or 'bridge' in bridge):
         bridge += ' Bridge'
       if bridge not in bridges:
         missing_bridges[bridge] += 1
@@ -292,7 +292,7 @@ class NycParkCoder:
 
   def finalize(self):
     for missing in [missing_parks, missing_islands, missing_bridges]:
-      vs = [(v, k) for k, v in missing.iteritems()]
+      vs = [(v, k) for k, v in missing.items()]
       for v, k in reversed(sorted(vs)):
         sys.stderr.write('%4d\t%s\n' % (v, k))
 
@@ -319,7 +319,7 @@ if __name__ == '__main__':
 
     if result:
       num_ok += 1
-      print '"%s" -> %s' % (addr, result)
+      print('"%s" -> %s' % (addr, result))
     else:
       num_bad += 1
 

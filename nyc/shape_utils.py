@@ -25,7 +25,7 @@ def AreaOfPolygon(points):
   # See http://paulbourke.net/geometry/polyarea/
   A = 0
   N = len(points)
-  for i in xrange(0, N):
+  for i in range(0, N):
     x_i = points[i][0]
     y_i = points[i][1]
     x_ip1 = points[(i+1) % N][0]
@@ -40,7 +40,7 @@ def CenterOfMass(points):
   N = len(points)
   cx = 0
   cy = 0
-  for i in xrange(0, N):
+  for i in range(0, N):
     x_i = points[i][0]
     y_i = points[i][1]
     x_ip1 = points[(i+1) % N][0]
@@ -73,7 +73,7 @@ def DistanceToPolygon(point, points):
     if np2_p1 == 0:
       continue
     r = 1. * _dot(p2_p1, x_p1) / (np2_p1 ** 2)
-    
+
     if r < 0:
       dist = _norm(x_p1)
     elif r > 1:
