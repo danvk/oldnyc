@@ -25,3 +25,4 @@ feedback.json
 
 .vscode
 .DS_Store
+.nypl-token.txt
