@@ -76,7 +76,7 @@ if __name__ == '__main__':
   # TODO(danvk): does this belong here?
   lat_lon_map = {}
   if options.lat_lon_map:
-    for line in file(options.lat_lon_map):
+    for line in open(options.lat_lon_map):
       line = line.strip()
       if not line: continue
       old, new = line.split('->')
@@ -90,7 +90,7 @@ if __name__ == '__main__':
   # Load existing geocodes, if applicable.
   id_to_located_rec = {}
   if options.previous_geocode_json:
-    prev_recs = json.load(file(options.previous_geocode_json))
+    prev_recs = json.load(open(options.previous_geocode_json))
     for rec in prev_recs:
       if 'extracted' in rec and 'latlon' in rec['extracted']:
         x = rec['extracted']
