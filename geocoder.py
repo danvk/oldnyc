@@ -76,7 +76,7 @@ class Geocoder:
 
   def Locate(self, address, check_cache=True):
     """Returns a maps API JSON response for the address or None.
-    
+
     Address should be a fully-qualified address, e.g.
     '111 8th Avenue, New York, NY'.
     """
@@ -103,7 +103,7 @@ class Geocoder:
       sys.stderr.write('Error status %s %s\n' % (status, json.dumps(response)))
       if status == 'OVER_QUERY_LIMIT':
         raise Exception('Over your quota for the day!')
-        
+
       return None
     if not from_cache and response:
       self._cache_result(address, data)
@@ -123,4 +123,4 @@ class Geocoder:
 
 if __name__ == '__main__':
   for arg in sys.argv[1:]:
-    print '%s --> %s' % (arg, _cache_file(arg))
+    print('%s --> %s' % (arg, _cache_file(arg)))

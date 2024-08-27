@@ -3,12 +3,11 @@
 
 '''
 import geocoder
-import random
 
 
 # See http://stackoverflow.com/a/20007730/388951
 def make_ordinal(n):
-    return '%d%s' % (n, 'tsnrhtdd'[(n/10%10!=1)*(n%10<4)*n%10::4])
+    return '%d%s' % (n, 'tsnrhtdd'[(n//10%10!=1)*(n%10<4)*n%10::4])
 
 
 def make_street_str(street):
@@ -84,7 +83,7 @@ if __name__ == '__main__':
 
     for i, (ave, street) in enumerate(crosses):
         lat, lon = locate(ave, street) or ('', '')
-        print '%d\t%d\t%s\t%s' % (street, ave, lat, lon)
+        print('%d\t%d\t%s\t%s' % (street, ave, lat, lon))
         # print '%d / %d --> %s / %s --> %s' % (
         #         1 + i, len(crosses),
         #         make_street_str(street), make_avenue_str(ave), lat_lon)

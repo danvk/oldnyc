@@ -23,10 +23,12 @@ by_street = defaultdict(lambda: {})
 for row in data:
     if 'extracted' not in row: continue
     loc_str = row['extracted'].get('located_str')
-    if not loc_str: continue
+    if not loc_str:
+        continue
     loc_str = re.sub(ew_pat, '', loc_str)
     m = cross_pat.match(loc_str)
-    if not m: continue
+    if not m:
+        continue
     lat, lon = row['extracted']['latlon']
 
     street1, street2 = m.group(1), m.group(2)
@@ -35,8 +37,8 @@ for row in data:
     m2 = ordinal_street.search(street2)
 
     if m1 and street2 == 'Avenue A' and int(m1.group(1)) == 15:
-        print row
-        print loc_str
+        print(row)
+        print(loc_str)
 
     if m2:
         by_street[street1][int(m2.group(1))] = (lat, lon)
@@ -54,4 +56,4 @@ for row in data:
 # geocache/MTV0aCBTdHJlZXQgKEVhc3QpIGFuZCBBdmVudWUgQSwgTWFuaGF0dGFuLCBOWQ
 # --> has results for 15th Street & 5th Avenue
 
-json.dump(by_street, open('grid/intersections.json', 'wb'), indent=2)
+json.dump(by_street, open('grid/intersections.json', 'w'), indent=2)
