@@ -1,16 +1,12 @@
-from nose.tools import *
+import pytest
 
 from grid import coder
 
 
 def assert_close(ll1, ll2):
     '''Assert that two latitude & longitude tuples are "close".'''
-    try:
-        assert_almost_equal(ll1[0], ll2[0], places=6)
-        assert_almost_equal(ll1[1], ll2[1], places=6)
-    except AssertionError as e:
-        print '%s != %s' % (ll1, ll2)
-        raise e
+    assert ll1[0] == pytest.approx(ll2[0], 1e-6)
+    assert ll1[1] == pytest.approx(ll2[1], 1e-6)
 
 
 def test_exact():

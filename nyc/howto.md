@@ -1,8 +1,8 @@
-# How to do various things for Old NYC.
+# How to do various things for Old NYC
 
-(Suggest opening this file in TextMate or another editor that understands Markdown.)
+The web site and static data live over in https://github.com/oldnyc/oldnyc.github.io.
 
-## Bring up a demo
+## Setup
 
 Set up the Python environment:
 
@@ -11,14 +11,6 @@ virtualenv env
 source env/bin/activate
 pip install -r requirements.txt
 ```
-
-Then start the appengine app locally via:
-
-    ./develop.py
-
-Note: this doesn't actually run AppEngine, just a hacked up local server that emulates it.
-
-XXX: This doesn't work, there's no `develop.py`.
 
 ## Update the data
 
@@ -36,13 +28,9 @@ git commit -a -m 'Update site'
 git push
 ```
 
-## Update the JavaScript bundle
-
-    ./update-js-bundle.sh
-
 ## Iterate on geocoding
 
-It's easiest to do this by iterating on the records.pickle file, which has one
+It's easiest to do this by iterating on the `records.pickle` file, which has one
 entry per milstein card, rather than one entry per photo.
 
     ./generate-geocodes.py --coders milstein --pickle_path nyc/records.pickle --output_format records.js --geocode > /tmp/records.json
