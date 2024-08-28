@@ -36,3 +36,4 @@ crawl/all-urls.txt
 crawl/milstein-captures.json
 crawl/milstein-items.json
 nyc-records.extended.json
+nyc/unlocated.csv
