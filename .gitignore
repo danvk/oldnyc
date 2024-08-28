@@ -26,6 +26,7 @@ feedback.json
 .vscode
 .DS_Store
 .nypl-token.txt
+.google-maps-api-key.txt
 geocache
 
 # Large files that can be generated

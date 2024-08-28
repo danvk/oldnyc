@@ -7,11 +7,7 @@
 import fileinput
 import re
 import sys
-import json
 import nyc.boroughs
-
-if __name__ == '__main__':
-  sys.path += (sys.path[0] + '/..')
 
 import coders.registration
 import record
@@ -73,21 +69,24 @@ class MilsteinCoder:
     # if r.source() != 'Milstein Division': return None
 
     loc = self._extractLocationStringFromRecord(r)
+    print(loc)  # Brooklyn & 112 Schermerhorn Street, Brooklyn, NY
 
     m = None
     for pattern in cross_patterns:
-      m = re.match(pattern, loc)
+      m = re.search(pattern, loc)
       if m: break
     if m:
       crosses = sorted([m.group(1), m.group(2)])
-      return {
-          'address': '%s and %s, %s' % (crosses[0], crosses[1], m.group(3)),
-          'source': loc,
-          'type': 'intersection'
-      }
+      if 'Brooklyn' not in crosses:
+        return {
+            'address': '%s and %s, %s' % (crosses[0], crosses[1], m.group(3)),
+            'source': loc,
+            'type': 'intersection'
+        }
 
     for pattern in addr_patterns:
-      m = re.match(pattern, loc)
+      m = re.search(pattern, loc)
+      print(loc, m, pattern)
       if m: break
     if m:
       number, street, city = m.groups()
@@ -105,7 +104,7 @@ class MilsteinCoder:
       }
 
     for pattern in place_patterns:
-      m = re.match(pattern, loc)
+      m = re.search(pattern, loc)
       if m: break
     if m:
       place, city = m.groups()

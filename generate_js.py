@@ -134,7 +134,16 @@ def printRecordsJson(located_recs: list[LocatedRecord]):
             raise e
 
         recs.append(rec)
-    print(json.dumps(recs, indent=2, sort_keys=True))
+    # Net effect of this is to round lat/lngs to 6 decimals in the JSON, to match the
+    # web site and the behavior of old version of this code.
+    # https://stackoverflow.com/a/29066406/388951
+    print(
+        json.dumps(
+            json.loads(json.dumps(recs), parse_float=lambda x: round(float(x), 6)),
+            indent=2,
+            sort_keys=True,
+        )
+    )
 
 
 def printRecordsText(located_recs: list[LocatedRecord]):
