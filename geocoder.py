@@ -101,6 +101,8 @@ class Geocoder:
       data = self._check_for_lat_lon(address)
     if not data:
       if not self._network_allowed:
+        sys.stderr.write(f'Would have geocoded with network: {address}\n')
+        # XXX this should probably raise instead
         return None
       data = self._fetch(url)
 

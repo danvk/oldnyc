@@ -12,6 +12,7 @@ class Record(TypedDict):
     date: str
     description: Optional[str]
     title: str
+    alt_title: str
     photo_url: str
     preferred_url: str
 

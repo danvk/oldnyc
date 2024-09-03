@@ -25,6 +25,8 @@ def convert_csv_row(row: dict) -> Record:
     title = row["IMAGE_TITLE"].strip()
     assert title
 
+    alt_title = row["ALTERNATE_TITLE"].strip()
+
     r: Record = {
         "id": photo_id,
         "photo_url": img_url,
@@ -32,6 +34,7 @@ def convert_csv_row(row: dict) -> Record:
         "location": full_address,
         "date": date_str,
         "title": title,
+        "alt_title": alt_title,
     }
     return r
 
