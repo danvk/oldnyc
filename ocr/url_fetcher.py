@@ -20,8 +20,12 @@ class NotInCacheError(Exception):
 
 
 class Fetcher(object):
-    def __init__(self, throttle_secs=1.0, headers=None):
-        self._session = requests_cache.CachedSession('.url_fetcher_cache')
+    def __init__(self, throttle_secs=1.0, headers=None, ignore_cache=False):
+        if not ignore_cache:
+            self._session = requests_cache.CachedSession('.url_fetcher_cache')
+        else:
+            self._session = requests.Session()
+        self._ignore_cache = ignore_cache
         self._throttle_secs = throttle_secs
         self._last_fetch = 0.0
         self._headers = headers
@@ -35,7 +39,7 @@ class Fetcher(object):
         end_t = time.time()
         response.raise_for_status()  # checks for status == 200 OK
 
-        if not response.from_cache and end_t - self._last_fetch < self._throttle_secs:
+        if (self._ignore_cache or not response.from_cache) and end_t - self._last_fetch < self._throttle_secs:
             wait_s = end_t - self._last_fetch
             sys.stderr.write('Waiting %s secs...\n' % wait_s)
             time.sleep(wait_s)
@@ -68,7 +72,7 @@ class Fetcher(object):
 
 
 if __name__ == '__main__':
-    f = Fetcher()
+    f = Fetcher(ignore_cache=True)
     for i, line in enumerate(fileinput.input()):
         line = line.strip()
         if '\t' in line:
@@ -76,6 +80,10 @@ if __name__ == '__main__':
         else:
             filename = None
             url = line
+
+        if os.path.exists(filename):
+            sys.stderr.write(f'{filename} already exists, skipping…\n')
+            continue
 
         print('%5d Fetching %s' % (i + 1, url))
         content = f.fetch_url(url)

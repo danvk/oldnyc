@@ -17,6 +17,7 @@ def mkdir_p(path):
     else: raise
 
 
+# XXX how is this different than ocr/url_fetcher.py?
 class Fetcher:
   """A rate-limited, caching URL fetcher.
 
