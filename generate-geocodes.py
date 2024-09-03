@@ -9,6 +9,7 @@
 import sys
 from collections import defaultdict
 from optparse import OptionParser
+from dotenv import load_dotenv
 
 import coders.registration
 from coders.types import Coder, Location
@@ -25,6 +26,7 @@ import coders.nyc_parks
 
 
 if __name__ == '__main__':
+  load_dotenv()
   parser = OptionParser()
   parser.add_option('', '--pickle_path', default=None, dest='pickle_path',
                     help='Point to an alternative records.pickle file.')

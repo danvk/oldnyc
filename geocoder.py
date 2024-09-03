@@ -5,6 +5,7 @@
 # Maintains a cache of previously-geocoded locations and throttles traffic to the Geocoder.
 
 import base64
+import os
 import re
 import sys
 import time
@@ -40,11 +41,7 @@ class Geocoder:
     self._network_allowed = network_allowed
     self._wait_time = wait_time
     self._last_fetch = 0
-    self._api_key = None
-    try:
-      self._api_key = open('.google-maps-api-key.txt').read()
-    except FileNotFoundError:
-      pass
+    self._api_key = os.environ.get('GOOGLE_MAPS_API_KEY')
     if not self._api_key:
       sys.stderr.write('Running without Google Maps API key; will only use geocache.\n')
 

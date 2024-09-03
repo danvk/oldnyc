@@ -7,3 +7,4 @@ chardet
 editdistance
 python-dateutil
 datefinder
+python-dotenv
