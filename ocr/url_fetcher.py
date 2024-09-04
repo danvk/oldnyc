@@ -72,7 +72,7 @@ class Fetcher(object):
 
 
 if __name__ == '__main__':
-    f = Fetcher(ignore_cache=True)
+    f = Fetcher(ignore_cache=True, throttle_secs=3.0)
     for i, line in enumerate(fileinput.input()):
         line = line.strip()
         if '\t' in line:
