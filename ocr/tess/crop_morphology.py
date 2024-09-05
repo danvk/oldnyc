@@ -11,14 +11,11 @@ For details on the methodology, see
 http://www.danvk.org/2015/01/07/finding-blocks-of-text-in-an-image-using-python-opencv-and-numpy.html
 '''
 
+import argparse
 import glob
 import os
 import random
 import sys
-import random
-import math
-import json
-from collections import defaultdict
 
 import cv2
 from PIL import Image, ImageDraw
@@ -239,7 +236,7 @@ def size(border):
     return (x2 - x1) * (y2 - y1)
 
 
-def process_image(path, out_path):
+def process_image(path, out_path, stroke=False):
     orig_im = Image.open(path)
     scale, im = downscale_image(orig_im)
 
@@ -265,39 +262,62 @@ def process_image(path, out_path):
 
     contours = find_components(edges)
     if len(contours) == 0:
-        print('%s -> (no text!)' % path)
+        sys.stderr.write('%s: no text!\n' % path)
         return
 
     crop = find_optimal_components_subset(contours, edges)
     crop = pad_crop(crop, contours, edges, border_contour)
 
     crop = [int(x / scale) for x in crop]  # upscale to the original image size.
-    #draw = ImageDraw.Draw(im)
-    #c_info = props_for_contours(contours, edges)
-    #for c in c_info:
-    #    this_crop = c['x1'], c['y1'], c['x2'], c['y2']
-    #    draw.rectangle(this_crop, outline='blue')
-    #draw.rectangle(crop, outline='red')
-    #im.save(out_path)
-    #draw.text((50, 50), path, fill='red')
-    #orig_im.save(out_path)
-    #im.show()
-    text_im = orig_im.crop(crop)
-    text_im.save(out_path)
+    if stroke:
+        im = im.convert('RGB')
+        draw = ImageDraw.Draw(im)
+        c_info = props_for_contours(contours, edges)
+        for c in c_info:
+            this_crop = c['x1'], c['y1'], c['x2'], c['y2']
+            draw.rectangle(this_crop, outline='blue')
+        draw.rectangle(crop, outline='red')
+        out_im = im
+    else:
+        out_im = orig_im.crop(crop)
+
+    # draw.text((50, 50), path, fill='red')
+    # orig_im.save(out_path)
+    # im.show()
+    out_im.save(out_path)
     print('%s -> %s' % (path, out_path))
 
 
 if __name__ == '__main__':
-    if len(sys.argv) == 2 and '*' in sys.argv[1]:
-        files = glob.glob(sys.argv[1])
+    parser = argparse.ArgumentParser(description='Crop images to just the text')
+    parser.add_argument('--ignore_errors', action='store_true', help='Log errors and continue instead of throwing.')
+    parser.add_argument('--stroke', action='store_true', help='Draw a red box around the text instead of cropping.')
+    parser.add_argument('--output_pattern', default='%s.crop.png', help='Output file pattern, relative to input file.')
+    parser.add_argument('--overwrite', action='store_true', help='Write over existing output images instead of skipping them.')
+    parser.add_argument(
+        'files',
+        type=str,
+        nargs='+',
+        help='Path to images to process, or a glob.',
+    )
+
+    args = parser.parse_args()
+
+    files = args.files
+    if len(files) == 1 and '*' in files[0]:
+        files = glob.glob(files[0])
         random.shuffle(files)
-    else:
-        files = sys.argv[1:]
 
     for path in files:
-        out_path = path.replace('.jpg', '.crop.png')
-        if os.path.exists(out_path): continue
-        process_image(path, out_path)
-        # try:
-        # except Exception as e:
-        #     print('%s %s' % (path, e))
+        path_dir, path_file = os.path.split(path)
+        (path_base, _) = os.path.splitext(path_file)
+        out_path = os.path.join(path_dir, args.output_pattern % path_base)
+        if os.path.exists(out_path) and not args.overwrite:
+            continue
+        try:
+            process_image(path, out_path, args.stroke)
+        except Exception as e:
+            if args.ignore_errors:
+                sys.stderr.write(f'Error on {path}: {e}\n')
+            else:
+                raise e
