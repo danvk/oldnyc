@@ -26,14 +26,14 @@ import numpy as np
 from scipy.ndimage.filters import rank_filter
 
 
-def dilate(ary, N, iterations): 
+def dilate(ary, N, iterations):
     """Dilate using an NxN '+' sign shape. ary is np.uint8."""
     kernel = np.zeros((N,N), dtype=np.uint8)
-    kernel[(N-1)/2,:] = 1
-    dilated_image = cv2.dilate(ary / 255, kernel, iterations=iterations)
+    kernel[(N-1)//2,:] = 1
+    dilated_image = cv2.dilate(ary // 255, kernel, iterations=iterations)
 
     kernel = np.zeros((N,N), dtype=np.uint8)
-    kernel[:,(N-1)/2] = 1
+    kernel[:,(N-1)//2] = 1
     dilated_image = cv2.dilate(dilated_image, kernel, iterations=iterations)
     return dilated_image
 
@@ -96,7 +96,7 @@ def remove_border(contour, ary):
     r = cv2.minAreaRect(contour)
     degs = r[2]
     if angle_from_right(degs) <= 10.0:
-        box = cv2.cv.BoxPoints(r)
+        box = cv2.boxPoints(r)
         box = np.int0(box)
         cv2.drawContours(c_im, [box], 0, 255, -1)
         cv2.drawContours(c_im, [box], 0, 0, 4)
@@ -165,10 +165,10 @@ def find_optimal_components_subset(contours, edges):
             new_area_frac = 1.0 * crop_area(new_crop) / crop_area(crop) - 1
             if new_f1 > f1 or (
                     remaining_frac > 0.25 and new_area_frac < 0.15):
-                print '%d %s -> %s / %s (%s), %s -> %s / %s (%s), %s -> %s' % (
+                print('%d %s -> %s / %s (%s), %s -> %s / %s (%s), %s -> %s' % (
                         i, covered_sum, new_sum, total, remaining_frac,
                         crop_area(crop), crop_area(new_crop), area, new_area_frac,
-                        f1, new_f1)
+                        f1, new_f1))
                 crop = new_crop
                 covered_sum = new_sum
                 del c_info[i]
@@ -199,7 +199,7 @@ def pad_crop(crop, contours, edges, border_contour, pad_px=15):
         x2 = min(x2 + pad_px, bx2)
         y2 = min(y2 + pad_px, by2)
         return crop
-    
+
     crop = crop_in_border(crop)
 
     c_info = props_for_contours(contours, edges)
@@ -210,7 +210,7 @@ def pad_crop(crop, contours, edges, border_contour, pad_px=15):
         int_area = crop_area(intersect_crops(crop, this_crop))
         new_crop = crop_in_border(union_crops(crop, this_crop))
         if 0 < int_area < this_area and crop != new_crop:
-            print '%s -> %s' % (str(crop), str(new_crop))
+            print('%s -> %s' % (str(crop), str(new_crop)))
             changed = True
             crop = new_crop
 
@@ -234,6 +234,11 @@ def downscale_image(im, max_dim=2048):
     return scale, new_im
 
 
+def size(border):
+    i, x1, y1, x2, y2 = border
+    return (x2 - x1) * (y2 - y1)
+
+
 def process_image(path, out_path):
     orig_im = Image.open(path)
     scale, im = downscale_image(orig_im)
@@ -243,7 +248,7 @@ def process_image(path, out_path):
     # TODO: dilate image _before_ finding a border. This is crazy sensitive!
     contours, hierarchy = cv2.findContours(edges, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
     borders = find_border_components(contours, edges)
-    borders.sort(key=lambda (i, x1, y1, x2, y2): (x2 - x1) * (y2 - y1))
+    borders.sort(key=size)
 
     border_contour = None
     if len(borders):
@@ -260,7 +265,7 @@ def process_image(path, out_path):
 
     contours = find_components(edges)
     if len(contours) == 0:
-        print '%s -> (no text!)' % path
+        print('%s -> (no text!)' % path)
         return
 
     crop = find_optimal_components_subset(contours, edges)
@@ -279,7 +284,7 @@ def process_image(path, out_path):
     #im.show()
     text_im = orig_im.crop(crop)
     text_im.save(out_path)
-    print '%s -> %s' % (path, out_path)
+    print('%s -> %s' % (path, out_path))
 
 
 if __name__ == '__main__':
@@ -292,7 +297,7 @@ if __name__ == '__main__':
     for path in files:
         out_path = path.replace('.jpg', '.crop.png')
         if os.path.exists(out_path): continue
-        try:
-            process_image(path, out_path)
-        except Exception as e:
-            print '%s %s' % (path, e)
+        process_image(path, out_path)
+        # try:
+        # except Exception as e:
+        #     print('%s %s' % (path, e))
