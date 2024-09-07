@@ -15,6 +15,7 @@ class Record(TypedDict):
     alt_title: str
     photo_url: str
     preferred_url: str
+    back_id: Optional[str]
 
 
 def extract_regex(pat: re.Pattern, str: str):
