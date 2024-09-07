@@ -136,6 +136,7 @@ function buildUI(record) {
   $('#rejected-ids').text(rejected_ids.join(' '));
   $('#review-ids').text(review_ids.join(' '));
   $('#image').attr('src', BLANK_GIF).hide();
+  $('#show-image').click();
 }
 
 buildUI(changes[0]);
