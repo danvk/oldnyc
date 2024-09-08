@@ -24,10 +24,14 @@ if __name__ == '__main__':
     id_to_records = {r['id']: r for r in records}
 
     output_data = [json.loads(line) for line in open(output_file)]
+    id_to_output = {r['custom_id']: r for r in output_data}
+
+    photo_ids = [*sorted(id_to_input.keys())]
 
     n_matches = 0
-    for r in output_data:
-        photo_id = r['custom_id']
+    for photo_id in photo_ids:
+        input = id_to_input[photo_id]
+        r = id_to_output[photo_id]
         response = r['response']
         assert response['status_code'] == 200
         choices = response['body']['choices']
@@ -36,7 +40,6 @@ if __name__ == '__main__':
         data = json.loads(data_str)
         gpt_location = data['location']
 
-        input = id_to_input[photo_id]
         csv_location = id_to_records[photo_id]['location']
         is_match = scrub(gpt_location) == scrub(csv_location)
 

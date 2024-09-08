@@ -13,15 +13,16 @@ in New York City. The location information should be in the form of a query that
 be passed to the Google Maps geocoding API to get a latitude and longitude. It should
 contain either cross streets, a place name, or an address. It should also contain the
 borough that the photograph is in (Manhattan, Brooklyn, Queens, Bronx, Staten Island).
-For example, "14th Street & 1st Avenue, Manhattan, NY". If there's no location
-information in the photo, respond with "no location information".
+For example, "14th Street & 1st Avenue, Manhattan, NY" or "123 Broadway, Manhattan, NY".
+If there's no location information in the photo, respond with "no location information".
+If the photo is not in New York City, respond with "not in NYC".
 
 Respond in JSON containing the following information:
 
 {
   location: string; // Text to send into Google Maps geocoding API to get latitude and longitude of the image
 } |
-'no location information';
+'no location information' | 'not in NYC';
 """
 
 
