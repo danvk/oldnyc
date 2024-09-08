@@ -6,17 +6,20 @@ import json
 
 from record import Record
 
-PROMPT = """
-Here's some JSON describing an image taken in New York City:
+# See https://cookbook.openai.com/examples/batch_processing
+SYSTEM_INSTRUCTIONS = """
+Your goal is to extract location information from JSON describing a photograph taken
+in New York City. The location information should be in the form of a query that can
+be passed to the Google Maps geocoding API to get a latitude and longitude. It should
+contain either cross streets, a place name, or an address. It should also contain the
+borough that the photograph is in (Manhattan, Brooklyn, Queens, Bronx, Staten Island).
+For example, "14th Street & 1st Avenue, Manhattan, NY". If there's no location
+information in the photo, respond with "no location information".
 
-%s
+Respond in JSON containing the following information:
 
-What text can I feed into the Google Maps geocoding API to get a latitude and longitude
-for this image? Respond in JSON matching the following TypeScript interface:
-
-type LocatableText = {
-  /** Text to send into Google Maps geocoding API to get latitude and longitude of the image */
-  location: string;
+{
+  location: string; // Text to send into Google Maps geocoding API to get latitude and longitude of the image
 } |
 'no location information';
 """
@@ -41,20 +44,15 @@ def make_gpt_request(r: Record) -> dict:
             "model": MODEL,
             "messages": [
                 {
+                    "role": "system",
+                    "content": SYSTEM_INSTRUCTIONS,
+                },
+                {
                     "role": "user",
-                    "content": [
-                        {
-                            "type": "text",
-                            "text": PROMPT % data,
-                        },
-                    ],
+                    "content": data,
                 }
             ],
-            "temperature": 1,
-            "max_tokens": 256,
-            "top_p": 1,
-            "frequency_penalty": 0,
-            "presence_penalty": 0,
+            "temperature": 0.1,
             "response_format": {
                 "type": "json_object"
             },
