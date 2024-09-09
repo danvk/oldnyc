@@ -130,7 +130,7 @@ class ExtendedGridCoder:
         try:
             avenue, street = parse_street_ave(street1, street2)
         except ValueError as e:
-            sys.stderr.write('%s: %s\n' % (loc, str(e)))
+            # sys.stderr.write('%s: %s\n' % (loc, str(e)))
             return None
 
         # Special cases

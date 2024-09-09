@@ -69,7 +69,7 @@ class MilsteinCoder:
     # if r.source() != 'Milstein Division': return None
 
     loc = self._extractLocationStringFromRecord(r)
-    print(loc)  # Brooklyn & 112 Schermerhorn Street, Brooklyn, NY
+    # print(loc)  # Brooklyn & 112 Schermerhorn Street, Brooklyn, NY
 
     m = None
     for pattern in cross_patterns:
@@ -86,14 +86,14 @@ class MilsteinCoder:
 
     for pattern in addr_patterns:
       m = re.search(pattern, loc)
-      print(loc, m, pattern)
+      # print(loc, m, pattern)
       if m: break
     if m:
       number, street, city = m.groups()
 
       # number & street may be swapped.
       try:
-        x = int(number)
+        int(number)
       except ValueError:
         number, street = street, number
 
@@ -126,13 +126,17 @@ class MilsteinCoder:
 
 
   def _getLatLonFromGeocode(self, geocode, data):
-    for result in geocode['results']:
-      # partial matches tend to be inaccurate.
-      # if result.get('partial_match'): continue
-      # data['type'] is something like 'address' or 'intersection'.
-      if data['type'] in result['types']:
-        loc = result['geometry']['location']
-        return (loc['lat'], loc['lng'])
+    desired_types = data['type']
+    if not isinstance(desired_types, list):
+      desired_types = [desired_types]
+    for data_type in desired_types:
+      for result in geocode['results']:
+        # partial matches tend to be inaccurate.
+        # if result.get('partial_match'): continue
+        # data['type'] is something like 'address' or 'intersection'.
+        if data_type in result['types']:
+          loc = result['geometry']['location']
+          return (data_type, loc['lat'], loc['lng'])
 
 
   def _getBoroughFromAddress(self, address):
@@ -150,10 +154,10 @@ class MilsteinCoder:
     This ensures that the geocode is in the correct borough. This helps catch
     errors involving identically-named crosstreets in multiple boroughs.
     '''
-    latlon = self._getLatLonFromGeocode(geocode, data)
-    if not latlon:
+    tlatlon = self._getLatLonFromGeocode(geocode, data)
+    if not tlatlon:
       return None
-    lat, lon = latlon
+    _, lat, lon = tlatlon
 
     geocode_boro = nyc.boroughs.PointToBorough(lat, lon)
     record_boro = self._getBoroughFromAddress(data['address'])

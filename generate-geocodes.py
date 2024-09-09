@@ -10,6 +10,7 @@ import sys
 from collections import defaultdict
 from optparse import OptionParser
 from dotenv import load_dotenv
+import urllib.error
 
 import coders.registration
 from coders.types import Coder, Location
@@ -23,10 +24,12 @@ from record import Record
 import coders.extended_grid
 import coders.milstein
 import coders.nyc_parks
+import coders.gpt
 
 
 if __name__ == '__main__':
   load_dotenv()
+  # TODO: move to argparse
   parser = OptionParser()
   parser.add_option('', '--pickle_path', default=None, dest='pickle_path',
                     help='Point to an alternative records.pickle file.')
@@ -140,7 +143,16 @@ if __name__ == '__main__':
 
       lat_lon = None
       try:
-        geocode_result = g.Locate(location_data['address'])
+        geocode_result = None
+        address = location_data['address']
+        try:
+          geocode_result = g.Locate(address)
+        except urllib.error.HTTPError as e:
+          if e.status == 400:
+            sys.stderr.write(f'Bad request: {address}\n')
+          else:
+            raise e
+
         if geocode_result:
           lat_lon = c.getLatLonFromGeocode(geocode_result, location_data, r)
         else:
