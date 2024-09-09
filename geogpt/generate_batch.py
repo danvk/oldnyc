@@ -30,7 +30,7 @@ Respond in JSON containing the following information:
 MODEL = 'gpt-4o'
 
 
-def make_gpt_request(r: Record) -> dict:
+def make_gpt_request(r: Record, model: str) -> dict:
     data = json.dumps(
         {
             "title": r["title"],
@@ -42,7 +42,7 @@ def make_gpt_request(r: Record) -> dict:
         "method": "POST",
         "url": "/v1/chat/completions",
         "body": {
-            "model": MODEL,
+            "model": model,
             "messages": [
                 {
                     "role": "system",
@@ -63,10 +63,11 @@ def make_gpt_request(r: Record) -> dict:
 
 if __name__ == "__main__":
     ids_file = sys.argv[1]
+    model = sys.argv[2] if len(sys.argv) > 2 else MODEL
     ids = {line.strip() for line in open(ids_file)}
 
     records: list[Record] = json.load(open("nyc/records.json"))
     id_to_records = {r["id"]: r for r in records}
 
     for id in ids:
-        print(json.dumps(make_gpt_request(id_to_records[id])))
+        print(json.dumps(make_gpt_request(id_to_records[id], model)))
