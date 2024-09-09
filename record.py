@@ -16,6 +16,8 @@ class Record(TypedDict):
     photo_url: str
     preferred_url: str
     back_id: Optional[str]
+    borough: Optional[str]
+    outside_nyc: bool
 
 
 def extract_regex(pat: re.Pattern, str: str):

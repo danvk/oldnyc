@@ -1,12 +1,16 @@
 #!/usr/bin/env python
 """Generate a batch of "extract geocodable text" tasks for GPT."""
 
+import re
 import sys
 import json
 
 from record import Record
 
 # See https://cookbook.openai.com/examples/batch_processing
+# TODO: Tell GPT that "Richmod" is a synonym for "Staten Island"
+# TODO: Make more of an effort to get GPT the Borough (typically in SOURCE column of CSV)
+# TODO: Exclude "Photographic views of the United States / Wyoming"
 SYSTEM_INSTRUCTIONS = """
 Your goal is to extract location information from JSON describing a photograph taken
 in New York City. The location information should be in the form of a query that can
@@ -31,12 +35,14 @@ MODEL = 'gpt-4o'
 
 
 def make_gpt_request(r: Record, model: str) -> dict:
-    data = json.dumps(
-        {
-            "title": r["title"],
-            "alt_title": r["alt_title"],
-        }
-    )
+    r = prep_data(r)
+    gpt_data = {
+        "title": r["title"],
+        "alt_title": r["alt_title"],
+    }
+    if r['borough']:
+        gpt_data['borough'] = r['borough']
+    data = json.dumps(gpt_data)
     return {
         "custom_id": r["id"],
         "method": "POST",
@@ -59,6 +65,13 @@ def make_gpt_request(r: Record, model: str) -> dict:
             },
         },
     }
+
+
+def prep_data(data: Record):
+    out = {k: v for k, v in data.items()}
+    for field in ('title', 'alt_title'):
+        out[field] = re.sub('^Richmond:', 'Staten Island:', out[field])
+    return out
 
 
 if __name__ == "__main__":
