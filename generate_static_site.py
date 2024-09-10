@@ -37,6 +37,12 @@ id_to_dims = {}
 for photo_id, width, height in csv.reader(open('nyc-image-sizes.txt')):
     id_to_dims[photo_id] = (int(width), int(height))
 
+self_hosted_ids = set()
+for photo_id, width, height in csv.reader(open('self-hosted-sizes.txt')):
+    id_to_dims[photo_id] = (int(width), int(height))
+    self_hosted_ids.add(photo_id)
+
+
 # This file comes from an email exchange with the NYPL
 photo_id_to_uuid = {
     photo_id.lower(): uuid
@@ -79,8 +85,9 @@ back_id_to_text = None  # clear
 
 
 def image_url(photo_id, is_thumb):
+    if photo_id in self_hosted_ids:
+        return '/assets/%s.jpg' % photo_id
     degrees = id_to_rotation.get(photo_id)
-    # TODO: https
     if not degrees:
         return 'https://oldnyc-assets.nypl.org/%s/%s.jpg' % (
             'thumb' if is_thumb else '600px', photo_id)
@@ -116,7 +123,11 @@ def make_response(photo_ids):
     response = []
     for photo_id in photo_ids:
         r = id_to_record[photo_id]
-        w, h = id_to_dims[photo_id]
+        dims = id_to_dims.get(photo_id)
+        if not dims:
+            sys.stderr.write(f'Missing dimensinos for {photo_id}\n')
+            dims = (600, 400)
+        w, h = dims
         ocr_text = id_to_text.get(photo_id)
 
         # See also viewer/app.py

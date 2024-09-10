@@ -8,9 +8,7 @@ import json
 from record import Record
 
 # See https://cookbook.openai.com/examples/batch_processing
-# TODO: Tell GPT that "Richmod" is a synonym for "Staten Island"
 # TODO: Make more of an effort to get GPT the Borough (typically in SOURCE column of CSV)
-# TODO: Exclude "Photographic views of the United States / Wyoming"
 SYSTEM_INSTRUCTIONS = """
 Your goal is to extract location information from JSON describing a photograph taken
 in New York City. The location information should be in the form of a query that can

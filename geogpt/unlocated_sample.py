@@ -19,5 +19,6 @@ if __name__ == '__main__':
         if r['id'] not in located_ids and not r['outside_nyc']
     ]
     random.shuffle(unlocated_ids)
+    sys.stderr.write(f'Sampling {n} / {len(unlocated_ids)} records.\n')
     for id in unlocated_ids[:n]:
         print(id)

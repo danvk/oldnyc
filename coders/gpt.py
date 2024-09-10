@@ -20,7 +20,8 @@ class GptCoder:
         self.milstein = MilsteinCoder()
 
     def codeRecord(self, r: record.Record):
-        id = r['id']
+        # GPT location extractions are always based on record ID, not photo ID.
+        id = r['id'].split('-')[0]
         q = self.queries.get(id)
         if not q:
             return None
@@ -34,7 +35,7 @@ class GptCoder:
             'address': q,
             'source': q,
             # TODO: this could be improved
-            'type': 'intersection' if '&' in q else ['street_address', 'premise', 'point_of_interest'],
+            'type': 'intersection' if '&' in q else ['street_address', 'premise']  # , 'point_of_interest'],
         }
 
     def getLatLonFromGeocode(self, geocode, data, r):
