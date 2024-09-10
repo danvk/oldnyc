@@ -1,6 +1,5 @@
-#!/usr/bin/python
-# Reads in a photo_id -> lat,lon mapping (from geocode_pairs.py)
-# and the records and outputs a JS file.
+#!/usr/bin/env python
+"""Various output formats for generate-geocodes.py."""
 
 import json
 from coders.types import Location
@@ -175,3 +174,50 @@ def printLocations(located_recs: list[LocatedRecord]):
 
     for ll, count in locs.items():
         print('%d\t%s' % (count, ll))
+
+
+def output_geojson(located_recs: list[LocatedRecord]):
+    features = []
+    for r, coder, location_data in located_recs:
+        if not location_data:
+            continue  # debatable, but this is what diff_geojson.py seems to want
+        feature = {
+            'id': r['id'],
+            'type': 'Feature',
+            'geometry': {
+                'type': 'Point',
+                'coordinates': [location_data['lon'], location_data['lat']]
+            } if location_data else None,
+            'properties': {
+                'title': r['title'],
+                'date': r['date'],
+                'geocode': {
+                    'technique': coder,
+                    'lat': location_data['lat'],
+                    'lng': location_data['lon'],
+                    **location_data
+                } if location_data else None,
+                'image': {
+                    'url': r['photo_url'],
+                    'thumb_url': r['photo_url'],
+                },
+                'url': r['preferred_url'],
+                'nypl_fields': {
+                    'alt_title': r['alt_title'],
+                    'location': r['location'],
+                }
+            }
+        }
+        features.append(feature)
+
+    print(
+        json.dumps(
+            {"type": "FeatureCollection", "features": features},
+            indent=2,
+            sort_keys=True,
+        )
+    )
+
+
+def output_oldto_json(located_recs: list[LocatedRecord]):
+    pass

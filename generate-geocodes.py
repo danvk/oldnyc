@@ -198,3 +198,5 @@ if __name__ == '__main__':
     generate_js.printRecordsText(located_recs)
   elif options.output_format == 'locations.txt':
     generate_js.printLocations(located_recs)
+  elif options.output_format == 'geojson':
+    generate_js.output_geojson(located_recs)
