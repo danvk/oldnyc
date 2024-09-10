@@ -86,7 +86,7 @@ back_id_to_text = None  # clear
 
 def image_url(photo_id, is_thumb):
     if photo_id in self_hosted_ids:
-        return '/assets/%s.jpg' % photo_id
+        return 'https://images.nypl.org/?id=%s&t=w' % photo_id
     degrees = id_to_rotation.get(photo_id)
     if not degrees:
         return 'https://oldnyc-assets.nypl.org/%s/%s.jpg' % (
