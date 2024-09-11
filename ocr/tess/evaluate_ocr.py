@@ -20,12 +20,12 @@ def normalize_whitespace(text):
     return ' '.join([x for x in s.split(text) if x])
 
 
-def score_for_pair(golden_path, run_path):
-    golden_text = normalize_whitespace(open(golden_path).read())
-    run_text = normalize_whitespace(open(run_path).read())
+def score_for_pair(golden_text, run_text):
+    golden_text = normalize_whitespace(golden_text)
+    run_text = normalize_whitespace(run_text)
     d = Levenshtein.distance(golden_text, run_text)
     #sys.stderr.write('d: %d (%d vs. %d)\n' % (d, len(run_text), len(golden_text)))
-    return max(0.0, 1.0 - 1.0 * d / len(golden_text))
+    return (max(0.0, 1.0 - 1.0 * d / len(golden_text)), d)
 
 
 if __name__ == '__main__':
@@ -35,10 +35,11 @@ if __name__ == '__main__':
 
     scores = []
     for golden, run in pairs:
-        d = score_for_pair(golden, run)
-        print '%.3f  %s %s' % (d, golden, run)
+        golden_text = open(golden).read()
+        run_text = open(run).read()
+        (d, _) = score_for_pair(golden_text, run_text)
+        print('%.3f  %s %s' % (d, golden, run))
         scores.append(d)
 
     mean = sum(scores) / len(scores)
-    print 'Average: %.3f' % mean
-
+    print('Average: %.3f' % mean)

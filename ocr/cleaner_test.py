@@ -68,6 +68,14 @@ noon, looking east.
 1939
 Alexaneer Alland
 Ap7-:  Wg ~E 33~4
+''',
+
+# 7
+'''(1) Bryant Park, center and west side, towards 42nd Street, giving a rear view of the Federal Hell repilos, on which demolition is beginning. April 8, 1933. P. L. Sperr. NO REPHODUCTIONS.
+
+(2) The same view, but closer to 42nd Street, showing the Park being remodelled under the regime of Commissioner Robert Moses, New York's first city-wide Commissioner of Parks. March 15, 1934. P. L. Sperr. NO REPHODUCTIONS.
+
+(3) The same, seen from the south side, and showing the Park after completion of the work. The flower beds are planted with ivy. The large corner building, at Sixth Avenue and 42nd Street, is the department store of Stern Brothers. July 6, 1935. P. L. Sperr. NO REPHODUCTIONS.
 '''
 ]
 
@@ -139,3 +147,13 @@ Ap7-:  Wg ~E 33~4
     # This has no trailing newline
     txt = 'Hello\nThere'
     eq_('Hello\nThere', cleaner.clean(txt))
+
+
+def test_partial_warning():
+    txt = cleaner.remove_warnings(samples[7])
+    assert txt == ('''(1) Bryant Park, center and west side, towards 42nd Street, giving a rear view of the Federal Hell repilos, on which demolition is beginning. April 8, 1933. P. L. Sperr.
+
+(2) The same view, but closer to 42nd Street, showing the Park being remodelled under the regime of Commissioner Robert Moses, New York's first city-wide Commissioner of Parks. March 15, 1934. P. L. Sperr.
+
+(3) The same, seen from the south side, and showing the Park after completion of the work. The flower beds are planted with ivy. The large corner building, at Sixth Avenue and 42nd Street, is the department store of Stern Brothers. July 6, 1935. P. L. Sperr.
+''')

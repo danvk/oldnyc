@@ -39,7 +39,19 @@ def is_warning(line):
 
 def remove_warnings(txt):
     '''Remove lines like "NO REPRODUCTIONS".'''
-    return '\n'.join(line for line in txt.split('\n') if not is_warning(line))
+    # remove full warning lines
+    txt = '\n'.join(line for line in txt.split('\n') if not is_warning(line))
+    # remove warnings at the end of lines
+    lines = txt.split('\n')
+    for i, line in enumerate(lines):
+        for warning in WARNINGS:
+            word = warning.split(' ')[0] + ' '
+            if word in line:
+                idx = line.index(word)
+                d = editdistance.eval(warning, line[idx:])
+                if 2 * d < len(warning):
+                    lines[i] = line[:idx - 1]
+    return '\n'.join(lines)
 
 
 def merge_lines(txt):
@@ -87,8 +99,8 @@ def clean(txt):
 
 if __name__ == '__main__':
     ocr = json.load(open('ocr/ocr.json'))
-    for k, txt in ocr.iteritems():
-        print k
+    for k, txt in ocr.items():
+        print(k)
         clean(txt)
         # print '%s:\n%s\n\n-----\n' % (k, clean(txt))
         #txt = clean(txt)
