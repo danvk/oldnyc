@@ -243,7 +243,7 @@ def size(border):
     return (x2 - x1) * (y2 - y1)
 
 
-def process_image(path, out_path, stroke=False, beta=1):
+def process_image(path, out_path, stroke=False, beta=1, border_only=False):
     orig_im = Image.open(path)
     scale, im = downscale_image(orig_im)
 
@@ -255,7 +255,6 @@ def process_image(path, out_path, stroke=False, beta=1):
     )
     borders = find_border_components(contours, edges)
     borders.sort(key=size)
-    # TODO: draw this border with --stroke
 
     border_contour = None
     if len(borders):
@@ -275,8 +274,16 @@ def process_image(path, out_path, stroke=False, beta=1):
         sys.stderr.write('%s: no text!\n' % path)
         return
 
-    crop = find_optimal_components_subset(contours, edges, beta)
-    crop = pad_crop(crop, contours, edges, border_contour)
+    if not border_only:
+        crop = find_optimal_components_subset(contours, edges, beta)
+        crop = pad_crop(crop, contours, edges, border_contour)
+    else:
+        if border_contour is not None:
+            c_info = props_for_contours([border_contour], edges)
+            c = c_info[0]
+            crop = c['x1'], c['y1'], c['x2'], c['y2']
+        else:
+            crop = 0, 0, im.width, im.height
 
     crop = [int(x / scale) for x in crop]  # upscale to the original image size.
     if stroke:
@@ -333,6 +340,11 @@ if __name__ == '__main__':
         help="Write over existing output images instead of skipping them.",
     )
     parser.add_argument(
+        "--border_only",
+        action="store_true",
+        help="Only remove the border, don't try to find the text.",
+    )
+    parser.add_argument(
         "files",
         type=str,
         nargs="+",
@@ -353,7 +365,13 @@ if __name__ == '__main__':
         if os.path.exists(out_path) and not args.overwrite:
             continue
         try:
-            process_image(path, out_path, args.stroke, beta=args.beta)
+            process_image(
+                path,
+                out_path,
+                args.stroke,
+                beta=args.beta,
+                border_only=args.border_only,
+            )
         except Exception as e:
             if args.ignore_errors:
                 sys.stderr.write(f'Error on {path}: {e}\n')
