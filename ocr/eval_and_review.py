@@ -53,12 +53,13 @@ if __name__ == '__main__':
 
     changes.sort(key=lambda r: r['metadata']['score'])
     for change in changes:
-        id = change['photo_id']
+        # id = change['photo_id']
+        back_id = change['metadata']['back_id']
         score = change['metadata']['score']
         distance = change['metadata']['distance']
         len_base = change['metadata']['len_base']
         len_exp = change['metadata']['len_exp']
-        print('%s\t%.3f\t%4d\t%d\t%d' % (id, score, distance, len_base, len_exp))
+        print('%s\t%.3f\t%4d\t%d\t%d' % (back_id, score, distance, len_base, len_exp))
 
     mean = sum(scores) / len(scores)
     print('Average: %.3f' % mean)

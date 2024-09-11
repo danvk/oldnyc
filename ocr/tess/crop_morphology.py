@@ -353,10 +353,14 @@ if __name__ == '__main__':
 
     args = parser.parse_args()
 
-    files = args.files
-    if len(files) == 1 and '*' in files[0]:
-        files = glob.glob(files[0])
-        random.shuffle(files)
+    files = []
+    for file in args.files:
+        if '*' in file:
+            glob_files = glob.glob(file)
+            random.shuffle(glob_files)
+            files += glob_files
+        else:
+            files.append(file)
 
     for path in files:
         path_dir, path_file = os.path.split(path)
