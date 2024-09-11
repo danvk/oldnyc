@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-'''Crop an image to just the portions containing text.
+"""Crop an image to just the portions containing text.
 
 Usage:
 
@@ -9,7 +9,7 @@ This will place the cropped image in path/to/image.crop.png.
 
 For details on the methodology, see
 http://www.danvk.org/2015/01/07/finding-blocks-of-text-in-an-image-using-python-opencv-and-numpy.html
-'''
+"""
 
 import argparse
 import glob
@@ -112,20 +112,27 @@ def find_components(edges, max_components=16):
     # Perform increasingly aggressive dilation until there are just a few
     # connected components.
     count = 21
-    dilation = 5
+    # dilation = 5
     n = 1
     while count > 16:
         n += 1
         dilated_image = dilate(edges, N=3, iterations=n)
-        contours, hierarchy = cv2.findContours(dilated_image, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+        contours, _hierarchy = cv2.findContours(
+            dilated_image, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE
+        )
         count = len(contours)
-    #print dilation
-    #Image.fromarray(edges).show()
-    #Image.fromarray(255 * dilated_image).show()
+    # print dilation
+    # Image.fromarray(edges).show()
+    # Image.fromarray(255 * dilated_image).show()
     return contours
 
 
-def find_optimal_components_subset(contours, edges):
+def fscore(precision, recall, beta):
+    b2 = beta ** 2
+    return (1+b2) * (precision * recall / (b2*precision + recall))
+
+
+def find_optimal_components_subset(contours, edges, beta):
     """Find a crop which strikes a good balance of coverage/compactness.
 
     Returns an (x1, y1, x2, y2) tuple.
@@ -145,7 +152,7 @@ def find_optimal_components_subset(contours, edges):
         changed = False
         recall = 1.0 * covered_sum / total
         prec = 1 - 1.0 * crop_area(crop) / area
-        f1 = 2 * (prec * recall / (prec + recall))
+        f1 = fscore(prec, recall, beta)
         #print '----'
         for i, c in enumerate(c_info):
             this_crop = c['x1'], c['y1'], c['x2'], c['y2']
@@ -153,7 +160,7 @@ def find_optimal_components_subset(contours, edges):
             new_sum = covered_sum + c['sum']
             new_recall = 1.0 * new_sum / total
             new_prec = 1 - 1.0 * crop_area(new_crop) / area
-            new_f1 = 2 * new_prec * new_recall / (new_prec + new_recall)
+            new_f1 = fscore(new_prec, new_recall, beta)
 
             # Add this crop if it improves f1 score,
             # _or_ it adds 25% of the remaining pixels for <15% crop expansion.
@@ -217,7 +224,7 @@ def pad_crop(crop, contours, edges, border_contour, pad_px=15):
         return crop
 
 
-def downscale_image(im, max_dim=2048):
+def downscale_image(im: Image, max_dim=2048):
     """Shrink im until its longest dimension is <= max_dim.
 
     Returns new_image, scale (where scale <= 1).
@@ -227,7 +234,7 @@ def downscale_image(im, max_dim=2048):
         return 1.0, im
 
     scale = 1.0 * max_dim / max(a, b)
-    new_im = im.resize((int(a * scale), int(b * scale)), Image.ANTIALIAS)
+    new_im = im.resize((int(a * scale), int(b * scale)), Image.Resampling.LANCZOS)
     return scale, new_im
 
 
@@ -236,16 +243,19 @@ def size(border):
     return (x2 - x1) * (y2 - y1)
 
 
-def process_image(path, out_path, stroke=False):
+def process_image(path, out_path, stroke=False, beta=1):
     orig_im = Image.open(path)
     scale, im = downscale_image(orig_im)
 
     edges = cv2.Canny(np.asarray(im), 100, 200)
 
     # TODO: dilate image _before_ finding a border. This is crazy sensitive!
-    contours, hierarchy = cv2.findContours(edges, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+    contours, _hierarchy = cv2.findContours(
+        edges, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE
+    )
     borders = find_border_components(contours, edges)
     borders.sort(key=size)
+    # TODO: draw this border with --stroke
 
     border_contour = None
     if len(borders):
@@ -265,7 +275,7 @@ def process_image(path, out_path, stroke=False):
         sys.stderr.write('%s: no text!\n' % path)
         return
 
-    crop = find_optimal_components_subset(contours, edges)
+    crop = find_optimal_components_subset(contours, edges, beta)
     crop = pad_crop(crop, contours, edges, border_contour)
 
     crop = [int(x / scale) for x in crop]  # upscale to the original image size.
@@ -277,6 +287,11 @@ def process_image(path, out_path, stroke=False):
             this_crop = c['x1'], c['y1'], c['x2'], c['y2']
             draw.rectangle(this_crop, outline='blue')
         draw.rectangle(crop, outline='red')
+        if border_contour is not None:
+            c_info = props_for_contours([border_contour], edges)
+            for c in c_info:
+                this_crop = c['x1'], c['y1'], c['x2'], c['y2']
+                draw.rectangle(this_crop, outline='green')
         out_im = im
     else:
         out_im = orig_im.crop(crop)
@@ -290,15 +305,38 @@ def process_image(path, out_path, stroke=False):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Crop images to just the text')
-    parser.add_argument('--ignore_errors', action='store_true', help='Log errors and continue instead of throwing.')
-    parser.add_argument('--stroke', action='store_true', help='Draw a red box around the text instead of cropping.')
-    parser.add_argument('--output_pattern', default='%s.crop.png', help='Output file pattern, relative to input file.')
-    parser.add_argument('--overwrite', action='store_true', help='Write over existing output images instead of skipping them.')
     parser.add_argument(
-        'files',
+        "--beta",
+        default=1.0,
+        type=float,
+        help="Relative weight of precision and recall for selecting a subset of boxes. "
+        "Higher beta weights recall over precision, lower weights prec. over recall.",
+    )
+    parser.add_argument(
+        "--ignore_errors",
+        action="store_true",
+        help="Log errors and continue instead of throwing.",
+    )
+    parser.add_argument(
+        "--stroke",
+        action="store_true",
+        help="Draw a red box around the text instead of cropping.",
+    )
+    parser.add_argument(
+        "--output_pattern",
+        default="%s.crop.png",
+        help="Output file pattern, relative to input file.",
+    )
+    parser.add_argument(
+        "--overwrite",
+        action="store_true",
+        help="Write over existing output images instead of skipping them.",
+    )
+    parser.add_argument(
+        "files",
         type=str,
-        nargs='+',
-        help='Path to images to process, or a glob.',
+        nargs="+",
+        help="Path to images to process, or a glob.",
     )
 
     args = parser.parse_args()
@@ -315,7 +353,7 @@ if __name__ == '__main__':
         if os.path.exists(out_path) and not args.overwrite:
             continue
         try:
-            process_image(path, out_path, args.stroke)
+            process_image(path, out_path, args.stroke, beta=args.beta)
         except Exception as e:
             if args.ignore_errors:
                 sys.stderr.write(f'Error on {path}: {e}\n')
