@@ -69,7 +69,7 @@ for backing_id, info in data.items():
     ips = set()
     uniq_corrections = []
     for c in corrections:
-        ip = c['user_ip']
+        ip = c.get('user_ip', '???')
         datetime = c['datetime']
         timestamp = c['timestamp']
 
@@ -126,7 +126,7 @@ for backing_id, fix in backing_id_to_fix.items():
     new_text = fix['text']
     metadata = copy.deepcopy(fix)
     if 'cookie' not in metadata:
-        metadata['cookie'] = metadata['user_ip']
+        metadata['cookie'] = metadata.get('user_ip', '???')
     del metadata['text']
     before = data[backing_id]['original']
     if before == new_text:
