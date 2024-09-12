@@ -26,6 +26,7 @@ WARNINGS = [
   'CREDIT LINE IMPERATIVE',
   'CREDIT LINE IMPERATIVE ON ALL REPRODUCTIONS'
 ]
+WARNING_RE_STR = '|'.join(WARNINGS)
 
 
 def is_warning(line):
@@ -52,7 +53,11 @@ def remove_warnings(txt):
                 d = editdistance.eval(warning, line[idx:])
                 if 2 * d < len(warning):
                     lines[i] = line[:idx - 1]
-    return '\n'.join(lines)
+    txt = '\n'.join(lines)
+    # As a final pass, remove all exact matches, wherever they occur
+    # These are likely with LLMs, which tend to fix typos.
+    txt = re.sub(r'(%s)\.?' % WARNING_RE_STR, '', txt, flags=re.IGNORECASE)
+    return txt
 
 
 def merge_lines(txt):

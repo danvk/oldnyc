@@ -6,7 +6,6 @@ import csv
 import json
 import os
 import sys
-import random
 
 from record import Record
 
@@ -17,9 +16,13 @@ The text is written with a typewriter and describes a photograph taken in New Yo
 likely in in the 1920s or 1930s. It likely includes street names, as well as the name
 of the photographer, which might be "P. L. Sperr" or "Eugene L. Armbruster" or
 "George L. Balgue". It's also likely to include a rights statement such as
-"NO REPRODUCTIONS" or "MAY BE REPRODUCED". You'll also be given some JSON describing
-that same photograph. It's likely to contain keywords and numbers that also appear
-in the text.
+"NO REPRODUCTIONS" or "MAY BE REPRODUCED".
+
+Respond with JSON in the following format:
+
+{
+  text: string;
+}
 '''
 
 
@@ -32,7 +35,7 @@ def get_image_base64(image_path: str) -> str:
     return f'data:image/{format};base64,{image_data}'
 
 
-BACK_PAT = '/tmp/contrast/%s.png'
+BACK_PAT = '/tmp/max1500px/%s.jpg'
 
 
 if __name__ == '__main__':
@@ -61,9 +64,9 @@ if __name__ == '__main__':
             for field in ['title', 'alt_title', 'date']
             if r[field]
         }
-        for k, v in csv_row.items():
-            if k.startswith('subject/') and v:
-                metadata[k] = v
+        # for k, v in csv_row.items():
+        #     if k.startswith('subject/') and v:
+        #         metadata[k] = v
 
         task = {
             "custom_id": back_id,
@@ -85,10 +88,10 @@ if __name__ == '__main__':
                                     "url": get_image_base64(image_path)
                                 }
                             },
-                            {
-                                "type": "text",
-                                "text": json.dumps(metadata),
-                            },
+                            # {
+                            #     "type": "text",
+                            #     "text": json.dumps(metadata),
+                            # },
                         ]
                     }
                 ],
@@ -98,7 +101,7 @@ if __name__ == '__main__':
                 "frequency_penalty": 0,
                 "presence_penalty": 0,
                 "response_format": {
-                    "type": "text",
+                    "type": "json_object",
                 }
             }
         }
