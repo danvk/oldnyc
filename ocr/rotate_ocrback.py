@@ -24,7 +24,6 @@ if __name__ == '__main__':
     }
 
     (id, _) = os.path.splitext(os.path.basename(high_path))
-    print(f'{id=}')
 
     if id in failed_ocrbacks:
         # TODO: this is wildly inefficient
@@ -34,7 +33,7 @@ if __name__ == '__main__':
             # print(f'{rot} size: {rot_im.width} x {rot_im.height}')
             rot_aspect = rot_im.width / rot_im.height
             if abs(rot_aspect - low_aspect) > 0.1:
-                print(f'{rot}: tossing based on aspect ratios: {rot_aspect:.3f}, want {low_aspect:.3f}')
+                # print(f'{rot}: tossing based on aspect ratios: {rot_aspect:.3f}, want {low_aspect:.3f}')
                 continue
 
             shrunk_im = rot_im.resize(low_im.size, resample=Image.Resampling.NEAREST)
@@ -48,9 +47,9 @@ if __name__ == '__main__':
             # print(f'{rot}: {shrunk_hash - low_hash} = {shrunk_hash} - {low_hash}')
 
         candidates.sort()
-        print(f'Candidates: {candidates}')
+        # print(f'Candidates: {candidates}')
         rot = candidates[0][1]
-        print(f'Best is: {rot}')
+        # print(f'Best is: {rot}')
     else:
         rot = 0
         print(f'Skipping {id} because it is not in failed_ocrbacks')

@@ -30,6 +30,7 @@ WARNINGS = [
 
 def is_warning(line):
     line = re.sub(r'[,.]$', '', line)
+    # line = line.upper()
     for base in WARNINGS:
         d = editdistance.eval(base, line)
         if 2 * d < len(base):

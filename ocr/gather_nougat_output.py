@@ -9,10 +9,6 @@ from pathlib import Path
 from ocr.cleaner import clean
 
 
-def postprocess(txt: str) -> str:
-    """Do some light post-processing, e.g. removing credit lines."""
-
-
 if __name__ == '__main__':
     nougat_dir = sys.argv[1]
     mapping = {}

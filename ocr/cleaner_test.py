@@ -76,6 +76,20 @@ Ap7-:  Wg ~E 33~4
 (2) The same view, but closer to 42nd Street, showing the Park being remodelled under the regime of Commissioner Robert Moses, New York's first city-wide Commissioner of Parks. March 15, 1934. P. L. Sperr. NO REPHODUCTIONS.
 
 (3) The same, seen from the south side, and showing the Park after completion of the work. The flower beds are planted with ivy. The large corner building, at Sixth Avenue and 42nd Street, is the department store of Stern Brothers. July 6, 1935. P. L. Sperr. NO REPHODUCTIONS.
+''',
+
+# 8
+'''(1)
+Hunter Avenue, at Hylan Boulevard.
+July 1, 1932.
+F. L. Sperr
+No REFROductions
+
+(2)
+The same, at a later date.
+May 26, 1935.
+F. L. Sperr
+NO REFROductions.
 '''
 ]
 
@@ -156,4 +170,16 @@ def test_partial_warning():
 (2) The same view, but closer to 42nd Street, showing the Park being remodelled under the regime of Commissioner Robert Moses, New York's first city-wide Commissioner of Parks. March 15, 1934. P. L. Sperr.
 
 (3) The same, seen from the south side, and showing the Park after completion of the work. The flower beds are planted with ivy. The large corner building, at Sixth Avenue and 42nd Street, is the department store of Stern Brothers. July 6, 1935. P. L. Sperr.
+''')
+
+    txt = cleaner.remove_warnings(samples[8])
+    assert txt == ('''(1)
+Hunter Avenue, at Hylan Boulevard.
+July 1, 1932.
+F. L. Sperr
+
+(2)
+The same, at a later date.
+May 26, 1935.
+F. L. Sperr
 ''')
