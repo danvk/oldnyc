@@ -2,15 +2,13 @@
 """Generate a JSONL file of OCR tasks for the GPT batch API."""
 
 import base64
-import csv
 import json
 import os
 import sys
 
-from record import Record
 
-
-SYSTEM_PROMPT = '''You'll be given an image containing text. Your goal is to transcribe the text.
+SYSTEM_PROMPT = '''You'll be given an image containing text. Your goal is to transcribe
+the text and determine whether the text is correctly oriented or rotated.
 
 The text is written with a typewriter and describes a photograph taken in New York City,
 likely in in the 1920s or 1930s. It likely includes street names, as well as the name
@@ -22,6 +20,7 @@ Respond with JSON in the following format:
 
 {
   text: string;
+  rotated: boolean;
 }
 '''
 
@@ -42,31 +41,12 @@ if __name__ == '__main__':
     back_ids_file = sys.argv[1]
     back_ids = [line.strip() for line in open(back_ids_file)]
 
-    records: list[Record] = json.load(open('nyc/records.json'))
-    back_id_to_record = {r['back_id']: r for r in records if r['back_id']}
-
-    new_csv_rows = csv.DictReader(open('/Users/danvk/Downloads/Milstein_data_for_DV.csv'))
-    front_id_to_new_csv = {
-        row['image_id'].lower(): row
-        for row in new_csv_rows
-    }
-
     tasks = []
     for back_id in back_ids:
-        r = back_id_to_record[back_id]
-        csv_row = front_id_to_new_csv[r['id']]
         image_path = BACK_PAT % back_id
         if not os.path.exists(image_path):
             sys.stderr.write(f'Skipping {back_id}\n')
             continue
-        metadata = {
-            field: r[field]
-            for field in ['title', 'alt_title', 'date']
-            if r[field]
-        }
-        # for k, v in csv_row.items():
-        #     if k.startswith('subject/') and v:
-        #         metadata[k] = v
 
         task = {
             "custom_id": back_id,
@@ -88,10 +68,6 @@ if __name__ == '__main__':
                                     "url": get_image_base64(image_path)
                                 }
                             },
-                            # {
-                            #     "type": "text",
-                            #     "text": json.dumps(metadata),
-                            # },
                         ]
                     }
                 ],

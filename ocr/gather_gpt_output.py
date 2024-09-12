@@ -23,7 +23,10 @@ if __name__ == '__main__':
         assert len(choices) == 1
         data_str = choices[0]['message']['content']
         data = json.loads(data_str)
+        rotated = data['rotated']
         gpt_text = data['text']
-        mapping[back_id] = clean(gpt_text)
+        mapping[back_id] = clean(gpt_text) if not rotated else '(rotated)'
+        if rotated:
+            sys.stderr.write(f'GPT says {back_id} is rotated.\n')
 
     print(json.dumps(mapping, indent=2))
