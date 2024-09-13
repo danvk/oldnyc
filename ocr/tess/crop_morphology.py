@@ -73,10 +73,24 @@ def crop_area(crop):
 def find_border_components(contours, ary):
     borders = []
     area = ary.shape[0] * ary.shape[1]
+    print(f'contours: {len(contours)}')
+    # debug = np.zeros(ary.shape, dtype=np.uint8)
     for i, c in enumerate(contours):
         x,y,w,h = cv2.boundingRect(c)
-        if w * h > 0.5 * area:
+        rot_rect = cv2.minAreaRect(c)
+        ((rx, ry), (rw, rh), deg) = rot_rect
+        if 5 < deg < 45 and rw * rh > 1000:
+            print(f'{i}: {rx:.0f},{ry:.0f} {rw:.0f}x{rh:.0f} +{deg}°')
+            # box = cv2.boxPoints(rot_rect)
+            # box = np.int0(box)
+            # cv2.drawContours(debug, [box], 0, 255, 2)
+        if w * h > 0.5 * area and angle_from_right(deg) < 5:
+            print(f'{i}: {x},{y}+{w}x{h}: {w*h/area}')
             borders.append((i, x, y, x + w - 1, y + h - 1))
+            # debug = np.zeros(ary.shape)
+            # cv2.drawContours(debug, [c], 0, 255, 4)
+            # Image.fromarray(debug).show()
+    # Image.fromarray(debug).show()
     return borders
 
 
@@ -92,15 +106,19 @@ def remove_border(contour, ary):
     c_im = np.zeros(ary.shape)
     r = cv2.minAreaRect(contour)
     degs = r[2]
+    print(r)
     if angle_from_right(degs) <= 10.0:
         box = cv2.boxPoints(r)
         box = np.int0(box)
         cv2.drawContours(c_im, [box], 0, 255, -1)
         cv2.drawContours(c_im, [box], 0, 0, 4)
+        print(f'Removing border: {box}')
     else:
         x1, y1, x2, y2 = cv2.boundingRect(contour)
         cv2.rectangle(c_im, (x1, y1), (x2, y2), 255, -1)
         cv2.rectangle(c_im, (x1, y1), (x2, y2), 0, 4)
+        print(f'Removing border bbox: {x1},{y1} - {x2},{y2}')
+        # print(contour)
 
     return np.minimum(c_im, ary)
 
@@ -113,7 +131,7 @@ def find_components(edges, max_components=16):
     # connected components.
     count = 21
     # dilation = 5
-    n = 1
+    n = 15
     while count > 16:
         n += 1
         dilated_image = dilate(edges, N=3, iterations=n)
@@ -121,7 +139,7 @@ def find_components(edges, max_components=16):
             dilated_image, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE
         )
         count = len(contours)
-    # print dilation
+    print(f'dilation iterations: {n=}')
     # Image.fromarray(edges).show()
     # Image.fromarray(255 * dilated_image).show()
     return contours
@@ -147,6 +165,16 @@ def find_optimal_components_subset(contours, edges, beta):
     this_crop = c['x1'], c['y1'], c['x2'], c['y2']
     crop = this_crop
     covered_sum = c['sum']
+    print(f'Initial crop: {this_crop}')
+
+    xs = set()
+    ys = set()
+    for c in c_info:
+        xs.add(c['x1'])
+        xs.add(c['x2'])
+        ys.add(c['y1'])
+        ys.add(c['y2'])
+    print(f'Unique xs: {len(xs)}, unique ys: {len(ys)}')
 
     while covered_sum < total:
         changed = False
@@ -156,6 +184,8 @@ def find_optimal_components_subset(contours, edges, beta):
         #print '----'
         for i, c in enumerate(c_info):
             this_crop = c['x1'], c['y1'], c['x2'], c['y2']
+            # if this_crop[1] > 1000:
+            #     continue
             new_crop = union_crops(crop, this_crop)
             new_sum = covered_sum + c['sum']
             new_recall = 1.0 * new_sum / total
@@ -169,6 +199,7 @@ def find_optimal_components_subset(contours, edges, beta):
             new_area_frac = 1.0 * crop_area(new_crop) / crop_area(crop) - 1
             if new_f1 > f1 or (
                     remaining_frac > 0.25 and new_area_frac < 0.15):
+                print(f'{i} Adding {this_crop}')
                 print('%d %s -> %s / %s (%s), %s -> %s / %s (%s), %s -> %s' % (
                         i, covered_sum, new_sum, total, remaining_frac,
                         crop_area(crop), crop_area(new_crop), area, new_area_frac,
@@ -248,6 +279,7 @@ def process_image(path, out_path, stroke=False, beta=1, border_only=False):
     scale, im = downscale_image(orig_im)
 
     edges = cv2.Canny(np.asarray(im), 100, 200)
+    # Image.fromarray(edges).show()
 
     # TODO: dilate image _before_ finding a border. This is crazy sensitive!
     contours, _hierarchy = cv2.findContours(
@@ -255,19 +287,23 @@ def process_image(path, out_path, stroke=False, beta=1, border_only=False):
     )
     borders = find_border_components(contours, edges)
     borders.sort(key=size)
+    print(f'{len(borders)=}')
 
+    border_contours = [contours[border[0]] for border in borders]
     border_contour = None
     if len(borders):
         border_contour = contours[borders[0][0]]
         edges = remove_border(border_contour, edges)
 
     edges = 255 * (edges > 0).astype(np.uint8)
+    # Image.fromarray(edges).show()
 
     # Remove ~1px borders using a rank filter.
     maxed_rows = rank_filter(edges, -4, size=(1, 20))
     maxed_cols = rank_filter(edges, -4, size=(20, 1))
     debordered = np.minimum(np.minimum(edges, maxed_rows), maxed_cols)
     edges = debordered
+    # Image.fromarray(edges).show()
 
     contours = find_components(edges)
     if len(contours) == 0:
@@ -285,7 +321,6 @@ def process_image(path, out_path, stroke=False, beta=1, border_only=False):
         else:
             crop = 0, 0, im.width, im.height
 
-    crop = [int(x / scale) for x in crop]  # upscale to the original image size.
     if stroke:
         im = im.convert('RGB')
         draw = ImageDraw.Draw(im)
@@ -295,12 +330,14 @@ def process_image(path, out_path, stroke=False, beta=1, border_only=False):
             draw.rectangle(this_crop, outline='blue')
         draw.rectangle(crop, outline='red')
         if border_contour is not None:
-            c_info = props_for_contours([border_contour], edges)
-            for c in c_info:
+            c_info = props_for_contours(border_contours, edges)
+            for i, c in enumerate(c_info):
                 this_crop = c['x1'], c['y1'], c['x2'], c['y2']
-                draw.rectangle(this_crop, outline='green')
+
+                draw.rectangle(this_crop, outline='green', width=4 if i == 0 else 2)
         out_im = im
     else:
+        crop = [int(x / scale) for x in crop]  # upscale to the original image size.
         out_im = orig_im.crop(crop)
 
     # draw.text((50, 50), path, fill='red')

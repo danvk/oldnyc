@@ -25,7 +25,8 @@ if __name__ == '__main__':
 
     (id, _) = os.path.splitext(os.path.basename(high_path))
 
-    if id in failed_ocrbacks:
+    is_fail = id in failed_ocrbacks
+    if is_fail:
         # TODO: this is wildly inefficient
         candidates = []
         for rot in (0, 90, 180, 270):
@@ -52,7 +53,10 @@ if __name__ == '__main__':
         # print(f'Best is: {rot}')
     else:
         rot = 0
-        print(f'Skipping {id} because it is not in failed_ocrbacks')
+        # print(f'Skipping {id} because it is not in failed_ocrbacks')
+
+    if is_fail:
+        print(f'{id}: {rot}')
 
     out_path = os.path.join(out_dir, os.path.basename(high_path))
     if rot == 0:
@@ -60,4 +64,4 @@ if __name__ == '__main__':
     else:
         rot_im = high_im.rotate(rot, expand=True)
         rot_im.save(out_path)
-    print(f'Wrote {out_path}')
+    # print(f'Wrote {out_path}')
