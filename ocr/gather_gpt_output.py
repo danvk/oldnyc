@@ -25,7 +25,10 @@ if __name__ == '__main__':
         data = json.loads(data_str)
         rotated = data.get('rotated')
         gpt_text = data['text']
-        mapping[back_id] = clean(gpt_text) if not rotated else '(rotated)'
+        mapping[back_id] = {
+            'text': clean(gpt_text) if not rotated else '(rotated)',
+            'original': gpt_text
+        }
         if rotated:
             sys.stderr.write(f'GPT says {back_id} is rotated.\n')
 

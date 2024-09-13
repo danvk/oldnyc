@@ -5,6 +5,8 @@ Input is two JSON files mapping back ID -> text (base and experiment).
 Outputs some stats and fills in ocr/feedback/review/changes.js
 """
 
+#
+
 import json
 import sys
 
@@ -16,7 +18,7 @@ if __name__ == '__main__':
     (base_file, exp_file) = sys.argv[1:]
 
     base: dict[str, str] = json.load(open(base_file))
-    exp: dict[str, str] = json.load(open(exp_file))
+    exp: dict[str, str|dict] = json.load(open(exp_file))
 
     records: list[Record] = json.load(open('nyc/records.json'))
     id_to_record = {r['id']: r for r in records}
@@ -32,13 +34,20 @@ if __name__ == '__main__':
 
     scores = []
     changes = []
-    for id, exp_text in exp.items():
+    for id, exp_item in exp.items():
         base_text = base[id]
-        (score, distance) = score_for_pair(base_text, exp_text)
+        if isinstance(exp_item, dict):
+            exp_text = exp_item['text']
+            orig_text = exp_item['original']
+        else:
+            exp_text = exp_item
+            orig_text = None
+        print(f'{id}')
+        (score, distance, adjusted_base) = score_for_pair(base_text, exp_text)
         scores.append(score)
         changes.append({
             'photo_id': back_to_front[id],  # should be back ID
-            'before': base_text,
+            'before': adjusted_base,
             'after': exp_text,
             'metadata': {
                 'cookie': 'eval',
@@ -47,13 +56,14 @@ if __name__ == '__main__':
                 'distance': distance,
                 'score': score,
                 'back_id': id,
-                'record': id_to_record[back_to_front[id].split('-')[0]]
+                'record': id_to_record[back_to_front[id].split('-')[0]],
+                'raw_text': orig_text
             }
         })
 
     changes.sort(key=lambda r: r['metadata']['score'])
     for change in changes:
-        # id = change['photo_id']
+        #id = change['photo_id']
         back_id = change['metadata']['back_id']
         score = change['metadata']['score']
         distance = change['metadata']['distance']
