@@ -1,24 +1,38 @@
 #!/usr/bin/env bash
 set -o errexit
 
-NOUGAT_MODEL=0.1.0-base
+# NOUGAT_MODEL=0.1.0-base
 
 # # Step 1: rotate to match NYPL images
-rm -rf /tmp/rotated
-mkdir /tmp/rotated
-for file in "$1"/*.jpg; do
-    ./ocr/rotate_ocrback.py $file /Users/danvk/Documents/oldnyc/images/$(basename $file) /tmp/rotated
-done
+# rm -rf /tmp/rotated
+# mkdir /tmp/rotated
+# for file in "$1"/*.jpg; do
+#     ./ocr/rotate_ocrback.py $file /Users/danvk/Documents/oldnyc/images/$(basename $file) /tmp/rotated
+# done
 
-# # Step 2: crop
+# Step 2: crop
 # rm -rf /tmp/crops
 # mkdir /tmp/crops
-# ./ocr/tess/crop_morphology.py --output_pattern '/tmp/crops/%s.png' '/tmp/rotated/*.jpg' '/tmp/rotated/*.png'
-#
-# # Step 3: increase contrast and convert to PDF
-# for file in /tmp/crops/*.png; do
-#     convert -contrast-stretch 10x10 $file ${file/.png/.pdf}
-# done
+# ./ocr/tess/crop_morphology.py --beta 2 --output_pattern '/tmp/crops/%s.png' '/tmp/rotated/*.jpg' '/tmp/rotated/*.png'
+
+# Step 3: increase contrast, cap width, convert to JPEG
+rm -rf /tmp/contrast-1500
+mkdir /tmp/contrast-1500
+for file in /tmp/crops/*.png; do
+    base=$(basename $file)
+    jpg=${base/.png/.jpg}
+    magick $file -contrast-stretch 10x10 -resize '1500>' -quality 90 /tmp/contrast-1500/$jpg
+done
+
+# Step 4: Tesseract
+rm -rf /private/tmp/tesseract
+mkdir /private/tmp/tesseract
+for file in /private/tmp/contrast-1500/*.jpg; do
+     base=$(basename $file)
+     noext=${base/.jpg/}
+     echo $noext
+     tesseract $file /private/tmp/tesseract/$noext -l eng
+done
 
 # Step 4: OCR
 # rm -rf /tmp/nougat-out

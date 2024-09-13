@@ -34,7 +34,7 @@ def get_image_base64(image_path: str) -> str:
     return f'data:image/{format};base64,{image_data}'
 
 
-BACK_PAT = '/tmp/max1500px/%s.jpg'
+BACK_PAT = '/tmp/contrast-1500/%s.jpg'
 
 
 if __name__ == '__main__':
