@@ -106,18 +106,18 @@ def remove_border(contour, ary):
     c_im = np.zeros(ary.shape)
     r = cv2.minAreaRect(contour)
     degs = r[2]
-    print(r)
+    # print(r)
     if angle_from_right(degs) <= 10.0:
         box = cv2.boxPoints(r)
         box = np.int0(box)
         cv2.drawContours(c_im, [box], 0, 255, -1)
         cv2.drawContours(c_im, [box], 0, 0, 4)
-        print(f'Removing border: {box}')
+        # print(f'Removing border: {box}')
     else:
         x1, y1, x2, y2 = cv2.boundingRect(contour)
         cv2.rectangle(c_im, (x1, y1), (x2, y2), 255, -1)
         cv2.rectangle(c_im, (x1, y1), (x2, y2), 0, 4)
-        print(f'Removing border bbox: {x1},{y1} - {x2},{y2}')
+        # print(f'Removing border bbox: {x1},{y1} - {x2},{y2}')
         # print(contour)
 
     return np.minimum(c_im, ary)
@@ -216,7 +216,7 @@ def find_optimal_components_subset(contours, edges, beta):
     return crop
 
 
-def pad_crop(crop, contours, edges, border_contour, pad_px=15):
+def pad_crop(crop, contours, edges, border_contour):
     """Slightly expand the crop to get full contours.
 
     This will expand to include any contours it currently intersects, but will
@@ -229,11 +229,12 @@ def pad_crop(crop, contours, edges, border_contour, pad_px=15):
 
     def crop_in_border(crop):
         x1, y1, x2, y2 = crop
-        x1 = max(x1 - pad_px, bx1)
-        y1 = max(y1 - pad_px, by1)
-        x2 = min(x2 + pad_px, bx2)
-        y2 = min(y2 + pad_px, by2)
-        return crop
+        x1 = max(x1, bx1)
+        y1 = max(y1, by1)
+        x2 = min(x2, bx2)
+        y2 = min(y2, by2)
+        return (x1, y1, x2, y2)
+        # return crop
 
     crop = crop_in_border(crop)
 
@@ -250,12 +251,48 @@ def pad_crop(crop, contours, edges, border_contour, pad_px=15):
             crop = new_crop
 
     if changed:
-        return pad_crop(crop, contours, edges, border_contour, pad_px)
+        return pad_crop(crop, contours, edges, border_contour)
     else:
         return crop
 
 
-def downscale_image(im: Image, max_dim=2048):
+def remove_stamp(edges: Image, path: str):
+    """Look for a large contour that's a close match for a rotated rectangle.
+
+    This is almost certainly a "New York Public Library" stamp, which does
+    contain text and can throw off cropping for the rest of the image.
+    """
+    dilated_image = dilate(edges, N=3, iterations=5)
+    contours, _hierarchy = cv2.findContours(
+        dilated_image, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE
+    )
+    stamp_contours = []
+    for c in contours:
+        rot_rect = cv2.minAreaRect(c)
+        ((rx, ry), (rw, rh), deg) = rot_rect
+        # print(rw, rh)
+        if 100 < rw < 300 and 100 < rh < 300:
+            # Image.fromarray(edges).show()
+            # dilated_image = dilate(edges, N=3, iterations=5)
+            # Image.fromarray(255*dilated_image).show()
+            bbox_area = rw * rh
+            contour_area = cv2.contourArea(c)
+            # print(f'   {contour_area=}, {bbox_area=}, {100*contour_area/bbox_area:.2f}%')
+            if contour_area / bbox_area > 0.85:
+                stamp_contours.append((c, rot_rect))
+            # Image.fromarray(edges).show()
+    if len(stamp_contours) == 1:
+        c, rot_rect = stamp_contours[0]
+        cv2.drawContours(edges, [c], 0, 0, cv2.FILLED)
+        ((rx, ry), (rw, rh), deg) = rot_rect
+        print(f'{path} Filled stamp: {rx:.0f},{ry:.0f} {rw:.0f}x{rh:.0f} +{deg}°')
+        return c
+    elif len(stamp_contours) > 1:
+        print(f'{path} found multiple stamp candidates; ignoring them all.')
+    return None
+
+
+def downscale_image(im: Image.Image, max_dim=2048) -> tuple[float, Image.Image]:
     """Shrink im until its longest dimension is <= max_dim.
 
     Returns new_image, scale (where scale <= 1).
@@ -276,7 +313,9 @@ def size(border):
 
 def process_image(path, out_path, stroke=False, beta=1, border_only=False):
     orig_im = Image.open(path)
+    print(orig_im.size)
     scale, im = downscale_image(orig_im)
+    print(scale, im.size)
 
     edges = cv2.Canny(np.asarray(im), 100, 200)
     # Image.fromarray(edges).show()
@@ -287,7 +326,7 @@ def process_image(path, out_path, stroke=False, beta=1, border_only=False):
     )
     borders = find_border_components(contours, edges)
     borders.sort(key=size)
-    print(f'{len(borders)=}')
+    # print(f'{len(borders)=}')
 
     border_contours = [contours[border[0]] for border in borders]
     border_contour = None
@@ -297,6 +336,8 @@ def process_image(path, out_path, stroke=False, beta=1, border_only=False):
 
     edges = 255 * (edges > 0).astype(np.uint8)
     # Image.fromarray(edges).show()
+
+    stamp_contour = remove_stamp(edges, path)
 
     # Remove ~1px borders using a rank filter.
     maxed_rows = rank_filter(edges, -4, size=(1, 20))
@@ -333,8 +374,12 @@ def process_image(path, out_path, stroke=False, beta=1, border_only=False):
             c_info = props_for_contours(border_contours, edges)
             for i, c in enumerate(c_info):
                 this_crop = c['x1'], c['y1'], c['x2'], c['y2']
-
                 draw.rectangle(this_crop, outline='green', width=4 if i == 0 else 2)
+
+        if stamp_contour is not None:
+            draw.line(
+                [(pt[0][0], pt[0][1]) for pt in stamp_contour], fill="hotpink", width=4
+            )
         out_im = im
     else:
         crop = [int(x / scale) for x in crop]  # upscale to the original image size.
