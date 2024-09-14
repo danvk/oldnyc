@@ -14,7 +14,8 @@ The text is written with a typewriter and describes a photograph taken in New Yo
 likely in in the 1920s or 1930s. It likely includes street names, as well as the name
 of the photographer, which might be "P. L. Sperr" or "Eugene L. Armbruster" or
 "George L. Balgue". It's also likely to include a rights statement such as
-"NO REPRODUCTIONS" or "MAY BE REPRODUCED".
+"NO REPRODUCTIONS" or "MAY BE REPRODUCED". Make sure to include numbers like "(1)",
+"(2)", etc. that appear in the image.
 
 Respond with JSON in the following format:
 
