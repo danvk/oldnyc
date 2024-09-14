@@ -35,12 +35,14 @@ def contiguous_chunks(xs: list[int]) -> list[list[int]]:
 
 
 def try_transpositions(
-    in_lines: list[str], exp_text: str, d: float, name: str = ""
+    base_txt: str, exp_text: str, name: str = ""
 ) -> float:
     """mutates in_lines"""
+    d = Levenshtein.distance(normalize_whitespace(base_txt), exp_text)
+    in_lines = base_txt.split('\n')
     short_lines = [i for i, line in enumerate(in_lines) if len(line) <= 30]
     if not short_lines:
-        return d
+        return d, base_txt
 
     short_chunks = contiguous_chunks(short_lines)
     for chunk in short_chunks:
@@ -65,17 +67,13 @@ def try_transpositions(
             for before, after in zip(chunk, perm):
                 in_lines[after] = lines[before]
 
-    return d
+    out_txt = '\n'.join(in_lines)
+    return d, out_txt
 
 
 def score_for_pair(golden_text, run_text, name=''):
     run_text = normalize_whitespace(run_text)
-    d = Levenshtein.distance(normalize_whitespace(golden_text), run_text)
-
-    golden_lines = golden_text.split('\n')
-    # print(json.dumps(golden_lines, indent=2))
-    d = try_transpositions(golden_lines, run_text, d, name)
-    adjusted_golden = '\n'.join(golden_lines)
+    d, adjusted_golden = try_transpositions(golden_text, run_text, name)
 
     #sys.stderr.write('d: %d (%d vs. %d)\n' % (d, len(run_text), len(golden_text)))
     return (max(0.0, 1.0 - 1.0 * d / len(golden_text)), d, adjusted_golden)
