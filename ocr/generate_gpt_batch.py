@@ -72,7 +72,7 @@ if __name__ == '__main__':
                         ]
                     }
                 ],
-                "temperature": 0.1,
+                "temperature": 0,
                 "max_tokens": 2048,
                 "top_p": 1,
                 "frequency_penalty": 0,
