@@ -11,14 +11,11 @@ import shutil
 import sys
 
 from PIL import Image, ImageChops
+import imagehash
 
 
 if __name__ == '__main__':
     (high_path, low_path, out_dir) = sys.argv[1:]
-    high_im = Image.open(high_path).convert("L")
-    low_im = Image.open(low_path).convert("L")
-    low_aspect = low_im.width / low_im.height
-
     failed_ocrbacks = {
         line.split('.')[0] for line in open('ocr/ocrbacks.txt') if 'original' in line
     }
@@ -27,6 +24,12 @@ if __name__ == '__main__':
 
     is_fail = id in failed_ocrbacks
     if is_fail:
+        high_im = Image.open(high_path).convert("L")
+        low_im = Image.open(low_path).convert("L")
+        low_aspect = low_im.width / low_im.height
+        low_hash = imagehash.phash(low_im)
+        low_hash_str = str(low_hash)
+
         # TODO: this is wildly inefficient
         candidates = []
         for rot in (0, 90, 180, 270):
@@ -44,19 +47,27 @@ if __name__ == '__main__':
             diff = ImageChops.difference(low_im, shrunk_im)
             # print(diff.getbbox())
             score = len(set(diff.getdata()))
-            candidates.append((score, rot))
+            shrunk_hash = imagehash.phash(shrunk_im)
+            candidates.append((score, rot, low_hash - shrunk_hash, str(shrunk_hash)))
             # print(f'{rot}: {shrunk_hash - low_hash} = {shrunk_hash} - {low_hash}')
 
         candidates.sort()
-        # print(f'Candidates: {candidates}')
-        rot = candidates[0][1]
+        # print(f'{id} Candidates: {candidates}')
+        # for score, rot, hashd, hash_str in candidates:
+        #    print(f'  {rot} {score=} {hashd=} {hash_str==low_hash_str} {hash_str} {low_hash_str}')
         # print(f'Best is: {rot}')
+        rot = candidates[0][1]
+        hashd = candidates[0][2]
     else:
         rot = 0
         # print(f'Skipping {id} because it is not in failed_ocrbacks')
 
     if is_fail:
-        print(f'{id}: {rot}')
+        print(f'{id}: {rot}°\tphash d={hashd}/64')
+
+        if hashd >= 16:
+            print(f'{id}: rejecting likely DC vs. ocrbacks mismatch')
+            sys.exit(0)
 
     out_path = os.path.join(out_dir, os.path.basename(high_path))
     if rot == 0:
