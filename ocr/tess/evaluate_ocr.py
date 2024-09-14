@@ -9,6 +9,7 @@ length of the golden file. These scores are averaged across all pairs to get an
 overall score.
 """
 
+import itertools
 import json
 import re
 import sys
@@ -21,47 +22,46 @@ def normalize_whitespace(text):
     return ' '.join([x for x in s.split(text) if x])
 
 
-def advance1(i: int, ary: list[str]) -> int | None:
-    j = i + 1
-    while j < len(ary):
-        if ary[j]:
-            return j
-        j += 1
-    return None
+def contiguous_chunks(xs: list[int]) -> list[list[int]]:
+    if not xs:
+        return []
+    short_chunks = [[xs[0]]]
+    for i in xs[1:]:
+        if i == short_chunks[-1][-1] + 1:
+            short_chunks[-1].append(i)
+        else:
+            short_chunks.append([i])
+    return short_chunks
 
 
 def try_transpositions(in_lines: list[str], exp_text: str, d: float) -> float:
-    any_changes = False
-    for i in range(0, len(in_lines) - 1):
-        a = in_lines[i]
-        if len(a) > 30:
+    """mutates in_lines"""
+    short_lines = [i for i, line in enumerate(in_lines) if len(line) <= 30]
+    if not short_lines:
+        return d
+
+    short_chunks = contiguous_chunks(short_lines)
+    for chunk in short_chunks:
+        if len(chunk) > 8:
+            # too many; not worth the computation!
             continue
-        for delta in range(1, 3):
-            j = i
-            for _ in range(0, delta):
-                j = advance1(j, in_lines)
-                if j is None:
-                    break
-
-            if j is None:
-                continue
-            b = in_lines[j]
-            if len(b) > 30:
-                continue
+        best_perm = (d, chunk)
+        for perm in itertools.permutations(chunk):
             lines = in_lines[:]
-            lines[i], lines[j] = lines[j], lines[i]
-            dt = Levenshtein.distance(normalize_whitespace('\n'.join(lines)), exp_text)
-            if dt < d:
-                print(f'  swap {i}, {j}: {d} -> {dt}')
-                in_lines[i], in_lines[j] = in_lines[j], in_lines[i]
-                d = dt
-                any_changes = True
-            else:
-                # pass
-                print(f'  reject swap {i}, {j}: {d} -> {dt}')
+            for before, after in zip(chunk, perm):
+                lines[after] = in_lines[before]
+                dt = Levenshtein.distance(normalize_whitespace('\n'.join(lines)), exp_text)
+                if dt < best_perm[0]:
+                    best_perm = (dt, perm[:])
 
-    if any_changes:
-        return try_transpositions(in_lines, exp_text, d)
+        if best_perm[0] < d:
+            dt, perm = best_perm
+            print(f'  apply permutation {perm}: {d} -> {dt}')
+            d = dt
+            lines = in_lines[:]
+            for before, after in zip(chunk, perm):
+                in_lines[after] = lines[before]
+
     return d
 
 
