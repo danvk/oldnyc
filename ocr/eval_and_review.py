@@ -42,8 +42,7 @@ if __name__ == '__main__':
         else:
             exp_text = exp_item
             orig_text = None
-        print(f'{id}')
-        (score, distance, adjusted_base) = score_for_pair(base_text, exp_text)
+        (score, distance, adjusted_base) = score_for_pair(base_text, exp_text, id)
         scores.append(score)
         changes.append({
             'photo_id': back_to_front[id],  # should be back ID

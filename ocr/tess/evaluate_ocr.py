@@ -34,7 +34,9 @@ def contiguous_chunks(xs: list[int]) -> list[list[int]]:
     return short_chunks
 
 
-def try_transpositions(in_lines: list[str], exp_text: str, d: float) -> float:
+def try_transpositions(
+    in_lines: list[str], exp_text: str, d: float, name: str = ""
+) -> float:
     """mutates in_lines"""
     short_lines = [i for i, line in enumerate(in_lines) if len(line) <= 30]
     if not short_lines:
@@ -42,8 +44,9 @@ def try_transpositions(in_lines: list[str], exp_text: str, d: float) -> float:
 
     short_chunks = contiguous_chunks(short_lines)
     for chunk in short_chunks:
-        if len(chunk) > 8:
+        if len(chunk) > 6:
             # too many; not worth the computation!
+            # TODO: ignore blank lines here, they'll be normalized away
             continue
         best_perm = (d, chunk)
         for perm in itertools.permutations(chunk):
@@ -56,7 +59,7 @@ def try_transpositions(in_lines: list[str], exp_text: str, d: float) -> float:
 
         if best_perm[0] < d:
             dt, perm = best_perm
-            print(f'  apply permutation {perm}: {d} -> {dt}')
+            print(f'{name} apply permutation {perm}: {d} -> {dt}')
             d = dt
             lines = in_lines[:]
             for before, after in zip(chunk, perm):
@@ -65,13 +68,13 @@ def try_transpositions(in_lines: list[str], exp_text: str, d: float) -> float:
     return d
 
 
-def score_for_pair(golden_text, run_text):
+def score_for_pair(golden_text, run_text, name=''):
     run_text = normalize_whitespace(run_text)
     d = Levenshtein.distance(normalize_whitespace(golden_text), run_text)
 
     golden_lines = golden_text.split('\n')
-    print(json.dumps(golden_lines, indent=2))
-    d = try_transpositions(golden_lines, run_text, d)
+    # print(json.dumps(golden_lines, indent=2))
+    d = try_transpositions(golden_lines, run_text, d, name)
     adjusted_golden = '\n'.join(golden_lines)
 
     #sys.stderr.write('d: %d (%d vs. %d)\n' % (d, len(run_text), len(golden_text)))
