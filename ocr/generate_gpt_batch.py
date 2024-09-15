@@ -114,5 +114,5 @@ if __name__ == "__main__":
         print(json.dumps(task))
 
     if num_dropped:
-        sys.stderr.write(f'Dropped {num_dropped} tasks.\n')
+        sys.stderr.write(f"Dropped {num_dropped} tasks.\n")
     sys.stderr.write(f"Wrote {len(tasks)} tasks\n")

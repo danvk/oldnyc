@@ -10,10 +10,10 @@ import fileinput
 from record import Record
 
 
-if __name__ == '__main__':
-    records: list[Record] = json.load(open('nyc/records.json'))
-    id_to_record = {r['id']: r for r in records}
+if __name__ == "__main__":
+    records: list[Record] = json.load(open("nyc/records.json"))
+    id_to_record = {r["id"]: r for r in records}
 
     for line in fileinput.input():
         front_id = line.strip()
-        print(id_to_record[front_id]['back_id'] or '')
+        print(id_to_record[front_id]["back_id"] or "")

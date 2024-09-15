@@ -14,10 +14,10 @@ from PIL import Image, ImageChops
 import imagehash
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     (high_path, low_path, out_dir) = sys.argv[1:]
     failed_ocrbacks = {
-        line.split('.')[0] for line in open('ocr/ocrbacks.txt') if 'original' in line
+        line.split(".")[0] for line in open("ocr/ocrbacks.txt") if "original" in line
     }
 
     (id, _) = os.path.splitext(os.path.basename(high_path))
@@ -63,10 +63,10 @@ if __name__ == '__main__':
         # print(f'Skipping {id} because it is not in failed_ocrbacks')
 
     if is_fail:
-        print(f'{id}: {rot}°\tphash d={hashd}/64')
+        print(f"{id}: {rot}°\tphash d={hashd}/64")
 
         if hashd >= 16:
-            print(f'{id}: rejecting likely DC vs. ocrbacks mismatch')
+            print(f"{id}: rejecting likely DC vs. ocrbacks mismatch")
             sys.exit(0)
 
     out_path = os.path.join(out_dir, os.path.basename(high_path))

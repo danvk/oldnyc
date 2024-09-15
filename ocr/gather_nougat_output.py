@@ -10,11 +10,11 @@ from pathlib import Path
 from ocr.cleaner import clean
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     nougat_dir = sys.argv[1]
     mapping = {}
     d = Path(nougat_dir)
-    for p in chain(d.glob('*.mmd'), d.glob('*.txt')):
+    for p in chain(d.glob("*.mmd"), d.glob("*.txt")):
         (back_id, _ext) = os.path.splitext(p.name)
         with open(p) as f:
             text = f.read()

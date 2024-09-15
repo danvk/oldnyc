@@ -6,10 +6,9 @@ import re
 import sys
 
 
-
 IGNORE_GEOCODES = {
-    'not in NYC',
-    'no location information',
+    "not in NYC",
+    "no location information",
 }
 
 
@@ -21,25 +20,25 @@ def patch_query(q: str) -> str:
         131-135 Pitt St & E Houston St -> Pitt St & E Houston St
         334-336 Atlantic Avenue -> 336 Atlantic Avenue
     """
-    q = re.sub(r'^\d+-(\d+) ', r'\1 ', q)
-    if '&' in q:
-        q = re.sub(r'^(\d+) ', '', q)
+    q = re.sub(r"^\d+-(\d+) ", r"\1 ", q)
+    if "&" in q:
+        q = re.sub(r"^(\d+) ", "", q)
     return q
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     out = {}
     for path in sys.argv[1:]:
         outputs = [json.loads(line) for line in open(path)]
         for r in outputs:
-            id = r['custom_id']
-            response = r['response']
-            assert response['status_code'] == 200
-            choices = response['body']['choices']
+            id = r["custom_id"]
+            response = r["response"]
+            assert response["status_code"] == 200
+            choices = response["body"]["choices"]
             assert len(choices) == 1
-            data_str = choices[0]['message']['content']
+            data_str = choices[0]["message"]["content"]
             data = json.loads(data_str)
-            gpt_location = data['location']
+            gpt_location = data["location"]
             if gpt_location in IGNORE_GEOCODES:
                 continue
             out[id] = patch_query(gpt_location)

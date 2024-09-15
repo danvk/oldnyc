@@ -29,7 +29,7 @@ Respond in JSON containing the following information:
 
 
 # MODEL = 'gpt-4o-mini'
-MODEL = 'gpt-4o'
+MODEL = "gpt-4o"
 
 
 def make_gpt_request(r: Record, model: str) -> dict:
@@ -38,8 +38,8 @@ def make_gpt_request(r: Record, model: str) -> dict:
         "title": r["title"],
         "alt_title": r["alt_title"],
     }
-    if r['borough']:
-        gpt_data['borough'] = r['borough']
+    if r["borough"]:
+        gpt_data["borough"] = r["borough"]
     data = json.dumps(gpt_data)
     return {
         "custom_id": r["id"],
@@ -55,20 +55,18 @@ def make_gpt_request(r: Record, model: str) -> dict:
                 {
                     "role": "user",
                     "content": data,
-                }
+                },
             ],
             "temperature": 0.1,
-            "response_format": {
-                "type": "json_object"
-            },
+            "response_format": {"type": "json_object"},
         },
     }
 
 
 def prep_data(data: Record):
     out = {k: v for k, v in data.items()}
-    for field in ('title', 'alt_title'):
-        out[field] = re.sub('^Richmond:', 'Staten Island:', out[field])
+    for field in ("title", "alt_title"):
+        out[field] = re.sub("^Richmond:", "Staten Island:", out[field])
     return out
 
 

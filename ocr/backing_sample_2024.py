@@ -12,19 +12,19 @@ import tqdm
 from record import Record
 
 # OUT_DIR = '/Users/danvk/Documents/oldnyc/ocrbacks'
-OUT_DIR = '/Volumes/teradan/Milstein Images/ocrbacks'
+OUT_DIR = "/Volumes/teradan/Milstein Images/ocrbacks"
 
-URL1 = 'https://oldnyc-assets-labs-nypl-org.s3.amazonaws.com/ocrbacks/successes/%s.reconstructed.jpg'
-URL2 = 'https://oldnyc-assets-labs-nypl-org.s3.amazonaws.com/ocrbacks/fails/%s.original.jpg'
+URL1 = "https://oldnyc-assets-labs-nypl-org.s3.amazonaws.com/ocrbacks/successes/%s.reconstructed.jpg"
+URL2 = "https://oldnyc-assets-labs-nypl-org.s3.amazonaws.com/ocrbacks/fails/%s.original.jpg"
 
 
-if __name__ == '__main__':
-    records: list[Record] = json.load(open('nyc/records.json'))
+if __name__ == "__main__":
+    records: list[Record] = json.load(open("nyc/records.json"))
     random.shuffle(records)
 
     results = Counter()
     for i, r in enumerate(tqdm.tqdm(records)):
-        back_id = r['back_id']
+        back_id = r["back_id"]
         if not back_id:
             continue
         exists = False
@@ -45,18 +45,18 @@ if __name__ == '__main__':
                 # print(f'{back_id} failed on {url}')
                 continue
             result = url_pat
-            with open(out_path, 'wb') as out:
+            with open(out_path, "wb") as out:
                 out.write(r.content)
             # print(f'{back_id} matched at {url}')
             results[url_pat] += 1
-            results['hit'] += 1
+            results["hit"] += 1
             break
 
         # print(f'{back_id}\t{result}')
 
         if not result:
             # print(f'No backing image for {back_id}')
-            results['fail'] += 1
+            results["fail"] += 1
         if i % 100 == 0:
             print(results)
 

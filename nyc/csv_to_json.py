@@ -67,6 +67,7 @@ STATES = [
     "Wyoming",
 ]
 
+
 def extract_borough(source: str) -> str | None:
     for borough in BOROUGHS:
         if borough in source:
@@ -105,7 +106,9 @@ def convert_csv_row(row: dict) -> Record:
     source = row["SOURCE"].strip()
     borough = extract_borough(source)
     state = extract_state(source)
-    outside_nyc = (state is not None and state != "New York") or 'The New-York City directory' in source
+    outside_nyc = (
+        state is not None and state != "New York"
+    ) or "The New-York City directory" in source
 
     r: Record = {
         "id": photo_id,
