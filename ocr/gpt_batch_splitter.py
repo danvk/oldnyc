@@ -95,7 +95,7 @@ if __name__ == '__main__':
     print(f'Will use {N} shards for', sum(id_to_cost.values()), 'tokens.')
     for i, bin in enumerate(bins):
         total = sum(bin.values())
-        print(f'{i}: ~{total} tokens')
+        print(f'  {i}: {len(bin)} requests, ~{total} tokens')
 
     # Second pass: Write each task out to the appropriate JSONL shard.
     shard_pattern = 'shard-%03d-of-%03d.jsonl'
@@ -111,3 +111,4 @@ if __name__ == '__main__':
             shard = id_to_bin[id]
             with open(shard_pattern % (shard, N), 'a') as out:
                 json.dump(req, out)
+                out.write('\n')

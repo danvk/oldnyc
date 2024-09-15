@@ -39,7 +39,7 @@ def load_status(sha256: str) -> FileStatus | None:
         return None
     with open(STATUS_FILE) as f:
         statuses = json.load(f)
-        return statuses[sha256]
+        return statuses.get(sha256)
 
 
 def dump_status(sha256: str, status: FileStatus):
@@ -49,7 +49,7 @@ def dump_status(sha256: str, status: FileStatus):
             cache = json.load(f)
     cache[sha256] = status
     with open(STATUS_FILE, 'w') as f:
-        json.dump(cache, )
+        json.dump(cache, f)
 
 
 def is_failed_batch(status: BatchStatus):
@@ -89,7 +89,7 @@ if __name__ == '__main__':
         file_id = status.get('file_id')
         if not file_id:
             print(f'{batch_file}: uploading to OpenAI')
-            f = client.files.create(file=open(batch_file), purpose='batch')
+            f = client.files.create(file=open(batch_file, 'rb'), purpose='batch')
             file_id = f.id
             status['file_id'] = file_id
             dump_status(sha256, status)
@@ -118,11 +118,13 @@ if __name__ == '__main__':
         else:
             print(f'{batch_file}: using previously-created {batch_id=}')
 
+        did_fetch_status = False
         def fetch_batch_status():
-            global batch_status
+            global batch_status, did_fetch_status
+            did_fetch_status = True
             r = client.batches.retrieve(batch_id=batch_id)
             batch_status = r.status
-            status['batch'] = r
+            status['batch'] = r.to_dict(mode='json')
             status['batch_status'] = batch_status
             dump_status(sha256, status)
             print(f'{batch_file}: retrieved batch status {batch_status} {batch_id=}')
@@ -140,7 +142,8 @@ if __name__ == '__main__':
         check_fail_status()
 
         while is_in_progress_batch(batch_status):
-            time.sleep(5)
+            if did_fetch_status:
+                time.sleep(5)
             # TODO: reduce repetition
             fetch_batch_status()
 
@@ -157,7 +160,7 @@ if __name__ == '__main__':
         out_path = batch_file.replace('.jsonl', '.output.jsonl')
         output_file_sha256 = status.get('output_file_sha256')
         if output_file_sha256 and os.path.exists(out_path) and sha256sum(out_path) == output_file_sha256:
-            print('{batch_file}: output already exists at {out_path} and matches SHA')
+            print(f'{batch_file}: output already exists at {out_path} and matches SHA')
         else:
             r = client.files.content(file_id=out_file_id)
             with open(out_path, 'wb') as out:
