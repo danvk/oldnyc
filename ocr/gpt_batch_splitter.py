@@ -7,6 +7,7 @@ import math
 import sys
 
 from PIL import Image
+import binpacking
 
 
 def as_list(x):
@@ -61,35 +62,20 @@ def estimate_request_tokens(req: dict) -> int:
 
 if __name__ == '__main__':
     total_tokens = 0
-    shard = 0
-    requests = []
 
-    def dump():
-        global shard
-        global requests
-        global total_tokens
-        outpath = 'shard-%03d.jsonl' % shard
-        with open(outpath, 'w') as out:
-            for req in requests:
-                json.dump(req, out)
-                out.write('\n')
-        print(f'{outpath}: {len(requests)} requests, {total_tokens} tokens')
-        requests = []
-        shard += 1
-        total_tokens = 0
-
+    # First pass: estimate the costs of all inputs
+    id_to_cost: dict[str, int] = {}
     for input in sys.argv[1:]:
         for line_str in open(input):
             req = json.loads(line_str)
             tokens = estimate_request_tokens(req)
             id = req['custom_id']
-            # print(f'{id}\t{tokens}')
-            requests.append(req)
-            total_tokens += tokens
+            assert id not in id_to_cost, f'Duplicate id: {id}'
+            id_to_cost[id] = tokens
 
-            # assume 100 output tokens/request, plus some padding
-            if total_tokens * 1.1 + 100 * len(requests) > MAX_TOKENS:
-                dump()
+    bins = binpacking.to_constant_volume(id_to_cost, MAX_TOKENS * 0.9)
+    bins = binpacking.to_constant_bin_number(id_to_cost, len(bins))
 
-    if requests:
-        dump()
+    for i, bin in enumerate(bins):
+        total = sum(bin.values())
+        print(f'{i}: {total}')
