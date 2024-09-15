@@ -3,7 +3,7 @@ var codediff = (function() {
 var differ = function(beforeText, afterText, userParams) {
   var defaultParams = {
     contextSize: 3,
-    minJumpSize: 10,
+    minJumpSize: 100,
     language: null,
     beforeName: "Before",
     afterName: "After"

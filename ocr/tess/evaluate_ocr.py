@@ -75,8 +75,16 @@ def score_for_pair(golden_text, run_text, name=''):
     run_text = normalize_whitespace(run_text)
     d, adjusted_golden = try_transpositions(golden_text, run_text, name)
 
+    if len(golden_text) == 0:
+        if len(run_text) == 0:
+            score = 1
+        else:
+            score = 0
+    else:
+        score = max(0.0, 1.0 - 1.0 * d / len(golden_text))
+
     #sys.stderr.write('d: %d (%d vs. %d)\n' % (d, len(run_text), len(golden_text)))
-    return (max(0.0, 1.0 - 1.0 * d / len(golden_text)), d, adjusted_golden)
+    return (score, d, adjusted_golden)
 
 
 if __name__ == '__main__':

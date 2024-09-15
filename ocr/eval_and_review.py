@@ -36,6 +36,8 @@ if __name__ == '__main__':
     changes = []
     for id, exp_item in exp.items():
         base_text = base[id]
+        if isinstance(base_text, dict):
+            base_text = base_text['text']
         if isinstance(exp_item, dict):
             exp_text = exp_item['text']
             orig_text = exp_item['original']
@@ -45,7 +47,7 @@ if __name__ == '__main__':
         (score, distance, adjusted_base) = score_for_pair(base_text, exp_text, id)
         scores.append(score)
         changes.append({
-            'photo_id': back_to_front[id],  # should be back ID
+            'photo_id': back_to_front.get(id, id.replace('b', 'f-a')),  # should be back ID
             'before': adjusted_base,
             'after': exp_text,
             'metadata': {
@@ -55,20 +57,20 @@ if __name__ == '__main__':
                 'distance': distance,
                 'score': score,
                 'back_id': id,
-                'record': id_to_record[back_to_front[id].split('-')[0]],
+                'record': id_to_record[back_to_front[id].split('-')[0]] if id in back_to_front else None,
                 'raw_text': orig_text
             }
         })
 
     changes.sort(key=lambda r: r['metadata']['score'])
-    for change in changes:
+    for i, change in enumerate(changes):
         #id = change['photo_id']
         back_id = change['metadata']['back_id']
         score = change['metadata']['score']
         distance = change['metadata']['distance']
         len_base = change['metadata']['len_base']
         len_exp = change['metadata']['len_exp']
-        print('%s\t%.3f\t%4d\t%d\t%d' % (back_id, score, distance, len_base, len_exp))
+        print('%3d %s\t%.3f\t%4d\t%d\t%d' % (i + 1, back_id, score, distance, len_base, len_exp))
 
     mean = sum(scores) / len(scores)
     print('Average: %.3f' % mean)
