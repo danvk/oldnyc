@@ -1,0 +1,12 @@
+{
+    // See https://stackoverflow.com/q/76457139/388951
+    "ruff.codeAction.disableRuleComment": {
+        "enable": false
+    },
+    "[python]": {
+        "diffEditor.ignoreTrimWhitespace": false,
+        "editor.formatOnSave": true,
+        "editor.formatOnSaveMode": "modifications"
+        // "editor.wordBasedSuggestions": "off"
+    }
+}
