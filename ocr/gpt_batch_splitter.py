@@ -16,9 +16,10 @@ def as_list(x):
     return [x]
 
 
-# TODO: make this a function of model
-MAX_TOKENS = 2_000_000
-# MAX_TOKENS = 90_000
+MAX_TOKENS = {
+    'gpt-4o-mini': 2_000_000,
+    'gpt-4o': 90_000,
+}
 
 # https://openai.com/api/pricing/
 model_image_tokens = {
@@ -57,25 +58,56 @@ def estimate_request_tokens(req: dict) -> int:
             else:
                 raise ValueError(submessage['type'])
 
-    return tokens
+    return int(tokens)
 
 
 if __name__ == '__main__':
     total_tokens = 0
 
-    # First pass: estimate the costs of all inputs
+    # First pass: estimate the costs of all inputs, assign each to a bucket
     id_to_cost: dict[str, int] = {}
+    model = None
     for input in sys.argv[1:]:
         for line_str in open(input):
             req = json.loads(line_str)
+            m = req['body']['model']
+            if model is None:
+                model = m
+            elif m != model:
+                sys.stderr.write(
+                    f'All requests must use the same model (found {model}, {m})\n')
+                sys.exit(1)
             tokens = estimate_request_tokens(req)
             id = req['custom_id']
             assert id not in id_to_cost, f'Duplicate id: {id}'
             id_to_cost[id] = tokens
 
-    bins = binpacking.to_constant_volume(id_to_cost, MAX_TOKENS * 0.9)
+    bins = binpacking.to_constant_volume(id_to_cost, MAX_TOKENS[model] * 0.9)
     bins = binpacking.to_constant_bin_number(id_to_cost, len(bins))
 
+    id_to_bin: dict[str, int] = {
+        id: i
+        for i, bin in enumerate(bins)
+        for id in bin.keys()
+    }
+    N = len(bins)
+    print(f'Model: {model}')
+    print(f'Will use {N} shards for', sum(id_to_cost.values()), 'tokens.')
     for i, bin in enumerate(bins):
         total = sum(bin.values())
-        print(f'{i}: {total}')
+        print(f'{i}: ~{total} tokens')
+
+    # Second pass: Write each task out to the appropriate JSONL shard.
+    shard_pattern = 'shard-%03d-of-%03d.jsonl'
+    for i in range(len(bins)):
+        with open(shard_pattern % (i, N), 'w') as out:
+            pass  # make sure to clear any existing files before appending
+
+    for input in sys.argv[1:]:
+        for line_str in open(input):
+            req = json.loads(line_str)
+            id = req['custom_id']
+
+            shard = id_to_bin[id]
+            with open(shard_pattern % (shard, N), 'a') as out:
+                json.dump(req, out)

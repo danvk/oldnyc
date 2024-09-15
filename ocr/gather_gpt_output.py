@@ -23,7 +23,12 @@ if __name__ == '__main__':
         choices = response['body']['choices']
         assert len(choices) == 1
         data_str = choices[0]['message']['content']
-        data = json.loads(data_str)
+        try:
+            data = json.loads(data_str)
+        except json.decoder.JSONDecodeError:
+            sys.stderr.write(f'JSON response for {back_id} is malformed.\n')
+            data_str += '"}'
+            data = json.loads(data_str)
         rotated = data.get('rotated')
         gpt_text = data['text']
         mapping[back_id] = {
