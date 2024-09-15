@@ -5,12 +5,14 @@
 # Maintains a cache of previously-geocoded locations and throttles traffic to the Geocoder.
 
 import base64
+import os
 import re
 import sys
 import time
 import json
 import urllib
 import urllib.parse
+import urllib.request
 
 GeocodeUrlTemplate = 'https://maps.googleapis.com/maps/api/geocode/json?sensor=false&address=%s'
 CacheDir = "geocache"
@@ -39,6 +41,9 @@ class Geocoder:
     self._network_allowed = network_allowed
     self._wait_time = wait_time
     self._last_fetch = 0
+    self._api_key = os.environ.get('GOOGLE_MAPS_API_KEY')
+    if not self._api_key:
+      sys.stderr.write('Running without Google Maps API key; will only use geocache.\n')
 
   def _check_cache(self, loc):
     """Returns cached results for the location or None if not available."""
@@ -52,7 +57,7 @@ class Geocoder:
 
   def _cache_result(self, loc, result):
     cache_file = _cache_file(loc)
-    open(cache_file, "w").write(result)
+    open(cache_file, "wb").write(result)
 
   def _fetch(self, url):
     """Attempts to fetch the URL. Does rate throttling. Returns XML."""
@@ -65,7 +70,9 @@ class Geocoder:
     self._last_fetch = time.time()
 
     sys.stderr.write("Fetching %s\n" % url)
-    f = urllib.URLopener().open(url)
+    assert self._api_key
+    # Note: API key is _not_ part of the cache key
+    f = urllib.request.urlopen(url + '&key=' + self._api_key)
     return f.read()
 
   def _check_for_lat_lon(self, address):
@@ -91,6 +98,8 @@ class Geocoder:
       data = self._check_for_lat_lon(address)
     if not data:
       if not self._network_allowed:
+        sys.stderr.write(f'Would have geocoded with network: {address}\n')
+        # XXX this should probably raise instead
         return None
       data = self._fetch(url)
 

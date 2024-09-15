@@ -43,7 +43,7 @@ ORDINALS = {
     'Lenox': 6  # Now Malcolm X
 }
 
-def parse_street_ave(street1, street2):
+def parse_street_ave(street1: str, street2: str) -> tuple[str, str]:
     # try to get the avenue in street1
     if re.search(r'str|st\.', street1, flags=re.I):
         street2, street1 = street1, street2
@@ -84,11 +84,11 @@ def parse_street_ave(street1, street2):
     return street1, street2
 
 
-def remove_parens(txt):
+def remove_parens(txt: str):
     return re.sub(r'\([^)]+\)', '', txt)
 
 
-def extract_ordinal(txt):
+def extract_ordinal(txt: str):
     m = re.search(r'(\d+)(?:st|nd|rd|th) ', txt)
     return int(m.group(1)) if m else None
 
@@ -107,13 +107,13 @@ class ExtendedGridCoder:
         from coders.milstein import cross_patterns
         self._cross_patterns = cross_patterns
 
-    def _extractLocationStringFromRecord(self, r):
-        raw_loc = r.location().strip()
+    def _extractLocationStringFromRecord(self, r: record.Record):
+        raw_loc = r['location'].strip()
         loc = re.sub(r'^[ ?\t"\[]+|[ ?\t"\]]+$', '', raw_loc)
         return loc
 
-    def codeRecord(self, r):
-        if r.source() != 'Milstein Division': return None
+    def codeRecord(self, r: record.Record):
+        # if r.source() != 'Milstein Division': return None
 
         loc = self._extractLocationStringFromRecord(r)
 
@@ -130,11 +130,11 @@ class ExtendedGridCoder:
         try:
             avenue, street = parse_street_ave(street1, street2)
         except ValueError as e:
-            sys.stderr.write('%s: %s\n' % (loc, str(e)))
+            # sys.stderr.write('%s: %s\n' % (loc, str(e)))
             return None
 
         # Special cases
-        photo_id = r.photo_id()
+        photo_id = r['id']
         if photo_id.startswith('723557f'):
             # These are mislabeled as 93rd and B.
             avenue, street = 'B', '8'
@@ -179,15 +179,13 @@ coders.registration.registerCoderClass(ExtendedGridCoder)
 # For fast iteration
 if __name__ == '__main__':
   grid_coder = ExtendedGridCoder()
-  r = record.Record()
   num_ok, num_bad = 0, 0
   for line in fileinput.input():
     addr = line.strip()
     if not addr: continue
-    r.tabular = {
-      'i': ['PHOTO_ID'],
-      'l': [addr],
-      'a': ['Milstein Division']
+    r: record.Record = {
+      'id': 'PHOTO_ID',
+      'location': addr,
     }
     result = grid_coder.codeRecord(r)
 

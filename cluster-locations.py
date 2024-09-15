@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python
 """
 Reads in locations.txt (produced by generate-geocodes.py with
 --output_mode=locations.txt) and clusters very close points. This reduces the
@@ -88,7 +88,7 @@ for i, buds in enumerate(nns):
     if j in cluster_map:
       if cluster_map[j] != cluster_idx:
         old_idx = cluster_map[j]
-        for idx, rep in cluster_map.iteritems():
+        for idx, rep in cluster_map.items():
           if rep == old_idx: cluster_map[idx] = cluster_idx
         cluster_map[old_idx] = cluster_idx
         # this is pathological behavior; we artificially break the cluster
@@ -106,28 +106,28 @@ for i, buds in enumerate(nns):
 
 
 clusters = {}  # representative idx -> list of constituent indices
-for i, rep in cluster_map.iteritems():
+for i, rep in cluster_map.items():
   if rep not in clusters:
     clusters[rep] = [rep]
   clusters[rep].append(i)
 
 
 if output_mode == 'map':
-  for base, members in clusters.iteritems():
+  for base, members in clusters.items():
     ll = centroidForIndices(members)
     for i in members:
       b = lat_lons[i]
-      print '%.6f,%.6f->%.6f,%.6f' % (b[0], b[1], ll[0], ll[1])
+      print('%.6f,%.6f->%.6f,%.6f' % (b[0], b[1], ll[0], ll[1]))
 
 
 if output_mode == 'urls':
   num_points = 0
-  for base, members in clusters.iteritems():
+  for base, members in clusters.items():
     if not members: continue
-    print '(%d)' % len(members)
+    print('(%d)' % len(members))
     for i in members:
-      print '  %s' % UrlForIndex(i)
-    print ''
+      print('  %s' % UrlForIndex(i))
+    print()
     num_points += len(members)
 
-  print '%d clusters, %d/%d points' % (len(clusters), num_points, orig_points)
+  print('%d clusters, %d/%d points' % (len(clusters), num_points, orig_points))

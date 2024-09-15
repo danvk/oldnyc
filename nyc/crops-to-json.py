@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python
 '''Converts the output of extract-images.py into a nice JSON object.
 
 Output looks like:
@@ -41,4 +41,4 @@ for line in fileinput.input():
     }
   }
 
-print json.dumps(out, indent=2, sort_keys=True)
+print(json.dumps(out, indent=2, sort_keys=True))

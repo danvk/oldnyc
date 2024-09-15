@@ -7,3 +7,7 @@ chardet
 editdistance
 python-dateutil
 datefinder
+python-dotenv
+binpacking
+openai
+black

@@ -26,4 +26,15 @@ feedback.json
 .vscode
 .DS_Store
 .nypl-token.txt
+.google-maps-api-key.txt
+.env
 geocache
+
+# Large files that can be generated
+nyc/records.pickle
+nyc/records.json
+crawl/all-urls.txt
+crawl/milstein-captures.json
+crawl/milstein-items.json
+nyc-records.extended.json
+nyc/unlocated.csv

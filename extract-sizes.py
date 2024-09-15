@@ -1,13 +1,12 @@
-#!/usr/bin/python
-'''
-Determine the sizes of a bunch of images.
+#!/usr/bin/env python
+"""Determine the sizes of a bunch of images.
 
 Usage:
 ./extract-sizes.py '*.jpg' > sizes.txt
 
 Produces a CSV file with three columns:
 file-basename-no-extension,width,height
-'''
+"""
 
 import glob
 import os.path

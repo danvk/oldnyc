@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-'''Crop an image to just the portions containing text.
+"""Crop an image to just the portions containing text.
 
 Usage:
 
@@ -9,16 +9,13 @@ This will place the cropped image in path/to/image.crop.png.
 
 For details on the methodology, see
 http://www.danvk.org/2015/01/07/finding-blocks-of-text-in-an-image-using-python-opencv-and-numpy.html
-'''
+"""
 
+import argparse
 import glob
 import os
 import random
 import sys
-import random
-import math
-import json
-from collections import defaultdict
 
 import cv2
 from PIL import Image, ImageDraw
@@ -26,14 +23,14 @@ import numpy as np
 from scipy.ndimage.filters import rank_filter
 
 
-def dilate(ary, N, iterations): 
+def dilate(ary, N, iterations):
     """Dilate using an NxN '+' sign shape. ary is np.uint8."""
     kernel = np.zeros((N,N), dtype=np.uint8)
-    kernel[(N-1)/2,:] = 1
-    dilated_image = cv2.dilate(ary / 255, kernel, iterations=iterations)
+    kernel[(N-1)//2,:] = 1
+    dilated_image = cv2.dilate(ary // 255, kernel, iterations=iterations)
 
     kernel = np.zeros((N,N), dtype=np.uint8)
-    kernel[:,(N-1)/2] = 1
+    kernel[:,(N-1)//2] = 1
     dilated_image = cv2.dilate(dilated_image, kernel, iterations=iterations)
     return dilated_image
 
@@ -76,10 +73,24 @@ def crop_area(crop):
 def find_border_components(contours, ary):
     borders = []
     area = ary.shape[0] * ary.shape[1]
+    print(f'contours: {len(contours)}')
+    # debug = np.zeros(ary.shape, dtype=np.uint8)
     for i, c in enumerate(contours):
         x,y,w,h = cv2.boundingRect(c)
-        if w * h > 0.5 * area:
+        rot_rect = cv2.minAreaRect(c)
+        ((rx, ry), (rw, rh), deg) = rot_rect
+        if 5 < deg < 45 and rw * rh > 1000:
+            print(f'{i}: {rx:.0f},{ry:.0f} {rw:.0f}x{rh:.0f} +{deg}°')
+            # box = cv2.boxPoints(rot_rect)
+            # box = np.int0(box)
+            # cv2.drawContours(debug, [box], 0, 255, 2)
+        if w * h > 0.5 * area and angle_from_right(deg) < 5:
+            print(f'{i}: {x},{y}+{w}x{h}: {w*h/area}')
             borders.append((i, x, y, x + w - 1, y + h - 1))
+            # debug = np.zeros(ary.shape)
+            # cv2.drawContours(debug, [c], 0, 255, 4)
+            # Image.fromarray(debug).show()
+    # Image.fromarray(debug).show()
     return borders
 
 
@@ -95,15 +106,19 @@ def remove_border(contour, ary):
     c_im = np.zeros(ary.shape)
     r = cv2.minAreaRect(contour)
     degs = r[2]
+    # print(r)
     if angle_from_right(degs) <= 10.0:
-        box = cv2.cv.BoxPoints(r)
+        box = cv2.boxPoints(r)
         box = np.int0(box)
         cv2.drawContours(c_im, [box], 0, 255, -1)
         cv2.drawContours(c_im, [box], 0, 0, 4)
+        # print(f'Removing border: {box}')
     else:
         x1, y1, x2, y2 = cv2.boundingRect(contour)
         cv2.rectangle(c_im, (x1, y1), (x2, y2), 255, -1)
         cv2.rectangle(c_im, (x1, y1), (x2, y2), 0, 4)
+        # print(f'Removing border bbox: {x1},{y1} - {x2},{y2}')
+        # print(contour)
 
     return np.minimum(c_im, ary)
 
@@ -115,20 +130,27 @@ def find_components(edges, max_components=16):
     # Perform increasingly aggressive dilation until there are just a few
     # connected components.
     count = 21
-    dilation = 5
-    n = 1
+    # dilation = 5
+    n = 15
     while count > 16:
         n += 1
         dilated_image = dilate(edges, N=3, iterations=n)
-        contours, hierarchy = cv2.findContours(dilated_image, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+        contours, _hierarchy = cv2.findContours(
+            dilated_image, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE
+        )
         count = len(contours)
-    #print dilation
-    #Image.fromarray(edges).show()
-    #Image.fromarray(255 * dilated_image).show()
+    print(f'dilation iterations: {n=}')
+    # Image.fromarray(edges).show()
+    # Image.fromarray(255 * dilated_image).show()
     return contours
 
 
-def find_optimal_components_subset(contours, edges):
+def fscore(precision, recall, beta):
+    b2 = beta ** 2
+    return (1+b2) * (precision * recall / (b2*precision + recall))
+
+
+def find_optimal_components_subset(contours, edges, beta):
     """Find a crop which strikes a good balance of coverage/compactness.
 
     Returns an (x1, y1, x2, y2) tuple.
@@ -143,20 +165,32 @@ def find_optimal_components_subset(contours, edges):
     this_crop = c['x1'], c['y1'], c['x2'], c['y2']
     crop = this_crop
     covered_sum = c['sum']
+    print(f'Initial crop: {this_crop}')
+
+    xs = set()
+    ys = set()
+    for c in c_info:
+        xs.add(c['x1'])
+        xs.add(c['x2'])
+        ys.add(c['y1'])
+        ys.add(c['y2'])
+    print(f'Unique xs: {len(xs)}, unique ys: {len(ys)}')
 
     while covered_sum < total:
         changed = False
         recall = 1.0 * covered_sum / total
         prec = 1 - 1.0 * crop_area(crop) / area
-        f1 = 2 * (prec * recall / (prec + recall))
+        f1 = fscore(prec, recall, beta)
         #print '----'
         for i, c in enumerate(c_info):
             this_crop = c['x1'], c['y1'], c['x2'], c['y2']
+            # if this_crop[1] > 1000:
+            #     continue
             new_crop = union_crops(crop, this_crop)
             new_sum = covered_sum + c['sum']
             new_recall = 1.0 * new_sum / total
             new_prec = 1 - 1.0 * crop_area(new_crop) / area
-            new_f1 = 2 * new_prec * new_recall / (new_prec + new_recall)
+            new_f1 = fscore(new_prec, new_recall, beta)
 
             # Add this crop if it improves f1 score,
             # _or_ it adds 25% of the remaining pixels for <15% crop expansion.
@@ -165,10 +199,11 @@ def find_optimal_components_subset(contours, edges):
             new_area_frac = 1.0 * crop_area(new_crop) / crop_area(crop) - 1
             if new_f1 > f1 or (
                     remaining_frac > 0.25 and new_area_frac < 0.15):
-                print '%d %s -> %s / %s (%s), %s -> %s / %s (%s), %s -> %s' % (
+                print(f'{i} Adding {this_crop}')
+                print('%d %s -> %s / %s (%s), %s -> %s / %s (%s), %s -> %s' % (
                         i, covered_sum, new_sum, total, remaining_frac,
                         crop_area(crop), crop_area(new_crop), area, new_area_frac,
-                        f1, new_f1)
+                        f1, new_f1))
                 crop = new_crop
                 covered_sum = new_sum
                 del c_info[i]
@@ -181,7 +216,7 @@ def find_optimal_components_subset(contours, edges):
     return crop
 
 
-def pad_crop(crop, contours, edges, border_contour, pad_px=15):
+def pad_crop(crop, contours, edges, border_contour):
     """Slightly expand the crop to get full contours.
 
     This will expand to include any contours it currently intersects, but will
@@ -194,12 +229,13 @@ def pad_crop(crop, contours, edges, border_contour, pad_px=15):
 
     def crop_in_border(crop):
         x1, y1, x2, y2 = crop
-        x1 = max(x1 - pad_px, bx1)
-        y1 = max(y1 - pad_px, by1)
-        x2 = min(x2 + pad_px, bx2)
-        y2 = min(y2 + pad_px, by2)
-        return crop
-    
+        x1 = max(x1, bx1)
+        y1 = max(y1, by1)
+        x2 = min(x2, bx2)
+        y2 = min(y2, by2)
+        return (x1, y1, x2, y2)
+        # return crop
+
     crop = crop_in_border(crop)
 
     c_info = props_for_contours(contours, edges)
@@ -210,17 +246,53 @@ def pad_crop(crop, contours, edges, border_contour, pad_px=15):
         int_area = crop_area(intersect_crops(crop, this_crop))
         new_crop = crop_in_border(union_crops(crop, this_crop))
         if 0 < int_area < this_area and crop != new_crop:
-            print '%s -> %s' % (str(crop), str(new_crop))
+            print('%s -> %s' % (str(crop), str(new_crop)))
             changed = True
             crop = new_crop
 
     if changed:
-        return pad_crop(crop, contours, edges, border_contour, pad_px)
+        return pad_crop(crop, contours, edges, border_contour)
     else:
         return crop
 
 
-def downscale_image(im, max_dim=2048):
+def remove_stamp(edges: Image, path: str):
+    """Look for a large contour that's a close match for a rotated rectangle.
+
+    This is almost certainly a "New York Public Library" stamp, which does
+    contain text and can throw off cropping for the rest of the image.
+    """
+    dilated_image = dilate(edges, N=3, iterations=5)
+    contours, _hierarchy = cv2.findContours(
+        dilated_image, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE
+    )
+    stamp_contours = []
+    for c in contours:
+        rot_rect = cv2.minAreaRect(c)
+        ((rx, ry), (rw, rh), deg) = rot_rect
+        # print(rw, rh)
+        if 100 < rw < 300 and 100 < rh < 300:
+            # Image.fromarray(edges).show()
+            # dilated_image = dilate(edges, N=3, iterations=5)
+            # Image.fromarray(255*dilated_image).show()
+            bbox_area = rw * rh
+            contour_area = cv2.contourArea(c)
+            # print(f'   {contour_area=}, {bbox_area=}, {100*contour_area/bbox_area:.2f}%')
+            if contour_area / bbox_area > 0.85:
+                stamp_contours.append((c, rot_rect))
+            # Image.fromarray(edges).show()
+    if len(stamp_contours) == 1:
+        c, rot_rect = stamp_contours[0]
+        cv2.drawContours(edges, [c], 0, 0, cv2.FILLED)
+        ((rx, ry), (rw, rh), deg) = rot_rect
+        print(f'{path} Filled stamp: {rx:.0f},{ry:.0f} {rw:.0f}x{rh:.0f} +{deg}°')
+        return c
+    elif len(stamp_contours) > 1:
+        print(f'{path} found multiple stamp candidates; ignoring them all.')
+    return None
+
+
+def downscale_image(im: Image.Image, max_dim=2048) -> tuple[float, Image.Image]:
     """Shrink im until its longest dimension is <= max_dim.
 
     Returns new_image, scale (where scale <= 1).
@@ -230,69 +302,164 @@ def downscale_image(im, max_dim=2048):
         return 1.0, im
 
     scale = 1.0 * max_dim / max(a, b)
-    new_im = im.resize((int(a * scale), int(b * scale)), Image.ANTIALIAS)
+    new_im = im.resize((int(a * scale), int(b * scale)), Image.Resampling.LANCZOS)
     return scale, new_im
 
 
-def process_image(path, out_path):
+def size(border):
+    i, x1, y1, x2, y2 = border
+    return (x2 - x1) * (y2 - y1)
+
+
+def process_image(path, out_path, stroke=False, beta=1, border_only=False):
     orig_im = Image.open(path)
+    print(orig_im.size)
     scale, im = downscale_image(orig_im)
+    print(scale, im.size)
 
     edges = cv2.Canny(np.asarray(im), 100, 200)
+    # Image.fromarray(edges).show()
 
     # TODO: dilate image _before_ finding a border. This is crazy sensitive!
-    contours, hierarchy = cv2.findContours(edges, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+    contours, _hierarchy = cv2.findContours(
+        edges, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE
+    )
     borders = find_border_components(contours, edges)
-    borders.sort(key=lambda (i, x1, y1, x2, y2): (x2 - x1) * (y2 - y1))
+    borders.sort(key=size)
+    # print(f'{len(borders)=}')
 
+    border_contours = [contours[border[0]] for border in borders]
     border_contour = None
     if len(borders):
         border_contour = contours[borders[0][0]]
         edges = remove_border(border_contour, edges)
 
     edges = 255 * (edges > 0).astype(np.uint8)
+    # Image.fromarray(edges).show()
+
+    stamp_contour = remove_stamp(edges, path)
 
     # Remove ~1px borders using a rank filter.
     maxed_rows = rank_filter(edges, -4, size=(1, 20))
     maxed_cols = rank_filter(edges, -4, size=(20, 1))
     debordered = np.minimum(np.minimum(edges, maxed_rows), maxed_cols)
     edges = debordered
+    # Image.fromarray(edges).show()
 
     contours = find_components(edges)
     if len(contours) == 0:
-        print '%s -> (no text!)' % path
+        sys.stderr.write('%s: no text!\n' % path)
         return
 
-    crop = find_optimal_components_subset(contours, edges)
-    crop = pad_crop(crop, contours, edges, border_contour)
+    if not border_only:
+        crop = find_optimal_components_subset(contours, edges, beta)
+        crop = pad_crop(crop, contours, edges, border_contour)
+    else:
+        if border_contour is not None:
+            c_info = props_for_contours([border_contour], edges)
+            c = c_info[0]
+            crop = c['x1'], c['y1'], c['x2'], c['y2']
+        else:
+            crop = 0, 0, im.width, im.height
 
-    crop = [int(x / scale) for x in crop]  # upscale to the original image size.
-    #draw = ImageDraw.Draw(im)
-    #c_info = props_for_contours(contours, edges)
-    #for c in c_info:
-    #    this_crop = c['x1'], c['y1'], c['x2'], c['y2']
-    #    draw.rectangle(this_crop, outline='blue')
-    #draw.rectangle(crop, outline='red')
-    #im.save(out_path)
-    #draw.text((50, 50), path, fill='red')
-    #orig_im.save(out_path)
-    #im.show()
-    text_im = orig_im.crop(crop)
-    text_im.save(out_path)
-    print '%s -> %s' % (path, out_path)
+    if stroke:
+        im = im.convert('RGB')
+        draw = ImageDraw.Draw(im)
+        c_info = props_for_contours(contours, edges)
+        for c in c_info:
+            this_crop = c['x1'], c['y1'], c['x2'], c['y2']
+            draw.rectangle(this_crop, outline='blue')
+        draw.rectangle(crop, outline='red')
+        if border_contour is not None:
+            c_info = props_for_contours(border_contours, edges)
+            for i, c in enumerate(c_info):
+                this_crop = c['x1'], c['y1'], c['x2'], c['y2']
+                draw.rectangle(this_crop, outline='green', width=4 if i == 0 else 2)
+
+        if stamp_contour is not None:
+            draw.line(
+                [(pt[0][0], pt[0][1]) for pt in stamp_contour], fill="hotpink", width=4
+            )
+        out_im = im
+    else:
+        crop = [int(x / scale) for x in crop]  # upscale to the original image size.
+        out_im = orig_im.crop(crop)
+
+    # draw.text((50, 50), path, fill='red')
+    # orig_im.save(out_path)
+    # im.show()
+    out_im.save(out_path)
+    print('%s -> %s' % (path, out_path))
 
 
 if __name__ == '__main__':
-    if len(sys.argv) == 2 and '*' in sys.argv[1]:
-        files = glob.glob(sys.argv[1])
-        random.shuffle(files)
-    else:
-        files = sys.argv[1:]
+    parser = argparse.ArgumentParser(description='Crop images to just the text')
+    parser.add_argument(
+        "--beta",
+        default=1.0,
+        type=float,
+        help="Relative weight of precision and recall for selecting a subset of boxes. "
+        "Higher beta weights recall over precision, lower weights prec. over recall.",
+    )
+    parser.add_argument(
+        "--ignore_errors",
+        action="store_true",
+        help="Log errors and continue instead of throwing.",
+    )
+    parser.add_argument(
+        "--stroke",
+        action="store_true",
+        help="Draw a red box around the text instead of cropping.",
+    )
+    parser.add_argument(
+        "--output_pattern",
+        default="%s.crop.png",
+        help="Output file pattern, relative to input file.",
+    )
+    parser.add_argument(
+        "--overwrite",
+        action="store_true",
+        help="Write over existing output images instead of skipping them.",
+    )
+    parser.add_argument(
+        "--border_only",
+        action="store_true",
+        help="Only remove the border, don't try to find the text.",
+    )
+    parser.add_argument(
+        "files",
+        type=str,
+        nargs="+",
+        help="Path to images to process, or a glob.",
+    )
+
+    args = parser.parse_args()
+
+    files = []
+    for file in args.files:
+        if '*' in file:
+            glob_files = glob.glob(file)
+            random.shuffle(glob_files)
+            files += glob_files
+        else:
+            files.append(file)
 
     for path in files:
-        out_path = path.replace('.jpg', '.crop.png')
-        if os.path.exists(out_path): continue
+        path_dir, path_file = os.path.split(path)
+        (path_base, _) = os.path.splitext(path_file)
+        out_path = os.path.join(path_dir, args.output_pattern % path_base)
+        if os.path.exists(out_path) and not args.overwrite:
+            continue
         try:
-            process_image(path, out_path)
+            process_image(
+                path,
+                out_path,
+                args.stroke,
+                beta=args.beta,
+                border_only=args.border_only,
+            )
         except Exception as e:
-            print '%s %s' % (path, e)
+            if args.ignore_errors:
+                sys.stderr.write(f'Error on {path}: {e}\n')
+            else:
+                raise e

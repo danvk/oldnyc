@@ -7,11 +7,7 @@
 import fileinput
 import re
 import sys
-import json
 import nyc.boroughs
-
-if __name__ == '__main__':
-  sys.path += (sys.path[0] + '/..')
 
 import coders.registration
 import record
@@ -69,32 +65,35 @@ class MilsteinCoder:
   def __init__(self):
     pass
 
-  def codeRecord(self, r):
-    if r.source() != 'Milstein Division': return None
+  def codeRecord(self, r: record.Record):
+    # if r.source() != 'Milstein Division': return None
 
     loc = self._extractLocationStringFromRecord(r)
+    # print(loc)  # Brooklyn & 112 Schermerhorn Street, Brooklyn, NY
 
     m = None
     for pattern in cross_patterns:
-      m = re.match(pattern, loc)
+      m = re.search(pattern, loc)
       if m: break
     if m:
       crosses = sorted([m.group(1), m.group(2)])
-      return {
-          'address': '%s and %s, %s' % (crosses[0], crosses[1], m.group(3)),
-          'source': loc,
-          'type': 'intersection'
-      }
+      if 'Brooklyn' not in crosses:
+        return {
+            'address': '%s and %s, %s' % (crosses[0], crosses[1], m.group(3)),
+            'source': loc,
+            'type': 'intersection'
+        }
 
     for pattern in addr_patterns:
-      m = re.match(pattern, loc)
+      m = re.search(pattern, loc)
+      # print(loc, m, pattern)
       if m: break
     if m:
       number, street, city = m.groups()
 
       # number & street may be swapped.
       try:
-        x = int(number)
+        int(number)
       except ValueError:
         number, street = street, number
 
@@ -105,7 +104,7 @@ class MilsteinCoder:
       }
 
     for pattern in place_patterns:
-      m = re.match(pattern, loc)
+      m = re.search(pattern, loc)
       if m: break
     if m:
       place, city = m.groups()
@@ -116,24 +115,28 @@ class MilsteinCoder:
           'type': 'street_address'  # or 'point_of_interest' or 'establishment'
       }
 
-    sys.stderr.write('(%s) Bad location: %s\n' % (r.photo_id(), loc))
+    sys.stderr.write('(%s) Bad location: %s\n' % (r['id'], loc))
     return None
 
 
-  def _extractLocationStringFromRecord(self, r):
-    raw_loc = r.location().strip()
+  def _extractLocationStringFromRecord(self, r: record.Record):
+    raw_loc = r['location'].strip()
     loc = re.sub(r'^[ ?\t"\[]+|[ ?\t"\]]+$', '', raw_loc)
     return loc
 
 
   def _getLatLonFromGeocode(self, geocode, data):
-    for result in geocode['results']:
-      # partial matches tend to be inaccurate.
-      # if result.get('partial_match'): continue
-      # data['type'] is something like 'address' or 'intersection'.
-      if data['type'] in result['types']:
-        loc = result['geometry']['location']
-        return (loc['lat'], loc['lng'])
+    desired_types = data['type']
+    if not isinstance(desired_types, list):
+      desired_types = [desired_types]
+    for data_type in desired_types:
+      for result in geocode['results']:
+        # partial matches tend to be inaccurate.
+        # if result.get('partial_match'): continue
+        # data['type'] is something like 'address' or 'intersection'.
+        if data_type in result['types']:
+          loc = result['geometry']['location']
+          return (data_type, loc['lat'], loc['lng'])
 
 
   def _getBoroughFromAddress(self, address):
@@ -151,10 +154,10 @@ class MilsteinCoder:
     This ensures that the geocode is in the correct borough. This helps catch
     errors involving identically-named crosstreets in multiple boroughs.
     '''
-    latlon = self._getLatLonFromGeocode(geocode, data)
-    if not latlon:
+    tlatlon = self._getLatLonFromGeocode(geocode, data)
+    if not tlatlon:
       return None
-    lat, lon = latlon
+    _, lat, lon = tlatlon
 
     geocode_boro = nyc.boroughs.PointToBorough(lat, lon)
     record_boro = self._getBoroughFromAddress(data['address'])
@@ -178,6 +181,7 @@ coders.registration.registerCoderClass(MilsteinCoder)
 
 # For fast iteration
 if __name__ == '__main__':
+  # XXX this won't work
   coder = MilsteinCoder()
   r = record.Record()
   num_ok, num_bad = 0, 0

@@ -63,6 +63,19 @@ $('#show-image').on('click', () => {
   $('#image').attr('src', backOfCardUrlForPhotoId(photoId)).show();
 });
 
+$('#search').on('keypress', function(e) {
+  if (e.key === 'Enter') {
+    const q = $(this).val();
+    for (let i = 0; i < changes.length; i++) {
+      if (changes[i].photo_id.includes(q)) {
+        $('select').val(i);
+        buildUI(changes[i]);
+        break;
+      }
+    }
+  }
+});
+
 $(window).on('keypress', function(e) {
   if (e.which == 'j'.charCodeAt(0)) {
     $('#next').click();
@@ -136,6 +149,7 @@ function buildUI(record) {
   $('#rejected-ids').text(rejected_ids.join(' '));
   $('#review-ids').text(review_ids.join(' '));
   $('#image').attr('src', BLANK_GIF).hide();
+  $('#show-image').click();
 }
 
 buildUI(changes[0]);

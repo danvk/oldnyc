@@ -30,12 +30,18 @@ pop_ids = {x['id'] for x in popular_photos}
 # strip leading 'var lat_lons = ' and trailing ';'
 lat_lon_to_ids = json.loads(open('viewer/static/js/nyc-lat-lons-ny.js').read()[15:-1])
 
-rs = record.AllRecords('nyc/photos.pickle')
-id_to_record = {r.photo_id(): r for r in rs}
+rs: list[record.Record] = json.load(open('nyc/photos.json'))
+id_to_record = {r['id']: r for r in rs}
 
 id_to_dims = {}
 for photo_id, width, height in csv.reader(open('nyc-image-sizes.txt')):
     id_to_dims[photo_id] = (int(width), int(height))
+
+self_hosted_ids = set()
+for photo_id, width, height in csv.reader(open('self-hosted-sizes.txt')):
+    id_to_dims[photo_id] = (int(width), int(height))
+    self_hosted_ids.add(photo_id)
+
 
 # This file comes from an email exchange with the NYPL
 photo_id_to_uuid = {
@@ -63,8 +69,8 @@ print(f'{len(back_id_to_correction)} OCR fixes')
 #     'last_timestamp': 1496603375454,
 # }
 id_to_text = {}
-for photo_id in id_to_record.keys():
-    back_id = get_back_id(photo_id)
+for photo_id, r in id_to_record.items():
+    back_id = r['back_id']
     if photo_id in old_photo_id_to_text:
         id_to_text[photo_id] = old_photo_id_to_text[photo_id]
     if back_id in back_id_to_correction:
@@ -79,8 +85,9 @@ back_id_to_text = None  # clear
 
 
 def image_url(photo_id, is_thumb):
+    if photo_id in self_hosted_ids:
+        return 'https://images.nypl.org/?id=%s&t=w' % photo_id
     degrees = id_to_rotation.get(photo_id)
-    # TODO: https
     if not degrees:
         return 'https://oldnyc-assets.nypl.org/%s/%s.jpg' % (
             'thumb' if is_thumb else '600px', photo_id)
@@ -116,23 +123,27 @@ def make_response(photo_ids):
     response = []
     for photo_id in photo_ids:
         r = id_to_record[photo_id]
-        w, h = id_to_dims[photo_id]
+        dims = id_to_dims.get(photo_id)
+        if not dims:
+            sys.stderr.write(f'Missing dimensinos for {photo_id}\n')
+            dims = (600, 400)
+        w, h = dims
         ocr_text = id_to_text.get(photo_id)
 
         # See also viewer/app.py
-        title = decode(r.title())
+        title = decode(r['title'])
         original_title = None
         if is_pure_location(title):
             original_title = title
             title = ''
-        assert r.description() == ''
-        assert r.note() == ''
+        # assert r['description'] == ''
+        # assert r['note'] == ''
 
         rotation = id_to_rotation.get(photo_id)
         if rotation and (rotation % 180 == 90):
             w, h = h, w
 
-        date = re.sub(r'\s+', ' ', r.date())
+        date = re.sub(r'\s+', ' ', r['date'])
         if len(date) > 4 and re.match(r'^\d+$', date):
             # There are some implausible dates like "13905" for https://www.oldnyc.org/#701590f-a
             # Best to hide these or (better) extract them from the backing text.
@@ -156,7 +167,7 @@ def make_response(photo_ids):
           'id': photo_id,
           'title': title,
           **date_fields,
-          'folder': decode(r.location()),
+          'folder': decode(r['location']),
           'width': w,
           'height': h,
           'text': ocr_text,
