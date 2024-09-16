@@ -65,8 +65,12 @@ if __name__ == "__main__":
         # for score, rot, hashd, hash_str in candidates:
         #    print(f'  {rot} {score=} {hashd=} {hash_str==low_hash_str} {hash_str} {low_hash_str}')
         # print(f'Best is: {rot}')
-        rot = candidates[0][1]
-        hashd = candidates[0][2]
+        if candidates:
+            rot = candidates[0][1]
+            hashd = candidates[0][2]
+        else:
+            rot = 0
+            hashd = 64
     else:
         rot = 0
         # print(f'Skipping {id} because it is not in failed_ocrbacks')

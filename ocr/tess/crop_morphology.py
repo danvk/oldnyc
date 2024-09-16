@@ -181,7 +181,7 @@ def find_optimal_components_subset(contours, edges, beta):
         recall = 1.0 * covered_sum / total
         prec = 1 - 1.0 * crop_area(crop) / area
         f1 = fscore(prec, recall, beta)
-        #print '----'
+        # print '----'
         for i, c in enumerate(c_info):
             this_crop = c['x1'], c['y1'], c['x2'], c['y2']
             # if this_crop[1] > 1000:
@@ -216,13 +216,13 @@ def find_optimal_components_subset(contours, edges, beta):
     return crop
 
 
-def pad_crop(crop, contours, edges, border_contour):
+def pad_crop(crop, contours, edges, border_contour, im_size):
     """Slightly expand the crop to get full contours.
 
     This will expand to include any contours it currently intersects, but will
     not expand past a border.
     """
-    bx1, by1, bx2, by2 = 0, 0, edges.shape[0], edges.shape[1]
+    bx1, by1, bx2, by2 = 0, 0, *im_size
     if border_contour is not None and len(border_contour) > 0:
         c = props_for_contours([border_contour], edges)[0]
         bx1, by1, bx2, by2 = c['x1'] + 5, c['y1'] + 5, c['x2'] - 5, c['y2'] - 5
@@ -234,7 +234,6 @@ def pad_crop(crop, contours, edges, border_contour):
         x2 = min(x2, bx2)
         y2 = min(y2, by2)
         return (x1, y1, x2, y2)
-        # return crop
 
     crop = crop_in_border(crop)
 
@@ -251,7 +250,7 @@ def pad_crop(crop, contours, edges, border_contour):
             crop = new_crop
 
     if changed:
-        return pad_crop(crop, contours, edges, border_contour)
+        return pad_crop(crop, contours, edges, border_contour, im_size)
     else:
         return crop
 
@@ -312,6 +311,7 @@ def size(border):
 
 
 def process_image(path, out_path, stroke=False, beta=1, border_only=False):
+    print(f"Cropping {path}")
     orig_im = Image.open(path)
     print(orig_im.size)
     scale, im = downscale_image(orig_im)
@@ -353,7 +353,7 @@ def process_image(path, out_path, stroke=False, beta=1, border_only=False):
 
     if not border_only:
         crop = find_optimal_components_subset(contours, edges, beta)
-        crop = pad_crop(crop, contours, edges, border_contour)
+        crop = pad_crop(crop, contours, edges, border_contour, im.size)
     else:
         if border_contour is not None:
             c_info = props_for_contours([border_contour], edges)
@@ -439,7 +439,7 @@ if __name__ == '__main__':
     for file in args.files:
         if '*' in file:
             glob_files = glob.glob(file)
-            random.shuffle(glob_files)
+            # random.shuffle(glob_files)
             files += glob_files
         else:
             files.append(file)
