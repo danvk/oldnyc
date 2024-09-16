@@ -20,7 +20,16 @@ if __name__ == "__main__":
         line.split(".")[0] for line in open("ocr/ocrbacks.txt") if "original" in line
     }
 
-    (id, _) = os.path.splitext(os.path.basename(high_path))
+    for ext in ("", ".jpg", ".reconstructed.jpg", ".original.jpg"):
+        if os.path.exists(high_path + ext):
+            high_path = high_path + ext
+            break
+
+    if not os.path.exists(high_path):
+        sys.stderr.write(f"No high-resolution image for {high_path}; skipping...\n")
+        sys.exit(0)
+
+    id = os.path.basename(high_path).split(".")[0]
 
     is_fail = id in failed_ocrbacks
     if is_fail:
@@ -69,7 +78,7 @@ if __name__ == "__main__":
             print(f"{id}: rejecting likely DC vs. ocrbacks mismatch")
             sys.exit(0)
 
-    out_path = os.path.join(out_dir, os.path.basename(high_path))
+    out_path = os.path.join(out_dir, os.path.basename(low_path))
     if rot == 0:
         shutil.copy(high_path, out_path)
     else:
