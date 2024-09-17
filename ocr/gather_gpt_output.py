@@ -30,11 +30,14 @@ if __name__ == "__main__":
             data = json.loads(data_str)
         rotated = data.get("rotated")
         gpt_text = data["text"]
-        mapping[back_id] = {
-            "text": clean(gpt_text) if not rotated else "(rotated)",
-            "original": gpt_text,
-        }
         if rotated:
             sys.stderr.write(f"GPT says {back_id} is rotated.\n")
+        if not (back_id in mapping and rotated):
+            # defer to an existing entry if this one is rotated
+            mapping[back_id] = {
+                "text": clean(gpt_text) if not rotated else "(rotated)",
+                "original": gpt_text,
+            }
 
+    sys.stderr.write(f"Writing {len(mapping)} records.\n")
     print(json.dumps(mapping, indent=2))
