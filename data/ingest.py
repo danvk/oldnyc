@@ -8,6 +8,7 @@ from collections import Counter
 import re
 
 from data.item import Item, Subject
+from data.util import clean_title
 
 
 def normalize_whitespace(text: str) -> str:
@@ -101,23 +102,9 @@ def run():
             # print(date_str)
             # print(date2)
 
-        if title.endswith("]"):
-            title = title[:-1]
-        if title.endswith("."):
-            title = title[:-1]
-        if title.startswith("["):
-            title = title[1:]
-
-        if title2.endswith("]"):
-            title2 = title2[:-1]
-        if title2.endswith("."):
-            title2 = title2[:-1]
-        if title2.startswith("["):
-            title2 = title2[1:]
-        title = normalize_whitespace(title)
-        title2 = normalize_whitespace(title2)
-        title = title.replace(" and , to", ", to")
-        title2 = title2.replace(" and , to", ", to")
+        titles = [title, title2]
+        titles = [clean_title(normalize_whitespace(t)) for t in titles]
+        title, title2 = titles
 
         if title != title2:
             counters["mismatch: title mismatch"] += 1
