@@ -7,7 +7,7 @@ Usage:
     ./url_fetcher.py path-to-list-of.urls.txt
 '''
 
-import fileinput
+import argparse
 import os
 import requests
 import requests_cache
@@ -27,7 +27,6 @@ class Fetcher(object):
             self._session = requests.Session()
         self._ignore_cache = ignore_cache
         self._throttle_secs = throttle_secs
-        self._last_fetch = 0.0
         self._headers = headers
 
     def fetch_url(self, url, force_refetch=False):
@@ -36,14 +35,15 @@ class Fetcher(object):
         req = self._make_request(url)
         start_t = time.time()
         response = self._session.send(req)
-        end_t = time.time()
+        # end_t = time.time()
         response.raise_for_status()  # checks for status == 200 OK
 
-        if (self._ignore_cache or not response.from_cache) and end_t - self._last_fetch < self._throttle_secs:
-            wait_s = end_t - self._last_fetch
+        if (
+            self._ignore_cache or not response.from_cache
+        ) and time.time() - start_t < self._throttle_secs:
+            wait_s = self._throttle_secs - (time.time() - start_t)
             sys.stderr.write('Waiting %s secs...\n' % wait_s)
             time.sleep(wait_s)
-        self._last_fetch = end_t
 
         return response.content
 
@@ -72,20 +72,63 @@ class Fetcher(object):
 
 
 if __name__ == '__main__':
-    f = Fetcher(ignore_cache=True, throttle_secs=3.0)
-    for i, line in enumerate(fileinput.input()):
+    parser = argparse.ArgumentParser(
+        description="Rate-limited URL fetching with optional caching."
+    )
+    parser.add_argument(
+        "--throttle-secs", default=3.0, type=float, help="Rate limit for HTTP requests."
+    )
+    parser.add_argument(
+        "--overwrite",
+        default=False,
+        action="store_true",
+        help="Re-fetch files that already exist on disk.",
+    )
+    parser.add_argument(
+        "--ignore-cache",
+        default=False,
+        action="store_true",
+        help="Do not check cache, do not cache results",
+    )
+    parser.add_argument(
+        "--header",
+        action="append",
+        help="Additional headers to set, format is 'key: value'.",
+    )
+    parser.add_argument(
+        "--output-dir", help="Output directory for files (default is CWD)"
+    )
+    parser.add_argument(
+        "urls_file",
+        help="Path to file containing URLs, or URL<tab>filename",
+    )
+    args = parser.parse_args()
+
+    headers = (
+        dict(header.split(": ", 1) for header in args.header) if args.header else None
+    )
+
+    f = Fetcher(
+        ignore_cache=args.ignore_cache,
+        throttle_secs=args.throttle_secs,
+        headers=headers,
+    )
+    for i, line in enumerate(open(args.urls_file)):
         line = line.strip()
         if '\t' in line:
-            filename, url = line.split('\t')
+            url, filename = line.split("\t")
         else:
-            filename = None
             url = line
+            filename = url.split("/")[-1]
 
-        if os.path.exists(filename):
+        if args.output_dir:
+            filename = os.path.join(args.output_dir, filename)
+
+        if not args.overwrite and os.path.exists(filename):
             sys.stderr.write(f'{filename} already exists, skipping…\n')
             continue
 
-        print('%5d Fetching %s' % (i + 1, url))
+        print("%5d Fetching %s -> %s" % (i + 1, url, filename))
         content = f.fetch_url(url)
         if filename:
             open(filename, 'wb').write(content)
