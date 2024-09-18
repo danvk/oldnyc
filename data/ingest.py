@@ -56,8 +56,7 @@ def run():
         counters["num records"] += 1
         id = row["DIGITAL_ID"]
 
-        date_str = normalize_whitespace(row["CREATED_DATE"].strip())
-        # date_str is not always present
+        date_str = row["CREATED_DATE"]
 
         full_address = row["Full Address"].strip()
 
@@ -86,7 +85,7 @@ def run():
         temporals = sort_uniq(json.loads(row2["subject/temporal"]))
 
         dates = [date_str, date2]
-        dates = [clean_date(d) for d in dates]
+        dates = [clean_date(normalize_whitespace(d.strip())) for d in dates]
         date_str, date2 = dates
         if date_str != date2:
             counters["mismatch: date"] += 1
@@ -96,9 +95,14 @@ def run():
                 counters["date: dropped"] += 1
             else:
                 counters["date: changed"] += 1
+
+            # if date2 == "1862, 1963" or date2 == "1862, 1920, 1929, 1963":
             print("---")
+            print(id)
             print(date_str)
             print(date2)
+            # print(row["CREATED_DATE"])
+            # print(row2["date"])
 
         titles = [title, title2]
         titles = [clean_title(normalize_whitespace(t)) for t in titles]

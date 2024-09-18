@@ -24,10 +24,10 @@ def clean_date(date_str: str) -> str:
     date_str = re.sub(r"\?", "", date_str)
 
     # Fix typos
-    date_str = date_str.replace("Febraury", "February")
+    date_str = date_str.replace("Febraury", "February").replace("Janurary", "January")
 
     cleaned_dates = []
-    for fmt in ("%Y, %B %d", "%Y, %b. %d"):
+    for fmt in ("%Y, %B %d", "%Y, %b. %d", "%B %d, %Y", "%b. %d, %Y"):
         try:
             parsed_date = datetime.strptime(date_str, fmt)
             cleaned_dates.append(parsed_date.strftime("%Y-%m-%d"))
