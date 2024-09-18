@@ -2,6 +2,11 @@ import re
 from datetime import datetime
 
 
+def normalize_whitespace(text: str) -> str:
+    s = re.compile(r"\s+")
+    return " ".join([x for x in s.split(text) if x])
+
+
 def clean_title(title: str) -> str:
     # strip [] from [delimited] sections at the end
     title = re.sub(r"\[(.*?)\]$", r"\1", title)
@@ -72,3 +77,69 @@ def clean_date(date_str: str) -> str:
     cleaned_dates = sorted({d for d in cleaned_dates if d})
 
     return ", ".join(cleaned_dates)
+
+
+def clean_creator(creator: str) -> str:
+    creator = creator.split("\n", 1)[0]
+    return "; ".join(
+        re.sub(r",\d{4}-\d{4}", "", re.sub(r"--Photographer.*", "", c)).strip()
+        for c in creator.split(";")
+    )
+
+
+BOROUGHS = ("Manhattan", "Queens", "Brooklyn", "Bronx", "Staten Island")
+
+
+STATES = {
+    "Alabama",
+    "Alaska",
+    "Arizona",
+    "Arkansas",
+    "California",
+    "Colorado",
+    "Connecticut",
+    "Delaware",
+    "District of Columbia",
+    "Florida",
+    "Georgia",
+    "Hawaii",
+    "Idaho",
+    "Illinois",
+    "Indiana",
+    "Iowa",
+    "Kansas",
+    "Kentucky",
+    "Louisiana",
+    "Maine",
+    "Maryland",
+    "Massachusetts",
+    "Michigan",
+    "Minnesota",
+    "Mississippi",
+    "Missouri",
+    "Montana",
+    "Nebraska",
+    "Nevada",
+    "New Hampshire",
+    "New Jersey",
+    "New Mexico",
+    "New York",
+    "North Carolina",
+    "North Dakota",
+    "Ohio",
+    "Oklahoma",
+    "Oregon",
+    "Pennsylvania",
+    "Rhode Island",
+    "South Carolina",
+    "South Dakota",
+    "Tennessee",
+    "Texas",
+    "Utah",
+    "Vermont",
+    "Virginia",
+    "Washington",
+    "West Virginia",
+    "Wisconsin",
+    "Wyoming",
+}

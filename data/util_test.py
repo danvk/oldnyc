@@ -1,4 +1,4 @@
-from data.util import clean_date, clean_title
+from data.util import clean_creator, clean_date, clean_title
 
 
 def test_clean_title():
@@ -52,3 +52,32 @@ def test_clean_date():
     assert clean_date("Febraury 24, 1910") == "1910-02-24"
 
     # assert clean_date("1849, 1871-1873") == "1849, 1871, 1873"
+
+
+def test_clean_creator():
+    assert (
+        clean_creator("Sperr, Percy Loomis,1890-1964--Photographer")
+        == "Sperr, Percy Loomis"
+    )
+    assert (
+        clean_creator("New York (N.Y.). Tenement House Dept.--Photographer")
+        == "New York (N.Y.). Tenement House Dept."
+    )
+    assert (
+        clean_creator(
+            "Van der Weyde, William M. (William Manley),1870-1928--Photographer"
+        )
+        == "Van der Weyde, William M. (William Manley)"
+    )
+    assert (
+        clean_creator(
+            "Chinn, George D.--Photographer;Sperr, Percy Loomis,1890-1964--Photographer"
+        )
+        == "Chinn, George D.; Sperr, Percy Loomis"
+    )
+    assert (
+        clean_creator(
+            "Sperr, Percy Loomis,1890-1964--Photographer\n\n\t\t\t\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\t\t \n\n\t\t\t\t\t\t\t\t\n\n\t\t\t\t\n\n\t\t\t\t\t\t\n\n\t\t\n\n\t\t\t\t\t\t\n\n\n\n\t\t\t\t\t\t\n\n\n\n\t\t\n\n\t\t\t\t\t\n\n\t\t\t\t\t\tErrors: The search index you specified could not be found. More information:;java.io.FileNotFoundException: /usr/local/www/digitalgallery.nypl.org/digital_gallery/alt_title_index/_1dq.frq (Too many open files)"
+        )
+        == "Sperr, Percy Loomis"
+    )

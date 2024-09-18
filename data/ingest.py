@@ -2,18 +2,18 @@
 """Read in various data sources and produce images.ndjson."""
 
 import csv
-import dataclasses
 import json
 from collections import Counter
 import re
 
 from data.item import Item, Subject
-from data.util import clean_date, clean_title
-
-
-def normalize_whitespace(text: str) -> str:
-    s = re.compile(r"\s+")
-    return " ".join([x for x in s.split(text) if x])
+from data.util import (
+    STATES,
+    clean_creator,
+    clean_date,
+    clean_title,
+    normalize_whitespace,
+)
 
 
 def photo_id_to_backing_id(photo_id: str) -> str:
@@ -32,6 +32,13 @@ def sort_uniq(xs: list[str]) -> list[str]:
         if not out or out[-1] != x:
             out.append(x)
     return out
+
+
+def outside_nyc(geographics: list[str]) -> bool:
+    for g in geographics:
+        if g in STATES and g != "New York":
+            return True
+    return False
 
 
 def run():
@@ -96,13 +103,10 @@ def run():
             else:
                 counters["date: changed"] += 1
 
-            # if date2 == "1862, 1963" or date2 == "1862, 1920, 1929, 1963":
-            print("---")
-            print(id)
-            print(date_str)
-            print(date2)
-            # print(row["CREATED_DATE"])
-            # print(row2["date"])
+            # print("---")
+            # print(id)
+            # print(date_str)
+            # print(date2)
 
         titles = [title, title2]
         titles = [clean_title(normalize_whitespace(t)) for t in titles]
@@ -153,6 +157,13 @@ def run():
         if back_id:
             counters["ocr: has back"] += 1
 
+        if outside_nyc(geographics):
+            counters["filtered: outside nyc"] += 1
+            continue
+        if "Directories" in topics:
+            counters["filtered: directory"] += 1
+            continue
+
         r = Item(
             id=id,
             uuid=uuid,
@@ -161,7 +172,7 @@ def run():
             title=title2,
             alt_title=alt_title2 or None,
             back_id=back_id,
-            creator=creator,
+            creator=clean_creator(creator) or None,
             source=source,
             address=full_address,
             back_text=ocr_site or ocr_gpt,
@@ -170,8 +181,9 @@ def run():
                 name=names, temporal=temporals, geographic=geographics, topic=topics
             ),
         )
-        out.write(json.dumps(dataclasses.asdict(r)))
+        out.write(r.to_json())
         out.write("\n")
+        counters["outputs"] += 1
 
     for k in sorted(counters.keys()):
         v = counters[k]
