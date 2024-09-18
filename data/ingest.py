@@ -96,9 +96,9 @@ def run():
                 counters["date: dropped"] += 1
             else:
                 counters["date: changed"] += 1
-            # print("---")
-            # print(date_str)
-            # print(date2)
+            print("---")
+            print(date_str)
+            print(date2)
 
         titles = [title, title2]
         titles = [clean_title(normalize_whitespace(t)) for t in titles]

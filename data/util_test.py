@@ -41,4 +41,11 @@ def test_clean_date():
     assert clean_date("1921; n.d") == "1921"
     assert clean_date("[ca. 1940?]") == "1940"
 
-    # assert clean_date("1937; July 1937") == "1937-07, 1937"
+    assert clean_date("1937; July 1937") == "1937, 1937-07"
+    assert clean_date("1947, Oct. 6") == "1947-10-06"
+    assert clean_date("1 May 1937, 1937") == "1937, 1937-05-01"
+    assert clean_date("1910, Febraury 24") == "1910-02-24"
+    assert clean_date("1979, 21 October 1979") == "1979, 1979-10-21"
+    assert clean_date("1979, 21October 1979") == "1979, 1979-10-21"
+
+    # assert clean_date("1849, 1871-1873") == "1849, 1871, 1873"

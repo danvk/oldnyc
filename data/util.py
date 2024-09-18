@@ -1,4 +1,5 @@
 import re
+from datetime import datetime
 
 
 def clean_title(title: str) -> str:
@@ -9,19 +10,65 @@ def clean_title(title: str) -> str:
     return title
 
 
-def clean_date(date_str):
+def clean_date(date_str: str) -> str:
+    date_str = date_str.strip()
+    # Handle empty or unknown dates
+    date_str = date_str.replace("n.d", "").replace("[Unknown]", "")
+    if not date_str:
+        return date_str
 
     # Remove brackets and "ca." prefix
-    date_str = re.sub(r"\[|\]|ca\. ?|Unknown", "", date_str)
+    date_str = re.sub(r"\[ca\.?\s*|\[|\]", "", date_str)
 
-    # Replace semicolons with commas
-    date_str = date_str.replace(";", ",")
+    # Handle uncertain dates
+    date_str = re.sub(r"\?", "", date_str)
 
-    # Remove "n.d" and "?"
-    date_str = date_str.replace("n.d", "").replace("?", "")
+    # Fix typos
+    date_str = date_str.replace("Febraury", "February")
 
-    # Split the dates, sort them, and join them back
-    dates = sorted(d.strip() for d in date_str.split(","))
+    cleaned_dates = []
+    for fmt in ("%Y, %B %d", "%Y, %b. %d"):
+        try:
+            parsed_date = datetime.strptime(date_str, fmt)
+            cleaned_dates.append(parsed_date.strftime("%Y-%m-%d"))
+            date_str = ""
+            break
+        except ValueError:
+            continue
 
-    # Join the dates back with commas
-    return ", ".join(date.strip() for date in dates if date.strip())
+    # Split multiple dates separated by semicolons or commas
+    dates = re.split(r"[;,]", date_str)
+
+    for date in dates:
+        date = date.strip()
+        # Try to parse the date in different formats
+        for fmt in (
+            "%Y",
+            "%B %Y",
+            "%b %Y",
+            "%b. %Y",
+            "%d %B %Y",
+            "%d%B %Y",
+            "%d %b %Y",
+            "%d %B",
+            "%d %b",
+        ):
+            try:
+                parsed_date = datetime.strptime(date, fmt)
+                if "%d" in fmt:
+                    cleaned_dates.append(parsed_date.strftime("%Y-%m-%d"))
+                elif "%B" in fmt or "%b" in fmt:
+                    cleaned_dates.append(parsed_date.strftime("%Y-%m"))
+                else:
+                    cleaned_dates.append(parsed_date.strftime("%Y"))
+                break
+            except ValueError:
+                continue
+        else:
+            # If no format matched, just add the cleaned date as is
+            cleaned_dates.append(date)
+
+    # Remove duplicates and sort the dates
+    cleaned_dates = sorted({d for d in cleaned_dates if d})
+
+    return ", ".join(cleaned_dates)
