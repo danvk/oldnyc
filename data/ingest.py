@@ -35,9 +35,11 @@ def sort_uniq(xs: list[str]) -> list[str]:
     return out
 
 
+TRISTATE = {"New York", "New Jersey", "Connecticut"}
+
 def outside_nyc(geographics: list[str]) -> bool:
     for g in geographics:
-        if g in STATES and g != "New York":
+        if g in STATES and g not in TRISTATE:
             return True
     return False
 

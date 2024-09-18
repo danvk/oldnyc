@@ -22,11 +22,17 @@ def test_clean_title():
         clean_title(
             "Bronx Kills - Bronx - [Freight yards of New York, New Haven and Hartford Railroad.]"
         )
-        == "Bronx Kills - Bronx - Freight yards of New York, New Haven and Hartford Railroad"
+        == "Bronx Kills - Bronx - [Freight yards of New York, New Haven and Hartford Railroad.]"
     )
     assert (
         clean_title("Avenue B at 13th Street and , to Northeast, Manhattan")
         == "Avenue B at 13th Street, to Northeast, Manhattan"
+    )
+    assert (
+        clean_title(
+            "Bridges - Hell Gate Bridge [New York Connecting Railroad Bridge - East River.]"
+        )
+        == "Bridges - Hell Gate Bridge [New York Connecting Railroad Bridge - East River.]"
     )
 
 
