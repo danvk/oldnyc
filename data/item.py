@@ -22,6 +22,9 @@ class Item:
     id: str
     """NYPL Image ID; lowercase"""
 
+    uuid: str
+    """Item UUID (this is different than the UUID in the URL)"""
+
     url: str
     """Digital Collections URL for item"""
 

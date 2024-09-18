@@ -71,6 +71,7 @@ def run():
         creator = row["CREATOR"].strip()
 
         row2 = csv2024[id]
+        uuid = row2["item_uuid"]
         url = row2["digital_collections_url"]
         title2 = row2["title"].strip()
         alt_title2 = (
@@ -162,6 +163,7 @@ def run():
 
         r = Item(
             id=id,
+            uuid=uuid,
             url=url,
             date=date2 or date_str or None,
             title=title2,
