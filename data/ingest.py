@@ -2,6 +2,7 @@
 """Read in various data sources and produce images.ndjson."""
 
 import csv
+import dataclasses
 import json
 from collections import Counter
 import re
@@ -181,7 +182,7 @@ def run():
                 name=names, temporal=temporals, geographic=geographics, topic=topics
             ),
         )
-        out.write(r.to_json())
+        out.write(json.dumps(dataclasses.asdict(r)))
         out.write("\n")
         counters["outputs"] += 1
 

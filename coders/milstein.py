@@ -7,6 +7,7 @@
 import fileinput
 import re
 import sys
+from data.item import Item
 import nyc.boroughs
 
 import coders.registration
@@ -62,144 +63,120 @@ ps_cleanup_re = r'(?:PS|P\.S\.|Public School) (?:#|No\. )?(\d+)\.?'
 
 
 class MilsteinCoder:
-  def __init__(self):
-    pass
 
-  def codeRecord(self, r: record.Record):
-    # if r.source() != 'Milstein Division': return None
+    def __init__(self):
+        pass
 
-    loc = self._extractLocationStringFromRecord(r)
-    # print(loc)  # Brooklyn & 112 Schermerhorn Street, Brooklyn, NY
+    def codeRecord(self, r: Item):
+        # if r.source() != 'Milstein Division': return None
 
-    m = None
-    for pattern in cross_patterns:
-      m = re.search(pattern, loc)
-      if m: break
-    if m:
-      crosses = sorted([m.group(1), m.group(2)])
-      if 'Brooklyn' not in crosses:
-        return {
-            'address': '%s and %s, %s' % (crosses[0], crosses[1], m.group(3)),
-            'source': loc,
-            'type': 'intersection'
-        }
+        loc = self._extractLocationStringFromRecord(r)
+        # print(loc)  # Brooklyn & 112 Schermerhorn Street, Brooklyn, NY
 
-    for pattern in addr_patterns:
-      m = re.search(pattern, loc)
-      # print(loc, m, pattern)
-      if m: break
-    if m:
-      number, street, city = m.groups()
+        m = None
+        for pattern in cross_patterns:
+            m = re.search(pattern, loc)
+            if m:
+                break
+        if m:
+            crosses = sorted([m.group(1), m.group(2)])
+            if "Brooklyn" not in crosses:
+                return {
+                    "address": "%s and %s, %s" % (crosses[0], crosses[1], m.group(3)),
+                    "source": loc,
+                    "type": "intersection",
+                }
 
-      # number & street may be swapped.
-      try:
-        int(number)
-      except ValueError:
-        number, street = street, number
+        for pattern in addr_patterns:
+            m = re.search(pattern, loc)
+            # print(loc, m, pattern)
+            if m:
+                break
+        if m:
+            number, street, city = m.groups()
 
-      return {
-          'address': '%s %s, %s' % (number, street, city),
-          'source': loc,
-          'type': 'street_address'
-      }
+            # number & street may be swapped.
+            try:
+                int(number)
+            except ValueError:
+                number, street = street, number
 
-    for pattern in place_patterns:
-      m = re.search(pattern, loc)
-      if m: break
-    if m:
-      place, city = m.groups()
-      place = re.sub(ps_cleanup_re, r'Public School \1', place)
-      return {
-          'address': '%s, %s' % (place, city),
-          'source': loc,
-          'type': 'street_address'  # or 'point_of_interest' or 'establishment'
-      }
+            return {
+                "address": "%s %s, %s" % (number, street, city),
+                "source": loc,
+                "type": "street_address",
+            }
 
-    sys.stderr.write('(%s) Bad location: %s\n' % (r['id'], loc))
-    return None
+        for pattern in place_patterns:
+            m = re.search(pattern, loc)
+            if m:
+                break
+        if m:
+            place, city = m.groups()
+            place = re.sub(ps_cleanup_re, r"Public School \1", place)
+            return {
+                "address": "%s, %s" % (place, city),
+                "source": loc,
+                "type": "street_address",  # or 'point_of_interest' or 'establishment'
+            }
 
+        sys.stderr.write("(%s) Bad location: %s\n" % (r.id, loc))
+        return None
 
-  def _extractLocationStringFromRecord(self, r: record.Record):
-    raw_loc = r['location'].strip()
-    loc = re.sub(r'^[ ?\t"\[]+|[ ?\t"\]]+$', '', raw_loc)
-    return loc
+    def _extractLocationStringFromRecord(self, r: Item):
+        raw_loc = r.address.strip()
+        loc = re.sub(r'^[ ?\t"\[]+|[ ?\t"\]]+$', "", raw_loc)
+        return loc
 
+    def _getLatLonFromGeocode(self, geocode, data):
+        desired_types = data["type"]
+        if not isinstance(desired_types, list):
+            desired_types = [desired_types]
+        for data_type in desired_types:
+            for result in geocode["results"]:
+                # partial matches tend to be inaccurate.
+                # if result.get('partial_match'): continue
+                # data['type'] is something like 'address' or 'intersection'.
+                if data_type in result["types"]:
+                    loc = result["geometry"]["location"]
+                    return (data_type, loc["lat"], loc["lng"])
 
-  def _getLatLonFromGeocode(self, geocode, data):
-    desired_types = data['type']
-    if not isinstance(desired_types, list):
-      desired_types = [desired_types]
-    for data_type in desired_types:
-      for result in geocode['results']:
-        # partial matches tend to be inaccurate.
-        # if result.get('partial_match'): continue
-        # data['type'] is something like 'address' or 'intersection'.
-        if data_type in result['types']:
-          loc = result['geometry']['location']
-          return (data_type, loc['lat'], loc['lng'])
+    def _getBoroughFromAddress(self, address):
+        m = re.search(boros_re, address)
+        assert m, 'Failed to find borough in "%s"' % address
+        record_boro = m.group(1)
+        if record_boro == "New York":
+            record_boro = "Manhattan"
+        return record_boro
 
+    def getLatLonFromGeocode(self, geocode, data, r: Item):
+        """Extract (lat, lon) from a Google Maps API response. None = failure.
 
-  def _getBoroughFromAddress(self, address):
-    m = re.search(boros_re, address)
-    assert m, 'Failed to find borough in "%s"' % address
-    record_boro = m.group(1)
-    if record_boro == 'New York':
-      record_boro = 'Manhattan'
-    return record_boro
+        This ensures that the geocode is in the correct borough. This helps catch
+        errors involving identically-named crosstreets in multiple boroughs.
+        """
+        tlatlon = self._getLatLonFromGeocode(geocode, data)
+        if not tlatlon:
+            return None
+        _, lat, lon = tlatlon
 
+        geocode_boro = nyc.boroughs.PointToBorough(lat, lon)
+        record_boro = self._getBoroughFromAddress(data["address"])
 
-  def getLatLonFromGeocode(self, geocode, data, r):
-    '''Extract (lat, lon) from a Google Maps API response. None = failure.
+        if geocode_boro != record_boro:
+            sys.stderr.write(
+                'Borough mismatch: "%s" (%s) geocoded to %s\n'
+                % (self._extractLocationStringFromRecord(r), record_boro, geocode_boro)
+            )
+            return None
 
-    This ensures that the geocode is in the correct borough. This helps catch
-    errors involving identically-named crosstreets in multiple boroughs.
-    '''
-    tlatlon = self._getLatLonFromGeocode(geocode, data)
-    if not tlatlon:
-      return None
-    _, lat, lon = tlatlon
+        return (lat, lon)
 
-    geocode_boro = nyc.boroughs.PointToBorough(lat, lon)
-    record_boro = self._getBoroughFromAddress(data['address'])
+    def finalize(self):
+        pass
 
-    if geocode_boro != record_boro:
-      sys.stderr.write('Borough mismatch: "%s" (%s) geocoded to %s\n' % (
-          self._extractLocationStringFromRecord(r), record_boro, geocode_boro))
-      return None
-
-    return (lat, lon)
-
-  def finalize(self):
-    pass
-
-  def name(self):
-    return 'milstein'
+    def name(self):
+        return "milstein"
 
 
 coders.registration.registerCoderClass(MilsteinCoder)
-
-
-# For fast iteration
-if __name__ == '__main__':
-  # XXX this won't work
-  coder = MilsteinCoder()
-  r = record.Record()
-  num_ok, num_bad = 0, 0
-  for line in fileinput.input():
-    addr = line.strip()
-    if not addr: continue
-    r.tabular = {
-      'i': ['PHOTO_ID'],
-      'l': [addr],
-      'a': ['Milstein Division']
-    }
-    result = coder.codeRecord(r)
-
-    print('"%s" -> %s' % (addr, result))
-    if result:
-      num_ok += 1
-    else:
-      num_bad += 1
-
-  sys.stderr.write('Parsed %d / %d = %.4f records\n' % (
-    num_ok, num_ok + num_bad, 1. * num_ok / (num_ok + num_bad)))

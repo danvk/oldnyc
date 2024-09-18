@@ -2,7 +2,6 @@
 
 import json
 import re
-import sys
 
 import record
 
@@ -30,4 +29,4 @@ if __name__ == "__main__":
         back_id = r["back_id"]
         if back_id:
             url = f"http://images.nypl.org/?id={back_id}&t=w"
-            print("/Users/danvk/Documents/oldnyc/images/%s.jpg\t%s" % (back_id, url))
+            print("%s\t%s.jpg" % (url, back_id))

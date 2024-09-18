@@ -1,6 +1,6 @@
 from typing import TypedDict, Protocol
 
-from record import Record
+from data.item import Item
 
 
 class Location(TypedDict):
@@ -16,7 +16,9 @@ class Locatable(TypedDict):
 
 
 class Coder(Protocol):
-    def codeRecord(self, r: Record) -> Locatable: ...
+
+    def codeRecord(self, r: Item) -> Locatable: ...
+
     def name(self) -> str: ...
     def getLatLonFromGeocode(
         self, geocode: dict, data

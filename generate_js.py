@@ -2,10 +2,12 @@
 """Various output formats for generate-geocodes.py."""
 
 import json
-from coders.types import Location
-import record
 import sys
 from collections import defaultdict
+
+from coders.types import Location
+from data.item import Item
+import record
 
 from json import encoder
 encoder.FLOAT_REPR = lambda o: format(o, '.6f')
@@ -19,46 +21,46 @@ def loadBlacklist():
     return set()
 
 
-LocatedRecord = tuple[record.Record, str, Location]
+LocatedRecord = tuple[Item, str, Location]
 
 
 def _generateJson(located_recs: list[LocatedRecord], lat_lon_map: dict[str, str]):
     out = {}
-    # "lat,lon" -> list of photo_ids
-    ll_to_id = defaultdict(list)
+    # "lat,lon" -> list of items
+    ll_to_id: dict[str, list[Item]] = defaultdict(list)
 
-    codes = []
     claimed_in_map = {}
 
     # load a blacklist as a side input
     blacklist = loadBlacklist()
 
-    for r, coder, location_data in located_recs:
-        if not location_data: continue
-        photo_id = r['id']
-
+    for r, _coder, location_data in located_recs:
+        if not location_data:
+            continue
         lat = location_data['lat']
         lon = location_data['lon']
         ll_str = '%.6f,%.6f' % (lat, lon)
         if lat_lon_map and ll_str in lat_lon_map:
             claimed_in_map[ll_str] = True
             ll_str = lat_lon_map[ll_str]
-        if ll_str in blacklist: continue
+        if ll_str in blacklist:
+            continue
         ll_to_id[ll_str].append(r)
 
-    #print len(claimed_in_map)
-    #print len(lat_lon_map)
-    #assert len(claimed_in_map) == len(lat_lon_map)
+    # print len(claimed_in_map)
+    # print len(lat_lon_map)
+    # assert len(claimed_in_map) == len(lat_lon_map)
 
     no_date = 0
     points = 0
     photos = 0
     for lat_lon, recs in ll_to_id.items():
-        rec_dates = [(r, record.get_date_range(r)) for r in recs]
+        rec_dates = [(r, record.get_date_range(r.date)) for r in recs]
         # XXX the "if" filter here probably doesn't do anything
-        sorted_recs = sorted([rdr for rdr in rec_dates
-                              if rdr[1] and rdr[1][1]],
-                             key=lambda rdr: rdr[1][1])
+        sorted_recs = sorted(
+            [rdr for rdr in rec_dates if rdr[1] and rdr[1][1]],
+            key=lambda rdr: rdr[1][1],
+        )
         no_date += (len(recs) - len(sorted_recs))
 
         out_recs = []
@@ -66,8 +68,7 @@ def _generateJson(located_recs: list[LocatedRecord], lat_lon_map: dict[str, str]
             assert date_range
             assert date_range[0]
             assert date_range[1]
-            out_recs.append([
-                date_range[0].year, date_range[1].year, r['id']])
+            out_recs.append([date_range[0].year, date_range[1].year, r.id])
 
         if out_recs:
             points += 1
@@ -101,21 +102,16 @@ def printRecordsJson(located_recs: list[LocatedRecord]):
     recs = []
     for r, coder, location_data in located_recs:
         rec = {
-            'id': r['id'],
-            'folder': removeNonAscii(r['location'].replace('Folder: ', '')),
-            'date': record.clean_date(r['date']),
-            'title': removeNonAscii(record.clean_title(r['title'])),
-            'description': removeNonAscii(r.get('description', '')),
-            'url': r['preferred_url'],
-            'extracted': {
-                'date_range': [ None, None ]
-            }
+            "id": r.id,
+            "folder": removeNonAscii(r.address.replace("Folder: ", "")),
+            "date": record.clean_date(r.date),
+            "title": removeNonAscii(record.clean_title(r.title)),
+            "description": removeNonAscii(r.back_text),
+            "url": r.url,
+            "extracted": {"date_range": [None, None]},
         }
-        if r.get('note'):
-            # Are there any of these?
-            rec['note'] = r['note']
 
-        start, end = record.get_date_range(r)
+        start, end = record.get_date_range(r.date)
         rec['extracted']['date_range'][0] = '%04d-%02d-%02d' % (
                 start.year, start.month, start.day)
         rec['extracted']['date_range'][1] = '%04d-%02d-%02d' % (
@@ -126,6 +122,7 @@ def printRecordsJson(located_recs: list[LocatedRecord]):
             rec['extracted']['located_str'] = removeNonAscii(location_data['address'])
             rec['extracted']['technique'] = coder
 
+        # TODO: remove this
         try:
             x = json.dumps(rec)
         except Exception as e:
@@ -147,10 +144,11 @@ def printRecordsJson(located_recs: list[LocatedRecord]):
 
 def printRecordsText(located_recs: list[LocatedRecord]):
     for r, coder, location_data in located_recs:
-        date = record.clean_date(r['date'])
-        title = record.clean_title(r['title'])
-        folder = r['location']
-        if folder: folder = record.clean_folder(folder)
+        date = record.clean_date(r.date)
+        title = record.clean_title(r.title)
+        folder = r.address
+        if folder:
+            folder = record.clean_folder(folder)
 
         if location_data:
             lat = location_data['lat']
@@ -159,18 +157,16 @@ def printRecordsText(located_recs: list[LocatedRecord]):
         else:
             loc = 'n/a\tn/a'
 
-        print('\t'.join([r['id'], date, folder, title, r['preferred_url'], coder or 'failed', loc]))
+        print("\t".join([r.id, date, folder, title, r.url, coder or "failed", loc]))
 
 
 def printLocations(located_recs: list[LocatedRecord]):
     locs = defaultdict(int)
-    for r, coder, location_data in located_recs:
-        if not location_data: continue
-        if 'lat' not in location_data: continue
-        if 'lon' not in location_data: continue
-        lat = location_data['lat']
-        lon = location_data['lon']
-        locs['%.6f,%.6f' % (lat, lon)] += 1
+    for _r, _coder, location_data in located_recs:
+        if location_data and "lat" in location_data and "lon" in location_data:
+            lat = location_data["lat"]
+            lon = location_data["lon"]
+            locs["%.6f,%.6f" % (lat, lon)] += 1
 
     for ll, count in locs.items():
         print('%d\t%s' % (count, ll))
@@ -182,31 +178,36 @@ def output_geojson(located_recs: list[LocatedRecord]):
         if not location_data:
             continue  # debatable, but this is what diff_geojson.py seems to want
         feature = {
-            'id': r['id'],
-            'type': 'Feature',
-            'geometry': {
-                'type': 'Point',
-                'coordinates': [location_data['lon'], location_data['lat']]
-            } if location_data else None,
-            'properties': {
-                'title': r['title'],
-                'date': r['date'],
-                'geocode': {
-                    'technique': coder,
-                    'lat': location_data['lat'],
-                    'lng': location_data['lon'],
-                    **location_data
-                } if location_data else None,
-                'image': {
-                    'url': r['photo_url'],
-                    'thumb_url': r['photo_url'],
-                },
-                'url': r['preferred_url'],
-                'nypl_fields': {
-                    'alt_title': r['alt_title'],
-                    'location': r['location'],
+            "id": r.id,
+            "type": "Feature",
+            "geometry": (
+                {
+                    "type": "Point",
+                    "coordinates": [location_data["lon"], location_data["lat"]],
                 }
-            }
+                if location_data
+                else None
+            ),
+            "properties": {
+                "title": r.tilte,
+                "date": r.date,
+                "geocode": (
+                    {
+                        "technique": coder,
+                        "lat": location_data["lat"],
+                        "lng": location_data["lon"],
+                        **location_data,
+                    }
+                    if location_data
+                    else None
+                ),
+                "image": {
+                    "url": f"http://images.nypl.org/?id={r.id}&t=w",
+                    "thumb_url": f"http://images.nypl.org/?id={r.id}&t=w",
+                },
+                "url": r.url,
+                "nypl_fields": {"alt_title": r.alt_title, "address": r.address},
+            },
         }
         features.append(feature)
 

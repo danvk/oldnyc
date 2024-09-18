@@ -16,6 +16,7 @@ import fileinput
 import sys
 
 import coders.registration
+from data.item import Item, blank_item
 import record
 from grid import coder
 
@@ -107,21 +108,21 @@ class ExtendedGridCoder:
         from coders.milstein import cross_patterns
         self._cross_patterns = cross_patterns
 
-    def _extractLocationStringFromRecord(self, r: record.Record):
-        raw_loc = r['location'].strip()
+    def _extractLocationStringFromRecord(self, r: Item):
+        raw_loc = r.address.strip()
         loc = re.sub(r'^[ ?\t"\[]+|[ ?\t"\]]+$', '', raw_loc)
         return loc
 
-    def codeRecord(self, r: record.Record):
-        # if r.source() != 'Milstein Division': return None
-
+    def codeRecord(self, r: Item):
         loc = self._extractLocationStringFromRecord(r)
 
         m = None
         for pattern in self._cross_patterns:
             m = re.match(pattern, loc)
-            if m: break
-        if not m: return None
+            if m:
+                break
+        if not m:
+            return None
 
         street1, street2, boro = m.groups()
         if not boro.startswith('Manhattan'):
@@ -129,12 +130,12 @@ class ExtendedGridCoder:
 
         try:
             avenue, street = parse_street_ave(street1, street2)
-        except ValueError as e:
+        except ValueError:
             # sys.stderr.write('%s: %s\n' % (loc, str(e)))
             return None
 
         # Special cases
-        photo_id = r['id']
+        photo_id = r.id
         if photo_id.startswith('723557f'):
             # These are mislabeled as 93rd and B.
             avenue, street = 'B', '8'
@@ -147,7 +148,8 @@ class ExtendedGridCoder:
             avenue, street = '7', '130'
 
         latlon = coder.code(avenue, street)
-        if not latlon: return None
+        if not latlon:
+            return None
 
         # sys.stderr.write('coded (%s, %s) --> (%s, %s)\n' % (street1, street2, avenue, street))
 
@@ -178,22 +180,23 @@ coders.registration.registerCoderClass(ExtendedGridCoder)
 
 # For fast iteration
 if __name__ == '__main__':
-  grid_coder = ExtendedGridCoder()
-  num_ok, num_bad = 0, 0
-  for line in fileinput.input():
-    addr = line.strip()
-    if not addr: continue
-    r: record.Record = {
-      'id': 'PHOTO_ID',
-      'location': addr,
-    }
-    result = grid_coder.codeRecord(r)
+    grid_coder = ExtendedGridCoder()
+    num_ok, num_bad = 0, 0
+    for line in fileinput.input():
+        addr = line.strip()
+        if not addr:
+            continue
+        r = blank_item()
+        r.address = addr
+        result = grid_coder.codeRecord(r)
 
-    print('"%s" -> %s' % (addr, result))
-    if result:
-      num_ok += 1
-    else:
-      num_bad += 1
+        print('"%s" -> %s' % (addr, result))
+        if result:
+            num_ok += 1
+        else:
+            num_bad += 1
 
-  sys.stderr.write('Parsed %d / %d = %.4f records\n' % (
-    num_ok, num_ok + num_bad, 1. * num_ok / (num_ok + num_bad)))
+    sys.stderr.write(
+        "Parsed %d / %d = %.4f records\n"
+        % (num_ok, num_ok + num_bad, 1.0 * num_ok / (num_ok + num_bad))
+    )
