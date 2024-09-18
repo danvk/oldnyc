@@ -8,7 +8,7 @@ from collections import Counter
 import re
 
 from data.item import Item, Subject
-from data.util import clean_title
+from data.util import clean_date, clean_title
 
 
 def normalize_whitespace(text: str) -> str:
@@ -85,11 +85,9 @@ def run():
         names = sort_uniq(json.loads(row2["subject/name"]))
         temporals = sort_uniq(json.loads(row2["subject/temporal"]))
 
-        if date_str == "n.d":
-            date_str = ""
-        date_str = date_str.replace(";", ",").replace("?", "")
-        date_str = ", ".join(sorted(date_str.split(", ")))
-        date2 = ", ".join(sorted(date2.split(", ")))
+        dates = [date_str, date2]
+        dates = [clean_date(d) for d in dates]
+        date_str, date2 = dates
         if date_str != date2:
             counters["mismatch: date"] += 1
             if date2 and not date_str:
@@ -112,8 +110,11 @@ def run():
             # print(title)
             # print(title2)
 
-        alt_title = normalize_whitespace(alt_title) if alt_title else None
-        alt_title2 = normalize_whitespace(alt_title2) if alt_title2 else None
+        alt_titles = [alt_title, alt_title2]
+        alt_titles = [
+            clean_title(normalize_whitespace(t)) if t else None for t in alt_titles
+        ]
+        alt_title, alt_title2 = alt_titles
 
         if alt_title != alt_title2:
             counters["mismatch: alt_title mismatch"] += 1
