@@ -160,6 +160,18 @@ def printRecordsText(located_recs: list[LocatedRecord]):
         print("\t".join([r.id, date, folder, title, r.url, coder or "failed", loc]))
 
 
+def printIdLocation(located_recs: list[LocatedRecord]):
+    for r, coder, location_data in located_recs:
+        if location_data:
+            lat = location_data["lat"]
+            lon = location_data["lon"]
+            loc = (str((lat, lon)) or "") + "\t" + location_data["address"]
+        else:
+            loc = "n/a\tn/a"
+
+        print("\t".join([r.id, coder or "failed", loc]))
+
+
 def printLocations(located_recs: list[LocatedRecord]):
     locs = defaultdict(int)
     for _r, _coder, location_data in located_recs:
