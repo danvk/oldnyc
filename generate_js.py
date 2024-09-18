@@ -55,7 +55,7 @@ def _generateJson(located_recs: list[LocatedRecord], lat_lon_map: dict[str, str]
     points = 0
     photos = 0
     for lat_lon, recs in ll_to_id.items():
-        rec_dates = [(r, record.get_date_range(r.date)) for r in recs]
+        rec_dates = [(r, record.get_date_range(r.date or "")) for r in recs]
         # XXX the "if" filter here probably doesn't do anything
         sorted_recs = sorted(
             [rdr for rdr in rec_dates if rdr[1] and rdr[1][1]],
@@ -92,7 +92,7 @@ def printJson(located_recs: list[LocatedRecord], lat_lon_map: dict[str, str]):
 def printJsonNoYears(located_recs: list[LocatedRecord], lat_lon_map: dict[str, str]):
     data = _generateJson(located_recs, lat_lon_map)
     for k, v in data.items():
-            data[k] = [x[2] for x in v]    # drop both year elements.
+        data[k] = [x[2] for x in v]  # drop both year elements.
 
     print("var lat_lons = ")
     print(json.dumps(data, sort_keys=True))

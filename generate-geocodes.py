@@ -24,7 +24,7 @@ from record import Record
 import coders.extended_grid
 import coders.milstein
 import coders.nyc_parks
-import coders.gpt
+# import coders.gpt
 
 
 if __name__ == '__main__':
@@ -136,7 +136,7 @@ if __name__ == '__main__':
             old, new = line.split("->")
             lat_lon_map[old] = new
 
-    rs = [json_to_item(line) for line in open(options.ndjson)]
+    rs = [json_to_item(line) for line in open(options.images_ndjson)]
     if options.ids_filter:
         ids = set(options.ids_filter.split(","))
         rs = [r for r in rs if r.id in ids]
@@ -254,3 +254,5 @@ if __name__ == '__main__':
         generate_js.printLocations(located_recs)
     elif options.output_format == "geojson":
         generate_js.output_geojson(located_recs)
+    else:
+        raise ValueError(options.output_format)

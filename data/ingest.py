@@ -169,6 +169,7 @@ def run():
             id=id,
             uuid=uuid,
             url=url,
+            photo_url=f"https://images.nypl.org/?id={id}&t=w",
             date=date2 or date_str or None,
             title=title2,
             alt_title=alt_title2 or None,

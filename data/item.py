@@ -33,6 +33,9 @@ class Item:
     url: str
     """Digital Collections URL for item"""
 
+    photo_url: str
+    """URL for the image described by this record."""
+
     date: str
     """raw date string from NYPL"""
 

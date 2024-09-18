@@ -30,6 +30,8 @@ git push
 
 ## Iterate on geocoding
 
+TODO: update all these commands with `images.ndjson`
+
 It's easiest to do this by iterating on the `records.json` file, which has one
 entry per milstein card, rather than one entry per photo.
 
@@ -65,14 +67,14 @@ The lat-lon-map.txt file can be generated via:
     ./generate-geocodes.py --pickle_path nyc/records.json --output_format locations.txt --geocode > locations.txt
     ./cluster-locations.py locations.txt > lat-lon-map.txt
 
-## Generate photos.json
+## Generate photos.ndjson
 
-`photos.json` is like `records.json`, but it duplicates each record across all its photos.
+`photos.ndjson` is like `images.json`, but it duplicates each record across all its photos.
 (There are potentially several photos on the Milstein card for each record.)
 
 ```bash
 ./nyc/crops-to-json.py nyc/crops.txt > /tmp/crops.json
-./nyc/records_to_photos.py nyc/records.json /tmp/crops.json nyc/photos.json
+./nyc/records_to_photos.py data/images.ndjson /tmp/crops.json data/photos.ndjson
 ```
 
 ## Generate crops.txt
