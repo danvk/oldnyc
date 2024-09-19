@@ -7,15 +7,11 @@ from collections import defaultdict
 import fileinput
 import re
 import sys
-import json
 
 from data.item import Item
 
-if __name__ == '__main__':
-  sys.path += (sys.path[0] + '/..')
 
 import coders.registration
-import record
 
 
 # TODO: move these into a data file, maybe GeoJSON

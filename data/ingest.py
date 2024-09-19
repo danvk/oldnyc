@@ -59,6 +59,7 @@ def run():
         for id, r in json.load(open("nyc/gpt-output.json")).items()
         if r["text"] != "(rotated)"
     }
+    mods_details = json.load(open("data/mods-details.json"))
 
     counters = Counter()
     out = open("data/images.ndjson", "w")
@@ -84,9 +85,6 @@ def run():
         uuid = row2["item_uuid"]
         url = row2["digital_collections_url"]
         title2 = row2["title"].strip()
-        alt_title2 = (
-            row2["alternative_title"].strip() if row2["alternative_title"] else None
-        )
         date2 = row2["date"]
 
         topics = sort_uniq(json.loads(row2["subject/topic"]))
@@ -121,6 +119,15 @@ def run():
             # print(title)
             # print(title2)
 
+        mods_detail = mods_details.get(uuid)
+        # TODO: store as array
+        alt_title2 = (
+            "\n".join(mods_detail.get("titles"))
+            if mods_detail
+            else (
+                row2["alternative_title"].strip() if row2["alternative_title"] else None
+            )
+        )
         alt_titles = [alt_title, alt_title2]
         alt_titles = [
             clean_title(normalize_whitespace(t)) if t else None for t in alt_titles
@@ -132,6 +139,11 @@ def run():
             # print("---")
             # print(alt_title)
             # print(alt_title2)
+        alt_title2 = mods_detail.get("titles") if mods_detail else None
+        if not alt_title2:
+            alt_title2 = (
+                [row2["alternative_title"].strip()] if row2["alternative_title"] else []
+            )
 
         if alt_title:
             counters["alt_title"] += 1
@@ -148,8 +160,10 @@ def run():
         else:
             counters["ocr: site: present"] += 1
 
-        captures = int(row2["captures"])
-        back_id = photo_id_to_backing_id(id) if captures > 1 else None
+        back_id = photo_id_to_backing_id(id) if id.endswith("f") else None
+        if not back_id and mods_detail:
+            back_id = mods_detail.get("back_id")
+        counters["back_id: " + ("present" if back_id else "missing")] += 1
         ocr_gpt = gpt_text.get(back_id) if back_id else None
         if ocr_gpt:
             counters["ocr: gpt: present"] += 1
