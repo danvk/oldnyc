@@ -5,6 +5,7 @@ from datetime import date, timedelta
 from typing import Optional, TypedDict
 
 
+# TODO: delete this in favor of item.Item
 class Record(TypedDict):
     """Type of entries in records.json"""
 
