@@ -44,7 +44,7 @@ def IsPassCorrect(actual_data, golden_rects):
   photo_frac = 1. * photo_size / image_size
 
   return photo_frac >= 0.33
-  
+
 
 num_correct_safe = 0
 num_safe, num_correct, num_wrong = 0, 0, 0
@@ -96,7 +96,7 @@ With a solidity > 0.98 escape hatch for big photos.
      Safe: 3 (0.0250)
   Correct: 116 (0.9667; 6 are 'safe')
     Wrong: 1 (0.0083)
-    
+
 
 ----
 With 10px black borders around all images before filling holes.

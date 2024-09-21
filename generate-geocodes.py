@@ -16,7 +16,6 @@ from data.item import Item, json_to_item
 import geocoder
 import generate_js
 import json
-from record import Record
 
 # Import order here determines the order in which coders get a crack at each
 # record. We want to go in order from precise to imprecise.
@@ -143,7 +142,7 @@ if __name__ == '__main__':
 
     # Load existing geocodes, if applicable.
     # TODO: is this still useful?
-    id_to_located_rec: dict[str, tuple[Record, str, Location]] = {}
+    id_to_located_rec: dict[str, tuple[Item, str, Location]] = {}
     if options.previous_geocode_json:
         prev_recs = json.load(open(options.previous_geocode_json))
         for rec in prev_recs:

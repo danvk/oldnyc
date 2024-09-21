@@ -2,10 +2,7 @@ from dataclasses import dataclass
 import json
 from typing import Literal, Optional
 
-from dataclasses_json import dataclass_json
 
-
-@dataclass_json
 @dataclass
 class Subject:
     name: list[str]
@@ -21,7 +18,6 @@ class Subject:
     """Broad topics like "buildings" or "directories"."""
 
 
-@dataclass_json
 @dataclass
 class Item:
     id: str

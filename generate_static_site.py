@@ -30,6 +30,7 @@ pop_ids = {x['id'] for x in popular_photos}
 # strip leading 'var lat_lons = ' and trailing ';'
 lat_lon_to_ids = json.loads(open('viewer/static/js/nyc-lat-lons-ny.js').read()[15:-1])
 
+# TODO: switch to photos.ndjson
 rs: list[record.Record] = json.load(open('nyc/photos.json'))
 id_to_record = {r['id']: r for r in rs}
 

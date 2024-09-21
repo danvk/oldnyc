@@ -4,14 +4,12 @@
 # This almost never makes sense for SFPL records, but it does for the
 # NYPL Milstein collection.
 
-import fileinput
 import re
 import sys
 from data.item import Item
 import nyc.boroughs
 
 import coders.registration
-import record
 
 
 boros = '(?:New York|Manhattan|Brooklyn|Bronx|Queens|Staten Island), (?:NY|N\.Y\.)'
