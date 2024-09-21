@@ -30,22 +30,22 @@ git push
 
 ## Iterate on geocoding
 
-TODO: update all these commands with `images.ndjson`
-
-It's easiest to do this by iterating on the `records.json` file, which has one
+It's easiest to do this by iterating on the `images.ndjson` file, which has one
 entry per milstein card, rather than one entry per photo.
 
-    ./generate-geocodes.py --coders milstein --pickle_path nyc/records.json --output_format records.js --geocode > /tmp/records.json
+    ./generate-geocodes.py --coders milstein --images_ndjson data/images.ndjson --output_format records.js --geocode > /tmp/records.json
 
 This will print out lots of information about incorrect geocodes and eventually print something like:
-25574 milstein
-25574 (total)
+
+    25574 milstein
+    25574 (total)
+
 This is out of 43363 total records in the Milstein collection.
 
 By default, this only uses the local "geocache"--it doesn't fetch any geocodes
 from Google Maps. If you want to do that, add --use_network:
 
-    ./generate-geocodes.py --pickle_path nyc/records.json --output_format records.js --geocode --use_network > /tmp/records.json
+    ./generate-geocodes.py --images_ndjson data/images.ndjson --output_format records.js --geocode --use_network > /tmp/records.json
 
 If you want to determine per-borough geocoding coverage, run
 
@@ -57,19 +57,19 @@ Start by unpacking the geocache. This will speed up geocoding and help ensure st
 
     tar -xzf geocache.tgz
 
-To get new geocodes into the frontend, you need to geocode `photos.json`
+To get new geocodes into the frontend, you need to geocode `photos.ndjson`
 (see below for how to generate this). Do so with:
 
-    ./generate-geocodes.py --pickle_path nyc/photos.json --lat_lon_map lat-lon-map.txt --output_format lat-lons-ny.js --geocode > viewer/static/js/nyc-lat-lons-ny.js
+    ./generate-geocodes.py --images_ndjson data/photos.ndjson --lat_lon_map lat-lon-map.txt --output_format lat-lons-ny.js --geocode > viewer/static/js/nyc-lat-lons-ny.js
 
 The lat-lon-map.txt file can be generated via:
 
-    ./generate-geocodes.py --pickle_path nyc/records.json --output_format locations.txt --geocode > locations.txt
+    ./generate-geocodes.py --images_ndjson data/images.ndjson --output_format locations.txt --geocode > locations.txt
     ./cluster-locations.py locations.txt > lat-lon-map.txt
 
 ## Generate photos.ndjson
 
-`photos.ndjson` is like `images.json`, but it duplicates each record across all its photos.
+`photos.ndjson` is like `images.ndjson`, but it duplicates each record across all its photos.
 (There are potentially several photos on the Milstein card for each record.)
 
 ```bash
@@ -81,12 +81,14 @@ The lat-lon-map.txt file can be generated via:
 
 ...
 
-## Generate records.json from CSV
+## Generate images.ndjson from CSV
 
-The original source for the data is a CSV file that Matt K gave me, `milstein.csv`.
+Sources of data:
 
-To convert this to a records.json file, run:
+- `milstein.csv`, the original CSV file that Matt K gave me in 2013.
+- `Milstein_data_for_DV_2.csv`, an update from 2024.
+- `mods-details.json`, which includes data from the NYPL API's `/mods` and `/item_details` endpoints.
 
-    ./nyc/csv_to_json.py
+To collect these into an `images.ndjson` file, run:
 
-This will read `nyc/mistein.csv` and create `nyc/records.json`.
+    ./data/ingest.py
