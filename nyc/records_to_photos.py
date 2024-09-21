@@ -1,18 +1,20 @@
 #!/usr/bin/env python
 """Split single images in records.json into multiple records in photos.json."""
 
+import dataclasses
 import os
 import sys
 import copy
 import json
 
-from record import Record
+from data.item import json_to_item
+
 
 if __name__ == "__main__":
-    assert len(sys.argv) == 4, "Usage: %s records.json crops.json photos.json"
-    _, records_json, crops_json, out_json = sys.argv
+    assert len(sys.argv) == 4, "Usage: %s imges.ndjson crops.json photos.ndjson"
+    _, records_ndjson, crops_json, out_ndjson = sys.argv
 
-    rs: list[Record] = json.load(open(records_json))
+    rs = [json_to_item(r) for r in open(records_ndjson)]
     expansions = json.load(open(crops_json))
 
     skipped = 0
@@ -20,7 +22,7 @@ if __name__ == "__main__":
 
     out = []
     for idx, r in enumerate(rs):
-        digital_id = r["id"]
+        digital_id = r.id
         image_file = "%s.jpg" % digital_id
         expansion = expansions.get(image_file) or {"crops": {}}
         # if not expansion:
@@ -34,15 +36,15 @@ if __name__ == "__main__":
         crops = expansion["crops"]
         if len(crops) == 0:
             # r.thumbnail_url = image_file
-            r["photo_url"] = image_file
+            r.photo_url = image_file
             out.append(r)
             num_photos += 1
         else:
             for photo_file in crops.keys():
                 new_r = copy.deepcopy(r)
                 new_id, _ = os.path.splitext(photo_file)
-                new_r["id"] = new_id
-                new_r["photo_url"] = photo_file
+                new_r.id = new_id
+                new_r.photo_url = photo_file
                 out.append(new_r)
                 num_photos += 1
 
@@ -52,5 +54,8 @@ if __name__ == "__main__":
             )
 
     sys.stderr.write("Skipped %d records\n" % skipped)
-    with open(out_json, "w") as f:
-        json.dump(out, f, separators=(",", ":"))
+    with open(out_ndjson, "w") as f:
+        for r in out:
+            f.write(json.dumps(dataclasses.asdict(r)))
+            f.write("\n")
+    sys.stderr.write("Wrote %d records\n" % len(out))

@@ -1,91 +1,92 @@
 #!/usr/bin/env python
-'''Fetch a bunch of URLs and store them permanently on-disk.
-
-Uses requests-cache and a sqlite database.  Does rate-throttling.
+"""Fetch a bunch of URLs with a rate limit.
 
 Usage:
     ./url_fetcher.py path-to-list-of.urls.txt
-'''
+"""
 
-import fileinput
+import argparse
 import os
 import requests
-import requests_cache
 import time
 import sys
 
-
-class NotInCacheError(Exception):
-    pass
+from tqdm import tqdm
 
 
-class Fetcher(object):
-    def __init__(self, throttle_secs=1.0, headers=None, ignore_cache=False):
-        if not ignore_cache:
-            self._session = requests_cache.CachedSession('.url_fetcher_cache')
-        else:
-            self._session = requests.Session()
-        self._ignore_cache = ignore_cache
-        self._throttle_secs = throttle_secs
-        self._last_fetch = 0.0
-        self._headers = headers
+last_fetch_secs = None
 
-    def fetch_url(self, url, force_refetch=False):
-        if force_refetch:
-            self.remove_url_from_cache(url)
-        req = self._make_request(url)
-        start_t = time.time()
-        response = self._session.send(req)
-        end_t = time.time()
-        response.raise_for_status()  # checks for status == 200 OK
 
-        if (self._ignore_cache or not response.from_cache) and end_t - self._last_fetch < self._throttle_secs:
-            wait_s = end_t - self._last_fetch
-            sys.stderr.write('Waiting %s secs...\n' % wait_s)
-            time.sleep(wait_s)
-        self._last_fetch = end_t
+def fetch_url(url: str, headers: dict = {}, throttle_secs: float = 0) -> bytes:
+    global last_fetch_secs
+    if last_fetch_secs:
+        elapsed = time.time() - last_fetch_secs
+        if elapsed < throttle_secs:
+            time.sleep(throttle_secs - elapsed)
 
-        return response.content
+    last_fetch_secs = time.time()
+    response = requests.get(url, headers=headers)
+    response.raise_for_status()  # checks for status == 200 OK
 
-    def is_url_in_cache(self, url):
-        return self._cache().has_url(url)
-
-    def fetch_url_from_cache(self, url):
-        req = self._make_request(url)
-        cache_key = self._cache().create_key(req)
-        response = self._cache().get_response(cache_key)
-        if not response:
-            raise NotInCacheError()
-        return response.content
-
-    def remove_url_from_cache(self, url):
-        self._cache().delete_url(url)
-
-    def _cache(self):
-        return self._session.cache
-
-    def _make_request(self, url):
-        # By constructing the request outside the Session, we avoid attaching
-        # unwanted cookie headers to subsequent requests, which might break the
-        # cache.
-        return requests.Request('GET', url, headers=self._headers).prepare()
+    return response.content
 
 
 if __name__ == '__main__':
-    f = Fetcher(ignore_cache=True, throttle_secs=3.0)
-    for i, line in enumerate(fileinput.input()):
+    parser = argparse.ArgumentParser(
+        description="Rate-limited URL fetching with optional caching."
+    )
+    parser.add_argument(
+        "--throttle-secs", default=3.0, type=float, help="Rate limit for HTTP requests."
+    )
+    parser.add_argument(
+        "--overwrite",
+        default=False,
+        action="store_true",
+        help="Re-fetch files that already exist on disk.",
+    )
+    parser.add_argument(
+        "--header",
+        action="append",
+        help="Additional headers to set, format is 'key: value'.",
+    )
+    parser.add_argument(
+        "--output-dir", help="Output directory for files (default is CWD)"
+    )
+    parser.add_argument(
+        "urls_file",
+        help="Path to file containing URLs, or URL<tab>filename",
+    )
+    args = parser.parse_args()
+
+    headers = (
+        dict(header.split(": ", 1) for header in args.header) if args.header else None
+    )
+
+    num_skipped = 0
+    pairs = []
+    for i, line in enumerate(open(args.urls_file)):
         line = line.strip()
-        if '\t' in line:
-            filename, url = line.split('\t')
+        if "\t" in line:
+            url, filename = line.split("\t")
         else:
-            filename = None
             url = line
+            filename = url.split("/")[-1]
 
-        if os.path.exists(filename):
-            sys.stderr.write(f'{filename} already exists, skipping…\n')
+        if args.output_dir:
+            filename = os.path.join(args.output_dir, filename)
+
+        if not args.overwrite and os.path.exists(filename):
+            num_skipped += 1
             continue
+        pairs.append((url, filename))
 
-        print('%5d Fetching %s' % (i + 1, url))
-        content = f.fetch_url(url)
+    if num_skipped:
+        sys.stderr.write(f"Skipped {num_skipped} already-fetched files\n")
+
+    for i, (url, filename) in enumerate(tqdm(pairs)):
+        # print(i, url, filename)
+        if i % 100 == 0:
+            print("%5d Fetching %s -> %s" % (i + 1, url, filename))
+        content = fetch_url(url, headers, args.throttle_secs)
         if filename:
             open(filename, 'wb').write(content)

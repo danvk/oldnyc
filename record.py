@@ -5,6 +5,7 @@ from datetime import date, timedelta
 from typing import Optional, TypedDict
 
 
+# TODO: delete this in favor of item.Item
 class Record(TypedDict):
     """Type of entries in records.json"""
 
@@ -55,8 +56,8 @@ def abbreviate_months(txt):
     )
 
 
-def get_date_range(r: Record) -> tuple[date, date] | None:
-    p = extract_date_range(r["date"]) or [None, None]
+def get_date_range(date_str: str) -> tuple[date, date] | None:
+    p = extract_date_range(date_str) or [None, None]
     if p[0] is None:
         p[0] = date(1850, 1, 1)
     if p[1] is None:

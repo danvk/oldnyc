@@ -7,15 +7,14 @@ from collections import defaultdict
 import fileinput
 import re
 import sys
-import json
 
-if __name__ == '__main__':
-  sys.path += (sys.path[0] + '/..')
+from data.item import Item
+
 
 import coders.registration
-import record
 
 
+# TODO: move these into a data file, maybe GeoJSON
 parks = {
   'Bronx Park': (40.856389, -73.876667),
   'Claremont Park': (40.840546, -73.907469),
@@ -220,113 +219,114 @@ missing_islands = defaultdict(int)
 missing_bridges = defaultdict(int)
 
 class NycParkCoder:
-  def __init__(self):
-    pass
 
-  def codeRecord(self, r: record.Record):
-    # if r.source() != 'Milstein Division': return None
-    title = re.sub(r'\.$', '', r['title'])
+    def __init__(self):
+        pass
 
-    m = re.search(park_re, title)
-    if m:
-      park = m.group(1)
-      if not re.search(non_parks_re, title):
-        if park not in parks:
-          missing_parks[park] += 1
-        else:
-          latlon = None
-          if park == 'Central Park':
-            for place in central_park:
-              if ('Central Park - %s' % place) in title:
-                latlon = central_park[place]
-          if not latlon:
-            latlon = parks[park]
-          return {
-              'address': '@%s,%s' % latlon,
-              'source': m.group(0),
-              'type': 'point_of_interest'
-          }
+    def codeRecord(self, r: Item):
+        title = re.sub(r"\.$", "", r.title)
 
-    m = re.search(island_re, title)
-    if m:
-      island = m.group(1)
-      if island not in islands:
-        missing_islands[island] += 1
-      else:
-        latlon = islands[island]
-        return {
-            'address': '@%s,%s' % latlon,
-            'source': m.group(0),
-            'type': 'point_of_interest'
-        }
+        m = re.search(park_re, title)
+        if m:
+            park = m.group(1)
+            if not re.search(non_parks_re, title):
+                if park not in parks:
+                    missing_parks[park] += 1
+                else:
+                    latlon = None
+                    if park == "Central Park":
+                        for place in central_park:
+                            if ("Central Park - %s" % place) in title:
+                                latlon = central_park[place]
+                    if not latlon:
+                        latlon = parks[park]
+                    return {
+                        "address": "@%s,%s" % latlon,
+                        "source": m.group(0),
+                        "type": "point_of_interest",
+                    }
 
-    m = re.search(bridge_re, title)
-    if m:
-      bridge = m.group(1)
-      # if not ('Bridge' in bridge or 'bridge' in bridge):
-      # XXX this is weird
-      if not 'Bridge' in bridge or 'bridge' in bridge:
-        bridge += ' Bridge'
-      if bridge not in bridges:
-        missing_bridges[bridge] += 1
-      else:
-        latlon = bridges[bridge]
-        return {
-            'address': '@%s,%s' % latlon,
-            'source': m.group(0),
-            'type': 'point_of_interest'
-        }
+        m = re.search(island_re, title)
+        if m:
+            island = m.group(1)
+            if island not in islands:
+                missing_islands[island] += 1
+            else:
+                latlon = islands[island]
+                return {
+                    "address": "@%s,%s" % latlon,
+                    "source": m.group(0),
+                    "type": "point_of_interest",
+                }
 
-    return None
+        m = re.search(bridge_re, title)
+        if m:
+            bridge = m.group(1)
+            # if not ('Bridge' in bridge or 'bridge' in bridge):
+            # XXX this is weird
+            if not "Bridge" in bridge or "bridge" in bridge:
+                bridge += " Bridge"
+            if bridge not in bridges:
+                missing_bridges[bridge] += 1
+            else:
+                latlon = bridges[bridge]
+                return {
+                    "address": "@%s,%s" % latlon,
+                    "source": m.group(0),
+                    "type": "point_of_interest",
+                }
 
-  def _getLatLonFromGeocode(self, geocode, data):
-    for result in geocode['results']:
-      # data['type'] is something like 'address' or 'intersection'.
-      if data['type'] in result['types']:
-        loc = result['geometry']['location']
-        return (loc['lat'], loc['lng'])
+        return None
 
-  def getLatLonFromGeocode(self, geocode, data, r):
-    latlon = self._getLatLonFromGeocode(geocode, data)
-    if not latlon:
-      return None
-    return latlon
+    def _getLatLonFromGeocode(self, geocode, data):
+        for result in geocode["results"]:
+            # data['type'] is something like 'address' or 'intersection'.
+            if data["type"] in result["types"]:
+                loc = result["geometry"]["location"]
+                return (loc["lat"], loc["lng"])
 
-  def finalize(self):
-    for missing in [missing_parks, missing_islands, missing_bridges]:
-      vs = [(v, k) for k, v in missing.items()]
-      for v, k in reversed(sorted(vs)):
-        sys.stderr.write('%4d\t%s\n' % (v, k))
+    def getLatLonFromGeocode(self, geocode, data, r: Item):
+        latlon = self._getLatLonFromGeocode(geocode, data)
+        if not latlon:
+            return None
+        return latlon
 
-  def name(self):
-    return 'nyc-parks'
+    def finalize(self):
+        for missing in [missing_parks, missing_islands, missing_bridges]:
+            vs = [(v, k) for k, v in missing.items()]
+            for v, k in reversed(sorted(vs)):
+                sys.stderr.write("%4d\t%s\n" % (v, k))
+
+    def name(self):
+        return "nyc-parks"
+
 
 coders.registration.registerCoderClass(NycParkCoder)
 
 
 # For fast iteration
-if __name__ == '__main__':
-  # XXX this won't work
-  coder = NycParkCoder()
-  r = record.Record()
-  num_ok, num_bad = 0, 0
-  for line in fileinput.input():
-    addr = line.strip()
-    if not addr: continue
-    r.tabular = {
-      'i': ['PHOTO_ID'],
-      'a': ['Milstein Division'],
-      't': [addr]
-    }
-    result = coder.codeRecord(r)
+if __name__ == "__main__":
+    coder = NycParkCoder()
+    r = Item(
+        id="PHOTO_ID",
+    )
+    num_ok, num_bad = 0, 0
+    for line in fileinput.input():
+        addr = line.strip()
+        if not addr:
+            continue
+        r.address = addr
+        result = coder.codeRecord(r)
 
-    if result:
-      num_ok += 1
-      print('"%s" -> %s' % (addr, result))
-    else:
-      num_bad += 1
+        if result:
+            num_ok += 1
+            print('"%s" -> %s' % (addr, result))
+        else:
+            num_bad += 1
 
-  coder.finalize()
+    coder.finalize()
 
-  sys.stderr.write('Parsed %d / %d = %.4f records\n' % (
-    num_ok, num_ok + num_bad, 1. * num_ok / (num_ok + num_bad)))
+    sys.stderr.write(
+        "Parsed %d / %d = %.4f records\n"
+        % (num_ok, num_ok + num_bad, 1.0 * num_ok / (num_ok + num_bad))
+    )

@@ -5,7 +5,7 @@ import sys
 
 
 import coders.registration
-import record
+from data.item import Item
 
 
 class GptCoder:
@@ -20,9 +20,9 @@ class GptCoder:
 
         self.milstein = MilsteinCoder()
 
-    def codeRecord(self, r: record.Record):
+    def codeRecord(self, r: Item):
         # GPT location extractions are always based on record ID, not photo ID.
-        id = r["id"].split("-")[0]
+        id = r.id.split("-")[0]
         q = self.queries.get(id)
         if not q:
             return None
@@ -41,15 +41,15 @@ class GptCoder:
             ),  # , 'point_of_interest'],
         }
 
-    def getLatLonFromGeocode(self, geocode, data, r):
+    def getLatLonFromGeocode(self, geocode, data, r: Item):
         result = self.milstein.getLatLonFromGeocode(geocode, data, r)
         if not result:
-            sys.stderr.write("gpt geocode failed: " + r["id"] + "\n")
+            sys.stderr.write(f"gpt geocode failed: {r.id}\n")
             sys.stderr.write(json.dumps(data) + "\n")
             sys.stderr.write(json.dumps(geocode) + "\n")
         else:
             tll = self.milstein._getLatLonFromGeocode(geocode, data)
-            sys.stderr.write(f'gpt geocode success: {r["id"]} {tll}: {data}\n')
+            sys.stderr.write(f"gpt geocode success: {r.id} {tll}: {data}\n")
         return result
 
     def finalize(self):
