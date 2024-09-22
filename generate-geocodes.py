@@ -249,6 +249,8 @@ if __name__ == '__main__':
         generate_js.printRecordsJson(located_recs)
     elif options.output_format == "id-location.txt":
         generate_js.printIdLocation(located_recs)
+    elif options.output_format == "id-location.json":
+        generate_js.printLocationsJson(located_recs)
     elif options.output_format == "entries.txt":
         generate_js.printRecordsText(located_recs)
     elif options.output_format == "locations.txt":
