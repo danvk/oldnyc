@@ -1,4 +1,5 @@
 <div class="instructions">
+  <div id="close-instructions">✖️</div>
   <p>Thanks for helping to map New York City's history!
   </p>
 
@@ -15,6 +16,7 @@
     And write anything interesting you notice or discover in the "Notes" box.
   </p>
 </div>
+<div id="show-instructions" style="display:none">Instructions</div>
 
 <div class="container">
   <div class="inputside" >
@@ -46,10 +48,11 @@
 
       <hr/>
       <h4>Comments and Additional Notes:</h4>
-      <textarea cols="80" rows="5" name="user_notes" placeholder="Any additional notes: how did you figure out where the image was? Anything interesting about it?"></textarea><br>
+      <textarea cols="70" rows="5" name="user_notes" placeholder="Any additional notes: how did you figure out where the image was? Anything interesting about it?"></textarea><br>
 
       <button type="submit" id="submit">Submit</button>
       <input type="hidden" name="latLng" value="" id="latLng">
+      <input type="hidden" name="lastQuery" value="" id="last-query">
   </div>
 </div>
 

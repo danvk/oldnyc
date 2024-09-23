@@ -1,51 +1,51 @@
-id,uuid,url,photo_url,date,title,alt_title,creator,subject,back_id,back_text,back_text_source,address,source,geolocatable,user_notes,latLng,location
+id,uuid,url,photo_url,date,title,alt_title,creator,subject,back_id,back_text,back_text_source,address,source,geolocatable,user_notes,latLng,location,lastQuery
 720724f,ff904770-c54e-012f-60d8-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dd-427f-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=720724f&t=w,1935,Manhattan: Kenmare Street - Cleveland Place,,"Sperr, Percy Loomis","{'name': [], 'temporal': [], 'geographic': ['Manhattan (New York, N.Y.)', 'New York', 'New York (N.Y.)', 'New York (State)'], 'topic': ['Stores & shops']}",720724b,"Kenmare Street, north side, east from, but not including Cleveland
 Place.
 April 19, 1935.
 L. Sperr.
-",site,"Kenmare Street & Cleveland Place, Manhattan, NY","Photographic views of New York City, 1870's-1970's / Manhattan",Locatable,,"{""latLng"":""40.7214605,-73.9974008""}",
+",site,"Kenmare Street & Cleveland Place, Manhattan, NY","Photographic views of New York City, 1870's-1970's / Manhattan",Locatable,,"{""latLng"":""40.7214605,-73.9974008""}",,
 731839f,2c6f6380-c560-012f-88ac-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dd-9946-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=731839f&t=w,1936,Fulton fish market in Manhattan - [Sisters observing fishermen weighing the day's catch.],,,"{'name': [], 'temporal': [], 'geographic': ['Fulton Fish Market (New York, N.Y.)', 'New York', 'New York (N.Y.)', 'New York (State)'], 'topic': ['Fish', 'Fishing boats', 'Markets', 'Piers & wharves']}",731839b,"Fulton Fish Market:  Fisherman weighing a portion of the days catch;  ""Sisters"" observing same.
 
 About 1936.
 
 Gift of Dr. Michael Wishengrad A.R.P.S.
 
-Neg. # 4059",gpt,"Fulton fish market in Manhattan - [Sisters observing fishermen weighing the day's catch.], Manhattan, NY","Photographic views of New York City, 1870's-1970's / Topics",Maybe,,"{""latLng"":""40.8025894,-73.87524309999999""}",null
+Neg. # 4059",gpt,"Fulton fish market in Manhattan - [Sisters observing fishermen weighing the day's catch.], Manhattan, NY","Photographic views of New York City, 1870's-1970's / Topics",Maybe,,"{""latLng"":""40.8025894,-73.87524309999999""}",null,
 726438f,b7461ca0-c557-012f-9a01-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dd-6f20-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=726438f&t=w,,Queens: Cross Island Bouleva - 6th Avenue,,"Sperr, Percy Loomis","{'name': [], 'temporal': [], 'geographic': ['New York (N.Y.)', 'Queens (New York, N.Y.)'], 'topic': []}",726438b,"Cross Island Boulevard, west side, between 6th and 7th Avenues, showing the next to the last house on the thoroughfare. The land is part of the property which A.C. Graham owned in 1891.
 
 August 4, 1935
 
-P. L. Sperr",gpt,"Cross Island Bouleva & 6th Avenue, Queens, NY","Photographic views of New York City, 1870's-1970's / Queens",Maybe,"This intersection no longer exists, demolished for Laguardia?","{""latLng"":""40.770773079831194,-73.76468371867674""}",null
-465522,2ef2d5c0-c612-012f-32a9-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47db-9eef-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=465522&t=w,,"A-Re-Co Court, Westchester Avenue and Southern Boulevard. [Bronx]",,,"{'name': [], 'temporal': [], 'geographic': ['New York', 'New York (State)'], 'topic': ['Apartment houses']}",,,,"Westchester Avenue and Southern Boulevard. [Bronx], Manhattan, NY",Apartment houses of the metropolis.,Locatable,not a photograph,"{""latLng"":""40.8246707,-73.89193809999999""}",null
-716728f,b73a7270-c548-012f-ac89-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dd-234c-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=716728f&t=w,1956,Manhattan: Bowery - Canal Street,,"Ogden, Beecher","{'name': [], 'temporal': [], 'geographic': ['Manhattan (New York, N.Y.)', 'New York (N.Y.)'], 'topic': ['Barbershops', 'Clothing stores']}",716728b,"Bowery, no. 46. Sept. 8, 1956 Photographer: Beecher Ogden, 38 Monroe St., New York 2, N.Y. ",gpt,"Bowery & 16th Street (West), Manhattan, NY","Photographic views of New York City, 1870's-1970's / Manhattan",Locatable,how is this missed?,"{""latLng"":""40.7166571,-73.9958183""}",null
+P. L. Sperr",gpt,"Cross Island Bouleva & 6th Avenue, Queens, NY","Photographic views of New York City, 1870's-1970's / Queens",Maybe,"This intersection no longer exists, demolished for Laguardia?","{""latLng"":""40.770773079831194,-73.76468371867674""}",null,
+465522,2ef2d5c0-c612-012f-32a9-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47db-9eef-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=465522&t=w,,"A-Re-Co Court, Westchester Avenue and Southern Boulevard. [Bronx]",,,"{'name': [], 'temporal': [], 'geographic': ['New York', 'New York (State)'], 'topic': ['Apartment houses']}",,,,"Westchester Avenue and Southern Boulevard. [Bronx], Manhattan, NY",Apartment houses of the metropolis.,Locatable,not a photograph,"{""latLng"":""40.8246707,-73.89193809999999""}",null,
+716728f,b73a7270-c548-012f-ac89-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dd-234c-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=716728f&t=w,1956,Manhattan: Bowery - Canal Street,,"Ogden, Beecher","{'name': [], 'temporal': [], 'geographic': ['Manhattan (New York, N.Y.)', 'New York (N.Y.)'], 'topic': ['Barbershops', 'Clothing stores']}",716728b,"Bowery, no. 46. Sept. 8, 1956 Photographer: Beecher Ogden, 38 Monroe St., New York 2, N.Y. ",gpt,"Bowery & 16th Street (West), Manhattan, NY","Photographic views of New York City, 1870's-1970's / Manhattan",Locatable,how is this missed?,"{""latLng"":""40.7166571,-73.9958183""}",null,
 731586f,c3a0ce20-c55f-012f-ecac-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dd-974c-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=731586f&t=w,"1931, 1936",Farming on Staten Island,,"Sperr, Percy Loomis","{'name': [], 'temporal': [], 'geographic': ['New York (N.Y.)'], 'topic': ['Croplands', 'Farms', 'Harvesting']}",731586b,"Farming on Staten Island: On the W. H. Colgan farm, 1281 Arthur Kill Road, near Woodrow Road.
 
 View 1: January 31, 1931
 Views 2, 3: May 22, 1936
 
-P. L. Sperr",gpt,,"Photographic views of New York City, 1870's-1970's / Topics",Locatable,location only in backing text,"{""latLng"":""40.565231170756014,-74.18136853226319""}",null
-734246f,f0da5410-c563-012f-0ee6-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dd-ac00-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=734246f&t=w,"1930, 1934",Harlem River - Bronx - 140th to 145th Streets (East) - [American Bread Wrapper Company.],,"Sperr, Percy Loomis","{'name': [], 'temporal': [], 'geographic': ['Harlem River (N.Y.)', 'New York (N.Y.)', 'New York (State)'], 'topic': ['Factories', 'Paper industry', 'Rivers']}",734246b,,,"140th to 145th Streets (East) - [American Bread Wrapper Company.], Harlem River, Bronx, NY","Photographic views of New York City, 1870's-1970's / Topics",Locatable,Harlem River and a street,"{""latLng"":""40.815591343765014,-73.9322566696808""}",null
+P. L. Sperr",gpt,,"Photographic views of New York City, 1870's-1970's / Topics",Locatable,location only in backing text,"{""latLng"":""40.565231170756014,-74.18136853226319""}",null,
+734246f,f0da5410-c563-012f-0ee6-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dd-ac00-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=734246f&t=w,"1930, 1934",Harlem River - Bronx - 140th to 145th Streets (East) - [American Bread Wrapper Company.],,"Sperr, Percy Loomis","{'name': [], 'temporal': [], 'geographic': ['Harlem River (N.Y.)', 'New York (N.Y.)', 'New York (State)'], 'topic': ['Factories', 'Paper industry', 'Rivers']}",734246b,,,"140th to 145th Streets (East) - [American Bread Wrapper Company.], Harlem River, Bronx, NY","Photographic views of New York City, 1870's-1970's / Topics",Locatable,Harlem River and a street,"{""latLng"":""40.815591343765014,-73.9322566696808""}",null,
 711160f,e4442500-c53f-012f-c5b5-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dc-f7d0-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=711160f&t=w,1932,Manhattan: 12th Street (West) - 9th Avenue,,"Sperr, Percy Loomis","{'name': [], 'temporal': [], 'geographic': ['Manhattan (New York, N.Y.)', 'New York (N.Y.)'], 'topic': ['Garages']}",711160b,"Little West 12th Street, east from 15 Little West 12th Street to Ninth Avenue and Gansevoort Street.
 July 9, 1932,
-P. L. Sperr.",site,"12th Street (West) & 9th Avenue, Manhattan, NY","Photographic views of New York City, 1870's-1970's / Manhattan",Locatable,,,"[40.739618, -74.006372]"
+P. L. Sperr.",site,"12th Street (West) & 9th Avenue, Manhattan, NY","Photographic views of New York City, 1870's-1970's / Manhattan",Locatable,,,"[40.739618, -74.006372]",
 731531f,ae68ec50-c55f-012f-6d70-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dd-96de-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=731531f&t=w,1940,"Ethiopian Hebrews Series, No. 44","['Manhattan: Lenox Avenue - 128th Street.', '[Royal Order of Ethiopian Hebrews.]']","Alland, Alexander","{'name': ['Commandment Keepers Ethiopian Hebrew Congregation (Harlem, New York, N.Y.)'], 'temporal': [], 'geographic': ['New York (N.Y.)'], 'topic': ['Jewish', 'Worship programs']}",731531b,"Ethiopian Hebrews Series (Royal Order of) No. 44
 
 The leader of the ""Young Judea"" group, Miss Matthew, explains the significance of ""Succoth.""
 
 1940
 
-Alexander Alland",gpt,,"Photographic views of New York City, 1870's-1970's / Topics",Locatable,,"{""latLng"":""40.809721,-73.9441544""}",null
+Alexander Alland",gpt,,"Photographic views of New York City, 1870's-1970's / Topics",Locatable,,"{""latLng"":""40.809721,-73.9441544""}",null,
 700226f,f7ca1d30-c52e-012f-db19-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dc-a22d-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=700226f&t=w,1940,Bronx: 177th Street - Broadway,,"Sperr, Percy Loomis","{'name': [], 'temporal': [], 'geographic': ['Bronx (New York, N.Y.)', 'New York', 'New York (N.Y.)', 'New York (State)'], 'topic': ['Elevated railroads', 'Railroad stations']}",700226b,"177 Street, e. fr. Bronx Park ""el"" sta.
 Neg. no. A-1235
 P. L. Sperr, photographer
-June 30, 1940",gpt,"177th Street & Broadway, Bronx, NY","Photographic views of New York City, 1870's-1970's / Bronx",Locatable,Card says Bronx / Bronx Park but this intersection seems to be in Manhattan.,"{""latLng"":""40.8475479,-73.9380475""}",null
-713053f,10025be0-c543-012f-16b6-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dd-069c-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=713053f&t=w,,Manhattan: 42nd Street (West) - Broadway,,"Sperr, Percy Loomis","{'name': [], 'temporal': [], 'geographic': ['Manhattan (New York, N.Y.)', 'New York (N.Y.)'], 'topic': []}",713053b,140 West 42nd Street adjoining the S.E. corner of Broadway. Shown is the street level only of the Coral Gables Building that was devoted to sales of “Floridian” property of that name near Miami. About 1926,site,"42nd Street (West) & Broadway, Manhattan, NY","Photographic views of New York City, 1870's-1970's / Manhattan",Locatable,,,"[40.755822, -73.98644]"
-2040770,b955e050-c6be-012f-a8b6-58d385a7bc34,https://digitalcollections.nypl.org/items/a44288b4-9c00-b31f-e040-e00a18060314,https://images.nypl.org/?id=2040770&t=w,"1900, 1999",Anniversary Day -- Clinton Avenue,,,"{'name': [], 'temporal': [], 'geographic': ['Brooklyn (New York, N.Y.)', 'New York', 'New York (State)'], 'topic': ['Buildings', 'Celebrations', 'Streets']}",,,,,Photographs of Brooklyn,Maybe,"Clinton Avenue isn't very long, but there's no cross street.",,null
+June 30, 1940",gpt,"177th Street & Broadway, Bronx, NY","Photographic views of New York City, 1870's-1970's / Bronx",Locatable,Card says Bronx / Bronx Park but this intersection seems to be in Manhattan.,"{""latLng"":""40.8475479,-73.9380475""}",null,
+713053f,10025be0-c543-012f-16b6-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dd-069c-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=713053f&t=w,,Manhattan: 42nd Street (West) - Broadway,,"Sperr, Percy Loomis","{'name': [], 'temporal': [], 'geographic': ['Manhattan (New York, N.Y.)', 'New York (N.Y.)'], 'topic': []}",713053b,140 West 42nd Street adjoining the S.E. corner of Broadway. Shown is the street level only of the Coral Gables Building that was devoted to sales of “Floridian” property of that name near Miami. About 1926,site,"42nd Street (West) & Broadway, Manhattan, NY","Photographic views of New York City, 1870's-1970's / Manhattan",Locatable,,,"[40.755822, -73.98644]",
+2040770,b955e050-c6be-012f-a8b6-58d385a7bc34,https://digitalcollections.nypl.org/items/a44288b4-9c00-b31f-e040-e00a18060314,https://images.nypl.org/?id=2040770&t=w,"1900, 1999",Anniversary Day -- Clinton Avenue,,,"{'name': [], 'temporal': [], 'geographic': ['Brooklyn (New York, N.Y.)', 'New York', 'New York (State)'], 'topic': ['Buildings', 'Celebrations', 'Streets']}",,,,,Photographs of Brooklyn,Maybe,"Clinton Avenue isn't very long, but there's no cross street.",,null,
 711182f,ed54f760-c53f-012f-422e-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dc-f7fc-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=711182f&t=w,1938,Manhattan: 13th Street (West) - Greenwich Avenue,,"Sperr, Percy Loomis","{'name': [], 'temporal': [], 'geographic': ['Jackson Square Park (New York, N.Y.)', 'Manhattan (New York, N.Y.)', 'New York', 'New York (N.Y.)', 'New York (State)'], 'topic': ['Parks']}",711182b,"West 13th Street, east from Greenwich Avenue, showing both sides of this thoroughfare. The photographers vantage point is east of Jackson Square, that triangular park on the east side of Eighth Avenue. The apartment shown on the right and left foreground are No's. 234 and 243 respectively.
 
 July 31, 1938.
 
-P. L. Sperr",site,"13th Street (West) & Greenwich Avenue, Manhattan, NY","Photographic views of New York City, 1870's-1970's / Manhattan",Locatable,,,"[40.738768, -74.002443]"
+P. L. Sperr",site,"13th Street (West) & Greenwich Avenue, Manhattan, NY","Photographic views of New York City, 1870's-1970's / Manhattan",Locatable,,,"[40.738768, -74.002443]",
 728828f,60de6680-c55b-012f-458a-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dd-81c6-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=728828f&t=w,1925,Richmond: Flagg Place - Toot Hill Road,,"Sperr, Percy Loomis","{'name': [], 'temporal': [], 'geographic': ['New York', 'New York (N.Y.)', 'New York (State)', 'Staten Island (New York, N.Y.)'], 'topic': ['Farms', 'Windmills']}",728828b,"(1)
  Flagg Place, west side between Todt Hill Road and Westerntry Road, showing the Ernest Flagg Farm. The windmill appears in the center background.
 
@@ -54,9 +54,1027 @@ P. L. Sperr",site,"13th Street (West) & Greenwich Avenue, Manhattan, NY","Photog
 (2)
  A close view of the windmill.
 
- P. L. Sperr",gpt,"Flagg Place & Toot Hill Road, Staten Island, NY","Photographic views of New York City, 1870's-1970's / Staten Island",Locatable,"Flagg Place & Todt Hill Road, Staten Island, NY, USA","{""latLng"":""40.5831897,-74.112172""}",null
-1516919,a579ed20-c5cf-012f-1cec-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47e2-1464-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=1516919&t=w,"1887, 1986",Social conditions: tenements,['Building exterior (front) and sidewalk'],,"{'name': [], 'temporal': [], 'geographic': ['New York (N.Y.)'], 'topic': ['Buildings, structures, etc.']}",1516920,,,,"Photographic views of New York City, 1870's-1970's, from the collections of the New York Public Library. Supplement.  / Topics",Not Locatable,,,null
+ P. L. Sperr",gpt,"Flagg Place & Toot Hill Road, Staten Island, NY","Photographic views of New York City, 1870's-1970's / Staten Island",Locatable,"Flagg Place & Todt Hill Road, Staten Island, NY, USA","{""latLng"":""40.5831897,-74.112172""}",null,
+1516919,a579ed20-c5cf-012f-1cec-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47e2-1464-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=1516919&t=w,"1887, 1986",Social conditions: tenements,['Building exterior (front) and sidewalk'],,"{'name': [], 'temporal': [], 'geographic': ['New York (N.Y.)'], 'topic': ['Buildings, structures, etc.']}",1516920,,,,"Photographic views of New York City, 1870's-1970's, from the collections of the New York Public Library. Supplement.  / Topics",Not Locatable,,,null,
 729022f,adef5160-c55b-012f-b8f4-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dd-834a-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=729022f&t=w,,Richmond: Innis Street - John Street,,"Sperr, Percy Loomis","{'name': [], 'temporal': [], 'geographic': ['New York (N.Y.)', 'Staten Island (New York, N.Y.)'], 'topic': []}",729022b,"Innis Street, north side, west from John Street.
 March 24, 1928.
 P. L. Sperr,
-",site,"Innis Street & John Street, Staten Island, NY","Photographic views of New York City, 1870's-1970's / Staten Island",Locatable,,,"[40.634257, -74.14409]"
+",site,"Innis Street & John Street, Staten Island, NY","Photographic views of New York City, 1870's-1970's / Staten Island",Locatable,,,"[40.634257, -74.14409]",
+720079f,04110bb0-c54e-012f-1f76-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dd-3d75-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=720079f&t=w,1936,Manhattan: Grand Street - Lafayette Street,,,"{'name': [], 'temporal': [], 'geographic': ['Manhattan (New York, N.Y.)', 'New York (N.Y.)'], 'topic': ['Courthouses']}",720079b,"146 Grand Street (left) at the N.W. corner of Lafayette (Elm) Street. Shown on the right are Nos. 174 and 176 Lafayette Street, adjoining and
+north of the corner.
+1936.
+W.P.A. Photo.
+Federal Art Project.
+",site,"Grand Street & Lafayette Street, Manhattan, NY","Photographic views of New York City, 1870's-1970's / Manhattan",Locatable,,"{""latLng"":""40.7200442,-73.9990705""}","[40.720034, -73.99908]",Grand Street & Lafayette Street
+720096f,0af91a10-c54e-012f-6df1-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dd-3d97-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=720096f&t=w,1931,Manhattan: Grand Street - Allen Street,,"Sperr, Percy Loomis","{'name': [], 'temporal': [], 'geographic': ['Manhattan (New York, N.Y.)', 'New York (N.Y.)', 'Spring Creek (New York, N.Y.)'], 'topic': ['Road construction']}",720096b,"Grand Street, south side, east from but not including Allen, to, but not including Orchard Street, as seen through clearance at the N.E. corner of Allen Street, for the widening of Allen Street.
+
+October 12, 1931.
+
+P. L. Sperr.
+",site,"Grand Street & Allen Street, Manhattan, NY","Photographic views of New York City, 1870's-1970's / Manhattan",Locatable,,"{""latLng"":""40.717270155039934,-73.99094128703307""}","[40.717384, -73.991467]",
+1507739,c0318f70-c5ce-012f-43d4-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47e1-feff-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=1507739&t=w,1941-03,12th Street (West) #130,,,"{'name': [], 'temporal': [], 'geographic': ['New York (N.Y.)'], 'topic': ['Buildings, structures, etc.']}",1507740,,,"12th Street (West) #130, Manhattan, NY","Photographic views of New York City, 1870's-1970's, from the collections of the New York Public Library. Supplement.  / Manhattan",Locatable,"Just an address, not clear if it's still the same place.","{""latLng"":""40.7363695,-73.99888039999999""}","[40.736375, -73.99891]",130 W 12th St
+713115f,2a11abe0-c543-012f-f38e-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dd-0718-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=713115f&t=w,1932,Manhattan: 42nd Street - 10th Avenue,,"Sperr, Percy Loomis","{'name': [], 'temporal': [], 'geographic': ['Manhattan (New York, N.Y.)', 'New York (N.Y.)'], 'topic': ['Restaurants']}",713115b,"42nd Street, north side, west from and including Tenth Avenue.
+February 5, 1932.
+P. L. Sperr.
+",site,"42nd Street & 10th Avenue, Manhattan, NY","Photographic views of New York City, 1870's-1970's / Manhattan",Locatable,,,"[40.75965, -73.995474]",
+712656f,6566ceb0-c542-012f-b8ca-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dd-0386-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=712656f&t=w,1923,Manhattan: 40th Street (West) - 5th Avenue,,Peyser and Patzig,"{'name': [], 'temporal': [], 'geographic': ['Manhattan (New York, N.Y.)', 'New York (N.Y.)'], 'topic': ['Building construction']}",712656b,"Foundation work and shoring on the American Radiator Building. 38-44 West 40th Street, south side, between Fifth and Sixth Avenues.
+August 20, 1923.
+Peyser & Patzig.
+",site,"40th Street (West) & 5th Avenue, Manhattan, NY","Photographic views of New York City, 1870's-1970's / Manhattan",Locatable,,"{""latLng"":""40.752787,-73.98380700000001""}","[40.7522, -73.981834]","38 West 40th Street, New York, NY, USA"
+702720f,8f539ba0-c532-012f-2554-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dc-c24e-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=702720f&t=w,"1904, 1922",Brooklyn: 35th Street (East) - Avenue R,,,"{'name': [], 'temporal': [], 'geographic': ['Brooklyn (New York, N.Y.)', 'New York (N.Y.)'], 'topic': ['Croplands', 'Farmhouses']}",702720b,"East 35th Street, south of Ave. R, nearoStoemnEill Highway and Garretsen Inlet or Creek, showing the JohahNs Lott house, built
+in 1773-76, torn down in 1905.
+1904.
+Eugene L. Armbruster Collection.
+(2)
+The same, showing land belonging to the Johannes Lott farm.
+1922.
+Eugene L. Armbruster Collection.
+(3)
+The same, another view of the farm.
+1922.
+Eugene L. Armbruster Collection.
+",site,"35th Street (East) & Avenue R, Brooklyn, NY","Photographic views of New York City, 1870's-1970's / Brooklyn",Locatable,,"{""latLng"":""40.612333819167944,-73.93572427116393""}","[40.612513, -73.935735]",
+704508f,52461240-c535-012f-8777-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dc-d042-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=704508f&t=w,1942,Brooklyn: Fulton Street - Hudson Avenue,,,"{'name': [], 'temporal': [], 'geographic': ['Brooklyn (New York, N.Y.)', 'New York', 'New York (N.Y.)', 'New York (State)'], 'topic': ['Newspaper vendors', 'Variety stores']}",704508b,"Fulton Street and Hudson Avenue, n.w. corner
+Brooklyn
+
+7/21/42
+
+Neg. A-315",site,"Fulton Street & Hudson Avenue, Brooklyn, NY","Photographic views of New York City, 1870's-1970's / Brooklyn",Locatable,,"{""latLng"":""40.68875789389966,-73.9803562883606""}","[40.688644, -73.980249]",
+723965f,2d281510-c554-012f-03a9-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dd-5bd2-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=723965f&t=w,1934,Manhattan: Wall Street - South Street,,"Sperr, Percy Loomis","{'name': [], 'temporal': [], 'geographic': ['Manhattan (New York, N.Y.)', 'New York (N.Y.)'], 'topic': ['Banks']}",723965b,"Wall Street, west from, but not including South Street. Note the Bank of Manhattan Building,(40 Wall Street) towering over all.
+October 14, 1934.
+P. L. Sperr.
+",site,"Wall Street & South Street, Manhattan, NY","Photographic views of New York City, 1870's-1970's / Manhattan",Locatable,"40 Wall St is mentioned in the description, but it's actually quite distant.","{""latLng"":""40.704371232008455,-74.00646549336243""}","[40.704237, -74.006315]",40 Wall St
+727133f,c0201980-c558-012f-938e-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dd-7487-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=727133f&t=w,,Queens: Justice Avenue - 54th Avenue,,,"{'name': [], 'temporal': [], 'geographic': ['New York (N.Y.)', 'Queens (New York, N.Y.)'], 'topic': []}",727133b,"Justice Avenue, north side, partially in the southern street line of Fifty-fourth Avenue, showing four views of the Dr. H. Holt house of 1873. One Thompson was the owner about 1891. This house was still standing in November 1933 and was occupied by Dr. A.C. Combes.
+
+D. J. Patten was the owner in 1852.
+
+January 1923
+Views 2&3: March 1923
+View 4: May 1923
+
+Eugene L. Armbruster Collection",site,"Justice Avenue & 54th Avenue, Queens, NY","Photographic views of New York City, 1870's-1970's / Queens",Locatable,,"{""latLng"":""40.736966482474266,-73.87504315211487""}","[40.736999, -73.875247]",
+711506f,72890450-c540-012f-e1ad-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dc-fa89-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=711506f&t=w,1932,Manhattan: 10th Avenue - 44th Street,,"Sperr, Percy Loomis","{'name': [], 'temporal': [], 'geographic': ['Manhattan (New York, N.Y.)', 'New York (N.Y.)'], 'topic': ['Cobblestone streets', 'Restaurants']}",711506b,"18th Street, south side, east from and including Tenth Avenue.
+July 16, 1932.
+P. L. Sperr.
+TTH:RED7 5r0
+PUBLICL.ERAR1
+",site,"10th Avenue & 44th Street, Manhattan, NY","Photographic views of New York City, 1870's-1970's / Manhattan",Locatable,"The cross-street in the title is incorrect. It's 18th street, not 44th street.","{""latLng"":""40.744467765411365,-74.00612887178038""}","[40.760934, -73.994531]",
+1507953,e525f6c0-c5ce-012f-b104-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47e1-ffd5-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=1507953&t=w,1947-09-23,47th Street (East) #231 - Second Avenue looking east,,,"{'name': [], 'temporal': [], 'geographic': ['New York (N.Y.)'], 'topic': ['Buildings, structures, etc.']}",1507954,,,"47th Street (East) #231 - Second Avenue looking east, Manhattan, NY","Photographic views of New York City, 1870's-1970's, from the collections of the New York Public Library. Supplement.  / Manhattan",Locatable,,"{""latLng"":""40.753105659103085,-73.96996002380371""}","[40.752992, -73.96988]",231 E 47th St
+708560f,aa4b41a0-c53b-012f-45d9-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dc-e380-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=708560f&t=w,1936,Manhattan: 5th Avenue - 33rd Street,,,"{'name': ['Empire State Building (New York, N.Y.)'], 'temporal': [], 'geographic': ['Manhattan (New York, N.Y.)', 'New York (N.Y.)'], 'topic': ['Night photography']}",708560b,"Fifth Ave., west side, between 33rd and 34th Streets. Shown is the Empire State Building at night as seen from the Chanin Building (122 East
+42nd Street).
+1936.
+W.P.A. Photo
+Federal Writers Project.
+",site,"5th Avenue & 33rd Street, Manhattan, NY","Photographic views of New York City, 1870's-1970's / Manhattan",Locatable,"The cross-streets are for the Empire State building, not the location where the photo is taken from.","{""latLng"":""40.7484842657162,-73.98561917063904""}","[40.747769, -73.985072]",
+706699f,b3d0a460-c538-012f-b0ec-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dc-b445-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=706699f&t=w,"1937, 1940",Brooklyn: Sheepshead Bay,,"Sperr, Percy Loomis","{'name': [], 'temporal': [], 'geographic': ['Brooklyn (New York, N.Y.)', 'Manhattan Beach (New York, N.Y.)', 'New York', 'New York (N.Y.)', 'New York (State)', 'Sheepshead Bay (New York, N.Y.)'], 'topic': ['Beaches']}",706699b,,,"Sheepshead Bay., Brooklyn, NY","Photographic views of New York City, 1870's-1970's / Brooklyn",Locatable,"Most-precise location is ""Manhattan Beach""","{""latLng"":""40.576283759303266,-73.94379219157102""}",null,Manhattan Beach
+704820f,d2887b90-c535-012f-3a0b-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dc-d2b2-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=704820f&t=w,1922,Brooklyn: Henry Street - Middagh Street,,,"{'name': [], 'temporal': [], 'geographic': ['Brooklyn (New York, N.Y.)', 'New York', 'New York (N.Y.)', 'New York (State)'], 'topic': ['Markets', 'Meat', 'Warehouses']}",704820b,"Henry Street, at the N.E. corner of Middagh Street, showing a 2-story building, used at various intervals as a meat market, and as a central distributing point for ice.
+1922.
+Eugene L. Armbruster Collection.
+",site,"Henry Street & Middagh Street, Brooklyn, NY","Photographic views of New York City, 1870's-1970's / Brooklyn",Locatable,,"{""latLng"":""40.70008753556121,-73.99157615211487""}","[40.700055, -73.99178]",
+3984737,7b7a2a00-c5d7-012f-afee-58d385a7bc34,https://digitalcollections.nypl.org/items/b4afdefd-4add-146a-e040-e00a180610a2,https://images.nypl.org/?id=3984737&t=w,,"Tenements & vacant storefronts; Jay Bee Syrup Co.: 3426 [street unknown], Bronx",,New York (N.Y.). Tenement House Dept.,"{'name': [], 'temporal': ['1930-1939'], 'geographic': ['New York', 'New York (State)'], 'topic': ['Tenement houses']}",,,,,Photographs taken by inspectors of the New York City Tenement House Department / Vol. 4,Maybe,No obvious information about Jay Bee Syrup Co in the Bronx,,null,
+700941f,f3061a70-c52f-012f-a80c-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dc-a7c3-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=700941f&t=w,"1928, 1935",Bronx: Tremont Avenue (East - Silver Street,,"Sperr, Percy Loomis","{'name': [], 'temporal': [], 'geographic': ['Bronx (New York, N.Y.)', 'New York (N.Y.)'], 'topic': ['Methodist Episcopal churches']}",700941b,"East Tremont Ave., north side, between Silver Street and Haight Ave., showing the Westchester Methodist Episcopal Church (the low
+structure in the center).
+August 3, 1928.
+P. L. Sperr.
+(2)
+The same, at a later date.
+August 25, 1935.
+P. L. Sperr.
+",site,"Tremont Avenue (East & Silver Street, Bronx, NY","Photographic views of New York City, 1870's-1970's / Bronx",Locatable,"Haight Avenue does not intersect East Tremont Ave., at least not any more.","{""latLng"":""40.8432344588248,-73.8474252465229""}","[40.843063, -73.848073]",
+700523f,6207df60-c52f-012f-86f6-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dc-a47f-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=700523f&t=w,1931,Bronx: Boston Road - 173rd Street (East),,,"{'name': [], 'temporal': [], 'geographic': ['Bronx (New York, N.Y.)', 'New York', 'New York (N.Y.)', 'New York (State)'], 'topic': ['Educational facilities', 'Public schools']}",700523b,"Bostxn Road, west side, between E.173rd Street and Suburban Place, showing the library in the Hermann Ridder Junior UHigh School(P.S.
+98).
+Board ot Education of the City of New York
+Credit Line Imperative  Vecember, 1931
+",site,"Boston Road & 173rd Street (East), Bronx, NY","Photographic views of New York City, 1870's-1970's / Bronx",Locatable,,"{""latLng"":""40.83618368624727,-73.89059326085206""}","[40.836163, -73.889814]",Boston Road & East 173rd Street
+3985087,e10327b0-c5d7-012f-5819-58d385a7bc34,https://digitalcollections.nypl.org/items/b4afdefd-4c3b-146a-e040-e00a180610a2,https://images.nypl.org/?id=3985087&t=w,,"Tenement row, Upper East Side: Manhattan",,New York (N.Y.). Tenement House Dept.,"{'name': [], 'temporal': ['1930-1939'], 'geographic': ['New York', 'New York (State)'], 'topic': ['Tenement houses']}",,,,,Photographs taken by inspectors of the New York City Tenement House Department / Vol. 7,Maybe,"Possible that there's some writing on the bottom. Or maybe there's additional information about what the ""18377"" means?",,null,
+706405f,4487e770-c538-012f-30a3-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dc-b1f9-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=706405f&t=w,,Brooklyn: Putnam Avenue - Irving Place,,,"{'name': [], 'temporal': [], 'geographic': ['Brooklyn (New York, N.Y.)', 'New York (N.Y.)'], 'topic': []}",706405b,"South side of Putnam Ave., east of Irving Pl., B'klyn. ",site,"Putnam Avenue & Irving Place, Brooklyn, NY","Photographic views of New York City, 1870's-1970's / Brooklyn",Locatable,,"{""latLng"":""40.68287532006393,-73.95948259259033""}","[40.682916, -73.959783]",
+716833f,e5e5bce0-c548-012f-4b1e-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dd-241d-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=716833f&t=w,1904,Manhattan: Broad Street - Wall Street,,,"{'name': ['New York Stock Exchange'], 'temporal': [], 'geographic': ['Manhattan (New York, N.Y.)', 'New York', 'New York (N.Y.)', 'New York (State)'], 'topic': ['Stock exchanges']}",716833b,"Broad Street, adjoining the S.W. corner of Wall Street, showing the facade of the New York Stock Exchange
+Building.
+The center figure represents ""Integrity."" On the right the groups represent ""Frimitive Agriculture and the Products of the Soil' and ""Mining.' On the loft, ""votive Power, Scientific and Mechanical Appliances"" and ""the
+Designer and Mechanic.""
+This appeared in the Evening Mail Illustrated Saturday Magazine of June 18, 1904 several days after
+the unveiling ceremonies.
+June, 1904
+Gift of Urbrock Collection
+NVEG ~ EE35
+",site,"Broad Street & Wall Street, Manhattan, NY","Photographic views of New York City, 1870's-1970's / Manhattan",Locatable,"subject/name: New York Stock Exchange
+","{""latLng"":""40.7068758,-74.01126479999999""}","[40.70713, -74.010723]",New York Stock Exchange
+104762,bd3a3d50-c5ee-012f-4b7b-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47d9-cb8b-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=104762&t=w,,"Staten Island Hospital New Building, Castleton Ave. Staten Island, N.Y. [old S.R. Smith Infirmary visible in background]",,,"{'name': [], 'temporal': [], 'geographic': ['Staten Island (New York, N.Y.)'], 'topic': []}",,,,"Staten Island Hospital  New Building, Castleton Ave. Staten Island, N.Y.",Staten Island post cards / Hospitals,Locatable,Got address of Staten Island Hospital from this news clip of demolition! https://www.youtube.com/watch?v=LxH6VS8cHmQ,"{""latLng"":""40.634663,-74.086732""}",null,101 Castleton Ave
+729556f,7f4cc260-c55c-012f-f8cc-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dd-8778-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=729556f&t=w,1937,Richmond: Rossville Avenue - Knesel Street,,"Sperr, Percy Loomis","{'name': [], 'temporal': [], 'geographic': ['New York', 'New York (N.Y.)', 'New York (State)', 'Staten Island (New York, N.Y.)'], 'topic': ['Barns', 'Educational facilities', 'Farmhouses', 'Public schools']}",729556b,"Rossville Avenue, east side, south from Knesel Street, showing an old house and barns, No. 1013, and Public School No. 6, at Grover Street.
+May 5, 1937
+P. L. Sperr
+",site,"Rossville Avenue & Knesel Street, Staten Island, NY","Photographic views of New York City, 1870's-1970's / Staten Island",Locatable,"""Grover Street"" doesn't seem to exist any more.","{""latLng"":""40.55258632946352,-74.21227427116395""}","[40.552676, -74.212285]",
+716093f,b5a51600-c547-012f-6268-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dd-1e5a-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=716093f&t=w,1900,Manhattan: Amsterdam Avenue - Cathedral Parkway,"['Photographs of the Cathedral of St. John the Divine [during construction. Stone yard, June, 1900.]']",,"{'name': ['Cathedral of St. John the Divine (New York, N.Y.)'], 'temporal': [], 'geographic': ['Manhattan (New York, N.Y.)', 'New York (N.Y.)'], 'topic': ['Building construction']}",716093b,,,"Amsterdam Avenue & Cathedral Parkway, Manhattan, NY","Photographic views of New York City, 1870's-1970's / Manhattan",Locatable,,"{""latLng"":""40.80397879245396,-73.96185670765685""}","[40.802988, -73.963863]",
+730149f,84969dd0-c55d-012f-799b-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dd-8c1a-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=730149f&t=w,1930,General view - Midtown and downtown Manhattan from Chrysler building,['[Consolidated Edison Company ; New York Life Insurance Company.]'],"Galloway, Ewing","{'name': [], 'temporal': [], 'geographic': ['New York (N.Y.)'], 'topic': ['Insurance companies', 'Public utility companies']}",730149b,"A general view of midtown and downtown Manhattan as photographed southward from the Chrysler Building. In the right foreground are the clustered commercial structures below 34th Street rising on Fourth, Madison and Fifth Avenues. These are dominated by the outstanding New York Life Insurance Co. Bldg. To the east are Lexington, Third and Second Avenues, the first of which apparently terminating with the towered Consolidated Edison Co. Bldg. The famed Wall Street skyline is silhouetted against the Upper Bay. At the right margin is the North River and its Jersey shore.
+
+1930
+
+Ewing Galloway, photo",gpt,,"Photographic views of New York City, 1870's-1970's / Topics",Locatable,View _from_ the Chrysler building; it's a panorama,"{""latLng"":""40.7516208,-73.97550199999999""}",null,Chrysler Building
+708487f,8fa131b0-c53b-012f-a3b6-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dc-e2ee-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=708487f&t=w,,Manhattan: 5th Avenue - 32nd Street,,,"{'name': ['Waldorf-Astoria Hotel (New York, N.Y.)'], 'temporal': [], 'geographic': ['Manhattan (New York, N.Y.)', 'New York (N.Y.)'], 'topic': ['Hotels']}",708487b,"P.L. Sperr collection
+Rec'd January 13, 1945
+",site,"5th Avenue & 32nd Street, Manhattan, NY","Photographic views of New York City, 1870's-1970's / Manhattan",Locatable,"_Received_ 1945, but clearly depicts a much earlier time, maybe 1900s.","{""latLng"":""40.74737633122723,-73.98531088095093""}","[40.747165, -73.985504]",
+722243f,61d4de80-c551-012f-885d-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dd-4e5d-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=722243f&t=w,,Manhattan: Park Avenue - Vanderbilt Avenue,,Cross & Brown Company,"{'name': [], 'temporal': [], 'geographic': ['Manhattan (New York, N.Y.)', 'New York (N.Y.)'], 'topic': []}",722243b,"Received from Cross & Brown Co., March 1968 ",gpt,"Park Avenue & Vanderbilt Avenue, Manhattan, NY","Photographic views of New York City, 1870's-1970's / Manhattan",Locatable,Clearly same building depicted in this photo of 350 Park Ave by the current owner https://www.vno.com/office/property/350-park-avenue/3311665/landing,"{""latLng"":""40.75833790000001,-73.973889""}",null,350 Park Ave
+1558311,f1448390-c5ec-012f-a121-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47e2-cfa8-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=1558311&t=w,,35 East 72nd Street - Madison Avenue,['Central Hanover Bank vault'],Wurts Brothers,"{'name': [], 'temporal': [], 'geographic': ['Manhattan (New York, N.Y.)', 'New York', 'New York (N.Y.)', 'New York (State)'], 'topic': ['Buildings, structures, etc', 'Historic buildings']}",,,,"35 East 72nd Street - Madison Avenue, Manhattan, NY","[Collection of photographs of New York City.] / [Wurts Brothers, photographer] / Manhattan",Locatable,,"{""latLng"":""40.771874,-73.9648502""}","[40.771783, -73.965442]",35 E 72nd St
+729455f,57d7f5d0-c55c-012f-242f-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dd-86ae-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=729455f&t=w,1938,Richmond: Richmond Terrace - Jersey Street,,"Sperr, Percy Loomis","{'name': [], 'temporal': [], 'geographic': ['New York (N.Y.)', 'Staten Island (New York, N.Y.)'], 'topic': ['Business districts']}",729455b,"Richmond Terrace, east from (No. 472) a point east of Jersey Street.
+June 11, 1938.
+P.L. Sperr
+",site,"Richmond Terrace & Jersey Street, Staten Island, NY","Photographic views of New York City, 1870's-1970's / Staten Island",Locatable,,"{""latLng"":""40.64688,-74.0881946""}","[40.646657, -74.088944]",472 Richmond Ter
+704559f,673f6540-c535-012f-247f-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dc-d0a8-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=704559f&t=w,,Brooklyn: Fulton Street - Brooklyn Avenue,,"Sperr, Percy Loomis","{'name': [], 'temporal': [], 'geographic': ['Brooklyn (New York, N.Y.)', 'New York (N.Y.)'], 'topic': []}",704559b,"Fulton St. at Brooklyn Ave. & westward, B'klyn.
+May 14, 1942
+
+P.L. Sperr, photographer
+",site,"Fulton Street & Brooklyn Avenue, Brooklyn, NY","Photographic views of New York City, 1870's-1970's / Brooklyn",Locatable,,"{""latLng"":""40.680097,-73.94397909999999""}","[40.680088, -73.943973]",Fulton Street & Brooklyn Avenue
+1691051,6b604c70-c6cc-012f-c53d-58d385a7bc34,https://digitalcollections.nypl.org/items/5f35a6a2-c33c-5f1c-e040-e00a18064c3c,https://images.nypl.org/?id=1691051&t=w,1925,Posters and advertisements on walls of Madison Square Garden,,Wurts Brothers,"{'name': ['Madison Square Garden (New York, N.Y.)'], 'temporal': [], 'geographic': ['New York', 'New York (State)'], 'topic': ['Advertising fliers', 'Buildings', 'Columns', 'Posters']}",,,,,"[Photographs of Madison Square Garden. New York, 1925]",Locatable,"Based on the colonnade, this is MSG 2, which was at 26th & Madison: https://en.wikipedia.org/wiki/Madison_Square_Garden_(1890)","{""latLng"":""40.7427736,-73.98660199999999""}",null,East 26th Street & Madison Avenue
+705500f,e4abd2e0-c536-012f-b66b-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dc-d802-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=705500f&t=w,"1938, 1939",Brooklyn: Lorraine Street - Columbia Street,,,"{'name': [], 'temporal': [], 'geographic': ['Brooklyn (New York, N.Y.)', 'New York (N.Y.)'], 'topic': ['Building construction', 'Housing']}",705500b,"Lorraine Street, east from Columbia Street. The buildings on the north side of the street were later razed to make way for the low rent Red Hook Housing Project sponsored by the New York City Housing Authority. Views 2 and 3 show the new housing center under construction.
+View 1: June 9, 1938
+View 2: April 9, 1939
+View 3: October 21, 1939
+P. L. Sperr
+",site,"Lorraine Street & Columbia Street, Brooklyn, NY","Photographic views of New York City, 1870's-1970's / Brooklyn",Locatable,,"{""latLng"":""40.674725780881005,-74.00796722090149""}","[40.67462, -74.007699]",
+703901f,5f8f5ef0-c534-012f-5998-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dc-cb84-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=703901f&t=w,,Brooklyn: Cropsey Avenue - 25th Avenue,,,"{'name': [], 'temporal': [], 'geographic': ['Brooklyn (New York, N.Y.)', 'New York (N.Y.)'], 'topic': []}",703901b,"Cropsey Ave., west from Twenty-fifth Ave., to its junction with Harway Ave.
+March 1925.
+Eugene L. Armbruster Collection.
+",site,"Cropsey Avenue & 25th Avenue, Brooklyn, NY","Photographic views of New York City, 1870's-1970's / Brooklyn",Locatable,,"{""latLng"":""40.5925482635734,-73.99277649073791""}","[40.592312, -73.993152]",
+720912f,46448f60-c54f-012f-d742-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dd-43f6-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=720912f&t=w,,Manhattan: Lewis Street - 4th Street (East),,"Sperr, Percy Loomis","{'name': [], 'temporal': [], 'geographic': ['Manhattan (New York, N.Y.)', 'New York (N.Y.)'], 'topic': []}",720912b,"172 to 176 Lewis Street (left), at, adjoining and north of the N.E. corner of East 4th Street. The corner house (No. 172), also bears No. 395 of the latter street. Also shown is east 4th Street, north side, east from and including Lewis Street to the East River.
+
+June 10, 1933.
+
+P. L. Sperr.",gpt,"Lewis Street & 4th Street (East), Manhattan, NY","Photographic views of New York City, 1870's-1970's / Manhattan",Locatable,Old Streets from NYPL shows that Lewis St once extended further north from Williamsburg Bridge and did indeed intersect E 4th St,"{""latLng"":""40.720730901093965,-73.97650444746856""}",null,176 Lewis St
+704240f,e6223350-c534-012f-4212-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dc-ce2a-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=704240f&t=w,"1914, 1922",Brooklyn: Flatbush Avenue - Chester Court,,,"{'name': [], 'temporal': [], 'geographic': ['Brooklyn (New York, N.Y.)', 'New York (N.Y.)'], 'topic': ['Farmhouses']}",704240b,"(1)
+4612 Flatbush Ave., west side, north of Chester Ceurt, showin; the Gerritsen farmhouse, erected ky J. Birdsall, in 1800 on the site ef the Isaac Lefferts house, which was destroyed by the British in 1776.
+1922.
+Eugene L Armbruster Cellection.
+(2)
+The same, showing the ether side ef the heuse.
+1922.
+Eugene L. Arsmbruster Cellectien.
+(3)
+The same, showing a cleser view.
+1922.
+Eugene L. Armbruster Cellectien.
+",site,"Flatbush Avenue & Chester Court, Brooklyn, NY","Photographic views of New York City, 1870's-1970's / Brooklyn",Locatable,"According to https://www.prospectpark.org/visit-the-park/places-to-go/lefferts-historic-house/, the Isaac Lefferts house was near Maple and Flatbush (563 Flatbush).","{""latLng"":""40.6599675,-73.9604219""}","[40.658419, -73.96046]",563 Flatbush Ave
+711207f,f869e930-c53f-012f-ea11-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dc-f82f-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=711207f&t=w,1937,Manhattan: 14th Street (East) - Avenue B,,,"{'name': [], 'temporal': [], 'geographic': ['Manhattan (New York, N.Y.)', 'New York (N.Y.)'], 'topic': ['Catholic churches']}",711207b,"
+
+East 14th Street, west from Avenue B, showing pavement repairs under way through the co-operation of the City and the W.P.A.. View 2 is slightly west, being nearer to Avenue A. Note the Immaculate Conception Roman Catholic Church and school at the right.  The tower in the background is atop the Consolidated Edison Company Building.
+
+May 17, 1937
+No's.  1-2
+
+W.P.A. Photo
+Five Boroughs Project",site,"14th Street (East) & Avenue B, Manhattan, NY","Photographic views of New York City, 1870's-1970's / Manhattan",Locatable,,"{""latLng"":""40.72974748347291,-73.9787908356903""}","[40.729409, -73.978028]",414 E 14th St
+734694f,b439e670-c564-012f-4744-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dd-af7f-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=734694f&t=w,"1930, 1931",North (Hudson) River - Pier 92,"['Department of Sanitation trucks.', '[Manhattan: 12th Avenue - 52nd Street (West).]']","Sperr, Percy Loomis","{'name': [], 'temporal': [], 'geographic': ['Hudson River (N.Y. and N.J.)', 'New York', 'New York (N.Y.)', 'New York (State)'], 'topic': ['Piers & wharves']}",734694b,"(1)
+North (Hudson) River, showing pier 92, off Twelfth Ave., at the foot of West 52nd Street. Department of Sanitation trucks are dumping garbage into a garbage scow. This pier was demolished between 1931 and 1934 to make way for a new 1000 foot dock to accommodate ocean liners.
+P. L. Sperr.
+
+(2)
+The same, another view.
+P. L. Sperr.
+
+(3)
+Another view at a later date. The 3 views are in a northwesterly direction as seen from the foot of East 51st Street.
+May 29, 1931.
+P. L. Sperr.",gpt,"Pier 92., Hudson River, Manhattan, NY","Photographic views of New York City, 1870's-1970's / Topics",Locatable,"""Pier 92"" remains an accurate location, as does ""12th Ave & West 52nd Street"".","{""latLng"":""40.7680963,-73.9959714""}",null,12th Avenue & West 52nd Street
+704527f,5a0c69b0-c535-012f-25c8-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dc-d068-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=704527f&t=w,1941,Brooklyn: Fulton Street - Rockwell Place,,,"{'name': [], 'temporal': [], 'geographic': ['Brooklyn (New York, N.Y.)', 'New York', 'New York (N.Y.)', 'New York (State)'], 'topic': ['Elevated railroads', 'demolition']}",704527b,"1. Fulton St. west of Rockwell Pl. ""L"" demolition.
+June 21, 1941
+P.L. Sperr, photographer
+Neg. A-162
+
+2. Fulton St. at n.w. cor. of Rockwell Pl.
+July 14, 1941
+P.L. Sperr
+Neg. A-247
+",site,"Fulton Street & Rockwell Place, Brooklyn, NY","Photographic views of New York City, 1870's-1970's / Brooklyn",Locatable,,,"[40.68825, -73.979279]",
+722559f,df456390-c551-012f-7dff-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dd-50d5-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=722559f&t=w,,Manhattan: Perry Street - West Street,,"Sperr, Percy Loomis","{'name': [], 'temporal': [], 'geographic': ['Manhattan (New York, N.Y.)', 'New York (N.Y.)'], 'topic': []}",722559b,"Perry Street, south side, from West to Washington Streets, inclusive.
+July 30, 1932.
+P. L. Sperr.
+",site,"Perry Street & West Street, Manhattan, NY","Photographic views of New York City, 1870's-1970's / Manhattan",Locatable,,"{""latLng"":""40.734645426397584,-74.00923942195129""}","[40.734556, -74.010087]",
+705398f,bb5ebf30-c536-012f-dbfd-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dc-d736-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=705398f&t=w,1941,Brooklyn: Lefferts Place - Classon Avenue,,"Sperr, Percy Loomis","{'name': [], 'temporal': [], 'geographic': ['Brooklyn (New York, N.Y.)', 'New York', 'New York (N.Y.)', 'New York (State)'], 'topic': ['Brownstone buildings', 'Houses']}",705398b,"Lefferts Place, adjoining the northeast corner of Classon Avenue,
+showing some remaining brownstones.
+P. L. Sperr  September 6, 1941
+",site,"Lefferts Place & Classon Avenue, Brooklyn, NY","Photographic views of New York City, 1870's-1970's / Brooklyn",Locatable,,"{""latLng"":""40.68085495367849,-73.95822433862304""}","[40.680798, -73.958396]",
+727870f,e18a0dc0-c559-012f-536f-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dd-7a4a-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=727870f&t=w,1931,Queens: Ravenswood,,"Beals, A. Tennyson","{'name': [], 'temporal': [], 'geographic': ['New York (N.Y.)', 'Queens (New York, N.Y.)', 'Ravenswood (New York, N.Y.)'], 'topic': ['Smokestacks']}",727870b,"Ravenswood
+Photo by Mr. A. Tennyson Beals
+Emergency Work Bureau
+1931",gpt,"Ravenswood., Queens, NY","Photographic views of New York City, 1870's-1970's / Queens",Locatable,Located thanks to Bowery Boys podcast episode https://www.boweryboyshistory.com/2017/09/fall-ravenswood-old-aristocratic-queens.html#google_vignette,"{""latLng"":""40.7599072,-73.9451668""}",null,Ravenswood Generating Station
+730461f,06cb9970-c55e-012f-c190-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dd-8e89-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=730461f&t=w,1929,General view - Wall Street - Northwest,['[Manhattan: Wall Street - Hanover Street ; 59 Wall Street - Wall and Hanover Building ; Federal Reserve Bank of New York ; Municipal Building ; National City Bank ; Transportation Building ; Woolworth Building.]'],"Sperr, Percy Loomis","{'name': ['David N. Dinkins Manhattan Municipal Building (New York, N.Y.)', 'Woolworth Building (New York, N.Y.)'], 'temporal': [], 'geographic': ['City Hall Park (New York, N.Y.)', 'New York', 'New York (N.Y.)', 'New York (State)'], 'topic': ['Banks', 'Monuments & memorials', 'Parks']}",730461b,"59 Wall Street, (Wall and Hanover Building); Hanover Street, east side, from Wall to Beaver Streets, (general view northwestward).
+
+Two views across Wall Street towards Broadway and City Hall park, showing there the prominent Transportation, Woolworth and Municipal Buildings.
+
+At the left margin is a portion of the National City Building (No. 52 Wall Street) overlooking the elongated Federal Reserve.
+
+June 26, 1929
+Views 1 and 2
+
+P. L. Sperr",gpt,,"Photographic views of New York City, 1870's-1970's / Topics",Locatable,There are many possible choices of location for this general view. This is Wall & Hanover.,"{""latLng"":""40.7060255,-74.0088244""}",null,Wall Street & Hanover Street
+726218f,6aec06c0-c557-012f-cde5-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dd-6d68-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=726218f&t=w,1920,Queens: Broadway - Corona Avenue,,,"{'name': [], 'temporal': [], 'geographic': ['New York (N.Y.)', 'Queens (New York, N.Y.)'], 'topic': ['Episcopal churches']}",726218b,"Broadway, at the N. E. corner of Corona Avenue, showing four views of the St. James P. E. Church and Parsonage. This edifice was erected on the site of the Dr. Jacob Ogden house. He donated it in 1761. Evidently the property was expressly left to him for this purpose by the last will of William Sackett. The structure was opened in 1848 and consecrated on November 15, 1849. A town clock was also placed in one of the spires. On March 30, 1871 it was reopened after being enlarged. It is said that this parish was organized in 1704. View 4, taken in the opposite direction, shows beyond the church, another which is the First Reformed Church
+of Newtown.
+1920i
+Views 1,2,3,4
+Eugene L. Armbruster Collection
+",site,"Broadway & Corona Avenue, Queens, NY","Photographic views of New York City, 1870's-1970's / Queens",Locatable,St. James Episcopal Church,"{""latLng"":""40.739866485354696,-73.87807893254087""}","[40.739395, -73.877918]",
+709634f,6fdb4ab0-c53d-012f-d1e2-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dc-ebe5-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=709634f&t=w,"1932, 1933",Manhattan: 7th Avenue South - Perry Street,,"Sperr, Percy Loomis","{'name': [], 'temporal': [], 'geographic': ['Manhattan (New York, N.Y.)', 'New York (N.Y.)'], 'topic': ['Apartment houses', 'Gasoline pumps', 'Hospitals']}",709634b,"Seventh Avenue South, at N. E. corner of Perry Street, showing in background St. Vincent's Hospital.
+March 15, 1932.
+P.L. Sperr,Photographer.
+Seventh Avenue South, at N. E. corner of Perry Street.
+February 18, 1933.
+P.L. Sperr, Photographer.
+",site,"7th Avenue South & Perry Street, Manhattan, NY","Photographic views of New York City, 1870's-1970's / Manhattan",Locatable,,"{""latLng"":""40.73587523045412,-74.00144502943039""}","[40.735798, -74.001555]",
+1508239,fca09850-c5ce-012f-c344-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47e2-0462-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=1508239&t=w,"1887, 1986",57th Street (East) #207,['Sutton Theatre'],,"{'name': [], 'temporal': [], 'geographic': ['New York (N.Y.)'], 'topic': ['Buildings, structures, etc.']}",1508240,,,"57th Street (East) #207, Manhattan, NY","Photographic views of New York City, 1870's-1970's, from the collections of the New York Public Library. Supplement.  / Manhattan",Locatable,"Sutton Theatre has since been demolished, in 2005 https://cinematreasures.org/theaters/308/","{""latLng"":""40.7602847,-73.9668148""}","[40.765757, -73.980536]",207 E 57th St
+1557923,8888ec30-c5ec-012f-d9c2-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47e2-ef22-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=1557923&t=w,1916,Fifth Avenue - West 42nd Street,['The New York Public Library Building'],Wurts Brothers,"{'name': ['New York Public Library. Humanities and Social Sciences Library'], 'temporal': [], 'geographic': ['Manhattan (New York, N.Y.)', 'New York', 'New York (N.Y.)', 'New York (State)'], 'topic': ['Buildings, structures, etc', 'Historic buildings', 'Libraries']}",,,,"Fifth Avenue - West 42nd Street, Manhattan, NY","[Collection of photographs of New York City.] / [Wurts Brothers, photographer] / Manhattan",Locatable,,,"[40.753488, -73.980894]",
+711802f,ec68b020-c540-012f-9bb1-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dc-fcd9-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=711802f&t=w,,Manhattan: 25th Street (West) - 7th Avenue,,,"{'name': [], 'temporal': [], 'geographic': ['Manhattan (New York, N.Y.)', 'New York (N.Y.)'], 'topic': []}",711802b,"(1)
+247-207 West 25th Street, north side, west of Seventh Avenue. Bethel Chapel, in the centre, will soon be demolished, as will the house at the left 247 West 25th Street. The 12 story building at the right, is the Graphic Arts Building.
+About 1914.
+Bethel A.M.E. Church
+
+(2)
+A closer view of Bethel Chapel, 233-245 West 25th Street.
+1915.
+",site,"25th Street (West) & 7th Avenue, Manhattan, NY","Photographic views of New York City, 1870's-1970's / Manhattan",Locatable,,"{""latLng"":""40.7458535,-73.9953583""}","[40.74539, -73.994709]",207 West 25th Street
+1113250,7038fdf0-c6ca-012f-c723-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dc-9a7b-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=1113250&t=w,,"No. 251, Coleman, Tailor, Little Shop - Pennsylvania Railroad Co. - No. 265 Calumet Club.]",,Welles & Co.--Publisher,"{'name': [], 'temporal': [], 'geographic': ['Fifth Avenue (New York, N.Y.)', 'New York', 'New York (N.Y.)', 'New York (State)'], 'topic': ['Antique stores', 'Buildings', 'Merchandise displays', 'Stores & shops', 'Streets']}",,,,,"Fifth Avenue, New York, from start to finish.",Locatable,251 5th Avenue gives a good location. This whole collection could be treated specifically. I think it must be looking to the east based on the decreasing addresses from left to right.,"{""latLng"":""40.74494218209529,-73.98697822698364""}",null,251 5th Ave
+730376f,e27973b0-c55d-012f-81e2-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dd-8ddf-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=730376f&t=w,1930,General view - [Manhattan - Irving Place - Between 14th and 20th Streets (East).],['[4 Irving Place - Consolidated Edison Building.]'],"Sperr, Percy Loomis","{'name': [], 'temporal': [], 'geographic': ['New York (N.Y.)'], 'topic': []}",730376b,"A general view, south from 4 Irving Place, at the S.E. corner of 15th Street, between Third Ave., and Union Square East. (Irving Place extends from 14th Street, north to 20th Street). (Union Square East is a continuation south of Fourth Ave.).
+
+September 23, 1930.
+
+P. L. Sperr.",gpt,"Irving Place - Between 14th and 20th Streets (East)., Manhattan, NY","Photographic views of New York City, 1870's-1970's / Topics",Locatable,,"{""latLng"":""40.7340863,-73.9879666""}",null,4 Irving Pl
+3985221,096657e0-c5d8-012f-89e4-58d385a7bc34,https://digitalcollections.nypl.org/items/b4afdefd-4cc1-146a-e040-e00a180610a2,https://images.nypl.org/?id=3985221&t=w,,"Tenements & storefronts; Sam Fisher Tailor, Ave C Tire, Schlesinger's Bakery: 25-31 Av C-E. 2nd St-E. 3rd St, Manhattan",,New York (N.Y.). Tenement House Dept.,"{'name': [], 'temporal': ['1930-1939'], 'geographic': ['New York', 'New York (State)'], 'topic': ['Tenement houses']}",,,,,Photographs taken by inspectors of the New York City Tenement House Department / Vol. 8,Locatable,,"{""latLng"":""40.721404468835175,-73.98087842830458""}",null,31 Ave. C
+721087f,87fc8ac0-c54f-012f-80b6-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dd-4554-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=721087f&t=w,1929,Manhattan: Lexington Avenue - 92nd Street,,"Sperr, Percy Loomis","{'name': [], 'temporal': [], 'geographic': ['Manhattan (New York, N.Y.)', 'New York (N.Y.)'], 'topic': ['Apartment houses', 'Dairy products industry']}",721087b,"Lexington Avenue at S. W. corner of 92nd Street.
+March 29, 1929.
+P.L. Sperr,Photographer.
+The New York
+Public Library
+Astor, Lenox, and
+Tilden Foundations
+",site,"Lexington Avenue & 92nd Street, Manhattan, NY","Photographic views of New York City, 1870's-1970's / Manhattan",Locatable,,"{""latLng"":""40.783292752562545,-73.9529458392868""}","[40.783309, -73.952801]",
+704319f,05769a40-c535-012f-78c2-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dc-cec8-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=704319f&t=w,1922,Brooklyn: Flatbush Avenue - Kings Highway,,,"{'name': [], 'temporal': [], 'geographic': ['Brooklyn (New York, N.Y.)', 'New York (N.Y.)'], 'topic': ['Farmhouses']}",704319b,"Flatbush Ave., west side, between Kings Highway and Flatlands Ave.. now (1936), approximately 78-84 Flatbush Ave.  This was known as the Peter Lott house, after Peter Lott who settled in Flatbush about 1650. His descendants, Johannes E. and Abraham Lott, purchased it from Aert Willenoss,
+early in the 18th century. It has been razed.
+1922.
+Eugene L. Armbruster Collection.
+",site,"Flatbush Avenue & Kings Highway, Brooklyn, NY","Photographic views of New York City, 1870's-1970's / Brooklyn",Locatable,,"{""latLng"":""40.62168514977389,-73.93626273306577""}","[40.622393, -73.93665]",Flatbush Avenue & Kings Highway
+725388f,4ec561a0-c556-012f-83f7-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dd-66f1-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=725388f&t=w,1938,Queens: 50th Avenue - 21st Street,,Somach Photographic Company,"{'name': [], 'temporal': [], 'geographic': ['New York (N.Y.)', 'Queens (New York, N.Y.)'], 'topic': ['Freight terminals']}",725388b,"50th Avenue, west from 21st Street. Directly across the street from the garage, where automobiles are parked, was later constructed a broad concrete approach to the Queens-Midtown Tunnel.
+
+November 21, 1938
+
+New York City Tunnel Authority
+CREDIT LINE IMPERATIVE
+",site,"50th Avenue & 21st Street, Queens, NY","Photographic views of New York City, 1870's-1970's / Queens",Locatable,,"{""latLng"":""40.7416485,-73.94951750000001""}","[40.741716, -73.949493]",50th Avenue & 21st Street
+708231f,28b66520-c53b-012f-3e25-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dc-e0f2-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=708231f&t=w,,Manhattan: 4th Avenue - 23rd Street,['[Academy of Design]'],,"{'name': [], 'temporal': [], 'geographic': ['Manhattan (New York, N.Y.)', 'New York (N.Y.)'], 'topic': []}",708231b,"Academy of Design
+Fourth Ave. & 23rd St.
+NYC
+Torn down in 1901",site,"4th Avenue & 23rd Street, Manhattan, NY","Photographic views of New York City, 1870's-1970's / Manhattan",Locatable,Park Ave was formerly called Fourth Ave. https://en.wikipedia.org/wiki/Park_Avenue,"{""latLng"":""40.7402208,-73.9864273""}","[40.740165, -73.98631]",Park Avenue South & East 23rd Street
+724096f,646fcb40-c554-012f-9bf8-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dd-5cd8-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=724096f&t=w,1931,Manhattan: Washington Street - Dey Street,,"Sperr, Percy Loomis","{'name': [], 'temporal': [], 'geographic': ['Manhattan (New York, N.Y.)', 'New York', 'New York (N.Y.)', 'New York (State)'], 'topic': ['Electric apparatus and appliances', 'Radios', 'Stores & shops']}",724096b,"Washington Street, north from and including Telegram Square (Dey Street) to Fulton Street. The view also shows Dey Street, west from and including Washington to West Streets.
+
+April 19, 1931.
+
+P. L. Sperr.",gpt,"Washington Street & Dey Street, Manhattan, NY","Photographic views of New York City, 1870's-1970's / Manhattan",Locatable,Approximate based on Dey St (nyc-streets.geojson) and where Washington St. would be had it gone through here.,"{""latLng"":""40.712169638162536,-74.01327840265503""}",null,West Street
+731693f,ef597a30-c55f-012f-8fbb-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dd-9822-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=731693f&t=w,"1931, 1932",Feast of Saint Anthony of Padua,,"Sperr, Percy Loomis","{'name': [], 'temporal': [], 'geographic': ['New York (N.Y.)'], 'topic': ['Bridges', 'Celebrations', 'Children', 'Crowds', 'Feast of Saint Anthony of Padua (New York, N.Y.)']}",731693b,"(1)
+Feast of St. Anthony of Padua, 1931, No. 7. The tower, in 106th Street just east of Second Avenue.
+September 7, 1931.
+
+P. L. Sperr.
+
+(2)
+Feast of St. Anthony of Padua, 1932 (Children's Feast), No. 1. This year, as the country neared the bottom of the depression of the 1930's, the Bruscianese colony could not afford their annual festival. The children, accordingly, decided to have one of their own. Here they are shown rallying around their tower at the N.E. corner of First Avenue and 106th Street, on Labor Day.
+September 5, 1932.
+
+P. L. Sperr.
+
+Neg. # 2086",gpt,,"Photographic views of New York City, 1870's-1970's / Topics",Locatable,Location comes from backing text (106th between 1st & 2nd).,"{""latLng"":""40.7901001285668,-73.94141497406618""}",null,2nd Avenue & East 106th Street
+707258f,8ba598b0-c539-012f-f010-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dc-b8a2-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=707258f&t=w,1932,Brooklyn: Warehouse Ave. - Bay 10th St,,"Sperr, Percy Loomis","{'name': [], 'temporal': [], 'geographic': ['Brooklyn (New York, N.Y.)', 'Gravesend (New York, N.Y.)', 'New York (N.Y.)'], 'topic': []}",707258b,"Warehouse Ave., north side, between Bay 10th and 11th Streets. At the right is Gravesend Bay.
+
+January 9, 1932.
+
+P. L. Sperr.",gpt,"Warehouse Ave. & Bay 10th St., Brooklyn, NY","Photographic views of New York City, 1870's-1970's / Brooklyn",Locatable,"First, you can see sand in the photo. Second, I found this confirmation that Belt Pkway replaced Warehouse Ave. https://www.coneyislandhistory.org/ask-mr-coney-island?page=2","{""latLng"":""40.60274304667385,-74.01616793865357""}",null,Bay 10th Street
+706217f,fa260710-c537-012f-a4cc-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dc-b081-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=706217f&t=w,1925,Brooklyn: Park Place - Rogers Avenue,,,"{'name': [], 'temporal': [], 'geographic': ['Brooklyn (New York, N.Y.)', 'New York (N.Y.)'], 'topic': ['Cottages']}",706217b,"802 Park Place, south side, between Rogers and Nostrand Ave.  A view of the George B. Fisk's gardners cottage, still standing in 1925. (George B. Fisk in 1840 was a railroad agent, in 1844 was president of the Long Island R.R. He was also Alderman of the 9th Ward.)  Clove Road the road from Bedford to Flatbush, ran to the right of the house.
+June 1925.
+Eugene L. Armbruster Collection.",site,"Park Place & Rogers Avenue, Brooklyn, NY","Photographic views of New York City, 1870's-1970's / Brooklyn",Locatable,the backing test lists the address as 802 Park Pl.,"{""latLng"":""40.6732478,-73.95121759999999""}","[40.673575, -73.952937]",802 Park Place
+707979f,bc0f36a0-c53a-012f-595f-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dc-defb-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=707979f&t=w,,Manhattan: 2nd Avenue - 125th Street,,,"{'name': [], 'temporal': [], 'geographic': ['Manhattan (New York, N.Y.)', 'New York (N.Y.)'], 'topic': []}",707979b,"Second avenue, west side, from 125th to 125th Streets, showing 2459 Second avenue, a three-story frame house on the S.W.corner of 126th Street.
+1932.
+J. Clarence Davies Collection,Museum of the City of New York.
+Negative No. 262,
+",site,"2nd Avenue & 125th Street, Manhattan, NY","Photographic views of New York City, 1870's-1970's / Manhattan",Locatable,"Transcription on the back should be ""126th to 125th"". This is basd on the address.","{""latLng"":""40.8034551,-73.93356779999999""}","[40.802757, -73.933553]",2459 2nd Ave
+718312f,36e3a000-c54b-012f-07ba-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dd-2fa7-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=718312f&t=w,1933,Manhattan: Central Park - Pathways,['[Manhattan: Central Park West.]'],"Sperr, Percy Loomis","{'name': [], 'temporal': [], 'geographic': ['Central Park (New York, N.Y.)', 'Manhattan (New York, N.Y.)', 'New York', 'New York (N.Y.)', 'New York (State)'], 'topic': ['Parks', 'Trails & paths']}",718312b,"Central Park, Pathways: An over and under pass in the northern portion of the Park as viewed northwestward towards Central Park West.
+
+May 18, 1933.
+
+P. L. Sperr.
+
+Neg. # 2565",site,"Central Park & Pathways., Manhattan, NY","Photographic views of New York City, 1870's-1970's / Manhattan",Maybe,"Some research into where in Central Park, maybe? Maybe there's a list of all overpasses/bridges?","{""latLng"":""40.7825547,-73.9655834""}","[40.782865, -73.965355]",Central Park
+723373f,39aef800-c553-012f-ea82-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dd-5732-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=723373f&t=w,1922,Manhattan: Spring Street - MacDougal Street,,,"{'name': [], 'temporal': [], 'geographic': ['Manhattan (New York, N.Y.)', 'New York (N.Y.)'], 'topic': ['Duplexes']}",723373b,"233-237, 239-241, 243, 245 Spring Street, north side, adjoining and west of the Butterick Building at the N.W. corner of Macdougal Street (future N.W. corner of Sixth Avenue). These old houses will all be demolished in the winter 1925-26 to make room for the new Vivadon Building. With the exception of the 239 half of No. 239-241, they are all frame houses faced with brick. 1922.
+
+Eugene L. Armbruster Collection.",gpt,"Spring Street & MacDougal Street, Manhattan, NY","Photographic views of New York City, 1870's-1970's / Manhattan",Locatable,"""Macdougal Street (future N.W. corner of Sixth Avenue)""","{""latLng"":""40.72567261921353,-74.00418312069321""}",null,245 Spring St
+732570f,5c59eef0-c561-012f-fb29-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dd-9eea-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=732570f&t=w,1930,Occupations - Peddlers - Umbrellas,['[Manhattan: 4th Avenue - Astor Place.]'],"Volnar, Victor","{'name': [], 'temporal': [], 'geographic': ['New York', 'New York (N.Y.)', 'New York (State)'], 'topic': ['Street vendors', 'Umbrellas']}",732570b,"Pedlars--Umbrellas: Itinerant umbrella repair men, at Astor Place and Fourth Avenue, Manhattan.
+
+Victor Volmar
+
+Early 1930's
+",gpt,"4th Avenue and Astor Place, Manhattan, N.Y.","Photographic views of New York City, 1870's-1970's / Topics",Locatable,The backing test says the intersection,"{""latLng"":""40.7298841,-73.9907356""}",null,Astor Place & 4th Avenue
+732622f,70461d40-c561-012f-c27e-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dd-9f52-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=732622f&t=w,1930,Public Schools - Brooklyn - P.S. 6,,,"{'name': [], 'temporal': [], 'geographic': ['New York', 'New York (N.Y.)', 'New York (State)'], 'topic': ['Educational facilities', 'Public schools']}",732622b,,,"P.S. 6., Brooklyn, N.Y.","Photographic views of New York City, 1870's-1970's / Topics",Locatable,There's backing text that's not OCR'd. This is Baltic & Smith St. There does still seem to be a school nearby.,"{""latLng"":""40.684857310874975,-73.99159242083206""}",null,Baltic Street & Smith Street
+3985139,f044c470-c5d7-012f-141f-58d385a7bc34,https://digitalcollections.nypl.org/items/b4afdefd-4c6f-146a-e040-e00a180610a2,https://images.nypl.org/?id=3985139&t=w,,"Bryna Court Apartment; Lennie's Café: 195 Prospect Park West-14th St-15 St., Brooklyn",,New York (N.Y.). Tenement House Dept.,"{'name': [], 'temporal': ['1930-1939'], 'geographic': ['New York', 'New York (State)'], 'topic': ['Tenement houses']}",,,,,Photographs taken by inspectors of the New York City Tenement House Department / Vol. 7,Locatable,,"{""latLng"":""40.6614383,-73.9801793""}",null,195 Prospect Park W
+730517f,1e48c9e0-c55e-012f-8cd1-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dd-8ef9-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=730517f&t=w,,Advertisements - [Advertising signs.],['[Manhattan: 42nd Street - 7th Avenue ; Eltinge Burlesque Theatre.]'],"Volnar, Victor","{'name': [], 'temporal': [], 'geographic': ['New York (N.Y.)'], 'topic': []}",730517b,,,42nd Street and 7th Avenue,"Photographic views of New York City, 1870's-1970's / Topics",Locatable,Location comes from (missing) backing text,"{""latLng"":""40.75643139735338,-73.98817641614684""}",null,7th Avenue & West 42nd Street
+710053f,19d84430-c53e-012f-ffb9-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dc-ef2a-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=710053f&t=w,1940,Manhattan: 8th Avenue - Horatio Street,,"Sperr, Percy Loomis","{'name': [], 'temporal': [], 'geographic': ['Manhattan (New York, N.Y.)', 'New York (N.Y.)'], 'topic': ['Apartment houses']}",710053b,"Eighth Avenue, south from Horatio Street, showing mainly the easterly side of same. The photographer is viewing towerds Abingdon Square where the dominant 16-story apartmant house appears. This bears No. 20 Abingdon Square and is at the S. E. corner of W. 12th
+Street.
+Returning to the foregrounc one observes the diagonal sweep of W. 4th Street across the Avenue, fhis is on right and running to the left center. This leaves a triangular block in the center, the apex of which touches upon Jane Street. The latter, though not seen, runs in a horizontal plane across the midground and is obstructed from view
+by the buildinggs at the right and left.
+April 9, 1940
+P. L. Sperr
+",site,"8th Avenue & Horatio Street, Manhattan, NY","Photographic views of New York City, 1870's-1970's / Manhattan",Locatable,,"{""latLng"":""40.73851212461086,-74.00361229695893""}","[40.738756, -74.003446]",
+700463f,4c639a90-c52f-012f-5588-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dc-a407-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=700463f&t=w,,Bronx: Barker Avenue - Thwaites Place,,"Sperr, Percy Loomis","{'name': [], 'temporal': [], 'geographic': ['Bronx (New York, N.Y.)', 'New York (N.Y.)'], 'topic': []}",700463b,"Barker Avenue, west side, north from Thwaites Place.
+April 3, 1938.
+P.L. Sperr
+",site,"Barker Avenue & Thwaites Place, Bronx, NY","Photographic views of New York City, 1870's-1970's / Bronx",Locatable,,"{""latLng"":""40.85909820472512,-73.86962692394255""}","[40.858871, -73.869525]",
+715454f,c3801120-c546-012f-7371-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dd-195c-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=715454f&t=w,1885,Manhattan: Lawrence Street - Amsterdam Avenue,,,"{'name': [], 'temporal': [], 'geographic': ['Manhattan (New York, N.Y.)', 'Manhattanville (New York, N.Y.)', 'New York (N.Y.)'], 'topic': []}",715454b,"Manhattanville: Pettits Carpenter Shop at No. 86 Lawrence Street, south side, west of Tenth (now Amsterdam) Ave. This location is now numbered 496 West 126th Street, and a 5-story tenement house stands here.
+
+About 1885.
+",gpt,"Lawrence Street & Amsterdam Avenue, Manhattan, NY","Photographic views of New York City, 1870's-1970's / Manhattan",Locatable,"For Lawrence Street, see https://www.nytimes.com/1982/08/01/realestate/l-letters-on-lawrence-ave-054163.html","{""latLng"":""40.8141277,-73.9556803""}",null,496 W 126th St
+416455,43491450-c6db-012f-1da3-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47da-d685-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=416455&t=w,,No. 36 Central Park South. Between Fifth and Sixth Avenues,,,"{'name': [], 'temporal': [], 'geographic': ['New York', 'New York (State)'], 'topic': ['Apartment houses', 'Dwellings']}",,,,"36 Central Park South. Between Fifth and Sixth Avenues., Manhattan, NY",1913 supplement to the World's loose leaf album of apartment houses...,Locatable,Based on address,"{""latLng"":""40.765047613794046,-73.97514218095093""}",null,36 Central Park S
+713808f,45417c30-c544-012f-36a3-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dd-0c82-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=713808f&t=w,1938,Manhattan: 56th Street (West) - 5th Avenue,,"Sperr, Percy Loomis","{'name': [], 'temporal': [], 'geographic': ['Manhattan (New York, N.Y.)', 'New York (N.Y.)'], 'topic': ['Glass industry']}",713808b,"West 56th Street, south side, east from (No. 18, right) a point to the west of Fifth Avenue, and across same. Note at the S.W. corner of the latter, a 4 story building with large glass window inserts. This is occupied by the Corning Glass Co. and is constructed mainly of glass brick, a new building material that this company manufacturers. Across from same is the 12 story Langdon, at the S.E. corner of the
+Avenue.
+March 19, 1938.
+P. L. Sperr,
+",site,"56th Street (West) & 5th Avenue, Manhattan, NY","Photographic views of New York City, 1870's-1970's / Manhattan",Locatable,There's a No. 18 W 56th St mentioned in backing text.,"{""latLng"":""40.7626132,-73.97572749999999""}","[40.762294, -73.974458]",18 W 56th St
+728823f,5eed52f0-c55b-012f-9df0-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dd-81bc-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=728823f&t=w,1932,Richmond: Fingerboard Road (We - Grant Avenue,,"Sperr, Percy Loomis","{'name': [], 'temporal': [], 'geographic': ['Mount Manresa (New York, N.Y.)', 'New York', 'New York (N.Y.)', 'New York (State)', 'Staten Island (New York, N.Y.)'], 'topic': ['Dwellings']}",728823b,"W. Fingerboard Road, north side, between Grant Ave. and Merle place, showing ""Mount Manresa."" The maps from 1874 to 1907 show it to belong to the Meyer family. The house is about 125 feet back of the road.
+
+May 14, 1932.
+
+P. L. Sperr.",gpt,"Fingerboard Road (We & Grant Avenue, Staten Island, NY","Photographic views of New York City, 1870's-1970's / Staten Island",Locatable,"https://statenisland.pastperfectonline.com/photo/B52C66EE-7AC7-4C43-B5BB-172746862885:
+
+""Grant Avenue no longer exists. It appears in the 1917 Staten Island atlas, at that time intersecting Fingerboard Road but not Garfield Avenue. This location is now part of Narrows Road North.""","{""latLng"":""40.6054625258026,-74.06859690926208""}",null,Fingerboard Road & Merle Place
+729939f,179bd660-c55d-012f-7a32-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dd-8a76-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=729939f&t=w,1910,[Richmond:] Staten Island - Wolfe's Pond Park - Wolfe's Pond,,"Simonson, Mulford","{'name': [], 'temporal': [], 'geographic': ['New York (N.Y.)', 'Staten Island (New York, N.Y.)'], 'topic': []}",729939b,"Wolfe's Pond Park (Staten Island): A view of Wolfe's Pond.
+
+About 1910
+
+By Mulford Simonson
+From P. L. Sperr Collection",gpt,,"Photographic views of New York City, 1870's-1970's / Staten Island",Locatable,,"{""latLng"":""40.519141,-74.1902206""}",null,Wolfe's Pond Park
+709827f,c0a82a10-c53d-012f-8731-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dc-ed66-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=709827f&t=w,1915,Manhattan: 7th Avenue - 49th Street (West),,,"{'name': [], 'temporal': [], 'geographic': ['Manhattan (New York, N.Y.)', 'New York (N.Y.)'], 'topic': ['Building construction', 'Restaurants']}",709827b,"Seventh Avenue, east side, at West 49th Street, showing the Godfrey Building under construction at the S.E. corner.
+October 3, 1215
+Borough President of Manhattan
+No. 872
+",site,"7th Avenue & 49th Street (West), Manhattan, NY","Photographic views of New York City, 1870's-1970's / Manhattan",Locatable,,"{""latLng"":""40.76031884914885,-73.9836478981476""}","[40.760457, -73.983723]",
+719523f,1b099960-c54d-012f-280c-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dd-391d-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=719523f&t=w,1940,Manhattan: East River Drive - 89th Street,,"Sperr, Percy Loomis","{'name': [], 'temporal': [], 'geographic': ['Corlears Hook Park (New York, N.Y.)', 'Franklin Delano Roosevelt Drive (New York, N.Y.)', 'Manhattan (New York, N.Y.)', 'New York', 'New York (N.Y.)', 'New York (State)', 'Williamsburg Bridge (New York, N.Y.)'], 'topic': ['Parks', 'Road construction']}",719523b,"East River Drive, at Corlears Hook Park and northeast-ward showing constructional details of this section below the Williamsburg Bridge. The section above is completed at this date and open to vehicles.
+
+April 7, 1940
+No's. 1-2-3
+
+P. L. Sperr",gpt,"East River Drive & 89th Street, Manhattan, NY","Photographic views of New York City, 1870's-1970's / Manhattan",Locatable,,"{""latLng"":""40.71239861865898,-73.9770399909851""}",null,Corlears Hook Park
+719103f,741b6ff0-c54c-012f-c89f-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dd-35d5-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=719103f&t=w,"1939, 1941",Manhattan: Columbus Avenue - 59th Street (West),,"Sperr, Percy Loomis","{'name': [], 'temporal': [], 'geographic': ['Columbus Circle (New York, N.Y.)', 'Manhattan (New York, N.Y.)', 'New York (N.Y.)'], 'topic': ['Fur trade', 'Hotels', 'Shoe stores']}",719103b,"1-Columbus Circle, east siee looking across the west side of the Circle, and showing the west side looking northw st also the
+subway 59th Street station.
+2-9 Columbus Avenue, east side, north of Test 59th etreet, looking northwards and showing otel St. Paul at the southeast corner of
+6Oth Street.
+P. L. Tnerr  View 11 April 11, 1939
+NOREPRODUCTIONR  View 2: April 19, 1941
+",site,"Columbus Avenue & 59th Street (West), Manhattan, NY","Photographic views of New York City, 1870's-1970's / Manhattan",Locatable,"The photos are at locations about a block apart. The first is on Columbus _Circle_, not Columbus Avenue. The second is actually on Columbus Ave.","{""latLng"":""40.76922012544126,-73.98473981349181""}","[40.769212, -73.984772]",
+1508257,ffe0e8f0-c5ce-012f-8819-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47e2-0474-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=1508257&t=w,"1887, 1986","59th Street (East) - First Avenue, northeast corner",,,"{'name': [], 'temporal': [], 'geographic': ['New York (N.Y.)'], 'topic': ['Buildings, structures, etc.']}",1508258,,,"59th Street (East) - First Avenue, northeast corner, Manhattan, NY","Photographic views of New York City, 1870's-1970's, from the collections of the New York Public Library. Supplement.  / Manhattan",Locatable,intersection is in title,,"[40.75962, -73.961967]",
+714493f,527660d0-c545-012f-7e52-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dd-11dc-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=714493f&t=w,1936,Manhattan: 76th Street (East) - Park Avenue,,,"{'name': [], 'temporal': [], 'geographic': ['Manhattan (New York, N.Y.)', 'New York', 'New York (N.Y.)', 'New York (State)'], 'topic': ['Brownstone buildings', 'Houses', 'Sidewalks', 'Street maintenance & repair']}",714493b,"46 to 42 East 76th Street, north side, between Park and Madison Aves.
+May 13, 1936.
+W.P.A. Photo.
+Federal Art Project.
+",site,"76th Street (East) & Park Avenue, Manhattan, NY","Photographic views of New York City, 1870's-1970's / Manhattan",Locatable,address is in the backing text,"{""latLng"":""40.7739256,-73.9630081""}","[40.773657, -73.961853]",42 East 76th Street
+708844f,20e32450-c53c-012f-1d46-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dc-e5b8-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=708844f&t=w,1912,Manhattan: 5th Avenue - 45th Street,,,"{'name': [], 'temporal': [], 'geographic': ['Manhattan (New York, N.Y.)', 'New York (N.Y.)'], 'topic': ['Shoe stores']}",708844b,"548 Fifth Avenue, adjoining N.W. corner of 45th Street.
+About 1912.
+neg #612
+",site,"5th Avenue & 45th Street, Manhattan, NY","Photographic views of New York City, 1870's-1970's / Manhattan",Locatable,address is in backing text,"{""latLng"":""40.75575,-73.97980199999999""}","[40.75543, -73.979467]",548 Fifth Avenue
+730108f,753a63e0-c55d-012f-c404-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dd-8bc8-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=730108f&t=w,1927,General view - [Manhattan - Central Park and area south.],,"Fairchild Aerial Surveys, Inc.","{'name': [], 'temporal': [], 'geographic': ['Central Park (New York, N.Y.)', 'New York', 'New York (N.Y.)', 'New York (State)'], 'topic': ['Parks']}",730108b,"IDENTIFICATION;  Central Park and area south
+DATE:  4 March 1927
+PHOTOGRAPHER:  Fairchild Aerial Surveys, Inc.
+270 W. 38, NYC
+NEGATIVE: no.46019
+REPRODUCTION RIGHTS:  Held by Photographer ",gpt,"Central Park and area south., Manhattan, NY","Photographic views of New York City, 1870's-1970's / Topics",Locatable,backing text mentions area south of Central Park.,"{""latLng"":""40.766188,-73.977302""}",null,Central Park South
+724001f,3d0f0d90-c554-012f-2a44-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dd-5c1a-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=724001f&t=w,"1927, 1933, 1935",Manhattan: Washington Square North - University Place,,"Sperr, Percy Loomis","{'name': [], 'temporal': [], 'geographic': ['Manhattan (New York, N.Y.)', 'New York (N.Y.)'], 'topic': ['Apartment houses', 'Row houses']}",724001b,"(1)
+3-13 Washington Square North, north side, from but not including University Place to but not including Fifth Ave., with the new No. One Fifth Ave. apartment hotel rising in the background. The view is across the Square from the S.E. corner.
+December 28, 1927.
+P. L. Sperr.
+(2)
+The same, showing more of the S.E. side of Washington Square Park.
+February 23, 1933.
+P. L. Sperr.
+Neg # 583
+(3)
+The same, two years later, as seen from the S.E. corner of Washington Square.
+The Empire State Building, in the far background, has been erected
+since the date of the previous view.
+July. 1935.
+P. L. Sperr.
+",site,"Washington Square North & University Place, Manhattan, NY","Photographic views of New York City, 1870's-1970's / Manhattan",Locatable,,"{""latLng"":""40.73108818095141,-73.99630519643404""}","[40.730702, -73.995581]",
+3984719,7676aa60-c5d7-012f-07e9-58d385a7bc34,https://digitalcollections.nypl.org/items/b4afdefd-4acb-146a-e040-e00a180610a2,https://images.nypl.org/?id=3984719&t=w,,"Brick row house; Edward Larkin Lawyer offices on first floor: Saratoga Ave.-Riverdale Av-Livonia, Brooklyn",,New York (N.Y.). Tenement House Dept.,"{'name': [], 'temporal': ['1930-1939'], 'geographic': ['New York', 'New York (State)'], 'topic': ['Tenement houses']}",,,,,Photographs taken by inspectors of the New York City Tenement House Department / Vol. 4,Locatable,Saratoga between Livonia & Riverdale,"{""latLng"":""40.66073315362111,-73.91526406137694""}",null,Saratoga Avenue & Riverdale Avenue
+721594f,582d4b80-c550-012f-ed8d-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dd-494b-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=721594f&t=w,1935,Manhattan: Mangin Street - Rivington Street,,"Sperr, Percy Loomis","{'name': [], 'temporal': [], 'geographic': ['Manhattan (New York, N.Y.)', 'New York (N.Y.)'], 'topic': ['Business districts', 'Handcarts', 'Stables', 'Street vendors']}",721594b,"(1)
+Mangin Street, west side, north from and including Rivington, to and including East Houston Streets. Also shown is Nos. 330-336 Rivington Street, at and adjoining the N.W. corner of Mangin Street, (as seen across clearance). Note stables at Nos. 81-95 Mangin Street.
+September 18, 1935.
+
+P L. Sperr.
+
+(2)
+The same, from a point further northward, and showing a closer view of stables.
+September 18, 1935.
+
+P L. Sperr.",gpt,"Mangin Street & Rivington Street, Manhattan, NY","Photographic views of New York City, 1870's-1970's / Manhattan",Locatable,Maybe Mangin & Rivington used to extend farther and intersect. E Houston & Mangin still do.,"{""latLng"":""40.71776559389106,-73.97612814550781""}",null,Mangin Street & East Houston Street
+716679f,a2b4bc90-c548-012f-431e-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dd-22eb-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=716679f&t=w,1936,Manhattan: Bleecker Street - Lafayette Street,,"Sperr, Percy Loomis","{'name': [], 'temporal': [], 'geographic': ['Manhattan (New York, N.Y.)', 'New York (N.Y.)'], 'topic': ['Gasoline pumps']}",716679b,"(1)
+Bleecker Street, south side, east from but not including Lafayette Street, to and including Mott Street. This view also shows Mulberry Street, at, adjoining and south of Bleecker Street.
+March 16, 1934.
+
+P. L. Sperr.
+
+(2)
+The same, slightly more inclusive of Mulberry Street.
+June 23, 1936.
+
+P. L. Sperr.
+
+(3)
+The same as No. 1.
+February 1924.
+
+Eugene L. Armbruster Collection.
+",site,"Bleecker Street & Lafayette Street, Manhattan, NY","Photographic views of New York City, 1870's-1970's / Manhattan",Locatable,Mulberry & Bleecker is probably a more accurate cross street.,"{""latLng"":""40.7258441,-73.99446999999999""}","[40.725902, -73.994646]",Mulberry Street & Bleecker Street
+734338f,1a17e140-c564-012f-8e60-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dd-acb8-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=734338f&t=w,"1927, 1939",Harlem River - Bronx - Spuyten Duyvil Road,,"Sperr, Percy Loomis","{'name': [], 'temporal': [], 'geographic': ['Broadway Bridge (New York, N.Y.)', 'Harlem River (N.Y.)', 'Henry Hudson Bridge (New York, N.Y.)', 'Marble Hill (New York, N.Y.)', 'New York', 'New York (N.Y.)', 'New York (State)'], 'topic': ['Bridges', 'Rivers', 'Shipping', 'Transportation facilities']}",734338b,,,"Spuyten Duyvil Road., Harlem River, Bronx, NY","Photographic views of New York City, 1870's-1970's / Topics",Locatable,"Found an article stating that Spuyten Duyvil Road is now Edsall Ave. Also, Henry Hudson Bridge is mentioned as subject.
+https://www.nytimes.com/1994/05/29/realestate/if-you-re-thinking-living-spuyten-duyvil-sunsets-over-palisades-legends.html","{""latLng"":""40.8784547,-73.9214788""}",null,Edsall Avenue
+721747f,94cc04c0-c550-012f-2c44-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dd-4a7d-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=721747f&t=w,1933,Manhattan: Mott Street - Pell Street,,"Sperr, Percy Loomis","{'name': [], 'temporal': [], 'geographic': ['Chinatown (New York, N.Y.)', 'Manhattan (New York, N.Y.)', 'New York (N.Y.)'], 'topic': ['Restaurants']}",721747b,"14-20 Mott Street, east side, between Chatham Square, and Pell Street, as seen from Park Street.
+June 9, 1933.
+
+P. L. Sperr.
+
+Neg # 2 (4 x 5 neg)
+Neg # 703 (8 x 10 neg)",gpt,"Mott Street & Pell Street, Manhattan, NY","Photographic views of New York City, 1870's-1970's / Manhattan",Locatable,,"{""latLng"":""40.713442,-73.9984849""}",null,Mott Street & Chatham Square
+721826f,b51655c0-c550-012f-3ad6-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dd-4b1b-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=721826f&t=w,"1920, 1921",Manhattan: Murray Street - Church Street,,,"{'name': [], 'temporal': [], 'geographic': ['Manhattan (New York, N.Y.)', 'New York', 'New York (N.Y.)', 'New York (State)'], 'topic': ['Elevated railroads', 'Sidewalks', 'Street maintenance & repair']}",721826b,"(1)
+Murray Street, Church Street to West Broadway.  (Before Paving).
+September 19,  1920.
+(2)
+Murray Street, Church Street to West Broadway. (After).
+President Borough Manhattan.
+September 20, 1921.
+",site,"Murray Street & Church Street, Manhattan, NY","Photographic views of New York City, 1870's-1970's / Manhattan",Locatable,Murray St and Church St are mentioned in backing text,"{""latLng"":""40.7137946,-74.0088444""}","[40.713807, -74.008806]",Murray Street & Church Street
+1508119,47e0ca10-c5ce-012f-e639-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47e2-0043-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=1508119&t=w,"1930, 1940",Park Avenue #301 - 45th Street - 50th Street,['Waldorf-Astoria'],,"{'name': [], 'temporal': [], 'geographic': ['New York (N.Y.)'], 'topic': ['Buildings, structures, etc.']}",1508120,,,"Park Avenue #301 - 45th Street - 50th Street, Manhattan, NY","Photographic views of New York City, 1870's-1970's, from the collections of the New York Public Library. Supplement.  / Manhattan",Locatable,"Address is still close; this is now ""Waldorf Astoria Residences"". Park Ave ends at 45th, which is why it's mentioned. The photo is closer to 50th.","{""latLng"":""40.75688564240282,-73.97391625522536""}","[40.754056, -73.976264]",301 Park Ave
+726900f,655f0fc0-c558-012f-96bc-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dd-72b7-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=726900f&t=w,,Queens: Horace Harding Boule - Kissena Boulevard,,"Sperr, Percy Loomis","{'name': [], 'temporal': [], 'geographic': ['New York (N.Y.)', 'Queens (New York, N.Y.)'], 'topic': []}",726900b,"Horace Harding Boulevard (foreground), at the N.E. corner of Kissena Boulevard (cars thereon).
+
+March 31, 1937.
+
+P. L. Sperr.",gpt,"Horace Harding Boule & Kissena Boulevard, Queens, NY","Photographic views of New York City, 1870's-1970's / Queens",Locatable,"no date for photo, but it's 1937","{""latLng"":""40.73929823916108,-73.81489041468046""}",null,Horace Harding Expressway & Kissena Boulevard
+709836f,c4721200-c53d-012f-eae4-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dc-ed78-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=709836f&t=w,1915,Manhattan: 7th Avenue - 49th Street,,,"{'name': [], 'temporal': [], 'geographic': ['Manhattan (New York, N.Y.)', 'New York', 'New York (N.Y.)', 'New York (State)'], 'topic': ['Cafeterias', 'Clothing stores']}",709836b,"751-3-5 Seventh Avenue, adjoining and north of the N.E. corner of West 49th Street.
+October 31, 1915
+Borough President of Manhattan
+No. 906
+",site,"7th Avenue & 49th Street, Manhattan, NY","Photographic views of New York City, 1870's-1970's / Manhattan",Locatable,,"{""latLng"":""40.76053013856971,-73.98342259259034""}","[40.760457, -73.983723]",
+734153f,c9315c20-c563-012f-234a-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dd-ab46-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=734153f&t=w,"1935, 1939",Flushing River - Queens - [Hunts Point Coke.],,"Sperr, Percy Loomis","{'name': [], 'temporal': [], 'geographic': ['Flushing River (New York, N.Y.)', 'New York (N.Y.)', 'New York (State)'], 'topic': ['Coal trade', 'Rivers']}",734153b,"Flushing River (Queens): North from the Northern Boulevard bridge, showing coal and stone and gravel yards. The Hunts Point coke silo is on the west bank, near Willets Point Boulevard. Views 2 and 3 show the new bridge which carries the Whitestone Bridge Parkway over the mouth of the river.
+
+P. L. Sperr
+
+View 1: Sept. 29, 1935
+Views 2,3: May 27, 1939",gpt,"Flushing River[Hunts Point Coke.], Queens, NY","Photographic views of New York City, 1870's-1970's / Topics",Locatable,This mentions the Bridge of Northern Blvd over the Flushing River which is probably the Flushing Creek on the map.,"{""latLng"":""40.762516924174136,-73.83769514136961""}",null,Whitestone Expressway
+730103f,734d9ec0-c55d-012f-04f5-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dd-8bbe-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=730103f&t=w,1905,"General view - Manhattan - [View from railroad tracks of New York, New Haven and Hartford.]",,,"{'name': [], 'temporal': [], 'geographic': ['New York (N.Y.)'], 'topic': []}",730103b,"General View of Manhatten from Railroad tracks of New York New Haven and Hartford, showing construction for guards and station underway.
+Copyrighted
+Hydrex Felt and Engineering Co. 1905.",gpt,,"Photographic views of New York City, 1870's-1970's / Topics",Maybe,"Not clear where in Manhattan this is, but there must be a specific place where these railroads came in. https://en.wikipedia.org/wiki/New_York,_New_Haven_and_Hartford_Railroad#/map/0",,null,
+1509729,c3fb9180-c5cd-012f-113c-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47e2-06c4-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=1509729&t=w,1941-11-04,Fifth Avenue - 23rd Street looking north,,,"{'name': [], 'temporal': [], 'geographic': ['Brooklyn (New York, N.Y.)', 'New York (N.Y.)'], 'topic': ['Buildings, structures, etc.']}",1509730,,,"Fifth Avenue - 23rd Street looking north, Manhattan, NY","Photographic views of New York City, 1870's-1970's, from the collections of the New York Public Library. Supplement.  / Brooklyn",Locatable,"Photo border says Brooklyn, NY. Searched for that intersection in Brooklyn.","{""latLng"":""40.66023209999999,-73.9945944""}","[40.741548, -73.989585]",5th Avenue & 23rd Street
+707653f,380c38f0-c53a-012f-3598-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dc-bbb6-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=707653f&t=w,1929,Manhattan: 1st Ave. - 72nd St. E,,"Sperr, Percy Loomis","{'name': [], 'temporal': [], 'geographic': ['Manhattan (New York, N.Y.)', 'New York (N.Y.)'], 'topic': ['Apartment houses', 'Clothing stores']}",707653b,"1344-1348 First Ave., at, adjoining and north of the N.E. corner of East 72nd Street. Also shown is East 72nd Stree, north side, east from
+and including First, to, but not including York Ave.
+March 22, 1929.
+P. L. Sperr.
+",site,"1st Ave. & 72nd St. E., Manhattan, NY","Photographic views of New York City, 1870's-1970's / Manhattan",Locatable,,"{""latLng"":""40.767947,-73.9555271""}","[40.767801, -73.955998]",1348 1st Ave.
+720496f,a5f3cef0-c54e-012f-7d86-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dd-40b7-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=720496f&t=w,,Manhattan: Hudson Street - Desbrosses Street,,"Sperr, Percy Loomis","{'name': [], 'temporal': [], 'geographic': ['Manhattan (New York, N.Y.)', 'New York (N.Y.)'], 'topic': []}",720496b,"(1)
+Hudson Street,north from, but not including, Desbrosses Street, south of Canal. The buildings at and adjoining the N. E. corner
+of Broome Street have been demolished.
+Autumn 1929.
+P. L. Sperr.
+(2)
+Hudson Street,north from Desbrosses Street, south of Canal.
+March 20, 1932.
+P. L. Sperr.
+",site,"Hudson Street & Desbrosses Street, Manhattan, NY","Photographic views of New York City, 1870's-1970's / Manhattan",Locatable,,"{""latLng"":""40.723471112297695,-74.00804986871718""}","[40.723278, -74.008015]",
+725697f,b26bdea0-c556-012f-4494-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dd-6956-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=725697f&t=w,,Queens: 86th Street - Liberty Avenue,,"Sperr, Percy Loomis","{'name': [], 'temporal': [], 'geographic': ['New York (N.Y.)', 'Queens (New York, N.Y.)'], 'topic': []}",725697b,"86th St. N. from Liberty Ave.  Neg. A-81  July 23, 1941
+
+P.L. Sperr",site,"86th Street & Liberty Avenue, Queens, NY","Photographic views of New York City, 1870's-1970's / Queens",Locatable,,,"[40.679776, -73.852521]",
+717779f,5ba2c720-c54a-012f-0486-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dd-2b7f-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=717779f&t=w,"1932, 1934",Manhattan: Broadway - 184th Street,,"Sperr, Percy Loomis","{'name': [], 'temporal': [], 'geographic': ['Manhattan (New York, N.Y.)', 'New York (N.Y.)'], 'topic': ['Paint industry']}",717779b,"(1)
+4320-4324 Broadway, at and adjoining the N.E. corner of 184th Street. The two centre buildings are three-story frame
+houses.
+1932.
+J. Clarence Davies Collection Wuseum of the City of New York.
+Negative No. 65.
+(2)
+The same view from a slightly different angle. Note frame house at the rear of No. 4322, adjoining the N.E. corner.
+November 3, 1934.
+P. L. Sperr.
+(3)
+Another view of the afore mentioned corner, and also including
+a further view northward.
+November 3, 1934.
+P. L. Sperr.
+",site,"Broadway & 184th Street, Manhattan, NY","Photographic views of New York City, 1870's-1970's / Manhattan",Locatable,"Looked up 4322 Broadway, an adresss mentioned in Backing text.","{""latLng"":""40.8522901,-73.9343126""}","[40.852108, -73.934775]",4322 Broadway
+700813f,c82f60e0-c52f-012f-7361-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dc-a6c3-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=700813f&t=w,,Bronx: Creston Avenue - Burnside Avenue (East),,,"{'name': [], 'temporal': [], 'geographic': ['Bronx (New York, N.Y.)', 'New York (N.Y.)'], 'topic': []}",700813b,"Creston Ave., at the south side of East Burnside Ave. IIn the foreground, at the S.E. corner of the two thoroughfares appears a small public place under construction by the W.P.A. The two buildings, at the S.W. corner bear Nos. 2043 and 2039 (right to left).
+November 12, 1936.
+Works Progress Administration.
+Federal Art Project photo.
+",site,"Creston Avenue & Burnside Avenue (East), Bronx, NY","Photographic views of New York City, 1870's-1970's / Bronx",Locatable,"This is probably Devanney Triangle. Matches current view on street view, and indeed across the street are 2043 and 2039 Creston Ave.","{""latLng"":""40.8525822976639,-73.90465314047545""}","[40.852551, -73.905014]",Creston Avenue & East Burnside Avenue
+727462f,43ad2880-c559-012f-9105-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dd-7719-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=727462f&t=w,,Queens: Newtown - [Newtown plaque of 1652.],,,"{'name': [], 'temporal': [], 'geographic': ['New York (N.Y.)', 'Queens (New York, N.Y.)'], 'topic': []}",727462b,,,"Newtown & [Newtown plaque of 1652.], Queens, NY","Photographic views of New York City, 1870's-1970's / Queens",Locatable,https://www.brownstoner.com/history/national-register-of-historic-places-ceremony-for-the-first-presbyterian-church-of-newtown/,"{""latLng"":""40.7354038,-73.8773968""}",null,First Presbyterian Church of Newtown
+719003f,48a13570-c54c-012f-0714-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dd-350d-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=719003f&t=w,1936,Manhattan: Clinton Street - Stanton Street,,"Sperr, Percy Loomis","{'name': [], 'temporal': [], 'geographic': ['Manhattan (New York, N.Y.)', 'New York', 'New York (N.Y.)', 'New York (State)'], 'topic': ['Business districts', 'Electric apparatus and appliances', 'Fur trade', 'Radios', 'Stores & shops']}",719003b,"Clinton Street, east side, north from (No. 16), but not including Stanton, to and including East Houston Streets. Shown as a continuation is Ave. B,
+west side, north from East Houston Street.
+January 14, 1936.
+P. L. Sperr.
+",site,"Clinton Street & Stanton Street, Manhattan, NY","Photographic views of New York City, 1870's-1970's / Manhattan",Locatable,,"{""latLng"":""40.72072560671618,-73.98414740608217""}","[40.720193, -73.98448]",
+1557931,8b577040-c5ec-012f-473f-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47e2-ef2a-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=1557931&t=w,"1930, 1939",Fifth Avenue - West 42nd Street,['The New York Public Library Building'],Wurts Brothers,"{'name': ['New York Public Library. Humanities and Social Sciences Library'], 'temporal': [], 'geographic': ['Manhattan (New York, N.Y.)', 'New York', 'New York (N.Y.)', 'New York (State)'], 'topic': ['Buildings, structures, etc', 'Historic buildings', 'Libraries']}",,,,"Fifth Avenue - West 42nd Street, Manhattan, NY","[Collection of photographs of New York City.] / [Wurts Brothers, photographer] / Manhattan",Locatable,,,"[40.753488, -73.980894]",
+700970f,fcc85570-c52f-012f-6097-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dc-a7fd-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=700970f&t=w,1932,Bronx: Eastchester Road - Boston Road,,"Sperr, Percy Loomis","{'name': [], 'temporal': [], 'geographic': ['Bronx (New York, N.Y.)', 'New York (N.Y.)'], 'topic': ['Hotels']}",700970b,"Eastchester Road, north from and including Boston Road, showing the
+thoroughfare in the process of construction.
+November 11, 1932.
+P. L. Sperr.
+",site,"Eastchester Road & Boston Road, Bronx, NY","Photographic views of New York City, 1870's-1970's / Bronx",Locatable,intersection mentioned in backing text,"{""latLng"":""40.8770415,-73.84636859999999""}","[40.87704, -73.846388]",Boston Road & Eastchester Road
+723806f,eddd6c30-c553-012f-a51b-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dd-5a94-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=723806f&t=w,1934,Manhattan: Wadsworth Avenue - 183rd Street (West),,"Sperr, Percy Loomis","{'name': [], 'temporal': [], 'geographic': ['Manhattan (New York, N.Y.)', 'New York', 'New York (N.Y.)', 'New York (State)'], 'topic': ['Apartment houses', 'Baptist churches', 'churches']}",723806b,"Wadsworth Avenue, west side, north from W. 183rd (left, not seen) to 184th (right) Streets, showing at the S.W. corner of the latter point, the Wadsworth Avenue Baptist Church (corner stone laid in June, 1925), as photoarached from the S.E. corner of this Avenue and 183rd Street. The 8 story apartment at the left is No. 200-202 Wadsworth Avenue. A portion of the Paul Jones appears just beyond the church. This bears Nos. 22O-231 Wadsworth Avenue and occunies the entire 184th - 185th Street frontage.
+November 3, 1934
+P. L. Sperr
+",site,"Wadsworth Avenue & 183rd Street (West), Manhattan, NY","Photographic views of New York City, 1870's-1970's / Manhattan",Locatable,,"{""latLng"":""40.8513672,-73.9342142""}","[40.851054, -73.934096]",202 Wadsworth Ave
+727469f,468dc080-c559-012f-4d08-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dd-7727-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=727469f&t=w,,Queens: New York Boulevard - 131st Avenue,,,"{'name': [], 'temporal': [], 'geographic': ['New York (N.Y.)', 'Queens (New York, N.Y.)'], 'topic': []}",727469b,"New York Boulevard, west side, between One Hundred Thirty-first and One Hundred Thirty-third Ave., showing an old house directly in line of One Hundred Thirty-third Ave. It does not appear in the Queens Atlas of 1931.
+
+1922.
+
+Eugene L. Armbruster Collection.",gpt,"New York Boulevard & 131st Avenue, Queens, NY","Photographic views of New York City, 1870's-1970's / Queens",Locatable,"New York Avenue was renamed Guy R Brewer Boulevard: https://en.wikipedia.org/wiki/Guy_Brewer
+
+131st Ave & 133rd Ave no longer intersect it, but 132nd does.","{""latLng"":""40.6753326,-73.7770695""}",null,132nd Avenue & Guy R Brewer Boulevard
+720920f,491ebb00-c54f-012f-dbc1-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dd-4406-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=720920f&t=w,1920,Manhattan: Lexington Avenue - 22nd Street,,,"{'name': [], 'temporal': [], 'geographic': ['Manhattan (New York, N.Y.)', 'New York', 'New York (N.Y.)', 'New York (State)', 'United States'], 'topic': ['Educational facilities', 'Vocational education']}",720920b,"Lexington Avenue, west side, north from 22nd Street. The building on the N.W. corner of 22nd Street is the Manhattan Trade School
+for Girls.
+About 1920.
+Gift of E. M. Jenks.
+",site,"Lexington Avenue & 22nd Street, Manhattan, NY","Photographic views of New York City, 1870's-1970's / Manhattan",Locatable,Same buildings are still there!,"{""latLng"":""40.739091261625205,-73.98516489814759""}","[40.738823, -73.98524]",
+733936f,68bdac00-c563-012f-5e33-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dd-a995-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=733936f&t=w,"1931, 1933, 1934",East River - Shore and skyline of Manhattan from East 86th Street - Queensborough Bridge - [Doctor's Hospital ; Municipal Asphalt Plant.],,"Sperr, Percy Loomis","{'name': [], 'temporal': [], 'geographic': ['East River (N.Y.)', 'New York', 'New York (N.Y.)', 'New York (State)'], 'topic': ['Apartment houses', 'Factories', 'Fire stations', 'Hospitals', 'Monuments & memorials', 'Smokestacks']}",733936b,"(1)
+East River, shoreline, north from East 86th Street (left), showing Carl Schurz Park and Doctors Hospital on the north side of East End Ave., from East 87th to East 88th Streets. Also shown (right) is a station of the Fire Department and across it the Municipal Asphalt Plant from East 90th to East 91st Streets. The point of vantage is Welfare Island.
+April 5, 1933.
+
+P. L. Sperr.
+
+(2)
+A closer view of the same, and showing the tug boat Goliath.
+September 20, 1934.
+
+P. L. Sperr.
+
+(3)
+The same, from another angle.
+March 11, 1931.",gpt,"East 86th Street - Queensborough Bridge - [Doctor's Hospital ; Municipal Asphalt Plant.], Manhattan, NY","Photographic views of New York City, 1870's-1970's / Topics",Locatable,"""Queensborough Bridge"" in the title is not at all relevant","{""latLng"":""40.775577057989196,-73.942978467984""}",null,Carl Schurz Park
+717418f,d28d0a80-c549-012f-a5ae-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dd-28ad-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=717418f&t=w,1922,Manhattan: Broadway - 36th Street,,,"{'name': [], 'temporal': [], 'geographic': ['Manhattan (New York, N.Y.)', 'New York (N.Y.)'], 'topic': ['Commodity exchanges', 'Detectives', 'Galleries & museums', 'Moving & storage trade', 'Organizations', 'Postal service', 'Real estate office buildings', 'Restaurants']}",717418b,"The Sheridan Building, 1354-1362 Broadway, adjoining the N.E. corner of 36th Street. This and the corner building will soon be demolished for the Greenwich Savings Bank Building.
+1922.
+Gift of E.H. Jenks.
+",site,"Broadway & 36th Street, Manhattan, NY","Photographic views of New York City, 1870's-1970's / Manhattan",Locatable,,,"[40.751447, -73.987707]",
+734836f,ef23b150-c564-012f-3fc0-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dd-b09a-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=734836f&t=w,1928,Weir Creek -- S. Schley Avenue - Throgs Neck Boulevard (Bronx),,"Sperr, Percy Loomis","{'name': [], 'temporal': [], 'geographic': ['New York (N.Y.)', 'Weir Creek (New York, N.Y.)'], 'topic': ['Meadows', 'Streams -- New York (State) -- New York']}",734836b,"Weir Creek: A view south from Schley Ave. at Throggs Neck Boulevard.
+
+July 17, 1928.
+
+P. L. Sperr.",gpt,,"Photographic views of New York City, 1870's-1970's / Topics",Locatable,,"{""latLng"":""40.8263155,-73.8162847""}",null,Schley Avenue & Throgs Neck Expressway
+416466,47688d90-c6db-012f-0570-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47da-d691-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=416466&t=w,,"No. 565-569 Park Avenue. East Side of Avenue, Between 62nd and 63d Streets",,,"{'name': [], 'temporal': [], 'geographic': ['New York', 'New York (State)'], 'topic': ['Apartment houses', 'Dwellings']}",,,,"565-569 Park Avenue. East Side of Avenue, Between 62nd and 63d Streets., Manhattan, NY",1913 supplement to the World's loose leaf album of apartment houses...,Locatable,,"{""latLng"":""40.7649806,-73.96772899999999""}",null,569 Park Ave
+104972,0ec27e00-c5ef-012f-b36e-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47d9-caa1-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=104972&t=w,,"St. John's Villa Academy, Arrochar, S.I., N.Y. [iron entrance gate, snow-covered landscape and buildings]",,,"{'name': [], 'temporal': [], 'geographic': ['Staten Island (New York, N.Y.)'], 'topic': []}",,,,"St. John's Villa Academy, Arrochar, Staten Island, N.Y.",Staten Island post cards / Schools (Private),Locatable,https://en.wikipedia.org/wiki/St._John_Villa_Academy,"{""latLng"":""40.60140712500281,-74.0687495015747""}",null,40°36′5″N 74°4′7″W
+1509463,969f5120-c5cd-012f-a559-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47e2-05ba-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=1509463&t=w,"1887, 1986",Spuyten Duyvil,,,"{'name': [], 'temporal': [], 'geographic': ['New York (N.Y.)'], 'topic': ['Buildings, structures, etc.']}",1509464,,,"Spuyten Duyvil, Bronx, NY","Photographic views of New York City, 1870's-1970's, from the collections of the New York Public Library. Supplement.  / Bronx",Maybe,"The Spuyten Duyvil Parkway is now part of the Henry Hudson Parkway (https://kingsbridgehistoricalsociety.org/forums/topic/spuyten-duyvil-henry-hudson-parkways/). The backing text says this is in Riverdale, but unclear exactly where.","{""latLng"":""40.89961830000001,-73.9088276""}",null,Riverdale
+723577f,8e091d60-c553-012f-e813-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dd-58ca-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=723577f&t=w,"1929, 1933",Manhattan: Trinity Place - Cedar Street,,"Sperr, Percy Loomis","{'name': [], 'temporal': [], 'geographic': ['Manhattan (New York, N.Y.)', 'New York', 'New York (N.Y.)', 'New York (State)', 'Sixth Avenue (New York, N.Y.)'], 'topic': ['Educational facilities', 'Elevated railroads', 'Religious education', 'Restaurants']}",723577b,"(1)
+Trinity Place, west side, at and adjoining the S.W. corner of Cedar Street, showing the St. Peter's (R.C.) Girl's School. Also shown (foreground) is a portion of the Sixth Ave. Elevated Line.
+August 20, 1929.
+P. L. Sperr.
+(2)
+The same, showing a view farther south.
+June 2, 1933.
+P. L. Sperr.
+(3)
+The same, from a different angle, viewing northward.
+June 4, 1933.
+P. L. Sperr.
+",site,"Trinity Place & Cedar Street, Manhattan, NY","Photographic views of New York City, 1870's-1970's / Manhattan",Locatable,,,"[40.709313, -74.011955]",
+713589f,eb2acda0-c543-012f-155f-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dd-0acc-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=713589f&t=w,1921,Manhattan: 52nd Street - 1st Avenue,,,"{'name': [], 'temporal': [], 'geographic': ['Manhattan (New York, N.Y.)', 'New York', 'New York (N.Y.)', 'New York (State)'], 'topic': ['Sidewalks', 'Street maintenance & repair']}",713589b,"52nd Street, lst to Park Avenue. Front of #314.
+(Before Reconstruction).
+President Borough of Manhattan
+",site,"52nd Street & 1st Avenue, Manhattan, NY","Photographic views of New York City, 1870's-1970's / Manhattan",Locatable,314 E 52nd St is mentioned in backing text,"{""latLng"":""40.7556492,-73.96690509999999""}","[40.755129, -73.965243]",314 E 52nd St
+710894f,779b4e60-c53f-012f-b614-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dc-f5bc-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=710894f&t=w,,Manhattan: 4th Street - Cooper Square,,,"{'name': [], 'temporal': [], 'geographic': ['Manhattan (New York, N.Y.)', 'New York (N.Y.)'], 'topic': []}",710894b,"37 East 4th Street, north side, west of Cooper Square (The
+Bowery).
+August 7, 1937.
+0ift of Geo. D. Chinn.
+",site,"4th Street & Cooper Square, Manhattan, NY","Photographic views of New York City, 1870's-1970's / Manhattan",Locatable,Address in backing text,"{""latLng"":""40.7275219,-73.9920247""}","[40.727094, -73.991616]",37 East 4th Street
+734578f,837cd2b0-c564-012f-856a-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dd-ae97-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=734578f&t=w,1923,North (Hudson) River - Shore and skyline - Manhattan - 59th Street - George Washington Bridge - [Weber-Bunke-Lange Coal Company.],['[West 96th Street.]'],"Galloway, Ewing","{'name': [], 'temporal': [], 'geographic': ['Hudson River (N.Y. and N.J.)', 'New York (N.Y.)'], 'topic': ['Barges', 'Coal', 'Coal trade', 'Storage']}",734578b,"North (Hudson) River, shore and skyline, at the foot of West 96th Street, showing the Weber-Bunke-Lange Company, coal bunkers and apparatus.
+
+About 1923.
+
+Ewing Galloway.",gpt,,"Photographic views of New York City, 1870's-1970's / Topics",Locatable,96th & the Hudson River. Not sure what the 59th Street and George Washington Bridge in the title (and on the front of the photo) are referring to.,"{""latLng"":""40.79657930683446,-73.97659409200133""}",null,East 96th Street
+712927f,d8de3ba0-c542-012f-3fdb-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dd-05a2-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=712927f&t=w,1923,Manhattan: 42nd Street (East) - Lexington Avenue,,,"{'name': ['Bowery Savings Bank Building (New York, N.Y.)'], 'temporal': [], 'geographic': ['Manhattan (New York, N.Y.)', 'New York (N.Y.)'], 'topic': ['Banks']}",712927b,"1l6 E. 42nd Street, south side, between Lexington and Park venues, showing the entrance to the Bowery Sevings Bank.
+P.Y E RErpCDUCED  July. 1923
+",site,"42nd Street (East) & Lexington Avenue, Manhattan, NY","Photographic views of New York City, 1870's-1970's / Manhattan",Locatable,Address in backing text 116 E. 42nd Street,"{""latLng"":""40.7515999,-73.9770731""}","[40.751438, -73.976046]",116 E 42nd St
+728250f,6cb9ffb0-c55a-012f-1880-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dd-7d42-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=728250f&t=w,"1922, 1925",Queens: Wyckoff Avenue - Halsey Street,,,"{'name': [], 'temporal': [], 'geographic': ['New York (N.Y.)', 'Queens (New York, N.Y.)'], 'topic': ['Hotels']}",728250b,"Wyckoff Ave., south side, east from Halsey Street (trolley tracks swing into it). At the S.E. corner of Halsey Street and Wyckoff Ave. is the Elks Park Hotel (Election sign displayed thereon) erected by Christian Homeyer about 1898. This building seen in a set of two views was demolished in 1930.
+1922.
+View 2: March 1925.
+Eugene L. Armbruster Collection.
+",site,"Wyckoff Avenue & Halsey Street, Queens, NY","Photographic views of New York City, 1870's-1970's / Queens",Locatable,"I had to double check, but this intersection _is_ in Queens.","{""latLng"":""40.69594190918903,-73.90487079629517""}","[40.696129, -73.905021]",
+711004f,a43a20c0-c53f-012f-09e8-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dc-f698-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=711004f&t=w,1936,Manhattan: 9th Street (East) - Broadway,,,"{'name': [], 'temporal': [], 'geographic': ['Manhattan (New York, N.Y.)', 'New York (N.Y.)'], 'topic': ['Upholstery trade']}",711004b,"49 East 9th Street, north side, between Broadway and University Place, showing the O. Henry House, in which the renowned American author of
+short stories lived.
+1936.
+W.P.A. Photo.
+Federal Writers Project.
+
+[this is misplaced on the interactive map]
+",site,"9th Street (East) & Broadway, Manhattan, NY","Photographic views of New York City, 1870's-1970's / Manhattan",Locatable,,"{""latLng"":""40.731749,-73.9927912""}","[40.731173, -73.991927]",49 E 9th St
+704943f,036c2870-c536-012f-2b74-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dc-d3a8-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=704943f&t=w,1934,Brooklyn: Hicks Street - Coles Street,,"Sperr, Percy Loomis","{'name': [], 'temporal': [], 'geographic': ['Brooklyn (New York, N.Y.)', 'New York (N.Y.)'], 'topic': ['Catholic churches']}",704943b,"705-711 Hicks Street, east side, south from Coles to Luqueer Streets. No. 711 is shown in the foreground, at the N.E. corner of Luqueer Street.
+
+August 5, 1934.
+
+P. L. Sperr.",gpt,"Hicks Street & Coles Street, Brooklyn, NY","Photographic views of New York City, 1870's-1970's / Brooklyn",Locatable,711 Hicks Street mentioned in backing text,"{""latLng"":""40.6785979,-74.00386600000002""}",null,711 Hicks St
+715745f,32da4ea0-c547-012f-6aae-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dd-1ba2-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=715745f&t=w,,Manhattan: 166th Street (West) - Amsterdam Avenue,,"Sperr, Percy Loomis","{'name': [], 'temporal': [], 'geographic': ['Manhattan (New York, N.Y.)', 'New York (N.Y.)'], 'topic': []}",715745b,"(1)
+468-460 West 166th Street, south side, east of Amsterdam
+Avenue.
+1932.
+J. Clarence Davies Collection, Museum of the City of New York.
+Negative No. 45.
+(2)
+The same, another view.
+April 8, 1934.
+P. L. Sperr.
+",site,"166th Street (West) & Amsterdam Avenue, Manhattan, NY","Photographic views of New York City, 1870's-1970's / Manhattan",Locatable,460 W 166th St is one of the addresses mentioned in backing text,"{""latLng"":""40.837934,-73.937218""}","[40.838507, -73.937923]",460 W 166th St
+723163f,dd074c80-c552-012f-e87d-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dd-558e-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=723163f&t=w,1940,Manhattan: St. Nicholas Avenue - Fort George Avenue,,"Sperr, Percy Loomis","{'name': [], 'temporal': [], 'geographic': ['Donnelson Square (New York, N.Y.)', 'Manhattan (New York, N.Y.)', 'New York', 'New York (N.Y.)', 'New York (State)'], 'topic': ['Apartment houses', 'Hospitals', 'Parks']}",723163b,"St. Nicholas Place, east side, north across W. 150th Street. At the right is the 6-story Audubon Court Apartments. Adjoining same are the several buildings that house the Community Hospital in New York City. These are at the S. E. corner of 150th Street. Across the street at the N. E. corner is the reputed Ringling mansion. One, J. A. Bailey owned same in 1904. This individual may have been one of the famous circus owners, Barnum and Bailey, the predecessors to the present
+Ringling Brothers.
+H. Acker is the owner in 1910, Louis Schaefer in 1918 and a Bertha Koemple in 1959. Adjoining this is the minaretted
+A. Alexander home.
+View 2 shows only the structures at the N. E. corner. The triangular park that separates St. Nicholas Place from the
+Avenue of the same name, is Donnelson Square.
+May 19, 1940
+April 19, 1940
+P. L. Snerr
+No. 3
+The Community Hospital and it's adjoining buildings as photographed across the aforementioned Donnelson Square.
+June 5, 1940
+P. L. Sperr
+",site,"St. Nicholas Avenue & Fort George Avenue, Manhattan, NY","Photographic views of New York City, 1870's-1970's / Manhattan",Locatable,"It's Donnellan Square, but it's still there!","{""latLng"":""40.8271944,-73.94240789999999""}","[40.856732, -73.928392]",Saint Nicholas Place & West 150th Street
+721424f,149def40-c550-012f-855f-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dd-47f7-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=721424f&t=w,,Manhattan: Madison Avenue - 69th Street,,"Sperr, Percy Loomis","{'name': [], 'temporal': [], 'geographic': ['Manhattan (New York, N.Y.)', 'New York (N.Y.)'], 'topic': []}",721424b,"Madison Avenue, west side, from 70th to 69th Streets. Taken from across clearing on former site of Presbyterian Hospital, east side of Madison Avenue from 70th to 71st Streets.
+June 8, 1928.
+P.L. Sperr, Photographer.
+N ~ 1Gi
+",site,"Madison Avenue & 69th Street, Manhattan, NY","Photographic views of New York City, 1870's-1970's / Manhattan",Locatable,"Madison ave, west side between 70th and 69th st mentioned in backing text.","{""latLng"":""40.77015776310933,-73.96678089814758""}","[40.769849, -73.966856]",
+728028f,1e1b8b60-c55a-012f-52b5-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dd-7b86-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=728028f&t=w,1927,Queens: Springfield Boulevard - 131st Avenue,,,"{'name': [], 'temporal': [], 'geographic': ['New York (N.Y.)', 'Queens (New York, N.Y.)'], 'topic': ['Farmhouses']}",728028b,"Springfield Boulevard, west side, at 131st Avenue, showing an old farmhouse and outhouses in the village of Springfield.
+
+March 9, 1927
+P. L. Sperr
+",site,"Springfield Boulevard & 131st Avenue, Queens, NY","Photographic views of New York City, 1870's-1970's / Queens",Locatable,intersection in backing text,,"[40.683729, -73.751213]",
+733250f,5a7e3840-c562-012f-59c1-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dd-a43a-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=733250f&t=w,1933,Squatters Colony at the Hudson River,['[Manhattan: 122nd Street (West).]'],"Sperr, Percy Loomis","{'name': [], 'temporal': [], 'geographic': ['Hudson River (N.Y. and N.J.)', 'New York', 'New York (N.Y.)', 'New York (State)'], 'topic': ['Piers & wharves', 'Squatters']}",733250b,"Squatters Colony, Manhattan: A set of 2 views of an unemployed individual perched on the bank of the Hudson River at about West 122nd Street. No.1 of this set is viewed northward and shows also the recreation pier at the foot of St. Clair (West 129th Street), while No. 2 is southward. On the left of the latter appears buildings on the east side of Riverside Drive. Technically, the undeveloped area shown paralleling the river is Riverside Park which today (1938) has been landscaped as a portion of the West Side Development under the auspices of the Park Department
+
+June 2, 1933
+
+P.L. Sperr.
+NO REPRODUCTIONS.
+(Not a dry mount item).",site,"122nd Street and Riverside Drive, Manhattan, N.Y.","Photographic views of New York City, 1870's-1970's / Topics",Locatable,"Not sure how I got this one before. Is ""Squatters Colony"" a unique location?","{""latLng"":""40.81328860715614,-73.96537434393312""}","[40.812639, -73.963014]",
+700044f,b53ae380-c52e-012f-dadb-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dc-a0c5-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=700044f&t=w,1937,Bronx: 135th Street (East) - Willis Avenue,,"Sperr, Percy Loomis","{'name': [], 'temporal': [], 'geographic': ['Bronx (New York, N.Y.)', 'New York (N.Y.)', 'Triborough Bridge (New York, N.Y.)'], 'topic': ['Bridge construction', 'Buildings', 'Elevated railroads']}",700044b,"369 to 343 (right to left) East 135th Street, north side, between Willis and Alexander Aves. (directly west of the Third Ave. Elevated structure). Also shown is part of the clearance between East 134th and 135th Streets which will be part of the approach to the Triborough Bridge.
+November 14, 1937.
+P. L. Sperr.
+",site,"135th Street (East) & Willis Avenue, Bronx, NY","Photographic views of New York City, 1870's-1970's / Bronx",Locatable,address mentioned in backing text,"{""latLng"":""40.807738,-73.9255484""}","[40.807228, -73.924295]",343 E 135th St
+716791f,d2709b90-c548-012f-e950-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dd-23c9-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=716791f&t=w,1924,Manhattan: Bowery - 1st Street,,,"{'name': [], 'temporal': [], 'geographic': ['Manhattan (New York, N.Y.)', 'New York (N.Y.)'], 'topic': ['Restaurants']}",716791b,"Bowery, east side, at 1st Street, showing at the N.E. corner two 2 1/2 - story old houses, Nos. 305-307 Bowery.
+
+February 1924.
+
+Eugene L. Armbruster Collection.",gpt,"Bowery & 1st Street, Manhattan, NY","Photographic views of New York City, 1870's-1970's / Manhattan",Locatable,,"{""latLng"":""40.7249759,-73.9917708""}",null,307 Bowery
+729107f,cf5d1c30-c55b-012f-d68a-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dd-83f6-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=729107f&t=w,,Richmond: Manor Road - Rice Avenue,,"Sperr, Percy Loomis","{'name': [], 'temporal': [], 'geographic': ['New York (N.Y.)', 'Staten Island (New York, N.Y.)'], 'topic': []}",729107b,"409 Manor Road, east side, between Rice and Utter Avenues.
+July 7, 1932.
+P. L. Sperr.
+",site,"Manor Road & Rice Avenue, Staten Island, NY","Photographic views of New York City, 1870's-1970's / Staten Island",Locatable,,"{""latLng"":""40.6177488,-74.12339709999999""}","[40.617374, -74.123663]",409 Manor Rd
+722535f,d5dd6e20-c551-012f-d7bb-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dd-50a5-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=722535f&t=w,1927,Manhattan: Pell Street - Bowery,,"Sperr, Percy Loomis","{'name': [], 'temporal': [], 'geographic': ['Chinatown (New York, N.Y.)', 'Manhattan (New York, N.Y.)', 'New York (N.Y.)'], 'topic': []}",722535b,,,"Pell Street & Bowery, Manhattan, NY","Photographic views of New York City, 1870's-1970's / Manhattan",Locatable,backing text mentions the view shows Doyers St.,"{""latLng"":""40.714783102356044,-73.99805585277862""}",null,Doyers Street
+705282f,8ce48d80-c536-012f-26d5-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dc-d64e-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=705282f&t=w,1926,Brooklyn: Kings Highway - Farragut Road,,,"{'name': [], 'temporal': [], 'geographic': ['Brooklyn (New York, N.Y.)', 'New York', 'New York (N.Y.)', 'New York (State)'], 'topic': ['Estates', 'estates']}",705282b,"(1)  King's Highway, east side, from Farragut Road to Ditmas Av., showing the Kouwenhoven estate.
+April 192.
+Eugene L. Armbruster Collection.
+(2)
+The same, looking south. Note the sand pit in the foreground.
+V  April 1926.
+Eugene L Armbruster Collection.
+(3)
+The same, showing in the baokground, the National Aniline and Chenical Co. Plant.
+Aprdl 1926.
+Eugene L. Armbruster Collection.
+(4)
+The same, sho ing the Manhattan Beach division of the Long Island
+R.R. in the background.
+April 1926.
+Eugene L. Armbruster Cellection.
+",site,"Kings Highway & Farragut Road, Brooklyn, NY","Photographic views of New York City, 1870's-1970's / Brooklyn",Locatable,I didn't find Ditmas Ave around here,,"[40.638525, -73.926025]",
+732872f,d0a0acc0-c561-012f-8b59-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dd-a146-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=732872f&t=w,1900,Recreation and hobbies - School activities - [A class in natural sciences in one of New York public schools.],,,"{'name': [], 'temporal': [], 'geographic': ['New York', 'New York (N.Y.)', 'New York (State)'], 'topic': ['Educational facilities', 'Public schools']}",732872b,"Recreation--School Activities: A class in the natural sciences in one of New York's public schools.
+about 1900
+Neg. No. 186",gpt,,"Photographic views of New York City, 1870's-1970's / Topics",Not Locatable,no specifics about which school,,null,
+1507520,376d2130-c5ce-012f-30f1-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47e1-fe49-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=1507520&t=w,1942-10-10,Madison Street #90,,,"{'name': [], 'temporal': [], 'geographic': ['New York (N.Y.)'], 'topic': ['Buildings, structures, etc.']}",1511922,,,"Madison Street #90, Manhattan, NY","Photographic views of New York City, 1870's-1970's, from the collections of the New York Public Library. Supplement.  / Manhattan",Locatable,"No confirmation on the address, but it's plausible.","{""latLng"":""40.7120359,-73.9959715""}","[40.711947, -73.99591]",90 Madison St
+713228f,57f222e0-c543-012f-37e1-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dd-07fa-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=713228f&t=w,1930,Manhattan: 45th Street (West) - 6th Avenue,,"Rothschild, Albert","{'name': [], 'temporal': [], 'geographic': ['Manhattan (New York, N.Y.)', 'New York', 'New York (N.Y.)', 'New York (State)'], 'topic': ['Cafeterias']}",713228b,"103-107 West 45th Street, adjoining the N.W. corner of Sixth Ave., showing a newly constructed 3-story building occupied by the Automat. This structure forms an ell and the main entrance is at No. 1165 Sixth Ave.
+April 26, 1930.
+Albert Rothschild.
+",site,"45th Street (West) & 6th Avenue, Manhattan, NY","Photographic views of New York City, 1870's-1970's / Manhattan",Locatable,,"{""latLng"":""40.7571283,-73.9830942""}","[40.756765, -73.982702]",107 W 45th St
+728919f,84b34540-c55b-012f-9dc8-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dd-827c-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=728919f&t=w,,Richmond: Harbor View Place So - Bay Street,,"Sperr, Percy Loomis","{'name': [], 'temporal': [], 'geographic': ['New York (N.Y.)', 'Staten Island (New York, N.Y.)'], 'topic': []}",728919b,"16 Harbor View Flaee South, aouth side, east ef Bay Street,
+ahowiag the Wangles residence.
+. M. Spemr,
+(s)
+Another view of the residendeg and the driveway.
+Jume, 1930.
+P. L. Sperr.
+",site,"Harbor View Place So & Bay Street, Staten Island, NY","Photographic views of New York City, 1870's-1970's / Staten Island",Locatable,,"{""latLng"":""40.6092598,-74.0617619""}","[40.609217, -74.062544]",16 Harborview Pl S
+701973f,7053a0a0-c531-012f-ca4c-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dc-bc7c-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=701973f&t=w,1931,Bronx: Van Cortlandt Park,,"Beals, A. Tennyson","{'name': [], 'temporal': [], 'geographic': ['Bronx (New York, N.Y.)', 'New York', 'New York (N.Y.)', 'New York (State)', 'Van Cortlandt Park (New York, N.Y.)'], 'topic': ['Stone walls']}",701973b,"Stone work at Van Cortland Park
+Wall - 1/2 mile stone wall and road widened from
+30 to 60 feet.
+Photo by Mr. A. Tennyson Beals
+Emergency Work Bureau
+1931
+",site,"Van Cortlandt Park., Bronx, NY","Photographic views of New York City, 1870's-1970's / Bronx",Maybe,"""Van Cortlandt Park"" is pretty big",,"[40.894709, -73.890918]",
+732341f,021801a0-c561-012f-4516-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dd-9d2d-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=732341f&t=w,1934,Occupations - Peddlers - Clothing - Dry goods,['[Manhattan: Park Avenue.]'],"Sperr, Percy Loomis","{'name': [], 'temporal': [], 'geographic': ['New York', 'New York (N.Y.)', 'New York (State)'], 'topic': ['Clothing & dress', 'Street vendors']}",732341b,"(1)
+Dry goods market; underneath N.Y. Central R.R. tracks on Park Ave.
+July 6, 1934.
+
+P. L. Sperr.
+
+(2)
+The same, from another angle.
+July 6, 1934.
+
+P. L. Sperr.",gpt,,"Photographic views of New York City, 1870's-1970's / Topics",Not Locatable,No cross street,,null,
+729122f,d5871680-c55b-012f-0ea8-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dd-8414-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=729122f&t=w,,Richmond: Manor Road - Ocean Terrace,,"Sperr, Percy Loomis","{'name': [], 'temporal': [], 'geographic': ['New York (N.Y.)', 'Staten Island (New York, N.Y.)'], 'topic': []}",729122b,"(1)
+Manor Road, at Ocean Terrace.
+May 23, 1926.
+P. L. Sperr
+
+(2)
+Tn the same area.
+August 8, 1926.
+P. L. Sperr  NO REPRODUCTIONS
+",site,"Manor Road & Ocean Terrace, Staten Island, NY","Photographic views of New York City, 1870's-1970's / Staten Island",Locatable,,,"[40.601811, -74.120606]",
+715674f,17831a40-c547-012f-b28b-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dd-1b14-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=715674f&t=w,1932,Manhattan: 153rd Street (West) - Amsterdam Avenue,,,"{'name': [], 'temporal': [], 'geographic': ['Manhattan (New York, N.Y.)', 'New York (N.Y.)'], 'topic': ['Catholic churches', 'Methodist Episcopal churches']}",715674b,"526-500 West 153rd Street, west of, adjoining, and at the S.W. corner of Amsterdam Avonue. St. Catherine's Roman Catholic Church and Rectory adjoins the corner; the Washington Heights Methodist Episcopal Church is at the corner. The rest of the buildings
+on this block are all three-story frame houses.
+1932.
+J. Clarence Davies Collection, Museum of the City of New York.
+Negative No. 377.
+",site,"153rd Street (West) & Amsterdam Avenue, Manhattan, NY","Photographic views of New York City, 1870's-1970's / Manhattan",Locatable,,"{""latLng"":""40.830239292169196,-73.9442683227539""}","[40.830288, -73.943925]",
+722223f,59e8cb60-c551-012f-8700-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dd-4e35-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=722223f&t=w,,Manhattan: Park Avenue - Vanderbilt Avenue,,"Weissberg, Will","{'name': ['Waldorf-Astoria Hotel (New York, N.Y.)'], 'temporal': [], 'geographic': ['Manhattan (New York, N.Y.)', 'New York (N.Y.)'], 'topic': ['Clocks & watches', 'Hotels']}",722223b,"The old clock at the Waldorf. W 10792
+Photographed at the Waldorf Astoria by Will Weissberg.
+Kindly credit.",gpt,"Park Avenue & Vanderbilt Avenue, Manhattan, NY","Photographic views of New York City, 1870's-1970's / Manhattan",Locatable,subject/name: Waldorf-Astoria Hotel,"{""latLng"":""40.7567485,-73.9738492""}",null,301 Park Ave
+724647f,4073c610-c555-012f-1e3e-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dd-6126-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=724647f&t=w,1918,Manhattan: West Street - Watts Street,,,"{'name': [], 'temporal': [], 'geographic': ['Manhattan (New York, N.Y.)', 'New York', 'New York (N.Y.)', 'New York (State)'], 'topic': ['Business enterprises', 'Children playing', 'Piers & wharves', 'Steamboats', 'Warehouses']}",724647b,"West Street, Watts, to Canal Street. (Before Reconstruction).
+
+President Borough of Manhattan
+June 9, 1918",site,"West Street & Watts Street, Manhattan, NY","Photographic views of New York City, 1870's-1970's / Manhattan",Locatable,,"{""latLng"":""40.72462889109513,-74.0111528048935""}","[40.724263, -74.011244]",
+465515,2c103f40-c612-012f-5995-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47db-9ee8-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=465515&t=w,,The Pinehurst. Plan of first floor; Plan of upper floors,,,"{'name': [], 'temporal': [], 'geographic': ['New York', 'New York (State)'], 'topic': ['Apartment houses']}",,,,,Apartment houses of the metropolis.,Locatable,History of the Pinehurst available on the co-op's website! http://www.thepinehurst.org/on-the-market/history-of-the-pinehurst/,"{""latLng"":""40.85030729999999,-73.9387285""}",null,447 Fort Washington Ave apt 68
+710555f,ebcbc280-c53e-012f-0b97-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dc-f316-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=710555f&t=w,,Manhattan: 10th Avenue - 39th Street,,,"{'name': [], 'temporal': [], 'geographic': ['Manhattan (New York, N.Y.)', 'New York (N.Y.)'], 'topic': []}",710555b,"A two-story frame structure at the rear of 514 Tenth Avenue, adjoining the S.E. corner of 39th Street. This will be demolished
+in 1935.
+1932.
+J. Clarence Davies Collection, Museum of the City of New York.
+Negative No. 516.
+",site,"10th Avenue & 39th Street, Manhattan, NY","Photographic views of New York City, 1870's-1970's / Manhattan",Locatable,,"{""latLng"":""40.7575546,-73.99674639999999""}","[40.757737, -73.996854]",514 10th Ave
+725527f,7a03a920-c556-012f-2744-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dd-6807-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=725527f&t=w,,Queens: 63rd Avenue - 96th Street,,,"{'name': [], 'temporal': [], 'geographic': ['New York (N.Y.)', 'Queens (New York, N.Y.)'], 'topic': []}",725527b,"Sixty-third Avenue, east from 96th Street, showing at the left foreground the H. Vanderveer house of 1860. At the right is another house belonging to him in 1873.
+
+April 1923.
+View 2: March 1925
+
+Eugene L. Armbruster Collection",gpt,"63rd Avenue & 96th Street, Queens, NY","Photographic views of New York City, 1870's-1970's / Queens",Locatable,"http://digitalarchives.queenslibrary.org/browse/newtown-h-vanderveer-house-rego-park
+
+Should be 63rd Rd, not 63rd Ave. 96th Street may no longer exist, but the Queens Library site says this building was between 97th Place and 97th Street.","{""latLng"":""40.73111123523128,-73.86046800080261""}",null,63rd Road & 98th Street
+709202f,b4ee7d40-c53c-012f-26b8-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dc-e885-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=709202f&t=w,1925,Manhattan: 5th Avenue - 102nd Street,,"Smith, Joseph B.","{'name': [], 'temporal': [], 'geographic': ['Manhattan (New York, N.Y.)', 'New York (N.Y.)'], 'topic': ['Apartment houses']}",709202b,"1212 Fifth Ave., at the S.E. corner of 102nd Street.
+About 1925.
+Joseph Smith.
+Gift of E. M. Jenke.
+",site,"5th Avenue & 102nd Street, Manhattan, NY","Photographic views of New York City, 1870's-1970's / Manhattan",Locatable,,"{""latLng"":""40.7914902,-73.9528464""}","[40.791727, -73.952982]",1212 5th Ave
+733656f,f8e823c0-c562-012f-87a6-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dd-a765-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=733656f&t=w,1932,"Benedicts Creek - Staten Island [Richmond - View of salt meadows from Arthur Kill Road, above Rossville.]",,"Sperr, Percy Loomis","{'name': [], 'temporal': [], 'geographic': ['New York (N.Y.)'], 'topic': []}",733656b,,,,"Photographic views of New York City, 1870's-1970's / Topics",Locatable," this arthur kill road, north of rossville, and there is a creek that possibly relates to the one mentioned.","{""latLng"":""40.557059926012535,-74.21046339783935""}",null,Rossville
+709623f,6b2ff520-c53d-012f-2793-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dc-ebcf-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=709623f&t=w,,Manhattan: 7th Avenue South - Clarkson Street,,,"{'name': [], 'temporal': [], 'geographic': ['Manhattan (New York, N.Y.)', 'New York (N.Y.)'], 'topic': []}",709623b,"10 Seventh Ave. South, west side, between Clarkson and Leroy Streets, showing a newly constructed addition to the Hudson Park Branch of the New York Public Library. The main building is around the corner and bears No. 66-68 Leroy Street.
+
+1936.
+
+Mr. Schwartz.
+New York Public Library.",site,"7th Avenue South & Clarkson Street, Manhattan, NY","Photographic views of New York City, 1870's-1970's / Manhattan",Locatable,,"{""latLng"":""40.72981289999999,-74.0052199""}","[40.729379, -74.005211]",10 7th Ave S
+701376f,951947c0-c530-012f-b27b-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dc-ab1d-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=701376f&t=w,1937,Bronx: Kappock Street - Independence Avenue,,"Sperr, Percy Loomis","{'name': ['Henry Hudson Parkway Authority'], 'temporal': [], 'geographic': ['Bronx (New York, N.Y.)', 'Henry Hudson Bridge (New York, N.Y.)', 'Henry Hudson Parkway (New York, N.Y.)', 'New York', 'New York (N.Y.)', 'New York (State)'], 'topic': ['Bridges', 'Roads']}",701376b,"Kappock Street, east from Independence Avenue. The bridge spanning the street is that of the Henry Hudson Parkway.
+May 21, 1937
+P.L.Sperr  Views 1,2
+",site,"Kappock Street & Independence Avenue, Bronx, NY","Photographic views of New York City, 1870's-1970's / Bronx",Locatable,,,"[40.880706, -73.919301]",
+731432f,87c4e020-c55f-012f-b2da-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dd-9619-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=731432f&t=w,"1936, 1937",Colleges and Universities - Columbia University,['[Manhattan: Amsterdam Avenue - 116th Street.]'],"Sperr, Percy Loomis","{'name': ['Columbia University'], 'temporal': [], 'geographic': ['New York', 'New York (N.Y.)', 'New York (State)'], 'topic': ['Universities & colleges']}",731432b,"(1) Columbia University: A view of Kent Hall, (N.W. corner of Amsterdam Ave., at West 116th Street). Also shown across 116th (right), is Hamilton Hall (S.W. corner). The building on the left partially shown, is the Philosophy Building. 1936.
+
+Walter L. Bogert.
+
+(2) Another view of Kent Hall, as seen looking eastward on West 116th Street. On the right appears a portion of Hamilton Hall which is on the S.W. corner.
+
+September 3, 1937.
+
+P. L. Sperr.",gpt,"Columbia University., Manhattan, NY","Photographic views of New York City, 1870's-1970's / Topics",Locatable,,"{""latLng"":""40.8072153,-73.9614057""}",null,Kent Hall
+1509775,31c706f0-c5cf-012f-86ef-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47e2-06f2-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=1509775&t=w,"1887, 1986",Flushing Meadow Park,"[""World's Fair, 1964-65: Pool of Industry""]",,"{'name': [], 'temporal': [], 'geographic': ['New York (N.Y.)'], 'topic': ['Buildings, structures, etc.']}",1509776,,,"Flushing Meadow Park, Queens, NY","Photographic views of New York City, 1870's-1970's, from the collections of the New York Public Library. Supplement.  / Queens",Locatable,"I spent way too long looking for this when I should have just searched on Google Maps. In any event, here's an original map showing the Pool of Industry in square F4: https://collections.lib.uwm.edu/digital/collection/agdm/id/16961/","{""latLng"":""40.74890389999999,-73.837863""}",null,Pool of Industry
+3984521,3edc0730-c5d7-012f-fd7e-58d385a7bc34,https://digitalcollections.nypl.org/items/b4afdefd-4a05-146a-e040-e00a180610a2,https://images.nypl.org/?id=3984521&t=w,,"Harry's 4 Service Gas Station: 14th Ave.-45th St., Brooklyn",,New York (N.Y.). Tenement House Dept.,"{'name': [], 'temporal': ['1930-1939'], 'geographic': ['New York', 'New York (State)'], 'topic': ['Tenement houses']}",,,,,Photographs taken by inspectors of the New York City Tenement House Department / Vol. 3,Locatable,,"{""latLng"":""40.6359424,-73.9875885""}",null,14th Avenue & 45th Street
+716818f,deafbfe0-c548-012f-1700-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dd-23ff-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=716818f&t=w,1900,Manhattan: Broadway - Battery Place,,"Moller, C. G., Jr.","{'name': [], 'temporal': [], 'geographic': ['Bowling Green (New York, N.Y.)', 'Bowling Green Park (New York, N.Y.)', 'Manhattan (New York, N.Y.)', 'New York', 'New York (N.Y.)', 'New York (State)'], 'topic': ['Business enterprises', 'Neighborhoods', 'Parks', 'Steamboats']}",716818b,"""The houses at Bowling Green"" p.157
+Pelletreau, William S.
+Early New York houses with historical - genealogical notes.
+New York: Francis P. Harper, 1900.
+
+These houses on the south side of Bowling Green were built c. 1820. Stephen Whitney, inventor of the otton gin lived in the second house from Broadway.  Peter Remsen, John Guion, David Austin, Elisha Riggs and Ferdinand Suydam lived there, too. Commodore Vanderbilt lived in the house at the State Street corner.
+
+In the late 1860's, Cunard Line moved its offices into one of these houses, followed by all other foreign steamship companies — White Star, Anchor, Inman, Guion, Transatlantique, Holland and others.  It became known as 'Steamship Row.' Today it is the site of the Custom House.
+",site,"Broadway & Battery Place, Manhattan, NY","Photographic views of New York City, 1870's-1970's / Manhattan",Locatable,,,"[40.704621, -74.014235]",
+719670f,56cf32c0-c54d-012f-2134-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dd-3a43-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=719670f&t=w,,Manhattan: Essex Street - Broome Street,,"Sperr, Percy Loomis","{'name': [], 'temporal': [], 'geographic': ['Manhattan (New York, N.Y.)', 'New York (N.Y.)'], 'topic': []}",719670b,"Essex Street, north from and including Broome Street. A three-story frame house is at the left which was in the rear of No. 88, now demolished.
+May 9, 1930.
+P.L. Sperr.
+",site,"Essex Street & Broome Street, Manhattan, NY","Photographic views of New York City, 1870's-1970's / Manhattan",Locatable,,"{""latLng"":""40.71784582028311,-73.98857034722137""}","[40.71761, -73.988683]",
+734117f,b8778e90-c563-012f-ec56-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dd-aafe-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=734117f&t=w,1928,Eastchester Bay (North) - Bronx - Ampere Avenue,,"Sperr, Percy Loomis","{'name': [], 'temporal': [], 'geographic': ['Eastchester Bay (N.Y.)', 'New York (N.Y.)'], 'topic': ['Boathouses', 'Boats']}",734117b,"(1) Eastchester Bay: A view north along the shore from the dock at the foot of Ampere Ave.
+
+P. L. Sperr. July 17, 1928.
+
+(2) A closer view of part of the same; seen on the extreme left in view 1.
+
+P. L. Sperr. July 17, 1928.",gpt,,"Photographic views of New York City, 1870's-1970's / Topics",Locatable,"""Dock at the foot of Ampere Avenue""","{""latLng"":""40.84630906012008,-73.81595663488771""}",null,Ampere Avenue
+730335f,d1d36ad0-c55d-012f-161c-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dd-8d8d-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=730335f&t=w,1870,General view - Manhattan - [View of Lower Manhattan from Brooklyn Bridge.],['[Cherry Hill waterfront.]'],"Brown Brothers (New York, N.Y.)","{'name': [], 'temporal': [], 'geographic': ['Hudson River (N.Y. and N.J.)', 'New York (N.Y.)'], 'topic': ['Piers & wharves']}",730335b,"(3).
+
+A general view northwest from the Brooklyn Bridge, and showing the Cherry Hill waterfront, between James Slip (left) and Market Slip (right, not shown). Just beyond, in the center of view is the Bowery and Chatham Square area. The North (Hudson) River, and the Jersey Shore line appear across the top of the view. This waterfront section comprises Piers (old) Nos. 31 (extreme left) to 36, and are occupied respectively by the Ferry to Long Island City (Pier 31, James Slip), Bridge Street Ferry (Pier 32), Philadelphia and New York S.S. Co., or the Clyde Line from Philadelphia (Piers 33 and 34), the Catherine Street Ferry to Brooklyn, (foot of Catherine Slip), Bridgeport Line S.S. (Pier 35), and the Central Vermont R.R. and S.S. Line (Pier 36). Distinctly shown at the rear of the Catherine Street Ferry, is the Catherine Market, with Van Dyke's Hotel (N.E. corner of South Street), and Brook's Bros., Clothiers (N.E. corner of Cherry Street), and the Lorillard House (N.W. corner of South Street), surrounding same.
+
+About 1870- 1875.
+
+Brown Brothers.
+
+Published in the American on December 1908, and the New York Times of October 20, 1912.
+
+NEG # 3350",gpt,,"Photographic views of New York City, 1870's-1970's / Topics",Locatable,Panoramic view of Manhattan from ~1870,"{""latLng"":""40.7060855,-73.9968643""}",null,Brooklyn Bridge
+710570f,f2370990-c53e-012f-f685-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dc-f334-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=710570f&t=w,"1932, 1936",Manhattan: 10th Avenue - 44th Street,,"Sperr, Percy Loomis","{'name': [], 'temporal': [], 'geographic': ['Manhattan (New York, N.Y.)', 'New York', 'New York (N.Y.)', 'New York (State)'], 'topic': ['Bakeries', 'Grocery stores', 'Stores & shops']}",710570b,"(1)
+Tenth Ave., west side, from 44th to 45th Streets.
+February 5, 1932.
+P. L. Sperr.
+
+(2)
+Tenth Ave., west side, from 44th to 46th Streets.
+February 5, 1932.
+P.L. Sperr.
+
+(3)
+The same as No. 2, showing a view farther north. The old tenements on the block from West 44th to West 45th Streets, seen in views 1 and 2, have been demolished and its site is now occupied by a l-story building to be used for stores.
+December 4, 1936.
+P. L. Sperr.
+",site,"10th Avenue & 44th Street, Manhattan, NY","Photographic views of New York City, 1870's-1970's / Manhattan",Locatable,,"{""latLng"":""40.76128343659894,-73.99442371163939""}","[40.760934, -73.994531]",
+721438f,19b61f10-c550-012f-87b5-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dd-4813-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=721438f&t=w,1929,Manhattan: Madison Avenue - 73rd Street,,"Sperr, Percy Loomis","{'name': [], 'temporal': [], 'geographic': ['Manhattan (New York, N.Y.)', 'New York (N.Y.)'], 'topic': ['Automobiles', 'Lutheran churches']}",721438b,"Madison Avenmue, S.W. corner of 73rd Street, showing St. James
+Lutheran Church.
+March 28, 1929.
+P.L. Sperr, Photograpber.
+(2)
+Madison Avenue, west side, from 73rd to 72nd Streets, showing
+St. James Lutheran Church.
+March 28, 1929.
+P.L. Sperr, Photographer.
+",site,"Madison Avenue & 73rd Street, Manhattan, NY","Photographic views of New York City, 1870's-1970's / Manhattan",Locatable,,"{""latLng"":""40.77242946855366,-73.96514148346711""}","[40.772464, -73.964943]",
+720144f,1d97b030-c54e-012f-deb0-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dd-3df7-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=720144f&t=w,"1929, 1936, 1940",Manhattan: 6th Avenue - 32nd Street (West),['Manhattan: 5th Street (West) - 32nd Street (West)'],,"{'name': [], 'temporal': [], 'geographic': ['Manhattan (New York, N.Y.)', 'New York', 'New York (N.Y.)', 'New York (State)'], 'topic': ['Elevated railroads', 'Hotels', 'Railroad stations']}",720144b,"Sixth Avenue, north from W. 32nd Street, showing Greeley Square; the southerly triangular area formed by Broadway intersecting 6th Avenue. The ""El"" follows the latter and the Hotel McAlpin (right) is on the former. To the left are Gimbels and Saks Dept. Stores. The first mentioned does not appear. Above the ""El"" station (demolished in 1938-9) towers the Herald Square Building.
+Broadway is to the left.
+View 1: December 24, 1936
+View 2: April 22, 1929
+View 3: April 15, 1940
+P. L. Sperr
+",site,"6th Avenue & 32nd Street (West), Manhattan, NY","Photographic views of New York City, 1870's-1970's / Manhattan",Locatable,,"{""latLng"":""40.74875996668219,-73.98850915211489""}","[40.748508, -73.988713]",
+709630f,6dfc20e0-c53d-012f-9d9c-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dc-ebdd-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=709630f&t=w,1932,Manhattan: 7th Avenue South - 10th Street,,"Sperr, Percy Loomis","{'name': [], 'temporal': [], 'geographic': ['Manhattan (New York, N.Y.)', 'New York (N.Y.)'], 'topic': ['Apartment houses', 'Gasoline pumps']}",709630b,"Seventh Avenue South, at N.W. corner of 10th Street.
+March 20, 1932.
+P.L. Sperr, Photographer.
+",site,"7th Avenue South & 10th Street, Manhattan, NY","Photographic views of New York City, 1870's-1970's / Manhattan",Locatable,,"{""latLng"":""40.734419426701365,-74.00252338161468""}","[40.73433, -74.0024]",
+700211f,f24d41e0-c52e-012f-cb95-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dc-a20f-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=700211f&t=w,,Bronx: 172nd Street (East) - West Farms Road,,"Sperr, Percy Loomis","{'name': [], 'temporal': [], 'geographic': ['Bronx (New York, N.Y.)', 'New York (N.Y.)'], 'topic': []}",700211b,"E. 172nd Street, at the N.W. corner of West Farms Road.
+May 31, 1928.
+P. L. Sperr.
+",site,"172nd Street (East) & West Farms Road, Bronx, NY","Photographic views of New York City, 1870's-1970's / Bronx",Locatable,,"{""latLng"":""40.83252758952212,-73.88486139021302""}","[40.832349, -73.884679]",
+724995f,c5a214a0-c555-012f-f0c7-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dd-63df-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=724995f&t=w,,Queens: 10th Avenue - 147th Street,,"Sperr, Percy Loomis","{'name': [], 'temporal': [], 'geographic': ['New York (N.Y.)', 'Queens (New York, N.Y.)'], 'topic': []}",724995b,"10th Avenue (right), at the N.E. corner of 147th Street, showing a frame house with watch tower, popular in t he second half of the nineteenth century. At was owned by W. S. Overton Douglass in 1891 and by George B. Douglas in 1909. The house
+on the right was owned by O'Brien.
+P. L. Sperr  March 5, 1932
+",site,"10th Avenue & 147th Street, Queens, NY","Photographic views of New York City, 1870's-1970's / Queens",Locatable,,,"[40.7913, -73.820195]",
+724453f,f57fef80-c554-012f-dea2-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dd-5fa2-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=724453f&t=w,1925,Manhattan: West End Avenue - 76th Street (West),,,"{'name': [], 'temporal': [], 'geographic': ['Manhattan (New York, N.Y.)', 'New York (N.Y.)'], 'topic': ['Building construction', 'Neighborhoods', 'Reformed churches']}",724453b,"West End Avenue, east side, from 76th to 77th Streets, a block of old houses built between 1885 and 16Vl, also showing the West End Collegiate Church (Lutch Reformed), founded in 1891, on the N.E.
+corner of 77th Street.
+Notice a new apartment building under construction in the Iight
+background.
+June 1925.
+",site,"West End Avenue & 76th Street (West), Manhattan, NY","Photographic views of New York City, 1870's-1970's / Manhattan",Locatable,,"{""latLng"":""40.78263634296252,-73.9821888465576""}","[40.782417, -73.982618]",
+732423f,21e59b00-c561-012f-ca64-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dd-9dcf-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=732423f&t=w,"1923, 1934, 1938",Occupations - Peddlers - Food - Fruit,['[Manhattan: 9th Avenue - 40th Street.]'],"Sperr, Percy Loomis","{'name': [], 'temporal': [], 'geographic': ['New York', 'New York (N.Y.)', 'New York (State)'], 'topic': ['Fruit', 'Street vendors', 'Vegetables']}",732423b,"(1)
+Fruit peddlers of Italian make-up dealing with oustomers.
+December 1923.
+P. L. Sperr.
+(2)
+Pushcart peddlers line the streets for block on end in this fashion.
+April a, 1928,
+P. L. Sperr.
+(3)
+Food combinations of street wakket on Ninth Ave., near 40th
+Street.
+April 30, 1934.
+P. L. Sperr.
+Mn ~20N;
+",site,"9th Avenue and 40th Street, Manhattan, N.Y.","Photographic views of New York City, 1870's-1970's / Topics",Locatable,,,"[40.757154, -73.993588]",
+719153f,88a08150-c54c-012f-d52b-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dd-3639-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=719153f&t=w,,Manhattan: Columbus Circle - [Durland's Riding Academy.],,,"{'name': [], 'temporal': [], 'geographic': ['Columbus Circle (New York, N.Y.)', 'Manhattan (New York, N.Y.)', 'New York', 'New York (N.Y.)', 'New York (State)'], 'topic': ['Educational facilities', 'Riding schools']}",719153b,"William Durland, Jr. from Jamaica
+Riding Academy
+59th St & 8th Ave
+
+Columbus Circle: Durland's Riding Academy
+
+THE NEW YORK PUBLIC LIBRARY ASTOR, LENOX & TILDEN FOUNDATIONS ",gpt,"Columbus Circle & [Durland's Riding Academy.], Manhattan, NY","Photographic views of New York City, 1870's-1970's / Manhattan",Locatable,,"{""latLng"":""40.767848,-73.98152189999999""}",null,Columbus Circle
+1509161,f5653550-c5cd-012f-9923-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47e2-0344-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=1509161&t=w,1915-04-09,Broadway #573,,,"{'name': [], 'temporal': [], 'geographic': ['New York (N.Y.)'], 'topic': ['Buildings, structures, etc.']}",1509162,,,"Broadway #573, Manhattan, NY","Photographic views of New York City, 1870's-1970's, from the collections of the New York Public Library. Supplement.  / Manhattan",Locatable,No verification on address,"{""latLng"":""40.7245361,-73.9978874""}",null,573 Broadway
+704168f,c9ef5550-c534-012f-7320-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dc-cd9a-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=704168f&t=w,1932,Brooklyn: Fenimore Street - 32nd Avenue,,"Sperr, Percy Loomis","{'name': [], 'temporal': [], 'geographic': ['Brooklyn (New York, N.Y.)', 'New York (N.Y.)'], 'topic': ['Methodist Episcopal churches']}",704168b,"Fenimore Street, at the S.W. corner of Rogers Ave., showing the Fenimore Street Methodist Episcopal Church.
+
+March 29, 1932.
+
+P. L. Sperr.",gpt,"Fenimore Street & 32nd Avenue, Brooklyn, NY","Photographic views of New York City, 1870's-1970's / Brooklyn",Locatable,"Unclear where ""32nd Avenue"" comes from in the title -- maybe 1932?","{""latLng"":""40.6585205,-73.9533136""}",null,Fenimore Street & Rogers Avenue
+718516f,8bf1ea20-c54b-012f-49a2-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dd-3141-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=718516f&t=w,,Manhattan: Central Park West - 95th Street,,"Sperr, Percy Loomis","{'name': [], 'temporal': [], 'geographic': ['Manhattan (New York, N.Y.)', 'New York (N.Y.)'], 'topic': []}",718516b,"gNe22,
+Central Park West, at and adjoining the N.W. corner of 95th Street. No. 1 West 95th Street, on the corner, and 352-355 Central Park West, adjoining it, will remain when the Scotch Presbyterian (L.1. 248( Chasel at 3 West 95th Street, together with the adjoining houses, is demolished in September to make room for a sixteen-story
+apartment building.
+May 31, 1928.
+P. L. Sperr.
+",site,"Central Park West & 95th Street, Manhattan, NY","Photographic views of New York City, 1870's-1970's / Manhattan",Locatable,,"{""latLng"":""40.79119344081202,-73.96527438095094""}","[40.791003, -73.96519]",352 Central Park W
+719497f,10f4f920-c54d-012f-f56e-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dd-38e9-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=719497f&t=w,1932,Manhattan: Houston Street (East) - Avenue A,,"Sperr, Percy Loomis","{'name': [], 'temporal': [], 'geographic': ['Manhattan (New York, N.Y.)', 'New York', 'New York (N.Y.)', 'New York (State)'], 'topic': ['Elevated railroads', 'Hoisting machinery', 'Junkyards', 'Railroad stations']}",719497b,,,"Houston Street (East) & Avenue A, Manhattan, NY","Photographic views of New York City, 1870's-1970's / Manhattan",Locatable,More location information on (missing) backing text,"{""latLng"":""40.72266168898308,-73.9873937989502""}","[40.722247, -73.986278]",
+717408f,ce8859c0-c549-012f-cd49-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dd-2899-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=717408f&t=w,1939,Manhattan: Broadway - 35th Street (West),,"Alland, Alexander","{'name': [], 'temporal': [], 'geographic': ['Manhattan (New York, N.Y.)', 'New York', 'New York (N.Y.)', 'New York (State)'], 'topic': ['Elevated railroads']}",717408b,"Broadway, east side, at W. 35th Street, showing subway construc tion actibity at Herald Square. Sixth Avenue and its ""E1"" line are on the left. This transportation facitlity is shortly to disappear.
+1938-9
+Alexander Alland
+This photo is one of a series that appeared in the published volume ""Portrait of N. Y."" by Felix Reisenberg and Alex. Alland, IRGV.
+",site,"Broadway & 35th Street (West), Manhattan, NY","Photographic views of New York City, 1870's-1970's / Manhattan",Locatable,,,"[40.75069, -73.98783]",
+700392f,331ef240-c52f-012f-d81b-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dc-a379-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=700392f&t=w,"1928, 1938",Bronx: Adams Street - Van Nest Avenue,,"Sperr, Percy Loomis","{'name': [], 'temporal': [], 'geographic': ['Bronx (New York, N.Y.)', 'New York (N.Y.)'], 'topic': ['Lutheran churches']}",700392b,"(1)
+1722 to 1738 (right to left) Adams Street, north side, between Van Nest and Morris Park Aves. In the center right, at No. 1724, is St. Luke's Lutheran Church. The view is northward across an empty lot on the south side of the street.
+July 31, 1928.
+P. L. Sperr.
+(2)
+A closer view of the church and some of the houses.
+July 31, 1928.
+P. L. Sperr.
+(3)
+The same as view 1, ten years later. The view is westward, and
+shows the church on the extreme right.
+April 16, 1938.
+P. L. Sperr.
+",site,"Adams Street & Van Nest Avenue, Bronx, NY","Photographic views of New York City, 1870's-1970's / Bronx",Locatable,,"{""latLng"":""40.8412754,-73.8710687""}","[40.840542, -73.87058]",1724 Adams St
+723085f,bddd2e80-c552-012f-6af8-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dd-54f2-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=723085f&t=w,1930,Manhattan: Rutgers Street - Madison Street,,"Sperr, Percy Loomis","{'name': [], 'temporal': [], 'geographic': ['Manhattan (New York, N.Y.)', 'New York (N.Y.)'], 'topic': ['Catholic churches']}",723085b,"Rutgers Street, west side, north from, but not including Madison, to and including Canal Streets, showing at the N. W. corner of Henry Street, the St, Teresa's R. C. Church.
+
+June 6, 1930
+P. L. Sperr",site,"Rutgers Street & Madison Street, Manhattan, NY","Photographic views of New York City, 1870's-1970's / Manhattan",Locatable,,"{""latLng"":""40.71299948445386,-73.99019966137693""}","[40.712601, -73.990028]",
+709170f,a87541a0-c53c-012f-82cc-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dc-e845-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=709170f&t=w,1928,Manhattan: 5th Avenue - 84th Street,,Capitol Photo Service,"{'name': [], 'temporal': [], 'geographic': ['Manhattan (New York, N.Y.)', 'New York (N.Y.)'], 'topic': ['Apartment houses']}",709170b,"1030-1032, 1033, and 1035 (from right to left), Fifth Ave., east side, from East 84th to East 85th Streets. Also shown (left) are Nos. 2 and 8-14 East 85th Street, at, and adjoining the S. E. corner of Fifth Ave.
+About 1928
+
+Capitol Photo Service
+
+Neg #2927",site,"5th Avenue & 84th Street, Manhattan, NY","Photographic views of New York City, 1870's-1970's / Manhattan",Locatable,,"{""latLng"":""40.7804890946082,-73.96100821957398""}","[40.780221, -73.961373]",
+725289f,2e0f0e80-c556-012f-cf43-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dd-662b-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=725289f&t=w,1932,Queens: 39th Avenue - Lawrence Street,,"Sperr, Percy Loomis","{'name': [], 'temporal': [], 'geographic': ['New York (N.Y.)', 'Queens (New York, N.Y.)'], 'topic': ['Neighborhoods']}",725289b,"39th Avenue, north side, east from near Lawrence Street. Through the center of this row of houses was later cut through Prince Street to have it connect 38th with Roosevelt Avenues.
+
+P. L. Sperr
+
+March 12, 1932",gpt,"39th Avenue & Lawrence Street, Queens, NY","Photographic views of New York City, 1870's-1970's / Queens",Locatable,Lawrence Street seems to have become College Point Boulevard.,"{""latLng"":""40.75968557191542,-73.83236520436859""}",null,Prince Street & Roosevelt Avenue
+1691044,6892b0c0-c6cc-012f-411b-58d385a7bc34,https://digitalcollections.nypl.org/items/5f35a6a2-c335-5f1c-e040-e00a18064c3c,https://images.nypl.org/?id=1691044&t=w,1925,Fourth Avenue front,,Wurts Brothers,"{'name': ['Madison Square Garden (New York, N.Y.)'], 'temporal': [], 'geographic': ['New York', 'New York (State)'], 'topic': ['Buildings', 'Street-railroad tracks']}",,,,,"[Photographs of Madison Square Garden. New York, 1925]",Locatable,This was likely also MSG2: https://en.wikipedia.org/wiki/Madison_Square_Garden_(1890),"{""latLng"":""40.742170713762185,-73.98508095659179""}",null,Madison Square Park
+704518f,56559dd0-c535-012f-f89f-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dc-d056-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=704518f&t=w,1926,Brooklyn: Fulton Street - Joralemon Street,,"Brown Brothers (New York, N.Y.)","{'name': ['David N. Dinkins Manhattan Municipal Building (New York, N.Y.)'], 'temporal': [], 'geographic': ['Brooklyn (New York, N.Y.)', 'New York', 'New York (N.Y.)', 'New York (State)'], 'topic': ['Monuments & memorials']}",704518b,"Fulton Street (elevated structure thereon), south side, east from its intersection with Joralemon Street, showing a general view southeastward as seen from the Temple Bar Building which is located on the west side of Court Street (No. 44) at the N.W. corner of Joralemon Street. At the right of the Fulton Street Elevated line, beginning with the foreground, are in their order, the following buildings; namely, the new and old Municipal Buildings, and the Hall of Records. The triangular roofed building to the left is at the intersection of Willoughby and Fulton Streets. The
+elevated station is on Boerum Place.
+May 1926.
+Brown Brothers.
+",site,"Fulton Street & Joralemon Street, Brooklyn, NY","Photographic views of New York City, 1870's-1970's / Brooklyn",Locatable,aerial view,,"[40.692174, -73.989119]",
+709803f,b6c37b80-c53d-012f-3dd0-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dc-ed36-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=709803f&t=w,,Manhattan: 7th Avenue - 47th Street (West),,,"{'name': [], 'temporal': [], 'geographic': ['Manhattan (New York, N.Y.)', 'New York (N.Y.)'], 'topic': []}",709803b,"Seventh Avenue, at the N.E. corner of West 47th Street. showing the structure housing the Columbia Theatre. This eventually became the present Mayfair Theatre. The Avenue is to the left and shown upon same is one of the distinctive Broadway street-cars.
+October 31, 1915
+Borough President of Manhattan
+No. 939
+",site,"7th Avenue & 47th Street (West), Manhattan, NY","Photographic views of New York City, 1870's-1970's / Manhattan",Locatable,,"{""latLng"":""40.75927413995164,-73.9843994232788""}","[40.759201, -73.984614]",
+724113f,6b5c4d90-c554-012f-4c91-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dd-5cfa-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=724113f&t=w,,Manhattan: Washington Street - York Street,,American Studio,"{'name': [], 'temporal': [], 'geographic': ['Manhattan (New York, N.Y.)', 'New York (N.Y.)'], 'topic': []}",724113b,"Washington Street, number 226.
+American Studios.
+August 22, 1923.",gpt,"Washington Street & York Street, Manhattan, NY","Photographic views of New York City, 1870's-1970's / Manhattan",Maybe,"There's a York & Washington in Brooklyn, near 226 Washington. I'm not sure there's a York Street anywhere near a Washington Street in Manhattan.","{""latLng"":""40.7009107,-73.9898223""}",null,226 Washington St
+719718f,6bd198b0-c54d-012f-663c-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dd-3aa3-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=719718f&t=w,1939,Manhattan: Exterior Street - 22nd Street (East),,"Sperr, Percy Loomis","{'name': ['Empire State Building (New York, N.Y.)'], 'temporal': [], 'geographic': ['Manhattan (New York, N.Y.)', 'New York (N.Y.)'], 'topic': ['Bookbinding', 'Piers & wharves']}",719718b,"Exterior (Marginal) Street, east side, north from the foot of East 22nd Street, showing the newly constructed seaplane landing platform. This occupies the site of the old Greenpoint Ferry slips. The small basin between 23rd and 24th Streets is to be partially filled for the new East River Drive. The recreational pier at the foot of 24th Street has been removed; that at 25th Street is shortly to follow. The Drive then will continue, to sweep pass the institutional Bellevue Hospital buildings on filled land. Not above the roofs of same, the dim outlines of the skyscrapers that make-up the Grand Central-42nd Street outline. To the left is the J. J. Little & Ives bookbinding plant on East 24th Street. Above same is the Empire State Building.
+
+July 18, 1939
+
+P. L. Sperr",gpt,"Exterior Street & 22nd Street (East), Manhattan, NY","Photographic views of New York City, 1870's-1970's / Manhattan",Locatable,There's still a Skyport there! Unclear what Marginal / Exterior Street was.,"{""latLng"":""40.73476923990951,-73.9748082713501""}",null,East 22nd Street
+711023f,abd37140-c53f-012f-9c10-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dc-f6be-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=711023f&t=w,,Manhattan: 10th Street (East) - Broadway,,"Brown Brothers (New York, N.Y.)","{'name': [], 'temporal': [], 'geographic': ['Manhattan (New York, N.Y.)', 'New York (N.Y.)'], 'topic': []}",711023b,"55-57 East 10th Street, at the N.W. corner of Broadway. Also shown is Broadway, west side, north from and including 10th Street, to and
+including 11th Street.
+About 1922.
+Brown Brothers.
+NO REPRODUCTIONS.  Neg. #569
+",site,"10th Street (East) & Broadway, Manhattan, NY","Photographic views of New York City, 1870's-1970's / Manhattan",Locatable,,"{""latLng"":""40.7319593,-73.99149969999999""}","[40.731719, -73.991468]",57 E 10th St
+417397,f5affd60-c611-012f-7f03-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47da-d904-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=417397&t=w,,"The Lucitine, nos. 35-37-39 West Ninety-sixth Street",,,"{'name': [], 'temporal': [], 'geographic': ['New York', 'New York (State)'], 'topic': ['Apartment houses', 'Dwellings']}",,,,"35-37-39 West Ninety-sixth Street., Manhattan, NY","The World's loose leaf album of apartment houses, containing views and ground plans of the principal high class apartment houses in New York City, together with a map showing the situation of these houses, transportation facilities, etc.",Locatable,,"{""latLng"":""40.7925463,-73.9661534""}",null,39 W 96th St
+703362f,878d40d0-c533-012f-1dc4-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dc-c752-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=703362f&t=w,1940,Brooklyn: Buffalo Avenue - Pacific Street,,"Sperr, Percy Loomis","{'name': [], 'temporal': [], 'geographic': ['Brooklyn (New York, N.Y.)', 'New York (N.Y.)'], 'topic': ['Apartment houses']}",703362b,"Buffalo Avenue, s. fr. Pacific Street, Brooklyn.
+
+Neg. no. A-121
+
+P. L. Sperr, photographer
+July 13, 1940
+",site,"Buffalo Avenue & Pacific Street, Brooklyn, NY","Photographic views of New York City, 1870's-1970's / Brooklyn",Locatable,,"{""latLng"":""40.676046895752336,-73.92486000000001""}","[40.676291, -73.92486]",
+704900f,f2429890-c535-012f-041f-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dc-d352-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=704900f&t=w,1941,Brooklyn: Heyward Street - Bedford Avenue,,"Sperr, Percy Loomis","{'name': [], 'temporal': [], 'geographic': ['Brooklyn (New York, N.Y.)', 'New York (N.Y.)'], 'topic': ['Automobile dealerships']}",704900b,"Heyward Street (left), at the northeast corner of Bedford
+Avenue.
+
+P. L. Sperr
+April 12, 1941
+",site,"Heyward Street & Bedford Avenue, Brooklyn, NY","Photographic views of New York City, 1870's-1970's / Brooklyn",Locatable,,"{""latLng"":""40.700966140623606,-73.95737872023774""}","[40.700836, -73.957427]",
+3985136,ef748ff0-c5d7-012f-9032-58d385a7bc34,https://digitalcollections.nypl.org/items/b4afdefd-4c6c-146a-e040-e00a180610a2,https://images.nypl.org/?id=3985136&t=w,,"Tenements; Louis Hecht Electrician, A. Miller Steel Pipes: 18 Cannon St.-Broome St., Manhattan",,New York (N.Y.). Tenement House Dept.,"{'name': [], 'temporal': ['1930-1939'], 'geographic': ['New York', 'New York (State)'], 'topic': ['Tenement houses']}",,,,,Photographs taken by inspectors of the New York City Tenement House Department / Vol. 7,Locatable,,"{""latLng"":""40.7151316,-73.9803237""}",null,Cannon Street & Broome Street
+734068f,a359e540-c563-012f-5358-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dd-aa9c-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=734068f&t=w,1920,"East River - Piers and shoreline - 65th Street, Brooklyn",,"Galloway, Ewing","{'name': [], 'temporal': [], 'geographic': ['New York (N.Y.)'], 'topic': []}",734068b,,,"Piers and shoreline - 65th Street, Brooklyn., Manhattan, NY","Photographic views of New York City, 1870's-1970's / Topics",Locatable,,"{""latLng"":""40.64492276475031,-74.03084164732664""}",null,65th Street
+724267f,aa193140-c554-012f-2836-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dd-5e2e-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=724267f&t=w,1932,Manhattan: Water Street - Market Slip,,"Sperr, Percy Loomis","{'name': [], 'temporal': [], 'geographic': ['Manhattan (New York, N.Y.)', 'Manhattan Bridge (New York, N.Y.)', 'New York', 'New York (N.Y.)', 'New York (State)'], 'topic': ['Bridges']}",724267b,"Water Street, south side, east from but not including Market Slip, to, and including Pike Slip, and showing the Manhattan Bridge. (Direction of Water Street is arbitrarily set to run east and west).
+April 15, 1932.
+P. L. Sperr.
+",site,"Water Street & Market Slip, Manhattan, NY","Photographic views of New York City, 1870's-1970's / Manhattan",Locatable,,,"[40.71011, -73.994062]",
+703129f,2cec3110-c533-012f-790c-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dc-c580-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=703129f&t=w,1931,Brooklyn: Bay 19th Street - Bath Avenue,,,"{'name': [], 'temporal': [], 'geographic': ['Brooklyn (New York, N.Y.)', 'New York (N.Y.)'], 'topic': []}",703129b,"(1)
+144-156 Bay 19th Street, west side, from and including Bath, to but not including Benson Aves. Also seen is Nos. 1805-1819 Bath Ave. from the N.E. corner of Bay 19th to, but not including Bay 18th Streets. All the houses are frame.
+
+February 3, 1931.
+
+P. L. Sperr.
+
+(2)
+The same, a close up also showing Coney Island Car coming into Bath Ave. Also Shown are frame houses.
+
+February 3, 1931.
+
+P. L. Sperr.",site,"Bay 19th Street & Bath Avenue, Brooklyn, NY","Photographic views of New York City, 1870's-1970's / Brooklyn",Locatable,,"{""latLng"":""40.6035808,-74.0055856""}","[40.603571, -74.005587]",Bay 19th Street & Bath Avenue
+716266f,f81d14c0-c547-012f-6f48-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dd-1fb4-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=716266f&t=w,1909,Manhattan: Amsterdam Avenue - Cathedral Parkway,"['Photographs of the Cathedral of St. John the Divine [during construction.] Angel with instrument, singing monk, St. Cecelia; models for choir stall finials. Statue.']",,"{'name': ['Cathedral of St. John the Divine (New York, N.Y.)'], 'temporal': [], 'geographic': ['Manhattan (New York, N.Y.)', 'New York (N.Y.)'], 'topic': ['Building construction', 'Statues']}",716266b,,,"Amsterdam Avenue & Cathedral Parkway, Manhattan, NY","Photographic views of New York City, 1870's-1970's / Manhattan",Locatable,,"{""latLng"":""40.8038356,-73.9618754""}","[40.802988, -73.963863]",The Cathedral Church of St. John the Divine
+723166f,de7bc1a0-c552-012f-8537-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dd-5594-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=723166f&t=w,1937,Manhattan: St. Nicholas Avenue - Fort George Avenue,,"Sperr, Percy Loomis","{'name': [], 'temporal': [], 'geographic': ['Highbridge Park (New York, N.Y.)', 'Manhattan (New York, N.Y.)', 'New York (N.Y.)'], 'topic': ['Apartment houses', 'Parks']}",723166b,"(1)
+St. Nicholas Ave., north from but not including Fort George Ave.
+From this point the avenue winds down a sharp hill and reaches Nagle Ave.
+at its junction with Dyckman Street and Hillside Ave. (where it terminates)
+This point of vantage affords a panoramic view of the northernmost sector
+of Manhattan, north from Dyckman Street, to Spuyten Duyvil. At the
+right is part of Highbridge Park, and at the left is a very steep slope
+reaching down to Hillside Ave.
+April 24, 1937.
+P. L. Sperr.
+(2)
+The same, from a point slightly northward. Also shown is a portion
+of the Seventh Ave.-Van Cortlandt Line of the Interborough Rapid Transit
+subway, running, at this point, on an elevated structure on Nagle Ave.
+April 20, 1937.
+P. L. Sperr.
+(3)
+The same, but showing a closer view of the point of confluence of
+the thoroughfares mentioned in view No. 1. At the right appears Dyckman
+Street as it crosses Nagle Ave. and proceeds northward. The houses seen
+(left) are on the east side of Dyckman Street, north from Nagle Ave., and
+(right) on the north side of the latter, east from the former street.
+Also shown (extreme left) is the Dyckman Street station of the subway
+line (mentioned in view 2).
+April 20, 1937.
+P. L. Sperr.
+",site,"St. Nicholas Avenue & Fort George Avenue, Manhattan, NY","Photographic views of New York City, 1870's-1970's / Manhattan",Locatable,,"{""latLng"":""40.8568594,-73.9283095""}","[40.856732, -73.928392]",Saint Nicholas Avenue & Fort George Avenue
+709744f,9d11d0c0-c53d-012f-a1d5-58d385a7bc34,https://digitalcollections.nypl.org/items/510d47dc-ecc0-a3d9-e040-e00a18064a99,https://images.nypl.org/?id=709744f&t=w,1929,Manhattan: 7th Avenue - 31st Street,,"Galloway, Ewing","{'name': [], 'temporal': [], 'geographic': ['Manhattan (New York, N.Y.)', 'New York', 'New York (N.Y.)', 'New York (State)'], 'topic': ['Business districts', 'Railroad stations']}",709744b,"Seventh Avenue, west side, north from 3lst Street, showing at left Pennsylvania Station.
+1929.
+Photograph by Ewing Galloway.
+Ne, ~ 232T
+",site,"7th Avenue & 31st Street, Manhattan, NY","Photographic views of New York City, 1870's-1970's / Manhattan",Locatable,,,"[40.749101, -73.992006]",

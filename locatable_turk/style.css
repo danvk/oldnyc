@@ -31,6 +31,7 @@ html, body {
 .outputside {
   overflow: visible;
   margin-left: auto;
+  max-width: 600px;
 }
 
 .container {
@@ -99,17 +100,13 @@ body {
 }
 /* This is the 10/200 progress indicator */
 form>p:first-child {
-  float:left;
-  font-size:2em;
-  max-width: 150px;
-}
-form>p:first-child::after {
-  content: "tasks done";
+  position: absolute;
+  top: 0;
+  right: 1em;
 }
 #submit {
   font-size: 3em;
 }
-
 
 .instructions {
   border: 1px solid #777;
@@ -119,6 +116,22 @@ form>p:first-child::after {
   margin-top: 1em;
   max-width: 800px;
   font-family: Roboto;
+  position: relative;
+}
+
+#close-instructions {
+  cursor: pointer;
+  position: absolute;
+  right: 0.25em;
+  top: 0.25em;
+}
+
+#show-instructions {
+  position: absolute;
+  top: 1em;
+  right: 6em;
+  cursor: pointer;
+  color: LinkText;
 }
 
 p.date-instructions {

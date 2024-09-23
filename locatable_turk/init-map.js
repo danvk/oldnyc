@@ -3,7 +3,7 @@ function initMap() {
   const geocoder = new google.maps.Geocoder();
   var map = new google.maps.Map(document.getElementById('map'), {
     center: latLngFromSite || {lat: 40.74421, lng: -73.9737},
-    zoom: latLngFromSite ? 15 : 13
+    zoom: latLngFromSite ? 17 : 13
   });
   var marker = null;
   var card = document.getElementById('pac-card');
@@ -55,6 +55,7 @@ function initMap() {
   autocomplete.addListener('place_changed', function() {
     infowindow.close();
     var place = autocomplete.getPlace();
+    document.getElementById('last-query').value = place.name;
     if (!place.geometry) {
       // User entered the name of a Place that was not suggested and
       // pressed the Enter key, or the Place Details request failed.
@@ -95,7 +96,12 @@ function initMap() {
   });
   document.querySelector('#loc-no').addEventListener('change', () => {
     marker.setMap(null);
-  })
+  });
+
+  if (geolocation) {
+    document.querySelector('#loc-yes').setAttribute('checked', true);
+    marker.setMap(map);
+  }
 }
 
 (function() {
@@ -135,3 +141,26 @@ document.getElementById('submit').addEventListener('click', (event) => {
     document.getElementById('loc-yes').setCustomValidity('')
   }
 });
+
+function showInstructions() {
+  document.querySelector('.instructions').style.display = 'block';
+  document.getElementById('show-instructions').style.display = 'none';
+}
+function hideInstructions() {
+  document.querySelector('.instructions').style.display = 'none';
+  document.getElementById('show-instructions').style.display = 'block';
+}
+
+document.getElementById('close-instructions').addEventListener('click', (event) => {
+  hideInstructions();
+  sessionStorage.setItem('instructions', 'hidden');
+});
+
+document.getElementById('show-instructions').addEventListener('click', (event) => {
+  showInstructions();
+  sessionStorage.setItem('instructions', 'visible');
+});
+
+if (sessionStorage.getItem('instructions') === 'hidden') {
+  hideInstructions();
+}
