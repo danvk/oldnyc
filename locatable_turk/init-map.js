@@ -101,6 +101,7 @@ function initMap() {
   if (geolocation) {
     document.querySelector('#loc-yes').setAttribute('checked', true);
     marker.setMap(map);
+    updateHiddenFieldWithLatLng(marker.getPosition());
   }
 }
 

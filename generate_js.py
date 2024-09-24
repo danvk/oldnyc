@@ -216,7 +216,7 @@ def output_geojson(located_recs: list[LocatedRecord]):
                 else None
             ),
             "properties": {
-                "title": r.tilte,
+                "title": r.title,
                 "date": r.date,
                 "geocode": (
                     {

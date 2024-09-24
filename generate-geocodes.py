@@ -4,6 +4,7 @@
 # Inputs are images.ndjson and a collection of 'coders'.
 # Output depends on flags, but can be JSON, GeoJSON, JavaScript, text, etc.
 
+import os
 import sys
 from collections import defaultdict
 from optparse import OptionParser
@@ -42,7 +43,7 @@ if __name__ == '__main__':
         "--ids_filter",
         default="",
         dest="ids_filter",
-        help="Comma-separated list of Photo IDs to consider.",
+        help="Comma-separated list of Photo IDs to consider, or path to an IDs file",
     )
     parser.add_option(
         "",
@@ -137,7 +138,10 @@ if __name__ == '__main__':
 
     rs = [json_to_item(line) for line in open(options.images_ndjson)]
     if options.ids_filter:
-        ids = set(options.ids_filter.split(","))
+        if "," not in options.ids_filter and os.path.exists(options.ids_filter):
+            ids = set(open(options.ids_filter).read().strip().split("\n"))
+        else:
+            ids = set(options.ids_filter.split(","))
         rs = [r for r in rs if r.id in ids]
 
     # Load existing geocodes, if applicable.
