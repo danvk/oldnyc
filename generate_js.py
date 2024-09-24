@@ -199,11 +199,11 @@ def printLocations(located_recs: list[LocatedRecord]):
         print('%d\t%s' % (count, ll))
 
 
-def output_geojson(located_recs: list[LocatedRecord]):
+def output_geojson(located_recs: list[LocatedRecord], all_recs: list[Item]):
     features = []
-    for r, coder, location_data in located_recs:
-        if not location_data:
-            continue  # debatable, but this is what diff_geojson.py seems to want
+    id_to_loc = {rec[0].id: rec for rec in located_recs}
+    for r in all_recs:
+        _, coder, location_data = id_to_loc[r.id]
         feature = {
             "id": r.id,
             "type": "Feature",
@@ -245,7 +245,3 @@ def output_geojson(located_recs: list[LocatedRecord]):
             sort_keys=True,
         )
     )
-
-
-def output_oldto_json(located_recs: list[LocatedRecord]):
-    pass

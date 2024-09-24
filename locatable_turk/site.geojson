@@ -336,6 +336,25 @@
       "type": "Feature"
     },
     {
+      "geometry": null,
+      "id": "734246f",
+      "properties": {
+        "date": "1930, 1934",
+        "geocode": null,
+        "image": {
+          "thumb_url": "http://images.nypl.org/?id=734246f&t=w",
+          "url": "http://images.nypl.org/?id=734246f&t=w"
+        },
+        "nypl_fields": {
+          "address": "140th to 145th Streets (East) - [American Bread Wrapper Company.], Harlem River, Bronx, NY",
+          "alt_title": null
+        },
+        "title": "Harlem River - Bronx - 140th to 145th Streets (East) - [American Bread Wrapper Company.]",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-ac00-a3d9-e040-e00a18064a99"
+      },
+      "type": "Feature"
+    },
+    {
       "geometry": {
         "coordinates": [
           -73.9780283,
@@ -465,6 +484,25 @@
         },
         "title": "Bronx: 172nd Street (East) - West Farms Road",
         "url": "https://digitalcollections.nypl.org/items/510d47dc-a20f-a3d9-e040-e00a18064a99"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": null,
+      "id": "700226f",
+      "properties": {
+        "date": "1940",
+        "geocode": null,
+        "image": {
+          "thumb_url": "http://images.nypl.org/?id=700226f&t=w",
+          "url": "http://images.nypl.org/?id=700226f&t=w"
+        },
+        "nypl_fields": {
+          "address": "177th Street & Broadway, Bronx, NY",
+          "alt_title": null
+        },
+        "title": "Bronx: 177th Street - Broadway",
+        "url": "https://digitalcollections.nypl.org/items/510d47dc-a22d-a3d9-e040-e00a18064a99"
       },
       "type": "Feature"
     },
@@ -605,6 +643,25 @@
       "type": "Feature"
     },
     {
+      "geometry": null,
+      "id": "417397",
+      "properties": {
+        "date": null,
+        "geocode": null,
+        "image": {
+          "thumb_url": "http://images.nypl.org/?id=417397&t=w",
+          "url": "http://images.nypl.org/?id=417397&t=w"
+        },
+        "nypl_fields": {
+          "address": "35-37-39 West Ninety-sixth Street., Manhattan, NY",
+          "alt_title": null
+        },
+        "title": "The Lucitine, nos. 35-37-39 West Ninety-sixth Street",
+        "url": "https://digitalcollections.nypl.org/items/510d47da-d904-a3d9-e040-e00a18064a99"
+      },
+      "type": "Feature"
+    },
+    {
       "geometry": {
         "coordinates": [
           -73.93573479999999,
@@ -634,6 +691,44 @@
         },
         "title": "Brooklyn: 35th Street (East) - Avenue R",
         "url": "https://digitalcollections.nypl.org/items/510d47dc-c24e-a3d9-e040-e00a18064a99"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": null,
+      "id": "416455",
+      "properties": {
+        "date": null,
+        "geocode": null,
+        "image": {
+          "thumb_url": "http://images.nypl.org/?id=416455&t=w",
+          "url": "http://images.nypl.org/?id=416455&t=w"
+        },
+        "nypl_fields": {
+          "address": "36 Central Park South. Between Fifth and Sixth Avenues., Manhattan, NY",
+          "alt_title": null
+        },
+        "title": "No. 36 Central Park South. Between Fifth and Sixth Avenues",
+        "url": "https://digitalcollections.nypl.org/items/510d47da-d685-a3d9-e040-e00a18064a99"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": null,
+      "id": "725289f",
+      "properties": {
+        "date": "1932",
+        "geocode": null,
+        "image": {
+          "thumb_url": "http://images.nypl.org/?id=725289f&t=w",
+          "url": "http://images.nypl.org/?id=725289f&t=w"
+        },
+        "nypl_fields": {
+          "address": "39th Avenue & Lawrence Street, Queens, NY",
+          "alt_title": null
+        },
+        "title": "Queens: 39th Avenue - Lawrence Street",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-662b-a3d9-e040-e00a18064a99"
       },
       "type": "Feature"
     },
@@ -772,6 +867,27 @@
       "type": "Feature"
     },
     {
+      "geometry": null,
+      "id": "730517f",
+      "properties": {
+        "date": null,
+        "geocode": null,
+        "image": {
+          "thumb_url": "http://images.nypl.org/?id=730517f&t=w",
+          "url": "http://images.nypl.org/?id=730517f&t=w"
+        },
+        "nypl_fields": {
+          "address": "42nd Street and 7th Avenue",
+          "alt_title": [
+            "[Manhattan: 42nd Street - 7th Avenue ; Eltinge Burlesque Theatre.]"
+          ]
+        },
+        "title": "Advertisements - [Advertising signs.]",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-8ef9-a3d9-e040-e00a18064a99"
+      },
+      "type": "Feature"
+    },
+    {
       "geometry": {
         "coordinates": [
           -73.9827023,
@@ -876,6 +992,27 @@
       "type": "Feature"
     },
     {
+      "geometry": null,
+      "id": "732570f",
+      "properties": {
+        "date": "1930",
+        "geocode": null,
+        "image": {
+          "thumb_url": "http://images.nypl.org/?id=732570f&t=w",
+          "url": "http://images.nypl.org/?id=732570f&t=w"
+        },
+        "nypl_fields": {
+          "address": "4th Avenue and Astor Place, Manhattan, N.Y.",
+          "alt_title": [
+            "[Manhattan: 4th Avenue - Astor Place.]"
+          ]
+        },
+        "title": "Occupations - Peddlers - Umbrellas",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-9eea-a3d9-e040-e00a18064a99"
+      },
+      "type": "Feature"
+    },
+    {
       "geometry": {
         "coordinates": [
           -73.9916162,
@@ -972,6 +1109,25 @@
         },
         "title": "Manhattan: 52nd Street - 1st Avenue",
         "url": "https://digitalcollections.nypl.org/items/510d47dd-0acc-a3d9-e040-e00a18064a99"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": null,
+      "id": "416466",
+      "properties": {
+        "date": null,
+        "geocode": null,
+        "image": {
+          "thumb_url": "http://images.nypl.org/?id=416466&t=w",
+          "url": "http://images.nypl.org/?id=416466&t=w"
+        },
+        "nypl_fields": {
+          "address": "565-569 Park Avenue. East Side of Avenue, Between 62nd and 63d Streets., Manhattan, NY",
+          "alt_title": null
+        },
+        "title": "No. 565-569 Park Avenue. East Side of Avenue, Between 62nd and 63d Streets",
+        "url": "https://digitalcollections.nypl.org/items/510d47da-d691-a3d9-e040-e00a18064a99"
       },
       "type": "Feature"
     },
@@ -1245,6 +1401,25 @@
         },
         "title": "Manhattan: 5th Avenue - 84th Street",
         "url": "https://digitalcollections.nypl.org/items/510d47dc-e845-a3d9-e040-e00a18064a99"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": null,
+      "id": "725527f",
+      "properties": {
+        "date": null,
+        "geocode": null,
+        "image": {
+          "thumb_url": "http://images.nypl.org/?id=725527f&t=w",
+          "url": "http://images.nypl.org/?id=725527f&t=w"
+        },
+        "nypl_fields": {
+          "address": "63rd Avenue & 96th Street, Queens, NY",
+          "alt_title": null
+        },
+        "title": "Queens: 63rd Avenue - 96th Street",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-6807-a3d9-e040-e00a18064a99"
       },
       "type": "Feature"
     },
@@ -1924,6 +2099,44 @@
       "type": "Feature"
     },
     {
+      "geometry": null,
+      "id": "716728f",
+      "properties": {
+        "date": "1956",
+        "geocode": null,
+        "image": {
+          "thumb_url": "http://images.nypl.org/?id=716728f&t=w",
+          "url": "http://images.nypl.org/?id=716728f&t=w"
+        },
+        "nypl_fields": {
+          "address": "Bowery & 16th Street (West), Manhattan, NY",
+          "alt_title": null
+        },
+        "title": "Manhattan: Bowery - Canal Street",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-234c-a3d9-e040-e00a18064a99"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": null,
+      "id": "716791f",
+      "properties": {
+        "date": "1924",
+        "geocode": null,
+        "image": {
+          "thumb_url": "http://images.nypl.org/?id=716791f&t=w",
+          "url": "http://images.nypl.org/?id=716791f&t=w"
+        },
+        "nypl_fields": {
+          "address": "Bowery & 1st Street, Manhattan, NY",
+          "alt_title": null
+        },
+        "title": "Manhattan: Bowery - 1st Street",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-23c9-a3d9-e040-e00a18064a99"
+      },
+      "type": "Feature"
+    },
+    {
       "geometry": {
         "coordinates": [
           -74.01072309999999,
@@ -2122,6 +2335,25 @@
       "type": "Feature"
     },
     {
+      "geometry": null,
+      "id": "1509161",
+      "properties": {
+        "date": "1915-04-09",
+        "geocode": null,
+        "image": {
+          "thumb_url": "http://images.nypl.org/?id=1509161&t=w",
+          "url": "http://images.nypl.org/?id=1509161&t=w"
+        },
+        "nypl_fields": {
+          "address": "Broadway #573, Manhattan, NY",
+          "alt_title": null
+        },
+        "title": "Broadway #573",
+        "url": "https://digitalcollections.nypl.org/items/510d47e2-0344-a3d9-e040-e00a18064a99"
+      },
+      "type": "Feature"
+    },
+    {
       "geometry": {
         "coordinates": [
           -73.9248597,
@@ -2186,6 +2418,25 @@
         },
         "title": "Manhattan: Central Park - Pathways",
         "url": "https://digitalcollections.nypl.org/items/510d47dd-2fa7-a3d9-e040-e00a18064a99"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": null,
+      "id": "730108f",
+      "properties": {
+        "date": "1927",
+        "geocode": null,
+        "image": {
+          "thumb_url": "http://images.nypl.org/?id=730108f&t=w",
+          "url": "http://images.nypl.org/?id=730108f&t=w"
+        },
+        "nypl_fields": {
+          "address": "Central Park and area south., Manhattan, NY",
+          "alt_title": null
+        },
+        "title": "General view - [Manhattan - Central Park and area south.]",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-8bc8-a3d9-e040-e00a18064a99"
       },
       "type": "Feature"
     },
@@ -2256,6 +2507,27 @@
       "type": "Feature"
     },
     {
+      "geometry": null,
+      "id": "731432f",
+      "properties": {
+        "date": "1936, 1937",
+        "geocode": null,
+        "image": {
+          "thumb_url": "http://images.nypl.org/?id=731432f&t=w",
+          "url": "http://images.nypl.org/?id=731432f&t=w"
+        },
+        "nypl_fields": {
+          "address": "Columbia University., Manhattan, NY",
+          "alt_title": [
+            "[Manhattan: Amsterdam Avenue - 116th Street.]"
+          ]
+        },
+        "title": "Colleges and Universities - Columbia University",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-9619-a3d9-e040-e00a18064a99"
+      },
+      "type": "Feature"
+    },
+    {
       "geometry": {
         "coordinates": [
           -73.9847724,
@@ -2286,6 +2558,25 @@
         },
         "title": "Manhattan: Columbus Avenue - 59th Street (West)",
         "url": "https://digitalcollections.nypl.org/items/510d47dd-35d5-a3d9-e040-e00a18064a99"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": null,
+      "id": "719153f",
+      "properties": {
+        "date": null,
+        "geocode": null,
+        "image": {
+          "thumb_url": "http://images.nypl.org/?id=719153f&t=w",
+          "url": "http://images.nypl.org/?id=719153f&t=w"
+        },
+        "nypl_fields": {
+          "address": "Columbus Circle & [Durland's Riding Academy.], Manhattan, NY",
+          "alt_title": null
+        },
+        "title": "Manhattan: Columbus Circle - [Durland's Riding Academy.]",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-3639-a3d9-e040-e00a18064a99"
       },
       "type": "Feature"
     },
@@ -2356,6 +2647,63 @@
       "type": "Feature"
     },
     {
+      "geometry": null,
+      "id": "726438f",
+      "properties": {
+        "date": null,
+        "geocode": null,
+        "image": {
+          "thumb_url": "http://images.nypl.org/?id=726438f&t=w",
+          "url": "http://images.nypl.org/?id=726438f&t=w"
+        },
+        "nypl_fields": {
+          "address": "Cross Island Bouleva & 6th Avenue, Queens, NY",
+          "alt_title": null
+        },
+        "title": "Queens: Cross Island Bouleva - 6th Avenue",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-6f20-a3d9-e040-e00a18064a99"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": null,
+      "id": "733936f",
+      "properties": {
+        "date": "1931, 1933, 1934",
+        "geocode": null,
+        "image": {
+          "thumb_url": "http://images.nypl.org/?id=733936f&t=w",
+          "url": "http://images.nypl.org/?id=733936f&t=w"
+        },
+        "nypl_fields": {
+          "address": "East 86th Street - Queensborough Bridge - [Doctor's Hospital ; Municipal Asphalt Plant.], Manhattan, NY",
+          "alt_title": null
+        },
+        "title": "East River - Shore and skyline of Manhattan from East 86th Street - Queensborough Bridge - [Doctor's Hospital ; Municipal Asphalt Plant.]",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-a995-a3d9-e040-e00a18064a99"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": null,
+      "id": "719523f",
+      "properties": {
+        "date": "1940",
+        "geocode": null,
+        "image": {
+          "thumb_url": "http://images.nypl.org/?id=719523f&t=w",
+          "url": "http://images.nypl.org/?id=719523f&t=w"
+        },
+        "nypl_fields": {
+          "address": "East River Drive & 89th Street, Manhattan, NY",
+          "alt_title": null
+        },
+        "title": "Manhattan: East River Drive - 89th Street",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-391d-a3d9-e040-e00a18064a99"
+      },
+      "type": "Feature"
+    },
+    {
       "geometry": {
         "coordinates": [
           -73.8463879,
@@ -2418,6 +2766,44 @@
         },
         "title": "Manhattan: Essex Street - Broome Street",
         "url": "https://digitalcollections.nypl.org/items/510d47dd-3a43-a3d9-e040-e00a18064a99"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": null,
+      "id": "719718f",
+      "properties": {
+        "date": "1939",
+        "geocode": null,
+        "image": {
+          "thumb_url": "http://images.nypl.org/?id=719718f&t=w",
+          "url": "http://images.nypl.org/?id=719718f&t=w"
+        },
+        "nypl_fields": {
+          "address": "Exterior Street & 22nd Street (East), Manhattan, NY",
+          "alt_title": null
+        },
+        "title": "Manhattan: Exterior Street - 22nd Street (East)",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-3aa3-a3d9-e040-e00a18064a99"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": null,
+      "id": "704168f",
+      "properties": {
+        "date": "1932",
+        "geocode": null,
+        "image": {
+          "thumb_url": "http://images.nypl.org/?id=704168f&t=w",
+          "url": "http://images.nypl.org/?id=704168f&t=w"
+        },
+        "nypl_fields": {
+          "address": "Fenimore Street & 32nd Avenue, Brooklyn, NY",
+          "alt_title": null
+        },
+        "title": "Brooklyn: Fenimore Street - 32nd Avenue",
+        "url": "https://digitalcollections.nypl.org/items/510d47dc-cd9a-a3d9-e040-e00a18064a99"
       },
       "type": "Feature"
     },
@@ -2528,6 +2914,44 @@
       "type": "Feature"
     },
     {
+      "geometry": null,
+      "id": "728823f",
+      "properties": {
+        "date": "1932",
+        "geocode": null,
+        "image": {
+          "thumb_url": "http://images.nypl.org/?id=728823f&t=w",
+          "url": "http://images.nypl.org/?id=728823f&t=w"
+        },
+        "nypl_fields": {
+          "address": "Fingerboard Road (We & Grant Avenue, Staten Island, NY",
+          "alt_title": null
+        },
+        "title": "Richmond: Fingerboard Road (We - Grant Avenue",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-81bc-a3d9-e040-e00a18064a99"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": null,
+      "id": "728828f",
+      "properties": {
+        "date": "1925",
+        "geocode": null,
+        "image": {
+          "thumb_url": "http://images.nypl.org/?id=728828f&t=w",
+          "url": "http://images.nypl.org/?id=728828f&t=w"
+        },
+        "nypl_fields": {
+          "address": "Flagg Place & Toot Hill Road, Staten Island, NY",
+          "alt_title": null
+        },
+        "title": "Richmond: Flagg Place - Toot Hill Road",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-81c6-a3d9-e040-e00a18064a99"
+      },
+      "type": "Feature"
+    },
+    {
       "geometry": {
         "coordinates": [
           -73.9604599,
@@ -2590,6 +3014,65 @@
         },
         "title": "Brooklyn: Flatbush Avenue - Kings Highway",
         "url": "https://digitalcollections.nypl.org/items/510d47dc-cec8-a3d9-e040-e00a18064a99"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": null,
+      "id": "1509775",
+      "properties": {
+        "date": "1887, 1986",
+        "geocode": null,
+        "image": {
+          "thumb_url": "http://images.nypl.org/?id=1509775&t=w",
+          "url": "http://images.nypl.org/?id=1509775&t=w"
+        },
+        "nypl_fields": {
+          "address": "Flushing Meadow Park, Queens, NY",
+          "alt_title": [
+            "World's Fair, 1964-65: Pool of Industry"
+          ]
+        },
+        "title": "Flushing Meadow Park",
+        "url": "https://digitalcollections.nypl.org/items/510d47e2-06f2-a3d9-e040-e00a18064a99"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": null,
+      "id": "734153f",
+      "properties": {
+        "date": "1935, 1939",
+        "geocode": null,
+        "image": {
+          "thumb_url": "http://images.nypl.org/?id=734153f&t=w",
+          "url": "http://images.nypl.org/?id=734153f&t=w"
+        },
+        "nypl_fields": {
+          "address": "Flushing River[Hunts Point Coke.], Queens, NY",
+          "alt_title": null
+        },
+        "title": "Flushing River - Queens - [Hunts Point Coke.]",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-ab46-a3d9-e040-e00a18064a99"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": null,
+      "id": "731839f",
+      "properties": {
+        "date": "1936",
+        "geocode": null,
+        "image": {
+          "thumb_url": "http://images.nypl.org/?id=731839f&t=w",
+          "url": "http://images.nypl.org/?id=731839f&t=w"
+        },
+        "nypl_fields": {
+          "address": "Fulton fish market in Manhattan - [Sisters observing fishermen weighing the day's catch.], Manhattan, NY",
+          "alt_title": null
+        },
+        "title": "Fulton fish market in Manhattan - [Sisters observing fishermen weighing the day's catch.]",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-9946-a3d9-e040-e00a18064a99"
       },
       "type": "Feature"
     },
@@ -2891,6 +3374,44 @@
       "type": "Feature"
     },
     {
+      "geometry": null,
+      "id": "704943f",
+      "properties": {
+        "date": "1934",
+        "geocode": null,
+        "image": {
+          "thumb_url": "http://images.nypl.org/?id=704943f&t=w",
+          "url": "http://images.nypl.org/?id=704943f&t=w"
+        },
+        "nypl_fields": {
+          "address": "Hicks Street & Coles Street, Brooklyn, NY",
+          "alt_title": null
+        },
+        "title": "Brooklyn: Hicks Street - Coles Street",
+        "url": "https://digitalcollections.nypl.org/items/510d47dc-d3a8-a3d9-e040-e00a18064a99"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": null,
+      "id": "726900f",
+      "properties": {
+        "date": null,
+        "geocode": null,
+        "image": {
+          "thumb_url": "http://images.nypl.org/?id=726900f&t=w",
+          "url": "http://images.nypl.org/?id=726900f&t=w"
+        },
+        "nypl_fields": {
+          "address": "Horace Harding Boule & Kissena Boulevard, Queens, NY",
+          "alt_title": null
+        },
+        "title": "Queens: Horace Harding Boule - Kissena Boulevard",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-72b7-a3d9-e040-e00a18064a99"
+      },
+      "type": "Feature"
+    },
+    {
       "geometry": {
         "coordinates": [
           -73.9862782,
@@ -2986,6 +3507,27 @@
         },
         "title": "Richmond: Innis Street - John Street",
         "url": "https://digitalcollections.nypl.org/items/510d47dd-834a-a3d9-e040-e00a18064a99"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": null,
+      "id": "730376f",
+      "properties": {
+        "date": "1930",
+        "geocode": null,
+        "image": {
+          "thumb_url": "http://images.nypl.org/?id=730376f&t=w",
+          "url": "http://images.nypl.org/?id=730376f&t=w"
+        },
+        "nypl_fields": {
+          "address": "Irving Place - Between 14th and 20th Streets (East)., Manhattan, NY",
+          "alt_title": [
+            "[4 Irving Place - Consolidated Edison Building.]"
+          ]
+        },
+        "title": "General view - [Manhattan - Irving Place - Between 14th and 20th Streets (East).]",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-8ddf-a3d9-e040-e00a18064a99"
       },
       "type": "Feature"
     },
@@ -3122,6 +3664,25 @@
       "type": "Feature"
     },
     {
+      "geometry": null,
+      "id": "715454f",
+      "properties": {
+        "date": "1885",
+        "geocode": null,
+        "image": {
+          "thumb_url": "http://images.nypl.org/?id=715454f&t=w",
+          "url": "http://images.nypl.org/?id=715454f&t=w"
+        },
+        "nypl_fields": {
+          "address": "Lawrence Street & Amsterdam Avenue, Manhattan, NY",
+          "alt_title": null
+        },
+        "title": "Manhattan: Lawrence Street - Amsterdam Avenue",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-195c-a3d9-e040-e00a18064a99"
+      },
+      "type": "Feature"
+    },
+    {
       "geometry": {
         "coordinates": [
           -73.958396,
@@ -3151,6 +3712,25 @@
         },
         "title": "Brooklyn: Lefferts Place - Classon Avenue",
         "url": "https://digitalcollections.nypl.org/items/510d47dc-d736-a3d9-e040-e00a18064a99"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": null,
+      "id": "720912f",
+      "properties": {
+        "date": null,
+        "geocode": null,
+        "image": {
+          "thumb_url": "http://images.nypl.org/?id=720912f&t=w",
+          "url": "http://images.nypl.org/?id=720912f&t=w"
+        },
+        "nypl_fields": {
+          "address": "Lewis Street & 4th Street (East), Manhattan, NY",
+          "alt_title": null
+        },
+        "title": "Manhattan: Lewis Street - 4th Street (East)",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-43f6-a3d9-e040-e00a18064a99"
       },
       "type": "Feature"
     },
@@ -3353,6 +3933,25 @@
       "type": "Feature"
     },
     {
+      "geometry": null,
+      "id": "721594f",
+      "properties": {
+        "date": "1935",
+        "geocode": null,
+        "image": {
+          "thumb_url": "http://images.nypl.org/?id=721594f&t=w",
+          "url": "http://images.nypl.org/?id=721594f&t=w"
+        },
+        "nypl_fields": {
+          "address": "Mangin Street & Rivington Street, Manhattan, NY",
+          "alt_title": null
+        },
+        "title": "Manhattan: Mangin Street - Rivington Street",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-494b-a3d9-e040-e00a18064a99"
+      },
+      "type": "Feature"
+    },
+    {
       "geometry": {
         "coordinates": [
           -74.1206061,
@@ -3419,6 +4018,25 @@
       "type": "Feature"
     },
     {
+      "geometry": null,
+      "id": "721747f",
+      "properties": {
+        "date": "1933",
+        "geocode": null,
+        "image": {
+          "thumb_url": "http://images.nypl.org/?id=721747f&t=w",
+          "url": "http://images.nypl.org/?id=721747f&t=w"
+        },
+        "nypl_fields": {
+          "address": "Mott Street & Pell Street, Manhattan, NY",
+          "alt_title": null
+        },
+        "title": "Manhattan: Mott Street - Pell Street",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-4a7d-a3d9-e040-e00a18064a99"
+      },
+      "type": "Feature"
+    },
+    {
       "geometry": {
         "coordinates": [
           -74.0088063,
@@ -3448,6 +4066,101 @@
         },
         "title": "Manhattan: Murray Street - Church Street",
         "url": "https://digitalcollections.nypl.org/items/510d47dd-4b1b-a3d9-e040-e00a18064a99"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": null,
+      "id": "727469f",
+      "properties": {
+        "date": null,
+        "geocode": null,
+        "image": {
+          "thumb_url": "http://images.nypl.org/?id=727469f&t=w",
+          "url": "http://images.nypl.org/?id=727469f&t=w"
+        },
+        "nypl_fields": {
+          "address": "New York Boulevard & 131st Avenue, Queens, NY",
+          "alt_title": null
+        },
+        "title": "Queens: New York Boulevard - 131st Avenue",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-7727-a3d9-e040-e00a18064a99"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": null,
+      "id": "727462f",
+      "properties": {
+        "date": null,
+        "geocode": null,
+        "image": {
+          "thumb_url": "http://images.nypl.org/?id=727462f&t=w",
+          "url": "http://images.nypl.org/?id=727462f&t=w"
+        },
+        "nypl_fields": {
+          "address": "Newtown & [Newtown plaque of 1652.], Queens, NY",
+          "alt_title": null
+        },
+        "title": "Queens: Newtown - [Newtown plaque of 1652.]",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-7719-a3d9-e040-e00a18064a99"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": null,
+      "id": "732622f",
+      "properties": {
+        "date": "1930",
+        "geocode": null,
+        "image": {
+          "thumb_url": "http://images.nypl.org/?id=732622f&t=w",
+          "url": "http://images.nypl.org/?id=732622f&t=w"
+        },
+        "nypl_fields": {
+          "address": "P.S. 6., Brooklyn, N.Y.",
+          "alt_title": null
+        },
+        "title": "Public Schools - Brooklyn - P.S. 6",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-9f52-a3d9-e040-e00a18064a99"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": null,
+      "id": "722223f",
+      "properties": {
+        "date": null,
+        "geocode": null,
+        "image": {
+          "thumb_url": "http://images.nypl.org/?id=722223f&t=w",
+          "url": "http://images.nypl.org/?id=722223f&t=w"
+        },
+        "nypl_fields": {
+          "address": "Park Avenue & Vanderbilt Avenue, Manhattan, NY",
+          "alt_title": null
+        },
+        "title": "Manhattan: Park Avenue - Vanderbilt Avenue",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-4e35-a3d9-e040-e00a18064a99"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": null,
+      "id": "722243f",
+      "properties": {
+        "date": null,
+        "geocode": null,
+        "image": {
+          "thumb_url": "http://images.nypl.org/?id=722243f&t=w",
+          "url": "http://images.nypl.org/?id=722243f&t=w"
+        },
+        "nypl_fields": {
+          "address": "Park Avenue & Vanderbilt Avenue, Manhattan, NY",
+          "alt_title": null
+        },
+        "title": "Manhattan: Park Avenue - Vanderbilt Avenue",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-4e5d-a3d9-e040-e00a18064a99"
       },
       "type": "Feature"
     },
@@ -3521,6 +4234,25 @@
       "type": "Feature"
     },
     {
+      "geometry": null,
+      "id": "722535f",
+      "properties": {
+        "date": "1927",
+        "geocode": null,
+        "image": {
+          "thumb_url": "http://images.nypl.org/?id=722535f&t=w",
+          "url": "http://images.nypl.org/?id=722535f&t=w"
+        },
+        "nypl_fields": {
+          "address": "Pell Street & Bowery, Manhattan, NY",
+          "alt_title": null
+        },
+        "title": "Manhattan: Pell Street - Bowery",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-50a5-a3d9-e040-e00a18064a99"
+      },
+      "type": "Feature"
+    },
+    {
       "geometry": {
         "coordinates": [
           -74.0100874,
@@ -3554,6 +4286,47 @@
       "type": "Feature"
     },
     {
+      "geometry": null,
+      "id": "734694f",
+      "properties": {
+        "date": "1930, 1931",
+        "geocode": null,
+        "image": {
+          "thumb_url": "http://images.nypl.org/?id=734694f&t=w",
+          "url": "http://images.nypl.org/?id=734694f&t=w"
+        },
+        "nypl_fields": {
+          "address": "Pier 92., Hudson River, Manhattan, NY",
+          "alt_title": [
+            "Department of Sanitation trucks.",
+            "[Manhattan: 12th Avenue - 52nd Street (West).]"
+          ]
+        },
+        "title": "North (Hudson) River - Pier 92",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-af7f-a3d9-e040-e00a18064a99"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": null,
+      "id": "734068f",
+      "properties": {
+        "date": "1920",
+        "geocode": null,
+        "image": {
+          "thumb_url": "http://images.nypl.org/?id=734068f&t=w",
+          "url": "http://images.nypl.org/?id=734068f&t=w"
+        },
+        "nypl_fields": {
+          "address": "Piers and shoreline - 65th Street, Brooklyn., Manhattan, NY",
+          "alt_title": null
+        },
+        "title": "East River - Piers and shoreline - 65th Street, Brooklyn",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-aa9c-a3d9-e040-e00a18064a99"
+      },
+      "type": "Feature"
+    },
+    {
       "geometry": {
         "coordinates": [
           -73.95978250000002,
@@ -3583,6 +4356,25 @@
         },
         "title": "Brooklyn: Putnam Avenue - Irving Place",
         "url": "https://digitalcollections.nypl.org/items/510d47dc-b1f9-a3d9-e040-e00a18064a99"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": null,
+      "id": "727870f",
+      "properties": {
+        "date": "1931",
+        "geocode": null,
+        "image": {
+          "thumb_url": "http://images.nypl.org/?id=727870f&t=w",
+          "url": "http://images.nypl.org/?id=727870f&t=w"
+        },
+        "nypl_fields": {
+          "address": "Ravenswood., Queens, NY",
+          "alt_title": null
+        },
+        "title": "Queens: Ravenswood",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-7a4a-a3d9-e040-e00a18064a99"
       },
       "type": "Feature"
     },
@@ -3686,6 +4478,44 @@
       "type": "Feature"
     },
     {
+      "geometry": null,
+      "id": "706699f",
+      "properties": {
+        "date": "1937, 1940",
+        "geocode": null,
+        "image": {
+          "thumb_url": "http://images.nypl.org/?id=706699f&t=w",
+          "url": "http://images.nypl.org/?id=706699f&t=w"
+        },
+        "nypl_fields": {
+          "address": "Sheepshead Bay., Brooklyn, NY",
+          "alt_title": null
+        },
+        "title": "Brooklyn: Sheepshead Bay",
+        "url": "https://digitalcollections.nypl.org/items/510d47dc-b445-a3d9-e040-e00a18064a99"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": null,
+      "id": "723373f",
+      "properties": {
+        "date": "1922",
+        "geocode": null,
+        "image": {
+          "thumb_url": "http://images.nypl.org/?id=723373f&t=w",
+          "url": "http://images.nypl.org/?id=723373f&t=w"
+        },
+        "nypl_fields": {
+          "address": "Spring Street & MacDougal Street, Manhattan, NY",
+          "alt_title": null
+        },
+        "title": "Manhattan: Spring Street - MacDougal Street",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-5732-a3d9-e040-e00a18064a99"
+      },
+      "type": "Feature"
+    },
+    {
       "geometry": {
         "coordinates": [
           -73.7512134,
@@ -3715,6 +4545,63 @@
         },
         "title": "Queens: Springfield Boulevard - 131st Avenue",
         "url": "https://digitalcollections.nypl.org/items/510d47dd-7b86-a3d9-e040-e00a18064a99"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": null,
+      "id": "734338f",
+      "properties": {
+        "date": "1927, 1939",
+        "geocode": null,
+        "image": {
+          "thumb_url": "http://images.nypl.org/?id=734338f&t=w",
+          "url": "http://images.nypl.org/?id=734338f&t=w"
+        },
+        "nypl_fields": {
+          "address": "Spuyten Duyvil Road., Harlem River, Bronx, NY",
+          "alt_title": null
+        },
+        "title": "Harlem River - Bronx - Spuyten Duyvil Road",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-acb8-a3d9-e040-e00a18064a99"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": null,
+      "id": "1509463",
+      "properties": {
+        "date": "1887, 1986",
+        "geocode": null,
+        "image": {
+          "thumb_url": "http://images.nypl.org/?id=1509463&t=w",
+          "url": "http://images.nypl.org/?id=1509463&t=w"
+        },
+        "nypl_fields": {
+          "address": "Spuyten Duyvil, Bronx, NY",
+          "alt_title": null
+        },
+        "title": "Spuyten Duyvil",
+        "url": "https://digitalcollections.nypl.org/items/510d47e2-05ba-a3d9-e040-e00a18064a99"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": null,
+      "id": "104972",
+      "properties": {
+        "date": null,
+        "geocode": null,
+        "image": {
+          "thumb_url": "http://images.nypl.org/?id=104972&t=w",
+          "url": "http://images.nypl.org/?id=104972&t=w"
+        },
+        "nypl_fields": {
+          "address": "St. John's Villa Academy, Arrochar, Staten Island, N.Y.",
+          "alt_title": null
+        },
+        "title": "St. John's Villa Academy, Arrochar, S.I., N.Y. [iron entrance gate, snow-covered landscape and buildings]",
+        "url": "https://digitalcollections.nypl.org/items/510d47d9-caa1-a3d9-e040-e00a18064a99"
       },
       "type": "Feature"
     },
@@ -3781,6 +4668,25 @@
         },
         "title": "Manhattan: St. Nicholas Avenue - Fort George Avenue",
         "url": "https://digitalcollections.nypl.org/items/510d47dd-5594-a3d9-e040-e00a18064a99"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": null,
+      "id": "104762",
+      "properties": {
+        "date": null,
+        "geocode": null,
+        "image": {
+          "thumb_url": "http://images.nypl.org/?id=104762&t=w",
+          "url": "http://images.nypl.org/?id=104762&t=w"
+        },
+        "nypl_fields": {
+          "address": "Staten Island Hospital  New Building, Castleton Ave. Staten Island, N.Y.",
+          "alt_title": null
+        },
+        "title": "Staten Island Hospital New Building, Castleton Ave. Staten Island, N.Y. [old S.R. Smith Infirmary visible in background]",
+        "url": "https://digitalcollections.nypl.org/items/510d47d9-cb8b-a3d9-e040-e00a18064a99"
       },
       "type": "Feature"
     },
@@ -3950,6 +4856,25 @@
       "type": "Feature"
     },
     {
+      "geometry": null,
+      "id": "707258f",
+      "properties": {
+        "date": "1932",
+        "geocode": null,
+        "image": {
+          "thumb_url": "http://images.nypl.org/?id=707258f&t=w",
+          "url": "http://images.nypl.org/?id=707258f&t=w"
+        },
+        "nypl_fields": {
+          "address": "Warehouse Ave. & Bay 10th St., Brooklyn, NY",
+          "alt_title": null
+        },
+        "title": "Brooklyn: Warehouse Ave. - Bay 10th St",
+        "url": "https://digitalcollections.nypl.org/items/510d47dc-b8a2-a3d9-e040-e00a18064a99"
+      },
+      "type": "Feature"
+    },
+    {
       "geometry": {
         "coordinates": [
           -73.995581,
@@ -3979,6 +4904,44 @@
         },
         "title": "Manhattan: Washington Square North - University Place",
         "url": "https://digitalcollections.nypl.org/items/510d47dd-5c1a-a3d9-e040-e00a18064a99"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": null,
+      "id": "724096f",
+      "properties": {
+        "date": "1931",
+        "geocode": null,
+        "image": {
+          "thumb_url": "http://images.nypl.org/?id=724096f&t=w",
+          "url": "http://images.nypl.org/?id=724096f&t=w"
+        },
+        "nypl_fields": {
+          "address": "Washington Street & Dey Street, Manhattan, NY",
+          "alt_title": null
+        },
+        "title": "Manhattan: Washington Street - Dey Street",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-5cd8-a3d9-e040-e00a18064a99"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": null,
+      "id": "724113f",
+      "properties": {
+        "date": null,
+        "geocode": null,
+        "image": {
+          "thumb_url": "http://images.nypl.org/?id=724113f&t=w",
+          "url": "http://images.nypl.org/?id=724113f&t=w"
+        },
+        "nypl_fields": {
+          "address": "Washington Street & York Street, Manhattan, NY",
+          "alt_title": null
+        },
+        "title": "Manhattan: Washington Street - York Street",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-5cfa-a3d9-e040-e00a18064a99"
       },
       "type": "Feature"
     },
@@ -4083,6 +5046,25 @@
       "type": "Feature"
     },
     {
+      "geometry": null,
+      "id": "465522",
+      "properties": {
+        "date": null,
+        "geocode": null,
+        "image": {
+          "thumb_url": "http://images.nypl.org/?id=465522&t=w",
+          "url": "http://images.nypl.org/?id=465522&t=w"
+        },
+        "nypl_fields": {
+          "address": "Westchester Avenue and Southern Boulevard. [Bronx], Manhattan, NY",
+          "alt_title": null
+        },
+        "title": "A-Re-Co Court, Westchester Avenue and Southern Boulevard. [Bronx]",
+        "url": "https://digitalcollections.nypl.org/items/510d47db-9eef-a3d9-e040-e00a18064a99"
+      },
+      "type": "Feature"
+    },
+    {
       "geometry": {
         "coordinates": [
           -73.9050211,
@@ -4112,6 +5094,534 @@
         },
         "title": "Queens: Wyckoff Avenue - Halsey Street",
         "url": "https://digitalcollections.nypl.org/items/510d47dd-7d42-a3d9-e040-e00a18064a99"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": null,
+      "id": "730335f",
+      "properties": {
+        "date": "1870",
+        "geocode": null,
+        "image": {
+          "thumb_url": "http://images.nypl.org/?id=730335f&t=w",
+          "url": "http://images.nypl.org/?id=730335f&t=w"
+        },
+        "nypl_fields": {
+          "address": "",
+          "alt_title": [
+            "[Cherry Hill waterfront.]"
+          ]
+        },
+        "title": "General view - Manhattan - [View of Lower Manhattan from Brooklyn Bridge.]",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-8d8d-a3d9-e040-e00a18064a99"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": null,
+      "id": "730149f",
+      "properties": {
+        "date": "1930",
+        "geocode": null,
+        "image": {
+          "thumb_url": "http://images.nypl.org/?id=730149f&t=w",
+          "url": "http://images.nypl.org/?id=730149f&t=w"
+        },
+        "nypl_fields": {
+          "address": "",
+          "alt_title": [
+            "[Consolidated Edison Company ; New York Life Insurance Company.]"
+          ]
+        },
+        "title": "General view - Midtown and downtown Manhattan from Chrysler building",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-8c1a-a3d9-e040-e00a18064a99"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": null,
+      "id": "731531f",
+      "properties": {
+        "date": "1940",
+        "geocode": null,
+        "image": {
+          "thumb_url": "http://images.nypl.org/?id=731531f&t=w",
+          "url": "http://images.nypl.org/?id=731531f&t=w"
+        },
+        "nypl_fields": {
+          "address": "",
+          "alt_title": [
+            "Manhattan: Lenox Avenue - 128th Street.",
+            "[Royal Order of Ethiopian Hebrews.]"
+          ]
+        },
+        "title": "Ethiopian Hebrews Series, No. 44",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-96de-a3d9-e040-e00a18064a99"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": null,
+      "id": "732341f",
+      "properties": {
+        "date": "1934",
+        "geocode": null,
+        "image": {
+          "thumb_url": "http://images.nypl.org/?id=732341f&t=w",
+          "url": "http://images.nypl.org/?id=732341f&t=w"
+        },
+        "nypl_fields": {
+          "address": "",
+          "alt_title": [
+            "[Manhattan: Park Avenue.]"
+          ]
+        },
+        "title": "Occupations - Peddlers - Clothing - Dry goods",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-9d2d-a3d9-e040-e00a18064a99"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": null,
+      "id": "730461f",
+      "properties": {
+        "date": "1929",
+        "geocode": null,
+        "image": {
+          "thumb_url": "http://images.nypl.org/?id=730461f&t=w",
+          "url": "http://images.nypl.org/?id=730461f&t=w"
+        },
+        "nypl_fields": {
+          "address": "",
+          "alt_title": [
+            "[Manhattan: Wall Street - Hanover Street ; 59 Wall Street - Wall and Hanover Building ; Federal Reserve Bank of New York ; Municipal Building ; National City Bank ; Transportation Building ; Woolworth Building.]"
+          ]
+        },
+        "title": "General view - Wall Street - Northwest",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-8e89-a3d9-e040-e00a18064a99"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": null,
+      "id": "734578f",
+      "properties": {
+        "date": "1923",
+        "geocode": null,
+        "image": {
+          "thumb_url": "http://images.nypl.org/?id=734578f&t=w",
+          "url": "http://images.nypl.org/?id=734578f&t=w"
+        },
+        "nypl_fields": {
+          "address": "",
+          "alt_title": [
+            "[West 96th Street.]"
+          ]
+        },
+        "title": "North (Hudson) River - Shore and skyline - Manhattan - 59th Street - George Washington Bridge - [Weber-Bunke-Lange Coal Company.]",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-ae97-a3d9-e040-e00a18064a99"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": null,
+      "id": "1516919",
+      "properties": {
+        "date": "1887, 1986",
+        "geocode": null,
+        "image": {
+          "thumb_url": "http://images.nypl.org/?id=1516919&t=w",
+          "url": "http://images.nypl.org/?id=1516919&t=w"
+        },
+        "nypl_fields": {
+          "address": "",
+          "alt_title": [
+            "Building exterior (front) and sidewalk"
+          ]
+        },
+        "title": "Social conditions: tenements",
+        "url": "https://digitalcollections.nypl.org/items/510d47e2-1464-a3d9-e040-e00a18064a99"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": null,
+      "id": "465515",
+      "properties": {
+        "date": null,
+        "geocode": null,
+        "image": {
+          "thumb_url": "http://images.nypl.org/?id=465515&t=w",
+          "url": "http://images.nypl.org/?id=465515&t=w"
+        },
+        "nypl_fields": {
+          "address": "",
+          "alt_title": null
+        },
+        "title": "The Pinehurst. Plan of first floor; Plan of upper floors",
+        "url": "https://digitalcollections.nypl.org/items/510d47db-9ee8-a3d9-e040-e00a18064a99"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": null,
+      "id": "1113250",
+      "properties": {
+        "date": null,
+        "geocode": null,
+        "image": {
+          "thumb_url": "http://images.nypl.org/?id=1113250&t=w",
+          "url": "http://images.nypl.org/?id=1113250&t=w"
+        },
+        "nypl_fields": {
+          "address": "",
+          "alt_title": null
+        },
+        "title": "No. 251, Coleman, Tailor, Little Shop - Pennsylvania Railroad Co. - No. 265 Calumet Club.]",
+        "url": "https://digitalcollections.nypl.org/items/510d47dc-9a7b-a3d9-e040-e00a18064a99"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": null,
+      "id": "729939f",
+      "properties": {
+        "date": "1910",
+        "geocode": null,
+        "image": {
+          "thumb_url": "http://images.nypl.org/?id=729939f&t=w",
+          "url": "http://images.nypl.org/?id=729939f&t=w"
+        },
+        "nypl_fields": {
+          "address": "",
+          "alt_title": null
+        },
+        "title": "[Richmond:] Staten Island - Wolfe's Pond Park - Wolfe's Pond",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-8a76-a3d9-e040-e00a18064a99"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": null,
+      "id": "730103f",
+      "properties": {
+        "date": "1905",
+        "geocode": null,
+        "image": {
+          "thumb_url": "http://images.nypl.org/?id=730103f&t=w",
+          "url": "http://images.nypl.org/?id=730103f&t=w"
+        },
+        "nypl_fields": {
+          "address": "",
+          "alt_title": null
+        },
+        "title": "General view - Manhattan - [View from railroad tracks of New York, New Haven and Hartford.]",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-8bbe-a3d9-e040-e00a18064a99"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": null,
+      "id": "731586f",
+      "properties": {
+        "date": "1931, 1936",
+        "geocode": null,
+        "image": {
+          "thumb_url": "http://images.nypl.org/?id=731586f&t=w",
+          "url": "http://images.nypl.org/?id=731586f&t=w"
+        },
+        "nypl_fields": {
+          "address": "",
+          "alt_title": null
+        },
+        "title": "Farming on Staten Island",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-974c-a3d9-e040-e00a18064a99"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": null,
+      "id": "731693f",
+      "properties": {
+        "date": "1931, 1932",
+        "geocode": null,
+        "image": {
+          "thumb_url": "http://images.nypl.org/?id=731693f&t=w",
+          "url": "http://images.nypl.org/?id=731693f&t=w"
+        },
+        "nypl_fields": {
+          "address": "",
+          "alt_title": null
+        },
+        "title": "Feast of Saint Anthony of Padua",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-9822-a3d9-e040-e00a18064a99"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": null,
+      "id": "732872f",
+      "properties": {
+        "date": "1900",
+        "geocode": null,
+        "image": {
+          "thumb_url": "http://images.nypl.org/?id=732872f&t=w",
+          "url": "http://images.nypl.org/?id=732872f&t=w"
+        },
+        "nypl_fields": {
+          "address": "",
+          "alt_title": null
+        },
+        "title": "Recreation and hobbies - School activities - [A class in natural sciences in one of New York public schools.]",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-a146-a3d9-e040-e00a18064a99"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": null,
+      "id": "733656f",
+      "properties": {
+        "date": "1932",
+        "geocode": null,
+        "image": {
+          "thumb_url": "http://images.nypl.org/?id=733656f&t=w",
+          "url": "http://images.nypl.org/?id=733656f&t=w"
+        },
+        "nypl_fields": {
+          "address": "",
+          "alt_title": null
+        },
+        "title": "Benedicts Creek - Staten Island [Richmond - View of salt meadows from Arthur Kill Road, above Rossville.]",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-a765-a3d9-e040-e00a18064a99"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": null,
+      "id": "734117f",
+      "properties": {
+        "date": "1928",
+        "geocode": null,
+        "image": {
+          "thumb_url": "http://images.nypl.org/?id=734117f&t=w",
+          "url": "http://images.nypl.org/?id=734117f&t=w"
+        },
+        "nypl_fields": {
+          "address": "",
+          "alt_title": null
+        },
+        "title": "Eastchester Bay (North) - Bronx - Ampere Avenue",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-aafe-a3d9-e040-e00a18064a99"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": null,
+      "id": "734836f",
+      "properties": {
+        "date": "1928",
+        "geocode": null,
+        "image": {
+          "thumb_url": "http://images.nypl.org/?id=734836f&t=w",
+          "url": "http://images.nypl.org/?id=734836f&t=w"
+        },
+        "nypl_fields": {
+          "address": "",
+          "alt_title": null
+        },
+        "title": "Weir Creek -- S. Schley Avenue - Throgs Neck Boulevard (Bronx)",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-b09a-a3d9-e040-e00a18064a99"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": null,
+      "id": "1691044",
+      "properties": {
+        "date": "1925",
+        "geocode": null,
+        "image": {
+          "thumb_url": "http://images.nypl.org/?id=1691044&t=w",
+          "url": "http://images.nypl.org/?id=1691044&t=w"
+        },
+        "nypl_fields": {
+          "address": "",
+          "alt_title": null
+        },
+        "title": "Fourth Avenue front",
+        "url": "https://digitalcollections.nypl.org/items/5f35a6a2-c335-5f1c-e040-e00a18064c3c"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": null,
+      "id": "1691051",
+      "properties": {
+        "date": "1925",
+        "geocode": null,
+        "image": {
+          "thumb_url": "http://images.nypl.org/?id=1691051&t=w",
+          "url": "http://images.nypl.org/?id=1691051&t=w"
+        },
+        "nypl_fields": {
+          "address": "",
+          "alt_title": null
+        },
+        "title": "Posters and advertisements on walls of Madison Square Garden",
+        "url": "https://digitalcollections.nypl.org/items/5f35a6a2-c33c-5f1c-e040-e00a18064c3c"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": null,
+      "id": "2040770",
+      "properties": {
+        "date": "1900, 1999",
+        "geocode": null,
+        "image": {
+          "thumb_url": "http://images.nypl.org/?id=2040770&t=w",
+          "url": "http://images.nypl.org/?id=2040770&t=w"
+        },
+        "nypl_fields": {
+          "address": "",
+          "alt_title": null
+        },
+        "title": "Anniversary Day -- Clinton Avenue",
+        "url": "https://digitalcollections.nypl.org/items/a44288b4-9c00-b31f-e040-e00a18060314"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": null,
+      "id": "3984521",
+      "properties": {
+        "date": null,
+        "geocode": null,
+        "image": {
+          "thumb_url": "http://images.nypl.org/?id=3984521&t=w",
+          "url": "http://images.nypl.org/?id=3984521&t=w"
+        },
+        "nypl_fields": {
+          "address": "",
+          "alt_title": null
+        },
+        "title": "Harry's 4 Service Gas Station: 14th Ave.-45th St., Brooklyn",
+        "url": "https://digitalcollections.nypl.org/items/b4afdefd-4a05-146a-e040-e00a180610a2"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": null,
+      "id": "3985087",
+      "properties": {
+        "date": null,
+        "geocode": null,
+        "image": {
+          "thumb_url": "http://images.nypl.org/?id=3985087&t=w",
+          "url": "http://images.nypl.org/?id=3985087&t=w"
+        },
+        "nypl_fields": {
+          "address": "",
+          "alt_title": null
+        },
+        "title": "Tenement row, Upper East Side: Manhattan",
+        "url": "https://digitalcollections.nypl.org/items/b4afdefd-4c3b-146a-e040-e00a180610a2"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": null,
+      "id": "3985136",
+      "properties": {
+        "date": null,
+        "geocode": null,
+        "image": {
+          "thumb_url": "http://images.nypl.org/?id=3985136&t=w",
+          "url": "http://images.nypl.org/?id=3985136&t=w"
+        },
+        "nypl_fields": {
+          "address": "",
+          "alt_title": null
+        },
+        "title": "Tenements; Louis Hecht Electrician, A. Miller Steel Pipes: 18 Cannon St.-Broome St., Manhattan",
+        "url": "https://digitalcollections.nypl.org/items/b4afdefd-4c6c-146a-e040-e00a180610a2"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": null,
+      "id": "3985139",
+      "properties": {
+        "date": null,
+        "geocode": null,
+        "image": {
+          "thumb_url": "http://images.nypl.org/?id=3985139&t=w",
+          "url": "http://images.nypl.org/?id=3985139&t=w"
+        },
+        "nypl_fields": {
+          "address": "",
+          "alt_title": null
+        },
+        "title": "Bryna Court Apartment; Lennie's Caf\u00e9: 195 Prospect Park West-14th St-15 St., Brooklyn",
+        "url": "https://digitalcollections.nypl.org/items/b4afdefd-4c6f-146a-e040-e00a180610a2"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": null,
+      "id": "3985221",
+      "properties": {
+        "date": null,
+        "geocode": null,
+        "image": {
+          "thumb_url": "http://images.nypl.org/?id=3985221&t=w",
+          "url": "http://images.nypl.org/?id=3985221&t=w"
+        },
+        "nypl_fields": {
+          "address": "",
+          "alt_title": null
+        },
+        "title": "Tenements & storefronts; Sam Fisher Tailor, Ave C Tire, Schlesinger's Bakery: 25-31 Av C-E. 2nd St-E. 3rd St, Manhattan",
+        "url": "https://digitalcollections.nypl.org/items/b4afdefd-4cc1-146a-e040-e00a180610a2"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": null,
+      "id": "3984719",
+      "properties": {
+        "date": null,
+        "geocode": null,
+        "image": {
+          "thumb_url": "http://images.nypl.org/?id=3984719&t=w",
+          "url": "http://images.nypl.org/?id=3984719&t=w"
+        },
+        "nypl_fields": {
+          "address": "",
+          "alt_title": null
+        },
+        "title": "Brick row house; Edward Larkin Lawyer offices on first floor: Saratoga Ave.-Riverdale Av-Livonia, Brooklyn",
+        "url": "https://digitalcollections.nypl.org/items/b4afdefd-4acb-146a-e040-e00a180610a2"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": null,
+      "id": "3984737",
+      "properties": {
+        "date": null,
+        "geocode": null,
+        "image": {
+          "thumb_url": "http://images.nypl.org/?id=3984737&t=w",
+          "url": "http://images.nypl.org/?id=3984737&t=w"
+        },
+        "nypl_fields": {
+          "address": "",
+          "alt_title": null
+        },
+        "title": "Tenements & vacant storefronts; Jay Bee Syrup Co.: 3426 [street unknown], Bronx",
+        "url": "https://digitalcollections.nypl.org/items/b4afdefd-4add-146a-e040-e00a180610a2"
       },
       "type": "Feature"
     }
