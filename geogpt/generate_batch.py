@@ -13,10 +13,10 @@ from data.util import BOROUGHS
 SYSTEM_INSTRUCTIONS = """
 Your goal is to extract location information from JSON describing a photograph taken
 in New York City. The location information should be either an intersection of two streets,
-a place name, or an address. It should also contain the borough that the photograph is in
+an address, or a place name. It should also contain the borough that the photograph is in
 (Manhattan, Brooklyn, Queens, Bronx, Staten Island).
+Intersections are most desirable, followed by addresses, and then place names.
 If there's no location information in the photo, respond with "no location information".
-If the photo is not in New York City, respond with "not in NYC".
 
 Respond in JSON containing the following information:
 
@@ -27,25 +27,22 @@ Respond in JSON containing the following information:
   borough: "Manhattan" | "Brooklyn" | "Queens" | "Bronx" | "Staten Island"
 } | {
   type: "address";
-  number: number;
-  street: number;
+  number: string;
+  street: string;
   borough: "Manhattan" | "Brooklyn" | "Queens" | "Bronx" | "Staten Island"
 } | {
+  type: "place_name";
   place_name: string;
   borough: "Manhattan" | "Brooklyn" | "Queens" | "Bronx" | "Staten Island"
+} | {
+  type: "no location information"
 }
-'no location information' | 'not in NYC';
 """
-
-# TODO: In Queens, addresses might be strings
 
 
 def make_gpt_request(r: Item, model: str) -> dict:
     r = prep_data(r)
-    gpt_data = {
-        "title": r.title,
-        "alt_title": r.alt_title,
-    }
+    gpt_data = {"title": r.title, "alt_title": r.alt_title, "description": r.back_text}
     borough = guess_borough(r)
     if borough:
         gpt_data["borough"] = borough

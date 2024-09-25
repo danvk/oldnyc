@@ -13,7 +13,8 @@ class GptCoder:
 
     def __init__(self):
         # with open("geogpt/geocodes.json") as f:
-        with open("/tmp/extracted-structure.json") as f:
+        # with open("/tmp/extracted-structure.json") as f:
+        with open("/tmp/extracted-structure+text.json") as f:
             self.queries = json.load(f)
         self.num_intersection = 0
         self.num_address = 0
