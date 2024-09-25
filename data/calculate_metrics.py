@@ -25,20 +25,20 @@ def _coord_to_str(coord):
 
 
 def diff_geocode(truth_coord, computed_coord):
-    """Compare two coordinates. Returns (match? reason for mismatch).
+    """Compare two coordinates. Returns (match?, reason for mismatch, d_km).
 
     Coords are (lng, lat). Either may be None.
     """
     if _coord_to_str(truth_coord) == _coord_to_str(computed_coord):
-        return (True, "")
+        return (True, "", "0")
     if computed_coord is None:
-        return (False, "Missing geocode")
+        return (False, "Missing geocode", "")
     if truth_coord is None:
-        return (False, "Should be missing geocode")
+        return (False, "Should be missing geocode", "")
     distance_km = haversine(truth_coord, computed_coord)
     if distance_km > 0.25:
-        return (False, "Too far: %.3f km" % distance_km)
-    return (True, "")
+        return (False, "Too far: %.3f km" % distance_km, f"{distance_km:.3f}")
+    return (True, "", f"{distance_km:.3f}")
 
 
 def tally_stats(truth_features, computed_features):
@@ -57,8 +57,10 @@ def tally_stats(truth_features, computed_features):
             "title",
             "computed location",
             "true location",
+            "d (km)",
             "location match",
             "location reason",
+            "geocode technique",
             "location string",
             "notes",
         ]
@@ -78,15 +80,19 @@ def tally_stats(truth_features, computed_features):
             num_geocodable += 1
         if computed_coords:
             num_geocoded += 1
-        (geocode_match, geocode_reason) = diff_geocode(true_coords, computed_coords)
+        (geocode_match, geocode_reason, d_km) = diff_geocode(
+            true_coords, computed_coords
+        )
 
         if geocode_match and true_coords:
             num_geocoded_correct += 1
 
+        search_term = ""
+        technique = ""
         if computed_coords:
             search_term = props["geocode"]["source"]
-        else:
-            search_term = ""
+            technique = props["geocode"]["technique"]
+
         out.writerow(
             [
                 str(x)
@@ -96,8 +102,10 @@ def tally_stats(truth_features, computed_features):
                     props["title"],
                     _coord_to_str(computed_coords),
                     _coord_to_str(true_coords),
+                    d_km,
                     geocode_match,
                     geocode_reason,
+                    technique,
                     search_term,
                     truth_feature["properties"]["geocoding_notes"],
                 )

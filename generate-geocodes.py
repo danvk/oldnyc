@@ -24,7 +24,7 @@ import json
 import coders.extended_grid
 import coders.milstein
 import coders.nyc_parks
-# import coders.gpt
+import coders.gpt
 
 
 if __name__ == '__main__':

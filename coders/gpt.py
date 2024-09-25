@@ -32,14 +32,19 @@ class GptCoder:
             self.num_intersection += 1
         else:
             self.num_address += 1
-        return {
+        loc = {
             "address": q,
             "source": q,
             # TODO: this could be improved
             "type": (
-                "intersection" if "&" in q else ["street_address", "premise"]
-            ),  # , 'point_of_interest'],
+                "intersection"
+                if "&" in q
+                else ["street_address", "premise"]
+                # , 'point_of_interest'],
+            ),
         }
+        sys.stderr.write(f"GPT location: {r.id} {loc}\n")
+        return loc
 
     def getLatLonFromGeocode(self, geocode, data, r: Item):
         result = self.milstein.getLatLonFromGeocode(geocode, data, r)
