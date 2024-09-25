@@ -47,6 +47,7 @@ def tally_stats(truth_features, computed_features):
 
     num_geocodable = 0
     num_geocoded_correct = 0
+    num_geocoded_incorrect = 0
     num_geocoded = 0
 
     out = csv.writer(sys.stdout, delimiter="\t")
@@ -58,6 +59,7 @@ def tally_stats(truth_features, computed_features):
             "computed location",
             "true location",
             "d (km)",
+            "incorrectly located",
             "location match",
             "location reason",
             "geocode technique",
@@ -86,6 +88,9 @@ def tally_stats(truth_features, computed_features):
 
         if geocode_match and true_coords:
             num_geocoded_correct += 1
+        incorrectly_located = computed_coords and not geocode_match
+        if incorrectly_located:
+            num_geocoded_incorrect += 1
 
         search_term = ""
         technique = ""
@@ -103,6 +108,7 @@ def tally_stats(truth_features, computed_features):
                     _coord_to_str(computed_coords),
                     _coord_to_str(true_coords),
                     d_km,
+                    "TRUE" if incorrectly_located else "FALSE",
                     geocode_match,
                     geocode_reason,
                     technique,
@@ -112,7 +118,6 @@ def tally_stats(truth_features, computed_features):
             ]
         )
 
-    num_geocoded_incorrect = num_geocoded - num_geocoded_correct
     print(
         """
 Results:

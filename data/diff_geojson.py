@@ -33,37 +33,30 @@ def features_to_geojson_file(features, filename):
         }, f)
 
 
-def get_lat(feature):
-    if feature.get('geometry') and feature['geometry'].get('coordinates'):
-        return feature['geometry']['coordinates'][1]
-    else:
-        return None
-
-
-def get_lng(feature):
-    if feature.get('geometry') and feature['geometry'].get('coordinates'):
-        return feature['geometry']['coordinates'][0]
-    else:
-        return None
-
-
-def calculate_distance_delta_for_image_id(old, new, image_id):
-    a = old[image_id]['properties']['geocode']
-    b = new[image_id]['properties']['geocode']
-    if not a or not b:
-        return math.inf * -1
-    a_lat = a.get('lat', None)
-    a_lng = a.get('lng', None)
-    b_lat = b.get('lat', None)
-    b_lng = b.get('lng', None)
-    if not a_lat or not b_lat or not a_lng or not b_lng:
-        return math.inf * -1
+def calculate_distance_delta_for_image_id(a, b):
+    assert a["type"] == "Point"
+    assert b["type"] == "Point"
+    (a_lng, a_lat) = b["coordinates"]
+    (b_lng, b_lat) = b["coordinates"]
     d_meters = haversine((a_lat, a_lng), (b_lat, b_lng)) * 1000
     return d_meters
 
 
-def diff_geojson(before_file, after_file, added_file, dropped_file, changed_file, unchanged_file,
-                 sample_set, num_samples):
+def is_geometry_mismatch(a, b):
+    """Has the geometry type changed?"""
+    return (a is None) != (b is None) or a["type"] != b["type"]
+
+
+def diff_geojson(
+    before_file: str,
+    after_file: str,
+    added_file,
+    dropped_file,
+    changed_file,
+    unchanged_file,
+    sample_set,
+    num_samples,
+):
     before = json.load(open(before_file))['features']
     old = {x['id']: x for x in before}
     after = json.load(open(after_file))['features']
@@ -78,10 +71,15 @@ def diff_geojson(before_file, after_file, added_file, dropped_file, changed_file
     added_ids = new_ids.difference(old_ids)
     changed_ids = []
     for k in new_ids.intersection(old_ids):
-        distance = calculate_distance_delta_for_image_id(old, new, k)
-        if (get_lat(old[k]) is not None and get_lat(new[k]) is not None and get_lng(old[k]) is not
-                None and get_lng(new[k]) is not None and distance > 25):
-                changed_ids.append(k)
+        a = old[k]["geometry"]
+        b = new[k]["geometry"]
+        if a is None and b is None:
+            continue
+        if (
+            is_geometry_mismatch(a, b)
+            or calculate_distance_delta_for_image_id(a, b) > 25
+        ):
+            changed_ids.append(k)
 
         # we estimate that all reported images who have not changed are unchanged
     unchanged_ids = old_ids.difference(changed_ids).difference(dropped_ids)
@@ -92,9 +90,14 @@ def diff_geojson(before_file, after_file, added_file, dropped_file, changed_file
     unchanged_features = [old[i] for i in unchanged_ids]
 
     for feature in changed_features:
-        distance = calculate_distance_delta_for_image_id(old, new, feature['id'])
         older = old[feature['id']]
         newer = new[feature['id']]
+        a, b = older["geometry"], newer["geometry"]
+        distance = (
+            math.nan
+            if is_geometry_mismatch(a, b)
+            else calculate_distance_delta_for_image_id(a, b)
+        )
         print(f'distance: {distance}')
         print(f'old: {older}')
         print(f'new: {newer}')
@@ -174,5 +177,13 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     sample_set = args.sample_set.split('|') if args.sample_set else None
-    diff_geojson(args.before, args.after, args.added, args.dropped, args.changed, args.unchanged,
-                 sample_set, args.num_samples)
+    diff_geojson(
+        args.before,
+        args.after,
+        args.added,
+        args.dropped,
+        args.changed,
+        args.unchanged,
+        sample_set,
+        args.num_samples,
+    )
