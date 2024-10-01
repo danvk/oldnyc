@@ -54,6 +54,7 @@ class GptCoder:
             loc = {
                 "address": f"{address}, {boro}, NY",
                 "source": address,
+                **q,
                 "type": ["street_address", "premise"],
             }
         elif typ == "intersection":
@@ -63,6 +64,7 @@ class GptCoder:
             loc = {
                 "address": f"{street1} & {street2}, {boro}, NY",
                 "source": f"{street1} & {street2}",
+                **q,
                 "type": "intersection",
             }
         sys.stderr.write(f"GPT location: {r.id} {loc}\n")
