@@ -1,5 +1,3 @@
-from nose.tools import *
-
 import title_cleaner
 
 TRUTH = [
