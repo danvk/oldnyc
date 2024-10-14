@@ -10,7 +10,6 @@ overall score.
 """
 
 import itertools
-import json
 import re
 import sys
 

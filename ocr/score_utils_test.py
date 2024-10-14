@@ -1,5 +1,5 @@
 import Levenshtein
-from ocr.tess.evaluate_ocr import (
+from ocr.score_utils import (
     contiguous_chunks,
     normalize_whitespace,
     try_transpositions,
