@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-"""Split single images in records.json into multiple records in photos.json."""
+"""Split single images in images.ndjson into multiple records in photos.ndjson."""
 
 import dataclasses
 import os
