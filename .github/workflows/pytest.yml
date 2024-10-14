@@ -28,3 +28,6 @@ jobs:
     - name: Run tests
       run: |
         poetry run pytest
+    - name: Run ruff
+      run: |
+        poetry run ruff check
