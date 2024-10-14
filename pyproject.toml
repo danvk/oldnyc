@@ -1,0 +1,49 @@
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+name = "oldnyc"
+version = "1.0.0"
+description = "Mapping historic photos of New York City"
+license = "Apache-2.0"
+readme = "README.md"
+authors = [ "Dan Vanderkam <danvdk@gmail.com>" ]
+homepage = "https://oldnyc.org"
+repository = "https://github.com/danvk/oldnyc"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+ruff = "^0.6.5"
+requests = "^2.32.3"
+pillow = "^10.4.0"
+chardet = "^5.2.0"
+editdistance = "^0.8.1"
+python-dateutil = "^2.9.0.post0"
+datefinder = "^0.7.3"
+python-dotenv = "^1.0.1"
+black = "^24.10.0"
+haversine = "^2.8.1"
+tqdm = "^4.66.5"
+pytest = "^8.3.3"
+numpy = "^2.1.2"
+levenshtein = "^0.26.0"
+
+[tool.ruff]
+line-length = 100
+indent-width = 4
+
+target-version = "py312"
+
+[tool.ruff.format]
+quote-style = "single"
+indent-style = "space"
+skip-magic-trailing-comma = false
+line-ending = "auto"
+
+# Set the line length limit used when formatting code snippets in
+# docstrings.
+#
+# This only has an effect when the `docstring-code-format` setting is
+# enabled.
+docstring-code-line-length = "dynamic"
