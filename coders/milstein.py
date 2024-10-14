@@ -54,7 +54,10 @@ place_re = r'(.*? (?:%s))\.?, ((?:(?:%s), )?%s)' % (place_suffixes, staten_neigh
 
 # example: "P.S. 5., Brooklyn, N.Y." (-> Should come out as "PS 123")
 # ~150
-ps_re = '((?:PS|P\.S\.|Public School) (?:#|No\. )?\d+\.?), ((?:(?:%s), )?%s)' % (staten_neighborhoods, boros)
+ps_re = r"((?:PS|P\.S\.|Public School) (?:#|No\. )?\d+\.?), ((?:(?:%s), )?%s)" % (
+    staten_neighborhoods,
+    boros,
+)
 place_patterns = [place_re, ps_re]
 
 ps_cleanup_re = r'(?:PS|P\.S\.|Public School) (?:#|No\. )?(\d+)\.?'
