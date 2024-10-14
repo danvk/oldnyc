@@ -16,5 +16,5 @@ for record in data['photos']:
     if record.get('text'):
         back_ids_with_text.add(back_id)
 
-print 'Total records: %d' % len(back_ids)
-print '    with text: %d' % len(back_ids_with_text)
+print("Total records: %d" % len(back_ids))
+print("    with text: %d" % len(back_ids_with_text))

@@ -48,8 +48,8 @@ id_to_rotation = defaultdict(list)
 all_feedback = json.load(open('../../feedback/user-feedback.json'))['feedback']
 
 for photo_id, feedback in all_feedback.items():
-    if 'rotate' not in feedback: continue
-    if photo_id in BLACKLIST: continue
+    if ("rotate" not in feedback) or photo_id in BLACKLIST:
+        continue
     rotations = feedback['rotate']
 
     for rotation in rotations.values():

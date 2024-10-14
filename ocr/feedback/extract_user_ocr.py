@@ -55,12 +55,14 @@ id_to_corrections = defaultdict(list)
 
 all_feedback = json.load(open('../../feedback/user-feedback.json'))['feedback']
 for back_id, feedback in all_feedback.items():
-    if 'text' not in feedback: continue
+    if "text" not in feedback:
+        continue
     texts = feedback['text']
 
     for text in texts.values():
         row = text['metadata']
-        if row['timestamp'] <= last_time_ms: continue
+        if row["timestamp"] <= last_time_ms:
+            continue
 
         row['text'] = text['text']
         if likely_spam(row['text']):

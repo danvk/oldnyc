@@ -21,7 +21,8 @@ ew_pat = re.compile(r' \((East|West)\)')
 by_street = defaultdict(lambda: {})
 
 for row in data:
-    if 'extracted' not in row: continue
+    if "extracted" not in row:
+        continue
     loc_str = row['extracted'].get('located_str')
     if not loc_str:
         continue

@@ -1,8 +1,6 @@
 #!/usr/bin/env python
 
 import csv
-import json
-import re
 import sys
 from collections import defaultdict
 
@@ -12,7 +10,8 @@ by_avenue = defaultdict(lambda: {})
 by_street = defaultdict(lambda: {})
 
 for row in csv.DictReader(open('grid/intersections.csv')):
-    if not row['Lat']: continue  # not all intersections exist.
+    if not row["Lat"]:
+        continue  # not all intersections exist.
     avenue = int(row['Avenue'])
     street = int(row['Street'])
     lat = float(row['Lat'])
