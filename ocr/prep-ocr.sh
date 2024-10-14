@@ -5,7 +5,7 @@ SMALL_IMG_DIR=/Users/danvk/Documents/oldnyc/images
 LARGE_IMG_DIR='/Volumes/teradan/Milstein Images/ocrbacks'
 
 TESSERACT_DIR=/Users/danvk/Documents/oldnyc/tesseract
-GPT_DIR=/Users/danvk/Documents/oldnyc/gpt
+GPT_DIR=/Users/danvk/Documents/oldnyc/gpt-backfill
 
 ids_file="$1"
 

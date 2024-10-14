@@ -10,5 +10,6 @@ if __name__ == "__main__":
         back_id = r.back_id
         if not back_id:
             continue
-        url = f"http://images.nypl.org/?id={back_id}&t=w"
-        print("%s\t%s.jpg" % (url, back_id))
+        # url = f"http://images.nypl.org/?id={back_id}&t=w"
+        # print("%s\t%s.jpg" % (url, back_id))
+        print(back_id)
