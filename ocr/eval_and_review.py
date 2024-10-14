@@ -10,7 +10,7 @@ Outputs some stats and fills in ocr/feedback/review/changes.js
 import json
 import sys
 
-from ocr.tess.evaluate_ocr import score_for_pair
+from ocr.score_utils import score_for_pair
 from record import Record
 
 

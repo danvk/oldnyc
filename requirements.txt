@@ -1,6 +1,5 @@
 # dpxdt
 requests
-nose
 Pillow
 chardet
 editdistance

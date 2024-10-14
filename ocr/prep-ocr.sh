@@ -24,7 +24,7 @@ done < "$ids_file"
 echo 'Cropping to text'
 rm -rf /tmp/crops
 mkdir /tmp/crops
-./ocr/tess/crop_morphology.py --beta 2 --output_pattern '/tmp/crops/%s.png' '/tmp/rotated/*.jpg' '/tmp/rotated/*.png'
+./ocr/crop_morphology.py --beta 2 --output_pattern '/tmp/crops/%s.png' '/tmp/rotated/*.jpg' '/tmp/rotated/*.png'
 
 # Step 3: increase contrast, cap width, convert to JPEG
 # TODO: "1500" makes no sense any more
@@ -59,23 +59,3 @@ gpt_out=$GPT_DIR/$(basename $ids_file).jsonl
     > "$gpt_out"
 
 echo 'All done!'
-
-# Step 4: OCR
-# rm -rf /tmp/nougat-out
-# mkdir /tmp/nougat-out
-# for file in /tmp/pdfs/*.pdf; do
-#     base=$(basename $file)
-#     mmd=/tmp/nougat-out/${base/.pdf/.mmd}
-#     touch $mmd
-#     set +o errexit
-#     timeout 60 nougat --recompute --no-skipping --model $NOUGAT_MODEL $file -o /tmp/nougat-out
-#     EXIT_STATUS=$?
-#     set -o errexit
-#     if [ $EXIT_STATUS -eq 124 ]; then
-#         echo Nougat timed out on $file
-#         echo '[Nougat Timeout]' > $mmd
-#     elif [ $EXIT_STATUS -ne 0 ]; then
-#         echo 'Nougat failure'
-#         exit $EXIT_STATUS
-#     fi
-# done
