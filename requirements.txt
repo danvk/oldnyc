@@ -1,6 +1,5 @@
 # dpxdt
 requests
-requests-cache
 nose
 Pillow
 chardet
@@ -9,3 +8,5 @@ python-dateutil
 datefinder
 python-dotenv
 black
+haversine
+tqdm

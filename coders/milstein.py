@@ -131,11 +131,13 @@ class MilsteinCoder:
         if not isinstance(desired_types, list):
             desired_types = [desired_types]
         for data_type in desired_types:
-            for result in geocode["results"]:
+            # N = len(geocode["results"])
+            for i, result in enumerate(geocode["results"]):
                 # partial matches tend to be inaccurate.
                 # if result.get('partial_match'): continue
                 # data['type'] is something like 'address' or 'intersection'.
                 if data_type in result["types"]:
+                    # sys.stderr.write(f"Match on {i} / {N}: {result}\n")
                     loc = result["geometry"]["location"]
                     return (data_type, loc["lat"], loc["lng"])
 

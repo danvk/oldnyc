@@ -7,6 +7,8 @@ import json
 from collections import Counter
 import re
 
+from tqdm import tqdm
+
 from data.item import Item, Subject
 from data.util import (
     STATES,
@@ -63,7 +65,7 @@ def run():
 
     counters = Counter()
     out = open("data/images.ndjson", "w")
-    for row in csv2013:
+    for row in tqdm([*csv2013]):
         counters["num records"] += 1
         id = row["DIGITAL_ID"]
 
@@ -139,7 +141,7 @@ def run():
             # print("---")
             # print(alt_title)
             # print(alt_title2)
-        alt_title2 = mods_detail.get("titles") if mods_detail else None
+        alt_title2 = mods_detail.get("titles")[1:] if mods_detail else None
         if not alt_title2:
             alt_title2 = (
                 [row2["alternative_title"].strip()] if row2["alternative_title"] else []

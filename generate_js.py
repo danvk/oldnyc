@@ -98,6 +98,21 @@ def printJsonNoYears(located_recs: list[LocatedRecord], lat_lon_map: dict[str, s
     print(json.dumps(data, sort_keys=True))
 
 
+def printLocationsJson(located_recs: list[LocatedRecord]):
+    locs = {}
+    for r, coder, location_data in located_recs:
+        if location_data and "lat" in location_data and "lon" in location_data:
+            lat = location_data["lat"]
+            lon = location_data["lon"]
+            locs[r.id] = [lat, lon]
+
+    print(
+        json.dumps(
+            json.loads(json.dumps(locs), parse_float=lambda x: round(float(x), 6))
+        )
+    )
+
+
 def printRecordsJson(located_recs: list[LocatedRecord]):
     recs = []
     for r, coder, location_data in located_recs:
@@ -172,18 +187,6 @@ def printIdLocation(located_recs: list[LocatedRecord]):
         print("\t".join([r.id, coder or "failed", loc]))
 
 
-def printIdLocation(located_recs: list[LocatedRecord]):
-    for r, coder, location_data in located_recs:
-        if location_data:
-            lat = location_data["lat"]
-            lon = location_data["lon"]
-            loc = (str((lat, lon)) or "") + "\t" + location_data["address"]
-        else:
-            loc = "n/a\tn/a"
-
-        print("\t".join([r["id"], coder or "failed", loc]))
-
-
 def printLocations(located_recs: list[LocatedRecord]):
     locs = defaultdict(int)
     for _r, _coder, location_data in located_recs:
@@ -196,11 +199,11 @@ def printLocations(located_recs: list[LocatedRecord]):
         print('%d\t%s' % (count, ll))
 
 
-def output_geojson(located_recs: list[LocatedRecord]):
+def output_geojson(located_recs: list[LocatedRecord], all_recs: list[Item]):
     features = []
-    for r, coder, location_data in located_recs:
-        if not location_data:
-            continue  # debatable, but this is what diff_geojson.py seems to want
+    id_to_loc = {rec[0].id: rec for rec in located_recs}
+    for r in all_recs:
+        _, coder, location_data = id_to_loc[r.id]
         feature = {
             "id": r.id,
             "type": "Feature",
@@ -213,7 +216,7 @@ def output_geojson(located_recs: list[LocatedRecord]):
                 else None
             ),
             "properties": {
-                "title": r.tilte,
+                "title": r.title,
                 "date": r.date,
                 "geocode": (
                     {
@@ -242,7 +245,3 @@ def output_geojson(located_recs: list[LocatedRecord]):
             sort_keys=True,
         )
     )
-
-
-def output_oldto_json(located_recs: list[LocatedRecord]):
-    pass
