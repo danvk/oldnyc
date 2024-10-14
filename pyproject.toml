@@ -28,6 +28,7 @@ tqdm = "^4.66.5"
 pytest = "^8.3.3"
 numpy = "^2.1.2"
 levenshtein = "^0.26.0"
+jupyter = "^1.1.1"
 
 [tool.ruff]
 line-length = 100
