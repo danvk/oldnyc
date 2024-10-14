@@ -77,6 +77,11 @@ The lat-lon-map.txt file can be generated via:
 ./nyc/records_to_photos.py data/images.ndjson /tmp/crops.json data/photos.ndjson
 ```
 
+To update the geocache:
+
+    rm geocache.tgz
+    tar -czf geocache.tgz geocache
+
 ## Generate crops.txt
 
 ...
