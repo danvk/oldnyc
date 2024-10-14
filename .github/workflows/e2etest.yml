@@ -1,0 +1,36 @@
+name: e2etest
+
+on: [push]
+
+jobs:
+  e2etest:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up Python
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.12"
+    - name: Install Poetry
+      uses: abatilo/actions-poetry@v2
+    - name: Setup a local virtual environment for caching
+      run: |
+        poetry config virtualenvs.create true --local
+        poetry config virtualenvs.in-project true --local
+    - uses: actions/cache/restore@v3
+      name: Cache dependencies
+      with:
+        path: ./.venv
+        key: venv-${{ hashFiles('poetry.lock') }}
+    - name: Install dependencies
+      run: |
+        poetry install
+    - name: Expand geocache
+      run: |
+        tar -xzf geocache.tgz
+    - name: Run geocoder
+      run: |
+        poetry run ./generate-geocodes.py --ids_filter test/random200-ids.txt --images_ndjson data/images.ndjson --output_format id-location.txt --geocode > test/random200-geocoded.txt 2> test/random200.logs.txt
+    - name: Check for diffs
+      run: |
+        git diff --exit-code test/

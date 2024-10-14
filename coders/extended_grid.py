@@ -153,10 +153,10 @@ class ExtendedGridCoder:
         # sys.stderr.write('coded (%s, %s) --> (%s, %s)\n' % (street1, street2, avenue, street))
 
         return {
-            'address': '@%s,%s' % latlon,
-            'source': loc,
-            'grid': '(%s, %s)' % (avenue, street),
-            'type': 'intersection'
+            "address": "@%.6f,%.6f" % latlon,
+            "source": loc,
+            "grid": "(%s, %s)" % (avenue, street),
+            "type": "intersection",
         }
 
     def getLatLonFromGeocode(self, geocode, data, r):

@@ -1,0 +1,200 @@
+725773f	milstein	(40.752257, -73.8629333)	104th Street and 37th Drive, Queens, NY
+714972f	extended-grid	(40.788955, -73.94056)	@40.788955,-73.940560
+731662f	extended-grid	(40.794707, -73.936346)	@40.794707,-73.936346
+710597f	extended-grid	(40.746788, -74.007862)	@40.746788,-74.007862
+711084f	extended-grid	(40.734026, -73.995072)	@40.734026,-73.995072
+702517f	milstein	(40.670265, -73.9920222)	11th Street and 3rd Avenue, Brooklyn, NY
+715218f	extended-grid	(40.80325, -73.944651)	@40.803250,-73.944651
+715225f	milstein	(40.810582, -73.9621696)	120th Street and Broadway, Manhattan, NY
+715273f	extended-grid	(40.800463, -73.932174)	@40.800463,-73.932174
+715775f	milstein	(40.8442656, -73.9337224)	175th Street (West) and Amsterdam Avenue, Manhattan, NY
+707652f	extended-grid	(40.767119, -73.956491)	@40.767119,-73.956491
+724948f	milstein	(40.7740642, -73.9368624)	1st Street and Astoria Boulevard., Queens, NY
+1507813	milstein	(40.745299, -74.004871)	448 20th Street (West), Manhattan, NY
+1558411	milstein	(40.71200320000001, -74.0081046)	233 Broadway and Barclay Street, Manhattan, NY
+711783f	extended-grid	(40.748355, -74.003684)	@40.748355,-74.003684
+711875f	extended-grid	(40.740015, -73.976246)	@40.740015,-73.976246
+707797f	extended-grid	(40.735997, -73.982265)	@40.735997,-73.982265
+707762f	extended-grid	(40.725588, -73.989893)	@40.725588,-73.989893
+731602f	failed	n/a	n/a
+724965f	milstein	(40.7428649, -73.95863)	2nd Street and 51st Avenue, Queens, NY
+725220f	milstein	(40.76691690000001, -73.835483)	32nd Avenue and Downing Street, Queens, NY
+712182f	extended-grid	(40.752191, -73.993472)	@40.752191,-73.993472
+712365f	milstein	(40.7552261, -73.9966536)	36th Street (West) and Dyer Avenue, Manhattan, NY
+712847f	milstein	(40.7514377, -73.97604609999999)	42nd Street (East) and Lexington Avenue, Manhattan, NY
+713018f	extended-grid	(40.761973, -74.001076)	@40.761973,-74.001076
+713156f	extended-grid	(40.756697, -73.986484)	@40.756697,-73.986484
+713408f	extended-grid	(40.75927, -73.980886)	@40.759270,-73.980886
+702337f	milstein	(40.6537992, -74.0050724)	37th Street and 4th Avenue, Brooklyn, NY
+713577f	failed	n/a	n/a
+417677	failed	n/a	n/a
+713622f	extended-grid	(40.763545, -73.985192)	@40.763545,-73.985192
+713882f	extended-grid	(40.762981, -73.97396)	@40.762981,-73.973960
+713972f	extended-grid	(40.766216, -73.97955)	@40.766216,-73.979550
+714055f	extended-grid	(40.77163, -73.990469)	@40.771630,-73.990469
+702396f	milstein	(40.66359, -73.991089)	17th Street and 5th Avenue, Brooklyn, NY
+708420f	extended-grid	(40.742203, -73.989113)	@40.742203,-73.989113
+708595f	extended-grid	(40.749112, -73.984067)	@40.749112,-73.984067
+708621f	extended-grid	(40.750354, -73.98317)	@40.750354,-73.983170
+708658f	extended-grid	(40.751586, -73.982281)	@40.751586,-73.982281
+708696f	extended-grid	(40.7522, -73.981834)	@40.752200,-73.981834
+708795f	extended-grid	(40.753488, -73.980894)	@40.753488,-73.980894
+708861f	extended-grid	(40.756036, -73.97902)	@40.756036,-73.979020
+708939f	extended-grid	(40.758546, -73.977199)	@40.758546,-73.977199
+708943f	extended-grid	(40.759166, -73.976748)	@40.759166,-73.976748
+708989f	extended-grid	(40.760408, -73.975829)	@40.760408,-73.975829
+709069f	extended-grid	(40.763654, -73.973465)	@40.763654,-73.973465
+731306f	failed	n/a	n/a
+714105f	extended-grid	(40.764185, -73.968867)	@40.764185,-73.968867
+1508279	milstein	(40.769205, -73.966681)	35 68th Street (East), Manhattan, NY
+725588f	milstein	(40.7140637, -73.8869935)	66th Road and 69th Street, Queens, NY
+709481f	extended-grid	(40.754853, -73.984124)	@40.754853,-73.984124
+709510f	extended-grid	(40.756147, -73.983163)	@40.756147,-73.983163
+714399f	extended-grid	(40.779818, -73.984494)	@40.779818,-73.984494
+714353f	extended-grid	(40.7668, -73.953634)	@40.766800,-73.953634
+725623f	milstein	(40.7316291, -73.7873143)	183rd Street and 73rd Avenue, Queens, NY
+714441f	extended-grid	(40.769751, -73.95459)	@40.769751,-73.954590
+709643f	milstein	(40.7372245, -74.0006804)	12th Street (West) and 7th Avenue, Manhattan, NY
+709691f	extended-grid	(40.741067, -73.997868)	@40.741067,-73.997868
+709755f	extended-grid	(40.750329, -73.991101)	@40.750329,-73.991101
+485886	failed	n/a	n/a
+725663f	milstein	(40.7536023, -73.8859408)	34th Avenue and 81st Street, Queens, NY
+417208	milstein	(40.773668, -73.9625049)	830 Park Avenue, Manhattan, NY
+714641f	milstein	(40.777546, -73.95701269999999)	83rd Street (East) and Lexington Avenue, Manhattan, NY
+714767f	extended-grid	(40.779188, -73.950796)	@40.779188,-73.950796
+710244f	extended-grid	(40.805105, -73.954868)	@40.805105,-73.954868
+710174f	extended-grid	(40.75595, -73.990723)	@40.755950,-73.990723
+710222f	extended-grid	(40.764175, -73.984744)	@40.764175,-73.984744
+714847f	extended-grid	(40.792135, -73.971798)	@40.792135,-73.971798
+714866f	extended-grid	(40.792195, -73.968022)	@40.792195,-73.968022
+714878f	milstein	(40.785877, -73.9509341)	96th Street (East) and Lexington Avenue, Manhattan, NY
+714891f	extended-grid	(40.792867, -73.967532)	@40.792867,-73.967532
+710381f	extended-grid	(40.752725, -73.996789)	@40.752725,-73.996789
+716213f	milstein	(40.8029878, -73.9638629)	Amsterdam Avenue and Cathedral Parkway, Manhattan, NY
+716251f	milstein	(40.8029878, -73.9638629)	Amsterdam Avenue and Cathedral Parkway, Manhattan, NY
+700428f	milstein	(40.9044812, -73.90716479999999)	256th Street (West) and Arlington Avenue, Bronx, NY
+703007f	failed	n/a	n/a
+703078f	milstein	(40.6821316, -73.8697808)	Atlantic Avenue and Autumn Avenue, Brooklyn, NY
+703041f	milstein	(40.6823228, -73.9706163)	Atlantic Avenue and Carlton Avenue, Brooklyn, NY
+707148f	milstein	(40.6205804, -73.9019884)	Ave. V and Bergen Ave., Brooklyn, NY
+716421f	extended-grid	(40.725081, -73.981232)	@40.725081,-73.981232
+731946f	nyc-parks	(40.574926, -73.985941)	@40.574926,-73.985941
+716604f	failed	n/a	n/a
+726128f	milstein	(40.7704092, -73.8246714)	Bayside Avenue and Parsons Boulevard, Queens, NY
+728569f	milstein	(40.6289529, -74.0797226)	Beach Street and Van Duzer Street, Staten Island, NY
+734228f	failed	n/a	n/a
+716849f	milstein	(40.7062339, -74.0112434)	Broad Street and Exchange Place, Manhattan, NY
+717397f	milstein	(40.7489862, -73.9880222)	33rd Street and Broadway, Manhattan, NY
+711652f	milstein	(40.7423132, -73.98901769999999)	5th Avenue and Broadway, Manhattan, NY
+716954f	milstein	(40.7050362, -74.01332529999999)	Beaver Street and Broadway, Manhattan, NY
+717053f	milstein	(40.7091466, -74.0105538)	Broadway and Liberty Street, Manhattan, NY
+1509149	failed	n/a	n/a
+732657f	failed	n/a	n/a
+717855f	milstein	(40.716861, -73.9862023)	Broome Street and Clinton Street, Manhattan, NY
+726289f	milstein	(40.7697303, -73.73634369999999)	Browvale Lane and Northern Boulevard, Queens, NY
+718012f	milstein	(40.7184111, -74.0005723)	Canal Street and Lafayette Street, Manhattan, NY
+703479f	failed	n/a	n/a
+718754f	milstein	(40.7121586, -73.9806996)	Cherry Street and Jackson Street, Manhattan, NY
+703755f	milstein	(40.6739616, -74.0080168)	Columbia Street and Creamer Street, Brooklyn, NY
+719118f	failed	n/a	n/a
+733706f	failed	n/a	n/a
+732005f	nyc-parks	(40.574926, -73.985941)	@40.574926,-73.985941
+1509541	failed	n/a	n/a
+726456f	milstein	(40.6967542, -73.9005186)	Cypress Avenue and Summerfield Avenue, Queens, NY
+719259f	milstein	(40.7200098, -73.992885)	Chrystie Street and Delancey Street, Manhattan, NY
+704007f	failed	n/a	n/a
+719352f	failed	n/a	n/a
+1507669	extended-grid	(40.762289, -73.986107)	@40.762289,-73.986107
+728811f	milstein	(40.61352249999999, -74.08691739999999)	Ellington Street and Vanderbilt Avenue, Staten Island, NY
+1508763	extended-grid	(40.7522, -73.981834)	@40.752200,-73.981834
+1508801	extended-grid	(40.756036, -73.97902)	@40.756036,-73.979020
+1508875	extended-grid	(40.768023, -73.970274)	@40.768023,-73.970274
+704348f	milstein	(40.6866881, -73.97929169999999)	Flatbush Avenue and Lafayette Street, Brooklyn, NY
+704362f	milstein	(40.6484002, -73.8932293)	107th Street (East) and Flatlands Avenue, Brooklyn, NY
+1509883	failed	n/a	n/a
+704427f	failed	n/a	n/a
+704487f	failed	n/a	n/a
+720086f	milstein	(40.7181343, -73.9938663)	Chrystie Street and Grand Street, Manhattan, NY
+726840f	failed	n/a	n/a
+720408f	milstein	(40.7155152, -73.9897764)	Essex Street and Hester Street, Manhattan, NY
+704920f	milstein	(40.697888, -73.99460499999999)	Clark Street and Hicks Street, Brooklyn, NY
+720438f	nyc-parks	(40.843104, -73.93291)	@40.843104,-73.93291
+730836f	nyc-parks	(40.842308, -73.930277)	@40.842308,-73.930277
+704967f	milstein	(40.705439, -73.95633699999999)	Hooper Street and Marcy Avenue, Brooklyn, NY
+701306f	failed	n/a	n/a
+726942f	milstein	(40.7416676, -73.9542183)	Jackson Avenue and Vernon Boulevard, Queens, NY
+705366f	milstein	(40.688555, -73.962836)	Grand Avenue and Lafayette Avenue, Brooklyn, NY
+720777f	milstein	(40.7250568, -73.9953711)	Houston Street (East) and Lafayette Street, Manhattan, NY
+720991f	milstein	(40.7514377, -73.97604609999999)	42nd Street (East) and Lexington Avenue, Manhattan, NY
+721041f	milstein	(40.76474779999999, -73.96636939999999)	63rd Street (East) and Lexington Avenue, Manhattan, NY
+705508f	milstein	(40.672618, -74.00059499999999)	Court Street and Lorraine Street, Brooklyn, NY
+730023f	failed	n/a	n/a
+705520f	milstein	(40.6778533, -74.00194809999999)	Hamilton Avenue and Luquer Street, Brooklyn, NY
+1507627	milstein	(40.7509088, -73.98069079999999)	39th Street and Madison Avenue, Manhattan, NY
+729142f	milstein	(40.5902312, -74.1886414)	Melvin Avenue and Wild Avenue, Staten Island, NY
+705728f	milstein	(40.6185279, -73.91817429999999)	59th Street (East) and Mill Lane, Brooklyn, NY
+104881	failed	n/a	n/a
+705747f	milstein	(40.697224, -73.99212399999999)	Clark Street and Monroe Place, Brooklyn, NY
+705770f	milstein	(40.6937483, -73.9904724)	Court Street and Montague Street, Brooklyn, NY
+706037f	failed	n/a	n/a
+727605f	milstein	(40.7554185, -73.8862679)	81st Street and Northern Boulevard, Queens, NY
+732646f	failed	n/a	n/a
+722402f	milstein	(40.8058042, -73.9386896)	126th Street and Park Avenue, Manhattan, NY
+722101f	extended-grid	(40.749644, -73.979609)	@40.749644,-73.979609
+722430f	milstein	(40.71200320000001, -74.0081046)	Broadway and Park Row, Manhattan, NY
+734005f	failed	n/a	n/a
+701674f	milstein	(40.8376796, -73.85350729999999)	Purdy Street and St. Raymond Avenue, Bronx, NY
+104780	failed	n/a	n/a
+729420f	milstein	(40.5732734, -74.1469118)	Mill Road and Richmond Hill Road, Staten Island, NY
+722881f	milstein	(40.7849851, -73.9826672)	79th Street and Riverside Drive, Manhattan, NY
+722717f	milstein	(40.78691060000001, -73.9812484)	82nd Street and Riverside Drive, Manhattan, NY
+719805f	failed	n/a	n/a
+723027f	milstein	(40.7584384, -73.9789121)	49th Street (West) and Rockefeller Plaza, Manhattan, NY
+723036f	failed	n/a	n/a
+727922f	failed	n/a	n/a
+104536	failed	n/a	n/a
+723323f	milstein	(40.7094957, -73.994007)	Market Slip (West). and South Street, Manhattan, NY
+734332f	failed	n/a	n/a
+706565f	failed	n/a	n/a
+723111f	milstein	(40.7275748, -73.9853065)	1st Avenue and St. Marks Place, Manhattan, NY
+723134f	milstein	(40.8253111, -73.9437817)	147th Street and St. Nicholas Avenue, Manhattan, NY
+706851f	milstein	(40.7098077, -73.9401895)	Bushwick Avenue and Stagg Street, Brooklyn, NY
+728084f	failed	n/a	n/a
+417391	failed	n/a	n/a
+702016f	milstein	(40.8608772, -73.8418068)	Waring Avenue and Woodhull Avenue, Bronx, NY
+707267f	milstein	(40.686453, -73.99392999999999)	Court St. and Warren St., Brooklyn, NY
+707268f	milstein	(40.686453, -73.99392999999999)	Court St. and Warren St., Brooklyn, NY
+731060f	nyc-parks	(40.846944, -73.928056)	@40.846944,-73.928056
+724252f	milstein	(40.7087712, -74.00091499999999)	Dover Street and Water Street, Manhattan, NY
+702047f	milstein	(40.8659309, -73.8858516)	198th Street (East) and Webster Avenue, Bronx, NY
+1558186	extended-grid	(40.752191, -73.993472)	@40.752191,-73.993472
+702135f	milstein	(40.8404054, -73.8423225)	Tremont Avenue (East) and Westchester Avenue, Bronx, NY
+724791f	milstein	(40.7079605, -74.0080134)	Maiden Lane and William Street, Manhattan, NY
+707352f	milstein	(40.672608, -73.899911)	Glenmore Ave. and Williams Ave., Brooklyn, NY
+702206f	milstein	(40.8410418, -73.8530997)	Castle Hill Avenue and Zerega Avenue, Bronx, NY
+733310f	failed	n/a	n/a
+732267f	failed	n/a	n/a
+732307f	failed	n/a	n/a
+1231043	failed	n/a	n/a
+485752	failed	n/a	n/a
+1238854	failed	n/a	n/a
+1113261	failed	n/a	n/a
+1113271	failed	n/a	n/a
+730594f	failed	n/a	n/a
+731805f	failed	n/a	n/a
+734193f	failed	n/a	n/a
+1635861	failed	n/a	n/a
+1635949	failed	n/a	n/a
+1635983	failed	n/a	n/a
+1636238	failed	n/a	n/a
+1663931	failed	n/a	n/a
+2040792	failed	n/a	n/a
+2040761	failed	n/a	n/a
+psnypl_lhg_195	failed	n/a	n/a
+3984237	failed	n/a	n/a
+3984770	failed	n/a	n/a
+3984255	failed	n/a	n/a
+3985030	failed	n/a	n/a
+3985133	failed	n/a	n/a
+3984643	failed	n/a	n/a
+3985197	failed	n/a	n/a

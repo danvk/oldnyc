@@ -12,10 +12,10 @@ import nyc.boroughs
 import coders.registration
 
 
-boros = '(?:New York|Manhattan|Brooklyn|Bronx|Queens|Staten Island), (?:NY|N\.Y\.)'
+boros = r"(?:New York|Manhattan|Brooklyn|Bronx|Queens|Staten Island), (?:NY|N\.Y\.)"
 boros_re = r'(New York|Manhattan|Brooklyn|Bronx|Queens|Staten Island), (?:NY|N\.Y\.)$'
 
-streets = '(?:St\.|Street|Place|Pl\.|Road|Rd\.|Avenue|Ave\.|Av\.|Boulevard|Blvd\.|Broadway|Parkway|Pkwy\.|Pky\.|Street \(West\)|Street \(East\))'
+streets = r"(?:St\.|Street|Place|Pl\.|Road|Rd\.|Avenue|Ave\.|Av\.|Boulevard|Blvd\.|Broadway|Parkway|Pkwy\.|Pky\.|Street \(West\)|Street \(East\))"
 
 # example: "100th Street (East) & 1st Avenue, Manhattan, NY"
 # 30337 / 36328 (0.8351)
@@ -54,7 +54,10 @@ place_re = r'(.*? (?:%s))\.?, ((?:(?:%s), )?%s)' % (place_suffixes, staten_neigh
 
 # example: "P.S. 5., Brooklyn, N.Y." (-> Should come out as "PS 123")
 # ~150
-ps_re = '((?:PS|P\.S\.|Public School) (?:#|No\. )?\d+\.?), ((?:(?:%s), )?%s)' % (staten_neighborhoods, boros)
+ps_re = r"((?:PS|P\.S\.|Public School) (?:#|No\. )?\d+\.?), ((?:(?:%s), )?%s)" % (
+    staten_neighborhoods,
+    boros,
+)
 place_patterns = [place_re, ps_re]
 
 ps_cleanup_re = r'(?:PS|P\.S\.|Public School) (?:#|No\. )?(\d+)\.?'

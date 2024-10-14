@@ -5,7 +5,6 @@
 # Maintains a cache of previously-geocoded locations and throttles traffic to the Geocoder.
 
 import base64
-import os
 import re
 import sys
 import time
@@ -38,15 +37,11 @@ def _cache_file(loc):
 
 class Geocoder:
 
-    def __init__(self, network_allowed, wait_time):
+    def __init__(self, network_allowed, wait_time, api_key=None):
         self._network_allowed = network_allowed
         self._wait_time = wait_time
         self._last_fetch = 0
-        self._api_key = os.environ.get("GOOGLE_MAPS_API_KEY")
-        if not self._api_key:
-            sys.stderr.write(
-                "Running without Google Maps API key; will only use geocache.\n"
-            )
+        self._api_key = api_key
 
     def _check_cache(self, loc):
         """Returns cached results for the location or None if not available."""
@@ -96,11 +91,13 @@ class Geocoder:
 
         data = None
         from_cache = False
+        is_lat_lng = False
         if check_cache:
             data = self._check_cache(address)
             from_cache = data is not None
         if not data:
             data = self._check_for_lat_lon(address)
+            is_lat_lng = data is not None  # no point in caching these
         if not data:
             if not self._network_allowed:
                 sys.stderr.write(f"Would have geocoded with network: {address}\n")
@@ -119,7 +116,7 @@ class Geocoder:
                 raise Exception("Over your quota for the day!")
 
             return None
-        if not from_cache and response:
+        if not (from_cache or is_lat_lng) and response:
             self._cache_result(address, data)
 
         return response
