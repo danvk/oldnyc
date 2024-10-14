@@ -10,3 +10,5 @@ black
 haversine
 tqdm
 pytest
+numpy
+levenshtein
