@@ -96,11 +96,13 @@ class Geocoder:
 
         data = None
         from_cache = False
+        is_lat_lng = False
         if check_cache:
             data = self._check_cache(address)
             from_cache = data is not None
         if not data:
             data = self._check_for_lat_lon(address)
+            is_lat_lng = data is not None  # no point in caching these
         if not data:
             if not self._network_allowed:
                 sys.stderr.write(f"Would have geocoded with network: {address}\n")
@@ -119,7 +121,7 @@ class Geocoder:
                 raise Exception("Over your quota for the day!")
 
             return None
-        if not from_cache and response:
+        if not (from_cache or is_lat_lng) and response:
             self._cache_result(address, data)
 
         return response
