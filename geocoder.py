@@ -38,15 +38,11 @@ def _cache_file(loc):
 
 class Geocoder:
 
-    def __init__(self, network_allowed, wait_time):
+    def __init__(self, network_allowed, wait_time, api_key=None):
         self._network_allowed = network_allowed
         self._wait_time = wait_time
         self._last_fetch = 0
-        self._api_key = os.environ.get("GOOGLE_MAPS_API_KEY")
-        if not self._api_key:
-            sys.stderr.write(
-                "Running without Google Maps API key; will only use geocache.\n"
-            )
+        self._api_key = api_key
 
     def _check_cache(self, loc):
         """Returns cached results for the location or None if not available."""

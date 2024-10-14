@@ -2,6 +2,9 @@
 '''Generate golden data for Manhattan intersections.
 
 '''
+import os
+
+from dotenv import load_dotenv
 import geocoder
 
 
@@ -72,7 +75,10 @@ def locate(avenue, street):
     return lat_lon
 
 if __name__ == '__main__':
-    g = geocoder.Geocoder(True, 1)  # use network, 1s wait time.
+    load_dotenv()
+    api_key = os.environ.get("GOOGLE_MAPS_API_KEY")
+    assert api_key
+    g = geocoder.Geocoder(True, 1, api_key)  # use network, 1s wait time.
 
     crosses = []
     # for street in range(14, 125):
