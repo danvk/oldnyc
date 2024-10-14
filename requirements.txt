@@ -9,3 +9,6 @@ python-dotenv
 black
 haversine
 tqdm
+pytest
+numpy
+levenshtein
