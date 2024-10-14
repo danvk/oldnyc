@@ -66,6 +66,11 @@ def json_to_item(txt: str) -> Item:
     return item
 
 
+def load_items(path: str) -> list[Item]:
+    with open(path) as f:
+        return [json_to_item(line) for line in f]
+
+
 def blank_item() -> Item:
     return Item(
         id="PHOTO_ID",

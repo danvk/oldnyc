@@ -4,6 +4,7 @@
 # Inputs are images.ndjson and a collection of 'coders'.
 # Output depends on flags, but can be JSON, GeoJSON, JavaScript, text, etc.
 
+import os
 import sys
 from collections import defaultdict
 from optparse import OptionParser
@@ -23,7 +24,7 @@ import json
 import coders.extended_grid
 import coders.milstein
 import coders.nyc_parks
-# import coders.gpt
+import coders.gpt
 
 
 if __name__ == '__main__':
@@ -42,7 +43,7 @@ if __name__ == '__main__':
         "--ids_filter",
         default="",
         dest="ids_filter",
-        help="Comma-separated list of Photo IDs to consider.",
+        help="Comma-separated list of Photo IDs to consider, or path to an IDs file",
     )
     parser.add_option(
         "",
@@ -137,7 +138,10 @@ if __name__ == '__main__':
 
     rs = [json_to_item(line) for line in open(options.images_ndjson)]
     if options.ids_filter:
-        ids = set(options.ids_filter.split(","))
+        if "," not in options.ids_filter and os.path.exists(options.ids_filter):
+            ids = set(open(options.ids_filter).read().strip().split("\n"))
+        else:
+            ids = set(options.ids_filter.split(","))
         rs = [r for r in rs if r.id in ids]
 
     # Load existing geocodes, if applicable.
@@ -249,11 +253,13 @@ if __name__ == '__main__':
         generate_js.printRecordsJson(located_recs)
     elif options.output_format == "id-location.txt":
         generate_js.printIdLocation(located_recs)
+    elif options.output_format == "id-location.json":
+        generate_js.printLocationsJson(located_recs)
     elif options.output_format == "entries.txt":
         generate_js.printRecordsText(located_recs)
     elif options.output_format == "locations.txt":
         generate_js.printLocations(located_recs)
     elif options.output_format == "geojson":
-        generate_js.output_geojson(located_recs)
+        generate_js.output_geojson(located_recs, rs)
     else:
         raise ValueError(options.output_format)
