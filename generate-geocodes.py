@@ -138,10 +138,11 @@ if __name__ == '__main__':
 
     rs = [json_to_item(line) for line in open(options.images_ndjson)]
     if options.ids_filter:
-        if "," not in options.ids_filter and os.path.exists(options.ids_filter):
-            ids = set(open(options.ids_filter).read().strip().split("\n"))
+        ids_filter = options.ids_filter
+        if "," not in ids_filter and (os.path.exists(ids_filter) or "/" in ids_filter):
+            ids = set(open(ids_filter).read().strip().split("\n"))
         else:
-            ids = set(options.ids_filter.split(","))
+            ids = set(ids_filter.split(","))
         rs = [r for r in rs if r.id in ids]
 
     # Load existing geocodes, if applicable.
