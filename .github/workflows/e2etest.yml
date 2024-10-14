@@ -1,9 +1,9 @@
-name: pytest
+name: e2etest
 
 on: [push]
 
 jobs:
-  build:
+  e2etest:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
@@ -17,7 +17,7 @@ jobs:
       run: |
         poetry config virtualenvs.create true --local
         poetry config virtualenvs.in-project true --local
-    - uses: actions/cache@v3
+    - uses: actions/cache/restore@v3
       name: Cache dependencies
       with:
         path: ./.venv
@@ -25,9 +25,9 @@ jobs:
     - name: Install dependencies
       run: |
         poetry install
-    - name: Run tests
+    - name: Run geocoder
       run: |
-        poetry run pytest
-    - name: Run ruff
+        poetry run ./generate-geocodes.py --ids_filter test/random200-ids.txt --images_ndjson data/images.ndjson --output_format id-location.txt --geocode > test/random200-geocoded.txt 2> test/random200.logs.txt
+    - name: Check for diffs
       run: |
-        poetry run ruff check
+        git diff --exit-code test/
