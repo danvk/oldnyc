@@ -69,7 +69,8 @@ def merge_lines(txt):
     essential for letting the browser reflow the text, especially on narrower
     screens.
     '''
-    if not txt: return txt
+    if not txt:
+        return txt
     has_trailing_newline = (txt[-1] == '\n')
     lines = txt.split('\n')
     width = max(len(line) for line in lines)
@@ -79,7 +80,6 @@ def merge_lines(txt):
 
     txt = ''
     for i, line in enumerate(lines):
-        is_hyphen = False
         if line.endswith('-'):
             # A hyphen at end of line is an automatic join.
             txt += line[:-1]

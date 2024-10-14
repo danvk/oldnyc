@@ -264,7 +264,7 @@ class NycParkCoder:
             bridge = m.group(1)
             # if not ('Bridge' in bridge or 'bridge' in bridge):
             # XXX this is weird
-            if not "Bridge" in bridge or "bridge" in bridge:
+            if not "Bridge" in bridge or "bridge" in bridge:  # noqa: E713
                 bridge += " Bridge"
             if bridge not in bridges:
                 missing_bridges[bridge] += 1

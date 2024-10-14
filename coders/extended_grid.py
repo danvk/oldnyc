@@ -17,7 +17,6 @@ import sys
 
 import coders.registration
 from data.item import Item, blank_item
-import record
 from grid import coder
 
 
@@ -61,13 +60,13 @@ def parse_street_ave(street1: str, street2: str) -> tuple[str, str]:
 
     # pull the number from the street string
     num = extract_ordinal(street2)
-    if num == None:
+    if num is None:
         raise ValueError('Unable to find a number in %s' % street2)
     street2 = num
 
     # Try the same for the avenue
     num = extract_ordinal(street1)
-    if num != None:
+    if num is not None:
         street1 = str(num)
     else:
         # Look for something like 'Avenue A'

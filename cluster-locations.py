@@ -14,7 +14,6 @@ TODO:
 - look at before/after
 """
 
-from collections import defaultdict
 import fileinput
 
 DISTANCE_THRESHOLD = 20
@@ -25,15 +24,16 @@ counts = []
 lat_lons = []
 orig_points = 0
 for line in fileinput.input():
-  line = line.strip()
-  if not line: continue
-  orig_points += 1
-  count, ll = line.split('\t')
-  lat, lon = [float(x) for x in ll.split(',')]
-  count = int(count)
+    line = line.strip()
+    if not line:
+        continue
+    orig_points += 1
+    count, ll = line.split("\t")
+    lat, lon = [float(x) for x in ll.split(",")]
+    count = int(count)
 
-  counts.append(count)
-  lat_lons.append((lat, lon))
+    counts.append(count)
+    lat_lons.append((lat, lon))
 
 
 def UrlForIndex(idx):
@@ -65,44 +65,48 @@ def centroidForIndices(idxs):
 # calculate all-pairs distances
 nns = []  # index -> list of (distance, index) neighbors
 for i in range(0, len(lat_lons)):
-  neighbors = []  # (dist, index)
-  a = lat_lons[i]
-  for j in range(i + 1, len(lat_lons)):
-    b = lat_lons[j]
-    d = dist(a, b)
-    if d > DISTANCE_THRESHOLD: continue
-    neighbors.append((-d, j))
-  neighbors.sort()
+    neighbors = []  # (dist, index)
+    a = lat_lons[i]
+    for j in range(i + 1, len(lat_lons)):
+        b = lat_lons[j]
+        d = dist(a, b)
+        if d > DISTANCE_THRESHOLD:
+            continue
+        neighbors.append((-d, j))
+    neighbors.sort()
 
-  nns.append([(-x[0], x[1]) for x in neighbors])
+    nns.append([(-x[0], x[1]) for x in neighbors])
 
 
 # we hope there aren't any really degenerate cases
 cluster_map = {}    # idx -> cluster representative idx
 for i, buds in enumerate(nns):
-  if not buds: continue
+    if not buds:
+        continue
 
-  cluster_idx = i
-  if i in cluster_map: cluster_idx = cluster_map[i]
-  for d, j in buds:
-    if j in cluster_map:
-      if cluster_map[j] != cluster_idx:
-        old_idx = cluster_map[j]
-        for idx, rep in cluster_map.items():
-          if rep == old_idx: cluster_map[idx] = cluster_idx
-        cluster_map[old_idx] = cluster_idx
-        # this is pathological behavior; we artificially break the cluster
-        #a = j
-        #b = cluster_map[j]
-        #c = cluster_idx
-        #ll = lat_lons[a]
-        #print '    Current: %d = 0.000 %s %s' % (a, ll, UrlForIndex(b))
-        #print 'Old cluster: %d = %.3f %s %s' % (
-        #    b, dist(ll, lat_lons[b]), lat_lons[b], UrlForIndex(b))
-        #print 'New cluster: %d = %.3f %s %s' % (
-        #    c, dist(ll, lat_lons[c]), lat_lons[c], UrlForIndex(c))
-        #assert False
-    cluster_map[j] = cluster_idx
+    cluster_idx = i
+    if i in cluster_map:
+        cluster_idx = cluster_map[i]
+    for d, j in buds:
+        if j in cluster_map:
+            if cluster_map[j] != cluster_idx:
+                old_idx = cluster_map[j]
+                for idx, rep in cluster_map.items():
+                    if rep == old_idx:
+                        cluster_map[idx] = cluster_idx
+                cluster_map[old_idx] = cluster_idx
+                # this is pathological behavior; we artificially break the cluster
+                # a = j
+                # b = cluster_map[j]
+                # c = cluster_idx
+                # ll = lat_lons[a]
+                # print '    Current: %d = 0.000 %s %s' % (a, ll, UrlForIndex(b))
+                # print 'Old cluster: %d = %.3f %s %s' % (
+                #    b, dist(ll, lat_lons[b]), lat_lons[b], UrlForIndex(b))
+                # print 'New cluster: %d = %.3f %s %s' % (
+                #    c, dist(ll, lat_lons[c]), lat_lons[c], UrlForIndex(c))
+                # assert False
+        cluster_map[j] = cluster_idx
 
 
 clusters = {}  # representative idx -> list of constituent indices
@@ -121,13 +125,14 @@ if output_mode == 'map':
 
 
 if output_mode == 'urls':
-  num_points = 0
-  for base, members in clusters.items():
-    if not members: continue
-    print('(%d)' % len(members))
-    for i in members:
-      print('  %s' % UrlForIndex(i))
-    print()
-    num_points += len(members)
+    num_points = 0
+    for base, members in clusters.items():
+        if not members:
+            continue
+        print("(%d)" % len(members))
+        for i in members:
+            print("  %s" % UrlForIndex(i))
+        print()
+        num_points += len(members)
 
-  print('%d clusters, %d/%d points' % (len(clusters), num_points, orig_points))
+    print('%d clusters, %d/%d points' % (len(clusters), num_points, orig_points))

@@ -1,5 +1,4 @@
 import copy
-import sys
 import math
 
 def SplitIntoPolygons(shape):
@@ -188,14 +187,15 @@ def point_inside_polygon(x,y,poly):
 
 
 def PointInPolygon(point, polygon):
-  """polygon can be either a list of polygons or a single polygon."""
-  try:
-    # [ [[lon,lat]] ] vs. [[lon, lat]]
-    x = iter(polygon[0][0])
-    for p in polygon:
-      if PointInPolygon(point, p): return True
-    return False
-  except TypeError as e:
-    for p in polygon:
-      assert len(p) == 2, p
-    return point_inside_polygon(point[0], point[1], polygon)
+    """polygon can be either a list of polygons or a single polygon."""
+    try:
+        # [ [[lon,lat]] ] vs. [[lon, lat]]
+        iter(polygon[0][0])
+        for p in polygon:
+            if PointInPolygon(point, p):
+                return True
+        return False
+    except TypeError:
+        for p in polygon:
+            assert len(p) == 2, p
+        return point_inside_polygon(point[0], point[1], polygon)

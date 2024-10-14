@@ -139,7 +139,7 @@ def printRecordsJson(located_recs: list[LocatedRecord]):
 
         # TODO: remove this
         try:
-            x = json.dumps(rec)
+            json.dumps(rec)
         except Exception as e:
             sys.stderr.write('%s\n' % rec)
             raise e

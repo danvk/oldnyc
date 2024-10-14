@@ -61,8 +61,10 @@ def locate(avenue, street):
     response = g.Locate('%s and %s, Manhattan, NY' % (street_str, avenue_str))
 
     r = response['results'][0]
-    if r['types'] != ['intersection']: return None
-    if r.get('partial_match'): return None  # may be inaccurate
+    if r["types"] != ["intersection"]:
+        return None
+    if r.get("partial_match"):
+        return None  # may be inaccurate
 
     loc = r['geometry']['location']
     lat_lon = loc['lat'], loc['lng']

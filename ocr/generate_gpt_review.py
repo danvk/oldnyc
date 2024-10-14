@@ -24,7 +24,7 @@ if __name__ == "__main__":
         data_str = choices[0]["message"]["content"]
         try:
             data = json.loads(data_str)
-        except Exception as e:
+        except Exception:
             sys.stderr.write(f"Bad JSON from GPT on: {photo_id}\n")
             data_str += '"}'
             data = json.loads(data_str)

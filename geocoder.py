@@ -37,98 +37,103 @@ def _cache_file(loc):
 
 
 class Geocoder:
-  def __init__(self, network_allowed, wait_time):
-    self._network_allowed = network_allowed
-    self._wait_time = wait_time
-    self._last_fetch = 0
-    self._api_key = os.environ.get('GOOGLE_MAPS_API_KEY')
-    if not self._api_key:
-      sys.stderr.write('Running without Google Maps API key; will only use geocache.\n')
 
-  def _check_cache(self, loc):
-    """Returns cached results for the location or None if not available."""
-    cache_file = _cache_file(loc)
-    if CacheDebug:
-      sys.stderr.write('Checking %s\n' % cache_file);
-    try:
-      return open(cache_file).read()
-    except:
-      return None
+    def __init__(self, network_allowed, wait_time):
+        self._network_allowed = network_allowed
+        self._wait_time = wait_time
+        self._last_fetch = 0
+        self._api_key = os.environ.get("GOOGLE_MAPS_API_KEY")
+        if not self._api_key:
+            sys.stderr.write(
+                "Running without Google Maps API key; will only use geocache.\n"
+            )
 
-  def _cache_result(self, loc, result):
-    cache_file = _cache_file(loc)
-    open(cache_file, "wb").write(result)
+    def _check_cache(self, loc):
+        """Returns cached results for the location or None if not available."""
+        cache_file = _cache_file(loc)
+        if CacheDebug:
+            sys.stderr.write("Checking %s\n" % cache_file)
+        try:
+            return open(cache_file).read()
+        except Exception:
+            return None
 
-  def _fetch(self, url):
-    """Attempts to fetch the URL. Does rate throttling. Returns XML."""
-    now = time.time()
-    diff = now - self._last_fetch
-    sys.stderr.write("now=%f, then=%f, diff=%f vs. %f\n" % (
-        now, self._last_fetch, diff, self._wait_time))
-    if diff < self._wait_time:
-      time.sleep(self._wait_time - diff)
-    self._last_fetch = time.time()
+    def _cache_result(self, loc, result):
+        cache_file = _cache_file(loc)
+        open(cache_file, "wb").write(result)
 
-    sys.stderr.write("Fetching %s\n" % url)
-    assert self._api_key
-    # Note: API key is _not_ part of the cache key
-    f = urllib.request.urlopen(url + '&key=' + self._api_key)
-    return f.read()
+    def _fetch(self, url):
+        """Attempts to fetch the URL. Does rate throttling. Returns XML."""
+        now = time.time()
+        diff = now - self._last_fetch
+        sys.stderr.write(
+            "now=%f, then=%f, diff=%f vs. %f\n"
+            % (now, self._last_fetch, diff, self._wait_time)
+        )
+        if diff < self._wait_time:
+            time.sleep(self._wait_time - diff)
+        self._last_fetch = time.time()
 
-  def _check_for_lat_lon(self, address):
-    """For addresses of the form "@(lat),(lon)", skip the geocoder."""
-    m = re.match(r'@([-0-9.]+),([-0-9.]+)$', address)
-    if m:
-      return FakeResponse % (m.group(1), m.group(2))
+        sys.stderr.write("Fetching %s\n" % url)
+        assert self._api_key
+        # Note: API key is _not_ part of the cache key
+        f = urllib.request.urlopen(url + "&key=" + self._api_key)
+        return f.read()
 
-  def Locate(self, address, check_cache=True):
-    """Returns a maps API JSON response for the address or None.
+    def _check_for_lat_lon(self, address):
+        """For addresses of the form "@(lat),(lon)", skip the geocoder."""
+        m = re.match(r"@([-0-9.]+),([-0-9.]+)$", address)
+        if m:
+            return FakeResponse % (m.group(1), m.group(2))
 
-    Address should be a fully-qualified address, e.g.
-    '111 8th Avenue, New York, NY'.
-    """
-    url = GeocodeUrlTemplate % urllib.parse.quote(address)
+    def Locate(self, address, check_cache=True):
+        """Returns a maps API JSON response for the address or None.
 
-    data = None
-    from_cache = False
-    if check_cache:
-      data = self._check_cache(address)
-      from_cache = data is not None
-    if not data:
-      data = self._check_for_lat_lon(address)
-    if not data:
-      if not self._network_allowed:
-        sys.stderr.write(f'Would have geocoded with network: {address}\n')
-        # XXX this should probably raise instead
-        return None
-      data = self._fetch(url)
+        Address should be a fully-qualified address, e.g.
+        '111 8th Avenue, New York, NY'.
+        """
+        url = GeocodeUrlTemplate % urllib.parse.quote(address)
 
-    if not data:
-      return None
+        data = None
+        from_cache = False
+        if check_cache:
+            data = self._check_cache(address)
+            from_cache = data is not None
+        if not data:
+            data = self._check_for_lat_lon(address)
+        if not data:
+            if not self._network_allowed:
+                sys.stderr.write(f"Would have geocoded with network: {address}\n")
+                # XXX this should probably raise instead
+                return None
+            data = self._fetch(url)
 
-    response = json.loads(data)
-    status = response['status']
-    if status not in ['OK', 'ZERO_RESULTS']:
-      sys.stderr.write('Error status %s %s\n' % (status, json.dumps(response)))
-      if status == 'OVER_QUERY_LIMIT':
-        raise Exception('Over your quota for the day!')
+        if not data:
+            return None
 
-      return None
-    if not from_cache and response:
-      self._cache_result(address, data)
+        response = json.loads(data)
+        status = response["status"]
+        if status not in ["OK", "ZERO_RESULTS"]:
+            sys.stderr.write("Error status %s %s\n" % (status, json.dumps(response)))
+            if status == "OVER_QUERY_LIMIT":
+                raise Exception("Over your quota for the day!")
 
-    return response
+            return None
+        if not from_cache and response:
+            self._cache_result(address, data)
 
-  def InCache(self, loc):
-    data = self._check_cache(loc)
-    return data is None # XXX this looks backwards
+        return response
 
-  def LocateFromCache(self, loc):
-    """Like Locate, but never goes to the network to get a location."""
-    data = self._check_cache(loc)
-    if not data:
-      return None
-    return json.loads(data)
+    def InCache(self, loc):
+        data = self._check_cache(loc)
+        return data is None  # XXX this looks backwards
+
+    def LocateFromCache(self, loc):
+        """Like Locate, but never goes to the network to get a location."""
+        data = self._check_cache(loc)
+        if not data:
+            return None
+        return json.loads(data)
 
 
 if __name__ == '__main__':

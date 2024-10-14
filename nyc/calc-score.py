@@ -16,72 +16,84 @@ _, golden_file, actual_file = sys.argv
 golden = {}
 actual = {}
 
-for line in csv.DictReader(file(golden_file)):
-  path = line['image_url']
-  rects = json.loads(line['rects'])
-  golden[path] = rects
+for line in csv.DictReader(open(golden_file)):
+    path = line["image_url"]
+    rects = json.loads(line["rects"])
+    golden[path] = rects
 
-for line in file(actual_file):
-  d = json.loads(line)
-  f = str(d['file'])
-  if 'rects' not in d:
-    d['rects'] = None
+for line in open(actual_file):
+    d = json.loads(line)
+    f = str(d["file"])
+    if "rects" not in d:
+        d["rects"] = None
 
-  actual[f] = d
+    actual[f] = d
 
 
 photo_frac = 0.0
 def IsPassCorrect(actual_data, golden_rects):
-  '''A "pass" may be a perfectly reasonable photo detection, e.g. if there's
-  only a single large photo in the image.'''
-  if len(golden_rects) != 1: return False
+    """A "pass" may be a perfectly reasonable photo detection, e.g. if there's
+    only a single large photo in the image."""
+    if len(golden_rects) != 1:
+        return False
 
-  image_size = actual_data['shape']['w'] * actual_data['shape']['h']
-  r = golden_rects[0]
-  photo_size = (r['x2'] - r['x1']) * (r['y2'] - r['y1'])
+    image_size = actual_data["shape"]["w"] * actual_data["shape"]["h"]
+    r = golden_rects[0]
+    photo_size = (r["x2"] - r["x1"]) * (r["y2"] - r["y1"])
 
-  global photo_frac
-  photo_frac = 1. * photo_size / image_size
+    global photo_frac
+    photo_frac = 1.0 * photo_size / image_size
 
-  return photo_frac >= 0.33
+    return photo_frac >= 0.33
 
 
 num_correct_safe = 0
 num_safe, num_correct, num_wrong = 0, 0, 0
 num_total = 0
 for path in sorted(actual.keys()):
-  if path not in golden:
-    continue
+    if path not in golden:
+        continue
 
-  num_total += 1
-  actual_rects = actual[path]['rects']
-  golden_rects = golden[path]
+    num_total += 1
+    actual_rects = actual[path]["rects"]
+    golden_rects = golden[path]
 
-  if actual_rects == None:
-    if IsPassCorrect(actual[path], golden_rects):
-      num_correct += 1
-      num_correct_safe += 1
+    if actual_rects is None:
+        if IsPassCorrect(actual[path], golden_rects):
+            num_correct += 1
+            num_correct_safe += 1
+        else:
+            sys.stderr.write("%s: Invalid pass %.4f\n" % (path, photo_frac))
+            num_safe += 1
+    elif len(actual_rects) == len(golden_rects):
+        num_correct += 1
     else:
-      sys.stderr.write('%s: Invalid pass %.4f\n' % (path, photo_frac))
-      num_safe += 1
-  elif len(actual_rects) == len(golden_rects):
-    num_correct += 1
-  else:
-    num_wrong += 1
-    sys.stderr.write('%s: %d vs %d rects (actual vs. golden)\n' % (
-        path, len(actual_rects), len(golden_rects)))
+        num_wrong += 1
+        sys.stderr.write(
+            "%s: %d vs %d rects (actual vs. golden)\n"
+            % (path, len(actual_rects), len(golden_rects))
+        )
 
 
-print '''
+print(
+    """
 Stats on %d photos
 
      Safe: %d (%.4f)
   Correct: %d (%.4f; %d are 'safe')
     Wrong: %d (%.4f)
-''' % (num_total,
-       num_safe, 1. * num_safe / num_total,
-       num_correct, 1. * num_correct / num_total, num_correct_safe,
-       num_wrong, 1. * num_wrong / num_total)
+"""
+    % (
+        num_total,
+        num_safe,
+        1.0 * num_safe / num_total,
+        num_correct,
+        1.0 * num_correct / num_total,
+        num_correct_safe,
+        num_wrong,
+        1.0 * num_wrong / num_total,
+    )
+)
 
 '''
 With a 0.93 min solidity requirement:
@@ -146,4 +158,3 @@ Initial: 0.72 of rectangle counts correct
 w/ cv2: 0.86 (all failures are 0 vs 1)
 w/ cv2, 0.95 threshold: 0.89 (all failures are 0 vs 1) -- need better binarizing
 '''
-
