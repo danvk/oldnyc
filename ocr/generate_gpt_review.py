@@ -4,15 +4,15 @@
 import json
 import sys
 
-from record import Record
+from data.item import load_items
 
 if __name__ == "__main__":
     gpt_jsonl = sys.argv[1]
     gpt_data = [json.loads(line) for line in open(gpt_jsonl)]
     site_data = json.load(open("../oldnyc.github.io/data.json"))
     id_to_site_data = {r["photo_id"].split("-")[0]: r for r in site_data["photos"]}
-    records: list[Record] = json.load(open("nyc/records.json"))
-    id_to_records = {r["id"]: r for r in records}
+    records = load_items("data/items.ndjson")
+    id_to_records = {r.id: r for r in records}
 
     changes = []
     for r in gpt_data:
@@ -38,8 +38,8 @@ if __name__ == "__main__":
                 "after": gpt_text,
                 "metadata": {
                     "cookie": "blah",
-                    "title": record["title"],
-                    "alt_title": record["alt_title"],
+                    "title": record.title,
+                    "alt_title": record.alt_title,
                 },
                 "photo_id": photo_id,
             }

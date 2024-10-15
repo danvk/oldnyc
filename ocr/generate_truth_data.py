@@ -7,11 +7,12 @@ This is useful for producing truth data for OCR evaluation.
 import json
 import fileinput
 
-from record import Record
+from data.item import load_items
+
 
 if __name__ == "__main__":
-    records: list[Record] = json.load(open("nyc/records.json"))
-    back_to_front = {r["back_id"]: r["id"] for r in records if r["back_id"]}
+    records = load_items("data/items.ndjson")
+    back_to_front = {r.back_id: r.id for r in records if r.back_id}
 
     site_data = json.load(open("../oldnyc.github.io/data.json"))
     id_to_site_data = {r["photo_id"].split("-")[0]: r for r in site_data["photos"]}

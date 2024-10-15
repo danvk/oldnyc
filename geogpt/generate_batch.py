@@ -5,7 +5,7 @@ import re
 import sys
 import json
 
-from record import Record
+from data.item import Item, load_items
 
 # See https://cookbook.openai.com/examples/batch_processing
 # TODO: Make more of an effort to get GPT the Borough (typically in SOURCE column of CSV)
@@ -32,17 +32,12 @@ Respond in JSON containing the following information:
 MODEL = "gpt-4o"
 
 
-def make_gpt_request(r: Record, model: str) -> dict:
+def make_gpt_request(r: Item, model: str) -> dict:
     r = prep_data(r)
-    gpt_data = {
-        "title": r["title"],
-        "alt_title": r["alt_title"],
-    }
-    if r["borough"]:
-        gpt_data["borough"] = r["borough"]
+    gpt_data = {"title": r.title, "alt_title": r.alt_title}
     data = json.dumps(gpt_data)
     return {
-        "custom_id": r["id"],
+        "custom_id": r.id,
         "method": "POST",
         "url": "/v1/chat/completions",
         "body": {
@@ -63,11 +58,11 @@ def make_gpt_request(r: Record, model: str) -> dict:
     }
 
 
-def prep_data(data: Record):
-    out = {k: v for k, v in data.items()}
+def prep_data(data: Item):
     for field in ("title", "alt_title"):
-        out[field] = re.sub("^Richmond:", "Staten Island:", out[field])
-    return out
+        v = getattr(data, field)
+        setattr(data, field, re.sub("^Richmond:", "Staten Island:", v))
+    return v
 
 
 if __name__ == "__main__":
@@ -75,8 +70,8 @@ if __name__ == "__main__":
     model = sys.argv[2] if len(sys.argv) > 2 else MODEL
     ids = {line.strip() for line in open(ids_file)}
 
-    records: list[Record] = json.load(open("nyc/records.json"))
-    id_to_records = {r["id"]: r for r in records}
+    records = load_items("data/items.ndjson")
+    id_to_records = {r.id: r for r in records}
 
     for id in ids:
         print(json.dumps(make_gpt_request(id_to_records[id], model)))

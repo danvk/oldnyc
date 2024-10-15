@@ -7,11 +7,12 @@ Outputs some stats and fills in ocr/feedback/review/changes.js
 
 #
 
+import dataclasses
 import json
 import sys
 
+from data.item import load_items
 from ocr.score_utils import score_for_pair
-from record import Record
 
 
 if __name__ == "__main__":
@@ -20,9 +21,9 @@ if __name__ == "__main__":
     base: dict[str, str] = json.load(open(base_file))
     exp: dict[str, str | dict] = json.load(open(exp_file))
 
-    records: list[Record] = json.load(open("nyc/records.json"))
-    id_to_record = {r["id"]: r for r in records}
-    front_to_back = {r["id"]: r["back_id"] for r in records if r["back_id"]}
+    records = load_items("data/items.ndjson")
+    id_to_record = {r.id: r for r in records}
+    front_to_back = {r.id: r.back_id for r in records if r.back_id}
     site_data = json.load(open("../oldnyc.github.io/data.json"))
     back_to_front = {}
     for r in site_data["photos"]:
@@ -61,7 +62,9 @@ if __name__ == "__main__":
                     "score": score,
                     "back_id": id,
                     "record": (
-                        id_to_record[back_to_front[id].split("-")[0]]
+                        dataclasses.asdict(
+                            id_to_record[back_to_front[id].split("-")[0]]
+                        )
                         if id in back_to_front
                         else None
                     ),

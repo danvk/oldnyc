@@ -4,7 +4,7 @@
 import json
 import sys
 
-from record import Record
+from data.item import load_items
 
 
 def scrub(txt: str) -> str:
@@ -20,8 +20,8 @@ if __name__ == "__main__":
         for input in input_data
     }
 
-    records: list[Record] = json.load(open("nyc/records.json"))
-    id_to_records = {r["id"]: r for r in records}
+    records = load_items("data/items.ndjson")
+    id_to_records = {r.id: r for r in records}
 
     output_data = [json.loads(line) for line in open(output_file)]
     id_to_output = {r["custom_id"]: r for r in output_data}
@@ -40,7 +40,7 @@ if __name__ == "__main__":
         data = json.loads(data_str)
         gpt_location = data["location"]
 
-        csv_location = id_to_records[photo_id]["location"]
+        csv_location = id_to_records[photo_id].address
         is_match = scrub(gpt_location) == scrub(csv_location)
 
         if not is_match:
