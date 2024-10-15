@@ -1,6 +1,6 @@
 import re
 import time
-from datetime import date, timedelta
+from datetime import date
 
 from dates import extract_years
 
@@ -40,6 +40,7 @@ def abbreviate_months(txt):
 
 
 def get_date_range(date_str: str) -> tuple[date, date] | None:
+    # TODO: this is a bit wonky; could use clean_date more directly.
     years = extract_years(date_str)
     if not years or years == [""]:
         p = [None, None]
