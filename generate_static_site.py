@@ -3,11 +3,9 @@
 
 import argparse
 import time
-import chardet
 from collections import defaultdict, OrderedDict
 import csv
 import json
-import record
 import re
 import subprocess
 import sys
