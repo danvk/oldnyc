@@ -102,6 +102,7 @@ jobs:
         git diff --exit-code data/
     - name: Generate static site
       run: |
+        export PYTHONPATH=.
         poetry run ./nyc/crops-to-json.py nyc/crops.txt > /tmp/crops.json
         poetry run ./nyc/records_to_photos.py data/images.ndjson /tmp/crops.json data/photos.ndjson
         echo '{"fixes": {}}' > ocr/feedback/fixes.json
