@@ -110,7 +110,7 @@ def remove_border(contour, ary):
     # print(r)
     if angle_from_right(degs) <= 10.0:
         box = cv2.boxPoints(r)
-        box = np.int0(box)
+        box = np.int_(box)
         cv2.drawContours(c_im, [box], 0, 255, -1)
         cv2.drawContours(c_im, [box], 0, 0, 4)
         # print(f'Removing border: {box}')
