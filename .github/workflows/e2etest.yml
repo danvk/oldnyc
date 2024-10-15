@@ -106,5 +106,5 @@ jobs:
         poetry run ./generate_static_site.py --leave-timestamps-unchanged
     - name: Check for diffs
       run: |
-        cd ..
+        cd ../oldnyc.github.io
         git diff --exit-code
