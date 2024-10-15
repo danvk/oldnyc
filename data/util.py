@@ -10,7 +10,7 @@ def normalize_whitespace(text: str) -> str:
 def clean_title(title: str) -> str:
     if title.startswith("[") and title.endswith("]"):
         title = title[1:-1]
-    title = title.rstrip(".")
+    # title = title.rstrip(".")
     title = title.replace(" and , to", ", to")
     return title
 
@@ -23,7 +23,7 @@ def clean_date(date_str: str) -> str:
         return date_str
 
     # Remove brackets and "ca." prefix
-    date_str = re.sub(r"\[ca\.?\s*|\[|\]", "", date_str)
+    date_str = re.sub(r"\[?ca\.?\s*|\[|\]", "", date_str)
 
     # Handle uncertain dates
     date_str = re.sub(r"\?", "", date_str)

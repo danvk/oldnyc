@@ -3,16 +3,15 @@
 
 import argparse
 import time
-import chardet
 from collections import defaultdict, OrderedDict
 import csv
 import json
-import record
 import re
 import subprocess
 import sys
 
 from analysis import dates_from_text
+from data.item import load_items
 from dates import extract_years
 from title_cleaner import is_pure_location
 
@@ -39,9 +38,8 @@ pop_ids = {x['id'] for x in popular_photos}
 # strip leading 'var lat_lons = ' and trailing ';'
 lat_lon_to_ids = json.loads(open('viewer/static/js/nyc-lat-lons-ny.js').read()[15:-1])
 
-# TODO: switch to photos.ndjson
-rs: list[record.Record] = json.load(open('nyc/photos.json'))
-id_to_record = {r['id']: r for r in rs}
+rs = load_items("data/photos.ndjson")
+id_to_record = {r.id: r for r in rs}
 
 id_to_dims = {}
 for photo_id, width, height in csv.reader(open('nyc-image-sizes.txt')):
@@ -53,12 +51,6 @@ for photo_id, width, height in csv.reader(open('self-hosted-sizes.txt')):
     self_hosted_ids.add(photo_id)
 
 
-# This file comes from an email exchange with the NYPL
-photo_id_to_uuid = {
-    photo_id.lower(): uuid
-    for uuid, photo_id in csv.reader(open('nyc/id-uuid-mapping.csv'))
-}
-
 # rotated images based on user feedback
 user_rotations = json.load(open('analysis/rotations/rotations.json'))
 id_to_rotation = user_rotations['fixes']
@@ -66,8 +58,7 @@ id_to_rotation = user_rotations['fixes']
 def get_back_id(photo_id):
     return re.sub(r'f?(-[a-z])?$', 'b', photo_id, count=1)
 
-# Load the previous iteration of OCR. Corrections are applied on top of
-# this.
+# Load the previous iteration of OCR. Corrections are applied on top of this.
 old_data = json.load(open('../oldnyc.github.io/data.json'))
 old_photo_id_to_text = {r['photo_id']: r['text'] for r in old_data['photos'] if r['text']}
 manual_ocr_fixes = json.load(open('ocr/feedback/fixes.json'))
@@ -80,18 +71,15 @@ print(f'{len(back_id_to_correction)} OCR fixes')
 # }
 id_to_text = {}
 for photo_id, r in id_to_record.items():
-    back_id = r['back_id']
     if photo_id in old_photo_id_to_text:
         id_to_text[photo_id] = old_photo_id_to_text[photo_id]
-    if back_id in back_id_to_correction:
-        id_to_text[photo_id] = back_id_to_correction[back_id]['text']
+    if r.back_id in back_id_to_correction:
+        id_to_text[photo_id] = back_id_to_correction[r.back_id]["text"]
 
 # (This was only helpful on the initial run, when data came straight from
 # Ocropus.)
 # for k, txt in id_to_text.iteritems():
 #     id_to_text[k] = cleaner.clean(txt)
-
-back_id_to_text = None  # clear
 
 
 def image_url(photo_id, is_thumb):
@@ -105,29 +93,6 @@ def image_url(photo_id, is_thumb):
         return 'https://www.oldnyc.org/rotated-assets/%s/%s.%s.jpg' % (
             'thumb' if is_thumb else '600px', photo_id, degrees)
 
-url_hits = 0
-url_misses = 0
-def nypl_url(photo_id: str):
-    global url_hits, url_misses
-    # '726340F-a' -> '726340f'
-    photo_id = re.sub(r'-.*', '', photo_id).lower()
-    uuid = photo_id_to_uuid.get(photo_id)
-    if not uuid:
-        url_misses += 1
-        sys.stderr.write(f'No UUID for {photo_id}\n')
-        return None
-    url_hits += 1
-    return f'https://digitalcollections.nypl.org/items/{uuid}'
-
-
-def decode(b):
-    if isinstance(b, str):
-        return b
-    try:
-        return b.decode('utf8')
-    except UnicodeDecodeError:
-        return b.decode(chardet.detect(b)['encoding'])
-
 
 def make_response(photo_ids):
     response = []
@@ -140,24 +105,22 @@ def make_response(photo_ids):
         w, h = dims
         ocr_text = id_to_text.get(photo_id)
 
-        # See also viewer/app.py
-        title = decode(r['title'])
+        title = r.title
         original_title = None
         if is_pure_location(title):
             original_title = title
-            title = ''
-        # assert r['description'] == ''
-        # assert r['note'] == ''
+            title = ""
 
         rotation = id_to_rotation.get(photo_id)
         if rotation and (rotation % 180 == 90):
             w, h = h, w
 
-        date = re.sub(r'\s+', ' ', r['date'])
+        date = re.sub(r"\s+", " ", r.date) if r.date else ""
         if len(date) > 4 and re.match(r'^\d+$', date):
             # There are some implausible dates like "13905" for https://www.oldnyc.org/#701590f-a
             # Best to hide these or (better) extract them from the backing text.
             date = ''
+        date = date.replace(", ", "; ")
         date_fields = {
             'date_source': 'nypl',
             'date': date,
@@ -174,16 +137,17 @@ def make_response(photo_ids):
                     'years': years,
                 }
         r = {
-          'id': photo_id,
-          'title': title,
-          **date_fields,
-          'folder': decode(r['location']),
-          'width': w,
-          'height': h,
-          'text': ocr_text,
-          'image_url': image_url(photo_id, is_thumb=False),
-          'thumb_url': image_url(photo_id, is_thumb=True),
-          'nypl_url': nypl_url(photo_id),
+            "id": photo_id,
+            "title": title,
+            **date_fields,
+            "folder": r.address,
+            "width": w,
+            "height": h,
+            "text": ocr_text,
+            "image_url": image_url(photo_id, is_thumb=False),
+            "thumb_url": image_url(photo_id, is_thumb=True),
+            "nypl_url": f"https://digitalcollections.nypl.org/items/{r.uuid}",
+            # TODO: switch to r.url after reviewing other diffs
         }
         if original_title:
             r['original_title'] = original_title
@@ -310,8 +274,7 @@ json.dump(timestamps,
 with open('../oldnyc.github.io/static/timestamps.js', 'w') as f:
     f.write(f'var timestamps = {timestamps_json};')
 
-sys.stderr.write(f'Unique photos on site: {len(photo_ids_on_site)}\n')
-sys.stderr.write(f'URL map hits/misses: {url_hits} / {url_misses}\n')
+sys.stderr.write(f"Unique photos on site: {len(photo_ids_on_site)}\n")
 sys.stderr.write(f'Text-less photos: {len(textless_photo_ids)}\n')
 sys.stderr.write(f'Unique lat/lngs: {len(latlon_to_count)}\n')
 sys.stderr.write(f'Orphaned popular photos: {len(missing_popular)} / {len(pop_ids)}\n')
