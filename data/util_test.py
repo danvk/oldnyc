@@ -4,7 +4,7 @@ from data.util import clean_creator, clean_date, clean_title
 def test_clean_title():
     assert (
         clean_title("Occupations - Peddlers - Clothing - Dresses.")
-        == "Occupations - Peddlers - Clothing - Dresses"
+        == "Occupations - Peddlers - Clothing - Dresses."
     )
     assert (
         clean_title("Manhattan: 100th Street (West) - Amsterdam Avenue")
@@ -12,11 +12,11 @@ def test_clean_title():
     )
     assert (
         clean_title("Feast of San Rocco [Saint Roch].")
-        == "Feast of San Rocco [Saint Roch]"
+        == "Feast of San Rocco [Saint Roch]."
     )
     assert (
         clean_title("[Manhattan: Cherry Street ; 128 Cherry Street.]")
-        == "Manhattan: Cherry Street ; 128 Cherry Street"
+        == "Manhattan: Cherry Street ; 128 Cherry Street."
     )
     assert (
         clean_title(
