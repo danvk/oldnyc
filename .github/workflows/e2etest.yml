@@ -100,3 +100,10 @@ jobs:
     - name: Check for diffs
       run: |
         git diff --exit-code data/
+    - name: Generate static site
+      run: |
+        poetry run ./generate_static_site.py --leave-timestamps-unchanged
+    - name: Check for diffs
+      run: |
+        cd ..
+        git diff --exit-code
