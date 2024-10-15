@@ -88,6 +88,8 @@ def run():
         url = row2["digital_collections_url"]
         title2 = row2["title"].strip()
         date2 = row2["date"]
+        if date2 == "1887, 1986":
+            date2 = ""  # 1887-1986 is used as "unknown"
 
         topics = sort_uniq(json.loads(row2["subject/topic"]))
         geographics = sort_uniq(json.loads(row2["subject/geographic"]))

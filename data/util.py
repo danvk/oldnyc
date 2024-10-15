@@ -24,7 +24,6 @@ def clean_date(date_str: str) -> str:
 
     # Remove brackets and "ca." prefix
     date_str = re.sub(r"\[?ca\.?\s*|\[|\]", "", date_str)
-    print(date_str)
 
     # Handle uncertain dates
     date_str = re.sub(r"\?", "", date_str)
