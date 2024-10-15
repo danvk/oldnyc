@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python
 '''
 Given the output of find_pictures.py, extract the individual photos.
 Outputs a JSON structure containing information about what was done.

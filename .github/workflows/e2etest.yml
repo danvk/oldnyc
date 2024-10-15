@@ -3,7 +3,7 @@ name: e2etest
 on: [push]
 
 jobs:
-  e2etest:
+  geocoder:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
@@ -34,3 +34,77 @@ jobs:
     - name: Check for diffs
       run: |
         git diff --exit-code test/
+
+  cropper:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up Python
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.12"
+    - name: Install Poetry
+      uses: abatilo/actions-poetry@v2
+    - name: Setup a local virtual environment for caching
+      run: |
+        poetry config virtualenvs.create true --local
+        poetry config virtualenvs.in-project true --local
+    - uses: actions/cache/restore@v3
+      name: Cache dependencies
+      with:
+        path: ./.venv
+        key: venv-${{ hashFiles('poetry.lock') }}
+    - name: Install dependencies
+      run: |
+        poetry install
+    - name: Run cropper
+      run: |
+        poetry run ocr/crop_morphology.py --beta 2 --overwrite test/721675b.jpg
+        poetry run ocr/crop_morphology.py --beta 2 --border_only --output_pattern '%s.border.jpg' test/721675b.jpg
+    - name: Run photo detector
+      run: |
+        poetry run nyc/find_pictures.py test/*f.jpg > test/detected-photos.ndjson
+    - name: Check for diffs
+      run: |
+        git diff --exit-code test/
+
+  generation:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up Python
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.12"
+    - name: Install Poetry
+      uses: abatilo/actions-poetry@v2
+    - name: Setup a local virtual environment for caching
+      run: |
+        poetry config virtualenvs.create true --local
+        poetry config virtualenvs.in-project true --local
+    - uses: actions/cache/restore@v3
+      name: Cache dependencies
+      with:
+        path: ./.venv
+        key: venv-${{ hashFiles('poetry.lock') }}
+    - name: Install dependencies
+      run: |
+        poetry install
+    - name: Clone web site
+      run: |
+        cd ..
+        git clone https://github.com/oldnyc/oldnyc.github.io.git
+    - name: Run ingestion
+      run: |
+        PYTHONPATH=. poetry run data/ingest.py
+    - name: Check for diffs
+      run: |
+        git diff --exit-code data/
+    - name: Generate static site
+      run: |
+        echo '{"fixes": {}}' > ocr/feedback/fixes.json
+        poetry run ./generate_static_site.py --leave-timestamps-unchanged
+    - name: Check for diffs
+      run: |
+        cd ../oldnyc.github.io
+        git diff --exit-code

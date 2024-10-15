@@ -1,6 +1,8 @@
 #!/usr/bin/env python
 '''Generate a static version of oldnyc.org consisting entirely of JSON.'''
 
+import argparse
+import time
 import chardet
 from collections import defaultdict, OrderedDict
 import csv
@@ -9,7 +11,6 @@ import record
 import re
 import subprocess
 import sys
-import time
 
 from analysis import dates_from_text
 from dates import extract_years
@@ -20,6 +21,14 @@ git_status = subprocess.check_output('git -C ../oldnyc.github.io status --porcel
 if git_status.strip():
     sys.stderr.write('Make sure the ../oldnyc.github.io repo exists and is clean.\n')
     sys.exit(1)
+
+parser = argparse.ArgumentParser(description="Generate oldnyc.org static site")
+parser.add_argument(
+    "--leave-timestamps-unchanged",
+    action="store_true",
+    help="Do not update timestamps. Makes a clean diff possible.",
+)
+args = parser.parse_args()
 
 # TODO: replace this with JSON
 # strip leading 'var popular_photos = ' and trailing ';'
@@ -236,12 +245,22 @@ print('Date extraction stats:')
 dates_from_text.log_stats()
 
 timestamps = {
-    # TODO: change back for new OCR fixes
-    # 'timestamp': old_data['timestamp'],  # time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()),
-    'timestamp': time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()),
-    'rotation_time': user_rotations['last_date'],
-    'ocr_time': manual_ocr_fixes['last_date'],
-    'ocr_ms': manual_ocr_fixes['last_timestamp']
+    "timestamp": (
+        old_data["timestamp"]
+        if args.leave_timestamps_unchanged
+        else time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
+    ),
+    "rotation_time": user_rotations["last_date"],
+    "ocr_time": (
+        old_data["ocr_time"]
+        if args.leave_timestamps_unchanged
+        else manual_ocr_fixes["last_date"]
+    ),
+    "ocr_ms": (
+        old_data["ocr_ms"]
+        if args.leave_timestamps_unchanged
+        else manual_ocr_fixes["last_timestamp"]
+    ),
 }
 
 # This file may be unused.
