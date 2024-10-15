@@ -61,6 +61,9 @@ jobs:
       run: |
         poetry run ocr/crop_morphology.py --beta 2 --overwrite test/721675b.jpg
         poetry run ocr/crop_morphology.py --beta 2 --border_only --output_pattern '%s.border.jpg' test/721675b.jpg
+    - name: Run photo detector
+      run: |
+        poetry run nyc/find_pictures.py test/*f.jpg > test/detected-photos.ndjson
     - name: Check for diffs
       run: |
         git diff --exit-code test/

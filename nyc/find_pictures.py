@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python
 '''
 This attempts to find bounding boxes for the pictures in a Milstein card.
 
@@ -28,7 +28,7 @@ def LoadAndBinarizeImage(path):
     w, h = orig_im.size
     im = orig_im.crop((80, 80, w - 80, h - 80))
     w, h = im.size
-    im = im.resize((w / 5, h / 5), Image.ANTIALIAS)
+    im = im.resize((w // 5, h // 5), Image.Resampling.LANCZOS)
     blur_im = im.filter(ImageFilter.BLUR)
 
     I = np.asarray(blur_im).copy()  # noqa: E741
