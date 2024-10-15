@@ -9,8 +9,8 @@ import re
 
 from tqdm import tqdm
 
-from .item import Item, Subject
-from .util import (
+from data.item import Item, Subject
+from data.util import (
     STATES,
     clean_creator,
     clean_date,
