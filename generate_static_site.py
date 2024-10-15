@@ -117,7 +117,7 @@ def make_response(photo_ids):
         if rotation and (rotation % 180 == 90):
             w, h = h, w
 
-        date = re.sub(r"\s+", " ", r.date)
+        date = re.sub(r"\s+", " ", r.date) if r.date else "n.d"
         if len(date) > 4 and re.match(r'^\d+$', date):
             # There are some implausible dates like "13905" for https://www.oldnyc.org/#701590f-a
             # Best to hide these or (better) extract them from the backing text.
@@ -147,7 +147,8 @@ def make_response(photo_ids):
             "text": ocr_text,
             "image_url": image_url(photo_id, is_thumb=False),
             "thumb_url": image_url(photo_id, is_thumb=True),
-            "nypl_url": r.url,
+            "nypl_url": f"https://digitalcollections.nypl.org/items/{r.uuid}",
+            # TODO: switch to r.url after reviewing other diffs
         }
         if original_title:
             r['original_title'] = original_title
