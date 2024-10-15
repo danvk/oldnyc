@@ -117,11 +117,12 @@ def make_response(photo_ids):
         if rotation and (rotation % 180 == 90):
             w, h = h, w
 
-        date = re.sub(r"\s+", " ", r.date) if r.date else "n.d"
+        date = re.sub(r"\s+", " ", r.date) if r.date else ""
         if len(date) > 4 and re.match(r'^\d+$', date):
             # There are some implausible dates like "13905" for https://www.oldnyc.org/#701590f-a
             # Best to hide these or (better) extract them from the backing text.
             date = ''
+        date = date.replace(", ", "; ")
         date_fields = {
             'date_source': 'nypl',
             'date': date,

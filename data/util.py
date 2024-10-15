@@ -10,7 +10,7 @@ def normalize_whitespace(text: str) -> str:
 def clean_title(title: str) -> str:
     if title.startswith("[") and title.endswith("]"):
         title = title[1:-1]
-    title = title.rstrip(".")
+    # title = title.rstrip(".")
     title = title.replace(" and , to", ", to")
     return title
 
