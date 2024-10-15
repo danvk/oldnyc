@@ -251,8 +251,16 @@ timestamps = {
         else time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
     ),
     "rotation_time": user_rotations["last_date"],
-    "ocr_time": manual_ocr_fixes["last_date"],
-    "ocr_ms": manual_ocr_fixes["last_timestamp"],
+    "ocr_time": (
+        old_data["ocr_time"]
+        if args.leave_timestamps_unchanged
+        else manual_ocr_fixes["last_date"]
+    ),
+    "ocr_ms": (
+        old_data["ocr_ms"]
+        if args.leave_timestamps_unchanged
+        else manual_ocr_fixes["last_timestamp"]
+    ),
 }
 
 # This file may be unused.
