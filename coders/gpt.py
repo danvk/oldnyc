@@ -3,7 +3,6 @@
 import json
 import sys
 
-
 import coders.registration
 from data.item import Item
 

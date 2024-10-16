@@ -2,13 +2,13 @@
 """Generate a static version of oldnyc.org consisting entirely of JSON."""
 
 import argparse
-import time
-from collections import defaultdict, OrderedDict
 import csv
 import json
 import re
 import subprocess
 import sys
+import time
+from collections import OrderedDict, defaultdict
 
 from analysis import dates_from_text
 from data.item import load_items

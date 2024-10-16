@@ -3,16 +3,13 @@
 # Look for well-known NYC parks.
 
 
-from collections import defaultdict
 import fileinput
 import re
 import sys
-
-from data.item import Item
-
+from collections import defaultdict
 
 import coders.registration
-
+from data.item import Item
 
 # TODO: move these into a data file, maybe GeoJSON
 parks = {

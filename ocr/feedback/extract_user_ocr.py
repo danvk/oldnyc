@@ -13,6 +13,7 @@ import re
 import sys
 from collections import defaultdict
 from datetime import datetime
+
 import dateutil.parser
 
 id_to_text = {}

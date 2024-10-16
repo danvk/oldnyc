@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 """What fraction of images have user corrections, and how many?"""
 
-import sys
 import json
+import sys
 
 if __name__ == "__main__":
     originals = {k.replace("book", ""): v for k, v in json.load(open("ocr/ocr.json")).items()}

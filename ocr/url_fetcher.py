@@ -7,12 +7,11 @@ Usage:
 
 import argparse
 import os
-import requests
-import time
 import sys
+import time
 
+import requests
 from tqdm import tqdm
-
 
 last_fetch_secs = None
 

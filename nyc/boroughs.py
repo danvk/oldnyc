@@ -1,10 +1,11 @@
 """Utility for mapping a lat/lon to a borough."""
 
 import json
-import nyc.shape_utils as shape_utils
-import re
 import os
+import re
 import sys
+
+import nyc.shape_utils as shape_utils
 
 boroughs = None
 neighborhoods = None

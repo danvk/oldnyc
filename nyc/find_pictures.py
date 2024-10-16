@@ -6,14 +6,14 @@ The cards have a brown background and contain 1-3 images, each of which are set
 on smaller, white cards.
 """
 
-from PIL import Image, ImageFilter
-import numpy as np
+import json
+import subprocess
+import sys
 
 import cv2
-import sys
-import json
+import numpy as np
+from PIL import Image, ImageFilter
 from scipy import ndimage
-import subprocess
 
 # Algorithm constants
 MIN_PHOTO_SIZE = 150  # minimum in both dimensions

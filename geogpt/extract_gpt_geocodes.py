@@ -5,7 +5,6 @@ import json
 import re
 import sys
 
-
 IGNORE_GEOCODES = {
     "not in NYC",
     "no location information",

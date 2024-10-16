@@ -6,7 +6,6 @@ import sys
 
 from ocr.cleaner import clean
 
-
 if __name__ == "__main__":
     gpt_data = [
         json.loads(line) for gpt_output_file in sys.argv[1:] for line in open(gpt_output_file)

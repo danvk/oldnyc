@@ -4,8 +4,8 @@
 import csv
 import dataclasses
 import json
-from collections import Counter
 import re
+from collections import Counter
 
 from tqdm import tqdm
 

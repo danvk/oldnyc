@@ -7,7 +7,6 @@ import json
 import os
 import sys
 
-
 SYSTEM_PROMPT = """You'll be given an image containing text. Your goal is to transcribe
 the text and determine whether the text is correctly oriented or rotated.
 

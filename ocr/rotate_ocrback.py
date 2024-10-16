@@ -10,9 +10,8 @@ import os
 import shutil
 import sys
 
-from PIL import Image, ImageChops
 import imagehash
-
+from PIL import Image, ImageChops
 
 if __name__ == "__main__":
     (high_path, low_path, out_dir) = sys.argv[1:]

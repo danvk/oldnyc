@@ -17,9 +17,9 @@ Output looks like:
   }
 """
 
-import os
-import json
 import fileinput
+import json
+import os
 
 out = {}
 for line in fileinput.input():

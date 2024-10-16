@@ -4,11 +4,10 @@
 This is useful for producing truth data for OCR evaluation.
 """
 
-import json
 import fileinput
+import json
 
 from data.item import load_items
-
 
 if __name__ == "__main__":
     records = load_items("data/items.ndjson")

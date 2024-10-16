@@ -8,8 +8,8 @@ Prints out three categories:
 """
 
 import csv
-import sys
 import json
+import sys
 
 _, golden_file, actual_file = sys.argv
 

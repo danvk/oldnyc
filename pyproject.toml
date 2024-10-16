@@ -36,6 +36,15 @@ scipy = "^1.14.1"
 line-length = 100
 indent-width = 4
 target-version = "py312"
+lint.select = [
+    # Pyflakes
+    "F",
+    # Pycodestyle
+    "E",
+    "W",
+    # isort
+    "I"
+]
 
 [tool.ruff.format]
 indent-style = "space"

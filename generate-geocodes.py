@@ -4,19 +4,14 @@
 # Inputs are images.ndjson and a collection of 'coders'.
 # Output depends on flags, but can be JSON, GeoJSON, JavaScript, text, etc.
 
+import json
 import os
 import sys
+import urllib.error
 from collections import defaultdict
 from optparse import OptionParser
-from dotenv import load_dotenv
-import urllib.error
 
-import coders.registration
-from coders.types import Coder, Location
-from data.item import Item, json_to_item
-import geocoder
-import generate_js
-import json
+from dotenv import load_dotenv
 
 # Import order here determines the order in which coders get a crack at each
 # record. We want to go in order from precise to imprecise.
@@ -24,6 +19,12 @@ import json
 import coders.extended_grid
 import coders.milstein
 import coders.nyc_parks
+import coders.registration
+import generate_js
+import geocoder
+from coders.types import Coder, Location
+from data.item import Item, json_to_item
+
 # import coders.gpt
 
 

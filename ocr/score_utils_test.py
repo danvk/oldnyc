@@ -1,4 +1,5 @@
 import Levenshtein
+
 from ocr.score_utils import (
     contiguous_chunks,
     normalize_whitespace,

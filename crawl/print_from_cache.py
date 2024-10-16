@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 import sys
+
 from crawl.roots import get_nypl_fetcher
 
 if __name__ == "__main__":

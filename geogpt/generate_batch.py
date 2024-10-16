@@ -1,9 +1,9 @@
 #!/usr/bin/env python
 """Generate a batch of "extract geocodable text" tasks for GPT."""
 
+import json
 import re
 import sys
-import json
 
 from data.item import Item, load_items
 

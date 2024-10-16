@@ -17,8 +17,8 @@ import os
 import sys
 
 import cv2
-from PIL import Image, ImageDraw
 import numpy as np
+from PIL import Image, ImageDraw
 from scipy.ndimage.filters import rank_filter
 
 
