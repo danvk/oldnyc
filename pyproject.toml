@@ -11,6 +11,7 @@ readme = "README.md"
 authors = [ "Dan Vanderkam <danvdk@gmail.com>" ]
 homepage = "https://oldnyc.org"
 repository = "https://github.com/danvk/oldnyc"
+package-mode = false
 
 [tool.poetry.dependencies]
 python = "^3.11"
@@ -22,7 +23,6 @@ editdistance = "^0.8.1"
 python-dateutil = "^2.9.0.post0"
 datefinder = "^0.7.3"
 python-dotenv = "^1.0.1"
-black = "^24.10.0"
 haversine = "^2.8.1"
 tqdm = "^4.66.5"
 pytest = "^8.3.3"
