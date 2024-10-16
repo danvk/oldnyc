@@ -49,7 +49,7 @@ def props_for_contours(contours, ary) -> list[ContourInfo]:
     for c in contours:
         x, y, w, h = cv2.boundingRect(c)
         c_im = np.zeros(ary.shape)
-        cv2.drawContours(c_im, [c], 0, 255, -1)
+        cv2.drawContours(c_im, [c], 0, 255, -1)  # type: ignore
         c_info.append(
             {
                 "x1": x,
@@ -120,8 +120,8 @@ def remove_border(contour, ary):
     if angle_from_right(degs) <= 10.0:
         box = cv2.boxPoints(r)
         box = np.int_(box)
-        cv2.drawContours(c_im, [box], 0, 255, -1)
-        cv2.drawContours(c_im, [box], 0, 0, 4)
+        cv2.drawContours(c_im, [box], 0, 255, -1)  # type: ignore
+        cv2.drawContours(c_im, [box], 0, 0, 4)  # type: ignore
         # print(f'Removing border: {box}')
     else:
         x1, y1, x2, y2 = cv2.boundingRect(contour)
@@ -237,7 +237,9 @@ def find_optimal_components_subset(contours, edges, beta):
     return crop
 
 
-def pad_crop(crop, contours, edges, border_contour, im_size):
+def pad_crop(
+    crop: tuple[int, int, int, int], contours, edges, border_contour, im_size
+) -> tuple[int, int, int, int]:
     """Slightly expand the crop to get full contours.
 
     This will expand to include any contours it currently intersects, but will
@@ -284,7 +286,7 @@ def remove_stamp(edges: cv2.typing.MatLike, path: str):
     """
     dilated_image = dilate(edges, N=3, iterations=5)
     contours, _hierarchy = cv2.findContours(dilated_image, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
-    stamp_contours = []
+    stamp_contours: list[tuple[cv2.typing.MatLike, cv2.typing.RotatedRect]] = []
     for c in contours:
         rot_rect = cv2.minAreaRect(c)
         ((rx, ry), (rw, rh), deg) = rot_rect
@@ -301,7 +303,7 @@ def remove_stamp(edges: cv2.typing.MatLike, path: str):
             # Image.fromarray(edges).show()
     if len(stamp_contours) == 1:
         c, rot_rect = stamp_contours[0]
-        cv2.drawContours(edges, [c], 0, 0, cv2.FILLED)
+        cv2.drawContours(edges, [c], 0, 0, cv2.FILLED)  # type: ignore
         ((rx, ry), (rw, rh), deg) = rot_rect
         print(f"{path} Filled stamp: {rx:.0f},{ry:.0f} {rw:.0f}x{rh:.0f} +{deg}°")
         return c
@@ -397,8 +399,9 @@ def process_image(path, out_path, stroke=False, beta=1, border_only=False):
             draw.line([(pt[0][0], pt[0][1]) for pt in stamp_contour], fill="hotpink", width=4)
         out_im = im
     else:
-        crop = [int(x / scale) for x in crop]  # upscale to the original image size.
-        out_im = orig_im.crop(crop)
+        crop = tuple(int(x / scale) for x in crop)  # upscale to the original image size.
+        out_im = orig_im.crop(crop)  # type: ignore
+        # it's surprisingly hard to map over tuples with pyright!
 
     # draw.text((50, 50), path, fill='red')
     # orig_im.save(out_path)
