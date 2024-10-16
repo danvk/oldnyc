@@ -3,13 +3,10 @@
 import json
 import os
 import re
-import sys
 
 import nyc.shape_utils as shape_utils
 
 boroughs = None
-neighborhoods = None
-_neighborhood_cache = {}
 
 
 def _getBoroughJsonPath():
@@ -17,13 +14,6 @@ def _getBoroughJsonPath():
         if os.path.exists(path):
             return path
     raise Exception("Couldn't find borough-polygons.json file.")
-
-
-def _getNeighborhoodJsonPath():
-    for path in ["neighborhood-polygons.json", "nyc/neighborhood-polygons.json"]:
-        if os.path.exists(path):
-            return path
-    raise Exception("Couldn't find neighborhood-polygons.json file.")
 
 
 def PointToBorough(lat, lon):
