@@ -1,4 +1,6 @@
-from typing import Optional, Protocol, TypedDict
+# pyright: strict
+
+from typing import Any, Optional, Protocol, TypedDict
 
 from data.item import Item
 
@@ -22,6 +24,6 @@ class Coder(Protocol):
 
     def name(self) -> str: ...
     def getLatLonFromGeocode(
-        self, geocode: dict, data: Locatable, record: Item
+        self, geocode: dict[str, Any], data: Locatable, record: Item
     ) -> tuple[float, float] | None: ...
     def finalize(self) -> None: ...
