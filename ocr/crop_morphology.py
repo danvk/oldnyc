@@ -139,16 +139,17 @@ def find_components(edges):
     Returns contours for these components."""
     # Perform increasingly aggressive dilation until there are just a few
     # connected components.
-    count = 21
     # dilation = 5
     n = 15
-    while count > 16:
+    while True:
         n += 1
         dilated_image = dilate(edges, N=3, iterations=n)
         contours, _hierarchy = cv2.findContours(
             dilated_image, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE
         )
         count = len(contours)
+        if count <= 16:
+            break
     print(f"dilation iterations: {n=}")
     # Image.fromarray(edges).show()
     # Image.fromarray(255 * dilated_image).show()
@@ -326,12 +327,12 @@ def downscale_image(im: Image.Image, max_dim=2048) -> tuple[float, Image.Image]:
     return scale, new_im
 
 
-def size(border):
+def size(border) -> int:
     i, x1, y1, x2, y2 = border
     return (x2 - x1) * (y2 - y1)
 
 
-def process_image(path, out_path, stroke=False, beta=1, border_only=False):
+def process_image(path: str, out_path: str, stroke=False, beta=1, border_only=False):
     print(f"Cropping {path}")
     orig_im = Image.open(path)
     print(orig_im.size)

@@ -31,6 +31,8 @@ if __name__ == "__main__":
     id = os.path.basename(high_path).split(".")[0]
 
     is_fail = id in failed_ocrbacks
+    hashd = 0
+    high_im = None
     if is_fail:
         high_im = Image.open(high_path).convert("L")
         low_im = Image.open(low_path).convert("L")
@@ -84,6 +86,7 @@ if __name__ == "__main__":
     if rot == 0:
         shutil.copy(high_path, out_path)
     else:
+        assert high_im  # for pyright
         rot_im = high_im.rotate(rot, expand=True)
         rot_im.save(out_path)
     # print(f'Wrote {out_path}')
