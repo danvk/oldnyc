@@ -1,3 +1,4 @@
+# pyright: strict
 import json
 from dataclasses import dataclass
 from typing import Literal, Optional

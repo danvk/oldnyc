@@ -9,6 +9,7 @@ import subprocess
 import sys
 import time
 from collections import OrderedDict, defaultdict
+from typing import Iterable
 
 from analysis import dates_from_text
 from data.item import load_items
@@ -80,7 +81,7 @@ for photo_id, r in id_to_record.items():
 #     id_to_text[k] = cleaner.clean(txt)
 
 
-def image_url(photo_id, is_thumb):
+def image_url(photo_id: str, is_thumb: bool) -> str:
     if photo_id in self_hosted_ids:
         return "https://images.nypl.org/?id=%s&t=w" % photo_id
     degrees = id_to_rotation.get(photo_id)
@@ -97,7 +98,7 @@ def image_url(photo_id, is_thumb):
         )
 
 
-def make_response(photo_ids):
+def make_response(photo_ids: Iterable[str]):
     response = []
     for photo_id in photo_ids:
         r = id_to_record[photo_id]

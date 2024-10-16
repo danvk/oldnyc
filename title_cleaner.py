@@ -3,6 +3,7 @@
 
 Manhattan: 8th Avenue - 24th Street (West)
 """
+# pyright: strict
 
 import fileinput
 import re
@@ -13,7 +14,7 @@ streets = r"(?:St\.|Street|Place|Pl\.|Road|Rd\.|Avenue|Ave\.|Av\.|Boulevard|Blvd
 patterns = [boros + r": ([^-,]*?) - ([^-,]*?)$"]
 
 
-def is_pure_location(title):
+def is_pure_location(title: str) -> bool:
     for pattern in patterns:
         m = re.match(pattern, title)
         if m:

@@ -1,3 +1,4 @@
+# pyright: strict
 import re
 from datetime import datetime
 
@@ -31,7 +32,7 @@ def clean_date(date_str: str) -> str:
     # Fix typos
     date_str = date_str.replace("Febraury", "February").replace("Janurary", "January")
 
-    cleaned_dates = []
+    cleaned_dates: list[str] = []
     for fmt in ("%Y, %B %d", "%Y, %b. %d", "%B %d, %Y", "%b. %d, %Y"):
         try:
             parsed_date = datetime.strptime(date_str, fmt)
