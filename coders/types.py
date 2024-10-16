@@ -1,4 +1,4 @@
-from typing import Protocol, TypedDict
+from typing import Optional, Protocol, TypedDict
 
 from data.item import Item
 
@@ -11,6 +11,8 @@ class Location(TypedDict):
 
 class Locatable(TypedDict):
     address: str
+    lat: Optional[float]
+    lon: Optional[float]
     source: str
     type: str  # 'point_of_interest', 'intersection'
 
@@ -19,5 +21,7 @@ class Coder(Protocol):
     def codeRecord(self, r: Item) -> Locatable: ...
 
     def name(self) -> str: ...
-    def getLatLonFromGeocode(self, geocode: dict, data) -> tuple[float, float] | None: ...
+    def getLatLonFromGeocode(
+        self, geocode: dict, data: Locatable, record: Item
+    ) -> tuple[float, float] | None: ...
     def finalize(self) -> None: ...

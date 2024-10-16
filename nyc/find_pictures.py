@@ -47,7 +47,7 @@ def LoadAndBinarizeImage(path):
 
 def ShowBinaryArray(b, title=None):
     im = Image.fromarray(255 * np.uint8(b))
-    im.show(im, title)
+    im.show(title)
 
 
 # showBinaryArray(B)

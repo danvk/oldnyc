@@ -32,6 +32,7 @@ jupyter = "^1.1.1"
 opencv-python = "^4.10.0.84"
 scipy = "^1.14.1"
 vulture = "^2.13"
+pyright = "^1.1.385"
 
 [tool.ruff]
 line-length = 100
