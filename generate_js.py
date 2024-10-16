@@ -116,7 +116,7 @@ def printRecordsJson(located_recs: list[LocatedRecord]):
     for r, coder, location_data in located_recs:
         rec = {
             "id": r.id,
-            "folder": removeNonAscii(r.address.replace("Folder: ", "")),
+            "folder": removeNonAscii((r.address or "").replace("Folder: ", "")),
             "date": record.clean_date(r.date or ""),
             "title": removeNonAscii(record.clean_title(r.title)),
             "description": removeNonAscii(r.back_text),

@@ -107,7 +107,7 @@ class ExtendedGridCoder:
         self._cross_patterns = cross_patterns
 
     def _extractLocationStringFromRecord(self, r: Item):
-        raw_loc = r.address.strip()
+        raw_loc = (r.address or "").strip()
         loc = re.sub(r'^[ ?\t"\[]+|[ ?\t"\]]+$', "", raw_loc)
         return loc
 
