@@ -7,27 +7,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
-    - name: Set up Python
-      uses: actions/setup-python@v3
-      with:
-        python-version: "3.12"
-    - name: Install Poetry
-      uses: abatilo/actions-poetry@v2
-    - name: Setup a local virtual environment for caching
-      run: |
-        poetry config virtualenvs.create true --local
-        poetry config virtualenvs.in-project true --local
-    - uses: actions/cache@v3
-      name: Cache dependencies
-      with:
-        path: ./.venv
-        key: venv-${{ hashFiles('poetry.lock') }}
-    - name: Install dependencies
-      run: |
-        poetry install
+    - uses: ./.github/actions/setup
     - name: Run tests
       run: |
         poetry run pytest
     - name: Run ruff
       run: |
         poetry run ruff check
+    - name: Save cache
+      uses: actions/cache/save@v3
+      with:
+        path: ./.venv
+        key: ${{ steps.cache-restore.outputs.cache-primary-key }}

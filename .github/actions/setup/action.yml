@@ -18,6 +18,7 @@ runs:
         poetry config virtualenvs.in-project true --local
     - uses: actions/cache/restore@v3
       name: Cache dependencies
+      id: cache-restore
       with:
         path: ./.venv
         key: venv-${{ hashFiles('poetry.lock') }}
