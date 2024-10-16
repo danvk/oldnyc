@@ -2,7 +2,6 @@
 
 import json
 import os
-import re
 
 import nyc.shape_utils as shape_utils
 
@@ -31,7 +30,3 @@ def PointToBorough(lat, lon):
         if shape_utils.PointInPolygon(pt, v):
             return k
     return None
-
-
-if __name__ == "__main__":
-    re.match()

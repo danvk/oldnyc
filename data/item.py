@@ -86,4 +86,5 @@ def blank_item() -> Item:
         address=None,
         subject=Subject(name=[], temporal=[], geographic=[], topic=[]),
         source="Milstein",
+        photo_url="https://images.nypl.org/?id=PHOTO_ID&t=w",
     )
