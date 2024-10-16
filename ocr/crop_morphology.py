@@ -359,8 +359,8 @@ def process_image(path, out_path, stroke=False, beta=1, border_only=False):
     stamp_contour = remove_stamp(edges, path)
 
     # Remove ~1px borders using a rank filter.
-    maxed_rows = rank_filter(edges, -4, size=(1, 20))
-    maxed_cols = rank_filter(edges, -4, size=(20, 1))
+    maxed_rows = rank_filter(edges, -4, size=(1, 20))  # type: ignore
+    maxed_cols = rank_filter(edges, -4, size=(20, 1))  # type: ignore
     debordered = np.minimum(np.minimum(edges, maxed_rows), maxed_cols)
     edges = debordered
     # Image.fromarray(edges).show()
