@@ -1,6 +1,10 @@
 #!/usr/bin/python
 
-coders = []
+from typing import Callable
+
+from coders.types import Coder
+
+coders: list[Callable[[], Coder]] = []
 
 
 def registerCoderClass(klass):

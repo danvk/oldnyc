@@ -22,7 +22,7 @@ import coders.nyc_parks
 import coders.registration
 import generate_js
 import geocoder
-from coders.types import Coder, Location
+from coders.types import Coder, Locatable, Location
 from data.item import Item, json_to_item
 
 # import coders.gpt
@@ -117,8 +117,7 @@ if __name__ == "__main__":
     else:
         g = None
 
-    geocoders = coders.registration.coderClasses()
-    geocoders: list[Coder] = [coder() for coder in geocoders]
+    geocoders = [coder() for coder in coders.registration.coderClasses()]
 
     if options.ok_coders != "all":
         ok_coders = options.ok_coders.split(",")
@@ -151,7 +150,7 @@ if __name__ == "__main__":
 
     # Load existing geocodes, if applicable.
     # TODO: is this still useful?
-    id_to_located_rec: dict[str, tuple[Item, str, Location]] = {}
+    id_to_located_rec: dict[str, tuple[Item | None, str, Location]] = {}
     if options.previous_geocode_json:
         prev_recs = json.load(open(options.previous_geocode_json))
         for rec in prev_recs:
@@ -168,7 +167,7 @@ if __name__ == "__main__":
                 )
 
     stats = defaultdict(int)
-    located_recs: list[tuple[Item, str, Location]] = []
+    located_recs: list[tuple[Item, str | None, Locatable | Location | None]] = []
     for idx, r in enumerate(rs):
         if idx % 100 == 0 and idx > 0:
             sys.stderr.write("%5d / %5d records processed\n" % (1 + idx, len(rs)))

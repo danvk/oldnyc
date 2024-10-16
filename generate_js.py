@@ -5,12 +5,13 @@ import json
 import sys
 from collections import defaultdict
 from json import encoder
+from typing import Sequence
 
 import record
-from coders.types import Location
+from coders.types import Locatable, Location
 from data.item import Item
 
-encoder.FLOAT_REPR = lambda o: format(o, ".6f")
+encoder.FLOAT_REPR = lambda o: format(o, ".6f")  # type: ignore
 
 
 # http://stackoverflow.com/questions/1342000/how-to-replace-non-ascii-characters-in-string
@@ -23,10 +24,10 @@ def loadBlacklist():
     return set()
 
 
-LocatedRecord = tuple[Item, str, Location]
+LocatedRecord = tuple[Item, str | None, Location | Locatable | None]
 
 
-def _generateJson(located_recs: list[LocatedRecord], lat_lon_map: dict[str, str]):
+def _generateJson(located_recs: Sequence[LocatedRecord], lat_lon_map: dict[str, str]):
     out = {}
     # "lat,lon" -> list of items
     ll_to_id: dict[str, list[Item]] = defaultdict(list)
@@ -84,7 +85,7 @@ def _generateJson(located_recs: list[LocatedRecord], lat_lon_map: dict[str, str]
     return out
 
 
-def printJson(located_recs: list[LocatedRecord], lat_lon_map: dict[str, str]):
+def printJson(located_recs: Sequence[LocatedRecord], lat_lon_map: dict[str, str]):
     data = _generateJson(located_recs, lat_lon_map)
 
     print("var lat_lons = ")
@@ -168,7 +169,7 @@ def printRecordsText(located_recs: list[LocatedRecord]):
         else:
             loc = "n/a\tn/a"
 
-        print("\t".join([r.id, date, folder, title, r.url, coder or "failed", loc]))
+        print("\t".join([r.id, date, folder or "", title, r.url, coder or "failed", loc]))
 
 
 def printIdLocation(located_recs: list[LocatedRecord]):
