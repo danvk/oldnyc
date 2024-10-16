@@ -11,6 +11,9 @@ jobs:
     - name: Run tests
       run: |
         poetry run pytest
-    - name: Run ruff
+    - name: Ruff lint
       run: |
         poetry run ruff check
+    - name: Ruff format
+      run: |
+        poetry run ruff format --check
