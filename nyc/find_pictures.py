@@ -117,7 +117,7 @@ def ProcessImage(path):
     # Following
     # http://scipy-lectures.github.com/advanced/image_processing/index.html
     s = ndimage.generate_binary_structure(2, 2)
-    label_im, nb_labels = ndimage.label(B, structure=s)
+    label_im, nb_labels = ndimage.label(B, structure=s)  # type: ignore
 
     # remove small components
     # TODO(danvk): how does this work?

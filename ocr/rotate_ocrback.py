@@ -53,7 +53,7 @@ if __name__ == "__main__":
             # print(shrunk_im.size)
             diff = ImageChops.difference(low_im, shrunk_im)
             # print(diff.getbbox())
-            score = len(set(diff.getdata()))
+            score = len(set(diff.getdata()))  # type: ignore
             shrunk_hash = imagehash.phash(shrunk_im)
             candidates.append((score, rot, low_hash - shrunk_hash, str(shrunk_hash)))
             # print(f'{rot}: {shrunk_hash - low_hash} = {shrunk_hash} - {low_hash}')

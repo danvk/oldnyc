@@ -37,7 +37,7 @@ if __name__ == "__main__":
     for id, exp_item in exp.items():
         base_text = base[id]
         if isinstance(base_text, dict):
-            base_text = base_text["text"]
+            base_text = base_text["text"]  # type: ignore
         if isinstance(exp_item, dict):
             exp_text = exp_item["text"]
             orig_text = exp_item["original"]

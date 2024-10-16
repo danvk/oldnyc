@@ -16,7 +16,7 @@ from tqdm import tqdm
 last_fetch_secs = None
 
 
-def fetch_url(url: str, headers: dict = {}, throttle_secs: float = 0) -> bytes:
+def fetch_url(url: str, headers: dict | None = None, throttle_secs: float = 0) -> bytes:
     global last_fetch_secs
     if last_fetch_secs:
         elapsed = time.time() - last_fetch_secs
