@@ -1,7 +1,6 @@
 #!/usr/bin/env python
-'''Generate golden data for Manhattan intersections.
+"""Generate golden data for Manhattan intersections."""
 
-'''
 import os
 
 from dotenv import load_dotenv
@@ -10,40 +9,40 @@ import geocoder
 
 # See http://stackoverflow.com/a/20007730/388951
 def make_ordinal(n):
-    return '%d%s' % (n, 'tsnrhtdd'[(n//10%10!=1)*(n%10<4)*n%10::4])
+    return "%d%s" % (n, "tsnrhtdd"[(n // 10 % 10 != 1) * (n % 10 < 4) * n % 10 :: 4])
 
 
 def make_street_str(street):
-    '''1 -> 1st Street'''
-    return make_ordinal(street) + ' street'
+    """1 -> 1st Street"""
+    return make_ordinal(street) + " street"
 
 
 def make_avenue_str(avenue, street=0):
-    '''1 --> 1st Avenue, -1 --> Avenue B'''
+    """1 --> 1st Avenue, -1 --> Avenue B"""
     if avenue <= 0:
-        return 'Avenue ' + ['A', 'B', 'C', 'D'][-avenue]
+        return "Avenue " + ["A", "B", "C", "D"][-avenue]
     elif avenue == 4:
         if 17 <= street <= 32:
-            return 'Park Avenue South'
+            return "Park Avenue South"
         elif street > 32:
-            return 'Park Avenue'
+            return "Park Avenue"
     elif avenue == 6 and street >= 110:
-        return 'Malcolm X Blvd'
+        return "Malcolm X Blvd"
     elif avenue == 7 and street >= 110:
-        return 'Adam Clayton Powell Jr Blvd'
+        return "Adam Clayton Powell Jr Blvd"
     elif avenue == 8 and 59 <= street <= 110:
-        return 'Central Park West'
+        return "Central Park West"
     elif avenue == 8 and street > 110:
-        return 'Frederick Douglass Blvd'
+        return "Frederick Douglass Blvd"
     elif avenue == 10 and street >= 59:
-        return 'Amsterdam Avenue'
+        return "Amsterdam Avenue"
     elif avenue == 11 and street >= 59:
-        return 'West End Avenue'
+        return "West End Avenue"
     else:
-        return make_ordinal(avenue) + ' Avenue'
+        return make_ordinal(avenue) + " Avenue"
 
 
-'''
+"""
 10th Avenue --> Amsterdam Ave above 59th street
 11th Avenue --> West End Ave above 59th street
  8th Avenue --> Central Park West from 59th to 110th
@@ -52,29 +51,30 @@ def make_avenue_str(avenue, street=0):
  6th Avenue --> Malcolm X Blvd above 110th
  4th Avenue --> Park Avenue S from 17th to 32nd street
  4th Avenue --> Park Avenue above 32nd street
-'''
+"""
 
 
 def locate(avenue, street):
-    '''Avenue & Street are numbers. Returns (lat, lon).
+    """Avenue & Street are numbers. Returns (lat, lon).
     Avenue A is -1.
-    '''
+    """
     street_str = make_street_str(street)
     avenue_str = make_avenue_str(avenue, street)
-    response = g.Locate('%s and %s, Manhattan, NY' % (street_str, avenue_str))
+    response = g.Locate("%s and %s, Manhattan, NY" % (street_str, avenue_str))
 
-    r = response['results'][0]
+    r = response["results"][0]
     if r["types"] != ["intersection"]:
         return None
     if r.get("partial_match"):
         return None  # may be inaccurate
 
-    loc = r['geometry']['location']
-    lat_lon = loc['lat'], loc['lng']
+    loc = r["geometry"]["location"]
+    lat_lon = loc["lat"], loc["lng"]
 
     return lat_lon
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     load_dotenv()
     api_key = os.environ.get("GOOGLE_MAPS_API_KEY")
     assert api_key
@@ -90,8 +90,8 @@ if __name__ == '__main__':
     # random.shuffle(crosses)
 
     for i, (ave, street) in enumerate(crosses):
-        lat, lon = locate(ave, street) or ('', '')
-        print('%d\t%d\t%s\t%s' % (street, ave, lat, lon))
+        lat, lon = locate(ave, street) or ("", "")
+        print("%d\t%d\t%s\t%s" % (street, ave, lat, lon))
         # print '%d / %d --> %s / %s --> %s' % (
         #         1 + i, len(crosses),
         #         make_street_str(street), make_avenue_str(ave), lat_lon)

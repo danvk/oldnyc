@@ -9,23 +9,23 @@ from collections import defaultdict
 
 records = json.load(open(sys.argv[1]))
 
-boros_re = '(New York|Manhattan|Brooklyn|Bronx|Queens|Staten Island), (?:NY|N\.Y\.)$'
+boros_re = "(New York|Manhattan|Brooklyn|Bronx|Queens|Staten Island), (?:NY|N\.Y\.)$"
 
 total_by_borough = defaultdict(int)
 wrong_by_borough = defaultdict(int)
 correct_by_borough = defaultdict(int)
 
-bk_fail = open('/tmp/bkwrong.txt', 'w')
+bk_fail = open("/tmp/bkwrong.txt", "w")
 
 for rec in records:
-    m = re.search(boros_re, rec['folder'])
+    m = re.search(boros_re, rec["folder"])
     if not m:
-        total_by_borough['Unknown'] += 1
+        total_by_borough["Unknown"] += 1
         continue
     boro = m.group(1)
 
-    if boro == 'New York':
-        boro = 'Manhattan'
+    if boro == "New York":
+        boro = "Manhattan"
     total_by_borough[boro] += 1
 
     if "extracted" not in rec:
@@ -46,7 +46,9 @@ for rec in records:
         wrong_by_borough[boro] += 1
 
 for b in sorted(total_by_borough.keys()):
-  total = total_by_borough[b]
-  correct = correct_by_borough[b]
-  print('%.4f (%5d / %5d) %s (%d to wrong borough)' % (
-      1. * correct / total, correct, total, b, wrong_by_borough[b]))
+    total = total_by_borough[b]
+    correct = correct_by_borough[b]
+    print(
+        "%.4f (%5d / %5d) %s (%d to wrong borough)"
+        % (1.0 * correct / total, correct, total, b, wrong_by_borough[b])
+    )

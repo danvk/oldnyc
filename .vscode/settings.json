@@ -6,7 +6,7 @@
     "[python]": {
         "diffEditor.ignoreTrimWhitespace": false,
         "editor.formatOnSave": true,
-        "editor.formatOnSaveMode": "modifications"
+        "editor.defaultFormatter": "charliermarsh.ruff",
         // "editor.wordBasedSuggestions": "off"
     }
 }

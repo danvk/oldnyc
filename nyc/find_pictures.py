@@ -1,10 +1,10 @@
 #!/usr/bin/env python
-'''
+"""
 This attempts to find bounding boxes for the pictures in a Milstein card.
 
 The cards have a brown background and contain 1-3 images, each of which are set
 on smaller, white cards.
-'''
+"""
 
 from PIL import Image, ImageFilter
 import numpy as np
@@ -34,20 +34,21 @@ def LoadAndBinarizeImage(path):
     I = np.asarray(blur_im).copy()  # noqa: E741
 
     brown = np.array([178.1655574, 137.2695507, 90.26289517])
-    brown[0] = np.median(I[:,:,0])
-    brown[1] = np.median(I[:,:,1])
-    brown[2] = np.median(I[:,:,2])
+    brown[0] = np.median(I[:, :, 0])
+    brown[1] = np.median(I[:, :, 1])
+    brown[2] = np.median(I[:, :, 2])
 
     # I[100:200, 100:200] = brown
     # ShowBinaryArray(I)
 
     # TODO(danvk): does removing the np.sqrt have an effect on perfomance?
-    return (np.sqrt(((I - brown) ** 2).sum(2)/3) >= 20)
+    return np.sqrt(((I - brown) ** 2).sum(2) / 3) >= 20
 
 
 def ShowBinaryArray(b, title=None):
     im = Image.fromarray(255 * np.uint8(b))
     im.show(im, title)
+
 
 # showBinaryArray(B)
 # this kills small features and introduces an 11px black border on every side
@@ -56,40 +57,43 @@ def ShowBinaryArray(b, title=None):
 #
 # sys.exit(0)
 
+
 def AcceptPhotoDetection(im, rects):
-  '''Run some heuristics to decide whether to accept a photo segmentation.'''
-  im_h, im_w = im.shape
-  im_w = 5 * im_w + 160
-  im_h = 5 * im_h + 160
-  # print '%d x %d' % (im_w, im_h)
+    """Run some heuristics to decide whether to accept a photo segmentation."""
+    im_h, im_w = im.shape
+    im_w = 5 * im_w + 160
+    im_h = 5 * im_h + 160
+    # print '%d x %d' % (im_w, im_h)
 
-  # Zero photos is worthless.
-  if len(rects) == 0:
-    return False
+    # Zero photos is worthless.
+    if len(rects) == 0:
+        return False
 
-  # A single photo which takes up a large fraction of the image isn't an
-  # especially valuable find. If it's not an especially solid rectangle, it's
-  # better to be safe and bail.
-  if len(rects) == 1:
-    w = rects[0]['right'] - rects[0]['left']
-    h = rects[0]['bottom'] - rects[0]['top']
-    solidity = rects[0]['solidity']
-    w_frac = 1.0 * w / im_w
-    h_frac = 1.0 * h / im_h
-    # print '%f x %f' % (w_frac, h_frac)
+    # A single photo which takes up a large fraction of the image isn't an
+    # especially valuable find. If it's not an especially solid rectangle, it's
+    # better to be safe and bail.
+    if len(rects) == 1:
+        w = rects[0]["right"] - rects[0]["left"]
+        h = rects[0]["bottom"] - rects[0]["top"]
+        solidity = rects[0]["solidity"]
+        w_frac = 1.0 * w / im_w
+        h_frac = 1.0 * h / im_h
+        # print '%f x %f' % (w_frac, h_frac)
 
-    # 711131f.jpg is valid and 0.75 x 0.719 = 0.5396
-    if (w_frac > 0.8 or h_frac > 0.8) and solidity < 0.98:
-      sys.stderr.write('Rejecting; %.2f x %.2f, solidity %.4f\n' % (w_frac, h_frac, solidity))
-      return False
-    # really useless crops, e.g. images/1557938.jpg
-    if w_frac > 0.9 and h_frac > 0.9:
-      sys.stderr.write('Rejecting; %.2f x %.2f\n' % (w_frac, h_frac))
-      return False
-  return True
+        # 711131f.jpg is valid and 0.75 x 0.719 = 0.5396
+        if (w_frac > 0.8 or h_frac > 0.8) and solidity < 0.98:
+            sys.stderr.write("Rejecting; %.2f x %.2f, solidity %.4f\n" % (w_frac, h_frac, solidity))
+            return False
+        # really useless crops, e.g. images/1557938.jpg
+        if w_frac > 0.9 and h_frac > 0.9:
+            sys.stderr.write("Rejecting; %.2f x %.2f\n" % (w_frac, h_frac))
+            return False
+    return True
 
 
 count = 0
+
+
 def ProcessImage(path):
     global count
     count += 1
@@ -174,7 +178,7 @@ def ProcessImage(path):
     print(json.dumps(output))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     assert len(sys.argv) >= 2
     if sys.argv[1].startswith("http://"):
         assert len(sys.argv) == 2, "Cannot read tasks from argv and http"

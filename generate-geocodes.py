@@ -27,7 +27,7 @@ import coders.nyc_parks
 # import coders.gpt
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     load_dotenv()
     # TODO: move to argparse
     parser = OptionParser()

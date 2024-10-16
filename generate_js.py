@@ -10,10 +10,13 @@ from data.item import Item
 import record
 
 from json import encoder
-encoder.FLOAT_REPR = lambda o: format(o, '.6f')
+
+encoder.FLOAT_REPR = lambda o: format(o, ".6f")
+
 
 # http://stackoverflow.com/questions/1342000/how-to-replace-non-ascii-characters-in-string
-def removeNonAscii(s): return "".join(i for i in s if ord(i)<128)
+def removeNonAscii(s):
+    return "".join(i for i in s if ord(i) < 128)
 
 
 def loadBlacklist():
@@ -37,9 +40,9 @@ def _generateJson(located_recs: list[LocatedRecord], lat_lon_map: dict[str, str]
     for r, _coder, location_data in located_recs:
         if not location_data:
             continue
-        lat = location_data['lat']
-        lon = location_data['lon']
-        ll_str = '%.6f,%.6f' % (lat, lon)
+        lat = location_data["lat"]
+        lon = location_data["lon"]
+        ll_str = "%.6f,%.6f" % (lat, lon)
         if lat_lon_map and ll_str in lat_lon_map:
             claimed_in_map[ll_str] = True
             ll_str = lat_lon_map[ll_str]
@@ -61,7 +64,7 @@ def _generateJson(located_recs: list[LocatedRecord], lat_lon_map: dict[str, str]
             [rdr for rdr in rec_dates if rdr[1] and rdr[1][1]],
             key=lambda rdr: rdr[1][1],
         )
-        no_date += (len(recs) - len(sorted_recs))
+        no_date += len(recs) - len(sorted_recs)
 
         out_recs = []
         for r, date_range in sorted_recs:
@@ -75,9 +78,9 @@ def _generateJson(located_recs: list[LocatedRecord], lat_lon_map: dict[str, str]
             photos += len(out_recs)
             out[lat_lon] = out_recs
 
-    sys.stderr.write('Dropped w/ no date: %d\n' % no_date)
-    sys.stderr.write('Unique lat/longs: %d\n' % points)
-    sys.stderr.write('Total photographs: %d\n' % photos)
+    sys.stderr.write("Dropped w/ no date: %d\n" % no_date)
+    sys.stderr.write("Unique lat/longs: %d\n" % points)
+    sys.stderr.write("Total photographs: %d\n" % photos)
 
     return out
 
@@ -106,11 +109,7 @@ def printLocationsJson(located_recs: list[LocatedRecord]):
             lon = location_data["lon"]
             locs[r.id] = [lat, lon]
 
-    print(
-        json.dumps(
-            json.loads(json.dumps(locs), parse_float=lambda x: round(float(x), 6))
-        )
-    )
+    print(json.dumps(json.loads(json.dumps(locs), parse_float=lambda x: round(float(x), 6))))
 
 
 def printRecordsJson(located_recs: list[LocatedRecord]):
@@ -127,21 +126,19 @@ def printRecordsJson(located_recs: list[LocatedRecord]):
         }
 
         start, end = record.get_date_range(r.date)
-        rec['extracted']['date_range'][0] = '%04d-%02d-%02d' % (
-                start.year, start.month, start.day)
-        rec['extracted']['date_range'][1] = '%04d-%02d-%02d' % (
-                end.year, end.month, end.day)
+        rec["extracted"]["date_range"][0] = "%04d-%02d-%02d" % (start.year, start.month, start.day)
+        rec["extracted"]["date_range"][1] = "%04d-%02d-%02d" % (end.year, end.month, end.day)
 
         if coder:
-            rec['extracted']['latlon'] = (location_data['lat'], location_data['lon'])
-            rec['extracted']['located_str'] = removeNonAscii(location_data['address'])
-            rec['extracted']['technique'] = coder
+            rec["extracted"]["latlon"] = (location_data["lat"], location_data["lon"])
+            rec["extracted"]["located_str"] = removeNonAscii(location_data["address"])
+            rec["extracted"]["technique"] = coder
 
         # TODO: remove this
         try:
             json.dumps(rec)
         except Exception as e:
-            sys.stderr.write('%s\n' % rec)
+            sys.stderr.write("%s\n" % rec)
             raise e
 
         recs.append(rec)
@@ -166,11 +163,11 @@ def printRecordsText(located_recs: list[LocatedRecord]):
             folder = record.clean_folder(folder)
 
         if location_data:
-            lat = location_data['lat']
-            lon = location_data['lon']
-            loc = (str((lat, lon)) or '') + '\t' + location_data['address']
+            lat = location_data["lat"]
+            lon = location_data["lon"]
+            loc = (str((lat, lon)) or "") + "\t" + location_data["address"]
         else:
-            loc = 'n/a\tn/a'
+            loc = "n/a\tn/a"
 
         print("\t".join([r.id, date, folder, title, r.url, coder or "failed", loc]))
 
@@ -196,7 +193,7 @@ def printLocations(located_recs: list[LocatedRecord]):
             locs["%.6f,%.6f" % (lat, lon)] += 1
 
     for ll, count in locs.items():
-        print('%d\t%s' % (count, ll))
+        print("%d\t%s" % (count, ll))
 
 
 def output_geojson(located_recs: list[LocatedRecord], all_recs: list[Item]):

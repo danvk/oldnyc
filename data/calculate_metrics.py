@@ -11,6 +11,7 @@ Geocodes
     - Have a location where there should be none
     - Location is far (>250m?) from true location. Bullseye = within 25m?
 """
+
 import argparse
 import csv
 import json
@@ -74,17 +75,13 @@ def tally_stats(truth_features, computed_features):
         if not truth_feature:
             continue
 
-        true_coords = (
-            truth_feature["geometry"] and truth_feature["geometry"]["coordinates"]
-        )
+        true_coords = truth_feature["geometry"] and truth_feature["geometry"]["coordinates"]
         computed_coords = feature["geometry"] and feature["geometry"]["coordinates"]
         if true_coords:
             num_geocodable += 1
         if computed_coords:
             num_geocoded += 1
-        (geocode_match, geocode_reason, d_km) = diff_geocode(
-            true_coords, computed_coords
-        )
+        (geocode_match, geocode_reason, d_km) = diff_geocode(true_coords, computed_coords)
 
         if geocode_match and true_coords:
             num_geocoded_correct += 1
@@ -137,9 +134,7 @@ Results:
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(
-        "Comparse geojson derived from geocoding against truth data"
-    )
+    parser = argparse.ArgumentParser("Comparse geojson derived from geocoding against truth data")
     parser.add_argument(
         "--truth_data",
         type=str,

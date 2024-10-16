@@ -49,9 +49,7 @@ if __name__ == "__main__":
         scores.append(score)
         changes.append(
             {
-                "photo_id": back_to_front.get(
-                    id, id.replace("b", "f-a")
-                ),  # should be back ID
+                "photo_id": back_to_front.get(id, id.replace("b", "f-a")),  # should be back ID
                 "before": adjusted_base,
                 "after": exp_text,
                 "metadata": {
@@ -62,9 +60,7 @@ if __name__ == "__main__":
                     "score": score,
                     "back_id": id,
                     "record": (
-                        dataclasses.asdict(
-                            id_to_record[back_to_front[id].split("-")[0]]
-                        )
+                        dataclasses.asdict(id_to_record[back_to_front[id].split("-")[0]])
                         if id in back_to_front
                         else None
                     ),
@@ -81,10 +77,7 @@ if __name__ == "__main__":
         distance = change["metadata"]["distance"]
         len_base = change["metadata"]["len_base"]
         len_exp = change["metadata"]["len_exp"]
-        print(
-            "%3d %s\t%.3f\t%4d\t%d\t%d"
-            % (i + 1, back_id, score, distance, len_base, len_exp)
-        )
+        print("%3d %s\t%.3f\t%4d\t%d\t%d" % (i + 1, back_id, score, distance, len_base, len_exp))
 
     mean = sum(scores) / len(scores)
     print("Average: %.3f" % mean)

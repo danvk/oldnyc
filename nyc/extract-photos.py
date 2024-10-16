@@ -1,8 +1,8 @@
 #!/usr/bin/env python
-'''
+"""
 Given the output of find_pictures.py, extract the individual photos.
 Outputs a JSON structure containing information about what was done.
-'''
+"""
 
 import fileinput
 import json
@@ -10,7 +10,7 @@ import os
 import sys
 import subprocess
 
-usage = '%s (detected-photos.txt|http://...) output-directory\n' % sys.argv[0]
+usage = "%s (detected-photos.txt|http://...) output-directory\n" % sys.argv[0]
 
 
 def ExtractPhotos(d, output_dir):
@@ -19,9 +19,7 @@ def ExtractPhotos(d, output_dir):
         # The algorithm took a pass on this image.
         # symlink the original image into the output directory.
         output_path = os.path.join(output_dir, os.path.basename(d["file"]))
-        if not os.path.exists(output_path) or not os.path.samefile(
-            d["file"], output_path
-        ):
+        if not os.path.exists(output_path) or not os.path.samefile(d["file"], output_path):
             subprocess.check_output(["ln", "-sf", d["file"], output_path])
     else:
         base, ext = os.path.splitext(os.path.basename(d["file"]))
@@ -43,8 +41,8 @@ def ExtractPhotos(d, output_dir):
 
 
 if len(sys.argv) < 2:
-  sys.stderr.write(usage)
-  sys.exit(1)
+    sys.stderr.write(usage)
+    sys.exit(1)
 
 output_dir = sys.argv.pop()
 

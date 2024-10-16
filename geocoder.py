@@ -13,7 +13,7 @@ import urllib
 import urllib.parse
 import urllib.request
 
-GeocodeUrlTemplate = 'https://maps.googleapis.com/maps/api/geocode/json?sensor=false&address=%s'
+GeocodeUrlTemplate = "https://maps.googleapis.com/maps/api/geocode/json?sensor=false&address=%s"
 CacheDir = "geocache"
 
 CacheDebug = False
@@ -29,14 +29,13 @@ FakeResponse = """
 
 
 def _cache_file(loc):
-  key = base64.b64encode(loc.encode('utf8'))[:-2].decode('ascii')  # minus the trailing '=='
-  key = key.replace('/', '-')  # '/' is bad in a file name.
-  key = key[:255]  # longest possible filename
-  return "%s/%s" % (CacheDir, key)
+    key = base64.b64encode(loc.encode("utf8"))[:-2].decode("ascii")  # minus the trailing '=='
+    key = key.replace("/", "-")  # '/' is bad in a file name.
+    key = key[:255]  # longest possible filename
+    return "%s/%s" % (CacheDir, key)
 
 
 class Geocoder:
-
     def __init__(self, network_allowed, wait_time, api_key=None):
         self._network_allowed = network_allowed
         self._wait_time = wait_time
@@ -62,8 +61,7 @@ class Geocoder:
         now = time.time()
         diff = now - self._last_fetch
         sys.stderr.write(
-            "now=%f, then=%f, diff=%f vs. %f\n"
-            % (now, self._last_fetch, diff, self._wait_time)
+            "now=%f, then=%f, diff=%f vs. %f\n" % (now, self._last_fetch, diff, self._wait_time)
         )
         if diff < self._wait_time:
             time.sleep(self._wait_time - diff)
@@ -133,6 +131,6 @@ class Geocoder:
         return json.loads(data)
 
 
-if __name__ == '__main__':
-  for arg in sys.argv[1:]:
-    print('%s --> %s' % (arg, _cache_file(arg)))
+if __name__ == "__main__":
+    for arg in sys.argv[1:]:
+        print("%s --> %s" % (arg, _cache_file(arg)))

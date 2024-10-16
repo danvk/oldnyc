@@ -1,12 +1,13 @@
 import re
 from data.util import clean_date
 
+
 def extract_one_year(date_str):
     date_str = date_str.strip()
-    if date_str == 'nd':
-        return ''
-    date_str = re.sub(r' [0-9][0-9]?[, ]', '', date_str)  # e.g. 'Jan 8,'
-    date_str = re.sub(r'[^0-9]+', '', date_str)
+    if date_str == "nd":
+        return ""
+    date_str = re.sub(r" [0-9][0-9]?[, ]", "", date_str)  # e.g. 'Jan 8,'
+    date_str = re.sub(r"[^0-9]+", "", date_str)
     return date_str
 
 

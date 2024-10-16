@@ -1,18 +1,17 @@
 #!/usr/bin/env python
-'''Kill titles which are redundant with the location, e.g.
+"""Kill titles which are redundant with the location, e.g.
 
 Manhattan: 8th Avenue - 24th Street (West)
-'''
+"""
 
 import fileinput
 import re
 
-boros = r'(?:New York|Manhattan|Brooklyn|Bronx|Queens|Staten Island|Richmond)'
-streets = r'(?:St\.|Street|Place|Pl\.|Road|Rd\.|Avenue|Ave\.|Av\.|Boulevard|Blvd\.?|Broadway|Parkway|Pkwy\.?|Pky\.?|Street \(West\)|Street \(East\)|Drive|Lane)'
+boros = r"(?:New York|Manhattan|Brooklyn|Bronx|Queens|Staten Island|Richmond)"
+streets = r"(?:St\.|Street|Place|Pl\.|Road|Rd\.|Avenue|Ave\.|Av\.|Boulevard|Blvd\.?|Broadway|Parkway|Pkwy\.?|Pky\.?|Street \(West\)|Street \(East\)|Drive|Lane)"
 
-patterns = [
-    boros + r': ([^-,]*?) - ([^-,]*?)$'
-]
+patterns = [boros + r": ([^-,]*?) - ([^-,]*?)$"]
+
 
 def is_pure_location(title):
     for pattern in patterns:
@@ -24,7 +23,7 @@ def is_pure_location(title):
     return False
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     for line in fileinput.input():
         line = line.strip()
-        print('%s %s' % ('x' if is_pure_location(line) else ' ', line))
+        print("%s %s" % ("x" if is_pure_location(line) else " ", line))

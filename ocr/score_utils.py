@@ -17,8 +17,8 @@ import Levenshtein
 
 
 def normalize_whitespace(text):
-    s = re.compile(r'\s+')
-    return ' '.join([x for x in s.split(text) if x])
+    s = re.compile(r"\s+")
+    return " ".join([x for x in s.split(text) if x])
 
 
 def contiguous_chunks(xs: list[int]) -> list[list[int]]:
@@ -33,12 +33,10 @@ def contiguous_chunks(xs: list[int]) -> list[list[int]]:
     return short_chunks
 
 
-def try_transpositions(
-    base_txt: str, exp_text: str, name: str = ""
-) -> float:
+def try_transpositions(base_txt: str, exp_text: str, name: str = "") -> float:
     """mutates in_lines"""
     d = Levenshtein.distance(normalize_whitespace(base_txt), exp_text)
-    in_lines = base_txt.split('\n')
+    in_lines = base_txt.split("\n")
     short_lines = [i for i, line in enumerate(in_lines) if len(line) <= 30]
     if not short_lines:
         return d, base_txt
@@ -54,23 +52,23 @@ def try_transpositions(
             lines = in_lines[:]
             for before, after in zip(chunk, perm):
                 lines[after] = in_lines[before]
-                dt = Levenshtein.distance(normalize_whitespace('\n'.join(lines)), exp_text)
+                dt = Levenshtein.distance(normalize_whitespace("\n".join(lines)), exp_text)
                 if dt < best_perm[0]:
                     best_perm = (dt, perm[:])
 
         if best_perm[0] < d:
             dt, perm = best_perm
-            print(f'{name} apply permutation {perm}: {d} -> {dt}')
+            print(f"{name} apply permutation {perm}: {d} -> {dt}")
             d = dt
             lines = in_lines[:]
             for before, after in zip(chunk, perm):
                 in_lines[after] = lines[before]
 
-    out_txt = '\n'.join(in_lines)
+    out_txt = "\n".join(in_lines)
     return d, out_txt
 
 
-def score_for_pair(golden_text, run_text, name=''):
+def score_for_pair(golden_text, run_text, name=""):
     run_text = normalize_whitespace(run_text)
     d, adjusted_golden = try_transpositions(golden_text, run_text, name)
 
@@ -82,22 +80,22 @@ def score_for_pair(golden_text, run_text, name=''):
     else:
         score = max(0.0, 1.0 - 1.0 * d / len(golden_text))
 
-    #sys.stderr.write('d: %d (%d vs. %d)\n' % (d, len(run_text), len(golden_text)))
+    # sys.stderr.write('d: %d (%d vs. %d)\n' % (d, len(run_text), len(golden_text)))
     return (score, d, adjusted_golden)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     files = sys.argv[1:]
     assert len(files) % 2 == 0
-    pairs = [(files[i], files[i+1]) for i in range(0, len(files), 2)]
+    pairs = [(files[i], files[i + 1]) for i in range(0, len(files), 2)]
 
     scores = []
     for golden, run in pairs:
         golden_text = open(golden).read()
         run_text = open(run).read()
         (d, _) = score_for_pair(golden_text, run_text)
-        print('%.3f  %s %s' % (d, golden, run))
+        print("%.3f  %s %s" % (d, golden, run))
         scores.append(d)
 
     mean = sum(scores) / len(scores)
-    print('Average: %.3f' % mean)
+    print("Average: %.3f" % mean)

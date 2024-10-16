@@ -5,9 +5,7 @@ import sys
 import json
 
 if __name__ == "__main__":
-    originals = {
-        k.replace("book", ""): v for k, v in json.load(open("ocr/ocr.json")).items()
-    }
+    originals = {k.replace("book", ""): v for k, v in json.load(open("ocr/ocr.json")).items()}
     feedback = json.load(open("feedback/user-feedback.json"))["feedback"]
     counts = {back_id: len(v["text"]) for back_id, v in feedback.items() if "text" in v}
 
