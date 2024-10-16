@@ -12,6 +12,7 @@ import time
 import urllib
 import urllib.parse
 import urllib.request
+from typing import Any
 
 GeocodeUrlTemplate = "https://maps.googleapis.com/maps/api/geocode/json?sensor=false&address=%s"
 CacheDir = "geocache"
@@ -79,7 +80,8 @@ class Geocoder:
         if m:
             return FakeResponse % (m.group(1), m.group(2))
 
-    def Locate(self, address, check_cache=True):
+    # TODO: get a more precise return type from the GMaps API
+    def Locate(self, address, check_cache=True) -> dict[str, Any] | None:
         """Returns a maps API JSON response for the address or None.
 
         Address should be a fully-qualified address, e.g.

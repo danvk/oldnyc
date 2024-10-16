@@ -41,7 +41,7 @@ if __name__ == "__main__":
         gpt_location = data["location"]
 
         csv_location = id_to_records[photo_id].address
-        is_match = scrub(gpt_location) == scrub(csv_location)
+        is_match = scrub(gpt_location) == scrub(csv_location or "")
 
         if not is_match:
             print("Input:", json.dumps(input, indent=2))

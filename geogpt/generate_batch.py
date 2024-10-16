@@ -33,7 +33,7 @@ MODEL = "gpt-4o"
 
 
 def make_gpt_request(r: Item, model: str) -> dict:
-    r = prep_data(r)
+    prep_data(r)
     gpt_data = {"title": r.title, "alt_title": r.alt_title}
     data = json.dumps(gpt_data)
     return {
@@ -62,7 +62,6 @@ def prep_data(data: Item):
     for field in ("title", "alt_title"):
         v = getattr(data, field)
         setattr(data, field, re.sub("^Richmond:", "Staten Island:", v))
-    return v
 
 
 if __name__ == "__main__":

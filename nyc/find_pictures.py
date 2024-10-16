@@ -47,7 +47,7 @@ def LoadAndBinarizeImage(path):
 
 def ShowBinaryArray(b, title=None):
     im = Image.fromarray(255 * np.uint8(b))
-    im.show(im, title)
+    im.show(title)
 
 
 # showBinaryArray(B)
@@ -111,13 +111,14 @@ def ProcessImage(path):
     if ShowImage:
         ShowBinaryArray(B)
     B = ndimage.binary_fill_holes(B, structure=np.ones((2, 2)))
+    assert B is not None  # for pyright
     if ShowImage:
         ShowBinaryArray(B)
 
     # Following
     # http://scipy-lectures.github.com/advanced/image_processing/index.html
     s = ndimage.generate_binary_structure(2, 2)
-    label_im, nb_labels = ndimage.label(B, structure=s)
+    label_im, nb_labels = ndimage.label(B, structure=s)  # type: ignore
 
     # remove small components
     # TODO(danvk): how does this work?

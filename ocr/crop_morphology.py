@@ -15,6 +15,7 @@ import argparse
 import glob
 import os
 import sys
+from typing import TypedDict
 
 import cv2
 import numpy as np
@@ -34,13 +35,21 @@ def dilate(ary, N, iterations):
     return dilated_image
 
 
-def props_for_contours(contours, ary):
+class ContourInfo(TypedDict):
+    x1: int
+    y1: int
+    x2: int
+    y2: int
+    sum: int
+
+
+def props_for_contours(contours, ary) -> list[ContourInfo]:
     """Calculate bounding box & the number of set pixels for each contour."""
     c_info = []
     for c in contours:
         x, y, w, h = cv2.boundingRect(c)
         c_im = np.zeros(ary.shape)
-        cv2.drawContours(c_im, [c], 0, 255, -1)
+        cv2.drawContours(c_im, [c], 0, 255, -1)  # type: ignore
         c_info.append(
             {
                 "x1": x,
@@ -111,8 +120,8 @@ def remove_border(contour, ary):
     if angle_from_right(degs) <= 10.0:
         box = cv2.boxPoints(r)
         box = np.int_(box)
-        cv2.drawContours(c_im, [box], 0, 255, -1)
-        cv2.drawContours(c_im, [box], 0, 0, 4)
+        cv2.drawContours(c_im, [box], 0, 255, -1)  # type: ignore
+        cv2.drawContours(c_im, [box], 0, 0, 4)  # type: ignore
         # print(f'Removing border: {box}')
     else:
         x1, y1, x2, y2 = cv2.boundingRect(contour)
@@ -130,16 +139,17 @@ def find_components(edges):
     Returns contours for these components."""
     # Perform increasingly aggressive dilation until there are just a few
     # connected components.
-    count = 21
     # dilation = 5
     n = 15
-    while count > 16:
+    while True:
         n += 1
         dilated_image = dilate(edges, N=3, iterations=n)
         contours, _hierarchy = cv2.findContours(
             dilated_image, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE
         )
         count = len(contours)
+        if count <= 16:
+            break
     print(f"dilation iterations: {n=}")
     # Image.fromarray(edges).show()
     # Image.fromarray(255 * dilated_image).show()
@@ -228,7 +238,9 @@ def find_optimal_components_subset(contours, edges, beta):
     return crop
 
 
-def pad_crop(crop, contours, edges, border_contour, im_size):
+def pad_crop(
+    crop: tuple[int, int, int, int], contours, edges, border_contour, im_size
+) -> tuple[int, int, int, int]:
     """Slightly expand the crop to get full contours.
 
     This will expand to include any contours it currently intersects, but will
@@ -267,7 +279,7 @@ def pad_crop(crop, contours, edges, border_contour, im_size):
         return crop
 
 
-def remove_stamp(edges: Image, path: str):
+def remove_stamp(edges: cv2.typing.MatLike, path: str):
     """Look for a large contour that's a close match for a rotated rectangle.
 
     This is almost certainly a "New York Public Library" stamp, which does
@@ -275,7 +287,7 @@ def remove_stamp(edges: Image, path: str):
     """
     dilated_image = dilate(edges, N=3, iterations=5)
     contours, _hierarchy = cv2.findContours(dilated_image, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
-    stamp_contours = []
+    stamp_contours: list[tuple[cv2.typing.MatLike, cv2.typing.RotatedRect]] = []
     for c in contours:
         rot_rect = cv2.minAreaRect(c)
         ((rx, ry), (rw, rh), deg) = rot_rect
@@ -292,7 +304,7 @@ def remove_stamp(edges: Image, path: str):
             # Image.fromarray(edges).show()
     if len(stamp_contours) == 1:
         c, rot_rect = stamp_contours[0]
-        cv2.drawContours(edges, [c], 0, 0, cv2.FILLED)
+        cv2.drawContours(edges, [c], 0, 0, cv2.FILLED)  # type: ignore
         ((rx, ry), (rw, rh), deg) = rot_rect
         print(f"{path} Filled stamp: {rx:.0f},{ry:.0f} {rw:.0f}x{rh:.0f} +{deg}°")
         return c
@@ -315,12 +327,12 @@ def downscale_image(im: Image.Image, max_dim=2048) -> tuple[float, Image.Image]:
     return scale, new_im
 
 
-def size(border):
+def size(border) -> int:
     i, x1, y1, x2, y2 = border
     return (x2 - x1) * (y2 - y1)
 
 
-def process_image(path, out_path, stroke=False, beta=1, border_only=False):
+def process_image(path: str, out_path: str, stroke=False, beta=1, border_only=False):
     print(f"Cropping {path}")
     orig_im = Image.open(path)
     print(orig_im.size)
@@ -348,8 +360,8 @@ def process_image(path, out_path, stroke=False, beta=1, border_only=False):
     stamp_contour = remove_stamp(edges, path)
 
     # Remove ~1px borders using a rank filter.
-    maxed_rows = rank_filter(edges, -4, size=(1, 20))
-    maxed_cols = rank_filter(edges, -4, size=(20, 1))
+    maxed_rows = rank_filter(edges, -4, size=(1, 20))  # type: ignore
+    maxed_cols = rank_filter(edges, -4, size=(20, 1))  # type: ignore
     debordered = np.minimum(np.minimum(edges, maxed_rows), maxed_cols)
     edges = debordered
     # Image.fromarray(edges).show()
@@ -388,8 +400,9 @@ def process_image(path, out_path, stroke=False, beta=1, border_only=False):
             draw.line([(pt[0][0], pt[0][1]) for pt in stamp_contour], fill="hotpink", width=4)
         out_im = im
     else:
-        crop = [int(x / scale) for x in crop]  # upscale to the original image size.
-        out_im = orig_im.crop(crop)
+        crop = tuple(int(x / scale) for x in crop)  # upscale to the original image size.
+        out_im = orig_im.crop(crop)  # type: ignore
+        # it's surprisingly hard to map over tuples with pyright!
 
     # draw.text((50, 50), path, fill='red')
     # orig_im.save(out_path)

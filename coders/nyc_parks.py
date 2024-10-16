@@ -9,7 +9,7 @@ import sys
 from collections import defaultdict
 
 import coders.registration
-from data.item import Item
+from data.item import Item, blank_item
 
 # TODO: move these into a data file, maybe GeoJSON
 parks = {
@@ -301,9 +301,7 @@ coders.registration.registerCoderClass(NycParkCoder)
 # For fast iteration
 if __name__ == "__main__":
     coder = NycParkCoder()
-    r = Item(
-        id="PHOTO_ID",
-    )
+    r = blank_item()
     num_ok, num_bad = 0, 0
     for line in fileinput.input():
         addr = line.strip()

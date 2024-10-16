@@ -1,22 +1,17 @@
+# pyright: strict
 import re
 from datetime import date
 
 from dates import extract_years
 
 
-def get_date_range(date_str: str) -> tuple[date, date] | None:
+def get_date_range(date_str: str) -> tuple[date, date]:
     # TODO: this is a bit wonky; could use clean_date more directly.
     years = extract_years(date_str)
     if not years or years == [""]:
-        p = [None, None]
-    else:
-        dates = [date(int(y), 1, 1) for y in years]
-        p = [min(dates), max(dates)]
-    if p[0] is None:
-        p[0] = date(1850, 1, 1)
-    if p[1] is None:
-        p[1] = date(1999, 12, 31)
-    return p
+        return date(1850, 1, 1), date(1999, 12, 31)
+    dates = [date(int(y), 1, 1) for y in years]
+    return min(dates), max(dates)
 
 
 def clean_title(title: str) -> str:

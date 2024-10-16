@@ -60,7 +60,7 @@ def parse_street_ave(street1: str, street2: str) -> tuple[str, str]:
     num = extract_ordinal(street2)
     if num is None:
         raise ValueError("Unable to find a number in %s" % street2)
-    street2 = num
+    street2 = str(num)
 
     # Try the same for the avenue
     num = extract_ordinal(street1)
@@ -107,7 +107,7 @@ class ExtendedGridCoder:
         self._cross_patterns = cross_patterns
 
     def _extractLocationStringFromRecord(self, r: Item):
-        raw_loc = r.address.strip()
+        raw_loc = (r.address or "").strip()
         loc = re.sub(r'^[ ?\t"\[]+|[ ?\t"\]]+$', "", raw_loc)
         return loc
 

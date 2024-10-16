@@ -33,7 +33,7 @@ def contiguous_chunks(xs: list[int]) -> list[list[int]]:
     return short_chunks
 
 
-def try_transpositions(base_txt: str, exp_text: str, name: str = "") -> float:
+def try_transpositions(base_txt: str, exp_text: str, name: str = "") -> tuple[float, str]:
     """mutates in_lines"""
     d = Levenshtein.distance(normalize_whitespace(base_txt), exp_text)
     in_lines = base_txt.split("\n")
@@ -93,7 +93,7 @@ if __name__ == "__main__":
     for golden, run in pairs:
         golden_text = open(golden).read()
         run_text = open(run).read()
-        (d, _) = score_for_pair(golden_text, run_text)
+        (d, _, _) = score_for_pair(golden_text, run_text)
         print("%.3f  %s %s" % (d, golden, run))
         scores.append(d)
 

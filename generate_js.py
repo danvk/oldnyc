@@ -5,12 +5,13 @@ import json
 import sys
 from collections import defaultdict
 from json import encoder
+from typing import Sequence
 
 import record
-from coders.types import Location
+from coders.types import Locatable, Location
 from data.item import Item
 
-encoder.FLOAT_REPR = lambda o: format(o, ".6f")
+encoder.FLOAT_REPR = lambda o: format(o, ".6f")  # type: ignore
 
 
 # http://stackoverflow.com/questions/1342000/how-to-replace-non-ascii-characters-in-string
@@ -23,10 +24,11 @@ def loadBlacklist():
     return set()
 
 
-LocatedRecord = tuple[Item, str, Location]
+# could be tuple[Item, None, None] | tuple[Item, str, Location | Locatable]
+LocatedRecord = tuple[Item, str | None, Location | Locatable | None]
 
 
-def _generateJson(located_recs: list[LocatedRecord], lat_lon_map: dict[str, str]):
+def _generateJson(located_recs: Sequence[LocatedRecord], lat_lon_map: dict[str, str]):
     out = {}
     # "lat,lon" -> list of items
     ll_to_id: dict[str, list[Item]] = defaultdict(list)
@@ -67,7 +69,6 @@ def _generateJson(located_recs: list[LocatedRecord], lat_lon_map: dict[str, str]
 
         out_recs = []
         for r, date_range in sorted_recs:
-            assert date_range
             assert date_range[0]
             assert date_range[1]
             out_recs.append([date_range[0].year, date_range[1].year, r.id])
@@ -84,7 +85,7 @@ def _generateJson(located_recs: list[LocatedRecord], lat_lon_map: dict[str, str]
     return out
 
 
-def printJson(located_recs: list[LocatedRecord], lat_lon_map: dict[str, str]):
+def printJson(located_recs: Sequence[LocatedRecord], lat_lon_map: dict[str, str]):
     data = _generateJson(located_recs, lat_lon_map)
 
     print("var lat_lons = ")
@@ -116,19 +117,19 @@ def printRecordsJson(located_recs: list[LocatedRecord]):
     for r, coder, location_data in located_recs:
         rec = {
             "id": r.id,
-            "folder": removeNonAscii(r.address.replace("Folder: ", "")),
-            "date": record.clean_date(r.date),
+            "folder": removeNonAscii((r.address or "").replace("Folder: ", "")),
+            "date": record.clean_date(r.date or ""),
             "title": removeNonAscii(record.clean_title(r.title)),
             "description": removeNonAscii(r.back_text),
             "url": r.url,
             "extracted": {"date_range": [None, None]},
         }
 
-        start, end = record.get_date_range(r.date)
+        start, end = record.get_date_range(r.date or "")
         rec["extracted"]["date_range"][0] = "%04d-%02d-%02d" % (start.year, start.month, start.day)
         rec["extracted"]["date_range"][1] = "%04d-%02d-%02d" % (end.year, end.month, end.day)
 
-        if coder:
+        if coder and location_data:
             rec["extracted"]["latlon"] = (location_data["lat"], location_data["lon"])
             rec["extracted"]["located_str"] = removeNonAscii(location_data["address"])
             rec["extracted"]["technique"] = coder
@@ -155,7 +156,7 @@ def printRecordsJson(located_recs: list[LocatedRecord]):
 
 def printRecordsText(located_recs: list[LocatedRecord]):
     for r, coder, location_data in located_recs:
-        date = record.clean_date(r.date)
+        date = record.clean_date(r.date or "")
         title = record.clean_title(r.title)
         folder = r.address
         if folder:
@@ -168,7 +169,7 @@ def printRecordsText(located_recs: list[LocatedRecord]):
         else:
             loc = "n/a\tn/a"
 
-        print("\t".join([r.id, date, folder, title, r.url, coder or "failed", loc]))
+        print("\t".join([r.id, date, folder or "", title, r.url, coder or "failed", loc]))
 
 
 def printIdLocation(located_recs: list[LocatedRecord]):
