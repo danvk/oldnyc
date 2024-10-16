@@ -60,7 +60,7 @@ def parse_street_ave(street1: str, street2: str) -> tuple[str, str]:
     num = extract_ordinal(street2)
     if num is None:
         raise ValueError("Unable to find a number in %s" % street2)
-    street2 = num
+    street2 = str(num)
 
     # Try the same for the avenue
     num = extract_ordinal(street1)

@@ -68,7 +68,6 @@ def _generateJson(located_recs: Sequence[LocatedRecord], lat_lon_map: dict[str, 
 
         out_recs = []
         for r, date_range in sorted_recs:
-            assert date_range
             assert date_range[0]
             assert date_range[1]
             out_recs.append([date_range[0].year, date_range[1].year, r.id])
@@ -118,14 +117,14 @@ def printRecordsJson(located_recs: list[LocatedRecord]):
         rec = {
             "id": r.id,
             "folder": removeNonAscii(r.address.replace("Folder: ", "")),
-            "date": record.clean_date(r.date),
+            "date": record.clean_date(r.date or ""),
             "title": removeNonAscii(record.clean_title(r.title)),
             "description": removeNonAscii(r.back_text),
             "url": r.url,
             "extracted": {"date_range": [None, None]},
         }
 
-        start, end = record.get_date_range(r.date)
+        start, end = record.get_date_range(r.date or "")
         rec["extracted"]["date_range"][0] = "%04d-%02d-%02d" % (start.year, start.month, start.day)
         rec["extracted"]["date_range"][1] = "%04d-%02d-%02d" % (end.year, end.month, end.day)
 
@@ -156,7 +155,7 @@ def printRecordsJson(located_recs: list[LocatedRecord]):
 
 def printRecordsText(located_recs: list[LocatedRecord]):
     for r, coder, location_data in located_recs:
-        date = record.clean_date(r.date)
+        date = record.clean_date(r.date or "")
         title = record.clean_title(r.title)
         folder = r.address
         if folder:

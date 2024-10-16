@@ -32,11 +32,11 @@ class Item:
     photo_url: str
     """URL for the image described by this record."""
 
-    date: str
+    date: Optional[str]
     """raw date string from NYPL"""
 
     title: str
-    alt_title: Optional[str]
+    alt_title: list[str]
 
     creator: Optional[str]
     """Name of the photographer"""
@@ -78,7 +78,7 @@ def blank_item() -> Item:
         url="https://digitalcollections.nypl.org/",
         date="",
         title="",
-        alt_title=None,
+        alt_title=[],
         creator=None,
         back_id=None,
         back_text_source=None,

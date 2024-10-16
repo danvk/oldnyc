@@ -13,7 +13,7 @@ from data.item import Item, Subject
 from data.util import STATES, clean_creator, clean_date, clean_title, normalize_whitespace
 
 
-def photo_id_to_backing_id(photo_id: str) -> str:
+def photo_id_to_backing_id(photo_id: str) -> str | None:
     if "f" in photo_id:
         return re.sub(r"f?(?:-[a-z])?$", "b", photo_id, count=1)
     elif re.match(r"\d+$", photo_id):
@@ -182,7 +182,7 @@ def run():
             photo_url=f"https://images.nypl.org/?id={id}&t=w",
             date=date2 or date_str or None,
             title=title2,
-            alt_title=alt_title2 or None,
+            alt_title=alt_title2 or [],
             back_id=back_id,
             creator=clean_creator(creator) or None,
             source=source,
