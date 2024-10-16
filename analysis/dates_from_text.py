@@ -6,6 +6,7 @@ just some date mentioned in the photo.
 """
 
 import re
+from datetime import datetime
 
 import datefinder
 
@@ -18,6 +19,7 @@ by_leadin = 0
 def parse_mon_year(mon_year: str):
     mon_year = re.sub(r"sept\b", "sep", mon_year, flags=re.I)
     dt = next(datefinder.find_dates(mon_year))
+    assert isinstance(dt, datetime)
     return dt.strftime("%Y-%m")
 
 
@@ -28,6 +30,7 @@ def parse_mon_year_date(mon_year_date: str):
     except StopIteration:
         print(f"Failed to parse date: {mon_year_date=}")
         return
+    assert isinstance(dt, datetime)
     return dt.strftime("%Y-%m-%d")
 
 
@@ -37,7 +40,7 @@ month_year_re = re.compile(r"^(%s),? (%s)$" % (mon_pat, year_pat))
 year_re = re.compile(r"^%s$" % year_pat)
 
 
-def match_full_line_date(text: str) -> list[str] | None:
+def match_full_line_date(text: str) -> list[str]:
     """Match a year or month year alone on a line of text."""
     dates = []
     for line in text.split("\n"):
