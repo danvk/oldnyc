@@ -8,8 +8,8 @@ import re
 import sys
 from collections import defaultdict
 
-import coders.registration
-from data.item import Item, blank_item
+from coders.types import Coder, Locatable
+from data.item import blank_item
 
 # TODO: move these into a data file, maybe GeoJSON
 parks = {
@@ -213,11 +213,11 @@ missing_islands = defaultdict(int)
 missing_bridges = defaultdict(int)
 
 
-class NycParkCoder:
+class NycParkCoder(Coder):
     def __init__(self):
         pass
 
-    def codeRecord(self, r: Item):
+    def codeRecord(self, r):
         title = re.sub(r"\.$", "", r.title)
 
         m = re.search(park_re, title)
@@ -234,11 +234,11 @@ class NycParkCoder:
                                 latlon = central_park[place]
                     if not latlon:
                         latlon = parks[park]
-                    return {
-                        "address": "@%s,%s" % latlon,
-                        "source": m.group(0),
-                        "type": "point_of_interest",
-                    }
+                    return Locatable(
+                        address="@%s,%s" % latlon,
+                        source=m.group(0),
+                        type="point_of_interest",
+                    )
 
         m = re.search(island_re, title)
         if m:
@@ -247,11 +247,11 @@ class NycParkCoder:
                 missing_islands[island] += 1
             else:
                 latlon = islands[island]
-                return {
-                    "address": "@%s,%s" % latlon,
-                    "source": m.group(0),
-                    "type": "point_of_interest",
-                }
+                return Locatable(
+                    address="@%s,%s" % latlon,
+                    source=m.group(0),
+                    type="point_of_interest",
+                )
 
         m = re.search(bridge_re, title)
         if m:
@@ -264,11 +264,11 @@ class NycParkCoder:
                 missing_bridges[bridge] += 1
             else:
                 latlon = bridges[bridge]
-                return {
-                    "address": "@%s,%s" % latlon,
-                    "source": m.group(0),
-                    "type": "point_of_interest",
-                }
+                return Locatable(
+                    address="@%s,%s" % latlon,
+                    source=m.group(0),
+                    type="point_of_interest",
+                )
 
         return None
 
@@ -279,7 +279,7 @@ class NycParkCoder:
                 loc = result["geometry"]["location"]
                 return (loc["lat"], loc["lng"])
 
-    def getLatLonFromGeocode(self, geocode, data, r: Item):
+    def getLatLonFromGeocode(self, geocode, data, record):
         latlon = self._getLatLonFromGeocode(geocode, data)
         if not latlon:
             return None
@@ -293,9 +293,6 @@ class NycParkCoder:
 
     def name(self):
         return "nyc-parks"
-
-
-coders.registration.registerCoderClass(NycParkCoder)
 
 
 # For fast iteration

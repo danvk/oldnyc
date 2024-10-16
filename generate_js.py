@@ -41,8 +41,9 @@ def _generateJson(located_recs: Sequence[LocatedRecord], lat_lon_map: dict[str, 
     for r, _coder, location_data in located_recs:
         if not location_data:
             continue
-        lat = location_data["lat"]
-        lon = location_data["lon"]
+        lat, lon = location_data.get("lat"), location_data.get("lon")
+        assert lat is not None
+        assert lon is not None
         ll_str = "%.6f,%.6f" % (lat, lon)
         if lat_lon_map and ll_str in lat_lon_map:
             claimed_in_map[ll_str] = True
@@ -130,9 +131,11 @@ def printRecordsJson(located_recs: list[LocatedRecord]):
         rec["extracted"]["date_range"][1] = "%04d-%02d-%02d" % (end.year, end.month, end.day)
 
         if coder and location_data:
-            rec["extracted"]["latlon"] = (location_data["lat"], location_data["lon"])
-            rec["extracted"]["located_str"] = removeNonAscii(location_data["address"])
-            rec["extracted"]["technique"] = coder
+            lat, lng = location_data.get("lat"), location_data.get("lon")
+            if lat is not None and lng is not None:
+                rec["extracted"]["latlon"] = (lat, lng)
+                rec["extracted"]["located_str"] = removeNonAscii(location_data["address"])
+                rec["extracted"]["technique"] = coder
 
         # TODO: remove this
         try:
@@ -163,9 +166,8 @@ def printRecordsText(located_recs: list[LocatedRecord]):
             folder = record.clean_folder(folder)
 
         if location_data:
-            lat = location_data["lat"]
-            lon = location_data["lon"]
-            loc = (str((lat, lon)) or "") + "\t" + location_data["address"]
+            lat, lng = location_data.get("lat"), location_data.get("lon")
+            loc = (str((lat, lng)) or "") + "\t" + location_data["address"]
         else:
             loc = "n/a\tn/a"
 
@@ -175,9 +177,8 @@ def printRecordsText(located_recs: list[LocatedRecord]):
 def printIdLocation(located_recs: list[LocatedRecord]):
     for r, coder, location_data in located_recs:
         if location_data:
-            lat = location_data["lat"]
-            lon = location_data["lon"]
-            loc = (str((lat, lon)) or "") + "\t" + location_data["address"]
+            lat, lng = location_data.get("lat"), location_data.get("lon")
+            loc = (str((lat, lng)) or "") + "\t" + location_data["address"]
         else:
             loc = "n/a\tn/a"
 
@@ -207,7 +208,7 @@ def output_geojson(located_recs: list[LocatedRecord], all_recs: list[Item]):
             "geometry": (
                 {
                     "type": "Point",
-                    "coordinates": [location_data["lon"], location_data["lat"]],
+                    "coordinates": [location_data["lon"], location_data["lat"]],  # type: ignore
                 }
                 if location_data
                 else None
@@ -218,8 +219,8 @@ def output_geojson(located_recs: list[LocatedRecord], all_recs: list[Item]):
                 "geocode": (
                     {
                         "technique": coder,
-                        "lat": location_data["lat"],
-                        "lng": location_data["lon"],
+                        "lat": location_data["lat"],  # type: ignore
+                        "lng": location_data["lon"],  # type: ignore
                         **location_data,
                     }
                     if location_data

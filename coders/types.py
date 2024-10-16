@@ -1,6 +1,6 @@
 # pyright: strict
 
-from typing import Any, Optional, Protocol, TypedDict
+from typing import Any, NotRequired, Protocol, TypedDict
 
 from data.item import Item
 
@@ -13,14 +13,15 @@ class Location(TypedDict):
 
 class Locatable(TypedDict):
     address: str
-    lat: Optional[float]
-    lon: Optional[float]
+    lat: NotRequired[float]
+    lon: NotRequired[float]
+    grid: NotRequired[str]
     source: str
-    type: str  # 'point_of_interest', 'intersection'
+    type: str | list[str]  # 'point_of_interest', 'intersection'
 
 
 class Coder(Protocol):
-    def codeRecord(self, r: Item) -> Locatable: ...
+    def codeRecord(self, r: Item) -> Locatable | None: ...
 
     def name(self) -> str: ...
     def getLatLonFromGeocode(

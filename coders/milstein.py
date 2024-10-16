@@ -7,8 +7,8 @@
 import re
 import sys
 
-import coders.registration
 import nyc.boroughs
+from coders.types import Coder, Locatable
 from data.item import Item
 
 boros = r"(?:New York|Manhattan|Brooklyn|Bronx|Queens|Staten Island), (?:NY|N\.Y\.)"
@@ -62,7 +62,7 @@ place_patterns = [place_re, ps_re]
 ps_cleanup_re = r"(?:PS|P\.S\.|Public School) (?:#|No\. )?(\d+)\.?"
 
 
-class MilsteinCoder:
+class MilsteinCoder(Coder):
     def __init__(self):
         pass
 
@@ -80,11 +80,11 @@ class MilsteinCoder:
         if m:
             crosses = sorted([m.group(1), m.group(2)])
             if "Brooklyn" not in crosses:
-                return {
-                    "address": "%s and %s, %s" % (crosses[0], crosses[1], m.group(3)),
-                    "source": loc,
-                    "type": "intersection",
-                }
+                return Locatable(
+                    address="%s and %s, %s" % (crosses[0], crosses[1], m.group(3)),
+                    source=loc,
+                    type="intersection",
+                )
 
         for pattern in addr_patterns:
             m = re.search(pattern, loc)
@@ -100,11 +100,11 @@ class MilsteinCoder:
             except ValueError:
                 number, street = street, number
 
-            return {
-                "address": "%s %s, %s" % (number, street, city),
-                "source": loc,
-                "type": "street_address",
-            }
+            return Locatable(
+                address="%s %s, %s" % (number, street, city),
+                source=loc,
+                type="street_address",
+            )
 
         for pattern in place_patterns:
             m = re.search(pattern, loc)
@@ -113,11 +113,11 @@ class MilsteinCoder:
         if m:
             place, city = m.groups()
             place = re.sub(ps_cleanup_re, r"Public School \1", place)
-            return {
-                "address": "%s, %s" % (place, city),
-                "source": loc,
-                "type": "street_address",  # or 'point_of_interest' or 'establishment'
-            }
+            return Locatable(
+                address="%s, %s" % (place, city),
+                source=loc,
+                type="street_address",  # or 'point_of_interest' or 'establishment'
+            )
 
         sys.stderr.write("(%s) Bad location: %s\n" % (r.id, loc))
         return None
@@ -150,7 +150,7 @@ class MilsteinCoder:
             record_boro = "Manhattan"
         return record_boro
 
-    def getLatLonFromGeocode(self, geocode, data, r: Item):
+    def getLatLonFromGeocode(self, geocode, data, record):
         """Extract (lat, lon) from a Google Maps API response. None = failure.
 
         This ensures that the geocode is in the correct borough. This helps catch
@@ -167,7 +167,7 @@ class MilsteinCoder:
         if geocode_boro != record_boro:
             sys.stderr.write(
                 'Borough mismatch: "%s" (%s) geocoded to %s\n'
-                % (self._extractLocationStringFromRecord(r), record_boro, geocode_boro)
+                % (self._extractLocationStringFromRecord(record), record_boro, geocode_boro)
             )
             return None
 
@@ -178,6 +178,3 @@ class MilsteinCoder:
 
     def name(self):
         return "milstein"
-
-
-coders.registration.registerCoderClass(MilsteinCoder)

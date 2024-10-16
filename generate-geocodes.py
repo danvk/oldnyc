@@ -4,167 +4,133 @@
 # Inputs are images.ndjson and a collection of 'coders'.
 # Output depends on flags, but can be JSON, GeoJSON, JavaScript, text, etc.
 
+import argparse
 import json
 import os
 import sys
 import urllib.error
 from collections import defaultdict
-from optparse import OptionParser
+from typing import Callable
 
 from dotenv import load_dotenv
 
-# Import order here determines the order in which coders get a crack at each
-# record. We want to go in order from precise to imprecise.
-# TODO: get rid of the registration system, construct an array here.
 import coders.extended_grid
+import coders.gpt
 import coders.milstein
 import coders.nyc_parks
-import coders.registration
 import generate_js
 import geocoder
-from coders.types import Locatable, Location
-from data.item import Item, json_to_item
+from coders.types import Coder, Locatable, Location
+from data.item import Item, load_items
 
-# import coders.gpt
-
+CODERS: dict[str, Callable[[], Coder]] = {
+    "extended-grid": coders.extended_grid.ExtendedGridCoder,
+    "milstein": coders.milstein.MilsteinCoder,
+    "nyc-parks": coders.nyc_parks.NycParkCoder,
+    "gpt": coders.gpt.GptCoder,
+}
 
 if __name__ == "__main__":
     load_dotenv()
-    # TODO: move to argparse
-    parser = OptionParser()
-    parser.add_option(
-        "",
+    parser = argparse.ArgumentParser(description="Generate geocodes")
+    parser.add_argument(
         "--images_ndjson",
-        default=None,
-        dest="images_ndjson",
-        help="Point to an alternative images.ndjson file.",
+        required=True,
+        help="ndjson file containing images (usually images.ndjson or photos.ndjson)",
     )
-    parser.add_option(
-        "",
+    parser.add_argument(
         "--ids_filter",
         default="",
-        dest="ids_filter",
         help="Comma-separated list of Photo IDs to consider, or path to an IDs file",
     )
-    parser.add_option(
-        "",
-        "--previous_geocode_json",
-        default="",
-        dest="previous_geocode_json",
-        help="Path to a JSON file containing existing geocodes, "
-        + "as output by this script with --output_format=records.json",
-    )
-
-    parser.add_option(
+    parser.add_argument(
         "-c",
         "--coders",
-        dest="ok_coders",
-        default="all",
-        help="Set to a comma-separated list of coders",
+        default="extended-grid,milstein,nyc-parks",
+        help="Set to a comma-separated list of coders. Coders run in the specified order.",
     )
 
-    parser.add_option(
+    parser.add_argument(
         "-g",
         "--geocode",
-        dest="geocode",
         action="store_true",
-        default=False,
         help="Set to geocode all locations. The alternative is "
-        + "to extract location strings but not geocode them. This "
-        + "can be useful with --print_records.",
+        "to extract location strings but not geocode them. This "
+        "can be useful with --print_records.",
     )
-    parser.add_option(
+    parser.add_argument(
         "-n",
         "--use_network",
-        dest="use_network",
         action="store_true",
-        default=False,
         help="Set this to make the geocoder use the network. The "
-        + "alternative is to use only the geocache.",
+        "alternative is to use only the geocache.",
     )
 
-    parser.add_option(
+    parser.add_argument(
         "-p",
         "--print_records",
-        dest="print_recs",
         action="store_true",
-        default=False,
         help="Set to print out records as they're coded.",
     )
-    parser.add_option(
+    parser.add_argument(
         "-o",
         "--output_format",
         default="",
-        help="Set to either lat-lons.js, lat-lons-ny.js, records.json"
-        " or entries.txt to output one of these formats.",
+        choices=(
+            "lat-lons.js",
+            "lat-lons-ny.js",
+            "records.json",
+            "id-location.txt",
+            "id-location.json",
+            "entries.txt",
+            "locations.txt",
+            "geojson",
+        ),
     )
-    parser.add_option(
-        "",
+    parser.add_argument(
         "--lat_lon_map",
         default="",
-        dest="lat_lon_map",
         help="Lat/lon cluster map, built by cluster-locations.py. "
-        "Only used when outputting lat-lons.js",
+        "Only used when outputting lat-lons{,-ny}.js",
     )
 
-    (options, args) = parser.parse_args()
+    args = parser.parse_args()
 
-    if options.geocode:
+    if args.geocode:
         api_key = os.environ.get("GOOGLE_MAPS_API_KEY")
-        g = geocoder.Geocoder(options.use_network, 2)  # 2s between geocodes
-        if options.use_network and not api_key:
+        g = geocoder.Geocoder(args.use_network, 2)  # 2s between geocodes
+        if args.use_network and not api_key:
             raise ValueError("Must set GOOGLE_MAPS_API_KEY with --use_network")
     else:
         g = None
 
-    geocoders = [coder() for coder in coders.registration.coderClasses()]
-
-    if options.ok_coders != "all":
-        ok_coders = options.ok_coders.split(",")
-        geocoders = [c for c in geocoders if c.name() in ok_coders]
-        if len(geocoders) != len(ok_coders):
-            sys.stderr.write(
-                "Coder mismatch: %s vs %s\n"
-                % (options.ok_coders, ",".join([c.name() for c in geocoders]))
-            )
-            sys.exit(1)
+    geocoders = [CODERS[coder_name]() for coder_name in args.coders.split(",")]
+    for geocoder in geocoders:
+        CODERS[geocoder.name()]  # keep the dict in sync with the name() methods
 
     # TODO(danvk): does this belong here?
     lat_lon_map: dict[str, str] = {}
-    if options.lat_lon_map:
-        for line in open(options.lat_lon_map):
+    if args.lat_lon_map:
+        for line in open(args.lat_lon_map):
             line = line.strip()
             if not line:
                 continue
             old, new = line.split("->")
             lat_lon_map[old] = new
 
-    rs = [json_to_item(line) for line in open(options.images_ndjson)]
-    if options.ids_filter:
-        ids_filter = options.ids_filter
+    rs = load_items(args.images_ndjson)
+    if args.ids_filter:
+        n_before = len(rs)
+        ids_filter = args.ids_filter
         if "," not in ids_filter and (os.path.exists(ids_filter) or "/" in ids_filter):
             ids = set(open(ids_filter).read().strip().split("\n"))
         else:
             ids = set(ids_filter.split(","))
         rs = [r for r in rs if r.id in ids]
-
-    # Load existing geocodes, if applicable.
-    # TODO: is this still useful?
-    id_to_located_rec: dict[str, tuple[Item | None, str, Location]] = {}
-    if options.previous_geocode_json:
-        prev_recs = json.load(open(options.previous_geocode_json))
-        for rec in prev_recs:
-            if "extracted" in rec and "latlon" in rec["extracted"]:
-                x = rec["extracted"]
-                id_to_located_rec[rec["id"]] = (
-                    None,
-                    x["technique"],
-                    {
-                        "address": x["located_str"],
-                        "lat": x["latlon"][0],
-                        "lon": x["latlon"][1],
-                    },
-                )
+        n_after = len(rs)
+        sys.stderr.write(
+            f"Filtered to {n_after}/{n_before} records with --ids_filter ({len(ids)})\n"
+        )
 
     stats = defaultdict(int)
     located_recs: list[tuple[Item, str | None, Locatable | Location | None]] = []
@@ -174,14 +140,6 @@ if __name__ == "__main__":
 
         located_rec = (r, None, None)
 
-        # Early-out if we've already successfully geocoded this record.
-        if r.id in id_to_located_rec:
-            rec = id_to_located_rec[r.id]
-            located_rec = (r, rec[1], rec[2])
-            located_recs.append(located_rec)
-            stats[rec[1]] += 1
-            continue
-
         # Give each coder a crack at the record, in turn.
         for c in geocoders:
             location_data = c.codeRecord(r)
@@ -190,7 +148,7 @@ if __name__ == "__main__":
             assert "address" in location_data
 
             if not g:
-                if options.print_recs:
+                if args.print_records:
                     print("%s\t%s\t%s" % (c.name(), r.id, json.dumps(location_data)))
                 stats[c.name()] += 1
                 located_rec = (r, c.name(), location_data)
@@ -221,7 +179,7 @@ if __name__ == "__main__":
             if lat_lon:
                 location_data["lat"] = lat_lon[0]
                 location_data["lon"] = lat_lon[1]
-                if options.print_recs:
+                if args.print_records:
                     print(
                         "%s\t%f,%f\t%s\t%s"
                         % (
@@ -249,21 +207,22 @@ if __name__ == "__main__":
 
     sys.stderr.write("%5d (total)\n" % successes)
 
-    if options.output_format == "lat-lons.js":
+    # TODO: are all these necessary?
+    if args.output_format == "lat-lons.js":
         generate_js.printJson(located_recs, lat_lon_map)
-    if options.output_format == "lat-lons-ny.js":
+    if args.output_format == "lat-lons-ny.js":
         generate_js.printJsonNoYears(located_recs, lat_lon_map)
-    elif options.output_format == "records.json":
+    elif args.output_format == "records.json":
         generate_js.printRecordsJson(located_recs)
-    elif options.output_format == "id-location.txt":
+    elif args.output_format == "id-location.txt":
         generate_js.printIdLocation(located_recs)
-    elif options.output_format == "id-location.json":
+    elif args.output_format == "id-location.json":
         generate_js.printLocationsJson(located_recs)
-    elif options.output_format == "entries.txt":
+    elif args.output_format == "entries.txt":
         generate_js.printRecordsText(located_recs)
-    elif options.output_format == "locations.txt":
+    elif args.output_format == "locations.txt":
         generate_js.printLocations(located_recs)
-    elif options.output_format == "geojson":
+    elif args.output_format == "geojson":
         generate_js.output_geojson(located_recs, rs)
     else:
-        raise ValueError(options.output_format)
+        raise ValueError(args.output_format)

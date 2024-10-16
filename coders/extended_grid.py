@@ -15,7 +15,7 @@ import fileinput
 import re
 import sys
 
-import coders.registration
+from coders.types import Coder, Locatable
 from data.item import Item, blank_item
 from grid import coder
 
@@ -99,7 +99,7 @@ def multisearch(re_dict, txt):
     return None
 
 
-class ExtendedGridCoder:
+class ExtendedGridCoder(Coder):
     def __init__(self):
         # This is done here to avoid the milstein registering itself.
         from coders.milstein import cross_patterns
@@ -151,14 +151,15 @@ class ExtendedGridCoder:
 
         # sys.stderr.write('coded (%s, %s) --> (%s, %s)\n' % (street1, street2, avenue, street))
 
-        return {
+        out: Locatable = {
             "address": "@%.6f,%.6f" % latlon,
             "source": loc,
             "grid": "(%s, %s)" % (avenue, street),
             "type": "intersection",
         }
+        return out
 
-    def getLatLonFromGeocode(self, geocode, data, r):
+    def getLatLonFromGeocode(self, geocode, data, record):
         for result in geocode["results"]:
             # data['type'] is something like 'address' or 'intersection'.
             if "point_of_interest" in result["types"]:
@@ -172,9 +173,6 @@ class ExtendedGridCoder:
 
     def name(self):
         return "extended-grid"
-
-
-coders.registration.registerCoderClass(ExtendedGridCoder)
 
 
 # For fast iteration
