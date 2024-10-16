@@ -15,6 +15,7 @@ import argparse
 import glob
 import os
 import sys
+from typing import TypedDict
 
 import cv2
 import numpy as np
@@ -34,7 +35,15 @@ def dilate(ary, N, iterations):
     return dilated_image
 
 
-def props_for_contours(contours, ary):
+class ContourInfo(TypedDict):
+    x1: int
+    y1: int
+    x2: int
+    y2: int
+    sum: int
+
+
+def props_for_contours(contours, ary) -> list[ContourInfo]:
     """Calculate bounding box & the number of set pixels for each contour."""
     c_info = []
     for c in contours:
@@ -267,7 +276,7 @@ def pad_crop(crop, contours, edges, border_contour, im_size):
         return crop
 
 
-def remove_stamp(edges: Image, path: str):
+def remove_stamp(edges: cv2.typing.MatLike, path: str):
     """Look for a large contour that's a close match for a rotated rectangle.
 
     This is almost certainly a "New York Public Library" stamp, which does
