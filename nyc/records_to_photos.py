@@ -49,9 +49,7 @@ if __name__ == "__main__":
                 num_photos += 1
 
         if num_photos % 1000 == 0:
-            sys.stderr.write(
-                "Processed %d images -> %d photos\n" % (num_images, num_photos)
-            )
+            sys.stderr.write("Processed %d images -> %d photos\n" % (num_images, num_photos))
 
     sys.stderr.write("Skipped %d records\n" % skipped)
     with open(out_ndjson, "w") as f:

@@ -1,11 +1,11 @@
 #!/usr/bin/python
-'''Read detected rectangles and golden data and compute accuracy.
+"""Read detected rectangles and golden data and compute accuracy.
 
 Prints out three categories:
   - Declined to detect any photos (SAFE)
   - Correct # of photos detected
   - Incorrect # of photos detected
-'''
+"""
 
 import csv
 import sys
@@ -31,6 +31,8 @@ for line in open(actual_file):
 
 
 photo_frac = 0.0
+
+
 def IsPassCorrect(actual_data, golden_rects):
     """A "pass" may be a perfectly reasonable photo detection, e.g. if there's
     only a single large photo in the image."""
@@ -95,7 +97,7 @@ Stats on %d photos
     )
 )
 
-'''
+"""
 With a 0.93 min solidity requirement:
 
      Safe: 3 (0.0250)
@@ -157,4 +159,4 @@ images/720275f.jpg: 2 vs 3 rects (actual vs. golden)  # one image is sepia & has
 Initial: 0.72 of rectangle counts correct
 w/ cv2: 0.86 (all failures are 0 vs 1)
 w/ cv2, 0.95 threshold: 0.89 (all failures are 0 vs 1) -- need better binarizing
-'''
+"""

@@ -39,6 +39,7 @@ def sort_uniq(xs: list[str]) -> list[str]:
 
 TRISTATE = {"New York", "New Jersey", "Connecticut"}
 
+
 def outside_nyc(geographics: list[str]) -> bool:
     for g in geographics:
         if g in STATES and g not in TRISTATE:
@@ -129,14 +130,10 @@ def run():
         alt_title2 = (
             "\n".join(mods_detail.get("titles"))
             if mods_detail
-            else (
-                row2["alternative_title"].strip() if row2["alternative_title"] else None
-            )
+            else (row2["alternative_title"].strip() if row2["alternative_title"] else None)
         )
         alt_titles = [alt_title, alt_title2]
-        alt_titles = [
-            clean_title(normalize_whitespace(t)) if t else None for t in alt_titles
-        ]
+        alt_titles = [clean_title(normalize_whitespace(t)) if t else None for t in alt_titles]
         alt_title, alt_title2 = alt_titles
 
         if alt_title != alt_title2:
@@ -146,9 +143,7 @@ def run():
             # print(alt_title2)
         alt_title2 = mods_detail.get("titles")[1:] if mods_detail else None
         if not alt_title2:
-            alt_title2 = (
-                [row2["alternative_title"].strip()] if row2["alternative_title"] else []
-            )
+            alt_title2 = [row2["alternative_title"].strip()] if row2["alternative_title"] else []
 
         if alt_title:
             counters["alt_title"] += 1
@@ -200,9 +195,7 @@ def run():
             address=full_address,
             back_text=ocr_site or ocr_gpt,
             back_text_source="site" if ocr_site else "gpt" if ocr_gpt else None,
-            subject=Subject(
-                name=names, temporal=temporals, geographic=geographics, topic=topics
-            ),
+            subject=Subject(name=names, temporal=temporals, geographic=geographics, topic=topics),
         )
         out.write(json.dumps(dataclasses.asdict(r)))
         out.write("\n")

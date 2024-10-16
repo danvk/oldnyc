@@ -274,9 +274,7 @@ def remove_stamp(edges: Image, path: str):
     contain text and can throw off cropping for the rest of the image.
     """
     dilated_image = dilate(edges, N=3, iterations=5)
-    contours, _hierarchy = cv2.findContours(
-        dilated_image, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE
-    )
+    contours, _hierarchy = cv2.findContours(dilated_image, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
     stamp_contours = []
     for c in contours:
         rot_rect = cv2.minAreaRect(c)
@@ -333,9 +331,7 @@ def process_image(path, out_path, stroke=False, beta=1, border_only=False):
     # Image.fromarray(edges).show()
 
     # TODO: dilate image _before_ finding a border. This is crazy sensitive!
-    contours, _hierarchy = cv2.findContours(
-        edges, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE
-    )
+    contours, _hierarchy = cv2.findContours(edges, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
     borders = find_border_components(contours, edges)
     borders.sort(key=size)
     # print(f'{len(borders)=}')
@@ -389,9 +385,7 @@ def process_image(path, out_path, stroke=False, beta=1, border_only=False):
                 draw.rectangle(this_crop, outline="green", width=4 if i == 0 else 2)
 
         if stamp_contour is not None:
-            draw.line(
-                [(pt[0][0], pt[0][1]) for pt in stamp_contour], fill="hotpink", width=4
-            )
+            draw.line([(pt[0][0], pt[0][1]) for pt in stamp_contour], fill="hotpink", width=4)
         out_im = im
     else:
         crop = [int(x / scale) for x in crop]  # upscale to the original image size.

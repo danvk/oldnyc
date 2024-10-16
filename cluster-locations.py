@@ -18,7 +18,7 @@ import fileinput
 
 DISTANCE_THRESHOLD = 20
 
-output_mode = 'map'  # 'urls'
+output_mode = "map"  # 'urls'
 
 counts = []
 lat_lons = []
@@ -37,29 +37,29 @@ for line in fileinput.input():
 
 
 def UrlForIndex(idx):
-  global lat_lons
-  lat, lon = lat_lons[idx]
-  return 'http://localhost:8080/#ll:%.6f|%.6f,m:%.5f|%.5f|19' % (lat, lon, lat, lon)
+    global lat_lons
+    lat, lon = lat_lons[idx]
+    return "http://localhost:8080/#ll:%.6f|%.6f,m:%.5f|%.5f|19" % (lat, lon, lat, lon)
 
 
 def dist(a, b):
-  d1 = a[0] - b[0]
-  d2 = a[1] - b[1]
-  return 1.0e8 * (d1*d1 + d2*d2)
+    d1 = a[0] - b[0]
+    d2 = a[1] - b[1]
+    return 1.0e8 * (d1 * d1 + d2 * d2)
 
 
 def centroidForIndices(idxs):
-  global lat_lons, counts
-  lat_sum = 0
-  lon_sum = 0
-  total = 0
-  for i in idxs:
-    ll = lat_lons[i]
-    lat_sum += ll[0] * counts[i]
-    lon_sum += ll[1] * counts[i]
-    total += counts[i]
+    global lat_lons, counts
+    lat_sum = 0
+    lon_sum = 0
+    total = 0
+    for i in idxs:
+        ll = lat_lons[i]
+        lat_sum += ll[0] * counts[i]
+        lon_sum += ll[1] * counts[i]
+        total += counts[i]
 
-  return (lat_sum / total, lon_sum / total)
+    return (lat_sum / total, lon_sum / total)
 
 
 # calculate all-pairs distances
@@ -79,7 +79,7 @@ for i in range(0, len(lat_lons)):
 
 
 # we hope there aren't any really degenerate cases
-cluster_map = {}    # idx -> cluster representative idx
+cluster_map = {}  # idx -> cluster representative idx
 for i, buds in enumerate(nns):
     if not buds:
         continue
@@ -111,20 +111,20 @@ for i, buds in enumerate(nns):
 
 clusters = {}  # representative idx -> list of constituent indices
 for i, rep in cluster_map.items():
-  if rep not in clusters:
-    clusters[rep] = [rep]
-  clusters[rep].append(i)
+    if rep not in clusters:
+        clusters[rep] = [rep]
+    clusters[rep].append(i)
 
 
-if output_mode == 'map':
-  for base, members in clusters.items():
-    ll = centroidForIndices(members)
-    for i in members:
-      b = lat_lons[i]
-      print('%.6f,%.6f->%.6f,%.6f' % (b[0], b[1], ll[0], ll[1]))
+if output_mode == "map":
+    for base, members in clusters.items():
+        ll = centroidForIndices(members)
+        for i in members:
+            b = lat_lons[i]
+            print("%.6f,%.6f->%.6f,%.6f" % (b[0], b[1], ll[0], ll[1]))
 
 
-if output_mode == 'urls':
+if output_mode == "urls":
     num_points = 0
     for base, members in clusters.items():
         if not members:
@@ -135,4 +135,4 @@ if output_mode == 'urls':
         print()
         num_points += len(members)
 
-    print('%d clusters, %d/%d points' % (len(clusters), num_points, orig_points))
+    print("%d clusters, %d/%d points" % (len(clusters), num_points, orig_points))

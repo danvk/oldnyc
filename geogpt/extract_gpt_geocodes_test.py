@@ -11,8 +11,7 @@ def test_patch_query():
         == "Pitt St & E Houston St, Manhattan, NY"
     )
     assert (
-        patch_query("334-336 Atlantic Avenue, Brooklyn, NY")
-        == "336 Atlantic Avenue, Brooklyn, NY"
+        patch_query("334-336 Atlantic Avenue, Brooklyn, NY") == "336 Atlantic Avenue, Brooklyn, NY"
     )
 
 

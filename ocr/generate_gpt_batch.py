@@ -37,24 +37,16 @@ def get_image_base64(image_path: str) -> str:
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(
-        description="Generate a GPT batch JSONL file with OCR tasks."
-    )
-    parser.add_argument(
-        "--model", default="gpt-4o-mini", choices=["gpt-4o", "gpt-4o-mini"]
-    )
+    parser = argparse.ArgumentParser(description="Generate a GPT batch JSONL file with OCR tasks.")
+    parser.add_argument("--model", default="gpt-4o-mini", choices=["gpt-4o", "gpt-4o-mini"])
     parser.add_argument(
         "--image_directory",
         type=str,
         required=True,
         help="Path to directory containing image files. Must be named (id).png or (id).jpg.",
     )
-    parser.add_argument(
-        "id_files", type=str, nargs="+", help="File(s) containing image IDs"
-    )
-    parser.add_argument(
-        "--temperature", type=float, default=0.0, help="GPT model temperature"
-    )
+    parser.add_argument("id_files", type=str, nargs="+", help="File(s) containing image IDs")
+    parser.add_argument("--temperature", type=float, default=0.0, help="GPT model temperature")
 
     args = parser.parse_args()
     back_ids = [line.strip() for id_file in args.id_files for line in open(id_file)]
@@ -64,14 +56,11 @@ if __name__ == "__main__":
     tasks = []
     for back_id in back_ids:
         possible_paths = [
-            os.path.join(args.image_directory, f"{back_id}.{ext}")
-            for ext in ("jpg", "png")
+            os.path.join(args.image_directory, f"{back_id}.{ext}") for ext in ("jpg", "png")
         ]
         image_paths = [p for p in possible_paths if os.path.exists(p)]
         if len(image_paths) == 0:
-            sys.stderr.write(
-                f"Could not find image for {back_id}, tried: {possible_paths}\n"
-            )
+            sys.stderr.write(f"Could not find image for {back_id}, tried: {possible_paths}\n")
             num_dropped += 1
             continue
         elif len(image_paths) > 1:

@@ -31,10 +31,8 @@ def fetch_url(url: str, headers: dict = {}, throttle_secs: float = 0) -> bytes:
     return response.content
 
 
-if __name__ == '__main__':
-    parser = argparse.ArgumentParser(
-        description="Rate-limited URL fetching with optional caching."
-    )
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description="Rate-limited URL fetching with optional caching.")
     parser.add_argument(
         "--throttle-secs", default=3.0, type=float, help="Rate limit for HTTP requests."
     )
@@ -49,18 +47,14 @@ if __name__ == '__main__':
         action="append",
         help="Additional headers to set, format is 'key: value'.",
     )
-    parser.add_argument(
-        "--output-dir", help="Output directory for files (default is CWD)"
-    )
+    parser.add_argument("--output-dir", help="Output directory for files (default is CWD)")
     parser.add_argument(
         "urls_file",
         help="Path to file containing URLs, or URL<tab>filename",
     )
     args = parser.parse_args()
 
-    headers = (
-        dict(header.split(": ", 1) for header in args.header) if args.header else None
-    )
+    headers = dict(header.split(": ", 1) for header in args.header) if args.header else None
 
     num_skipped = 0
     pairs = []
@@ -89,4 +83,4 @@ if __name__ == '__main__':
             print("%5d Fetching %s -> %s" % (i + 1, url, filename))
         content = fetch_url(url, headers, args.throttle_secs)
         if filename:
-            open(filename, 'wb').write(content)
+            open(filename, "wb").write(content)

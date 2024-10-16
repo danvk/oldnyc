@@ -10,10 +10,7 @@ def test_clean_title():
         clean_title("Manhattan: 100th Street (West) - Amsterdam Avenue")
         == "Manhattan: 100th Street (West) - Amsterdam Avenue"
     )
-    assert (
-        clean_title("Feast of San Rocco [Saint Roch].")
-        == "Feast of San Rocco [Saint Roch]."
-    )
+    assert clean_title("Feast of San Rocco [Saint Roch].") == "Feast of San Rocco [Saint Roch]."
     assert (
         clean_title("[Manhattan: Cherry Street ; 128 Cherry Street.]")
         == "Manhattan: Cherry Street ; 128 Cherry Street."
@@ -62,24 +59,17 @@ def test_clean_date():
 
 
 def test_clean_creator():
-    assert (
-        clean_creator("Sperr, Percy Loomis,1890-1964--Photographer")
-        == "Sperr, Percy Loomis"
-    )
+    assert clean_creator("Sperr, Percy Loomis,1890-1964--Photographer") == "Sperr, Percy Loomis"
     assert (
         clean_creator("New York (N.Y.). Tenement House Dept.--Photographer")
         == "New York (N.Y.). Tenement House Dept."
     )
     assert (
-        clean_creator(
-            "Van der Weyde, William M. (William Manley),1870-1928--Photographer"
-        )
+        clean_creator("Van der Weyde, William M. (William Manley),1870-1928--Photographer")
         == "Van der Weyde, William M. (William Manley)"
     )
     assert (
-        clean_creator(
-            "Chinn, George D.--Photographer;Sperr, Percy Loomis,1890-1964--Photographer"
-        )
+        clean_creator("Chinn, George D.--Photographer;Sperr, Percy Loomis,1890-1964--Photographer")
         == "Chinn, George D.; Sperr, Percy Loomis"
     )
     assert (

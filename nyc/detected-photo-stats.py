@@ -1,7 +1,7 @@
 #!/usr/bin/python
-'''
+"""
 Reads in the output of find_pictures.py and prints out some statistics.
-'''
+"""
 
 import fileinput
 import json
