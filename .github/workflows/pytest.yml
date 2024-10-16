@@ -8,12 +8,7 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - uses: ./.github/actions/setup
-    - name: Run tests
-      run: |
-        poetry run pytest
-    - name: Ruff lint
-      run: |
-        poetry run ruff check
-    - name: Ruff format
-      run: |
-        poetry run ruff format --check
+    - run: poetry run pytest
+    - run: poetry run ruff check
+    - run: poetry run ruff format --check
+    - run: poetry run pyright
