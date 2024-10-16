@@ -2,14 +2,15 @@
 """Reports the fraction of successful geocodes by borough."""
 
 import json
-import sys
-import boroughs
 import re
+import sys
 from collections import defaultdict
+
+import boroughs
 
 records = json.load(open(sys.argv[1]))
 
-boros_re = "(New York|Manhattan|Brooklyn|Bronx|Queens|Staten Island), (?:NY|N\.Y\.)$"
+boros_re = r"(New York|Manhattan|Brooklyn|Bronx|Queens|Staten Island), (?:NY|N\.Y\.)$"
 
 total_by_borough = defaultdict(int)
 wrong_by_borough = defaultdict(int)

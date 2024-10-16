@@ -1,14 +1,13 @@
 #!/usr/bin/env python
 """Split single images in images.ndjson into multiple records in photos.ndjson."""
 
+import copy
 import dataclasses
+import json
 import os
 import sys
-import copy
-import json
 
 from data.item import json_to_item
-
 
 if __name__ == "__main__":
     assert len(sys.argv) == 4, "Usage: %s imges.ndjson crops.json photos.ndjson"

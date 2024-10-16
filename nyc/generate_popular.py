@@ -5,8 +5,8 @@ Data source is https://docs.google.com/spreadsheet/ccc?key=0Anx1yCqeL8YUdHE0dXR6
 """
 
 import csv
-import sys
 import json
+import sys
 
 
 def run():

@@ -6,11 +6,10 @@
 
 import re
 import sys
-from data.item import Item
-import nyc.boroughs
 
 import coders.registration
-
+import nyc.boroughs
+from data.item import Item
 
 boros = r"(?:New York|Manhattan|Brooklyn|Bronx|Queens|Staten Island), (?:NY|N\.Y\.)"
 boros_re = r"(New York|Manhattan|Brooklyn|Bronx|Queens|Staten Island), (?:NY|N\.Y\.)$"

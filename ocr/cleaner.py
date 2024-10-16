@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-"""Clean up a few common warts in the OCR data from Ocropus.
+r"""Clean up a few common warts in the OCR data from Ocropus.
 
 These include:
     - \& --> &
@@ -15,7 +15,7 @@ import editdistance
 
 
 def swap_chars(txt):
-    """Remove a few common Ocropusisms, like \& and ''"""
+    r"""Remove a few common Ocropusisms, like \& and ''"""
     return re.sub(r"''", '"', re.sub(r"\\&", "&", txt))
 
 

@@ -5,10 +5,10 @@
 # Maintains a cache of previously-geocoded locations and throttles traffic to the Geocoder.
 
 import base64
+import json
 import re
 import sys
 import time
-import json
 import urllib
 import urllib.parse
 import urllib.request

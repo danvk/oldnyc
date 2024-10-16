@@ -7,8 +7,8 @@ Outputs a JSON structure containing information about what was done.
 import fileinput
 import json
 import os
-import sys
 import subprocess
+import sys
 
 usage = "%s (detected-photos.txt|http://...) output-directory\n" % sys.argv[0]
 

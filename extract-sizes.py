@@ -11,6 +11,7 @@ file-basename-no-extension,width,height
 import glob
 import os.path
 import sys
+
 from PIL import Image
 
 

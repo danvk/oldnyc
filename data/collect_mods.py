@@ -2,8 +2,8 @@
 """Collect NYPL API data (mods, item_details) into a more manageable format."""
 
 import json
-from pathlib import Path
 import sys
+from pathlib import Path
 
 
 def as_list(dict_or_list: dict | list) -> list:

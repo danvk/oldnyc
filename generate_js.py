@@ -4,12 +4,11 @@
 import json
 import sys
 from collections import defaultdict
+from json import encoder
 
+import record
 from coders.types import Location
 from data.item import Item
-import record
-
-from json import encoder
 
 encoder.FLOAT_REPR = lambda o: format(o, ".6f")
 

@@ -1,4 +1,4 @@
-from typing import TypedDict, Protocol
+from typing import Protocol, TypedDict
 
 from data.item import Item
 
