@@ -14,8 +14,3 @@ jobs:
     - name: Run ruff
       run: |
         poetry run ruff check
-    - name: Save cache
-      uses: actions/cache/save@v3
-      with:
-        path: ./.venv
-        key: venv-${{ hashFiles('poetry.lock') }}  # matches setup/action.yml key

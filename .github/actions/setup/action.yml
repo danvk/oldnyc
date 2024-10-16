@@ -5,23 +5,14 @@ description: poetry install and caching
 runs:
   using: "composite"
   steps:
+    - name: Install poetry
+      shell: bash
+      run: pipx install poetry
     - name: Set up Python
-      uses: actions/setup-python@v3
+      uses: actions/setup-python@v5
       with:
         python-version: "3.12"
-    - name: Install Poetry
-      uses: abatilo/actions-poetry@v2
-    - name: Setup a local virtual environment for caching
-      shell: bash
-      run: |
-        poetry config virtualenvs.create true --local
-        poetry config virtualenvs.in-project true --local
-    - uses: actions/cache/restore@v3
-      name: Cache dependencies
-      id: cache-restore
-      with:
-        path: ./.venv
-        key: venv-${{ hashFiles('poetry.lock') }}
+        cache: 'poetry'
     - name: Install dependencies
       shell: bash
       run: |
