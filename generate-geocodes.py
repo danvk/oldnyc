@@ -10,27 +10,28 @@ import os
 import sys
 import urllib.error
 from collections import defaultdict
+from typing import Callable
 
 from dotenv import load_dotenv
 
-# Import order here determines the order in which coders get a crack at each
-# record. We want to go in order from precise to imprecise.
-# TODO: get rid of the registration system, construct an array here.
 import coders.extended_grid
+import coders.gpt
 import coders.milstein
 import coders.nyc_parks
-import coders.registration
 import generate_js
 import geocoder
-from coders.types import Locatable, Location
+from coders.types import Coder, Locatable, Location
 from data.item import Item, load_items
 
-# import coders.gpt
-
+CODERS: dict[str, Callable[[], Coder]] = {
+    "extended-grid": coders.extended_grid.ExtendedGridCoder,
+    "milstein": coders.milstein.MilsteinCoder,
+    "nyc-parks": coders.nyc_parks.NycParkCoder,
+    "gpt": coders.gpt.GptCoder,
+}
 
 if __name__ == "__main__":
     load_dotenv()
-    # TODO: move to argparse
     parser = argparse.ArgumentParser(description="Generate geocodes")
     parser.add_argument(
         "--images_ndjson",
@@ -45,8 +46,8 @@ if __name__ == "__main__":
     parser.add_argument(
         "-c",
         "--coders",
-        default="all",
-        help="Set to a comma-separated list of coders",
+        default="extended-grid,milstein,nyc-parks",
+        help="Set to a comma-separated list of coders. Coders run in the specified order.",
     )
 
     parser.add_argument(
@@ -103,17 +104,9 @@ if __name__ == "__main__":
     else:
         g = None
 
-    geocoders = [coder() for coder in coders.registration.coderClasses()]
-
-    if args.coders != "all":
-        coder_names = args.coders.split(",")
-        geocoders = [c for c in geocoders if c.name() in coder_names]
-        if len(geocoders) != len(coder_names):
-            sys.stderr.write(
-                "Coder mismatch: %s vs %s\n"
-                % (args.coders, ",".join([c.name() for c in geocoders]))
-            )
-            sys.exit(1)
+    geocoders = [CODERS[coder_name]() for coder_name in args.coders.split(",")]
+    for geocoder in geocoders:
+        CODERS[geocoder.name()]  # keep the dict in sync with the name() methods
 
     # TODO(danvk): does this belong here?
     lat_lon_map: dict[str, str] = {}

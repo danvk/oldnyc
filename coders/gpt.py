@@ -3,11 +3,11 @@
 import json
 import sys
 
-import coders.registration
+from coders.types import Coder, Locatable
 from data.item import Item
 
 
-class GptCoder:
+class GptCoder(Coder):
     queries: dict[str, str]
 
     def __init__(self):
@@ -31,24 +31,24 @@ class GptCoder:
             self.num_intersection += 1
         else:
             self.num_address += 1
-        return {
-            "address": q,
-            "source": q,
+        return Locatable(
+            address=q,
+            source=q,
             # TODO: this could be improved
-            "type": (
+            type=(
                 "intersection" if "&" in q else ["street_address", "premise"]
             ),  # , 'point_of_interest'],
-        }
+        )
 
-    def getLatLonFromGeocode(self, geocode, data, r: Item):
-        result = self.milstein.getLatLonFromGeocode(geocode, data, r)
+    def getLatLonFromGeocode(self, geocode, data, record: Item):
+        result = self.milstein.getLatLonFromGeocode(geocode, data, record)
         if not result:
-            sys.stderr.write(f"gpt geocode failed: {r.id}\n")
+            sys.stderr.write(f"gpt geocode failed: {record.id}\n")
             sys.stderr.write(json.dumps(data) + "\n")
             sys.stderr.write(json.dumps(geocode) + "\n")
         else:
             tll = self.milstein._getLatLonFromGeocode(geocode, data)
-            sys.stderr.write(f"gpt geocode success: {r.id} {tll}: {data}\n")
+            sys.stderr.write(f"gpt geocode success: {record.id} {tll}: {data}\n")
         return result
 
     def finalize(self):
@@ -57,6 +57,3 @@ class GptCoder:
 
     def name(self):
         return "gpt"
-
-
-coders.registration.registerCoderClass(GptCoder)

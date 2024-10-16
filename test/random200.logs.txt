@@ -1,3 +1,4 @@
+Filtered to 200/41567 records with --ids_filter (200)
 Street 175 is unknown
 (731602f) Bad location: 2nd Avenue, Manhattan, N.Y.
 No cross for 19
