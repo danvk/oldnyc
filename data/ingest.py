@@ -10,13 +10,7 @@ from collections import Counter
 from tqdm import tqdm
 
 from data.item import Item, Subject
-from data.util import (
-    STATES,
-    clean_creator,
-    clean_date,
-    clean_title,
-    normalize_whitespace,
-)
+from data.util import STATES, clean_creator, clean_date, clean_title, normalize_whitespace
 
 
 def photo_id_to_backing_id(photo_id: str) -> str:
