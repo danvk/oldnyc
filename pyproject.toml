@@ -45,6 +45,9 @@ lint.select = [
     # isort
     "I"
 ]
+lint.extend-ignore = [
+    "E501"  # long line
+]
 
 [tool.ruff.format]
 indent-style = "space"
