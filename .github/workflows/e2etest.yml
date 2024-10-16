@@ -7,24 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
-    - name: Set up Python
-      uses: actions/setup-python@v3
-      with:
-        python-version: "3.12"
-    - name: Install Poetry
-      uses: abatilo/actions-poetry@v2
-    - name: Setup a local virtual environment for caching
-      run: |
-        poetry config virtualenvs.create true --local
-        poetry config virtualenvs.in-project true --local
-    - uses: actions/cache/restore@v3
-      name: Cache dependencies
-      with:
-        path: ./.venv
-        key: venv-${{ hashFiles('poetry.lock') }}
-    - name: Install dependencies
-      run: |
-        poetry install
+    - uses: ./.github/actions/setup
     - name: Expand geocache
       run: |
         tar -xzf geocache.tgz
@@ -39,24 +22,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
-    - name: Set up Python
-      uses: actions/setup-python@v3
-      with:
-        python-version: "3.12"
-    - name: Install Poetry
-      uses: abatilo/actions-poetry@v2
-    - name: Setup a local virtual environment for caching
-      run: |
-        poetry config virtualenvs.create true --local
-        poetry config virtualenvs.in-project true --local
-    - uses: actions/cache/restore@v3
-      name: Cache dependencies
-      with:
-        path: ./.venv
-        key: venv-${{ hashFiles('poetry.lock') }}
-    - name: Install dependencies
-      run: |
-        poetry install
+    - uses: ./.github/actions/setup
     - name: Run cropper
       run: |
         poetry run ocr/crop_morphology.py --beta 2 --overwrite test/721675b.jpg
@@ -72,24 +38,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
-    - name: Set up Python
-      uses: actions/setup-python@v3
-      with:
-        python-version: "3.12"
-    - name: Install Poetry
-      uses: abatilo/actions-poetry@v2
-    - name: Setup a local virtual environment for caching
-      run: |
-        poetry config virtualenvs.create true --local
-        poetry config virtualenvs.in-project true --local
-    - uses: actions/cache/restore@v3
-      name: Cache dependencies
-      with:
-        path: ./.venv
-        key: venv-${{ hashFiles('poetry.lock') }}
-    - name: Install dependencies
-      run: |
-        poetry install
+    - uses: ./.github/actions/setup
     - name: Clone web site
       run: |
         cd ..

@@ -1,0 +1,27 @@
+# https://www.jameskerr.blog/posts/sharing-steps-in-github-action-workflows/
+name: Shared setup steps
+description: poetry install and caching
+
+runs:
+  using: "composite"
+  steps:
+    - name: Set up Python
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.12"
+    - name: Install Poetry
+      uses: abatilo/actions-poetry@v2
+    - name: Setup a local virtual environment for caching
+      shell: bash
+      run: |
+        poetry config virtualenvs.create true --local
+        poetry config virtualenvs.in-project true --local
+    - uses: actions/cache/restore@v3
+      name: Cache dependencies
+      with:
+        path: ./.venv
+        key: venv-${{ hashFiles('poetry.lock') }}
+    - name: Install dependencies
+      shell: bash
+      run: |
+        poetry install
