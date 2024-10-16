@@ -36,7 +36,6 @@ if __name__ == "__main__":
         low_im = Image.open(low_path).convert("L")
         low_aspect = low_im.width / low_im.height
         low_hash = imagehash.phash(low_im)
-        low_hash_str = str(low_hash)
 
         # TODO: this is wildly inefficient
         candidates = []

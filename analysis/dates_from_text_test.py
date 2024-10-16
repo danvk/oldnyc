@@ -214,6 +214,9 @@ def test_prioritize_lone_date():
     assert get_dates_from_text("Sept. 1937") == ["1937-09"]
     assert get_dates_from_text("Sep. 1937") == ["1937-09"]
 
+    # would be better if this included 1923-04 and 1925-04
+    assert get_dates_from_text(text_726086f) == ["1927-06-03"]
+
 
 def test_date_no_space():
     assert get_dates_from_text(text_709781f) == ["1914-11-08"]

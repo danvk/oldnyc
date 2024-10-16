@@ -63,7 +63,6 @@ latest_datetime = ""
 
 # Sort by recency (most recent first), then de-dupe based on IP
 for backing_id, info in data.items():
-    original = info["original"] or ""
     corrections = info["corrections"]
     for c in corrections:
         c["text"] = clean(c["text"])
