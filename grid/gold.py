@@ -62,6 +62,8 @@ def locate(avenue, street):
     street_str = make_street_str(street)
     avenue_str = make_avenue_str(avenue, street)
     response = g.Locate("%s and %s, Manhattan, NY" % (street_str, avenue_str))
+    if not response:
+        return None
 
     r = response["results"][0]
     if r["types"] != ["intersection"]:

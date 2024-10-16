@@ -24,6 +24,7 @@ def loadBlacklist():
     return set()
 
 
+# could be tuple[Item, None, None] | tuple[Item, str, Location | Locatable]
 LocatedRecord = tuple[Item, str | None, Location | Locatable | None]
 
 
@@ -128,7 +129,7 @@ def printRecordsJson(located_recs: list[LocatedRecord]):
         rec["extracted"]["date_range"][0] = "%04d-%02d-%02d" % (start.year, start.month, start.day)
         rec["extracted"]["date_range"][1] = "%04d-%02d-%02d" % (end.year, end.month, end.day)
 
-        if coder:
+        if coder and location_data:
             rec["extracted"]["latlon"] = (location_data["lat"], location_data["lon"])
             rec["extracted"]["located_str"] = removeNonAscii(location_data["address"])
             rec["extracted"]["technique"] = coder

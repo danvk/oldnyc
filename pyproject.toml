@@ -67,4 +67,3 @@ docstring-code-line-length = "dynamic"
 [tool.pyright]
 typeCheckingMode = "basic"
 reportOptionalCall = "none"
-reportOptionalSubscript = "none"
