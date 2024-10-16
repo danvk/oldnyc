@@ -111,7 +111,7 @@ def ProcessImage(path):
     if ShowImage:
         ShowBinaryArray(B)
     B = ndimage.binary_fill_holes(B, structure=np.ones((2, 2)))
-    assert B  # for pyright
+    assert B is not None  # for pyright
     if ShowImage:
         ShowBinaryArray(B)
 

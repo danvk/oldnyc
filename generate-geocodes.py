@@ -22,7 +22,7 @@ import coders.nyc_parks
 import coders.registration
 import generate_js
 import geocoder
-from coders.types import Coder, Locatable, Location
+from coders.types import Locatable, Location
 from data.item import Item, json_to_item
 
 # import coders.gpt
