@@ -1,42 +1,7 @@
 import re
-import time
 from datetime import date
 
 from dates import extract_years
-
-
-def extract_regex(pat: re.Pattern, str: str):
-    """Return the first captured string of the regex or None if there was no match."""
-    m = re.search(pat, str, re.DOTALL)
-    if not m:
-        return None
-    try:
-        return m.group(1)
-    except IndexError:
-        return None
-
-
-def parse_month(mon):
-    """Takes "Jan" -> 1"""
-    return int(time.strptime(mon[0:3], "%b")[1])
-
-
-# XXX November is misspelled
-def abbreviate_months(txt):
-    return (
-        txt.replace("January", "Jan")
-        .replace("February", "Feb")
-        .replace("March", "Mar")
-        .replace("April", "Apr")
-        .replace("June", "Jun")
-        .replace("July", "Jul")
-        .replace("August", "Aug")
-        .replace("September", "Sep")
-        .replace("October", "Oct")
-        .replace("Novemeber", "Nov")
-        .replace("December", "Dec")
-        .replace("Sept", "Sep")
-    )
 
 
 def get_date_range(date_str: str) -> tuple[date, date] | None:

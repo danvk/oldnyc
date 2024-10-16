@@ -124,7 +124,7 @@ def remove_border(contour, ary):
     return np.minimum(c_im, ary)
 
 
-def find_components(edges, max_components=16):
+def find_components(edges):
     """Dilate the image until there are just a few connected components.
 
     Returns contours for these components."""

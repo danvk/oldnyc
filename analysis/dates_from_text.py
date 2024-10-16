@@ -31,15 +31,6 @@ def parse_mon_year_date(mon_year_date: str):
     return dt.strftime("%Y-%m-%d")
 
 
-def match_full_date_datefinder(text: str) -> list[str] | None:
-    """Match any complete month day, year-style date."""
-    return [
-        date.strftime("%Y-%m-%d")
-        for line in text.split("\n")
-        for date in datefinder.find_dates(line, strict=True)
-    ]
-
-
 mon_pat = r"(?:January|Jan\.?|February|Feb\.?|March|Mar\.?|April|Apr\.?|May|June|Jun\.?|July|Jul\.?|August|Aug\.?|September|Sept?\.?|October|Oct\.?|November|Nov\.?|December|Dec\.?)"
 year_pat = r"(?:1[89]\d\d)"
 month_year_re = re.compile(r"^(%s),? (%s)$" % (mon_pat, year_pat))

@@ -56,10 +56,6 @@ user_rotations = json.load(open("analysis/rotations/rotations.json"))
 id_to_rotation = user_rotations["fixes"]
 
 
-def get_back_id(photo_id):
-    return re.sub(r"f?(-[a-z])?$", "b", photo_id, count=1)
-
-
 # Load the previous iteration of OCR. Corrections are applied on top of this.
 old_data = json.load(open("../oldnyc.github.io/data.json"))
 old_photo_id_to_text = {r["photo_id"]: r["text"] for r in old_data["photos"] if r["text"]}

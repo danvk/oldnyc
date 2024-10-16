@@ -194,8 +194,6 @@ bridges = {
     #   1	Baltimore and Ohio Railroad Bridge
 }
 
-beaches = {}
-
 # Bridges
 # "East River - River scenes - View of Brooklyn Bridge and financial district from Manhattan Bridge"
 # "East River - River scenes - Brooklyn Bridge -Early shipping."

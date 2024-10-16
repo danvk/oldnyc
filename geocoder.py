@@ -119,17 +119,6 @@ class Geocoder:
 
         return response
 
-    def InCache(self, loc):
-        data = self._check_cache(loc)
-        return data is None  # XXX this looks backwards
-
-    def LocateFromCache(self, loc):
-        """Like Locate, but never goes to the network to get a location."""
-        data = self._check_cache(loc)
-        if not data:
-            return None
-        return json.loads(data)
-
 
 if __name__ == "__main__":
     for arg in sys.argv[1:]:
