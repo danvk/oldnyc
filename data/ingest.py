@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 """Read in various data sources and produce images.ndjson."""
 
+# pyright: strict
 import csv
 import dataclasses
 import json
@@ -24,7 +25,7 @@ def photo_id_to_backing_id(photo_id: str) -> str | None:
 
 
 def sort_uniq(xs: list[str]) -> list[str]:
-    out = []
+    out: list[str] = []
     for x in sorted(xs):
         if not out or out[-1] != x:
             out.append(x)
@@ -58,7 +59,7 @@ def run():
     }
     mods_details = json.load(open("data/mods-details.json"))
 
-    counters = Counter()
+    counters = Counter[str]()
     out = open("data/images.ndjson", "w")
     for row in tqdm([*csv2013]):
         counters["num records"] += 1
