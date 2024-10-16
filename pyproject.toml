@@ -62,3 +62,6 @@ line-ending = "auto"
 # This only has an effect when the `docstring-code-format` setting is
 # enabled.
 docstring-code-line-length = "dynamic"
+
+[tool.pyright]
+typeCheckingMode = "basic"
