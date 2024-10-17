@@ -9,7 +9,7 @@ import sys
 from collections import defaultdict
 
 from coders.types import Coder, Locatable
-from data.item import blank_item
+from oldnyc.item import blank_item
 
 # TODO: move these into a data file, maybe GeoJSON
 parks = {

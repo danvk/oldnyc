@@ -9,7 +9,7 @@ import sys
 
 import nyc.boroughs
 from coders.types import Coder, Locatable
-from data.item import Item
+from oldnyc.item import Item
 
 boros = r"(?:New York|Manhattan|Brooklyn|Bronx|Queens|Staten Island), (?:NY|N\.Y\.)"
 boros_re = r"(New York|Manhattan|Brooklyn|Bronx|Queens|Staten Island), (?:NY|N\.Y\.)$"

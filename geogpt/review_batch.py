@@ -4,7 +4,7 @@
 import json
 import sys
 
-from data.item import load_items
+from oldnyc.item import load_items
 
 
 def scrub(txt: str) -> str:

@@ -21,7 +21,7 @@ import coders.nyc_parks
 import generate_js
 import geocoder
 from coders.types import Coder, Locatable, Location
-from data.item import Item, load_items
+from oldnyc.item import Item, load_items
 
 CODERS: dict[str, Callable[[], Coder]] = {
     "extended-grid": coders.extended_grid.ExtendedGridCoder,

@@ -7,13 +7,13 @@ import json
 import os
 import sys
 
-from data.item import json_to_item
+from oldnyc.item import load_items
 
 if __name__ == "__main__":
     assert len(sys.argv) == 4, "Usage: %s imges.ndjson crops.json photos.ndjson"
     _, records_ndjson, crops_json, out_ndjson = sys.argv
 
-    rs = [json_to_item(r) for r in open(records_ndjson)]
+    rs = load_items(records_ndjson)
     expansions = json.load(open(crops_json))
 
     skipped = 0

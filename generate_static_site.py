@@ -12,8 +12,8 @@ from collections import OrderedDict, defaultdict
 from typing import Iterable
 
 from analysis import dates_from_text
-from data.item import load_items
-from dates import extract_years
+from oldnyc.ingest.dates import extract_years
+from oldnyc.item import load_items
 from title_cleaner import is_pure_location
 
 # Make sure the oldnyc.github.io repo is in a clean state.

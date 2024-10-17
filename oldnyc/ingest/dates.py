@@ -1,7 +1,7 @@
 # pyright: strict
 import re
 
-from data.util import clean_date
+from .util import clean_date
 
 
 def extract_years(date_str: str) -> list[str]:

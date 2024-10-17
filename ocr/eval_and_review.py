@@ -11,8 +11,8 @@ import dataclasses
 import json
 import sys
 
-from data.item import load_items
 from ocr.score_utils import score_for_pair
+from oldnyc.item import load_items
 
 if __name__ == "__main__":
     (base_file, exp_file) = sys.argv[1:]

@@ -2,7 +2,7 @@
 
 from typing import Any, NotRequired, Protocol, TypedDict
 
-from data.item import Item
+from oldnyc.item import Item
 
 
 class Location(TypedDict):

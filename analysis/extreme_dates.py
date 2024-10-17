@@ -9,7 +9,7 @@ See https://github.com/danvk/oldnyc/issues/3
 
 import re
 
-from data.item import load_items
+from oldnyc.item import load_items
 
 
 def extract_dates(date_str):

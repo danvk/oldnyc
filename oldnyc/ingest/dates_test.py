@@ -1,4 +1,4 @@
-from dates import extract_years
+from .dates import extract_years
 
 
 def test_extract_dates():

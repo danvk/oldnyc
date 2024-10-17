@@ -15,8 +15,8 @@ import re
 import sys
 
 from coders.types import Coder, Locatable
-from data.item import Item, blank_item
 from grid import coder
+from oldnyc.item import Item, blank_item
 
 ORDINALS = {
     "First": 1,

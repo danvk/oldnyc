@@ -4,7 +4,7 @@
 import json
 import sys
 
-from data.item import load_items
+from oldnyc.item import load_items
 
 if __name__ == "__main__":
     gpt_jsonl = sys.argv[1]

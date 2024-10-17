@@ -2,7 +2,7 @@
 import re
 from datetime import date
 
-from dates import extract_years
+from oldnyc.ingest.dates import extract_years
 
 
 def get_date_range(date_str: str) -> tuple[date, date]:

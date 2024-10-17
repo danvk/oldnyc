@@ -5,7 +5,7 @@ import json
 import re
 import sys
 
-from data.item import Item, load_items
+from oldnyc.item import Item, load_items
 
 # See https://cookbook.openai.com/examples/batch_processing
 # TODO: Make more of an effort to get GPT the Borough (typically in SOURCE column of CSV)

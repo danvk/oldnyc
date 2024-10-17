@@ -9,7 +9,7 @@ from typing import Sequence
 
 import record
 from coders.types import Locatable, Location
-from data.item import Item
+from oldnyc.item import Item
 
 encoder.FLOAT_REPR = lambda o: format(o, ".6f")  # type: ignore
 

@@ -4,7 +4,7 @@ import json
 import sys
 
 from coders.types import Coder, Locatable
-from data.item import Item
+from oldnyc.item import Item
 
 
 class GptCoder(Coder):
