@@ -86,6 +86,12 @@ To update the geocache:
 
 ...
 
+## Generate extended grid data
+
+This has no inputs and outputs `grid/intersections.csv`:
+
+    poetry run grid/gold.py
+
 ## Generate images.ndjson from CSV
 
 Sources of data:

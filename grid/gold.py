@@ -1,11 +1,21 @@
 #!/usr/bin/env python
-"""Generate golden data for Manhattan intersections."""
+"""Generate intersections.csv by searching for every (avenue, street) pair.
 
+This seems to have worked in 2015, but it's not working now. The Google Maps geocoder
+seems to have gotten more aggressive about correcting non-existent intersections like
+1st street and 5th avenue to 5th street and 1st avenue, or finding a matching
+intersection in an entirely different county.
+"""
+
+import argparse
+import json
 import os
+import sys
 
 from dotenv import load_dotenv
 
 import geocoder
+from nyc.boroughs import PointToBorough
 
 
 # See http://stackoverflow.com/a/20007730/388951
@@ -13,9 +23,11 @@ def make_ordinal(n):
     return "%d%s" % (n, "tsnrhtdd"[(n // 10 % 10 != 1) * (n % 10 < 4) * n % 10 :: 4])
 
 
-def make_street_str(street):
+def make_street_str(street, avenue):
     """1 -> 1st Street"""
-    return make_ordinal(street) + " street"
+    side = "East" if avenue <= 5 else "West"
+    ordinal = make_ordinal(street)
+    return f"{side} {ordinal} street"
 
 
 def make_avenue_str(avenue, street=0):
@@ -55,46 +67,100 @@ def make_avenue_str(avenue, street=0):
 """
 
 
-def locate(avenue, street):
-    """Avenue & Street are numbers. Returns (lat, lon).
-    Avenue A is -1.
-    """
-    street_str = make_street_str(street)
+def locate(avenue, street, verbose=False):
+    """Avenue & Street are numbers. Returns (lat, lon). Avenue A is -1."""
+    street_str = make_street_str(street, avenue)
     avenue_str = make_avenue_str(avenue, street)
-    response = g.Locate("%s and %s, Manhattan, NY" % (street_str, avenue_str))
+    if avenue_str is None:
+        return None
+    location_str = "%s & %s, Manhattan, NY" % (street_str, avenue_str)
+    print(location_str)
+    response = g.Locate(location_str)
     if not response:
         return None
 
+    # print(response)
     r = response["results"][0]
     if r["types"] != ["intersection"]:
         return None
     if r.get("partial_match"):
         return None  # may be inaccurate
+    if verbose:
+        print(json.dumps(r, indent=2))
+    # r["address_components"][0]["long_name"]  # 1st Avenue & East 5th Street
+    comp = r["address_components"][0]
+    if "intersection" not in comp["types"]:
+        return None
+    long_name = comp["long_name"]
+    if (street_str.lower() not in long_name.lower()) or (
+        avenue_str.lower() not in long_name.lower()
+    ):
+        if verbose:
+            sys.stderr.write(f"Discarding possible mismatch:\n-{location_str}\n+{long_name}\n")
+        return None
 
     loc = r["geometry"]["location"]
     lat_lon = loc["lat"], loc["lng"]
+    if PointToBorough(*lat_lon) != "Manhattan":
+        if verbose:
+            sys.stderr.write("Discarding non-Manhattan location\n")
+        return None
 
     return lat_lon
 
 
 if __name__ == "__main__":
     load_dotenv()
+    parser = argparse.ArgumentParser(description="Generate coordinates of Manhattan intersections.")
+    parser.add_argument(
+        "-n",
+        "--use_network",
+        action="store_true",
+        help="Set this to make the geocoder use the network. The "
+        "alternative is to use only the geocache.",
+    )
+    parser.add_argument(
+        "--format",
+        choices=("tsv", "csv"),
+        default="csv",
+        help="Output format; tsv is useful for loading into a spreadsheet.",
+    )
+    parser.add_argument("--verbose", action="store_true", help="Print out progress messages.")
+    args = parser.parse_args()
     api_key = os.environ.get("GOOGLE_MAPS_API_KEY")
     assert api_key
-    g = geocoder.Geocoder(True, 1, api_key)  # use network, 1s wait time.
+    g = geocoder.Geocoder(args.use_network, 2, api_key)  # use network, 1s wait time.
 
     crosses = []
-    # for street in range(14, 125):
-    #     for ave in range(-3, 13):
-    #         crosses.append((ave, street))
-    for street in range(1, 14):
-        for ave in range(-3, 7):
+    for street in range(1, 125):
+        for ave in range(-3, 13 if street >= 14 else 7):
             crosses.append((ave, street))
+    # crosses = [(5, 50)]
+    # crosses = [(5, 1)]
+    # crosses = [(6, 1)]
+    crosses = [(2, 2)]
+    # for street in range(1, 14):
+    #     for ave in range(-3, 7):
+    #         crosses.append((ave, street))
     # random.shuffle(crosses)
 
+    rows = [["Street", "Avenue", "Lat", "Lon"]]
     for i, (ave, street) in enumerate(crosses):
-        lat, lon = locate(ave, street) or ("", "")
-        print("%d\t%d\t%s\t%s" % (street, ave, lat, lon))
-        # print '%d / %d --> %s / %s --> %s' % (
-        #         1 + i, len(crosses),
-        #         make_street_str(street), make_avenue_str(ave), lat_lon)
+        lat, lon = locate(ave, street, args.verbose) or ("", "")
+        rows.append([str(x) for x in [street, ave, lat, lon]])
+        if args.verbose:
+            sys.stderr.write(
+                "%d / %d --> %s / %s --> %s, %s\n"
+                % (
+                    1 + i,
+                    len(crosses),
+                    make_street_str(street, ave),
+                    make_avenue_str(ave, street),
+                    lat,
+                    lon,
+                )
+            )
+
+    delim = "," if args.format == "csv" else "\t"
+    for row in rows:
+        print(delim.join(row))

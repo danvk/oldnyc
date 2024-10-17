@@ -14,16 +14,6 @@ from data.item import Item
 encoder.FLOAT_REPR = lambda o: format(o, ".6f")  # type: ignore
 
 
-# http://stackoverflow.com/questions/1342000/how-to-replace-non-ascii-characters-in-string
-def removeNonAscii(s):
-    return "".join(i for i in s if ord(i) < 128)
-
-
-def loadBlacklist():
-    # unused for now
-    return set()
-
-
 # could be tuple[Item, None, None] | tuple[Item, str, Location | Locatable]
 LocatedRecord = tuple[Item, str | None, Location | Locatable | None]
 
@@ -35,9 +25,6 @@ def _generateJson(located_recs: Sequence[LocatedRecord], lat_lon_map: dict[str, 
 
     claimed_in_map = {}
 
-    # load a blacklist as a side input
-    blacklist = loadBlacklist()
-
     for r, _coder, location_data in located_recs:
         if not location_data:
             continue
@@ -48,8 +35,6 @@ def _generateJson(located_recs: Sequence[LocatedRecord], lat_lon_map: dict[str, 
         if lat_lon_map and ll_str in lat_lon_map:
             claimed_in_map[ll_str] = True
             ll_str = lat_lon_map[ll_str]
-        if ll_str in blacklist:
-            continue
         ll_to_id[ll_str].append(r)
 
     # print len(claimed_in_map)
@@ -118,10 +103,10 @@ def printRecordsJson(located_recs: list[LocatedRecord]):
     for r, coder, location_data in located_recs:
         rec = {
             "id": r.id,
-            "folder": removeNonAscii((r.address or "").replace("Folder: ", "")),
+            "folder": (r.address or "").replace("Folder: ", ""),
             "date": record.clean_date(r.date or ""),
-            "title": removeNonAscii(record.clean_title(r.title)),
-            "description": removeNonAscii(r.back_text),
+            "title": record.clean_title(r.title),
+            "description": r.back_text,
             "url": r.url,
             "extracted": {"date_range": [None, None]},
         }
@@ -134,7 +119,7 @@ def printRecordsJson(located_recs: list[LocatedRecord]):
             lat, lng = location_data.get("lat"), location_data.get("lon")
             if lat is not None and lng is not None:
                 rec["extracted"]["latlon"] = (lat, lng)
-                rec["extracted"]["located_str"] = removeNonAscii(location_data["address"])
+                rec["extracted"]["located_str"] = location_data["address"]
                 rec["extracted"]["technique"] = coder
 
         # TODO: remove this
