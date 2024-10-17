@@ -152,6 +152,7 @@ def code(avenue, street):
 
 
 if __name__ == "__main__":
+    print("Avenues and streets with imperfect correlations:")
     print("Avenues:")
     for ave in sorted(by_avenue.keys()):
         r2 = correl_lat_lons(by_avenue[ave])
