@@ -1,4 +1,4 @@
-from .util import clean_creator, clean_date, clean_title
+from oldnyc.ingest.util import clean_creator, clean_date, clean_title
 
 
 def test_clean_title():
