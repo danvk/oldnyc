@@ -14,8 +14,8 @@ import sys
 
 from dotenv import load_dotenv
 
-import geocoder
 from nyc.boroughs import PointToBorough
+from oldnyc.geocode import geocoder
 
 
 # See http://stackoverflow.com/a/20007730/388951
