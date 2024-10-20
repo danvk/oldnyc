@@ -53,7 +53,7 @@ for photo_id, width, height in csv.reader(open("data/self-hosted-sizes.txt")):
 
 
 # rotated images based on user feedback
-user_rotations = json.load(open("analysis/rotations/rotations.json"))
+user_rotations = json.load(open("data/rotations.json"))
 id_to_rotation = user_rotations["fixes"]
 
 
