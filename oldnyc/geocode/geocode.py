@@ -16,7 +16,7 @@ from dotenv import load_dotenv
 
 from oldnyc.geocode import generate_js, geocoder
 from oldnyc.geocode.coders import extended_grid, gpt, milstein, nyc_parks
-from oldnyc.geocode.types import Coder, Locatable, Location
+from oldnyc.geocode.geocode_types import Coder, Locatable, Location
 from oldnyc.item import Item, load_items
 
 CODERS: dict[str, Callable[[], Coder]] = {

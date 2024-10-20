@@ -8,7 +8,7 @@ import re
 import sys
 
 from oldnyc.geocode.boroughs import point_to_borough
-from oldnyc.geocode.types import Coder, Locatable
+from oldnyc.geocode.geocode_types import Coder, Locatable
 from oldnyc.item import Item
 
 boros = r"(?:New York|Manhattan|Brooklyn|Bronx|Queens|Staten Island), (?:NY|N\.Y\.)"

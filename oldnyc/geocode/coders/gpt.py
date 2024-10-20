@@ -3,7 +3,7 @@
 import json
 import sys
 
-from oldnyc.geocode.types import Coder, Locatable
+from oldnyc.geocode.geocode_types import Coder, Locatable
 from oldnyc.item import Item
 
 
