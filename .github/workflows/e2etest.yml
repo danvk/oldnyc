@@ -13,7 +13,7 @@ jobs:
         tar -xzf geocache.tgz
     - name: Run geocoder
       run: |
-        poetry run oldnyc/geocode/geocodes.py --ids_filter test/random200-ids.txt --images_ndjson data/images.ndjson --output_format id-location.txt --geocode > test/random200-geocoded.txt 2> test/random200.logs.txt
+        poetry run oldnyc/geocode/geocode.py --ids_filter test/random200-ids.txt --images_ndjson data/images.ndjson --output_format id-location.txt --geocode > test/random200-geocoded.txt 2> test/random200.logs.txt
     - name: Check for diffs
       run: |
         git diff --exit-code test/
@@ -55,7 +55,7 @@ jobs:
         poetry run ./nyc/crops-to-json.py nyc/crops.txt > /tmp/crops.json
         poetry run ./nyc/records_to_photos.py data/images.ndjson /tmp/crops.json data/photos.ndjson
         echo '{"fixes": {}}' > ocr/feedback/fixes.json
-        poetry run ./generate_static_site.py --leave-timestamps-unchanged
+        poetry run oldnyc/site/generate_static_site.py --leave-timestamps-unchanged
     - name: Check for diffs
       run: |
         cd ../oldnyc.github.io
