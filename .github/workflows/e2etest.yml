@@ -13,7 +13,8 @@ jobs:
         tar -xzf geocache.tgz
     - name: Run geocoder
       run: |
-        poetry run oldnyc/geocode/geocode.py --ids_filter test/random200-ids.txt --images_ndjson data/images.ndjson --output_format id-location.txt --geocode > test/random200-geocoded.txt 2> test/random200.logs.txt
+        poetry run oldnyc/geocode/geocode.py --ids_filter test/random200-ids.txt --images_ndjson data/images.ndjson --output_format id-location.txt --geocode > >(tee test/random200-geocoded.txt) 2> >(tee test/random200.logs.txt >&2)
+        # See https://stackoverflow.com/a/692407/388951 for the stdout/stderr redirection
     - name: Check for diffs
       run: |
         git diff --exit-code test/
