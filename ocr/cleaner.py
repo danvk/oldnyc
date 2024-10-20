@@ -14,7 +14,7 @@ import re
 import editdistance
 
 
-def swap_chars(txt):
+def swap_chars(txt: str) -> str:
     r"""Remove a few common Ocropusisms, like \& and ''"""
     return re.sub(r"''", '"', re.sub(r"\\&", "&", txt))
 
@@ -39,7 +39,7 @@ def is_warning(line):
     return False
 
 
-def remove_warnings(txt):
+def remove_warnings(txt: str) -> str:
     """Remove lines like "NO REPRODUCTIONS"."""
     # remove full warning lines
     txt = "\n".join(line for line in txt.split("\n") if not is_warning(line))
@@ -60,7 +60,7 @@ def remove_warnings(txt):
     return txt
 
 
-def merge_lines(txt):
+def merge_lines(txt: str) -> str:
     """Merge sequential lines in a paragraph into a single line.
 
     This can't be done reliably from just the OCR'd text -- it would be better
@@ -99,7 +99,7 @@ def merge_lines(txt):
     return txt
 
 
-def clean(txt):
+def clean(txt: str):
     return merge_lines(remove_warnings(swap_chars(txt)))
 
 

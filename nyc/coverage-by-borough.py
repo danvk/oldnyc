@@ -6,7 +6,7 @@ import re
 import sys
 from collections import defaultdict
 
-from nyc.boroughs import PointToBorough
+from oldnyc.geocode.boroughs import point_to_borough
 
 records = json.load(open(sys.argv[1]))
 
@@ -39,7 +39,7 @@ for rec in records:
     if "located_str" not in e:
         continue
     lat, lon = e["latlon"]
-    geocode_boro = PointToBorough(lat, lon)
+    geocode_boro = point_to_borough(lat, lon)
 
     if boro == geocode_boro:
         correct_by_borough[boro] += 1

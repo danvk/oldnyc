@@ -23,4 +23,6 @@ Inputs:
 - `data.json`: contains OCR text from 2015 (Ocropy) plus manual fixes
 - `gpt-text.json`: contains OCR text from 2024 via OpenAI
 
-...
+TODO:
+
+- Document provenance for all files.

@@ -1,21 +1,15 @@
 """Utility for mapping a lat/lon to a borough."""
 
 import json
-import os
 
 import nyc.shape_utils as shape_utils
+
+BOROUGHS_JSON_FILE = "data/originals/borough-polygons.json"
 
 boroughs = None
 
 
-def _getBoroughJsonPath():
-    for path in ["borough-polygons.json", "nyc/borough-polygons.json"]:
-        if os.path.exists(path):
-            return path
-    raise Exception("Couldn't find borough-polygons.json file.")
-
-
-def PointToBorough(lat, lon):
+def point_to_borough(lat: float, lon: float) -> str | None:
     """Returns the name of a borough, or None if the point is not in NYC.
 
     Possible return values are:
@@ -23,7 +17,7 @@ def PointToBorough(lat, lon):
     """
     global boroughs
     if not boroughs:
-        boroughs = json.load(open(_getBoroughJsonPath()))
+        boroughs = json.load(open(BOROUGHS_JSON_FILE))
 
     pt = (lon, lat)
     for k, v in boroughs.items():

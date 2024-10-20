@@ -14,8 +14,8 @@ import sys
 
 from dotenv import load_dotenv
 
-from nyc.boroughs import PointToBorough
 from oldnyc.geocode import geocoder
+from oldnyc.geocode.boroughs import point_to_borough
 
 
 # See http://stackoverflow.com/a/20007730/388951
@@ -101,7 +101,7 @@ def locate(avenue, street, verbose=False):
 
     loc = r["geometry"]["location"]
     lat_lon = loc["lat"], loc["lng"]
-    if PointToBorough(*lat_lon) != "Manhattan":
+    if point_to_borough(*lat_lon) != "Manhattan":
         if verbose:
             sys.stderr.write("Discarding non-Manhattan location\n")
         return None

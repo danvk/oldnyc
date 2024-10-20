@@ -7,8 +7,8 @@
 import re
 import sys
 
-import nyc.boroughs
 from coders.types import Coder, Locatable
+from oldnyc.geocode.boroughs import point_to_borough
 from oldnyc.item import Item
 
 boros = r"(?:New York|Manhattan|Brooklyn|Bronx|Queens|Staten Island), (?:NY|N\.Y\.)"
@@ -161,7 +161,7 @@ class MilsteinCoder(Coder):
             return None
         _, lat, lon = tlatlon
 
-        geocode_boro = nyc.boroughs.PointToBorough(lat, lon)
+        geocode_boro = point_to_borough(lat, lon)
         record_boro = self._getBoroughFromAddress(data["address"])
 
         if geocode_boro != record_boro:
