@@ -9,11 +9,24 @@ import json
 import os
 import subprocess
 import sys
+from typing import NotRequired, TypedDict
+
+from nyc.find_pictures import PhotoCrops, Rect, SizeWH
 
 usage = "%s (detected-photos.txt|http://...) output-directory\n" % sys.argv[0]
 
 
-def ExtractPhotos(d, output_dir):
+class RectWithFile(Rect):
+    file: str
+
+
+class ExtractedPhoto(TypedDict):
+    file: str
+    shape: SizeWH
+    rects: NotRequired[list[RectWithFile]]
+
+
+def ExtractPhotos(d: PhotoCrops, output_dir: str) -> ExtractedPhoto:
     rects = d["rects"] if "rects" in d else None
     if not rects:
         # The algorithm took a pass on this image.
@@ -21,8 +34,10 @@ def ExtractPhotos(d, output_dir):
         output_path = os.path.join(output_dir, os.path.basename(d["file"]))
         if not os.path.exists(output_path) or not os.path.samefile(d["file"], output_path):
             subprocess.check_output(["ln", "-sf", d["file"], output_path])
+        return ExtractedPhoto(file=d["file"], shape=d["shape"])
     else:
         base, ext = os.path.splitext(os.path.basename(d["file"]))
+        out_rects: list[RectWithFile] = []
         for idx, rect in enumerate(rects):
             char = chr(ord("a") + idx)
             output_path = os.path.join(output_dir, "%s-%s%s" % (base, char, ext))
@@ -37,7 +52,8 @@ def ExtractPhotos(d, output_dir):
                     output_path,
                 ]
             )
-            rect["file"] = os.path.basename(output_path)
+            out_rects.append({**rect, "file": os.path.basename(output_path)})
+        return ExtractedPhoto(file=d["file"], shape=d["shape"], rects=out_rects)
 
 
 if len(sys.argv) < 2:
@@ -50,6 +66,6 @@ for line in fileinput.input():
     d = json.loads(line)
     f = str(d["file"])
 
-    ExtractPhotos(d, output_dir)
-    print(json.dumps(d))
+    crops = ExtractPhotos(d, output_dir)
+    print(json.dumps(crops))
     sys.stdout.flush()

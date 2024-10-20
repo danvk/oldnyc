@@ -4,11 +4,14 @@ This attempts to find bounding boxes for the pictures in a Milstein card.
 
 The cards have a brown background and contain 1-3 images, each of which are set
 on smaller, white cards.
+
+Outputs ndjson with one line for each image.
 """
 
 import json
 import subprocess
 import sys
+from typing import NotRequired, TypedDict
 
 import cv2
 import numpy as np
@@ -21,6 +24,25 @@ MIN_PHOTO_SOLIDITY = 0.93
 
 ShowImage = False
 # ShowImage = True  # for debugging
+
+
+class Rect(TypedDict):
+    left: int
+    top: int
+    right: int
+    bottom: int
+    solidity: float
+
+
+class SizeWH(TypedDict):
+    w: int
+    h: int
+
+
+class PhotoCrops(TypedDict):
+    file: str
+    shape: SizeWH
+    rects: NotRequired[list[Rect]]
 
 
 def LoadAndBinarizeImage(path):
@@ -99,7 +121,7 @@ def ProcessImage(path):
     count += 1
     sys.stderr.write("%3d Processing %s...\n" % (count, path))
 
-    rects = []
+    rects: list[Rect] = []
     B = LoadAndBinarizeImage(path)
 
     # Exclude borders
@@ -168,7 +190,7 @@ def ProcessImage(path):
                 }
             )
 
-    output = {
+    output: PhotoCrops = {
         "file": path,
         "shape": {"w": 5 * B.shape[1] + 160, "h": 5 * B.shape[0] + 160},
     }
