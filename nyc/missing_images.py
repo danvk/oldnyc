@@ -12,7 +12,7 @@ if __name__ == "__main__":
     site_photos = json.load(open("../oldnyc.github.io/data.json"))["photos"]
 
     id_to_dims = {}
-    for photo_id, width, height in csv.reader(open("nyc-image-sizes.txt")):
+    for photo_id, width, height in csv.reader(open("data/nyc-image-sizes.txt")):
         id_to_dims[photo_id] = (int(width), int(height))
 
     for photo in site_photos:

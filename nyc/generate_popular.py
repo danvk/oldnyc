@@ -28,7 +28,7 @@ def run():
 
     sys.stderr.write("Loaded %d popular images\n" % len(photos))
 
-    for row in csv.reader(open("nyc-image-sizes.txt")):
+    for row in csv.reader(open("data/nyc-image-sizes.txt")):
         photo_id, width, height = row
         width = int(width)
         height = int(height)

@@ -43,11 +43,11 @@ rs = load_items("data/photos.ndjson")
 id_to_record = {r.id: r for r in rs}
 
 id_to_dims = {}
-for photo_id, width, height in csv.reader(open("nyc-image-sizes.txt")):
+for photo_id, width, height in csv.reader(open("data/nyc-image-sizes.txt")):
     id_to_dims[photo_id] = (int(width), int(height))
 
 self_hosted_ids = set()
-for photo_id, width, height in csv.reader(open("self-hosted-sizes.txt")):
+for photo_id, width, height in csv.reader(open("data/self-hosted-sizes.txt")):
     id_to_dims[photo_id] = (int(width), int(height))
     self_hosted_ids.add(photo_id)
 
