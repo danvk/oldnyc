@@ -18,9 +18,9 @@ import coders.extended_grid
 import coders.gpt
 import coders.milstein
 import coders.nyc_parks
-import generate_js
 import geocoder
 from coders.types import Coder, Locatable, Location
+from oldnyc.geocode import generate_js
 from oldnyc.item import Item, load_items
 
 CODERS: dict[str, Callable[[], Coder]] = {

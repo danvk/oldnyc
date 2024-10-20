@@ -1,4 +1,4 @@
-from analysis.dates_from_text import get_dates_from_text
+from oldnyc.site.dates_from_text import get_dates_from_text
 
 text_701590f = """Pelham Bay Park - Orchard Beach: Shown, in a set of three views, are
 the newly erected bath houses built by the Works Progress Administration.

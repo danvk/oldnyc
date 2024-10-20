@@ -1,4 +1,4 @@
-import title_cleaner
+from oldnyc.site import title_cleaner
 
 TRUTH = [
     (True, "Manhattan: 1st Ave. - 34th St. E."),
