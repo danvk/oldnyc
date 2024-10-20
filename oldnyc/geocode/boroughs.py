@@ -2,7 +2,7 @@
 
 import json
 
-import nyc.shape_utils as shape_utils
+from oldnyc.geocode import shape_utils
 
 BOROUGHS_JSON_FILE = "data/originals/borough-polygons.json"
 
