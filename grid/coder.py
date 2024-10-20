@@ -9,7 +9,7 @@ import numpy as np
 by_avenue = defaultdict(lambda: {})
 by_street = defaultdict(lambda: {})
 
-for row in csv.DictReader(open("grid/intersections.csv")):
+for row in csv.DictReader(open("data/intersections.csv")):
     if not row["Lat"]:
         continue  # not all intersections exist.
     avenue = int(row["Avenue"])
