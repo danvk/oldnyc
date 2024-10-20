@@ -11,7 +11,7 @@ import subprocess
 import sys
 from typing import NotRequired, TypedDict
 
-from nyc.find_pictures import PhotoCrops, Rect, SizeWH
+from oldnyc.crop.find_pictures import PhotoCrops, Rect, SizeWH
 
 usage = "%s (detected-photos.txt|http://...) output-directory\n" % sys.argv[0]
 

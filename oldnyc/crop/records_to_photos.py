@@ -8,7 +8,7 @@ import os
 import sys
 from dataclasses import dataclass
 
-from nyc.extract_photos import ExtractedPhoto
+from oldnyc.crop.extract_photos import ExtractedPhoto
 from oldnyc.item import load_items
 
 
