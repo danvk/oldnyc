@@ -32,7 +32,7 @@ args = parser.parse_args()
 
 # TODO: replace this with JSON
 # strip leading 'var popular_photos = ' and trailing ';'
-popular_photos = json.loads(open("viewer/static/js/popular-photos.js").read()[20:-2])
+popular_photos = json.loads(open("data/popular-photos.js").read()[20:-2])
 pop_ids = {x["id"] for x in popular_photos}
 
 # TODO: replace this with JSON

@@ -40,9 +40,7 @@ def run():
     for row in photos:
         assert "height" in row
 
-    open("viewer/static/js/popular-photos.js", "w").write(
-        "var popular_photos = %s;\n" % json.dumps(photos)
-    )
+    open("data/popular-photos.js", "w").write("var popular_photos = %s;\n" % json.dumps(photos))
 
 
 if __name__ == "__main__":
