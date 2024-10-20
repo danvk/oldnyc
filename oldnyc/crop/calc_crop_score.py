@@ -5,6 +5,10 @@ Prints out three categories:
   - Declined to detect any photos (SAFE)
   - Correct # of photos detected
   - Incorrect # of photos detected
+
+The golden input presumably came from a localturk template that's
+since been deleted:
+https://github.com/danvk/oldnyc/tree/geocodes-2017/nyc/testdata
 """
 
 import csv
