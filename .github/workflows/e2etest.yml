@@ -45,7 +45,7 @@ jobs:
         git clone https://github.com/oldnyc/oldnyc.github.io.git
     - name: Run ingestion
       run: |
-        PYTHONPATH=. poetry run data/ingest.py
+        PYTHONPATH=. poetry run oldnyc/ingest/ingest.py
     - name: Check for diffs
       run: |
         git diff --exit-code data/
