@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-"""Pull accurate user-generated rotations out of a CSV database dump.
+"""Pull accurate user-generated rotations out of a Firebase database dump.
 
 Output is a JSON file mapping photo id --> degrees of rotation.
 Rotations are only output if they're confirmed by multiple IPs.
