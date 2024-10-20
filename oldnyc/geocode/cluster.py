@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 """
-Reads in locations.txt (produced by generate-geocodes.py with
---output_mode=locations.txt) and clusters very close points. This reduces the
-number of unique map markers and makes it easier to find things.
+Reads in locations.txt (produced by geocode.py with --output_mode=locations.txt)
+and clusters very close points. This reduces the number of unique map markers and
+makes it easier to find things.
 
 Output is an exhaustive mapping of "old_lat,old_lon\tnew_lat,new_lon" pairs.
 
@@ -16,8 +16,10 @@ TODO:
 
 import fileinput
 
+# TODO: move to argparse
 DISTANCE_THRESHOLD = 20
 
+# TODO: move to argparse
 output_mode = "map"  # 'urls'
 
 counts = []
