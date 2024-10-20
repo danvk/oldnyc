@@ -2,7 +2,7 @@
 """Determine the sizes of a bunch of images.
 
 Usage:
-./extract-sizes.py '*.jpg' > sizes.txt
+./oldnyc/ingest/extract_sizes.py '*.jpg' > sizes.txt
 
 Produces a CSV file with three columns:
 file-basename-no-extension,width,height
