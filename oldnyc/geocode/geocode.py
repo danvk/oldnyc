@@ -14,19 +14,16 @@ from typing import Callable
 
 from dotenv import load_dotenv
 
-import coders.extended_grid
-import coders.gpt
-import coders.milstein
-import coders.nyc_parks
-from coders.types import Coder, Locatable, Location
 from oldnyc.geocode import generate_js, geocoder
+from oldnyc.geocode.coders import extended_grid, gpt, milstein, nyc_parks
+from oldnyc.geocode.types import Coder, Locatable, Location
 from oldnyc.item import Item, load_items
 
 CODERS: dict[str, Callable[[], Coder]] = {
-    "extended-grid": coders.extended_grid.ExtendedGridCoder,
-    "milstein": coders.milstein.MilsteinCoder,
-    "nyc-parks": coders.nyc_parks.NycParkCoder,
-    "gpt": coders.gpt.GptCoder,
+    "extended-grid": extended_grid.ExtendedGridCoder,
+    "milstein": milstein.MilsteinCoder,
+    "nyc-parks": nyc_parks.NycParkCoder,
+    "gpt": gpt.GptCoder,
 }
 
 if __name__ == "__main__":

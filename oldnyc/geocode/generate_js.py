@@ -7,8 +7,8 @@ from collections import defaultdict
 from json import encoder
 from typing import Sequence
 
-from coders.types import Locatable, Location
 from oldnyc.geocode import record
+from oldnyc.geocode.types import Locatable, Location
 from oldnyc.item import Item
 
 encoder.FLOAT_REPR = lambda o: format(o, ".6f")  # type: ignore

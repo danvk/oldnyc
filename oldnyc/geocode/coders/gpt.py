@@ -3,7 +3,7 @@
 import json
 import sys
 
-from coders.types import Coder, Locatable
+from oldnyc.geocode.types import Coder, Locatable
 from oldnyc.item import Item
 
 
@@ -15,7 +15,7 @@ class GptCoder(Coder):
             self.queries = json.load(f)
         self.num_intersection = 0
         self.num_address = 0
-        from coders.milstein import MilsteinCoder
+        from oldnyc.geocode.coders.milstein import MilsteinCoder
 
         self.milstein = MilsteinCoder()
 

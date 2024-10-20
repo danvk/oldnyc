@@ -8,7 +8,7 @@ import re
 import sys
 from collections import defaultdict
 
-from coders.types import Coder, Locatable
+from oldnyc.geocode.types import Coder, Locatable
 from oldnyc.item import blank_item
 
 # TODO: move these into a data file, maybe GeoJSON

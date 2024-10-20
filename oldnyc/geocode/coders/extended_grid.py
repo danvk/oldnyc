@@ -15,8 +15,8 @@ import fileinput
 import re
 import sys
 
-from coders.types import Coder, Locatable
 from oldnyc.geocode import grid
+from oldnyc.geocode.types import Coder, Locatable
 from oldnyc.item import Item, blank_item
 
 ORDINALS = {
@@ -102,7 +102,7 @@ def multisearch(re_dict, txt):
 class ExtendedGridCoder(Coder):
     def __init__(self):
         # This is done here to avoid the milstein registering itself.
-        from coders.milstein import cross_patterns
+        from oldnyc.geocode.coders.milstein import cross_patterns
 
         self._cross_patterns = cross_patterns
 

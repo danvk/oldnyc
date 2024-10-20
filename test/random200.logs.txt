@@ -1,53 +1,5 @@
-Filtered to 200/41567 records with --ids_filter (200)
-Street 175 is unknown
-(731602f) Bad location: 2nd Avenue, Manhattan, N.Y.
-No cross for 19
-Borough mismatch: "51st Street & 19th Avenue, Manhattan, NY" (Manhattan) geocoded to Brooklyn
-(731306f) Bad location: 5th Avenue, Manhattan, N.Y.
-Rejecting extrapolation for 7, 12
-(1509149) Bad location: Broadway #173-77, Manhattan, NY
-(733706f) Bad location: Coney Island Creek - Stillwell Avenue - W. 12th Street - Brooklyn., NY
-  101 /   200 records processed
-(732005f) Bad location: Coney Island, Brooklyn, N.Y.
-(1509541) Bad location: Coney Island, Brooklyn, NY
-Borough mismatch: "Fulton Street & Nassau Street, Brooklyn, NY" (Brooklyn) geocoded to Manhattan
-(730023f) Bad location: Lower Manhattan., Manhattan, NY
-(104881) Bad location: Miller Field, U. S. Air Service New Dorp, Staten Island, N.Y.
-Street 126 is unknown
-(734005f) Bad location: Piers 17-18-19., Manhattan, NY
-(104780) Bad location: Quarantine, Staten Island, N.Y.
-(417391) Bad location: Typical apartment houses facing Central Park on the WestTypical apartment houses facing Central Park on the East., Manhattan, NY
-(731060f) Bad location: Washington Bridge, Harlem River, N.Y.
-(733310f) Bad location: 
-(732267f) Bad location: 
-(732307f) Bad location: 
-(1231043) Bad location: 
-(485752) Bad location: 
-(1238854) Bad location: 
-(1113261) Bad location: 
-(1113271) Bad location: 
-(730594f) Bad location: 
-(731805f) Bad location: 
-(734193f) Bad location: 
-(1635861) Bad location: 
-(1635949) Bad location: 
-(1635983) Bad location: 
-(1636238) Bad location: 
-(1663931) Bad location: 
-(2040792) Bad location: 
-(2040761) Bad location: 
-(psnypl_lhg_195) Bad location: 
-(3984237) Bad location: 
-(3984770) Bad location: 
-(3984255) Bad location: 
-(3985030) Bad location: 
-(3985133) Bad location: 
-(3984643) Bad location: 
-(3985197) Bad location: 
-       num_exact: 47
-num_extrapolated: 6
-   num_unclaimed: 3
-   53 extended-grid
-   81 milstein
-    5 nyc-parks
-  139 (total)
+Traceback (most recent call last):
+  File "/Users/danvk/github/oldnyc/oldnyc/geocode/geocode.py", line 22, in <module>
+    "extended-grid": coders.extended_grid.ExtendedGridCoder,
+                     ^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'oldnyc.geocode.coders' has no attribute 'extended_grid'
