@@ -56,16 +56,17 @@ def ExtractPhotos(d: PhotoCrops, output_dir: str) -> ExtractedPhoto:
         return ExtractedPhoto(file=d["file"], shape=d["shape"], rects=out_rects)
 
 
-if len(sys.argv) < 2:
-    sys.stderr.write(usage)
-    sys.exit(1)
+if __name__ == "__main__":
+    if len(sys.argv) < 2:
+        sys.stderr.write(usage)
+        sys.exit(1)
 
-output_dir = sys.argv.pop()
+    output_dir = sys.argv.pop()
 
-for line in fileinput.input():
-    d = json.loads(line)
-    f = str(d["file"])
+    for line in fileinput.input():
+        d = json.loads(line)
+        f = str(d["file"])
 
-    crops = ExtractPhotos(d, output_dir)
-    print(json.dumps(crops))
-    sys.stdout.flush()
+        crops = ExtractPhotos(d, output_dir)
+        print(json.dumps(crops))
+        sys.stdout.flush()
