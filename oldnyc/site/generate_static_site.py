@@ -37,7 +37,7 @@ pop_ids = {x["id"] for x in popular_photos}
 
 # TODO: replace this with JSON
 # strip leading 'var lat_lons = ' and trailing ';'
-lat_lon_to_ids = json.loads(open("viewer/static/js/nyc-lat-lons-ny.js").read()[15:-1])
+lat_lon_to_ids = json.loads(open("data/nyc-lat-lons-ny.js").read()[15:-1])
 
 rs = load_items("data/photos.ndjson")
 id_to_record = {r.id: r for r in rs}
@@ -74,11 +74,6 @@ for photo_id, r in id_to_record.items():
         id_to_text[photo_id] = old_photo_id_to_text[photo_id]
     if r.back_id in back_id_to_correction:
         id_to_text[photo_id] = back_id_to_correction[r.back_id]["text"]
-
-# (This was only helpful on the initial run, when data came straight from
-# Ocropus.)
-# for k, txt in id_to_text.iteritems():
-#     id_to_text[k] = cleaner.clean(txt)
 
 
 def image_url(photo_id: str, is_thumb: bool) -> str:
