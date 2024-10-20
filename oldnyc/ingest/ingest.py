@@ -43,10 +43,10 @@ def outside_nyc(geographics: list[str]) -> bool:
 
 
 def run():
-    csv2013 = csv.DictReader(open("nyc/milstein.csv", encoding="latin-1"))
+    csv2013 = csv.DictReader(open("data/originals/milstein.csv", encoding="latin-1"))
     csv2024 = {
         row["image_id"].lower(): row
-        for row in csv.DictReader(open("nyc/Milstein_data_for_DV_2.csv"))
+        for row in csv.DictReader(open("data/originals/Milstein_data_for_DV_2.csv"))
     }
     site_text = {
         photo["photo_id"].split("-")[0]: photo["text"]
