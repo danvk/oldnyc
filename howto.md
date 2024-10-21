@@ -6,11 +6,7 @@ The web site and static data live over in https://github.com/oldnyc/oldnyc.githu
 
 Set up the Python environment:
 
-```bash
-virtualenv env
-source env/bin/activate
-pip install -r requirements.txt
-```
+    poetry install
 
 ## Update the data
 
@@ -21,7 +17,7 @@ update this, run something like this sequence:
 cd ..
 git clone https://github.com/oldnyc/oldnyc.github.io.git
 cd ../oldnyc
-./generate_static_site.py
+poetry run oldnyc/site/generate_static_site.py
 cd ../oldnyc.github.io
 git add .
 git commit -a -m 'Update site'
@@ -33,7 +29,7 @@ git push
 It's easiest to do this by iterating on the `images.ndjson` file, which has one
 entry per milstein card, rather than one entry per photo.
 
-    ./generate-geocodes.py --coders milstein --images_ndjson data/images.ndjson --output_format records.js --geocode > /tmp/records.json
+    poetry run oldnyc/geocode/geocode.py --coders milstein --images_ndjson data/images.ndjson --output_format records.js --geocode > /tmp/records.json
 
 This will print out lots of information about incorrect geocodes and eventually print something like:
 
@@ -49,7 +45,7 @@ from Google Maps. If you want to do that, add --use_network:
 
 If you want to determine per-borough geocoding coverage, run
 
-    ./nyc/coverage-by-borough /tmp/records.json
+    poetry run oldnyc/analysis/coverage-by-borough.py /tmp/records.json
 
 ## Regenerate geocodes for the viewer (nyc-lat-lons-ny.js)
 
@@ -67,24 +63,24 @@ The lat-lon-map.txt file can be generated via:
     poetry run oldnyc/geocode/geocode.py --images_ndjson data/images.ndjson --output_format locations.txt --geocode > data/locations.txt
     poetry run oldnyc/geocode/cluster.py locations.txt > data/lat-lon-map.txt
 
-## Generate photos.ndjson
-
-`photos.ndjson` is like `images.ndjson`, but it duplicates each record across all its photos.
-(There are potentially several photos on the Milstein card for each record.)
-
-```bash
-./nyc/crops-to-json.py nyc/crops.txt > /tmp/crops.json
-./nyc/records_to_photos.py data/images.ndjson /tmp/crops.json data/photos.ndjson
-```
-
 To update the geocache:
 
     rm geocache.tgz
     tar -czf geocache.tgz geocache
 
-## Generate crops.txt
+## Generate photos.ndjson
 
-...
+`photos.ndjson` is like `images.ndjson`, but it duplicates each record across all its photos.
+(There are potentially several photos on the Milstein card for each record.)
+
+    poetry run oldnyc/crop/records_to_photos.py data/images.ndjson data/crops.ndjson data/photos.ndjson
+
+## Generate crops.ndjson
+
+    # produces detected-photos.ndjson
+    poetry run oldnyc/crop/find_pictures.py path/to/images/*.jpg > /tmp/detected-photos.ndjson
+    # produces cropped images and crops.ndjson
+    poetry run oldnyc/crop/extract_photos.py outputdir /tmp/detected-photos.ndjson > data/crops.ndjson
 
 ## Generate extended grid data
 
@@ -92,7 +88,7 @@ This has no inputs and outputs `grid/intersections.csv`:
 
     poetry run grid/gold.py
 
-(Note that this does not work as of 2024.)
+(Note that this does not work as of 2024 due to Google Maps geocoding changes.)
 
 ## Generate images.ndjson from CSV
 
@@ -101,7 +97,8 @@ Sources of data:
 - `milstein.csv`, the original CSV file that Matt K gave me in 2013.
 - `Milstein_data_for_DV_2.csv`, an update from 2024.
 - `mods-details.json`, which includes data from the NYPL API's `/mods` and `/item_details` endpoints.
+- ...
 
 To collect these into an `images.ndjson` file, run:
 
-    ./data/ingest.py
+    poetry run oldnyc/ingest/ingest.py

@@ -14,12 +14,10 @@ To get going on development:
 ```bash
 git clone git://github.com/danvk/oldnyc.git
 cd oldnyc
-virtualenv env
-source env/bin/activate
-pip install -r requirements.txt
+poetry install
 ```
 
-See [nyc/howto.md](nyc/howto.md) for more details on how to perform specific tasks.
+See [howto.md](howto.md) for more details on how to perform specific tasks.
 
 If you're interested in building your own "Old" site using this code, check out [this great writeup][3] on Old Ravenna.
 
