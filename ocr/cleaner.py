@@ -104,7 +104,7 @@ def clean(txt: str):
 
 
 if __name__ == "__main__":
-    ocr = json.load(open("ocr/ocr.json"))
+    ocr = json.load(open("data/ocr-ocropus-2015.json"))
     for k, txt in ocr.items():
         print(k)
         clean(txt)
