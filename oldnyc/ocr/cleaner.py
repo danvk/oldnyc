@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-r"""Clean up a few common warts in the OCR data from Ocropus.
+r"""Clean up a few common warts in raw OCR output.
 
 These include:
     - \& --> &

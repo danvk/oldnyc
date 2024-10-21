@@ -1,4 +1,4 @@
-from ocr import cleaner
+from oldnyc.ocr import cleaner
 
 samples = [
     # 0
