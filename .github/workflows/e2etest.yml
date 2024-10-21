@@ -26,8 +26,8 @@ jobs:
     - uses: ./.github/actions/setup
     - name: Run cropper
       run: |
-        poetry run ocr/crop_morphology.py --beta 2 --overwrite test/721675b.jpg
-        poetry run ocr/crop_morphology.py --beta 2 --overwrite --border_only --output_pattern '%s.border.jpg' test/721675b.jpg
+        poetry run oldnyc/crop/crop_to_text.py --beta 2 --overwrite test/721675b.jpg
+        poetry run oldnyc/crop/crop_to_text.py --beta 2 --overwrite --border_only --output_pattern '%s.border.jpg' test/721675b.jpg
     - name: Run photo detector
       run: |
         poetry run oldnyc/crop/find_pictures.py test/*f.jpg > test/detected-photos.ndjson
