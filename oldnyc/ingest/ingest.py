@@ -54,7 +54,7 @@ def run():
     }
     gpt_text = {
         id: r["text"]
-        for id, r in json.load(open("nyc/gpt-output.json")).items()
+        for id, r in json.load(open("data/gpt-ocr.json")).items()
         if r["text"] != "(rotated)"
     }
     mods_details = json.load(open("data/mods-details.json"))

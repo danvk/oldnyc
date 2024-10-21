@@ -12,6 +12,7 @@ if __name__ == "__main__":
     ]
 
     mapping = {}
+    n_altered = 0
     for r in gpt_data:
         back_id = r["custom_id"]
         response = r["response"]
@@ -31,10 +32,14 @@ if __name__ == "__main__":
             sys.stderr.write(f"GPT says {back_id} is rotated.\n")
         if not (back_id in mapping and rotated):
             # defer to an existing entry if this one is rotated
-            mapping[back_id] = {
+            out = {
                 "text": clean(gpt_text) if not rotated else "(rotated)",
-                "original": gpt_text,
             }
+            if out["text"] != gpt_text:
+                out["original"] = gpt_text
+                n_altered += 1
+            mapping[back_id] = out
 
     sys.stderr.write(f"Writing {len(mapping)} records.\n")
+    sys.stderr.write(f"{n_altered} were altered by cleaning.\n")
     print(json.dumps(mapping, indent=2))
