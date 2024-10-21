@@ -54,7 +54,7 @@ jobs:
       run: |
         export PYTHONPATH=.
         poetry run oldnyc/crop/records_to_photos.py data/images.ndjson data/crops.ndjson data/photos.ndjson
-        echo '{"fixes": {}}' > ocr/feedback/fixes.json
+        echo '{"fixes": {}}' > data/feedback/fixes.json
         poetry run oldnyc/site/generate_static_site.py --leave-timestamps-unchanged
     - name: Check for diffs
       run: |

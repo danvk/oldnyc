@@ -60,7 +60,7 @@ id_to_rotation = user_rotations["fixes"]
 # Load the previous iteration of OCR. Corrections are applied on top of this.
 old_data = json.load(open("../oldnyc.github.io/data.json"))
 old_photo_id_to_text = {r["photo_id"]: r["text"] for r in old_data["photos"] if r["text"]}
-manual_ocr_fixes = json.load(open("ocr/feedback/fixes.json"))
+manual_ocr_fixes = json.load(open("data/feedback/fixes.json"))
 back_id_to_correction = manual_ocr_fixes["fixes"]
 print(f"{len(back_id_to_correction)} OCR fixes")
 
