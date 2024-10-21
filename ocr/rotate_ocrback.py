@@ -16,7 +16,7 @@ from PIL import Image, ImageChops
 if __name__ == "__main__":
     (high_path, low_path, out_dir) = sys.argv[1:]
     failed_ocrbacks = {
-        line.split(".")[0] for line in open("ocr/ocrbacks.txt") if "original" in line
+        line.split(".")[0] for line in open("data/ocrbacks.txt") if "original" in line
     }
 
     for ext in ("", ".jpg", ".reconstructed.jpg", ".original.jpg"):
