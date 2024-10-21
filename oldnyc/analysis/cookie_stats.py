@@ -4,7 +4,7 @@ import json
 import sys
 
 (cookie,) = sys.argv[1:]
-corrections = json.load(open("corrections.json"))
+corrections = json.load(open("data/feedback/corrections.json"))
 
 for photo_id, data in corrections.items():
     for correction in data["corrections"]:

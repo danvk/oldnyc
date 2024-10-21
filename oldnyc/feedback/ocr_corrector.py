@@ -24,7 +24,7 @@ import re
 import sys
 from collections import Counter
 
-data = json.load(open("corrections.json"))
+data = json.load(open("data/feedback/corrections.json"))
 
 
 def photo_id_to_backing_id(photo_id):
@@ -51,7 +51,7 @@ if whitelist:
     print(f"Photo ID whitelist {len(whitelist)}: {whitelist}")
 
 backing_id_to_photo_id = {}
-site_data = json.load(open("../../../oldnyc.github.io/data.json"))
+site_data = json.load(open("../oldnyc.github.io/data.json"))
 for record in site_data["photos"]:
     photo_id = record["photo_id"]
     back_id = photo_id_to_backing_id(photo_id)
@@ -158,7 +158,7 @@ for change in changes:
 
 json.dump(
     {"fixes": backing_id_to_fix, "last_date": latest_datetime, "last_timestamp": latest_timestamp},
-    open("fixes.json", "w"),
+    open("data/feedback/fixes.json", "w"),
     indent=2,
 )
 
@@ -171,6 +171,6 @@ changes.sort(
     )
 )
 
-open("review/changes.js", "w").write(
+open("data/feedback/review/changes.js", "w").write(
     "var changes = %s;" % json.dumps(changes, indent=2, sort_keys=True)
 )

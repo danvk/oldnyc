@@ -1,11 +1,11 @@
 #!/usr/bin/env python
-"""Pull just user-generated OCR out of a CSV database dump.
+"""Pull just user-generated OCR out of a Firebase dump.
 
 Output is a JSON file mapping photo id --> manual transcription info.
 
-Input: data.json (the published all-site file)
-       user-feedback.csv
-Output: corrections.json
+Input: oldnyc.github.io/data.json (the published all-site file)
+       data/feedback/user-feedback.json
+Output: data/feedback/corrections.json
 """
 
 import json
@@ -18,7 +18,7 @@ import dateutil.parser
 
 id_to_text = {}
 back_to_front = defaultdict(list)
-site_data = json.load(open("../../../oldnyc.github.io/data.json"))
+site_data = json.load(open("../oldnyc.github.io/data.json"))
 last_timestamp = site_data["ocr_time"]  # e.g. "2015-09-27 15:31:07.691170"
 for record in site_data["photos"]:
     photo_id = record["photo_id"]
@@ -55,7 +55,7 @@ num_spam = 0
 
 id_to_corrections = defaultdict(list)
 
-all_feedback = json.load(open("../../feedback/user-feedback.json"))["feedback"]
+all_feedback = json.load(open("data/feedback/user-feedback.json"))["feedback"]
 for back_id, feedback in all_feedback.items():
     if "text" not in feedback:
         continue
@@ -91,4 +91,4 @@ for back_id, corrections in id_to_corrections.items():
 
     out[back_id] = {"original": id_to_text[photo_id], "corrections": corrections}
 
-json.dump(out, open("corrections.json", "w"), indent=2)
+json.dump(out, open("data/feedback/corrections.json", "w"), indent=2)
