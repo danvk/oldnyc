@@ -3,7 +3,7 @@
 
 Usage:
 
-    ./ocr/crop_morphology.py path/to/image.jpg
+    poetry run oldnyc/ocr/crop_to_text.py path/to/image.jpg
 
 This will place the cropped image in path/to/image.crop.png.
 

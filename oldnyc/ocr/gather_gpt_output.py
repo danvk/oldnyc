@@ -4,7 +4,7 @@
 import json
 import sys
 
-from ocr.cleaner import clean
+from oldnyc.ocr.cleaner import clean
 
 if __name__ == "__main__":
     gpt_data = [

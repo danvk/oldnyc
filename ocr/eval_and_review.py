@@ -5,14 +5,12 @@ Input is two JSON files mapping back ID -> text (base and experiment).
 Outputs some stats and fills in ocr/feedback/review/changes.js
 """
 
-#
-
 import dataclasses
 import json
 import sys
 
-from ocr.score_utils import score_for_pair
 from oldnyc.item import load_items
+from oldnyc.ocr.score_utils import score_for_pair
 
 if __name__ == "__main__":
     (base_file, exp_file) = sys.argv[1:]

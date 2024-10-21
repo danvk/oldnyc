@@ -1,6 +1,6 @@
 import Levenshtein
 
-from ocr.score_utils import (
+from oldnyc.ocr.score_utils import (
     contiguous_chunks,
     normalize_whitespace,
     try_transpositions,
