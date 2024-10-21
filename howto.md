@@ -2,6 +2,9 @@
 
 The web site and static data live over in https://github.com/oldnyc/oldnyc.github.io.
 
+If any of these workflows aren't working, check `e2etest.yml` to see if there's a more
+up-to-date version.
+
 ## Setup
 
 Set up the Python environment:

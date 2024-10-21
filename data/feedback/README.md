@@ -2,8 +2,8 @@
 
 OldNYC incorporates user feedback in a variety of ways, most notably:
 
-  * Detection of rotated images
-  * OCR correction
+- Detection of rotated images
+- OCR correction
 
 This document describes how to pull in new user feedback and push the
 changes to the site.
@@ -15,8 +15,8 @@ side-by-side on the file system.
 
 Usage:
 
-    curl "https://brilliant-heat-1088.firebaseio.com/.json?print=pretty&auth=..." -o feedback/user-feedback.json
-    cp feedback/user-feedback.json feedback/user-feedback.$(date +%Y-%m-%dT%H:%M:%S).json
+    curl "https://brilliant-heat-1088.firebaseio.com/.json?print=pretty&auth=..." -o data/feedback/user-feedback.json
+    cp data/feedback/user-feedback.json data/feedback/user-feedback.$(date +%Y-%m-%dT%H:%M:%S).json
 
 This will update `feedback/user-feedback.json`.
 
@@ -24,10 +24,9 @@ This will update `feedback/user-feedback.json`.
 
 Run:
 
-    cd analysis/rotations
-    ./extract_rotations.py
+    poetry run oldnyc/feedback/extract_rotations.py
 
-This will update `analysis/rotations/corrections.json`
+This will update `data/feedback/corrections.json`
 
 Commit all the rotations and you'll be able to review them via `git webdiff` when you run `generate_rotated_images.py` in the oldnyc.github.io repo.
 
@@ -37,7 +36,7 @@ To review the changes before committing, use this [localturk] template:
 
 ```bash
 (echo 'photo_id,rotation'; git diff rotations.json | grep '^\+' | grep -v 'last_date' | sed 1d | sed 's/\+ *"//' | sed 's/,//' | sed 's/": /,/') > /tmp/new-rotations.txt
-localturk template.html /tmp/new-rotations.txt checked-rotations.txt
+localturk oldnyc/feedback/rotation-review.html /tmp/new-rotations.txt checked-rotations.txt
 ```
 
 [localturk]: https://github.com/danvk/localturk
@@ -46,16 +45,15 @@ localturk template.html /tmp/new-rotations.txt checked-rotations.txt
 
 Run:
 
-    cd ocr/feedback
-    ./extract_user_ocr.py
-    ./ocr_corrector.py
+    poetry run oldnyc/feedback/extract_user_ocr.py
+    poetry run oldnyc/feedback/ocr_corrector.py
 
-This will update `ocr/feedback/{corrections,fixes}.json`.
+This will update `data/feedback/{corrections,fixes}.json`.
 `corrections.json` is an exhaustive list of new OCR corrections, while
 `fixes.json` includes just one corrected version of the text for each
 image.
 
-To manually review updates, open review/index.html in a browser.
+To manually review updates, open `data/feedback/review/index.html` in a browser.
 
 To reject some changes, re-run `ocr_corrector.py` as it suggests.
 
@@ -63,7 +61,7 @@ To reject some changes, re-run `ocr_corrector.py` as it suggests.
 
 Run:
 
-    ./generate_static_site.py
+    poetry run oldnyc/site/generate_static_site.py
     cd ../oldnyc.github.io
     git diff
 
