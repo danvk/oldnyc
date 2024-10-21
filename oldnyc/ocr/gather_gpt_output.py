@@ -34,9 +34,9 @@ if __name__ == "__main__":
             # defer to an existing entry if this one is rotated
             out = {
                 "text": clean(gpt_text) if not rotated else "(rotated)",
+                "original": gpt_text,
             }
-            if out["text"] != gpt_text:
-                out["original"] = gpt_text
+            if out["text"] != out["original"]:
                 n_altered += 1
             mapping[back_id] = out
 
