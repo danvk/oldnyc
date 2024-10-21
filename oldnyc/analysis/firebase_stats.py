@@ -24,7 +24,7 @@ types = set(
         "cut-in-half",
     ]
 )
-type_counts = Counter()
+type_counts = Counter({t: 0 for t in types})
 date_counts = Counter()
 month_counts = Counter()
 
