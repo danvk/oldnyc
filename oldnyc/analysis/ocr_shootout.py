@@ -11,6 +11,7 @@ from collections import Counter
 from tqdm import tqdm
 
 from oldnyc.item import load_items
+from oldnyc.ocr.cleaner import clean
 from oldnyc.ocr.score_utils import score_for_pair
 from oldnyc.site.site_data_type import SiteJson
 
@@ -48,8 +49,8 @@ def main():
     task_out.writeheader()
     distances = Counter[int]()
     for id in tqdm(both_ids):
-        site = site_text[id]
-        gpt = gpt_text[id]
+        site = clean(site_text[id])
+        gpt = clean(gpt_text[id])
         score, d, adjusted = score_for_pair(site, gpt)
         out = {
             "photo_id": back_to_photo_id[id],

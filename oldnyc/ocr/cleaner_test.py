@@ -81,6 +81,12 @@ May 26, 1935.
 F. L. Sperr
 NO REFROductions.
 """,
+    # 9
+    """54 and 56 (right to left) Irving Place, adjoining and north of the N. E. corner of E. 17th Street, showing two 3 story former private dwellings. That, with the bay window is now occupied by the Cooperative Cafeteria, an enterprise long associated with the wife of Norman Thomas, the Socialist.
+June 1938
+George D. Chinn
+NEG #3039
+""",
 ]
 
 
@@ -157,6 +163,42 @@ def test_partial_warning():
 (3) The same, seen from the south side, and showing the Park after completion of the work. The flower beds are planted with ivy. The large corner building, at Sixth Avenue and 42nd Street, is the department store of Stern Brothers. July 6, 1935. P. L. Sperr.
 """
     )
+
+
+def test_remove_negative():
+    txt = cleaner.remove_neg(samples[9])
+    assert txt == (
+        """54 and 56 (right to left) Irving Place, adjoining and north of the N. E. corner of E. 17th Street, showing two 3 story former private dwellings. That, with the bay window is now occupied by the Cooperative Cafeteria, an enterprise long associated with the wife of Norman Thomas, the Socialist.
+June 1938
+George D. Chinn
+"""
+    )
+
+
+def test_is_negative():
+    texts = [
+        "NEG #3039",
+        "Negative No. 400",
+        "Neg. #1767",
+        "NEG # 3457",
+        "Neg. # 2246",
+        "Negative # 3956",
+        "Neg. # 2689",
+        "Neg. # 1458",
+        "Neg. # 2231",
+        "Neg. # 1106",
+        "Neg. #724",
+        "NEG# 3507",
+        "Neg. No. A-1074",
+        "Neg # 717",
+        "Negative No. 375.",
+        "NEG. # 4546",
+        # "Neg. H 829.",
+        "Slide #109",
+        "Neg. no. 45",
+    ]
+    for text in texts:
+        assert cleaner.is_negative(text), text
 
 
 # This one is too hard for now
