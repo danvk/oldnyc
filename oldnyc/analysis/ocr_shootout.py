@@ -10,11 +10,29 @@ from collections import Counter
 
 from tqdm import tqdm
 
+from oldnyc.feedback.feedback_types import FeedbackJson
 from oldnyc.item import load_items
 from oldnyc.ocr.cleaner import clean
 from oldnyc.ocr.score_utils import score_for_pair
 from oldnyc.site.dates_from_text import get_dates_from_text
 from oldnyc.site.site_data_type import SiteJson
+
+MAGIC_COOKIES = dict(
+    [
+        ("c7e2f9fd-badf-4cfc-b0f5-ae5861629643", 909),
+        ("42fedf3e-fa45-417f-89b0-d9706e6b8806", 566),
+        ("9433591f-cbb0-458d-b989-f75ce30337ee", 453),
+        ("9d75c4af-5ef0-4c21-aebc-162dd428fcea", 277),
+        ("fe65fd56-1668-4d78-8695-84004c6e1b52", 245),
+        ("c12d1c0a-6383-4f4a-abeb-bc2b60886fc7", 245),
+        ("ae4598dd-17b1-48ae-89df-bc650759a304", 181),
+        ("2080d5a6-d990-47e3-9c60-146fff0fb030", 174),
+        ("3d5146c9-f261-4909-9292-94c755a4de61", 156),
+        ("8c8ea4b3-3d11-4706-b409-2cdc2de9f613", 142),
+        ("b79ea804-fd6d-48a4-b713-8b1a661bbaf0", 100),
+        ("a911757f-4600-4652-a936-f5fa5802172e", 95),
+    ]
+)
 
 
 def main():
@@ -43,6 +61,19 @@ def main():
     sys.stderr.write(f"n_gpt={len(gpt_text)}\n")
     sys.stderr.write(f"{n_int=}\n")
 
+    feedback_json: FeedbackJson = json.load(open("data/feedback/user-feedback.json"))
+    magically_touched = set[str]()
+    for back_id, v in feedback_json["feedback"].items():
+        if "text" not in v:
+            continue
+        for c in v["text"].values():
+            m = c["metadata"]
+            cookie = m.get("cookie")
+            if cookie in MAGIC_COOKIES:
+                magically_touched.add(back_id)
+
+    sys.stderr.write(f"{len(magically_touched)=}\n")
+
     random.shuffle(both_ids)
     n_match = 0
     n_out = 0
@@ -69,7 +100,7 @@ def main():
         distances[d] += 1
         if score == 1.0:
             n_match += 1
-        elif n_out < 100 and is_mismatch:
+        elif n_out < 100 and id in magically_touched:  # and is_mismatch:
             out = {
                 "photo_id": back_to_photo_id[id],
                 "before": site,

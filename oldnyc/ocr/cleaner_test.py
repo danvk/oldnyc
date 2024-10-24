@@ -202,6 +202,10 @@ def test_is_negative():
         # "Neg. H 829.",
         "Slide #109",
         "Neg. no. 45",
+        "Neg. # -1407",
+        "Neg #601 A",
+        "Neg # 601 C",
+        "NEG:#3553",
     ]
     for text in texts:
         assert cleaner.is_negative(text), text
@@ -209,6 +213,7 @@ def test_is_negative():
 
 def test_fix_i17th():
     assert cleaner.swap_chars("April 19,I941") == "April 19,1941"
+    assert cleaner.swap_chars("June IIth, 1913.") == "June 11th, 1913."
     txt = cleaner.clean(samples[10])
     assert txt == (
         """Sixth Avenue, North from West 4th Street, after the removal of the "L".
