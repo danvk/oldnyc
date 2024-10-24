@@ -13,10 +13,15 @@ import re
 
 import editdistance
 
+I_NUM_RE = re.compile(r"\bI(\d{3}|\d(?:st|nd|rd|th))", re.I)
+
 
 def swap_chars(txt: str) -> str:
     r"""Remove a few common Ocropusisms, like \& and ''"""
-    return re.sub(r"''", '"', re.sub(r"\\&", "&", txt))
+    txt = re.sub(r"\\&", "&", txt)
+    txt = re.sub(r"''", '"', txt)
+    txt = re.sub(I_NUM_RE, r"1\1", txt)
+    return txt
 
 
 # See https://github.com/danvk/oldnyc/issues/39
@@ -99,8 +104,21 @@ def merge_lines(txt: str) -> str:
     return txt
 
 
+def is_negative(txt: str) -> bool:
+    """Is this a negative / slide number?"""
+    return (
+        re.match(r"(?:neg(?:ative)?|slide)[. #]*(?:no\.? )?(?:[A-Z]-)?\d+\.?$", txt, flags=re.I)
+        is not None
+    )
+
+
+def remove_neg(txt: str) -> str:
+    """Remove text like "NEG #3039", "Slide #123", etc."""
+    return "\n".join(line for line in txt.split("\n") if not is_negative(line))
+
+
 def clean(txt: str):
-    return merge_lines(remove_warnings(swap_chars(txt)))
+    return merge_lines(remove_warnings(remove_neg(swap_chars(txt))))
 
 
 if __name__ == "__main__":

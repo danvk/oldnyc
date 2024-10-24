@@ -58,7 +58,8 @@ $('#review').on('click', function(e) {
   $('#next').click();
 });
 
-$('#show-image').on('click', () => {
+$('#show-image').on('click', (e) => {
+  e.preventDefault();
   const photoId = changes[selectedIndex()].photo_id;
   $('#image').attr('src', backOfCardUrlForPhotoId(photoId)).show();
 });
@@ -77,6 +78,7 @@ $('#search').on('keypress', function(e) {
 });
 
 $(window).on('keypress', function(e) {
+  if (e.target.tagName == 'TEXTAREA') return;
   if (e.which == 'j'.charCodeAt(0)) {
     $('#next').click();
   } else if (e.which == 'k'.charCodeAt(0)) {

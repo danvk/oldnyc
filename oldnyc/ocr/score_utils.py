@@ -33,7 +33,7 @@ def contiguous_chunks(xs: list[int]) -> list[list[int]]:
     return short_chunks
 
 
-def try_transpositions(base_txt: str, exp_text: str, name: str = "") -> tuple[float, str]:
+def try_transpositions(base_txt: str, exp_text: str, name: str = "") -> tuple[int, str]:
     """mutates in_lines"""
     d = Levenshtein.distance(normalize_whitespace(base_txt), exp_text)
     in_lines = base_txt.split("\n")
@@ -58,7 +58,7 @@ def try_transpositions(base_txt: str, exp_text: str, name: str = "") -> tuple[fl
 
         if best_perm[0] < d:
             dt, perm = best_perm
-            print(f"{name} apply permutation {perm}: {d} -> {dt}")
+            # print(f"{name} apply permutation {perm}: {d} -> {dt}")
             d = dt
             lines = in_lines[:]
             for before, after in zip(chunk, perm):
@@ -68,7 +68,7 @@ def try_transpositions(base_txt: str, exp_text: str, name: str = "") -> tuple[fl
     return d, out_txt
 
 
-def score_for_pair(golden_text, run_text, name=""):
+def score_for_pair(golden_text: str, run_text: str, name=""):
     run_text = normalize_whitespace(run_text)
     d, adjusted_golden = try_transpositions(golden_text, run_text, name)
 
