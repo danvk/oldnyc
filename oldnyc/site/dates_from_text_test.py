@@ -203,6 +203,11 @@ Manhattan Theatre, Gane's Moving Picture House; Trainor's Hotel. View on Sixth A
 """
 
 
+test_709795f = """
+Seventh Avenue, west side, north from 42nd Street, excavation for Times Building is at extreme right; in the background is the nearly-completed Astor Hotel; and just north of it is the intersection of Seventh Avenue with Broadway. 1903. Photograph by Brown Brothers.
+"""
+
+
 def test_get_full_date():
     assert get_dates_from_text(text_701590f) == ["1938-01-25"]
     assert get_dates_from_text(text_701593f) == ["1928-05-29", "1928-05-29", "1928-05-29"]
@@ -250,3 +255,7 @@ def test_seasons():
 
 def test_inline_month():
     assert get_dates_from_text(test_709423f) == ["1909-04"]
+
+
+def test_inline_year():
+    assert get_dates_from_text(test_709795f) == ["1903"]

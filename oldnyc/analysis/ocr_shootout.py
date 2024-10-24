@@ -91,8 +91,8 @@ def main():
             # break
             pass
 
-        if d > 500:
-            print(f"{id} {d=} {len(site)=} {len(gpt)=}")
+        # if d > 500:
+        #     print(f"{id} {d=} {len(site)=} {len(gpt)=}")
 
     sys.stderr.write(f"{n_match=}\n")
     sys.stderr.write(f"{n_date_mismatch=}\n")

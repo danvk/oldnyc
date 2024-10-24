@@ -15,6 +15,7 @@ by_full_date2 = 0
 by_full_line = 0
 by_leadin = 0
 by_inline_my = 0
+by_inline_year = 0
 
 
 def parse_mon_year(mon_year: str):
@@ -40,6 +41,7 @@ year_pat = r"(?:1[89]\d\d)"
 month_year_re = re.compile(r"^(%s),? (%s)$" % (mon_pat, year_pat))
 floating_month_year_re = re.compile(r"\b(%s),? (%s)\b" % (mon_pat, year_pat), flags=re.I)
 year_re = re.compile(r"^%s$" % year_pat)
+anchored_year_re = re.compile(r"[ .] (%s)\." % year_pat)
 
 
 def match_full_line_date(text: str):
@@ -106,8 +108,16 @@ def get_inline_month_year(text: str):
     return date_spans
 
 
+def get_inline_year(text: str):
+    date_spans: list[tuple[str, int, int]] = []
+    for m in re.finditer(anchored_year_re, text):
+        date_spans.append((m.group(1), *m.span(1)))
+    return date_spans
+
+
 def get_dates_from_text(text: str):
-    global by_full_line, by_full_date1, by_full_date2, by_leadin, by_inline_my
+    # TODO: replace with Counter()
+    global by_full_line, by_full_date1, by_full_date2, by_leadin, by_inline_my, by_inline_year
     full_dates1 = []  # match_full_date_datefinder(text)
     full_dates2 = match_full_date_re(text)
     full_lines = match_full_line_date(text)
@@ -124,8 +134,11 @@ def get_dates_from_text(text: str):
     inline_my = get_inline_month_year(text)
     if inline_my:
         by_inline_my += 1
+    inline_year = get_inline_year(text)
+    if inline_year:
+        by_inline_year += 1
 
-    date_spans = full_dates1 + full_dates2 + full_lines + leadins + inline_my
+    date_spans = full_dates1 + full_dates2 + full_lines + leadins + inline_my + inline_year
     if not date_spans:
         return []
 
@@ -138,4 +151,6 @@ def get_dates_from_text(text: str):
 
 
 def log_stats():
-    print(f"{by_full_date1=}, {by_full_date2=}, {by_full_line=}, {by_leadin=}")
+    print(
+        f"{by_full_date1=}, {by_full_date2=}, {by_full_line=}, {by_leadin=}, {by_inline_my=}, {by_inline_year=}"
+    )
