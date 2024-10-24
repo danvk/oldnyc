@@ -58,7 +58,7 @@ def try_transpositions(base_txt: str, exp_text: str, name: str = "") -> tuple[fl
 
         if best_perm[0] < d:
             dt, perm = best_perm
-            print(f"{name} apply permutation {perm}: {d} -> {dt}")
+            # print(f"{name} apply permutation {perm}: {d} -> {dt}")
             d = dt
             lines = in_lines[:]
             for before, after in zip(chunk, perm):
