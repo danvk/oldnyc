@@ -198,6 +198,11 @@ P. L. Sperr.
 """
 
 
+test_709423f = """
+Manhattan Theatre, Gane's Moving Picture House; Trainor's Hotel. View on Sixth Avenue north between 32nd and 33rd Streets, West side. Mr Gane in front. April 1909. Photographed. by Brown Brothers.
+"""
+
+
 def test_get_full_date():
     assert get_dates_from_text(text_701590f) == ["1938-01-25"]
     assert get_dates_from_text(text_701593f) == ["1928-05-29", "1928-05-29", "1928-05-29"]
@@ -214,8 +219,7 @@ def test_prioritize_lone_date():
     assert get_dates_from_text("Sept. 1937") == ["1937-09"]
     assert get_dates_from_text("Sep. 1937") == ["1937-09"]
 
-    # would be better if this included 1923-04 and 1925-04
-    assert get_dates_from_text(text_726086f) == ["1927-06-03"]
+    assert get_dates_from_text(text_726086f) == ["1923-04", "1925-04", "1927-06-03"]
 
 
 def test_date_no_space():
@@ -234,10 +238,15 @@ def test_multiple_dates():
 
 def test_views():
     assert get_dates_from_text(text_725053f) == ["1923", "1925"]
-    assert get_dates_from_text(text_726224f) == ["1923-05"]
+    # 1930-10 isn't ideal
+    assert get_dates_from_text(text_726224f) == ["1930-10", "1923-05"]
 
 
 def test_seasons():
     assert get_dates_from_text(text_708722f) == ["1939"]
     assert get_dates_from_text(text_711019f) == ["1938"]
-    assert get_dates_from_text(text_716310f) == ["1928-07", "1928-09", "1940"]
+    assert get_dates_from_text(text_716310f) == ["1928-07", "1940", "1928-09"]
+
+
+def test_inline_month():
+    assert get_dates_from_text(test_709423f) == ["1909-04"]

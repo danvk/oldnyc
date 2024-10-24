@@ -14,6 +14,7 @@ by_full_date1 = 0
 by_full_date2 = 0
 by_full_line = 0
 by_leadin = 0
+by_inline_my = 0
 
 
 def parse_mon_year(mon_year: str):
@@ -37,22 +38,25 @@ def parse_mon_year_date(mon_year_date: str):
 mon_pat = r"(?:January|Jan\.?|February|Feb\.?|March|Mar\.?|April|Apr\.?|May|June|Jun\.?|July|Jul\.?|August|Aug\.?|September|Sept?\.?|October|Oct\.?|November|Nov\.?|December|Dec\.?)"
 year_pat = r"(?:1[89]\d\d)"
 month_year_re = re.compile(r"^(%s),? (%s)$" % (mon_pat, year_pat))
+floating_month_year_re = re.compile(r"\b(%s),? (%s)\b" % (mon_pat, year_pat), flags=re.I)
 year_re = re.compile(r"^%s$" % year_pat)
 
 
-def match_full_line_date(text: str) -> list[str]:
+def match_full_line_date(text: str):
     """Match a year or month year alone on a line of text."""
-    dates = []
-    for line in text.split("\n"):
-        line = line.replace(".", "").strip()
+    date_spans: list[tuple[str, int, int]] = []
+    for raw_line in text.split("\n"):
+        line = raw_line.replace(".", "").strip()
         m = month_year_re.match(line)
         if m:
-            dates.append(parse_mon_year(line))
+            idx = text.index(raw_line)
+            date_spans.append((parse_mon_year(line), idx, idx + len(raw_line)))
             continue
         m = year_re.match(line)
         if m:
-            dates.append(line)
-    return dates
+            idx = text.index(raw_line)
+            date_spans.append((line, idx, idx + len(raw_line)))
+    return date_spans
 
 
 full_date_re = re.compile(
@@ -60,15 +64,15 @@ full_date_re = re.compile(
 )
 
 
-def match_full_date_re(text: str) -> list[str]:
+def match_full_date_re(text: str):
     """Sometimes datefinder misses a date."""
-    dates = []
+    date_spans: list[tuple[str, int, int]] = []
     for m in re.finditer(full_date_re, text):
         # print(f'{m.group(0)}')
         date = parse_mon_year_date(m.group(0))
         if date:
-            dates.append(date)
-    return dates
+            date_spans.append((date, *m.span()))
+    return date_spans
 
 
 season_pat = r"winter|spring|summer|fall"
@@ -77,27 +81,33 @@ leadin_re = re.compile(r"%s (%s)" % (leadin_pat, year_pat), re.I)
 leadin_mon_year_re = re.compile(r"%s ?(%s,? %s)" % (leadin_pat, mon_pat, year_pat), re.I)
 
 
-def match_year_with_lead_in(text: str) -> list[str]:
+def match_year_with_lead_in(text: str):
     """Match 'about 1910' or 'prior to 1919'."""
-    dates = []
-    spans = []
+    date_spans: list[tuple[str, int, int]] = []
     for m in re.finditer(leadin_mon_year_re, text):
-        dates.append(parse_mon_year(m.group(1)))
-        spans.append(m.span())
+        date_spans.append((parse_mon_year(m.group(1)), *m.span()))
     for m in re.finditer(leadin_re, text):
         start, stop = m.span()
         bad = False
-        for span in spans:
-            if start >= span[0] and stop <= span[1]:
+        for _, mstart, mstop in date_spans:
+            if start >= mstart and stop <= mstop:
                 bad = True
                 break
         if not bad:
-            dates.append(m.group(1))
-    return dates
+            date_spans.append((m.group(1), *m.span(1)))
+    return date_spans
+
+
+def get_inline_month_year(text: str):
+    date_spans: list[tuple[str, int, int]] = []
+    for m in re.finditer(floating_month_year_re, text):
+        my = m.group(1) + " " + m.group(2)
+        date_spans.append((parse_mon_year(my), *m.span()))
+    return date_spans
 
 
 def get_dates_from_text(text: str):
-    global by_full_line, by_full_date1, by_full_date2, by_leadin
+    global by_full_line, by_full_date1, by_full_date2, by_leadin, by_inline_my
     full_dates1 = []  # match_full_date_datefinder(text)
     full_dates2 = match_full_date_re(text)
     full_lines = match_full_line_date(text)
@@ -107,14 +117,24 @@ def get_dates_from_text(text: str):
         by_full_date2 += 1
     elif full_lines:
         by_full_line += 1
-    if full_dates1 or full_dates2 or full_lines:
-        # TODO: return order could match order in the text
-        return full_lines + full_dates1 + [d for d in full_dates2 if d not in full_dates1]
 
     leadins = match_year_with_lead_in(text)
     if leadins:
         by_leadin += 1
-    return leadins
+    inline_my = get_inline_month_year(text)
+    if inline_my:
+        by_inline_my += 1
+
+    date_spans = full_dates1 + full_dates2 + full_lines + leadins + inline_my
+    if not date_spans:
+        return []
+
+    date_spans.sort(key=lambda x: (x[1], -x[2]))
+    uniq_spans = [date_spans[0]]
+    for d, start, stop in date_spans[1:]:
+        if start >= uniq_spans[-1][2]:
+            uniq_spans.append((d, start, stop))
+    return [ds[0] for ds in uniq_spans]
 
 
 def log_stats():
