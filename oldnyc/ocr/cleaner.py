@@ -13,10 +13,15 @@ import re
 
 import editdistance
 
+I_NUM_RE = re.compile(r"\bI(\d{3}|\d(?:st|nd|rd|th))", re.I)
+
 
 def swap_chars(txt: str) -> str:
     r"""Remove a few common Ocropusisms, like \& and ''"""
-    return re.sub(r"''", '"', re.sub(r"\\&", "&", txt))
+    txt = re.sub(r"\\&", "&", txt)
+    txt = re.sub(r"''", '"', txt)
+    txt = re.sub(I_NUM_RE, r"1\1", txt)
+    return txt
 
 
 # See https://github.com/danvk/oldnyc/issues/39

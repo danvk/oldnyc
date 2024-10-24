@@ -25,11 +25,26 @@ def parse_mon_year(mon_year: str):
     return dt.strftime("%Y-%m")
 
 
+WEIRD_DATES = {
+    "September 31, 1926": "1926-09-30",
+    "April 31, 1930": "1930-04-30",
+    "February 30, 1928": "1928-02-29",
+    "November 31st, 1915": "1915-11-30",
+    "November 311940": "1940-11-30",
+    "November 31 1940": "1940-11-30",
+    "September 31, 1935": "1935-09-30",
+    "November 0, 1927": "1927-11-01",
+}
+
+
 def parse_mon_year_date(mon_year_date: str):
     mon_year_date = re.sub(r"sept\b", "sep", mon_year_date, flags=re.I)
     try:
         dt = next(datefinder.find_dates(mon_year_date))
     except StopIteration:
+        patch = WEIRD_DATES.get(mon_year_date)
+        if patch:
+            return patch
         print(f"Failed to parse date: {mon_year_date=}")
         return
     assert isinstance(dt, datetime)

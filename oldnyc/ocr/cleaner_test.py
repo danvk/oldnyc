@@ -87,6 +87,12 @@ June 1938
 George D. Chinn
 NEG #3039
 """,
+    # 10
+    """Sixth Avenue, North from West 4th Street, after the removal of the "L".
+
+January I7th, 1939
+
+P. L. Sperr.""",
 ]
 
 
@@ -199,6 +205,18 @@ def test_is_negative():
     ]
     for text in texts:
         assert cleaner.is_negative(text), text
+
+
+def test_fix_i17th():
+    assert cleaner.swap_chars("April 19,I941") == "April 19,1941"
+    txt = cleaner.clean(samples[10])
+    assert txt == (
+        """Sixth Avenue, North from West 4th Street, after the removal of the "L".
+
+January 17th, 1939
+
+P. L. Sperr."""
+    )
 
 
 # This one is too hard for now

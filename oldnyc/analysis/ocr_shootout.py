@@ -47,6 +47,7 @@ def main():
     n_match = 0
     n_out = 0
     n_date_mismatch = 0
+    n_uniq_date_mismatch = 0
     task_out = csv.DictWriter(open("data/feedback/review/changes.txt", "w"), ["back_id", "BASE64"])
     task_out.writeheader()
     distances = Counter[int]()
@@ -61,6 +62,8 @@ def main():
         # is_mismatch = True
         if is_mismatch:
             n_date_mismatch += 1
+            if len(set(dates_gpt)) < len(set(dates_site)):
+                n_uniq_date_mismatch += 1
 
         score, d, adjusted = score_for_pair(site, gpt)
         distances[d] += 1
@@ -96,6 +99,7 @@ def main():
 
     sys.stderr.write(f"{n_match=}\n")
     sys.stderr.write(f"{n_date_mismatch=}\n")
+    sys.stderr.write(f"{n_uniq_date_mismatch=}\n")
     for d in sorted(distances.keys()):
         sys.stderr.write(f"{d}\t{distances[d]}\n")
 
