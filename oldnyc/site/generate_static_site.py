@@ -182,8 +182,8 @@ def group_by_year(response: Sequence[SiteItem]) -> OrderedDict[str, int]:
 
 def site_response_to_site_json(r: SiteResponse, latlon: tuple[float, float]) -> SitePhoto:
     copy = SiteItem(r)
-    # copy: SiteItem = {**r}  # type: ignore
-    # del copy["id"]  # type: ignore
+    # TODO: use "id" instead of "photo_id" in data.json. Or find a better way to type this.
+    del copy["id"]  # type: ignore
     lat, lon = latlon
     return SitePhoto(
         {
