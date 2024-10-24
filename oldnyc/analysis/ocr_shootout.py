@@ -1,10 +1,12 @@
 #!/usr/bin/env python
 """Which is better, on-site OCR or GPT?"""
 
+import base64
 import csv
 import json
 import random
 import sys
+from collections import Counter
 
 from tqdm import tqdm
 
@@ -33,18 +35,19 @@ def main():
         if r["text"] != "(rotated)"
     }
 
-    n_int = sum(1 for id in site_text if id in gpt_text)
+    both_ids = [id for id in site_text if id in gpt_text]
+    n_int = len(both_ids)
     sys.stderr.write(f"n_site={len(site_text)}\n")
     sys.stderr.write(f"n_gpt={len(gpt_text)}\n")
     sys.stderr.write(f"{n_int=}\n")
 
-    ids = [*site_text.keys()]
-    random.shuffle(ids)
-    changes = []
+    random.shuffle(both_ids)
     n_match = 0
-    for id in tqdm(ids):
-        if id not in gpt_text:
-            continue
+    n_out = 0
+    task_out = csv.DictWriter(open("data/feedback/review/changes.txt", "w"), ["back_id", "BASE64"])
+    task_out.writeheader()
+    distances = Counter[int]()
+    for id in tqdm(both_ids):
         site = site_text[id]
         gpt = gpt_text[id]
         score, d, adjusted = score_for_pair(site, gpt)
@@ -61,16 +64,23 @@ def main():
                 "score": score,
             },
         }
-        if len(changes) < 100:
-            changes.append(out)
-        if score == 1.0:
-            n_match += 1
+        distances[d] += 1
+        if n_out < 100:
+            if score == 1.0:
+                n_match += 1
+            else:
+                task_out.writerow(
+                    {
+                        "back_id": id,
+                        "BASE64": base64.b64encode(json.dumps(out).encode("utf8")).decode("utf-8"),
+                    }
+                )
+                n_out += 1
+        else:
+            break
 
     sys.stderr.write(f"{n_match=}\n")
-
-    open("data/feedback/review/changes.js", "w").write(
-        "var changes = %s;" % json.dumps(changes, indent=2, sort_keys=True)
-    )
+    print(distances)
 
 
 if __name__ == "__main__":

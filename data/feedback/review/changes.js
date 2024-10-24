@@ -1,2342 +1,1302 @@
 var changes = [
   {
-    "photo_id": "705161f-a",
-    "before": "Joralemon Street, at the SE corner of Clinton Street, showing the Haslett Garden. In the background, is St. Ann's Hall, a part of the St. Ann's P.E. Church.  1928.  Eugene L. Armbruster Collection.",
-    "after": "(rotated)",
+    "after": "East 44th Street, north side, east from and including Third Ave. Thru clearance at the N.W. corner, appears Third Ave., east side, north from 44th to, but not including 45th Streets.\n\nSeptember 17, 1930.\n\nP. L. Sperr.",
+    "before": "East 44th Street, north side, east from and including Third Ave. Thru clearance at the N.W. corner, appears Third Ave., east side, north\nfrom 44th to, but not including 45th Streets.\nSeptember 17, 1930.\nP. L. Sperr.\n",
     "metadata": {
-      "cookie": "eval",
-      "len_base": 197,
-      "len_exp": 9,
-      "distance": 188,
-      "score": 0.045685279187817285,
-      "back_id": "705161b",
-      "record": {
-        "id": "705161f",
-        "photo_url": "http://images.nypl.org/index.php?id=705161f&t=w",
-        "preferred_url": "http://digitalgallery.nypl.org/nypldigital/id?705161f",
-        "location": "Joralemon Street & Clinton Street, Brooklyn, NY",
-        "date": "1928",
-        "title": "Brooklyn: Joralemon Street - Clinton Street",
-        "alt_title": "",
-        "back_id": "705161b",
-        "borough": "Brooklyn",
-        "outside_nyc": false
-      },
-      "raw_text": "1928.\nS. 6th St., P. H.'s Hall, a part of the\nHeights Garden. In the background, the\ncorner of Claremont Street, showing the\nJotawam Street, at the S. 6th St. corner.\nEugene L. Armbruster. Collection.\nMAY BE REPRODUCED."
-    }
-  },
-  {
-    "photo_id": "721551f-a",
-    "before": "379 Madison Street, north side and northwest corner of Jackson Street, showing P.S. 12.\nBoard of Education, N.Y.C.\n\n1920\nNeg:  2870\n",
-    "after": "(rotated)",
-    "metadata": {
-      "cookie": "eval",
-      "len_base": 132,
-      "len_exp": 9,
-      "distance": 96,
-      "score": 0.2727272727272727,
-      "back_id": "721551b",
-      "record": {
-        "id": "721551f",
-        "photo_url": "http://images.nypl.org/index.php?id=721551f&t=w",
-        "preferred_url": "http://digitalgallery.nypl.org/nypldigital/id?721551f",
-        "location": "Madison Street & Jackson Street, Manhattan, NY",
-        "date": "",
-        "title": "Manhattan: Madison Street - Jackson Street",
-        "alt_title": "",
-        "back_id": "721551b",
-        "borough": "Manhattan",
-        "outside_nyc": false
-      },
-      "raw_text": "379 Madison Street, north side and north west corner of Jackson Street, showing P.S. 12.\n1920.\nBoard of Education, N.Y.C.\nCREDIT LINE IMPERATIVE.\nNEG: 2870"
-    }
-  },
-  {
-    "photo_id": "728972f-b",
-    "before": "(1)\nHunter Avenue, at Hylan Boulevard.\nJuly 1, 1932.\nP. L. Sperr\n(2)\nThe same, at a later date.\nMay 26, 1935.\nP. L. Sperr\n",
-    "after": "(1)\nHunter Avenue, at Hylan Boulevard.\nP. L. Sperr\n\n(2)\nThe same, at a later date.\nP. L. Sperr",
-    "metadata": {
-      "cookie": "eval",
-      "len_base": 122,
-      "len_exp": 94,
-      "distance": 28,
-      "score": 0.7704918032786885,
-      "back_id": "728972b",
-      "record": {
-        "id": "728972f",
-        "photo_url": "http://images.nypl.org/index.php?id=728972f&t=w",
-        "preferred_url": "http://digitalgallery.nypl.org/nypldigital/id?728972f",
-        "location": "Hunter Avenue & Hylan Boulevard, Staten Island, NY",
-        "date": "1932; \n\n\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t1935",
-        "title": "Richmond: Hunter Avenue - Hylan Boulevard",
-        "alt_title": "",
-        "back_id": "728972b",
-        "borough": "Staten Island",
-        "outside_nyc": false
-      },
-      "raw_text": "(1)\nHunter Avenue, at Hylan Boulevard.\nP. L. Sperr\nNO REPRODUCTIONS\n\n(2)\nThe same, at a later date.\nP. L. Sperr\nNO REPRODUCTIONS"
-    }
-  },
-  {
-    "photo_id": "707247f-b",
-    "before": "Wallabout Street, west side, north of Harrison Ave., to Throop Ave. In the center of the view (wagon in front thereof) is the factory\nof S. Kolners and Sons, manufacturer of wagons.\nOctober 1928.\nEugene L. Armbruster Collection.\n\nView 2  Wallabout St east from, Harrison Ave. Brooklyn\nP.L. Sperr photographer Sept. 25, 1941\nNeg. No. A-971\n",
-    "after": "Wallabout Street, west side, north of Harrison Ave., to Throop Ave. In the center of the view (wagon in front thereof) is the factory of S. Kolners and Sons, manufacturer of wagons.\n\nEugene L. Armbruster Collection.\n\nview 2: Wallabout St. east from Harrison Ave, Brooklyn.\nP.L. Sperr, photographer.\nSept. 25, 1941.\nNeg. No. A-971",
-    "metadata": {
-      "cookie": "eval",
-      "len_base": 339,
-      "len_exp": 329,
-      "distance": 23,
-      "score": 0.9321533923303835,
-      "back_id": "707247b",
-      "record": {
-        "id": "707247f",
-        "photo_url": "http://images.nypl.org/index.php?id=707247f&t=w",
-        "preferred_url": "http://digitalgallery.nypl.org/nypldigital/id?707247f",
-        "location": "Wallabout St. & Harrison Ave., Brooklyn, NY",
-        "date": "1928",
-        "title": "Brooklyn: Wallabout St. - Harrison Ave.",
-        "alt_title": "",
-        "back_id": "707247b",
-        "borough": "Brooklyn",
-        "outside_nyc": false
-      },
-      "raw_text": "Wallabout Street, west side, north of Harrison Ave., to Throop Ave. In the center of the view (wagon in front thereof) is the factory of S. Kolners and Sons, manufacturer of wagons.\n\nEugene L. Armbruster Collection.\nMAY BE REPRODUCED.\n\nview 2: Wallabout St. east from Harrison Ave, Brooklyn.\nP.L. Sperr, photographer.\nSept. 25, 1941.\nNeg. No. A-971"
-    }
-  },
-  {
-    "photo_id": "730722f",
-    "before": "Brooklyn Bridge:\nA view eastward towards Brooklyn from atop the Bridge along the pedestrian walk. View No. 1 is an enlargement made by the photographer; No. 2 being a copy of the original negative by the N. Y. P. L.\n\nAbout 1936\nGift of Dr. Michael Wishengrad A.R.P.S.\n\n",
-    "after": "Brooklyn Bridge: A view eastward towards Brooklyn from atop the Bridge along the pedestrian walk. View No. 1 is an enlargement made by the photographer; No. 2 being a copy of the original negative by the N. Y. P. L.\n\nAbout 1936\n\nGift of Dr. Michael Wishengrad A.R.P.S.\nnot a dry mount",
-    "metadata": {
-      "cookie": "eval",
-      "len_base": 269,
-      "len_exp": 284,
-      "distance": 16,
-      "score": 0.9405204460966543,
-      "back_id": "730722b",
-      "record": {
-        "id": "730722f",
-        "photo_url": "http://images.nypl.org/index.php?id=730722f&t=w",
-        "preferred_url": "http://digitalgallery.nypl.org/nypldigital/id?730722f",
-        "location": "Brooklyn Bridge, New York, N.Y.",
-        "date": "1936",
-        "title": "Bridges - Brooklyn Bridge - [Pedestrian walk.]",
-        "alt_title": "",
-        "back_id": "730722b",
-        "borough": null,
-        "outside_nyc": false
-      },
-      "raw_text": "Brooklyn Bridge: A view eastward towards Brooklyn from atop the Bridge along the pedestrian walk. View No. 1 is an enlargement made by the photographer; No. 2 being a copy of the original negative by the N. Y. P. L.\n\nAbout 1936\n\nGift of Dr. Michael Wishengrad A.R.P.S.\nCREDIT LINE IMPERATIVE ON ALL REPRODUCTIONS\nnot a dry mount"
-    }
-  },
-  {
-    "photo_id": "723808f-a",
-    "before": "185 Wadsworth Avenue, east side between 182nd and 183rd Streets, showing P.S. 132.\nBoard of Education, N.Y.C.\n1920.\n",
-    "after": "185 Wadsworth Avenue, east side between 182nd and 183rd Streets, showing P.S. 132.\n\nBoard of Education, N.Y.C.",
-    "metadata": {
-      "cookie": "eval",
-      "len_base": 116,
-      "len_exp": 110,
-      "distance": 6,
-      "score": 0.9482758620689655,
-      "back_id": "723808b",
-      "record": {
-        "id": "723808f",
-        "photo_url": "http://images.nypl.org/index.php?id=723808f&t=w",
-        "preferred_url": "http://digitalgallery.nypl.org/nypldigital/id?723808f",
-        "location": "Wadsworth Avenue & 182nd Street, Manhattan, NY",
-        "date": "1920",
-        "title": "Manhattan: Wadsworth Avenue - 182nd Street",
-        "alt_title": "",
-        "back_id": "723808b",
-        "borough": "Manhattan",
-        "outside_nyc": false
-      },
-      "raw_text": "185 Wadsworth Avenue, east side between 182nd and 183rd Streets, showing P.S. 132.\n\nBoard of Education, N.Y.C.\nCREDIT LINE IMPERATIVE. 1920."
-    }
-  },
-  {
-    "photo_id": "712758f-c",
-    "before": "(1)\n41st Street, west from and including Tenth Avenue, showing the spire of St. Raphael's Roman Catholic Church on the south side.\nMay 27, 1930.\nP. L. Sperr.\n\n(2)\nThe same slightly westward.\nMay 21, 1936.\nP. L. Sperr.\n\n(3)\nA view further westward.\nMay 27, 1935.\nP. L. Sperr.\n",
-    "after": "41st Street, west from and including Tenth Avenue, showing the spire of St. Raphael's Roman Catholic Church on the south side.\n\nMay 27, 1930.\n\nP. L. Sperr.\n\nThe same slightly westward.\n\nMay 21, 1936.\n\nP. L. Sperr.\n\nA view further westward.\n\nMay 27, 1935.\n\nP. L. Sperr.",
-    "metadata": {
-      "cookie": "eval",
-      "len_base": 275,
-      "len_exp": 268,
-      "distance": 12,
-      "score": 0.9563636363636363,
-      "back_id": "712758b",
-      "record": {
-        "id": "712758f",
-        "photo_url": "http://images.nypl.org/index.php?id=712758f&t=w",
-        "preferred_url": "http://digitalgallery.nypl.org/nypldigital/id?712758f",
-        "location": "41st Street & 10th Avenue, Manhattan, NY",
-        "date": "1930; \n\n\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t1936",
-        "title": "Manhattan: 41st Street - 10th Avenue",
-        "alt_title": "",
-        "back_id": "712758b",
-        "borough": "Manhattan",
-        "outside_nyc": false
-      },
-      "raw_text": "41st Street, west from and including Tenth Avenue, showing the spire of St. Raphael's Roman Catholic Church on the south side.\n\nMay 27, 1930.\n\nP. L. Sperr.\nNO REPRODUCTIONS.\n\nThe same slightly westward.\n\nMay 21, 1936.\n\nP. L. Sperr.\nNO REPRODUCTIONS.\n\nA view further westward.\n\nMay 27, 1935.\n\nP. L. Sperr.\nNO REPRODUCTIONS."
-    }
-  },
-  {
-    "photo_id": "713866f",
-    "before": "E.57th Street, east from and including Fifth Avenue. At the right is the mansion of Collis P. Huntington.\n1913.\n\nCorner house on left is the mansion of Mrs. Mary Mason Jones. After her death it was owned by Mrs. Paran Stevens and later by Mrs. Herman Oelrichs.\n\nFor additional information regarding this property (n.e. corner of 57th and fifth avenue) see \"The New York Times\" Dec. 18, 1941. p. 52\n",
-    "after": "E.57th Street, east from and including Fifth Avenue. At the right is the mansion of Collis P. Huntington. 1913.\n\n\nCorner house on left is the mansion of Mrs. Mary Mason Jones. After her death it was owned by Mrs. Parna Stevens and later by Mrs. Herman Oelrichs.\n\nFor additional information regarding this property (N.E. corner 57th St. & Fifth Avenue) see \"The New York Times,\" Dec. 18, 1941, p. 5. ",
-    "metadata": {
-      "cookie": "eval",
-      "len_base": 398,
-      "len_exp": 399,
-      "distance": 17,
-      "score": 0.957286432160804,
-      "back_id": "713866b",
-      "record": {
-        "id": "713866f",
-        "photo_url": "http://images.nypl.org/index.php?id=713866f&t=w",
-        "preferred_url": "http://digitalgallery.nypl.org/nypldigital/id?713866f",
-        "location": "57th Street (East) & 5th Avenue, Manhattan, NY",
-        "date": "",
-        "title": "Manhattan: 57th Street (East) - 5th Avenue",
-        "alt_title": "",
-        "back_id": "713866b",
-        "borough": "Manhattan",
-        "outside_nyc": false
-      },
-      "raw_text": "E.57th Street, east from and including Fifth Avenue. At the right is the mansion of Collis P. Huntington. 1913.\n\nMAY BE REPRODUCED.\n\nCorner house on left is the mansion of Mrs. Mary Mason Jones. After her death it was owned by Mrs. Parna Stevens and later by Mrs. Herman Oelrichs.\n\nFor additional information regarding this property (N.E. corner 57th St. & Fifth Avenue) see \"The New York Times,\" Dec. 18, 1941, p. 5."
-    }
-  },
-  {
-    "photo_id": "723164f-c",
-    "before": "(1)\nSt. Nicholas Avenue, (formerly Eleventh Avenue), north from Fairview Avenue. At this point the Avenue winds down the hill from Fort George, coming to an end at Dyckman Street and Nagle Avenue, Inwood. The apartment buildings shown to the right are rather new.\nOctober 6, 1927.\nP. L. Sperr.\n\n(2)\nThe same, at a later date. From this point of vantage is seen a magnificent panoramic view of the northernmost sector of Manhattan, north from Dyckman Street extending to Spuyten Duyvil. In the distant background are visible the Palisades of New Jersey. The buildings shown (right foreground) are Nos. 1658-1670 St. Nicholas Ave. (the 2-story building of the Central Shirt Laundry) and 672, and 682 Fort George Ave. (the two apartment houses).\nApril 20, 1937.\n\nP. L. Sperr.\n(3)\nThe same, from a point slightly northward. Note (centre of view) a portion of the Interborough Rapid Transit subway, running at this point on an elevated structure on Nagle Ave.\nP. L. Sperr.\nApril 20, 1937.\n\n",
-    "after": "(1)\nSt. Nicholas Avenue, (Formerly Eleventh Avenue), north from Fairview Avenue. At this point the Avenue winds down the hill from Fort George, coming to an end at Dyckman Street and Nagle Avenue, Inwood. The apartment buildings shown to the right are rather new.\nOctober 6, 1927.\n\nP. L. Sperr.\n\n(2)\nThe same, at a later date. From this point of vantage is seen a magnificent panoramic view of the northernmost sector of Manhattan, north from Dyckman Street extending to Spuyten Duyvil. In the distant background are visible the Palisades of New Jersey. The buildings shown (right foreground) are Nos. 1658-1670 St. Nicholas Ave. (the 2-story building of the Central Shirt Laundry and 672, and 682 Fort George Ave. (the two apartment houses).\n\nApril 20, 1937.\n\nP. L. Sperr.\nNeg. # 3853 Print For Sale.\n\n(3)\nThe same, from a point slightly northward. Note (centre of view) a portion of the Interborough Rapid Transit subway, running at this point on an elevated structure on Nagle Ave.\n\nP. L. Sperr.\n\nApril 20, 1937.",
-    "metadata": {
-      "cookie": "eval",
-      "len_base": 985,
-      "len_exp": 1015,
-      "distance": 30,
-      "score": 0.9695431472081218,
-      "back_id": "723164b",
-      "record": {
-        "id": "723164f",
-        "photo_url": "http://images.nypl.org/index.php?id=723164f&t=w",
-        "preferred_url": "http://digitalgallery.nypl.org/nypldigital/id?723164f",
-        "location": "St. Nicholas Place & 150th Street (West), Manhattan, NY",
-        "date": "1927; \n\n\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t1937",
-        "title": "Manhattan: St. Nicholas Place - 150th Street (West)",
-        "alt_title": "",
-        "back_id": "723164b",
-        "borough": "Manhattan",
-        "outside_nyc": false
-      },
-      "raw_text": "(1)\nSt. Nicholas Avenue, (Formerly Eleventh Avenue), north from Fairview Avenue. At this point the Avenue winds down the hill from Fort George, coming to an end at Dyckman Street and Nagle Avenue, Inwood. The apartment buildings shown to the right are rather new.\nOctober 6, 1927.\n\nP. L. Sperr.\nNO REPRODUCTIONS.\n\n(2)\nThe same, at a later date. From this point of vantage is seen a magnificent panoramic view of the northernmost sector of Manhattan, north from Dyckman Street extending to Spuyten Duyvil. In the distant background are visible the Palisades of New Jersey. The buildings shown (right foreground) are Nos. 1658-1670 St. Nicholas Ave. (the 2-story building of the Central Shirt Laundry and 672, and 682 Fort George Ave. (the two apartment houses).\n\nApril 20, 1937.\n\nP. L. Sperr.\nNO REPRODUCTIONS.\nNeg. # 3853 Print For Sale.\n\n(3)\nThe same, from a point slightly northward. Note (centre of view) a portion of the Interborough Rapid Transit subway, running at this point on an elevated structure on Nagle Ave.\n\nP. L. Sperr.\nNO REPRODUCTIONS.\n\nApril 20, 1937."
-    }
-  },
-  {
-    "photo_id": "708448f-b",
-    "before": "View 1;\nFifth Avenue north east corner 27th Street, looking\nnorthwards.\nJanuary 29, 1928.\nView 2;\nFifth Avenue showing Flatiron Building at intersection.\nP.L.Speer.\n1904",
-    "after": "View 1;\nFifth Avenue north east corner 27th Street, looking northwards.\n\nJanuary 29, 1928.\n\nView 2;\nFifth Avenue sho wing Flat iron Building at intersection.\n\nP.L.Speer.\n1904.",
-    "metadata": {
-      "cookie": "eval",
-      "len_base": 169,
-      "len_exp": 175,
-      "distance": 3,
-      "score": 0.9822485207100592,
-      "back_id": "708448b",
-      "record": {
-        "id": "708448f",
-        "photo_url": "http://images.nypl.org/index.php?id=708448f&t=w",
-        "preferred_url": "http://digitalgallery.nypl.org/nypldigital/id?708448f",
-        "location": "5th Avenue & 27th Street, Manhattan, NY",
-        "date": "1904; \n\n\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t1928",
-        "title": "Manhattan: 5th Avenue - 27th Street",
-        "alt_title": "",
-        "back_id": "708448b",
-        "borough": "Manhattan",
-        "outside_nyc": false
-      },
-      "raw_text": "View 1;\nFifth Avenue north east corner 27th Street, looking northwards.\n\nJanuary 29, 1928.\n\nView 2;\nFifth Avenue sho wing Flat iron Building at intersection.\n\nP.L.Speer.\nNO REPRODUCTION.\n1904."
-    }
-  },
-  {
-    "photo_id": "707513f-a",
-    "before": "150 First Avenue, northeast corner and East 9th Street, showing P.S. 122.\n\nBoard of Education, N.Y.C.\n1920\n\nNEG 2864\n",
-    "after": "150 First Avenue, northeast corner and East 9th Street, showing P.S. 122.\n\nBoard of Education, N.Y.C.\n\n1920\n\nNEG : 2864",
-    "metadata": {
-      "cookie": "eval",
-      "len_base": 117,
-      "len_exp": 119,
-      "distance": 2,
-      "score": 0.9829059829059829,
-      "back_id": "707513b",
-      "record": {
-        "id": "707513f",
-        "photo_url": "http://images.nypl.org/index.php?id=707513f&t=w",
-        "preferred_url": "http://digitalgallery.nypl.org/nypldigital/id?707513f",
-        "location": "1st Ave. & 9th St. E., Manhattan, NY",
-        "date": "1920",
-        "title": "Manhattan: 1st Ave. - 9th St. E.",
-        "alt_title": "",
-        "back_id": "707513b",
-        "borough": "Manhattan",
-        "outside_nyc": false
-      },
-      "raw_text": "150 First Avenue, northeast corner and East 9th Street, showing P.S. 122.\n\nBoard of Education, N.Y.C.\nCREDIT LINE IMPERATIVE.\n\n1920\n\nNEG : 2864"
-    }
-  },
-  {
-    "photo_id": "708630f-a",
-    "before": "Ovington's S.E. corner Fifth Avenue and 39th Street, across clearing from demolition of Union League Club.\nJune 30, 1932.\nP.L.Sperr,Photographer.\n",
-    "after": "Ovington's S.E. corner Fifth Avenue and 39th Street, across clearing from demolition of Union League Club.\nJune 30, 1932.\nP.L. Sperr, Photographer.",
-    "metadata": {
-      "cookie": "eval",
-      "len_base": 146,
-      "len_exp": 147,
-      "distance": 2,
-      "score": 0.9863013698630136,
-      "back_id": "708630b",
-      "record": {
-        "id": "708630f",
-        "photo_url": "http://images.nypl.org/index.php?id=708630f&t=w",
-        "preferred_url": "http://digitalgallery.nypl.org/nypldigital/id?708630f",
-        "location": "5th Avenue & 39th Street, Manhattan, NY",
-        "date": "1932",
-        "title": "Manhattan: 5th Avenue - 39th Street",
-        "alt_title": "",
-        "back_id": "708630b",
-        "borough": "Manhattan",
-        "outside_nyc": false
-      },
-      "raw_text": "Ovington's S.E. corner Fifth Avenue and 39th Street, across clearing from demolition of Union League Club.\nJune 30, 1932.\nP.L. Sperr, Photographer.\nNO REPRODUCTIONS."
-    }
-  },
-  {
-    "photo_id": "710544f-a",
-    "before": "Tenth Avenue, east side, at 37th Street.\nSeptember 1, 1934\nP. L. Sperr.\n\n",
-    "after": "Tenth Avenue, east side, at 37th Street.\nSeptember 1, 1934.\n\nP. L. Sperr.",
-    "metadata": {
-      "cookie": "eval",
-      "len_base": 73,
-      "len_exp": 73,
-      "distance": 1,
-      "score": 0.9863013698630136,
-      "back_id": "710544b",
-      "record": {
-        "id": "710544f",
-        "photo_url": "http://images.nypl.org/index.php?id=710544f&t=w",
-        "preferred_url": "http://digitalgallery.nypl.org/nypldigital/id?710544f",
-        "location": "10th Avenue & 37th Street, Manhattan, NY",
-        "date": "1934",
-        "title": "Manhattan: 10th Avenue - 37th Street",
-        "alt_title": "",
-        "back_id": "710544b",
-        "borough": "Manhattan",
-        "outside_nyc": false
-      },
-      "raw_text": "Tenth Avenue, east side, at 37th Street.\nSeptember 1, 1934.\n\nP. L. Sperr.\nNO REPRODUCTIONS."
-    }
-  },
-  {
-    "photo_id": "717896f-a",
-    "before": "Rear of Public Library,Fifth Avenue, west side, from 40th to 42nd Streets, from Bryant Park.\nTall buildings, left to right, are: Chrysler, Lincoln, Leftcourt Colonial, and 10 E. 40th Street.\nAbout 1930\nEwing Galloway, Photographer.\n",
-    "after": "Rear of Public Library, Fifth Avenue, west side, from 40th to 42nd Streets, from Bryant Park. Tall buildings, left to right, are: Chrysler, Lincoln, Lefcourt Colonial, and 10 E. 40th Street. About 1930.\n\nEwing Galloway, Photographer.",
-    "metadata": {
-      "cookie": "eval",
-      "len_base": 232,
-      "len_exp": 233,
-      "distance": 3,
-      "score": 0.9870689655172413,
-      "back_id": "717896b",
-      "record": {
-        "id": "717896f",
-        "photo_url": "http://images.nypl.org/index.php?id=717896f&t=w",
-        "preferred_url": "http://digitalgallery.nypl.org/nypldigital/id?717896f",
-        "location": "5th Avenue & 40th Street, Manhattan, NY",
-        "date": "1930",
-        "title": "Manhattan: 5th Avenue - 40th Street",
-        "alt_title": "",
-        "back_id": "717896b",
-        "borough": "Manhattan",
-        "outside_nyc": false
-      },
-      "raw_text": "Rear of Public Library, Fifth Avenue, west side, from 40th to 42nd Streets, from Bryant Park.\nTall buildings, left to right, are: Chrysler, Lincoln, Lefcourt Colonial, and 10 E. 40th Street. About 1930.\n\nEwing Galloway, Photographer.\nNO REPRODUCTIONS."
-    }
-  },
-  {
-    "photo_id": "714543f-a",
-    "before": "327 West 77th Street,north side, between Riverside Drive\nand West End Avenue.\nAbout 1912.\n",
-    "after": "327 West 77th Street, north side, between Riverside Drive and West End Avenue.\nAbout 1912.",
-    "metadata": {
-      "cookie": "eval",
-      "len_base": 90,
-      "len_exp": 90,
-      "distance": 1,
-      "score": 0.9888888888888889,
-      "back_id": "714543b",
-      "record": {
-        "id": "714543f",
-        "photo_url": "http://images.nypl.org/index.php?id=714543f&t=w",
-        "preferred_url": "http://digitalgallery.nypl.org/nypldigital/id?714543f",
-        "location": "77th Street (West) & Riverside Drive, Manhattan, NY",
-        "date": "1912?",
-        "title": "Manhattan: 77th Street (West) - Riverside Drive",
-        "alt_title": "",
-        "back_id": "714543b",
-        "borough": "Manhattan",
-        "outside_nyc": false
-      },
-      "raw_text": "327 West 77th Street, north side, between Riverside Drive and West End Avenue.\nAbout 1912.\nMAY BE REPRODUCED."
-    }
-  },
-  {
-    "photo_id": "719213f-b",
-    "before": "Corlears Hook Park: The westerly portion of the park.\nP.L. Sperr\nSeptember, 1939\nViews 1,2",
-    "after": "Corlears Hook Park: The westerly portion of the park.\n\nP. L. Sperr\nSeptember, 1939\nViews 1,2",
-    "metadata": {
-      "cookie": "eval",
-      "len_base": 90,
-      "len_exp": 92,
-      "distance": 1,
-      "score": 0.9888888888888889,
-      "back_id": "719213b",
-      "record": {
-        "id": "719213f",
-        "photo_url": "http://images.nypl.org/index.php?id=719213f&t=w",
-        "preferred_url": "http://digitalgallery.nypl.org/nypldigital/id?719213f",
-        "location": "Corlears Hook Park., Manhattan, NY",
-        "date": "1939",
-        "title": "Manhattan: Corlears Hook Park.",
-        "alt_title": "",
-        "back_id": "719213b",
-        "borough": "Manhattan",
-        "outside_nyc": false
-      },
-      "raw_text": "Corlears Hook Park: The westerly portion of the park.\n\nP. L. Sperr\nSeptember, 1939\nViews 1,2\nNO REPRODUCTIONS"
-    }
-  },
-  {
-    "photo_id": "721933f-a",
-    "before": "Norfolk Street, east side, north from but not including Grand Street.\nMay 5, 1934.\nP. L. Sperr.\n",
-    "after": "Norfolk Street, east side, north from but not including Grand Street.\n\nMay 8, 1934.\n\nP. L. Sperr.",
-    "metadata": {
-      "cookie": "eval",
-      "len_base": 96,
-      "len_exp": 97,
-      "distance": 1,
-      "score": 0.9895833333333334,
-      "back_id": "721933b",
-      "record": {
-        "id": "721933f",
-        "photo_url": "http://images.nypl.org/index.php?id=721933f&t=w",
-        "preferred_url": "http://digitalgallery.nypl.org/nypldigital/id?721933f",
-        "location": "Norfolk Street & Grand Street, Manhattan, NY",
-        "date": "1934",
-        "title": "Manhattan: Norfolk Street - Grand Street",
-        "alt_title": "",
-        "back_id": "721933b",
-        "borough": "Manhattan",
-        "outside_nyc": false
-      },
-      "raw_text": "Norfolk Street, east side, north from but not including Grand Street.\n\nMay 8, 1934.\n\nP. L. Sperr.\nNO REPRODUCTIONS."
-    }
-  },
-  {
-    "photo_id": "732351f-a",
-    "before": "Shoe string and laces vendor, plying his trade at First Ave., and 111th Street.\nJuly 19, 1935.\nP. L. Sperr.\n",
-    "after": "Shoe string and laces vendor, plying his trade at First Ave., and 11th Street.\n\nJuly 19, 1935.\n\nP. L. Sperr.",
-    "metadata": {
-      "cookie": "eval",
-      "len_base": 108,
-      "len_exp": 108,
-      "distance": 1,
-      "score": 0.9907407407407407,
-      "back_id": "732351b",
-      "record": {
-        "id": "732351f",
-        "photo_url": "http://images.nypl.org/index.php?id=732351f&t=w",
-        "preferred_url": "http://digitalgallery.nypl.org/nypldigital/id?732351f",
-        "location": "1st Avenue and 111th Street, Manhattan, N.Y.",
-        "date": "1935",
-        "title": "Occupations - Peddlers - Clothing - Dry goods - Notions.",
-        "alt_title": "[Manhattan: 1st Avenue - 111th Street.]",
-        "back_id": "732351b",
-        "borough": null,
-        "outside_nyc": false
-      },
-      "raw_text": "Shoe string and laces vendor, plying his trade at First Ave., and 11th Street.\n\nJuly 19, 1935.\n\nP. L. Sperr.\nNO REPRODUCTIONS."
-    }
-  },
-  {
-    "photo_id": "713547f-c",
-    "before": "(1)\nWest 51st Street, south side, from, but not including Sixth Ave. Shown thru clearance at the S.W. corner of Fifth Ave., is St. Patrick's Cathedral. Across the background, appears the General Electric Building, the Waldorf-Astoria Hotel and 444 Madison Ave.\nNovember 2, 1932.\nP. L. Sperr.\n(2)\nThe same, after clearance of the aforementioned corner.\nNovember 13, 1932.\nP. L. Sperr.\n(3)\nThe same as No. 2.\nNovember 13, 1932.\nP. L. Sperr.",
-    "after": "(1) West 51st Street, south side f.from, but not including Sixth Ave. Shown thru clearance at the S.W. corner of Fifth Ave., is St. Patrick's Cathedral. Across the background, appears the General Electric Building, the Waldorf-Astoria Hotel and 444 Madison Ave.\n\nNovember 2, 1932.\n\nP. L. Sperr.\n\n(2) The same, after clearance of the afore mentioned corner.\n\nNovember 13, 1932.\n\nP. L. Sperr.\n\n(3) The same as No. 2.\n\nNovember 13, 1932.\n\nP. L. Sperr.",
-    "metadata": {
-      "cookie": "eval",
-      "len_base": 438,
-      "len_exp": 448,
-      "distance": 4,
-      "score": 0.9908675799086758,
-      "back_id": "713547b",
-      "record": {
-        "id": "713547f",
-        "photo_url": "http://images.nypl.org/index.php?id=713547f&t=w",
-        "preferred_url": "http://digitalgallery.nypl.org/nypldigital/id?713547f",
-        "location": "51st Street (West) & 6th Avenue, Manhattan, NY",
-        "date": "1932",
-        "title": "Manhattan: 51st Street (West) - 6th Avenue",
-        "alt_title": "",
-        "back_id": "713547b",
-        "borough": "Manhattan",
-        "outside_nyc": false
-      },
-      "raw_text": "(1) West 51st Street, south side f.from, but not including Sixth Ave. Shown thru clearance at the S.W. corner of Fifth Ave., is St. Patrick's Cathedral. Across the background, appears the General Electric Building, the Waldorf-Astoria Hotel and 444 Madison Ave.\n\nNovember 2, 1932.\n\nP. L. Sperr.\nNO REPRODUCTIONS.\n\n(2) The same, after clearance of the afore mentioned corner.\n\nNovember 13, 1932.\n\nP. L. Sperr.\nNO REPRODUCTIONS.\n\n(3) The same as No. 2.\n\nNovember 13, 1932.\n\nP. L. Sperr.\nNO REPRODUCTIONS."
-    }
-  },
-  {
-    "photo_id": "717771f-a",
-    "before": "Broadway, 173rd to 174th Streets, west side. (Before reconstruction).\nPresident Borough of Manhatten.\nMarch 20, 1919.\n",
-    "after": "Broadway, 173rd to 174th Streets, west side. (Before reconstruction).\nPresident Borough of Manhattan.\nMarch 20, 1919.",
-    "metadata": {
-      "cookie": "eval",
-      "len_base": 118,
-      "len_exp": 117,
-      "distance": 1,
-      "score": 0.9915254237288136,
-      "back_id": "717771b",
-      "record": {
-        "id": "717771f",
-        "photo_url": "http://images.nypl.org/index.php?id=717771f&t=w",
-        "preferred_url": "http://digitalgallery.nypl.org/nypldigital/id?717771f",
-        "location": "Broadway & 173rd Street, Manhattan, NY",
-        "date": "1919",
-        "title": "Manhattan: Broadway - 173rd Street",
-        "alt_title": "",
-        "back_id": "717771b",
-        "borough": "Manhattan",
-        "outside_nyc": false
-      },
-      "raw_text": "Broadway, 173rd to 174th Streets, west side. (Before reconstruction).\nPresident Borough of Manhattan.\nC EDIT LINE IMPERATIVE.\nMarch 20, 1919."
-    }
-  },
-  {
-    "photo_id": "700327f-a",
-    "before": "E. 211th Street, at the S.E. corner of Putnam Place. A 1-story florist's shack occupies the site.\nJune 16, 1938.\nP. L. Sperr.\n",
-    "after": "E. 21th Street, at the S.E. corner of Putnam Place. A 1-story florist's shack occupies the site.\n\nJune 16, 1938.\n\nP. L. Sperr.",
-    "metadata": {
-      "cookie": "eval",
-      "len_base": 126,
-      "len_exp": 126,
-      "distance": 1,
-      "score": 0.9920634920634921,
-      "back_id": "700327b",
-      "record": {
-        "id": "700327f",
-        "photo_url": "http://images.nypl.org/index.php?id=700327f&t=w",
-        "preferred_url": "http://digitalgallery.nypl.org/nypldigital/id?700327f",
-        "location": "211th Street (East) & Putnam Place, Bronx, NY",
-        "date": "1938",
-        "title": "Bronx: 211th Street (East) - Putnam Place",
-        "alt_title": "",
-        "back_id": "700327b",
-        "borough": "Bronx",
-        "outside_nyc": false
-      },
-      "raw_text": "E. 21th Street, at the S.E. corner of Putnam Place. A 1-story florist's shack occupies the site.\n\nJune 16, 1938.\n\nP. L. Sperr.\nNO REPRODUCTIONS."
-    }
-  },
-  {
-    "photo_id": "729359f-a",
-    "before": "439 Richmond Road, north side, between Aultman Avenue and Ascot Avenue. Note the shoemakers sign in front of the house.\nMay 25, 1929\nP. L. Sperr\n",
-    "after": "439 Richmond Road, north side, between Aultman Avenue and Ascot Avenue. Note the shoemaker's sign in front of the house.\n\nMay 25, 1929\n\nP. L. Sperr",
-    "metadata": {
-      "cookie": "eval",
-      "len_base": 145,
-      "len_exp": 147,
-      "distance": 1,
-      "score": 0.993103448275862,
-      "back_id": "729359b",
-      "record": {
-        "id": "729359f",
-        "photo_url": "http://images.nypl.org/index.php?id=729359f&t=w",
-        "preferred_url": "http://digitalgallery.nypl.org/nypldigital/id?729359f",
-        "location": "Richmond Road & Aultman Avenue, Staten Island, NY",
-        "date": "",
-        "title": "Richmond: Richmond Road - Aultman Avenue",
-        "alt_title": "",
-        "back_id": "729359b",
-        "borough": "Staten Island",
-        "outside_nyc": false
-      },
-      "raw_text": "439 Richmond Road, north side, between Aultman Avenue and Ascot Avenue. Note the shoemaker's sign in front of the house.\n\nMay 25, 1929\n\nP. L. Sperr\nNO REPRODUCTIONS"
-    }
-  },
-  {
-    "photo_id": "707116f-a",
-    "before": "Avenue U, south side, from East 63rd to East 64th Streets, showing Public School No. 236.\nBoard of Education of the City of New York\nEarly 1930's.\n",
-    "after": "Avenue U, south side, from East 63rd to East 64th Streets, showing Public School No. 236.\n\nBoard of Education of the City of New York  Early 1930's",
-    "metadata": {
-      "cookie": "eval",
-      "len_base": 147,
-      "len_exp": 147,
-      "distance": 1,
-      "score": 0.9931972789115646,
-      "back_id": "707116b",
-      "record": {
-        "id": "707116f",
-        "photo_url": "http://images.nypl.org/index.php?id=707116f&t=w",
-        "preferred_url": "http://digitalgallery.nypl.org/nypldigital/id?707116f",
-        "location": "Ave. U & 63rd St. E., Brooklyn, NY",
-        "date": "1930?",
-        "title": "Brooklyn: Ave. U - 63rd St. E.",
-        "alt_title": "",
-        "back_id": "707116b",
-        "borough": "Brooklyn",
-        "outside_nyc": false
-      },
-      "raw_text": "Avenue U, south side, from East 63rd to East 64th Streets, showing Public School No. 236.\n\nBoard of Education of the City of New York  Early 1930's\nCR\u012aDIT LINE IMPERATIVE"
-    }
-  },
-  {
-    "photo_id": "712830f-b",
-    "before": "(1)\n42nd Street, looking southwest from 5th floor of 155th east 42nd street.\n\n(2)\n42nd Street, west from 3rd Avenue \"L\" station.\n\nE.L.Christie.\nApril 21, 1927.\n",
-    "after": "(1)\n42nd Street, looking southwest from 5th floor of 155th east 42nd street.\n(2)\n42nd Street, west from 3rd Avenue \"L\" station.\n\nE.L. Christie.\nApril 21, 1927.",
-    "metadata": {
-      "cookie": "eval",
-      "len_base": 160,
-      "len_exp": 159,
-      "distance": 1,
-      "score": 0.99375,
-      "back_id": "712830b",
-      "record": {
-        "id": "712830f",
-        "photo_url": "http://images.nypl.org/index.php?id=712830f&t=w",
-        "preferred_url": "http://digitalgallery.nypl.org/nypldigital/id?712830f",
-        "location": "42nd Street (East) & 3rd Avenue, Manhattan, NY",
-        "date": "1927",
-        "title": "Manhattan: 42nd Street (East) - 3rd Avenue",
-        "alt_title": "",
-        "back_id": "712830b",
-        "borough": "Manhattan",
-        "outside_nyc": false
-      },
-      "raw_text": "(1)\n42nd Street, looking southwest from 5th floor of 155th east 42nd street.\n(2)\n42nd Street, west from 3rd Avenue \"L\" station.\n\nE.L. Christie.\nCREDIT LINE IMPERATIVE.\nApril 21, 1927."
-    }
-  },
-  {
-    "photo_id": "729818f-c",
-    "before": "(1)\n3301 Victory Boulevard, west side, south of Speedwell Avenue, showing the J. Vrome House (Butler's 1853 map). On subsequent maps, those of 1874 and 1898, it appears as the Vroom house. In 1907 and 1917 it was owned by D. B. Boscher (Boschen).\nMay 19, 1932\nP. L. Sperr\n\n(2)\nThe Vrome House, looking north across the farmland.\nMay 19, 1932\nP. L. Sperr\n\n(3)\nThe same, at a later date.\nMay, 19, 1935\nP. L. Sperr\n",
-    "after": "(1)\n\n3301 Victory Boulevard, west side, south of Speedwell Avenue, showing the J. Vroome House (Butler's 1853 map). On subsequent maps, those of 1874 and 1898, it appears as the Vroom house. In 1907 and 1917 it was owned by D. B. Boscher (Boschen).\n\nMay 19, 1932\n\nP. L. Sperr\n\n(2)\n\nThe Vroome House, looking north across the farmland.\n\nMay 19, 1932\n\nP. L. Sperr\n\n(3)\n\nThe same, at a later date.\n\nMay, 19, 1935\n\nP. L. Sperr",
-    "metadata": {
-      "cookie": "eval",
-      "len_base": 412,
-      "len_exp": 422,
-      "distance": 2,
-      "score": 0.9951456310679612,
-      "back_id": "729818b",
-      "record": {
-        "id": "729818f",
-        "photo_url": "http://images.nypl.org/index.php?id=729818f&t=w",
-        "preferred_url": "http://digitalgallery.nypl.org/nypldigital/id?729818f",
-        "location": "Victory Boulevard & Speedwell Avenue, Staten Island, NY",
-        "date": "",
-        "title": "Richmond: Victory Boulevard - Speedwell Avenue",
-        "alt_title": "",
-        "back_id": "729818b",
-        "borough": "Staten Island",
-        "outside_nyc": false
-      },
-      "raw_text": "(1)\n\n3301 Victory Boulevard, west side, south of Speedwell Avenue, showing the J. Vroome House (Butler's 1853 map). On subsequent maps, those of 1874 and 1898, it appears as the Vroom house. In 1907 and 1917 it was owned by D. B. Boscher (Boschen).\n\nMay 19, 1932\n\nP. L. Sperr\nNO REPRODUCTIONS\n\n(2)\n\nThe Vroome House, looking north across the farmland.\n\nMay 19, 1932\n\nP. L. Sperr\nNO REPRODUCTIONS\n\n(3)\n\nThe same, at a later date.\n\nMay, 19, 1935\n\nP. L. Sperr\nNO REPRODUCTIONS"
-    }
-  },
-  {
-    "photo_id": "700530f-a",
-    "before": "Boston Road, west side, between E.173rd Street ane Suburban Place, showing the biology laboratory in the Hermann Ridder Junior High School (P.S.98).\nBoard of Education of the City of New York\n\nDecember, 1931\n",
-    "after": "Boston Road, west side, between E.173rd Street and Suburban Place, showing the biology laboratory in the Hermann Ridder Junior High School (P.S.98).\n\nBoard of Education of the City of New York\n\n\nDecember, 1931",
-    "metadata": {
-      "cookie": "eval",
-      "len_base": 208,
-      "len_exp": 209,
-      "distance": 1,
-      "score": 0.9951923076923077,
-      "back_id": "700530b",
-      "record": {
-        "id": "700530f",
-        "photo_url": "http://images.nypl.org/index.php?id=700530f&t=w",
-        "preferred_url": "http://digitalgallery.nypl.org/nypldigital/id?700530f",
-        "location": "Boston Road & 173rd Street (East), Bronx, NY",
-        "date": "1931",
-        "title": "Bronx: Boston Road - 173rd Street (East)",
-        "alt_title": "",
-        "back_id": "700530b",
-        "borough": "Bronx",
-        "outside_nyc": false
-      },
-      "raw_text": "Boston Road, west side, between E.173rd Street and Suburban Place, showing the biology laboratory in the Hermann Ridder Junior High School (P.S.98).\n\nBoard of Education of the City of New York\nCredit Line Imperative\n\nDecember, 1931"
-    }
-  },
-  {
-    "photo_id": "722257f-a",
-    "before": "Park Avenue, east side, from 53rd to 55th Streets, seen from a tall roof at Madison Avenue on 52nd Street.\nOn the horizon at the left of the picture may be seen the Hell Gate Bridge.\nMarch 4, 1930.\nP.L. Sperr,Photographer.\n",
-    "after": "Park Avenue, east side, from 53rd to 55th Streets, seen from a tall roof at Madison Avenue on 52nd Street. On the horizon at the left of the picture may be seen the Hell Gate Bridge.\n\nMarch 4, 1930.\n\nP.L. Sperr, Photographer.",
-    "metadata": {
-      "cookie": "eval",
-      "len_base": 223,
-      "len_exp": 225,
-      "distance": 1,
-      "score": 0.9955156950672646,
-      "back_id": "722257b",
-      "record": {
-        "id": "722257f",
-        "photo_url": "http://images.nypl.org/index.php?id=722257f&t=w",
-        "preferred_url": "http://digitalgallery.nypl.org/nypldigital/id?722257f",
-        "location": "Park Avenue & 53rd Street, Manhattan, NY",
-        "date": "1930",
-        "title": "Manhattan: Park Avenue - 53rd Street",
-        "alt_title": "",
-        "back_id": "722257b",
-        "borough": "Manhattan",
-        "outside_nyc": false
-      },
-      "raw_text": "Park Avenue, east side, from 53rd to 55th Streets, seen from a tall roof at Madison Avenue on 52nd Street. On the horizon at the left of the picture may be seen the Hell Gate Bridge.\n\nMarch 4, 1930.\n\nP.L. Sperr, Photographer.\nNO REPRODUCTIONS."
-    }
-  },
-  {
-    "photo_id": "729920f-a",
-    "before": "Willowbrook Road, south side, about 200 feet west of Sunset Avenue (formerly Gun Factory Road), showing the remains of an old stone-and-wood dwelling. In 1853 it was the property of E. Houghwout; in 1874 of Allgire; and from 1898 to 1917 of\nAdam Allgnar.\nJuly 18, 1926\nP. L. Sperr\n",
-    "after": "Willowbrook Road, south side, about 200 feet west of Sunset Avenue (formerly Gun Factory Road), showing the remains of an old stone-and-wood dwelling. In 1853 it was the property of E. Houghout; in 1874 of Allgire; and from 1898 to 1917 of Adam Allgnar.\n\nJuly 18, 1926\n\nP. L. Sperr",
-    "metadata": {
-      "cookie": "eval",
-      "len_base": 281,
-      "len_exp": 281,
-      "distance": 1,
-      "score": 0.99644128113879,
-      "back_id": "729920b",
-      "record": {
-        "id": "729920f",
-        "photo_url": "http://images.nypl.org/index.php?id=729920f&t=w",
-        "preferred_url": "http://digitalgallery.nypl.org/nypldigital/id?729920f",
-        "location": "Willowbrook Road & Sunset Avenue, Staten Island, NY",
-        "date": "",
-        "title": "Richmond: Willowbrook Road - Sunset Avenue",
-        "alt_title": "",
-        "back_id": "729920b",
-        "borough": "Staten Island",
-        "outside_nyc": false
-      },
-      "raw_text": "Willowbrook Road, south side, about 200 feet west of Sunset Avenue (formerly Gun Factory Road), showing the remains of an old stone-and-wood dwelling. In 1853 it was the property of E. Houghout; in 1874 of Allgire; and from 1898 to 1917 of Adam Allgnar.\n\nJuly 18, 1926\n\nP. L. Sperr\nNO REPRODUCTIONS"
-    }
-  },
-  {
-    "photo_id": "722931f",
-    "before": "Riverside Park at W. 122nd Street and Riverside Drive. Shown is the temporary tomb of General U. S. Grant. The permanent structure was located about one-half block to the north and directly opposite 123rd Street. See: \"Sketch of the life of General U. S. Grant\" compiled by Col. John J. Garnett, with programme of the Ceremonies of the Dedication of the Grant Monument in New York, April 27, 1897.\nA. N. p. v. 156\nAbout 1885-90\nOfficial photograph, Copyrighted, for the benefit of \"Grant Monument Association.\" Carvalho, photo\nGift of Urbrock Collection\nNeg. 4315\n\n",
-    "after": "Riverside Park at W. 122nd Street and Riverside Drive. Shown is the temporary tomb of General U. S. Grant. The permanent structure was located about one-half block to the north and directly opposite 123rd Street. See: \"Sketch of the life of General U. S. Grant\" compiled by Col. John J. Garnett, with programme of the Ceremonies of the Dedication of the Grant Monument in New York, April 27, 1897. A. N. p. v 156\n\nAbout 1885-90\n\nOfficial photograph, Copyrighted, for the benefit of \"Grant Monument Association:\" Carvalho, photo Gift of Urbrock Collection",
-    "metadata": {
-      "cookie": "eval",
-      "len_base": 565,
-      "len_exp": 554,
-      "distance": 2,
-      "score": 0.9964601769911504,
-      "back_id": "722931b",
-      "record": {
-        "id": "722931f",
-        "photo_url": "http://images.nypl.org/index.php?id=722931f&t=w",
-        "preferred_url": "http://digitalgallery.nypl.org/nypldigital/id?722931f",
-        "location": "Riverside Drive & 122nd Street (West), Manhattan, NY",
-        "date": "1885?",
-        "title": "Manhattan: Riverside Drive - 122nd Street (West)",
-        "alt_title": "",
-        "back_id": "722931b",
-        "borough": "Manhattan",
-        "outside_nyc": false
-      },
-      "raw_text": "Riverside Park at W. 122nd Street and Riverside Drive. Shown is the temporary tomb of General U. S. Grant. The permanent structure was located about one-half block to the north and directly opposite 123rd Street. See: \"Sketch of the life of General U. S. Grant\" compiled by Col. John J. Garnett, with programme of the Ceremonies of the Dedication of the Grant Monument in New York, April 27, 1897. A. N. p. v 156\n\nAbout 1885-90\n\nOfficial photograph, Copyrighted, for the benefit of \"Grant Monument Association:\" Carvalho, photo Gift of Urbrock Collection"
-    }
-  },
-  {
-    "photo_id": "713469f-a",
-    "before": "25-29 West 50th Street, north side, between Fifth and Sixth Aves. Shown thru clearance is the former Hotel Rockefeller (now known as No. 33 West 51st Street). On the left appears a portion of the uncompleted R.K.O. Building and International Music Hall.\nNovember 13, 1932.\nP. L. Sperr.\n",
-    "after": "25-29 West 50th Street, north side, between Fifth and Sixth Aves., Shown thru clearance is the former Hotel Rockefeller (now known as No. 33 West 51st Street). On the left appears a portion of the uncompleted R.K.O. Building and International Music Hall.\n\nNovember 13, 1932.\n\nP. L. Sperr.",
-    "metadata": {
-      "cookie": "eval",
-      "len_base": 286,
-      "len_exp": 288,
-      "distance": 1,
-      "score": 0.9965034965034965,
-      "back_id": "713469b",
-      "record": {
-        "id": "713469f",
-        "photo_url": "http://images.nypl.org/index.php?id=713469f&t=w",
-        "preferred_url": "http://digitalgallery.nypl.org/nypldigital/id?713469f",
-        "location": "50th Street (West) & 5th Avenue, Manhattan, NY",
-        "date": "1932",
-        "title": "Manhattan: 50th Street (West) - 5th Avenue",
-        "alt_title": "",
-        "back_id": "713469b",
-        "borough": "Manhattan",
-        "outside_nyc": false
-      },
-      "raw_text": "25-29 West 50th Street, north side, between Fifth and Sixth Aves., Shown thru clearance is the former Hotel Rockefeller (now known as No. 33 West 51st Street). On the left appears a portion of the uncompleted R.K.O. Building and International Music Hall.\n\nNovember 13, 1932.\n\nP. L. Sperr.\nNO REPRODUCTIONS."
-    }
-  },
-  {
-    "photo_id": "719386f-c",
-    "before": "(1)\n307-305 Dyckman Street, north side, west of Payson Street. Buildings shown are frame structures.\nOctober 26, 1927.\nP. L. Sperr.\n\n(2)\nThe same, now used as a Reading Room, and called the Dyckman Library.\n1923\nP.L.Sperr,\n\n(3)\nThe same, showing an adjoining bit of stone wall.\n1923\nP.L.Sperr,\n",
-    "after": "(1)\n307-305 Dyckman Street, north side, west of Payson Street. Buildings shown are frame structures.                          October 26, 1927.\n\nP. L. Sperr.\n\n(2)\nThe same, now used as a Reading Room, and called the Dyckman Library,\n1923\n\nP.L.Sperr,\n\n\n(3)\nThe same, showing an adjoining bit of stone wall.\n1923\n\nP.L.Sperr,\n",
-    "metadata": {
-      "cookie": "eval",
-      "len_base": 294,
-      "len_exp": 323,
-      "distance": 1,
-      "score": 0.9965986394557823,
-      "back_id": "719386b",
-      "record": {
-        "id": "719386f",
-        "photo_url": "http://images.nypl.org/index.php?id=719386f&t=w",
-        "preferred_url": "http://digitalgallery.nypl.org/nypldigital/id?719386f",
-        "location": "Dyckman Street & Payson Street, Manhattan, NY",
-        "date": "1923",
-        "title": "Manhattan: Dyckman Street - Payson Street",
-        "alt_title": "",
-        "back_id": "719386b",
-        "borough": "Manhattan",
-        "outside_nyc": false
-      },
-      "raw_text": "(1)\n307-305 Dyckman Street, north side, west of Payson Street. Buildings shown are frame structures.                          October 26, 1927.\n\nP. L. Sperr.\nNO REPRODUCTIONS.\n\n(2)\nThe same, now used as a Reading Room, and called the Dyckman Library,\n1923\n\nP.L.Sperr,\nNo Reproductions.\n\n(3)\nThe same, showing an adjoining bit of stone wall.\n1923\n\nP.L.Sperr,\nNo Reproductions."
-    }
-  },
-  {
-    "photo_id": "700923f-a",
-    "before": "E. Tremont Avenue, south side (foreground), east from Boston Road to the Bronx River. Also shown is the New York Coliseum, on the south side of E. 177th Street, adjoining Devoe Avenue. The view is northeastward from the E. 177th Street elevated station of the I.R.T. subway.\nMay 11, 1938.\nP.L. Sperr\nNEG # 3209\n",
-    "after": "E. Tremont Avenue, south side (foreground), east from Boston Road to the Bronx River. Also shown is the New York Coliseum, on the south side of E. 177th Street, adjoining Devoe Avenue. The view is northeastward from the E. 177th Street elevated station of the I.R.T. subway.\n\nMay 11, 1938.\n\nP.L. Sperr\n\nNEG. # 3209",
-    "metadata": {
-      "cookie": "eval",
-      "len_base": 311,
-      "len_exp": 314,
-      "distance": 1,
-      "score": 0.9967845659163987,
-      "back_id": "700923b",
-      "record": {
-        "id": "700923f",
-        "photo_url": "http://images.nypl.org/index.php?id=700923f&t=w",
-        "preferred_url": "http://digitalgallery.nypl.org/nypldigital/id?700923f",
-        "location": "Tremont Avenue (East & Boston Road, Bronx, NY",
-        "date": "1938",
-        "title": "Bronx: Tremont Avenue (East - Boston Road",
-        "alt_title": "",
-        "back_id": "700923b",
-        "borough": "Bronx",
-        "outside_nyc": false
-      },
-      "raw_text": "E. Tremont Avenue, south side (foreground), east from Boston Road to the Bronx River. Also shown is the New York Coliseum, on the south side of E. 177th Street, adjoining Devoe Avenue. The view is northeastward from the E. 177th Street elevated station of the I.R.T. subway.\n\nMay 11, 1938.\n\nP.L. Sperr\nNO REPRODUCTIONS.\n\nNEG. # 3209"
-    }
-  },
-  {
-    "photo_id": "723411f-a",
-    "before": "1 to 6 State Street, (left), at, adjoining and west of the N.W. corner of Whitehall Street, showing the Seamen's Church Institute (No. 1, corner building) and contiguous to it the house of the British Consulate General (No. 2). Also seen, are Nos. 46 to 34 Whitehall Street (right), west side, north from and including State, to Pearl Streets. Nos. 1 to 3 State and 46 to 40 Whitehall Streets, were demolished in 1913, and their sites are now (1937), occupied by the 12-story South Ferry Building. Nos. 4-5 (white house) and 6, upon which two additional stories were added, now comprise a 6-story annex to South Ferry Building.\n\n1907.\nBrown Brothers.\n",
-    "after": "1 to 6 State Street, (left), at, adjoining and west of the N.W. corner of Whitehall Street, showing the Seamen's Church Institute (No. 1, corner building) and contiguous to it the house of the British Consulate General {No. 2}. Also seen, are Nos. 46 to 34 Whitehall Street (right), west side, north from and including State, to Pearl Streets. Nos. 1 to 3 State and 46 to 40 Whitehall Streets, were demolished in 1913, and their sites are now (1937), occupied by the 12-story South Ferry Building. Nos. 4-5 (white house) and 6, upon which two additional stories were added, now comprise a 6-story annex to South Ferry Building.\n\n1907.\n\nBrown Brothers.",
-    "metadata": {
-      "cookie": "eval",
-      "len_base": 651,
-      "len_exp": 651,
-      "distance": 2,
-      "score": 0.9969278033794163,
-      "back_id": "723411b",
-      "record": {
-        "id": "723411f",
-        "photo_url": "http://images.nypl.org/index.php?id=723411f&t=w",
-        "preferred_url": "http://digitalgallery.nypl.org/nypldigital/id?723411f",
-        "location": "State Street & Whitehall Street, Manhattan, NY",
-        "date": "1907",
-        "title": "Manhattan: State Street - Whitehall Street",
-        "alt_title": "",
-        "back_id": "723411b",
-        "borough": "Manhattan",
-        "outside_nyc": false
-      },
-      "raw_text": "1 to 6 State Street, (left), at, adjoining and west of the N.W. corner of Whitehall Street, showing the Seamen's Church Institute (No. 1, corner building) and contiguous to it the house of the British Consulate General {No. 2}. Also seen, are Nos. 46 to 34 Whitehall Street (right), west side, north from and including State, to Pearl Streets. Nos. 1 to 3 State and 46 to 40 Whitehall Streets, were demolished in 1913, and their sites are now (1937), occupied by the 12-story South Ferry Building. Nos. 4-5 (white house) and 6, upon which two additional stories were added, now comprise a 6-story annex to South Ferry Building.\n\n1907.\n\nBrown Brothers.\nNO REPRODUCTIONS."
-    }
-  },
-  {
-    "photo_id": "725364f-d",
-    "before": "48th Street, east side, between Twenty-first Avenue and Old Bowery Bay Road, showing four views of the J.M. Cooper house of 1852. It was the Titus residence until 1922. View number four shows the area surrounding the house prior to its being parceled and sold.\nMav 1923\nViews 1 and 4\nViews 2&3: March 1923\nEugene L. Armbruster Collection\n",
-    "after": "48th Street, east side, between Twenty-first Avenue and Old Bowery Bay Road, showing four views of the J.M. Cooper house of 1852. It was the Titus residence until 1922. View number four shows the area surrounding the house prior to its being parceled and sold.\n\nMay 1923\nViews 1 and 4\nViews 2&3: March 1923\n\nEugene L. Armbruster Collection",
-    "metadata": {
-      "cookie": "eval",
-      "len_base": 338,
-      "len_exp": 339,
-      "distance": 1,
-      "score": 0.9970414201183432,
-      "back_id": "725364b",
-      "record": {
-        "id": "725364f",
-        "photo_url": "http://images.nypl.org/index.php?id=725364f&t=w",
-        "preferred_url": "http://digitalgallery.nypl.org/nypldigital/id?725364f",
-        "location": "48th Street & 21st Avenue, Queens, NY",
-        "date": "1923",
-        "title": "Queens: 48th Street - 21st Avenue",
-        "alt_title": "",
-        "back_id": "725364b",
-        "borough": "Queens",
-        "outside_nyc": false
-      },
-      "raw_text": "48th Street, east side, between Twenty-first Avenue and Old Bowery Bay Road, showing four views of the J.M. Cooper house of 1852. It was the Titus residence until 1922. View number four shows the area surrounding the house prior to its being parceled and sold.\n\nMay 1923\nViews 1 and 4\nViews 2&3: March 1923\n\nEugene L. Armbruster Collection\nMAY BE REPRODUCED."
-    }
-  },
-  {
-    "photo_id": "729444f-c",
-    "before": "Richmond Terrace, adjoining the S.E. corner of Treadwell Avenue, showing St. Mary's Roman Catholic Church. The house on the left, is the parish house.\nMay 22, 1929\nP. L. Sperr\n(2)\nAnether view of the church, and the neighboring houses, as seen from the shore of the Kill Van Kull.\nMay 22, 1929\nP. L. Sperr\n(3)\nAn additional view, at a later date.\nJune 1, 1935\nP. L. Sperr\n",
-    "after": "Richmond Terrace, adjoining the S.E. corner of Treadwell Avenue, showing St. Mary's Roman Catholic Church. The house on the left, is the parish house.\n\nMay 22, 1929\n\nP. L. Sperr\n\n(2)\n\nAnother view of the church, and the neighboring houses, as seen from the shore of the Kill Van Kull.\n\nMay 22, 1929\n\nP. L. Sperr\n\n(3)\n\nAn additional view, at a later date.\n\nJune 1, 1935\n\nP. L. Sperr",
-    "metadata": {
-      "cookie": "eval",
-      "len_base": 372,
-      "len_exp": 381,
-      "distance": 1,
-      "score": 0.9973118279569892,
-      "back_id": "729444b",
-      "record": {
-        "id": "729444f",
-        "photo_url": "http://images.nypl.org/index.php?id=729444f&t=w",
-        "preferred_url": "http://digitalgallery.nypl.org/nypldigital/id?729444f",
-        "location": "Richmond Terrace & Treadwell Avenue, Staten Island, NY",
-        "date": "1929; \n\n\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t1935",
-        "title": "Richmond: Richmond Terrace - Treadwell Avenue",
-        "alt_title": "",
-        "back_id": "729444b",
-        "borough": "Staten Island",
-        "outside_nyc": false
-      },
-      "raw_text": "Richmond Terrace, adjoining the S.E. corner of Treadwell Avenue, showing St. Mary's Roman Catholic Church. The house on the left, is the parish house.\n\nMay 22, 1929\n\nP. L. Sperr\nNO REPRODUCTIONS\n\n(2)\n\nAnother view of the church, and the neighboring houses, as seen from the shore of the Kill Van Kull.\n\nMay 22, 1929\n\nP. L. Sperr\nNO REPRODUCTIONS\n\n(3)\n\nAn additional view, at a later date.\n\nJune 1, 1935\n\nP. L. Sperr\nNO REPRODUCTIONS"
-    }
-  },
-  {
-    "photo_id": "717710f-c",
-    "before": "(1)\nBroadway, west side, north from West 116th to 122nd Streets, showing in the foreground, Barnard College and grounds, with the Riverside Baptist Church, overtowering same. The Gothic structure on the extreme right, is a portion of the Administration Building and Library of the Union Theologioal Seminary. Preceding same, is a unit of Barnard College, containing Fiske, Milbank and Brinkerhoff Halls.\n1936.\nWalter L. Bogert.\n\n(2)\nA limited view to West 120th Street, from a slight altitude, showing the Students Building of Barnard College completely.\n1936.\nWalter L. Bogert.\n\n(3)\nA detail of the same, to a point slightly southward, from a different angle. Right to left appear; the southern portion of the Students' Building of Barnard College, the Barnard College Dormitory, and Brooks\nHall Dormitory.\n1936.\nWalter L. Bogert.\n",
-    "after": "(1) Broadway, west side, north from West 116th to 122nd Streets, showing in the foreground, Barnard College and grounds, with the Riverside Baptist Church, overpowering same. The Gothic structure on the extreme right, is a portion of the Administration Building and Library of the Union Theological Seminary. Preceding same, is a unit of Barnard College, containing Fiske, Milbank and Brinkerhoff Halls. 1936. Walter L. Bogert.\n\n(2) A limited view to West 120th Street, from a slight altitude, showing the Students Building of Barnard College completely. 1936. Walter L. Bogert.\n\n(3) A detail of the same, to a point slightly southward, from a different angle. Right to left appear; the southern portion of the Students' Building of Barnard College, the Barnard College Dormitory, and Brooks Hall Dormitory. 1936. Walter L. Bogert.",
-    "metadata": {
-      "cookie": "eval",
-      "len_base": 832,
-      "len_exp": 831,
-      "distance": 2,
-      "score": 0.9975961538461539,
-      "back_id": "717710b",
-      "record": {
-        "id": "717710f",
-        "photo_url": "http://images.nypl.org/index.php?id=717710f&t=w",
-        "preferred_url": "http://digitalgallery.nypl.org/nypldigital/id?717710f",
-        "location": "Broadway & 116th Street (West), Manhattan, NY",
-        "date": "1936",
-        "title": "Manhattan: Broadway - 116th Street (West)",
-        "alt_title": "",
-        "back_id": "717710b",
-        "borough": "Manhattan",
-        "outside_nyc": false
-      },
-      "raw_text": "(1) Broadway, west side, north from West 116th to 122nd Streets, showing in the foreground, Barnard College and grounds, with the Riverside Baptist Church, overpowering same. The Gothic structure on the extreme right, is a portion of the Administration Building and Library of the Union Theological Seminary. Preceding same, is a unit of Barnard College, containing Fiske, Milbank and Brinkerhoff Halls. 1936. Walter L. Bogert. NO REPRODUCTIONS.\n\n(2) A limited view to West 120th Street, from a slight altitude, showing the Students Building of Barnard College completely. 1936. Walter L. Bogert. NO REPRODUCTIONS.\n\n(3) A detail of the same, to a point slightly southward, from a different angle. Right to left appear; the southern portion of the Students' Building of Barnard College, the Barnard College Dormitory, and Brooks Hall Dormitory. 1936. Walter L. Bogert. NO REPRODUCTIONS."
-    }
-  },
-  {
-    "photo_id": "718133f-b",
-    "before": "(1)\nCatherine Slip, east side, north from South, to, but not including Cherry Streets, showing (foreground), No. 27, at the N.E. corner of South Street. It is only remaining tenement on the block. Also shown, overtowering the little house, is the west wall of the Hearst Publications Building.\nSeptember 7, 1927.\nP. L. Sperr.\n\n(2)\nA detail of the same, showing a more prominent view of No. 27.\nSeptember 7, 1927.\nP. L. Sperr.\n",
-    "after": "(1) Catherine Slip, east side, north from South, to, but not including Cherry Streets, showing (foreground), No. 27, at the N.E. corner of South Street. It is only remaining tenement on the block. Also shown, overpowering the little house, is the west wall of the Hearst Publications Building. September 7, 1927.\n\nP. L. Sperr.\n\n(2) A detail of the same, showing a more prominent view of No. 27. September 7, 1927.\n\nP. L. Sperr.",
-    "metadata": {
-      "cookie": "eval",
-      "len_base": 426,
-      "len_exp": 427,
-      "distance": 1,
-      "score": 0.9976525821596244,
-      "back_id": "718133b",
-      "record": {
-        "id": "718133f",
-        "photo_url": "http://images.nypl.org/index.php?id=718133f&t=w",
-        "preferred_url": "http://digitalgallery.nypl.org/nypldigital/id?718133f",
-        "location": "Catherine Slip & South Street, Manhattan, NY",
-        "date": "1927",
-        "title": "Manhattan: Catherine Slip - South Street",
-        "alt_title": "",
-        "back_id": "718133b",
-        "borough": "Manhattan",
-        "outside_nyc": false
-      },
-      "raw_text": "(1) Catherine Slip, east side, north from South, to, but not including Cherry Streets, showing (foreground), No. 27, at the N.E. corner of South Street. It is only remaining tenement on the block. Also shown, overpowering the little house, is the west wall of the Hearst Publications Building. September 7, 1927.\n\nP. L. Sperr.\nNO REPRODUCTIONS.\n\n(2) A detail of the same, showing a more prominent view of No. 27. September 7, 1927.\n\nP. L. Sperr.\nNO REPRODUCTIONS."
-    }
-  },
-  {
-    "photo_id": "713042f-a",
-    "before": "W. 42nd Street (foreground, from left center to the right margin) at, adjoining and east of the N.E. corner of Sixth Avenue (left and upon which appears a northward view for 3 blocks ). Shown is a general view north eastward towards the East River with its Queensboro and Hellgate Bridges. Thru the midground runs Fifth Avenue (note St. Patricks Cathedral thereon) with its absence of towering structures at this date.\nEwing Galloway\n1919\n",
-    "after": "W. 42nd Street (foreground, from left center to the right margin) at, adjoining and east of the N.E. corner of Sixth Avenue (left and upon which appears a northward view for 3 blocks). Shown is a general view north eastward towards the East River with its Queensboro and Hellgate Bridges. Thru the midground runs Fifth Avenue (note St. Patricks Cathedral thereon) with its absence of towering structures at this date.\n\nEwing Galloway\n\n1919",
-    "metadata": {
-      "cookie": "eval",
-      "len_base": 439,
-      "len_exp": 439,
-      "distance": 1,
-      "score": 0.9977220956719818,
-      "back_id": "713042b",
-      "record": {
-        "id": "713042f",
-        "photo_url": "http://images.nypl.org/index.php?id=713042f&t=w",
-        "preferred_url": "http://digitalgallery.nypl.org/nypldigital/id?713042f",
-        "location": "42nd Street & 12th Avenue, Manhattan, NY",
-        "date": "1919",
-        "title": "Manhattan: 42nd Street - 12th Avenue",
-        "alt_title": "",
-        "back_id": "713042b",
-        "borough": "Manhattan",
-        "outside_nyc": false
-      },
-      "raw_text": "W. 42nd Street (foreground, from left center to the right margin) at, adjoining and east of the N.E. corner of Sixth Avenue (left and upon which appears a northward view for 3 blocks). Shown is a general view north eastward towards the East River with its Queensboro and Hellgate Bridges. Thru the midground runs Fifth Avenue (note St. Patricks Cathedral thereon) with its absence of towering structures at this date.\n\nEwing Galloway\nNO REPRODUCTIONS.\n\n1919"
-    }
-  },
-  {
-    "photo_id": "712977f-a",
-    "before": "42nd Street skyscrapers, east from Madison Avenue. On the south side of the street are the Lincoln Building (1929) at 60 East 42nd Street, the Chanin Building (1928) at No. 122 on the S.W. corner of Lexington Avenue, and the Daily News Building (1929) at 220 East 42nd Street east of Third Avenue. At the right is the Chrysler Building, completed in the summer of 1930, diagonally opposite the Chanin Building.\n\n1930-1931.\n\nEwing Galloway.\nNeg #725",
-    "after": "42nd Street skyscrapers, east from Madison Avenue. On the south side of the street are the Lincoln Building (1929) at 60 East 42nd Street, the Chanin Building (1928) at No. 122 on the S.W. corner of Lexington Avenue, and the Daily News Building (1929) at 220 East 42nd Street east of Third Avenue. At the right is the Chrysler Building, completed in the summer of 1930, diagonally opposite the Chanin Building.\n\n1930-1931.\n\nEwing Galloway.\nNeg. #725",
-    "metadata": {
-      "cookie": "eval",
-      "len_base": 448,
-      "len_exp": 449,
-      "distance": 1,
-      "score": 0.9977678571428571,
-      "back_id": "712977b",
-      "record": {
-        "id": "712977f",
-        "photo_url": "http://images.nypl.org/index.php?id=712977f&t=w",
-        "preferred_url": "http://digitalgallery.nypl.org/nypldigital/id?712977f",
-        "location": "42nd Street & Madison Avenue, Manhattan, NY",
-        "date": "1930?",
-        "title": "Manhattan: 42nd Street - Madison Avenue",
-        "alt_title": "",
-        "back_id": "712977b",
-        "borough": "Manhattan",
-        "outside_nyc": false
-      },
-      "raw_text": "42nd Street skyscrapers, east from Madison Avenue. On the south side of the street are the Lincoln Building (1929) at 60 East 42nd Street, the Chanin Building (1928) at No. 122 on the S.W. corner of Lexington Avenue, and the Daily News Building (1929) at 220 East 42nd Street east of Third Avenue. At the right is the Chrysler Building, completed in the summer of 1930, diagonally opposite the Chanin Building.\n\n1930-1931.\n\nEwing Galloway.\nNO REPRODUCTIONS.\nNeg. #725"
-    }
-  },
-  {
-    "photo_id": "702752f-b",
-    "before": "41st Street (right) west of Third Ave. Also shown is Second Ave. (center of view) between 42nd Street (left) and 41st Street (right). In the foreground will be erected a two story building for the Shipley Construction and Supply Company. At the foot of 41st Street is Pier No. 7; and at the center right, sectionally shown, are several Bush Terminal Buildings. In the background, steepled, is the National Meter Co. Building formerly the National Metal Co. This is a set of two views.\n1919.\nEugene L. Armbruster Collection.\n",
-    "after": "41st Street (right) west of Third Ave., Also shown is Second Ave. (center of view) between 42nd Street (left) and 41st Street (right). In the foreground will be erected a two story building for the Shipley Construction and Supply Company. At the foot of 41st Street is Pier No. 7; and at the center right, sectionally shown, are several Bush Terminal Buildings. In the background, steepled, is the National Meter Co. Building formerly the National Metal Co. This is a set of two views.\n\n1919.\n\nEugene L. Armbruster Collection.",
-    "metadata": {
-      "cookie": "eval",
-      "len_base": 524,
-      "len_exp": 526,
-      "distance": 1,
-      "score": 0.9980916030534351,
-      "back_id": "702752b",
-      "record": {
-        "id": "702752f",
-        "photo_url": "http://images.nypl.org/index.php?id=702752f&t=w",
-        "preferred_url": "http://digitalgallery.nypl.org/nypldigital/id?702752f",
-        "location": "41st Street & 3rd Avenue, Brooklyn, NY",
-        "date": "1919",
-        "title": "Brooklyn: 41st Street - 3rd Avenue",
-        "alt_title": "",
-        "back_id": "702752b",
-        "borough": "Brooklyn",
-        "outside_nyc": false
-      },
-      "raw_text": "41st Street (right) west of Third Ave., Also shown is Second Ave. (center of view) between 42nd Street (left) and 41st Street (right). In the foreground will be erected a two story building for the Shipley Construction and Supply Company. At the foot of 41st Street is Pier No. 7; and at the center right, sectionally shown, are several Bush Terminal Buildings. In the background, steepled, is the National Meter Co. Building formerly the National Metal Co. This is a set of two views.\n\n1919.\n\nEugene L. Armbruster Collection.\nMAY BE REPRODUCED."
-    }
-  },
-  {
-    "photo_id": "717970f-a",
-    "before": "Cabrini Boulevard, (formerly Northern Avenue) west side, north from a point to the south of Chittenden Place (W. 186th Street) and showing a row of apartments that begin at the N.W. corner of that point. At the left is a corner of Dr. Chas. V. Paterno's manorial estate and upon which an apartment project is taking shape, necessitating demolition of the aforementioned individuals castle-like home. Chittenden Place normally runs parallel to the boulevard but here it has absorbed that short street that joins both thoroughfares.\nAugust 23, 1938.\nP.L. Sperr\n",
-    "after": "Cabrini Boulevard, (formerly Northern Avenue) west side, north from a point to the south of Chittenden Place (w. 186th Street) and showing a row of apartments that begin at the N.W. corner of that point. At the left is a corner of Dr. Chas. V. Paterno's manorial estate and upon which an apartment project is taking shape, necessitating demolition of the aforementioned individuals castle-like home. Chittenden Place normally runs parallel to the boulevard but here it has absorbed that short street that joins both thoroughfares.\n\nAugust 23, 1938.\n\nP.L. Sperr",
-    "metadata": {
-      "cookie": "eval",
-      "len_base": 559,
-      "len_exp": 560,
-      "distance": 1,
-      "score": 0.998211091234347,
-      "back_id": "717970b",
-      "record": {
-        "id": "717970f",
-        "photo_url": "http://images.nypl.org/index.php?id=717970f&t=w",
-        "preferred_url": "http://digitalgallery.nypl.org/nypldigital/id?717970f",
-        "location": "Cabrini Boulevard & 186th Street (West), Manhattan, NY",
-        "date": "1938",
-        "title": "Manhattan: Cabrini Boulevard - 186th Street (West)",
-        "alt_title": "",
-        "back_id": "717970b",
-        "borough": "Manhattan",
-        "outside_nyc": false
-      },
-      "raw_text": "Cabrini Boulevard, (formerly Northern Avenue) west side, north from a point to the south of Chittenden Place (w. 186th Street) and showing a row of apartments that begin at the N.W. corner of that point. At the left is a corner of Dr. Chas. V. Paterno's manorial estate and upon which an apartment project is taking shape, necessitating demolition of the aforementioned individuals castle-like home. Chittenden Place normally runs parallel to the boulevard but here it has absorbed that short street that joins both thoroughfares.\n\nAugust 23, 1938.\n\nP.L. Sperr\nNO REPRODUCTIONS."
-    }
-  },
-  {
-    "photo_id": "720916f-a",
-    "before": "9 Lexington Avenue, at the S.E. corner of East 22nd Street, (left), showing the home of the former Mayor Abram S. Hewitt, who was the son-in-law of the beneficent Peter Cooper. His son, Erskine Hewitt, succeeded to same in turn. The photographer silhouettes same against a background of apartment dwellings that face on Gramercy Park. Note the lanterns extending from the balcony over the portico. These are reminiscent of the old New York custom indicating the residence of the chief executive. A similar feature is to be found around the corner at No. 4 Gramercy Park West, the home of the former Mayor Harper of the publishing firm of that name.\nFebruary 4, 1938.\nP. L. Sperr\n",
-    "after": "9 Lexington Avenue, at the S.E. corner of East 22nd Street, (left), showing the home of the former Mayor Abram S. Hewitt, who was the son-in-law of the beneficent Peter Cooper. His son, Erskine Hewitt, succeeded to same in turn. The photographer silhouettes same against a background of apartment dwellings that face on Gramercy Park. Note the lanterns extending from the balcony over the portico. These are reminiscent of the old New York custom indicating the residence of the chief executive. A similar feature is to be found around the corner at No. 4 Gramercy Park West, the home of the former Mayor Harpef of the publishing firm of that name.\n\nFebruary 4, 1938.\n\nP. L. Sperr",
-    "metadata": {
-      "cookie": "eval",
-      "len_base": 679,
-      "len_exp": 680,
-      "distance": 1,
-      "score": 0.9985272459499264,
-      "back_id": "720916b",
-      "record": {
-        "id": "720916f",
-        "photo_url": "http://images.nypl.org/index.php?id=720916f&t=w",
-        "preferred_url": "http://digitalgallery.nypl.org/nypldigital/id?720916f",
-        "location": "Lexington Avenue & 22nd Street (East), Manhattan, NY",
-        "date": "1938",
-        "title": "Manhattan: Lexington Avenue - 22nd Street (East)",
-        "alt_title": "",
-        "back_id": "720916b",
-        "borough": "Manhattan",
-        "outside_nyc": false
-      },
-      "raw_text": "9 Lexington Avenue, at the S.E. corner of East 22nd Street, (left), showing the home of the former Mayor Abram S. Hewitt, who was the son-in-law of the beneficent Peter Cooper. His son, Erskine Hewitt, succeeded to same in turn. The photographer silhouettes same against a background of apartment dwellings that face on Gramercy Park. Note the lanterns extending from the balcony over the portico. These are reminiscent of the old New York custom indicating the residence of the chief executive. A similar feature is to be found around the corner at No. 4 Gramercy Park West, the home of the former Mayor Harpef of the publishing firm of that name.\n\nFebruary 4, 1938.\n\nP. L. Sperr\nNO REPRODUCTIONS."
-    }
-  },
-  {
-    "photo_id": "704817f-b",
-    "before": "(1)\nHenry Street, west side, south of Fulton Street, showing in the foreground, the Macon Au and Magenheimer Candy Co; manufacturers of \"Peaks\" a candy delicacy.\nApril 1, 1937.\nP. L. Sperr.\n\n(2)\nThe same; a limited view, showing the shadows of the B.M.T. Fulton Street Elevated Line in the foreground.\nApril 1, 1937.\nP. L. Sperr.\n",
-    "after": "(1) Henry Street, west side, south of Fulton Street, showing in the foreground, the Macon Au and Magenheimer Candy Co; manufacturers of \"Peaks\" a candy delicacy.\n\nApril 1, 1937.\n\nP. L. Sperr.\n\n(2) The same; a limited view, showing the shadows of the B.M.T. Fulton Street Elevated Line in the foreground.\n\nApril 1, 1937.\n\nP. L. Sperr.",
-    "metadata": {
-      "cookie": "eval",
-      "len_base": 330,
-      "len_exp": 333,
+      "back_id": "713176b",
+      "cookie": "blah",
       "distance": 0,
-      "score": 1.0,
-      "back_id": "704817b",
-      "record": {
-        "id": "704817f",
-        "photo_url": "http://images.nypl.org/index.php?id=704817f&t=w",
-        "preferred_url": "http://digitalgallery.nypl.org/nypldigital/id?704817f",
-        "location": "Henry Street & Fulton Street, Brooklyn, NY",
-        "date": "1937",
-        "title": "Brooklyn: Henry Street - Fulton Street",
-        "alt_title": "",
-        "back_id": "704817b",
-        "borough": "Brooklyn",
-        "outside_nyc": false
-      },
-      "raw_text": "(1) Henry Street, west side, south of Fulton Street, showing in the foreground, the Macon Au and Magenheimer Candy Co; manufacturers of \"Peaks\" a candy delicacy.\n\nApril 1, 1937.\n\nP. L. Sperr.\nNO REPRODUCTIONS.\n\n(2) The same; a limited view, showing the shadows of the B.M.T. Fulton Street Elevated Line in the foreground.\n\nApril 1, 1937.\n\nP. L. Sperr.\nNO REPRODUCTIONS."
-    }
-  },
-  {
-    "photo_id": "725510f-a",
-    "before": "60th Lane, west side, from 60th Avenue to 60th Road, showing\nPublic School No. 153.\nBoard of Ed. of the City of N. Y.  March 31, 1931\n",
-    "after": "60th Lane, west side, from 60th Avenue to 60th Road, showing Public School No. 153.\n\nBoard of Ed. of the City of N. Y.                     March 31, 1931\n",
-    "metadata": {
-      "cookie": "eval",
-      "len_base": 134,
-      "len_exp": 154,
-      "distance": 0,
-      "score": 1.0,
-      "back_id": "725510b",
-      "record": {
-        "id": "725510f",
-        "photo_url": "http://images.nypl.org/index.php?id=725510f&t=w",
-        "preferred_url": "http://digitalgallery.nypl.org/nypldigital/id?725510f",
-        "location": "60th Lane & 60th Avenue, Queens, NY",
-        "date": "1931",
-        "title": "Queens: 60th Lane - 60th Avenue",
-        "alt_title": "",
-        "back_id": "725510b",
-        "borough": "Queens",
-        "outside_nyc": false
-      },
-      "raw_text": "60th Lane, west side, from 60th Avenue to 60th Road, showing Public School No. 153.\n\nBoard of Ed. of the City of N. Y.                     March 31, 1931\n\nCREDIT LINE IMPERATIVE"
-    }
-  },
-  {
-    "photo_id": "706526f-c",
-    "before": "Rockaway Parkway (left), west side, south of Seaview Ave., showing a Red Cross station on Canarsie Beach. Nos. 1 and 2 of this set of three views are the same; No. 3 being more extensive.\nJuly 27, 1935.\nP. L. Sperr.\n",
-    "after": "Rockaway Parkway (left), west side, south of Seaview Ave., showing a Red Cross station on Canarsie Beach. Nos. 1 and 2 of this set of three views are the same; No. 3 being more extensive.\nJuly 27, 1935.\n\nP. L. Sperr.",
-    "metadata": {
-      "cookie": "eval",
       "len_base": 216,
-      "len_exp": 216,
-      "distance": 0,
-      "score": 1.0,
-      "back_id": "706526b",
-      "record": {
-        "id": "706526f",
-        "photo_url": "http://images.nypl.org/index.php?id=706526f&t=w",
-        "preferred_url": "http://digitalgallery.nypl.org/nypldigital/id?706526f",
-        "location": "Rockaway Parkway & Sea View Avenue, Brooklyn, NY",
-        "date": "1935",
-        "title": "Brooklyn: Rockaway Parkway - Sea View Avenue",
-        "alt_title": "",
-        "back_id": "706526b",
-        "borough": "Brooklyn",
-        "outside_nyc": false
-      },
-      "raw_text": "Rockaway Parkway (left), west side, south of Seaview Ave., showing a Red Cross station on Canarsie Beach. Nos. 1 and 2 of this set of three views are the same; No. 3 being more extensive.\nJuly 27, 1935.\n\nP. L. Sperr.\nNO REPRODUCTIONS."
-    }
+      "len_exp": 217,
+      "score": 1.0
+    },
+    "photo_id": "713176f-a"
   },
   {
-    "photo_id": "717164f-a",
-    "before": "P.L. Sperr collections\nRec'd January 13, 1945\n",
-    "after": "P.L. Sperr collections\nRec'd January 13, 1945",
+    "after": "FIRES, ACCIDENTS AND TRAGEDIES\n164 Attorney Street, east side, between Stanton and Houston Streets, showing building nearly destroyed by fire.\nSeptember 4, 1904.\nGift of Gustav Scholer, M. D.",
+    "before": "FIRES, ACCIDENTS AND TRAGEDIES\n\n164 Attorney Street, east side, between Stanton and Houston Streets, showing building nearly destroyed by fire.\n\nSeptember 4, 1904.\n\nGift of Gustav Scholer, M. D.\n",
     "metadata": {
-      "cookie": "eval",
-      "len_base": 46,
-      "len_exp": 45,
+      "back_id": "731749b",
+      "cookie": "blah",
       "distance": 0,
-      "score": 1.0,
-      "back_id": "717164b",
-      "record": {
-        "id": "717164f",
-        "photo_url": "http://images.nypl.org/index.php?id=717164f&t=w",
-        "preferred_url": "http://digitalgallery.nypl.org/nypldigital/id?717164f",
-        "location": "Broadway & Park Row, Manhattan, NY",
-        "date": "1894",
-        "title": "Manhattan: Broadway - Park Row",
-        "alt_title": "",
-        "back_id": "717164b",
-        "borough": "Manhattan",
-        "outside_nyc": false
-      },
-      "raw_text": "P.L. Sperr collections\nRec'd January 13, 1945"
-    }
+      "len_base": 195,
+      "len_exp": 191,
+      "score": 1.0
+    },
+    "photo_id": "731749f-a"
   },
   {
-    "photo_id": "700868f-a",
-    "before": "Duncomb Street, at the S.E. corner of Barker Avenue, showing three frame houses, all occupying lot No. 13 (block 4627). The big apartment house faces on Olinville Avenue.\nJune 16, 1938.\nP. L. Sperr.\n",
-    "after": "Duncomb Street, at the S.E. corner of Barker Avenue, showing three frame houses, all occupying lot No. 13 (block 4627). The big apartment house faces on Olinville Avenue.\n\nJune 16, 1938.\n\nP. L. Sperr.",
+    "after": "Ninth Avenue, west side, from 207th to 208th Streets, the northern extremity of Ninth Avenue.\nThe Eighth Avenue subway yards are now (1935) located immediately beyond the garage shown in the foreground of this picture.\nAugust 25, 1927.\n\nP. L. Sperr, Photographer.",
+    "before": "Ninth Avenue, west side, from 207th to 208th Streets, the northern extremity of Ninth Avenue. The Eighth Avenue subway yards are now (1935) located immediately, beyond the garage shown in the foreground of this picture.\n\nAugust 25, 1927.\n\nP. L. Sperr, Photographer.",
     "metadata": {
-      "cookie": "eval",
+      "back_id": "710449b",
+      "cookie": "blah",
+      "distance": 1,
+      "len_base": 265,
+      "len_exp": 263,
+      "score": 0.9962264150943396
+    },
+    "photo_id": "710449f-a"
+  },
+  {
+    "after": "P.L. Sperr collection\nRec'd January 13, 1945",
+    "before": "P.L. Sperr collection\nRec'd January 13, 1945\n",
+    "metadata": {
+      "back_id": "708486b",
+      "cookie": "blah",
+      "distance": 0,
+      "len_base": 45,
+      "len_exp": 44,
+      "score": 1.0
+    },
+    "photo_id": "708486f-a"
+  },
+  {
+    "after": "Park Ave. Bridge of the New York Central Railroad, across the Harlem River, looking towards the Bronx from Manhattan. The Manhattan approach to the Bridge is East 134th Street. This is a set of 3 views.\n\nDecember 16, 1936.\n\nP. L. Sperr.\n(not a dry mount item).",
+    "before": "Park Ave. Bridge of the New York Central Railroad, across the Harlem River, looking towards the Bronx from Manhattan. The Manhattan approach to the Bridge is East 134th Street. This is a set of 3 views.\nDDecember 16, 1936.\nP. L. Sperr.\n(not a dry mount item).\n",
+    "metadata": {
+      "back_id": "730907b",
+      "cookie": "blah",
+      "distance": 1,
+      "len_base": 260,
+      "len_exp": 260,
+      "score": 0.9961538461538462
+    },
+    "photo_id": "730907f-c"
+  },
+  {
+    "after": "Ninth Ave., west side, north from West 58th Street, and showing a station at 59th Street of the Ninth Ave. Elevated Line. On the left, between 58th and 59th Streets is the eastern boundary of Roosevelt Hospital. The church structure partially depicted is St. Paul the Apostle R.C. Church at the S.W. corner of West 60th Street and Columbus Ave. (continuation of Ninth Ave., when north of 59th Street).\n\nDecember 19, 1937.\n\nP. L. Sperr.",
+    "before": "Ninth Ave., west side, north from West 58th Street, and showing a station at 59th Street of the Ninth Ave. Elevated Line. On the left, between 58th and 59th Streets is the eastern boundary of Roosevelt Hospital. The church structure partially depicted is St. Paul the Apostle R.C. Church at the S.W. corner of West 60th Street and Columbus Ave. (continuation of Ninth Ave., when north of 59th Street).\nDecember 19, 1937.\nP. L. Sperr.\n",
+    "metadata": {
+      "back_id": "710442b",
+      "cookie": "blah",
+      "distance": 0,
+      "len_base": 434,
+      "len_exp": 435,
+      "score": 1.0
+    },
+    "photo_id": "710442f-a"
+  },
+  {
+    "after": "Fifth Avenue, west side, 33rd to 34th Streets, showing start of construction of Empire State Building. April 24, 1930.\nNeg. # 1510",
+    "before": "Fifth Avenue, west side, 33rd to 34th Streets, showing start of  construction of Empire State Building.\nApril 24, 1930.\nNeg. # 1510\n",
+    "metadata": {
+      "back_id": "708524b",
+      "cookie": "blah",
+      "distance": 0,
+      "len_base": 132,
+      "len_exp": 130,
+      "score": 1.0
+    },
+    "photo_id": "708524f-a"
+  },
+  {
+    "after": "Irving Place, east side, from 14th to 15th Streets, showing the Academy of Music, with the Consolidated Gas offices at 4 Irving Place, (around 1880) the home of the Lotus Club.\nThe Academy of Music, originally intended as a permanent home for Italian Opera, was opened on this site in October, 1854, with a production of \"Norma\". One of the notable performances in the old building was a concert at which Jenny Lind sang. On October 12, 1860, a grand ball was given here for Edward (the future Edward VII), Prince of Wales, on the occasion of his tour of North America.\nThe original Academy of Music, on this site, was burned May 22, 1866; and the building pictured here was opened the following February. In 1887 the Academy Company decided not to compete further with the new and fashionable Metropolitan Opera House, and accordingly sold this building, after which it became a dramatic house.\nAs a legitimate theatre it was famous, among other things, for the phenomenal run of \"the Old Homestead\", from August 30, 1888 to May, 1891. The elder Sothern and others also played for long runs.\nOn the afternoon of November 18, 1919, the Prince of Wales, grandson of Edward VII, will pay the Academy a visit. By that time it will have become a motion picture house. Finally in 1926, it will be the new Consolidated Gas Building.\n\nBrown Brothers.",
+    "before": "Irving Place, east side, from 14th to 15th streets, showing the Academy of Music, with the Consolidated Gas offices at 4 Irving Place, on the SE corner of 15th street.  2 Irving Place used to be (around 1880) the home of the Lotus Club.\n\nThe Academy of Music, originally intended as a permanent home for Italian Opera, was opened on this site in October 1854, with a production of \"Norma\"  One of the notable performances in the old building was a concert at which Jenny Lind sang.  On October 12th, 1860, a grand ball was given here for Edward (the future Edward VII) Prince of Wales, on the occasion of his visit to New York during his tour of North America.\n\nThe original Academy of Music, on this site, was burned May 22nd, 1866 and the building pictured here was opened the following February.  In 1887 the Academy Company decided not to compete further with the new and fashionable Metropolitan Opera House, and accordingly sold this building, after which it became a dramatic house.\n\nAs a legitimate theatre it was famous, among other things for the phenomenal run of \"The Old Homestead\" from August 30th 1888 to May 1891.  The elder Sothern and others also played for long runs.\n\nOn the afternoon of November 16th, 1919 the Prince of Wales, grandson of Edward VII, will pay the Academy a visit.  By that time it will have become a motion picture house.  Finally in 1926, it will be demolished and the ground under the building will become part of the site of the new Consolidated Gas Building.\n\nMarch 1909\n\nBrown Brothers.",
+    "metadata": {
+      "back_id": "720617b",
+      "cookie": "blah",
+      "distance": 184,
+      "len_base": 1530,
+      "len_exp": 1343,
+      "score": 0.8797385620915033
+    },
+    "photo_id": "720617f-a"
+  },
+  {
+    "after": "(1) River traffic, passing by Welfare Island, underneath the Queensboro Bridge, going north. July 17, 1925.\n\nP. L. Sperr.\n\n(2) The same. July 17, 1925.\n\nP. L. Sperr.\n\n(3) The same, three years later. October 22, 1928.\n\nP. L. Sperr.",
+    "before": "(1)\nRiver traffic, passing by Welfare Island, underneath the Queensboro Bridge, going north.\nJuly 17, 1925.\nP. L. Sperr.\n(2) The same.\nJuly 17, 1925.\nP. L. Sperr.\n(3)\nThe same, three years later.\nOctober 22, 1928.\nP. L. Sperr.\n",
+    "metadata": {
+      "back_id": "730946b",
+      "cookie": "blah",
+      "distance": 0,
+      "len_base": 227,
+      "len_exp": 231,
+      "score": 1.0
+    },
+    "photo_id": "730946f-c"
+  },
+  {
+    "after": "209th place, east side, between 111th Road and One Hundred Eleventh Ave., as seen from Colfax Ave., in the foreground. This was the J. Rhodes farmhouse from 1860 to 1873. Jos. Herte was the owner from 1891 to 1896. This set of four views shows the front of the house facing 111th Road.\n\n1922.\nViews 1,2,3 & 4.\n\nEugene L. Armbruster Collection.",
+    "before": "209th Place, east side, between 111th Road and One Hundred Eleventh Ave., as seen from Colfax Ave., in the foreground. This was the J. Rhodes farmhouse from 1860 to 1873. Jos. Herte was the owner from 1891 to 1896. This set of four views shows the front of the house\nfacing 111th Road.\n1922.\nViews 1,2,3 & 4.\nEugene L. Armbruster Collection.\n",
+    "metadata": {
+      "back_id": "726000b",
+      "cookie": "blah",
+      "distance": 1,
+      "len_base": 342,
+      "len_exp": 343,
+      "score": 0.9970760233918129
+    },
+    "photo_id": "726000f-d"
+  },
+  {
+    "after": "West 29th Street, west of 11th Avenue, southside of street, showing buildings in Erie Railroad freight yard.\n\nP. L. sperr\n\n\nAugust 25, 1940",
+    "before": "West 29th Street, west of 11th Avenue, southside of street, showing\nbuildings in Erie Reilroad freight yard.\nP. L. .rerr  August 25, 1940\n",
+    "metadata": {
+      "back_id": "711946b",
+      "cookie": "blah",
+      "distance": 3,
+      "len_base": 138,
+      "len_exp": 139,
+      "score": 0.9782608695652174
+    },
+    "photo_id": "711946f-a"
+  },
+  {
+    "after": "Broadway, east side, between 25th and 26th Streets, the excavation where No. 1132 (210 Fifth Avenue) stood. The 12-story Cross Chambers Building, going through to Fifth Avenue, will be constructed on this site. To the left is shown the rear of Cafe Martin, occupied by Delmonico's up to about 1900, which will give way in 1912 to an office building.\nThe rest of the pictures in this set are filed under Fifth Avenue.\n\nApril 21, 1902\n\nIrving Underhill, Photographer",
+    "before": "Broadway, east side, between 25th and 26th Streets, the excavation where No. 1132 (210 Fifth Avenue) stood. The 12story Cross Chambers Building, going through to Fifth Aenue, will be constructed on this site. To the left is shown the rear of Cafe Martin, occupied by Delmonico's up to about 1900, which will give way in 1912 to an office building. The rest of the pictures in this set are filed under\nFifth Avenue.\nApril 21, 1902\nIrving Underhill, Photographer\n",
+    "metadata": {
+      "back_id": "717361b",
+      "cookie": "blah",
+      "distance": 2,
+      "len_base": 461,
+      "len_exp": 464,
+      "score": 0.9956616052060737
+    },
+    "photo_id": "717361f"
+  },
+  {
+    "after": "70-68 East 112th Street, south side, west of Park Avenue.\nAbout 1914.",
+    "before": "70-68 East 112th Street, south side, west of Park Avenue.\nAbout 1914.\n",
+    "metadata": {
+      "back_id": "715055b",
+      "cookie": "blah",
+      "distance": 0,
+      "len_base": 70,
+      "len_exp": 69,
+      "score": 1.0
+    },
+    "photo_id": "715055f-a"
+  },
+  {
+    "after": "Clinton Street, east side, at, adjoining and north of 3rd Place, to but not including 2nd Place, showing the Tabernacle Baptist Church at the N.E. corner of 3rd Place.\n\nP. L. Sperr.",
+    "before": "Clinton Street, east side, at, adjoining and north of 3rd Place, to but not including 2nd Place, showing the Tabernacle Baptist Church at the N.E.\ncorner of 3rd Place.\nJuly 4, 1930.\nP. L. Sperr.\n",
+    "metadata": {
+      "back_id": "703691b",
+      "cookie": "blah",
+      "distance": 14,
+      "len_base": 195,
+      "len_exp": 181,
+      "score": 0.9282051282051282
+    },
+    "photo_id": "703691f-a"
+  },
+  {
+    "after": "neg. no. 249\n\nBrooklyn Bridge: The financial district of lower Manhattan as viewed in a southwestward direction from Brooklyn and under the Brooklyn Bridge. The prominent building shown is the 70-storied structure of the Bank of Manhattan Company.\n\nAbout 1928.\n\nEwing Galloway.\n(Not a dry mount item).",
+    "before": "Brooklyn Bridge: The financial district of lower Manhattan as viewed in a southwestward direction from Brooklyn and under the Brooklyn Bridge. The prominent building shown is the 70-storied structure of the Bank of Manhattan Company.\n\nAbout 1928.\nEwing Galloway.\n(Not a dry mount item).\nneg. no. 248\n",
+    "metadata": {
+      "back_id": "730704b",
+      "cookie": "blah",
+      "distance": 13,
+      "len_base": 300,
+      "len_exp": 301,
+      "score": 0.9566666666666667
+    },
+    "photo_id": "730704f-a"
+  },
+  {
+    "after": "598 Flatbush Ave., west side, between Beekman Place and Chester Court. This home is no longer in existence. (1936).\n\n1922.\n\nEugene L. Armbruster Collection.",
+    "before": "598 Flatbush Ave., west side, between Beekman Place and Chester Court.\nThis home is no longer in existence. (1936).\n1922.\nEugene L. Armbruster Collection.\n",
+    "metadata": {
+      "back_id": "704226b",
+      "cookie": "blah",
+      "distance": 0,
+      "len_base": 155,
+      "len_exp": 156,
+      "score": 1.0
+    },
+    "photo_id": "704226f-a"
+  },
+  {
+    "after": "George Ave., west side, north from Cypress Ave. (horse thereon) to Seneca Ave., showing in the foreground, Ridgewood Grove. In the background is P.S. 77.\n\nApril 1925.\n\nEugene L. Armbruster Collection.",
+    "before": "George Ave., vest side, north from Cypress Ave. (horse thereon) to Seneca Ave., showing in the foreground, Ridgewood Grove. In the background is P.S. 77.\nApril 1925.\nEugene L. Armbruster Collection.\n",
+    "metadata": {
+      "back_id": "726743b",
+      "cookie": "blah",
+      "distance": 1,
       "len_base": 199,
       "len_exp": 200,
-      "distance": 0,
-      "score": 1.0,
-      "back_id": "700868b",
-      "record": {
-        "id": "700868f",
-        "photo_url": "http://images.nypl.org/index.php?id=700868f&t=w",
-        "preferred_url": "http://digitalgallery.nypl.org/nypldigital/id?700868f",
-        "location": "Duncomb Street & Barker Avenue, Bronx, NY",
-        "date": "1938",
-        "title": "Bronx: Duncomb Street - Barker Avenue",
-        "alt_title": "",
-        "back_id": "700868b",
-        "borough": "Bronx",
-        "outside_nyc": false
-      },
-      "raw_text": "Duncomb Street, at the S.E. corner of Barker Avenue, showing three frame houses, all occupying lot No. 13 (block 4627). The big apartment house faces on Olinville Avenue.\n\nJune 16, 1938.\n\nP. L. Sperr.\nNO REPRODUCTIONS."
-    }
+      "score": 0.9949748743718593
+    },
+    "photo_id": "726743f-a"
   },
   {
-    "photo_id": "715375f-b",
-    "before": "(1)\n125th Street, Park Avenue, to Madison. South Side. (Before Reconstruction)\nSeptember 12, 1920.\n\n(2)\nSame. (After Reconstruction).\nPresident Borough of Manhatten.\nDecember 26, 1920.",
-    "after": "(1)\n125th Street, Park Avenue, to Madison. South Side. (Before Reconstruction)\nSeptember 12, 1920.\n\n(2)\nSame. (After Reconstruction).\n\nPresident Borough of Manhatten.\n\nDecember 26, 1920.",
+    "after": "(1)\nPlumb Island, north side, near center of Island. Plumb Beach Channel not seen in this view is at the left. July 4, 1935.\n\nP. L. Sperr.\n\n(2)\nThe same area, at another angle. July 4, 1935.\n\nP. L. Sperr.",
+    "before": "Plumb Island, north side, near center of lIsland. .Plumb Beach Channel\nnot seen in this view is at the left.\nJuly 4, 1935.\nP. L. Sperr.\n(2)\nThe same area, at another angle.\nJuly 4, 1935.\nP. L. Sperr.\n",
     "metadata": {
-      "cookie": "eval",
-      "len_base": 184,
-      "len_exp": 186,
-      "distance": 0,
-      "score": 1.0,
-      "back_id": "715375b",
-      "record": {
-        "id": "715375f",
-        "photo_url": "http://images.nypl.org/index.php?id=715375f&t=w",
-        "preferred_url": "http://digitalgallery.nypl.org/nypldigital/id?715375f",
-        "location": "125th Street & Park Avenue, Manhattan, NY",
-        "date": "1920",
-        "title": "Manhattan: 125th Street - Park Avenue",
-        "alt_title": "",
-        "back_id": "715375b",
-        "borough": "Manhattan",
-        "outside_nyc": false
-      },
-      "raw_text": "(1)\n125th Street, Park Avenue, to Madison. South Side. (Before Reconstruction)\nSeptember 12, 1920.\n\n(2)\nSame. (After Reconstruction).\n\nPresident Borough of Manhatten.\nCREDIT LINE IMPERATIVE.\n\nDecember 26, 1920."
-    }
+      "back_id": "732103b",
+      "cookie": "blah",
+      "distance": 6,
+      "len_base": 200,
+      "len_exp": 204,
+      "score": 0.97
+    },
+    "photo_id": "732103f-b"
   },
   {
-    "photo_id": "719194f-a",
-    "before": "Convent Ave. (running today between the house and trees) at West 143rd Street, showing the Alexander Hamilton home (Hamilton Grange) and the thirteen commemorative trees. The house has been moved to a new location and adjoins St. Luke's Protestant Episcopal Church at the N.E. corner of Convent Ave. and West 141st Street. The trees stand upon\nwhat is today the S.E. corner of West 143rd Street.\nAbout 1888.\nWurts Brothers.\n",
-    "after": "Convent Ave. (running today between the house and trees) at West 143rd Street, showing the Alexander Hamilton home (Hamilton Grange) and the thirteen commemorative trees. The house has been moved to a new location and adjoins St. Luke's Protestant Episcopal Church at the N.E. corner of Convent Ave. and West 141st Street. The trees stand upon what is today the S.E. corner of West 143rd Street.\n\nAbout 1888.\n\nWurts Brothers.",
+    "after": "(1)\n\n472 to 478 Water Street (left to right), at, adjoining and east of the N.E. corner of Pike Slip. Also shown are 77 to 71 Pike Slip, north from and including Water, to and including Cherry Streets.\nMarch 30, 1934.\n\nP. L. Sperr.\n\n(2)\n\nA portion of the same, showing a closer view of Nos. 474-476.\nMarch 30, 1934.\n\nP. L. Sperr.\n\n(3)\n\nThe same as view No. 1, at a later date. Note the clearance on the N.E. corner of Pike Slip, and Cherry Street.\nMarch 22, 1937.\n\nP. L. Sperr.",
+    "before": "472 to 478 Water Street (left to right), at, adjoining and east of the N.S. corner of Pike Slip. Also shown are 77 to 71 Pike Slip, north froE. and including Water, to and including Cherry Streets.\nMarch 30, 1934.\nP. L. Sperr.\n(2)\nA portion of the same, showing a closer view of Nos. 474-476.\nMarch 30, 1934.\nP. L. Sperr.\n(3)\nThe same as view No. 1, at a later date. Note the clearance on the\nN.E. corner of Pike Slip. and Cherry Street.\nMarch 22, 1937.\n9P. L. Sperr.\n",
     "metadata": {
-      "cookie": "eval",
-      "len_base": 424,
-      "len_exp": 425,
-      "distance": 0,
-      "score": 1.0,
-      "back_id": "719194b",
-      "record": {
-        "id": "719194f",
-        "photo_url": "http://images.nypl.org/index.php?id=719194f&t=w",
-        "preferred_url": "http://digitalgallery.nypl.org/nypldigital/id?719194f",
-        "location": "Convent Avenue & 143rd Street (West), Manhattan, NY",
-        "date": "[1888?]",
-        "title": "Manhattan: Convent Avenue - 143rd Street (West)",
-        "alt_title": "",
-        "back_id": "719194b",
-        "borough": "Manhattan",
-        "outside_nyc": false
-      },
-      "raw_text": "Convent Ave. (running today between the house and trees) at West 143rd Street, showing the Alexander Hamilton home (Hamilton Grange) and the thirteen commemorative trees. The house has been moved to a new location and adjoins St. Luke's Protestant Episcopal Church at the N.E. corner of Convent Ave. and West 141st Street. The trees stand upon what is today the S.E. corner of West 143rd Street.\n\nAbout 1888.\n\nWurts Brothers.\nNO REPRODUCTION."
-    }
+      "back_id": "724271b",
+      "cookie": "blah",
+      "distance": 9,
+      "len_base": 468,
+      "len_exp": 477,
+      "score": 0.9807692307692307
+    },
+    "photo_id": "724271f-c"
   },
   {
-    "photo_id": "702718f-a",
-    "before": "35th Street, n.s., w. across Third Avenue, Brooklyn.\n\nNeg. no. A-1308\n\nP. L. Sperr, photographer\nJuly 21, 1940\n",
-    "after": "35th Street, n.s., w. across Third Avenue, Brooklyn.\nNeg. no. A-1308\nP. L. Sperr, photographer\nJuly 21, 1940",
+    "after": "(1)\n\n58-52 East 128th Street, east of, adjoining and at the S.E. corner of Madison Avenue. Nos. 52, 54, and 56 are three-story frame houses. No. 58 is a 2\u00bd-story frame house.\n\nJuly 28, 1932.\n\nP. L. Sperr.\n\n(2)\n\nThe same.\n\n1932.\n\nJ. Clarence Davies Collection, Museum of the City of New York. Negative No. 308.",
+    "before": "(1)\n58-52 East 128th Street, east of, adjoining and at the S.E. corner of Madison Avenue. Nos. 52, 54, and 56 are three-story frame houses. No. 58 is a 2e-story frame house.\nJuly 28, 1932.\nP. L. Sperr.\n(2)\nThe same.\n1932.\nJ. Clarence Davies Collection, Museum of the City of New York.\nNegative No. 308.\n",
     "metadata": {
-      "cookie": "eval",
-      "len_base": 111,
-      "len_exp": 108,
-      "distance": 0,
-      "score": 1.0,
-      "back_id": "702718b",
-      "record": {
-        "id": "702718f",
-        "photo_url": "http://images.nypl.org/index.php?id=702718f&t=w",
-        "preferred_url": "http://digitalgallery.nypl.org/nypldigital/id?702718f",
-        "location": "25th Street & 3rd Avenue, Brooklyn, NY",
-        "date": "1940",
-        "title": "Brooklyn: 25th Street - 3rd Avenue",
-        "alt_title": "",
-        "back_id": "702718b",
-        "borough": "Brooklyn",
-        "outside_nyc": false
-      },
-      "raw_text": "35th Street, n.s., w. across Third Avenue, Brooklyn.\nNeg. no. A-1308\nP. L. Sperr, photographer\nJuly 21, 1940"
-    }
+      "back_id": "715488b",
+      "cookie": "blah",
+      "distance": 1,
+      "len_base": 303,
+      "len_exp": 309,
+      "score": 0.9966996699669967
+    },
+    "photo_id": "715488f-b"
   },
   {
-    "photo_id": "730308f-a",
-    "before": "A general view, east from Radio City, north from 48th to 51st Streets, and west from Fifth to Sixth Aves., showing the Queensboro Bridge, (Extending from East 59th Street, Manhattan to Long Island City), with Blackwell's Island in the East River directly beneath the bridge.\nAugust 9, 1933.\nP. L. Sperr.\n",
-    "after": "A general view, east from Radio City, north from 48th to 51st Streets, and west from Fifth to Sixth Aves., showing the Queensboro Bridge, (Extending from East 59th Street, Manhattan to Long Island City), with Blackwell's Island in the East River directly beneath the bridge.\n\nAugust 9, 1933.\n\nP. L. Sperr.",
+    "after": "Greenwich Street, at Dey Street, showing the \"E1\" station at the S.E. corner under construction. This view shows the Dey Street side; as the \"E1\" tracks are on Greenwich street. To the right center are buildings at the S.W. corner of this intersection.\nKings \"Handbook of New York\" states that the inventor Charles C. Harvey was permitted to build an experimental track along Greenwich Street from the Battery to 29th St. If it succeeded he was to have permission to extend the line to the Harlem River, but if it failed he was to take it down. The system was commenced in 1867 and the means of locomotion was a wire rope drawn by a stationary engine. The method was unsuccessful and the matter lay in abeyance for several years. The company failed in 1870 and was succeeded by the New York Elevated Railroad Co. which began the use of small locomotives on the tracks.\n\n1867-8\n\nGift of Major Quinn\n\nNeg. # 4032",
+    "before": "Greenwich Street, at Dey Street, showing the \"El\" station at the S.E. corner under construction. This view shows the Dey Street side, as the \"El\" tracks are on Greenwich Street. To the right center are buildings at the S.W.\ncorner of this intersection.\nKings \"Handbook of New York\" states that the inventor Charles C. Harvey was permitted to build an experimental track along Greenwich Street from the Battery to 29th St. If it succeeded he was to have permission to extend the line to the Harlem River, but if it failed he was to take it down. The system was commenced in 1867 and the means of locomotion was a wire rope drawn by a stationary engine. The method was unsuccessful and the matter lay in sbayence for several years. The company failed in 1870 and was succeeded by the New York Elevated Railroad Co. which began the use of small locomotives on the tracks.\n",
     "metadata": {
-      "cookie": "eval",
-      "len_base": 304,
-      "len_exp": 305,
-      "distance": 0,
-      "score": 1.0,
-      "back_id": "730308b",
-      "record": {
-        "id": "730308f",
-        "photo_url": "http://images.nypl.org/index.php?id=730308f&t=w",
-        "preferred_url": "http://digitalgallery.nypl.org/nypldigital/id?730308f",
-        "location": "50th Street and 5th Avenue, Manhattan, N.Y.",
-        "date": "1933",
-        "title": "General view - Between 5th and 6th Avenues - East.",
-        "alt_title": "[Manhattan: 50th Street - 5th Avenue ; From 48th Street to 51st Street.]",
-        "back_id": "730308b",
-        "borough": null,
-        "outside_nyc": false
-      },
-      "raw_text": "A general view, east from Radio City, north from 48th to 51st Streets, and west from Fifth to Sixth Aves., showing the Queensboro Bridge, (Extending from East 59th Street, Manhattan to Long Island City), with Blackwell's Island in the East River directly beneath the bridge.\n\nAugust 9, 1933.\n\nP. L. Sperr.\nNO REPRODUCTIONS."
-    }
+      "back_id": "720198b",
+      "cookie": "blah",
+      "distance": 46,
+      "len_base": 869,
+      "len_exp": 910,
+      "score": 0.9470655926352128
+    },
+    "photo_id": "720198f"
   },
   {
-    "photo_id": "713676f-b",
-    "before": "(1)\n433-435 West 53rd Street, north side, between Ninth and Tenth\nAves. Buildings concerned are frame houses.\nJune 30, 1930.\nP. L. Sperr.\n(2)\nThe same, from a different angle.\nApril 21, 1934.\nP. L. Sperr.\n",
-    "after": "(1) 433-435 West 53rd Street, north side, between Ninth and Tenth Aves. Buildings concerned are frame houses. June 30, 1930.\n\nP. L. Sperr.\n\n(2) The same, from a different angle. April 21, 1934.\n\nP. L. Sperr.",
+    "after": "(1)\nAn aerial view of the New York Stock Exchange, 2-16 Broad Street,\nat and adjoining the S.W. corner of Wall Street.\nMarch 24, 1933.\n\nP. L. Sperr.\n\n(2)\nAn earlier view from the ground of the older portion of the Stock Exchange, 8-16 Broad Street, adjoining the S.W. corner of\nWall Street.\nSummer, 1924.\n\nP. L. Sperr.\n\n(3)\nSimilar to No. 2. Note entrance to J. P. Morgan & Co. on the left.\nAbout 1929.\n",
+    "before": "(1)\nAn aerial view of the New York Stock Exchange, 2-16 Broad Street,\nat and adjoining the S.W. corner of Wall Street.\nMarch 24, 1933.\nP. L. Sperr.\n(2)\nAn earlier view from the ground of the older portion of the Stock Exchange, 8-16 Broad Street, adjoining the S.W. corner of\nWall Street.\nSummer, 1924.\nP. L. Sperr.\n(3)\nSimilar to No. 2. Note entrance to J. P. Morgan & Co. on the\nleft.\nAbout 1929.\n",
     "metadata": {
-      "cookie": "eval",
-      "len_base": 205,
-      "len_exp": 207,
+      "back_id": "716878b",
+      "cookie": "blah",
       "distance": 0,
-      "score": 1.0,
-      "back_id": "713676b",
-      "record": {
-        "id": "713676f",
-        "photo_url": "http://images.nypl.org/index.php?id=713676f&t=w",
-        "preferred_url": "http://digitalgallery.nypl.org/nypldigital/id?713676f",
-        "location": "53rd Street (West) & 9th Avenue, Manhattan, NY",
-        "date": "",
-        "title": "Manhattan: 53rd Street (West) - 9th Avenue",
-        "alt_title": "",
-        "back_id": "713676b",
-        "borough": "Manhattan",
-        "outside_nyc": false
-      },
-      "raw_text": "(1) 433-435 West 53rd Street, north side, between Ninth and Tenth Aves. Buildings concerned are frame houses. June 30, 1930.\n\nP. L. Sperr.\nNO REPRODUCTIONS.\n\n(2) The same, from a different angle. April 21, 1934.\n\nP. L. Sperr.\nNO REPRODUCTIONS."
-    }
+      "len_base": 399,
+      "len_exp": 403,
+      "score": 1.0
+    },
+    "photo_id": "716878f-c"
   },
   {
-    "photo_id": "717936f-c",
-    "before": "(1)\nBryant Park, center and west side, towards 42nd Street, giving a rear view of the Federal Hall replica, on which demolition is beginning.\nApril 8, 1933.\nP. L. Sperr.\n\n(2)\nThe same view, but closer to 42nd Street, showing the Park being remodelled under the regime of Commissioner Robert Moses, New York's first city-wide Commissioner of Parks.\nMarch 15, 1934.\nP. L. Sperr.\n\n(3)\nThe same, seen from the south side, and showing the Park after completion of the work. The flower beds are planted with ivy. The large corner building, at Sixth Avenue and 42nd Street, is the department store of Stern Brothers.\nJuly 6, 1935.\nP. L. Sperr.\n",
-    "after": "(1)\nBryant Park, center and west side, towards 42nd Street, giving a rear view of the Federal Hall replica, on which demolition\nis beginning.\n\nApril 8, 1933.\n\nP. L. Sperr.\n\n(2)\nThe same view, but closer to 42nd Street, showing the Park being remodelled under the regime of Commissioner Robert Moses, New York's first city-wide Commissioner of Parks.\nMarch 15, 1934.\n\nP. L. Sperr.\n\n(3)\nThe same, seen from the south side, and showing the Park after completion of the work. The flower beds are planted with\nivy.\nThe large corner building, at Sixth Avenue and 42nd Street, is\nthe department store of Stern Brothers.\nJuly 6, 1935.\n\nP. L. Sperr.",
+    "after": "444 West 38th Street, south side, east of Tenth Avenue. This is a three-story frame house.\n1932.\n\nJ. Clarence Davies Collection, Museum of the City of New York. Negative No. 185. ",
+    "before": "444 West 38th Street, south side, east of Tenth venue.\nThis is a three-story frame house.\n1932.\nJ. Clarence Davies Collection, Museum of the City of New York.\nNegative No. 185.\n",
     "metadata": {
-      "cookie": "eval",
-      "len_base": 637,
-      "len_exp": 640,
-      "distance": 0,
-      "score": 1.0,
-      "back_id": "717936b",
-      "record": {
-        "id": "717936f",
-        "photo_url": "http://images.nypl.org/index.php?id=717936f&t=w",
-        "preferred_url": "http://digitalgallery.nypl.org/nypldigital/id?717936f",
-        "location": "42nd Street & 12th Avenue, Manhattan, NY",
-        "date": "1933; \n\n\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t1934; \n\n\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t1935",
-        "title": "Manhattan: 42nd Street - 12th Avenue",
-        "alt_title": "",
-        "back_id": "717936b",
-        "borough": "Manhattan",
-        "outside_nyc": false
-      },
-      "raw_text": "(1)\nBryant Park, center and west side, towards 42nd Street, giving\na rear view of the Federal Hall replica, on which demolition\nis beginning.\n\nApril 8, 1933.\n\nP. L. Sperr.\nNO REPRODUCTIONS.\n\n(2)\nThe same view, but closer to 42nd Street, showing the Park\nbeing remodelled under the regime of Commissioner Robert\nMoses, New York's first city-wide Commissioner of Parks.\nMarch 15, 1934.\n\nP. L. Sperr.\nNO REPRODUCTIONS.\n\n(3)\nThe same, seen from the south side, and showing the Park after\ncompletion of the work. The flower beds are planted with\nivy.\nThe large corner building, at Sixth Avenue and 42nd Street, is\nthe department store of Stern Brothers.\nJuly 6, 1935.\n\nP. L. Sperr.\nNO REPRODUCTIONS."
-    }
+      "back_id": "712512b",
+      "cookie": "blah",
+      "distance": 1,
+      "len_base": 177,
+      "len_exp": 179,
+      "score": 0.9943502824858758
+    },
+    "photo_id": "712512f-a"
   },
   {
-    "photo_id": "717341f-a",
-    "before": "919-913 Broadway, at and adjoining the S.W. corner of 21st Street. The corner lot has been vacant since 1916, at least, but the building at 915 Broadway has just been demolished.\nNovember 20, 1924.\nUnderwood & Underwood.\n",
-    "after": "919-913 Broadway, at and adjoining the S.W. corner of 21st Street. The corner lot has been vacant since 1916, at least, but the building at 915 Broadway has just been demolished.\n\nNovember 20, 1924.\n\nUnderwood & Underwood.",
+    "after": "(1)\nAmsterdam Ave., west side, north from West 64th Street.\n\nNovember 30, 1937.\n\nP. L. Sperr.\n\n(2)\nA view westward to the North River on 65th Street, and showing two frame houses at the S.W. corner of Amsterdam Ave. They are Nos. 114 and 112.\n\nNovember 30, 1937.\n\nP. L. Sperr.",
+    "before": "(1)\nAmsterdam Ave., west side, north from West 64th Street.\nNovember 30, 1937.\nP. L. Sperr.\n(2)\nA view westward to the North River on 65th Street, and showing two frame houses at the S.W. corner of Amsterdam Ave. They are\nNos. 114 and 112.\nNovember 30, 1937.\nP. L. Sperr.\n",
     "metadata": {
-      "cookie": "eval",
-      "len_base": 221,
-      "len_exp": 222,
+      "back_id": "715947b",
+      "cookie": "blah",
       "distance": 0,
-      "score": 1.0,
-      "back_id": "717341b",
-      "record": {
-        "id": "717341f",
-        "photo_url": "http://images.nypl.org/index.php?id=717341f&t=w",
-        "preferred_url": "http://digitalgallery.nypl.org/nypldigital/id?717341f",
-        "location": "Broadway & 21st Street, Manhattan, NY",
-        "date": "",
-        "title": "Manhattan: Broadway - 21st Street",
-        "alt_title": "",
-        "back_id": "717341b",
-        "borough": "Manhattan",
-        "outside_nyc": false
-      },
-      "raw_text": "919-913 Broadway, at and adjoining the S.W. corner of 21st Street. The corner lot has been vacant since 1916, at least, but the building at 915 Broadway has just been demolished.\n\nNovember 20, 1924.\n\nUnderwood & Underwood.\nMAY BE REPRODUCED."
-    }
+      "len_base": 272,
+      "len_exp": 276,
+      "score": 1.0
+    },
+    "photo_id": "715947f-b"
   },
   {
-    "photo_id": "731935f-b",
-    "before": "Coney Island: One of the amusement centers on the island.\nJuly 4, 1936\nViews 1,2\nP. L. Sperr\n",
-    "after": "Coney Island: One of the amusement centers on the island.\n\nJuly 4, 1936\nViews 1,2\n\nP. L. Sperr",
+    "after": "(1) Central Park West, showing the West Side from about 80th to 82nd Streets. Although not clearly shown in this picture there is a clearing from 81st to 82nd Streets, where the old Beresford Apartment House has been demolished to make way for a new building.\n\nP.L.Sperr,\n\n\n(2) The same, from a closer view taken seven weeks earlier, before the leaves began to fall, and showing the Beresford in the last stages of demolition.\n\nP.L.Sperr,\n",
+    "before": "(1) Central Park West, showing the West Side from about 80th to 82nd Streets. Although not clearly shown in this picture there is a clearing from 81st to 82nd Streets, where the old Beresford Apartment House has been demolished to make way for a new building.\nOctober 20th, 1928\nP. L. Sperr.\n\n(2) The same, from a closer view taken seven weeks earlier, before the leaves began to fall,and showing the Beresford in the last stages of demolition.\nP. L. Sperr.\nSeptember 9th,1928.\n",
     "metadata": {
-      "cookie": "eval",
-      "len_base": 93,
-      "len_exp": 94,
-      "distance": 0,
-      "score": 1.0,
-      "back_id": "731935b",
-      "record": {
-        "id": "731935f",
-        "photo_url": "http://images.nypl.org/index.php?id=731935f&t=w",
-        "preferred_url": "http://digitalgallery.nypl.org/nypldigital/id?731935f",
-        "location": "Brooklyn - Rollercoaster., Coney Island, Brooklyn, NY",
-        "date": "1936",
-        "title": "Islands - Coney Island - Brooklyn - [Rollercoaster].",
-        "alt_title": "",
-        "back_id": "731935b",
-        "borough": null,
-        "outside_nyc": false
-      },
-      "raw_text": "Coney Island: One of the amusement centers on the island.\n\nJuly 4, 1936\nViews 1,2\n\nP. L. Sperr\nNO REPRODUCTIONS"
-    }
+      "back_id": "718496b",
+      "cookie": "blah",
+      "distance": 38,
+      "len_base": 478,
+      "len_exp": 439,
+      "score": 0.9205020920502092
+    },
+    "photo_id": "718496f-b"
   },
   {
-    "photo_id": "713325f-a",
-    "before": "22-18 East 48th Street, south side, west of Madison Avenue.\nAbout 1911.\nGift of E. M. Jenks.\n",
-    "after": "22-18 East 48th Street, south side, west of Madison Avenue.\nAbout 1911.\n\nGift of E. M. Jenks.",
+    "after": "(1)\n\n9-17 Commerce Street, north side, at, adjoining, and west of Seventh Ave. All these are frames with stucco and brick fronts.\n\nMarch 15, 1932.\n\nP. L. Sperr.\n\n(2)\n\nA view solely of Nos. 15 and 17; the latter being a 2\u00bd-story affair.\nThis picture has been reversed in the printing.\n\nMarch 25, 1932.\n\nJ. Clarence Davies Collection.\nNegative No. 368.\n\n(3)\n\nThe same as No. 1\n\nMarch 15, 1932.\n\nP. L. Sperr.",
+    "before": "9-17 Commerce Street, north side, at, adjoining, and west of Seventh Ave. All these are frames with stucco and brick fronts.\nMarch 15, 1932.\nP. L. Sperr.\n(2)\nA view solely of Nos. 15 and 17; the latter being a 26-story affair.\nmw wwr ee 6eea rver~~~ S93E5E2'999:\nJJ. Clarence Davies Collection.\nNegative No. 368.\n",
     "metadata": {
-      "cookie": "eval",
-      "len_base": 93,
-      "len_exp": 93,
-      "distance": 0,
-      "score": 1.0,
-      "back_id": "713325b",
-      "record": {
-        "id": "713325f",
-        "photo_url": "http://images.nypl.org/index.php?id=713325f&t=w",
-        "preferred_url": "http://digitalgallery.nypl.org/nypldigital/id?713325f",
-        "location": "48th Street (East) & Madison Avenue, Manhattan, NY",
-        "date": "1911?",
-        "title": "Manhattan: 48th Street (East) - Madison Avenue",
-        "alt_title": "",
-        "back_id": "713325b",
-        "borough": "Manhattan",
-        "outside_nyc": false
-      },
-      "raw_text": "22-18 East 48th Street, south side, west of Madison Avenue.\nAbout 1911.\n\nGift of E. M. Jenks.\nMAY BE REPRODUCED."
-    }
+      "back_id": "719161b",
+      "cookie": "blah",
+      "distance": 96,
+      "len_base": 313,
+      "len_exp": 405,
+      "score": 0.6932907348242812
+    },
+    "photo_id": "719161f-c"
   },
   {
-    "photo_id": "725420f-a",
-    "before": "51st Avenue, west from near 21st Street. This area later became part of a new broad highway leading to the Queens-Midtown Tunnel entrance at Vernon Avenue.\nNovember 18, 1938\nNew York City Tunnel Authority\n",
-    "after": "51st Avenue, west from near 21st Street. This area later became part of a new broad highway leading to the Queens-Midtown Tunnel entrance at Vernon Avenue.\n\nNovember 18, 1938\n\nNew York City Tunnel Authority",
+    "after": "403-407 East 47th Street, adjoining the N.E. corner of First Avenue.\n\nMarch 20, 1928.\n\nP. L. Sperr.",
+    "before": "403-407 East 47th Street, adjoining the N.E. corner of First\nAvenue.\n\nMarch 20, 1928.\n\nP. L. Sperr.\n",
     "metadata": {
-      "cookie": "eval",
-      "len_base": 205,
-      "len_exp": 206,
+      "back_id": "713305b",
+      "cookie": "blah",
       "distance": 0,
-      "score": 1.0,
-      "back_id": "725420b",
-      "record": {
-        "id": "725420f",
-        "photo_url": "http://images.nypl.org/index.php?id=725420f&t=w",
-        "preferred_url": "http://digitalgallery.nypl.org/nypldigital/id?725420f",
-        "location": "51st Avenue & 21st Street, Queens, NY",
-        "date": "1938",
-        "title": "Queens: 51st Avenue - 21st Street",
-        "alt_title": "",
-        "back_id": "725420b",
-        "borough": "Queens",
-        "outside_nyc": false
-      },
-      "raw_text": "51st Avenue, west from near 21st Street. This area later became part of a new broad highway leading to the Queens-Midtown Tunnel entrance at Vernon Avenue.\n\nNovember 18, 1938\n\nNew York City Tunnel Authority\nCREDIT LINE IMPERATIVE"
-    }
+      "len_base": 100,
+      "len_exp": 99,
+      "score": 1.0
+    },
+    "photo_id": "713305f-a"
   },
   {
-    "photo_id": "702282f-c",
-    "before": "(1)\n3rd Avenue, east side, north from 25th Street, showing the clearance which was created by the demolition of numerous tenements. This area will become part of Gowanus Parkway, the highway leading to and from the Brooklyn-Battery Tunnel.\nOctober 17, 1940\nP. L. Sperr\n(2)\nThe east side of Third Avenue, between 24th and 23rd\nStreets.\nOctober 17, 1940\nP. L. Sperr\n(3)\nThe east side of the Avenue at 22nd Street.\nOctober 17, 1940\nP. L. Sperr\n",
-    "after": "(1)\n3rd Avenue, east side, north from 25th Street, showing the clearance which was created by the demolition of numerous tenements. This area will become part of Gowanus Parkway, the highway leading to and from the Brooklyn-Battery Tunnel.\n\nOctober 17, 1940\n\nP. L. Sperr\n\n(2)\nThe east side of Third Avenue, between 24th and 23rd Streets.\n\nOctober 17, 1940\n\nP. L. Sperr\n\n(3)\nThe east side of the Avenue at 22nd Street.\n\nOctober 17, 1940\n\nP. L. Sperr",
+    "after": "Ocean Ave. & Quentin Road\nBrooklyn\n193-?",
+    "before": "Ocean Ave. & Quentin Road\nBrooklyn 193-?",
     "metadata": {
-      "cookie": "eval",
-      "len_base": 441,
-      "len_exp": 448,
+      "back_id": "706102b",
+      "cookie": "blah",
       "distance": 0,
-      "score": 1.0,
-      "back_id": "702282b",
-      "record": {
-        "id": "702282f",
-        "photo_url": "http://images.nypl.org/index.php?id=702282f&t=w",
-        "preferred_url": "http://digitalgallery.nypl.org/nypldigital/id?702282f",
-        "location": "3rd Avenue & 25th Street, Brooklyn, NY",
-        "date": "",
-        "title": "Brooklyn: 3rd Avenue - 25th Street",
-        "alt_title": "",
-        "back_id": "702282b",
-        "borough": "Brooklyn",
-        "outside_nyc": false
-      },
-      "raw_text": "(1)\n3rd Avenue, east side, north from 25th Street, showing the clearance which was created by the demolition of numerous tenements. This area will become part of Gowanus Parkway, the highway leading to and from the Brooklyn-Battery Tunnel.\n\nOctober 17, 1940\n\nP. L. Sperr\nNO REPRODUCTIONS\n\n(2)\nThe east side of Third Avenue, between 24th and 23rd Streets.\n\nOctober 17, 1940\n\nP. L. Sperr\nNO REPRODUCTIONS\n\n(3)\nThe east side of the Avenue at 22nd Street.\n\nOctober 17, 1940\n\nP. L. Sperr\nNO REPRODUCTIONS"
-    }
+      "len_base": 40,
+      "len_exp": 40,
+      "score": 1.0
+    },
+    "photo_id": "706102f-a"
   },
   {
-    "photo_id": "729194f-a",
-    "before": "New Dorp Lane (right), south side, west from 9th Street (foreground). The house, seen prominently, is a police station,\nat the S.E. corner of 8th Street.\nApril 22, 1937.\nP. L. Sperr.\n",
-    "after": "New Dorp Lane (right), south side, west from 9th Street (foreground). The house, seen prominently, is a police station, at the S.E. corner of 8th Street.\n\nApril 22, 1937.\n\nP. L. Sperr.",
+    "after": "Erection of Chrysler Building, Lexington Avenue, east side, from 42nd to 43rd Street.\n\nPeyser & Patzig, Photographer\n\nNeg # 348\n\nTHE NEW YORK PUBLIC LIBRARY\n\nASTOR, LENOX AND TILDEN FOUNDATIONS",
+    "before": "Erection of Chrysler Building, Lexington Avenue, eest side. from 42nd to\n43rd Strcet.\nJune 3, 1529.\nPeyser & Patnig, Photographer\nNeg k 3VE\n4\n1 ReoG .:\n[PRL 1R. 1  1\n[ :\n\"'R Rr :.\n",
     "metadata": {
-      "cookie": "eval",
-      "len_base": 183,
-      "len_exp": 184,
-      "distance": 0,
-      "score": 1.0,
-      "back_id": "729194b",
-      "record": {
-        "id": "729194f",
-        "photo_url": "http://images.nypl.org/index.php?id=729194f&t=w",
-        "preferred_url": "http://digitalgallery.nypl.org/nypldigital/id?729194f",
-        "location": "New Dorp Lane & 8th Street, Staten Island, NY",
-        "date": "1937",
-        "title": "Richmond: New Dorp Lane - 8th Street",
-        "alt_title": "",
-        "back_id": "729194b",
-        "borough": "Staten Island",
-        "outside_nyc": false
-      },
-      "raw_text": "New Dorp Lane (right), south side, west from 9th Street (foreground). The house, seen prominently, is a police station, at the S.E. corner of 8th Street.\n\nApril 22, 1937.\n\nP. L. Sperr.\nNO REPRODUCTIONS."
-    }
+      "back_id": "720996b",
+      "cookie": "blah",
+      "distance": 73,
+      "len_base": 180,
+      "len_exp": 193,
+      "score": 0.5944444444444444
+    },
+    "photo_id": "720996f"
   },
   {
-    "photo_id": "704683f-a",
-    "before": "Grand Avenue, north from and across St. Marks Avenue,\nshowing a W. P. A. sewer project.\n1936\nWorks Progress Administration\nFive Boroughs Project\n",
-    "after": "Grand Avenue, north from and across St. Marks Avenue, showing a W. P. A. sewer project.\n\n1936\n\nWorks Progress Administration\nFive Boroughs Project",
+    "after": "(1)\nTenth Ave., west side, north from, but not including West 30th to, but not including 31st Streets. The view shows the yards of the N. Y. Central and Hudson River R.R. Company.\n\nMay 17, 1927.\n\nP. L. Sperr.\n\n(2)\nThe same.\n\nMay 17, 1927.\n\nP. L. Sperr.",
+    "before": "(1)\nTenth Ave., west side, north from, but not including West 30th to, but not including 31st Streets. The view shows the yards of the\nN. Y. Central and Hudson River R.R. Company.\nMay 17, 1927.\nP. L. Sperr.\n(2)\nThe same\nMay 17, 1927.\nP. L. Sperr.\n",
     "metadata": {
-      "cookie": "eval",
-      "len_base": 145,
-      "len_exp": 146,
-      "distance": 0,
-      "score": 1.0,
-      "back_id": "704683b",
-      "record": {
-        "id": "704683f",
-        "photo_url": "http://images.nypl.org/index.php?id=704683f&t=w",
-        "preferred_url": "http://digitalgallery.nypl.org/nypldigital/id?704683f",
-        "location": "Grand Avenue & St. Marks Avenue, Brooklyn, NY",
-        "date": "1936",
-        "title": "Brooklyn: Grand Avenue - St. Marks Avenue",
-        "alt_title": "",
-        "back_id": "704683b",
-        "borough": "Brooklyn",
-        "outside_nyc": false
-      },
-      "raw_text": "Grand Avenue, north from and across St. Marks Avenue, showing a W. P. A. sewer project.\n\n1936\n\nWorks Progress Administration\nFive Boroughs Project\nCREDIT LINE IMPERATIVE"
-    }
+      "back_id": "710531b",
+      "cookie": "blah",
+      "distance": 1,
+      "len_base": 247,
+      "len_exp": 252,
+      "score": 0.9959514170040485
+    },
+    "photo_id": "710531f-b"
   },
   {
-    "photo_id": "727568f-b",
-    "before": "Northern Boulevard, south side, east of Main Street, showing three views (from three different angles) of the Quaker Meeting House of Flushing, built in 1694. The Quakers held their first annual meeting here on May 30th, 1696. The British, during the Revolution, used the structure as a barrack, hospital, prison and bay magazine.\nView 1: 1922\nViews 2,3: July, 1925\nEugene L. Armbruster Collection\n",
-    "after": "Northern Boulevard, south side, east of Main Street, showing three views (from three different angles) of the Quaker Meeting House of Flushing, built in 1694. The Quakers held their first annual meeting here on May 30th, 1696. The British, during the Revolution, used the structure as a barrack, hospital, prison and bay magazine.\n\nView 1: 1922\nViews 2,3: July, 1925\n\nEugene L. Armbruster Collection",
+    "after": "Pearl and Broad Street, corner, showing Fraunces Tavern of Revolutionary fame.\nM.B.R.\nMay 1906.",
+    "before": "Pearl and Broad Street, corner, showing Fraunces\nTavern of Revolutionary fame.\nM.B.R.\nMay 1906.",
     "metadata": {
-      "cookie": "eval",
-      "len_base": 398,
-      "len_exp": 399,
+      "back_id": "722489b",
+      "cookie": "blah",
       "distance": 0,
-      "score": 1.0,
-      "back_id": "727568b",
-      "record": {
-        "id": "727568f",
-        "photo_url": "http://images.nypl.org/index.php?id=727568f&t=w",
-        "preferred_url": "http://digitalgallery.nypl.org/nypldigital/id?727568f",
-        "location": "Northern Boulevard & Main Street, Queens, NY",
-        "date": "1922; \n\n\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t1925",
-        "title": "Queens: Northern Boulevard - Main Street",
-        "alt_title": "",
-        "back_id": "727568b",
-        "borough": "Queens",
-        "outside_nyc": false
-      },
-      "raw_text": "Northern Boulevard, south side, east of Main Street, showing three views (from three different angles) of the Quaker Meeting House of Flushing, built in 1694. The Quakers held their first annual meeting here on May 30th, 1696. The British, during the Revolution, used the structure as a barrack, hospital, prison and bay magazine.\n\nView 1: 1922\nViews 2,3: July, 1925\n\nEugene L. Armbruster Collection\nMAY BE REPRODUCED"
-    }
+      "len_base": 95,
+      "len_exp": 95,
+      "score": 1.0
+    },
+    "photo_id": "722489f-a"
   },
   {
-    "photo_id": "710342f",
-    "before": "9th Ave., e.s., south of 23rd St. June 18, 1941\nP.L. Sperr, photographer",
-    "after": "9th Ave., e.s., south of 23rd St. June 18, 1941\nP.L. Sperr, photographer",
+    "after": "Meeker Avenue, south side, west from Vandervoort Avenue.\n\nAugust 13, 1938\n\nP. L. Sperr",
+    "before": "Meeker Avenue, south side, west from Vandervoort Avenue.\nAugust 13, 1938\nP. L. Sperr\n",
     "metadata": {
-      "cookie": "eval",
-      "len_base": 72,
-      "len_exp": 72,
+      "back_id": "705677b",
+      "cookie": "blah",
       "distance": 0,
-      "score": 1.0,
-      "back_id": "710342b",
-      "record": {
-        "id": "710342f",
-        "photo_url": "http://images.nypl.org/index.php?id=710342f&t=w",
-        "preferred_url": "http://digitalgallery.nypl.org/nypldigital/id?710342f",
-        "location": "9th Avenue & 23rd Street, Manhattan, NY",
-        "date": "1941",
-        "title": "Manhattan: 9th Avenue - 23rd Street",
-        "alt_title": "",
-        "back_id": "710342b",
-        "borough": "Manhattan",
-        "outside_nyc": false
-      },
-      "raw_text": "9th Ave., e.s., south of 23rd St. June 18, 1941\nP.L. Sperr, photographer"
-    }
+      "len_base": 85,
+      "len_exp": 86,
+      "score": 1.0
+    },
+    "photo_id": "705677f-a"
   },
   {
-    "photo_id": "700872f-a",
-    "before": "E. Burnside Avenue, north side, at Ryer Avenue. Extending to the background is the west side of Ryer Avenue.\nFebruary 1, 1938.\nP. L. Sperr.\n",
-    "after": "E. Burnside Avenue, north side, at Ryer Avenue. Extending to the background is the west side of Ryer Avenue.\n\nFebruary 1, 1938.\n\nP. L. Sperr.",
+    "after": "West 15th Street, east side, south from Surf Ave., to Coney Island Boardwalk. (Coney Island).\nJuly 4, 1936.\n\nP. L. Sperr.",
+    "before": "West 15th Street, east side, south from Surf Ave., to Coney Island\nBoardwalk. (Coney Island).\nJuly 4, 1936.\nP. L. Sperr.\n",
     "metadata": {
-      "cookie": "eval",
-      "len_base": 140,
-      "len_exp": 141,
+      "back_id": "702564b",
+      "cookie": "blah",
       "distance": 0,
-      "score": 1.0,
-      "back_id": "700872b",
-      "record": {
-        "id": "700872f",
-        "photo_url": "http://images.nypl.org/index.php?id=700872f&t=w",
-        "preferred_url": "http://digitalgallery.nypl.org/nypldigital/id?700872f",
-        "location": "Burnside Avenue (Eas & Ryer Avenue, Bronx, NY",
-        "date": "",
-        "title": "Bronx: Burnside Avenue (Eas - Ryer Avenue",
-        "alt_title": "",
-        "back_id": "700872b",
-        "borough": "Bronx",
-        "outside_nyc": false
-      },
-      "raw_text": "E. Burnside Avenue, north side, at Ryer Avenue. Extending to the background is the west side of Ryer Avenue.\n\nFebruary 1, 1938.\n\nP. L. Sperr.\nNO REPRODUCTIONS."
-    }
+      "len_base": 121,
+      "len_exp": 121,
+      "score": 1.0
+    },
+    "photo_id": "702564f-a"
   },
   {
-    "photo_id": "731668f-b",
-    "before": "Feast of Our Lady of Mt. Carmel-1939: Mobile refreshment purveyors at the Carnival grounds at Pleasant Avenue and East 115th Street. The view is eastward across the cleared site of the future Benjamin Franklin High School. Note the Triboro and Hellgate Bridges in the background.\nJuly 16, 1939\nNo's. 13-14-15\nP. L. Sperr\n",
-    "after": "Feast of Our Lady of Mt. Carmel-1939: Mobile refreshment purveyors at the Carnival grounds at Pleasant Avenue and East 115th Street. The view is eastward across the cleared site of the future Benjamin Franklin High School. Note the Triboro and Hellgate Bridges in the background.\n\nJuly 16, 1939\nNo's. 13-14-15\n\nP. L. Sperr",
+    "after": "(1)\n49-53 East 118th Street, at and adjoining the N.E. corner of Madison Ave. This is a 3-story frame house with a stucco front.\n\n1932.\n\nJ. Clarence Davies Collection, Museum of the City of New York.\nNegative No. 472.\n\n(2)\nThe same, another view.\n\n1932.\n\nJ. Clarence Davies Collection, Museum of the City of New York.\nNegative No. 591.",
+    "before": "(1)\n49-53 East 118th Street, at and adjoining the N.E. corner of Madison Ave. This is a 3-story frame house with a stucco\nfront.\n1932.\nJ. Clarence Davies Collection, Museum of the City of New York.\nNegative No. 472.\n(2)\nThe same, another view.\n1932.\nJ. Clarence Davies Collection, Museum of the City of New York.\nNegative No. 591.\n",
     "metadata": {
-      "cookie": "eval",
-      "len_base": 321,
-      "len_exp": 322,
+      "back_id": "715177b",
+      "cookie": "blah",
       "distance": 0,
-      "score": 1.0,
-      "back_id": "731668b",
-      "record": {
-        "id": "731668f",
-        "photo_url": "http://images.nypl.org/index.php?id=731668f&t=w",
-        "preferred_url": "http://digitalgallery.nypl.org/nypldigital/id?731668f",
-        "location": "115th Street (East) and Pleasant Avenue, Manhattan, N.Y.",
-        "date": "1939; \n\n\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\tJuly 1939",
-        "title": "Feast of Our Lady of Mount Carmel.",
-        "alt_title": "[Manhattan: 115th Street (East) - Pleasant Avenue.]",
-        "back_id": "731668b",
-        "borough": null,
-        "outside_nyc": false
-      },
-      "raw_text": "Feast of Our Lady of Mt. Carmel-1939: Mobile refreshment purveyors at the Carnival grounds at Pleasant Avenue and East 115th Street. The view is eastward across the cleared site of the future Benjamin Franklin High School. Note the Triboro and Hellgate Bridges in the background.\n\nJuly 16, 1939\nNo's. 13-14-15\n\nP. L. Sperr\nNO REPRODUCTIONS"
-    }
+      "len_base": 331,
+      "len_exp": 335,
+      "score": 1.0
+    },
+    "photo_id": "715177f-b"
   },
   {
-    "photo_id": "726323f",
-    "before": "Chisholm Park. Whitestone.\n4B\nccc",
-    "after": "Chisholm Park. Whitestone.\n\n4B\nccc",
+    "after": "(1)\nTammany Hall, Union Square East at S.E. corner of 17th Street, the ground floor occupied by a branch of the Manufacturers Trust Company. The new Tammany Hall is four years old, as pictured here. At the time it was built, the store of 42 Union Square, adjoining, was occupied by Flaxman Woolen, Incorporated.\n\nP. L. Sperr.\n\n(2)\nThe same, Election Day of that year, when, for the first time in twenty years, the Tammany candidates for Mayor, Comptroller, and Aldermanic President were all defeated. But the Borough President and four candidates for County Offices, whose names follow the first three, were elected.\nThe building in the background, with the \"Hyman -- Human -- \" sign, is not shown in this view because of the angle of the camera.\nNovember 7, 1933.",
+    "before": "Tammany Hall, Union Square East at S.E. corner of 17th Street, the ground floor occupied by a branch of the Manufacturers Trust Company. The new Tammany Hall is four years old, as pictured here. At the time it was built, the store of 42 Union Square, adjoining, was occupied by Flaxman Woolen,\nIncorporated.\nMarch 25, 1933.\nP. L. Sperr.\n(2)\nThe same, Election Day of that year, when, for the first time in twenty years, the Tammany candidates for Mayor, Comptroller, and Aldermanic President were all defeated. But the Borough President and four candidates for County Offices, whose names\nfollow the first three, were elected.\nThe building in the background, with the \"Hyman -- Human -- \" sign is not shown in this view because of the angle of the camera.\nNovember 7, 1933.\nP. L. Sperr.\n",
     "metadata": {
-      "cookie": "eval",
-      "len_base": 33,
-      "len_exp": 34,
-      "distance": 0,
-      "score": 1.0,
-      "back_id": "726323b",
-      "record": {
-        "id": "726323f",
-        "photo_url": "http://images.nypl.org/index.php?id=726323f&t=w",
-        "preferred_url": "http://digitalgallery.nypl.org/nypldigital/id?726323f",
-        "location": "Chisholm Park & [Whitestone.], Queens, NY",
-        "date": "n.d",
-        "title": "Queens: Chisholm Park - [Whitestone.]",
-        "alt_title": "",
-        "back_id": "726323b",
-        "borough": "Queens",
-        "outside_nyc": false
-      },
-      "raw_text": "Chisholm Park. Whitestone.\n\n4B\nccc"
-    }
+      "back_id": "723624b",
+      "cookie": "blah",
+      "distance": 32,
+      "len_base": 787,
+      "len_exp": 764,
+      "score": 0.9593392630241423
+    },
+    "photo_id": "723624f-b"
   },
   {
-    "photo_id": "710321f-a",
-    "before": "113 and 115 Ninth Avenue, at and adjoining the N.W. corner of W. 17th Street (foreground), showing the rears of these frame buildings as viewed across the cleared site where stood No's 405-7-9 W. 17th Street. These were also of frame construction.\nThe new law tenement at the left is No. 117 Ninth Avenue. The margin on the right eliminates a view of that thoroughfare and its elevated line.\nApril 15, 1936\n",
-    "after": "113 and 115 Ninth Avenue, at and adjoining the N.W. corner of W. 17th Street (foreground), showing the rears of these frame buildings as viewed across the cleared site where stood No's 405-7-9 W. 17th Street. These were also of frame construction.\n\nThe new law tenement at the left is No. 117 Ninth Avenue. The margin on the right eliminates a view of that thoroughfare and its elevated line.\n\nApril 15, 1936\n",
+    "after": "Grand Avenue, north side, between 72nd Street and 72nd Place, showing the Geo. B. Brinckerhoff house of 1852. It was still the property of this family in 1891. The house was standing in April 1934.\n\n1922\n\nEugene L. Armbruster Collection",
+    "before": "Grand Avenue, north side, between 72nd Street and 72nd Place, showing the Geo. B. Brinckerhoff house of 1852. It was still the property of this family in 1891.\nThe house was standing in April 1934.\n1922\nEugene L. Armbruster Collection\n",
     "metadata": {
-      "cookie": "eval",
-      "len_base": 407,
-      "len_exp": 409,
+      "back_id": "726776b",
+      "cookie": "blah",
       "distance": 0,
-      "score": 1.0,
-      "back_id": "710321b",
-      "record": {
-        "id": "710321f",
-        "photo_url": "http://images.nypl.org/index.php?id=710321f&t=w",
-        "preferred_url": "http://digitalgallery.nypl.org/nypldigital/id?710321f",
-        "location": "9th Avenue & 17th Street, Manhattan, NY",
-        "date": "",
-        "title": "Manhattan: 9th Avenue - 17th Street",
-        "alt_title": "",
-        "back_id": "710321b",
-        "borough": "Manhattan",
-        "outside_nyc": false
-      },
-      "raw_text": "113 and 115 Ninth Avenue, at and adjoining the N.W. corner of W. 17th Street (foreground), showing the rears of these frame buildings as viewed across the cleared site where stood No's 405-7-9 W. 17th Street. These were also of frame construction.\n\nThe new law tenement at the left is No. 117 Ninth Avenue. The margin on the right eliminates a view of that thoroughfare and its elevated line.\n\nApril 15, 1936\n\nMAY BE REPRODUCED"
-    }
+      "len_base": 235,
+      "len_exp": 236,
+      "score": 1.0
+    },
+    "photo_id": "726776f-a"
   },
   {
-    "photo_id": "721431f-a",
-    "before": "Madison Avenue, west side, from 70th to 71st Streets. In foreground on east side Presbyterian Hospital has just been demolished.\nJune 8, 1928.\nP.L.Sperr, Photographer.\n",
-    "after": "Madison Avenue, west side, from 70th to 71st Streets. In foreground on east side Presbyterian Hospital has just been demolished. June 8, 1928.\n\nP.L.Sperr, Photographer.",
+    "after": "(1)\nS. E. corner of Fifth Avenue and 88th Street.\nP.L. Sperr, Photographer.\n(2)\nNEG# 3512\nFifth Avenue, at 88th Street and North.\nP.L. Sperr, Photographer.",
+    "before": "S. E. corner of Fifth Avenue and 88th Street.\nMarch 28, 1929.\nP.L. Sperr,Photographer.\nNEG8 572\n(2)\nFifth Avenue, at 88th Street and North.\nMarch 28, 1929.\nP.L. Sperr,Photographer.\n",
     "metadata": {
-      "cookie": "eval",
-      "len_base": 168,
-      "len_exp": 168,
-      "distance": 0,
-      "score": 1.0,
-      "back_id": "721431b",
-      "record": {
-        "id": "721431f",
-        "photo_url": "http://images.nypl.org/index.php?id=721431f&t=w",
-        "preferred_url": "http://digitalgallery.nypl.org/nypldigital/id?721431f",
-        "location": "Madison Avenue & 70th Street, Manhattan, NY",
-        "date": "1928",
-        "title": "Manhattan: Madison Avenue - 70th Street",
-        "alt_title": "",
-        "back_id": "721431b",
-        "borough": "Manhattan",
-        "outside_nyc": false
-      },
-      "raw_text": "Madison Avenue, west side, from 70th to 71st Streets. In foreground on east side Presbyterian Hospital has just been demolished. June 8, 1928.\n\nP.L.Sperr, Photographer.\nNO REPRODUCTIONS."
-    }
+      "back_id": "709178b",
+      "cookie": "blah",
+      "distance": 40,
+      "len_base": 181,
+      "len_exp": 155,
+      "score": 0.7790055248618785
+    },
+    "photo_id": "709178f-b"
   },
   {
-    "photo_id": "715314f-a",
-    "before": "58-62 West 124th Street, south side, between Lenox Ave. and Mt.\nMorris Park West.\nAbout 1913.\n",
-    "after": "58-62 West 124th Street, south side, between Lenox Ave. and Mt. Morris Park West.\nAbout 1913.",
+    "after": "(1)\nTargee Street, east side, between Broad Street and Purdy Street, showing the Immaculate Conception Roman Catholic Church.\nFebruary 25, 1931\n\nP. L. Sperr\n\n(2)\nThe same, another view, On the extreme right is visible part of the \"Sisters' House.\"\nFebruary 25, 1931\n\nP. L. Sperr\n\n(3)\nThe \"Sisters' House\" of the Church of the Immaculate Conception, adjoining the church on the south.\nFebruary 25, 1931\n\nP. L. Sperr",
+    "before": "Targee Street, east side, between Broad Street and Purdy Street, showing the Immaculate Conception Roman\nCatholic Church.\nFebruary 25, 1931\nP. L. Sperr\n(2)\nTBie same, another view. On the extreme right is\nvisible partof the \"Sisters' House.'\nFebruary 25, 1931\nP. L. Sperr\n(3)\nThe 'Sistersf House ' of the Church of the Immaculate Consception, adjoining thetchaxrek on the south.\nFebruary 25, 1931\nP. L. Sperr\n",
     "metadata": {
-      "cookie": "eval",
-      "len_base": 94,
-      "len_exp": 93,
-      "distance": 0,
-      "score": 1.0,
-      "back_id": "715314b",
-      "record": {
-        "id": "715314f",
-        "photo_url": "http://images.nypl.org/index.php?id=715314f&t=w",
-        "preferred_url": "http://digitalgallery.nypl.org/nypldigital/id?715314f",
-        "location": "124th Street (West) & Lenox Avenue, Manhattan, NY",
-        "date": "1913",
-        "title": "Manhattan: 124th Street (West) - Lenox Avenue",
-        "alt_title": "",
-        "back_id": "715314b",
-        "borough": "Manhattan",
-        "outside_nyc": false
-      },
-      "raw_text": "58-62 West 124th Street, south side, between Lenox Ave. and Mt. Morris Park West.\nAbout 1913.\nMAY BE REPRODUCED."
-    }
+      "back_id": "729724b",
+      "cookie": "blah",
+      "distance": 19,
+      "len_base": 409,
+      "len_exp": 414,
+      "score": 0.9535452322738386
+    },
+    "photo_id": "729724f-c"
   },
   {
-    "photo_id": "713327f-a",
-    "before": "12-16 West 48th Street, south side, west of Fifth Avenue.\nAbout 1911.\nGift of E. M. Jenks.\n",
-    "after": "12-16 West 48th Street, south side, west of Fifth Avenue.\nAbout 1911.\n\nGift of E. M. Jenks.",
+    "after": "26-28 West 61st Street, south side, between Broadway and Columbus Avenue. On the clearing at the left of the picture a twelve-story garage will be erected.\n\nOctober 6, 1911\n\nWurts Brothers, Photographers",
+    "before": "26-28 West 61st Street, south side, between Broadway and Columbus Avenue. On the clearing at the left of the picture a twelve-story garage will be erected.\nOctober 6, 1911\nWurts Brothers, Photographers\n",
     "metadata": {
-      "cookie": "eval",
-      "len_base": 91,
-      "len_exp": 91,
+      "back_id": "714114b",
+      "cookie": "blah",
       "distance": 0,
-      "score": 1.0,
-      "back_id": "713327b",
-      "record": {
-        "id": "713327f",
-        "photo_url": "http://images.nypl.org/index.php?id=713327f&t=w",
-        "preferred_url": "http://digitalgallery.nypl.org/nypldigital/id?713327f",
-        "location": "48th Street (West) & 5th Avenue, Manhattan, NY",
-        "date": "",
-        "title": "Manhattan: 48th Street (West) - 5th Avenue",
-        "alt_title": "",
-        "back_id": "713327b",
-        "borough": "Manhattan",
-        "outside_nyc": false
-      },
-      "raw_text": "12-16 West 48th Street, south side, west of Fifth Avenue.\nAbout 1911.\n\nGift of E. M. Jenks.\nMAY BE REPRODUCED."
-    }
+      "len_base": 202,
+      "len_exp": 203,
+      "score": 1.0
+    },
+    "photo_id": "714114f"
   },
   {
-    "photo_id": "717708f-c",
-    "before": "(1)\nBroadway, north from West 114th Street, showing on the west side (left), three apartment houses the Luxor, Regnor and Rexor that face units of Columbia University (right). The latter in the order of their appearance are: Furnald Hall, the School of Journalism, the School for Business and the School of Mines.\nSeptember 3, 1937.\nP. L. Sperr.\n(2)\nA view solely of the University Building and grounds. Note the gabled house, at the N.E. corner of Broadway and West 114th Street.\nSeptember 3, 1937.\nP. L. Sperr.\n(3)\nA detail of No. 2, showing the aforementioned cottage. On the extreme right appears a portion of South Hall and Library.\nSeptember 3, 1937.\nP. L. Sperr.\n",
-    "after": "(1) Broadway, north from West 114th Street, showing on the west side (left), three apartment houses the Luxor, Regnor and Rexor that face units of Columbia University (right). The latter in the order of their appearance are: Furnald Hall, the School of Journalism, the School for Business and the School of Mines.\n\nSeptember 3, 1937.\n\nP. L. Sperr.\n\n(2) A view solely of the University Building and grounds. Note the gabled house, at the N.E. corner of Broadway and West 114th Street.\n\nSeptember 3, 1937.\n\nP. L. Sperr.\n\n(3) A detail of No. 2, showing the aforementioned cottage. On the extreme right appears a portion of South Hall and Library.\n\nSeptember 3, 1937.\n\nP. L. Sperr.",
+    "after": "160 to 168 (left to right) St Mary's Avenue, at, adjoining and west of the S.W. corner of Tompkins Avenue, seen across an empty lot from Shaughnessy Lane.\n\nP. L. Sperr\nJuly 12, 1934",
+    "before": "160 to 168 (left to right) St Mary's Avenue, at, adjoining and west of the S.wN. corner of Tompkins Avenue, seen across an empty lot from\nShaughnessy LSne.\nJuly 12, 1934\nP. L. Sperr\n",
     "metadata": {
-      "cookie": "eval",
-      "len_base": 670,
-      "len_exp": 677,
-      "distance": 0,
-      "score": 1.0,
-      "back_id": "717708b",
-      "record": {
-        "id": "717708f",
-        "photo_url": "http://images.nypl.org/index.php?id=717708f&t=w",
-        "preferred_url": "http://digitalgallery.nypl.org/nypldigital/id?717708f",
-        "location": "Broadway & 114th Street (West), Manhattan, NY",
-        "date": "1937",
-        "title": "Manhattan: Broadway - 114th Street (West)",
-        "alt_title": "",
-        "back_id": "717708b",
-        "borough": "Manhattan",
-        "outside_nyc": false
-      },
-      "raw_text": "(1) Broadway, north from West 114th Street, showing on the west side (left), three apartment houses the Luxor, Regnor and Rexor that face units of Columbia University (right). The latter in the order of their appearance are: Furnald Hall, the School of Journalism, the School for Business and the School of Mines.\n\nSeptember 3, 1937.\n\nP. L. Sperr.\nNO REPRODUCTIONS.\n\n(2) A view solely of the University Building and grounds. Note the gabled house, at the N.E. corner of Broadway and West 114th Street.\n\nSeptember 3, 1937.\n\nP. L. Sperr.\nNO REPRODUCTIONS.\n\n(3) A detail of No. 2, showing the aforementioned cottage. On the extreme right appears a portion of South Hall and Library.\n\nSeptember 3, 1937.\n\nP. L. Sperr.\nNO REPRODUCTIONS."
-    }
+      "back_id": "729595b",
+      "cookie": "blah",
+      "distance": 3,
+      "len_base": 182,
+      "len_exp": 181,
+      "score": 0.9835164835164835
+    },
+    "photo_id": "729595f-a"
   },
   {
-    "photo_id": "729319f-a",
-    "before": "Richmond Avenue, west side, north from Ann Street, across the Staten Island Railroad tracks, showing the Dutch Reformed Church at the head of Church Street.\nApril 10, 1930\nP. L. Sperr\n",
-    "after": "Richmond Avenue, west side, north from Ann Street, across the Staten Island Railroad tracks, showing the Dutch Reformed Church at the head of Church Street.\n\nApril 10, 1930\n\nP. L. Sperr",
+    "after": "West 4th Street, south side, west of Sixth Ave. The block front as seen under the Sixth Ave. Elevated tracks, is between Cornelia and Jones Streets.\n\nMay 24, 1935.\n\nP. L. Sperr.",
+    "before": "West 4th Street, south side, west of Sixth Ave.  The block front as seen under the Sixth Ave. Elevated tracks, is between Cornelia and Jones Streets.\n\nMay 24, 1935.\n\nP. L. Sperr.\n",
     "metadata": {
-      "cookie": "eval",
-      "len_base": 184,
-      "len_exp": 185,
+      "back_id": "710928b",
+      "cookie": "blah",
       "distance": 0,
-      "score": 1.0,
-      "back_id": "729319b",
-      "record": {
-        "id": "729319f",
-        "photo_url": "http://images.nypl.org/index.php?id=729319f&t=w",
-        "preferred_url": "http://digitalgallery.nypl.org/nypldigital/id?729319f",
-        "location": "Richmond Avenue & Ann Street, Staten Island, NY",
-        "date": "1930",
-        "title": "Richmond: Richmond Avenue - Ann Street",
-        "alt_title": "",
-        "back_id": "729319b",
-        "borough": "Staten Island",
-        "outside_nyc": false
-      },
-      "raw_text": "Richmond Avenue, west side, north from Ann Street, across the Staten Island Railroad tracks, showing the Dutch Reformed Church at the head of Church Street.\n\nApril 10, 1930\n\nP. L. Sperr\nNO REPRODUCTIONS"
-    }
+      "len_base": 179,
+      "len_exp": 177,
+      "score": 1.0
+    },
+    "photo_id": "710928f-a"
   },
   {
-    "photo_id": "721675f-b",
-    "before": "(1)\nMonroe Street, west from and including Market Street. Also shown is Market Street, west side, north from Hamilton, to and including Monroe\nStreets.\nSeptember 7, 1927.\nP. L. Sperr.\n(2)\nAnother view, showing a view westward on Hamilton (left) Street. Minarets shown on the right are atop P.S. No. 177, at the S.E. corner of Market and\nMonroe Streets.\nJune 1929.\nEugene L. Armbruster Collection.\n",
-    "after": "(1)\nMonroe Street, west from and including Market Street. Also shown is Market Street, west side, north from Hamilton, to and including Monroe Streets.\nSeptember 7, 1927.\n\nP. L. Sperr.\n\n(2)\nAnother view, showing a view westward on Hamilton (left) Street. Minarets shown on the right are atop P.S. No. 177, at the S.E. corner of Market and Monroe Streets.\nJune 1929.\n\nEugene L. Armbruster Collection.",
+    "after": "Northern Boulevard, at the N.E. corner of 162nd Street, showing the local office--known as the Broadway-Flushing office--of the Rickert-Finlay Real Estate Company, when this neighborhood was still sparsely settled. The tracks are of the North Shore Division of the Long Island Railroad. When these photographs were taken Northern Boulevard, here, was called Broadway, hence the designation \"Broadway-Flushing\" for the company's local office.\n\n\nAbout 1909\nViews 1,2",
+    "before": "Northern Boulevard, at the N.E. corner of 162nd Street, showing the local office - known as the Broadway-Flushing office - of the Rickert-Finlay Real Estate Company, when this neighborhood was still sparsely settled. The tracks are of the North Shore Division of the Long Island Railroad. When these photographs were taken Northern Boulevard, here, was called Broadway, hence the designation \"Broadway-Flushing\" for the company's local office.\n\nAbout 1909\nViews 1,2\n",
     "metadata": {
-      "cookie": "eval",
-      "len_base": 397,
-      "len_exp": 399,
-      "distance": 0,
-      "score": 1.0,
-      "back_id": "721675b",
-      "record": {
-        "id": "721675f",
-        "photo_url": "http://images.nypl.org/index.php?id=721675f&t=w",
-        "preferred_url": "http://digitalgallery.nypl.org/nypldigital/id?721675f",
-        "location": "Hamilton Street & 143rd Street (West), Manhattan, NY",
-        "date": "1929",
-        "title": "Manhattan: Hamilton Street - 143rd Street (West)",
-        "alt_title": "",
-        "back_id": "721675b",
-        "borough": "Manhattan",
-        "outside_nyc": false
-      },
-      "raw_text": "(1)\nMonroe Street, west from and including Market Street. Also shown is Market Street, west side, north from Hamilton, to and including Monroe Streets.\nSeptember 7, 1927.\n\nP. L. Sperr.\nNO REPRODUCTIONS.\n\n(2)\nAnother view, showing a view westward on Hamilton (left) Street. Minarets shown on the right are atop P.S. No. 177, at the S.E. corner of Market and Monroe Streets.\nJune 1929.\n\nEugene L. Armbruster Collection.\nMAY BE REPRODUCED."
-    }
+      "back_id": "727624b",
+      "cookie": "blah",
+      "distance": 4,
+      "len_base": 466,
+      "len_exp": 464,
+      "score": 0.9914163090128756
+    },
+    "photo_id": "727624f-b"
   },
   {
-    "photo_id": "727439f-a",
-    "before": "Mott Ave., north side, east of Beach 19th Street, showing St. Johns Church (Episcopal). It was probably erected on land of\nBenjamin B. Mott in 1873.\nApril 1925.\nEugene L. Armbruster Collection.\n",
-    "after": "Mott Ave., north side, east of Beach 19th Street, showing St. Johns Church (Episcopal). It was probably erected on land of Benjamin B. Mott in 1873.\n\nApril 1925.\n\nEugene L. Armbruster Collection.",
+    "after": "P.L. Sperr, photographer\n8-6-1942\nNeg. A-740",
+    "before": "P.L. Sperr, photographer 8-5-1942\nNeg. A-740\n",
     "metadata": {
-      "cookie": "eval",
-      "len_base": 194,
-      "len_exp": 195,
-      "distance": 0,
-      "score": 1.0,
-      "back_id": "727439b",
-      "record": {
-        "id": "727439f",
-        "photo_url": "http://images.nypl.org/index.php?id=727439f&t=w",
-        "preferred_url": "http://digitalgallery.nypl.org/nypldigital/id?727439f",
-        "location": "Mott Avenue & Beach 19th Street, Queens, NY",
-        "date": "1925",
-        "title": "Queens: Mott Avenue - Beach 19th Street",
-        "alt_title": "",
-        "back_id": "727439b",
-        "borough": "Queens",
-        "outside_nyc": false
-      },
-      "raw_text": "Mott Ave., north side, east of Beach 19th Street, showing St. Johns Church (Episcopal). It was probably erected on land of Benjamin B. Mott in 1873.\n\nApril 1925.\n\nEugene L. Armbruster Collection.\nMAY BE REPRODUCED."
-    }
+      "back_id": "705005b",
+      "cookie": "blah",
+      "distance": 1,
+      "len_base": 45,
+      "len_exp": 44,
+      "score": 0.9777777777777777
+    },
+    "photo_id": "705005f-a"
   },
   {
-    "photo_id": "700430f-a",
-    "before": "Arthur Ave. adj n.e. cor. 181st Street\n8-27-1942\nNeg. A-305",
-    "after": "Arthur Ave. adj n.e. cor. 181st Street\n\n8-27-1942\n\nNeg. A-305",
+    "after": "Greenwich Street, north from West 11th Street, showing conditions prior to track removal (surface) by the W.P.A. Incidently, the overhead elevated line (9th Ave. line) is shortly to be removed.\n\nJune 2, 1937\n\nWorks Progress Administration\nFive Boroughs Project",
+    "before": "Greenwich Street, north from West 11th Street, showing conditions prior to track removal (surface) by the W.P.A. Incidently [sic], the overhead elevated line (9th Ave. line) is shortly to be removed.\nJune 2, 1937\nWorks Progress Administration\nFive Boroughs Project\n",
     "metadata": {
-      "cookie": "eval",
-      "len_base": 59,
-      "len_exp": 61,
-      "distance": 0,
-      "score": 1.0,
-      "back_id": "700430b",
-      "record": {
-        "id": "700430f",
-        "photo_url": "http://images.nypl.org/index.php?id=700430f&t=w",
-        "preferred_url": "http://digitalgallery.nypl.org/nypldigital/id?700430f",
-        "location": "Arthur Avenue & 181st Street, Bronx, NY",
-        "date": "",
-        "title": "Bronx: Arthur Avenue - 181st Street",
-        "alt_title": "",
-        "back_id": "700430b",
-        "borough": "Bronx",
-        "outside_nyc": false
-      },
-      "raw_text": "Arthur Ave. adj n.e. cor. 181st Street\n\n8-27-1942\n\nNeg. A-305"
-    }
+      "back_id": "720258b",
+      "cookie": "blah",
+      "distance": 6,
+      "len_base": 265,
+      "len_exp": 260,
+      "score": 0.9773584905660377
+    },
+    "photo_id": "720258f-a"
   },
   {
-    "photo_id": "717662f-a",
-    "before": "The Amsterdam Avenue side of the nearly completed Central Savings Bank, Broadway, east side, from 73rd to 74th Streets.\nMarch 2, 1928.\nGift of York & Sawyer.\n",
-    "after": "The Amsterdam Avenue side of the nearly completed Central Savings Bank, Broadway, east side, from 73rd to 74th Streets.\n\nMarch 2, 1928.\n\nGift of York & Sawyer.",
+    "after": "Water Street, south side, at Gouverneur Slip. The building outlined against Gouverneur Hospital, is No. 12 Gouverneur Slip, and is at the S.W. corner of Water Street.\nMarch 23, 1937.\n\nP. L. Sperr.\n\n(2)\nWater Street, south side and Gouverneur Slip, showing the Gouverneur Hospital. Photograph was taken from the S.E. corner of Montgomery St. looking across the vacant lots 6-8-10 on the West side of Gouverneur Slip.\nApril 23rd, 1939\n\nP.L. Sperr,",
+    "before": "Water Street, south side, at Geuverheur Slip. The building outlined against Gouverneur Hospital, is No. 12 Gouverneur Slip, and is at the S.W.\ncorner of Water Street.\nMarch 23, 1937.\nP. L. Sperr.\n(2)\nWater Street,south side and Gouveneur 8lip,showing the Gouverneur Hosoital. Photograph was taken from the S.E. corner of Montgomery St. looking across the vacant lots 6-8-II0 on the West side of Governeur Sltp.\n3rrti 5e',1930\nP.L.Sperr,\n",
     "metadata": {
-      "cookie": "eval",
-      "len_base": 158,
-      "len_exp": 159,
-      "distance": 0,
-      "score": 1.0,
-      "back_id": "717662b",
-      "record": {
-        "id": "717662f",
-        "photo_url": "http://images.nypl.org/index.php?id=717662f&t=w",
-        "preferred_url": "http://digitalgallery.nypl.org/nypldigital/id?717662f",
-        "location": "Broadway & 73rd Street, Manhattan, NY",
-        "date": "1928",
-        "title": "Manhattan: Broadway - 73rd Street",
-        "alt_title": "",
-        "back_id": "717662b",
-        "borough": "Manhattan",
-        "outside_nyc": false
-      },
-      "raw_text": "The Amsterdam Avenue side of the nearly completed Central Savings Bank, Broadway, east side, from 73rd to 74th Streets.\n\nMarch 2, 1928.\n\nGift of York & Sawyer.\nMAY BE REPRODUCED."
-    }
+      "back_id": "724283b",
+      "cookie": "blah",
+      "distance": 22,
+      "len_base": 437,
+      "len_exp": 445,
+      "score": 0.9496567505720824
+    },
+    "photo_id": "724283f-b"
   },
   {
-    "photo_id": "702703f-a",
-    "before": "West 31st Street (rear view), between Neptune (right) to Canal Aves., (left), showing filled in swamp land, to be used as a recreational center.\nMay 17, 1936.\nP. L. Sperr.\n",
-    "after": "West 31st Street (rear view), between Neptune (right) to Canal Aves., (left), showing filled in swamp land, to be used as a recreational center.\n\nMay 17, 1936.\n\nP. L. Sperr.\n",
+    "after": "33 East 36th Street, north side, between Park and Madison Avenues. The detailed frieze shown is over the easterly niche-window of the Morgan Library.\n\n1938-9\n\nAlexander Alland\n\nThis photo is one of a series that appeared in the published volume \"Portrait of N. Y.\" by Felix Reisenberg and Alex. Alland, IRGV.",
+    "before": "33 East 36th Street, north side, between Park and Madison Avenues. The detailed friese shown is over the easterly niche window of the\nMorgan Library.\n1938-9\nAlexander Alland\nThis photo is one of a series that appeared in the published volume \"Portrait of N. Y.' by Felix Reisenberg and Alex. Alland, IRGV.\n",
     "metadata": {
-      "cookie": "eval",
-      "len_base": 172,
-      "len_exp": 174,
-      "distance": 0,
-      "score": 1.0,
-      "back_id": "702703b",
-      "record": {
-        "id": "702703f",
-        "photo_url": "http://images.nypl.org/index.php?id=702703f&t=w",
-        "preferred_url": "http://digitalgallery.nypl.org/nypldigital/id?702703f",
-        "location": "31st Street (West) & Neptune Avenue, Brooklyn, NY",
-        "date": "",
-        "title": "Brooklyn: 31st Street (West) - Neptune Avenue",
-        "alt_title": "",
-        "back_id": "702703b",
-        "borough": "Brooklyn",
-        "outside_nyc": false
-      },
-      "raw_text": "West 31st Street (rear view), between Neptune (right) to Canal Aves., (left), showing filled in swamp land, to be used as a recreational center.\n\nMay 17, 1936.\n\nP. L. Sperr.\nno reproductions."
-    }
+      "back_id": "712329b",
+      "cookie": "blah",
+      "distance": 3,
+      "len_base": 306,
+      "len_exp": 308,
+      "score": 0.9901960784313726
+    },
+    "photo_id": "712329f-a"
   },
   {
-    "photo_id": "710765f-c",
-    "before": "Twelfth Avenue, north across West 42nd Street, showing the West Side Vehicular Highway under construction. View 2 details the pedestrian activity on 42nd Street. The individuals shown are moving eastward after their arrival on the Weehawken Ferry from New Jersey. No. 3 is similar to View 1, showing completion of structural work at this point.\n\n1-2: May 30, 1934\n3: Oct 20, 1939\n\nP. L. Sperr\n",
-    "after": "Twelfth Avenue, north across West 42nd Street, showing the West Side Vehicular Highway under construction. View 2 details the pedestrian activity on 42nd Street. The individuals shown are moving eastward after their arrival on the Weehawken Ferry from New Jersey. No. 3 is similar to View 1, showing completion of structural work at this point.\n\n1-2: May 30, 1934\n3: Oct 20, 1939\n\nP. L. Sperr",
+    "after": "Lexington Avenue, east side, north from S. W. corner of 58th Street, showing skeleton of Bloomingdale's Department store, which is being rebuilt.\n\nMay 13, 1930.\n\nP.L. Sperr, Photographer.",
+    "before": "Lexington Avenue, east side, north from S. W. corner of 58th Street, showing skeleton of Bloomingdale's Department store, which is\nbeing rebuilt.\nMay 13, 1930.\n\nP.L. Sperr, Photographer.\n",
     "metadata": {
-      "cookie": "eval",
-      "len_base": 393,
-      "len_exp": 392,
+      "back_id": "721034b",
+      "cookie": "blah",
       "distance": 0,
-      "score": 1.0,
-      "back_id": "710765b",
-      "record": {
-        "id": "710765f",
-        "photo_url": "http://images.nypl.org/index.php?id=710765f&t=w",
-        "preferred_url": "http://digitalgallery.nypl.org/nypldigital/id?710765f",
-        "location": "12th Avenue & 42nd Street, Manhattan, NY",
-        "date": "1934; \n\n\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t1939",
-        "title": "Manhattan: 12th Avenue - 42nd Street",
-        "alt_title": "",
-        "back_id": "710765b",
-        "borough": "Manhattan",
-        "outside_nyc": false
-      },
-      "raw_text": "Twelfth Avenue, north across West 42nd Street, showing the West Side Vehicular Highway under construction. View 2 details the pedestrian activity on 42nd Street. The individuals shown are moving eastward after their arrival on the Weehawken Ferry from New Jersey. No. 3 is similar to View 1, showing completion of structural work at this point.\n\n1-2: May 30, 1934\n3: Oct 20, 1939\n\nP. L. Sperr\nNO REPRODUCTIONS"
-    }
+      "len_base": 187,
+      "len_exp": 187,
+      "score": 1.0
+    },
+    "photo_id": "721034f-a"
   },
   {
-    "photo_id": "730730f",
-    "before": "The Brooklyn Bridge and Manhattan's Wall Street outline as photographed southwestward from the Manhattan Bridge.\n\nAlexander Alland\nNeg. # 4069\n1939",
-    "after": "The Brooklyn Bridge and Manhattan's Wall Street outline as photographed southwestward from the Manhattan Bridge.\n\nAlexander Alland\n\nNeg. # 4069\n\n1939",
+    "after": "547 to 561 Montauk Avenue, east side, between Linden Boulevard and Stanley Avenue, viewing south toward the latter.\n\nAbout 1929\n",
+    "before": "547 to 561 Montauk Avenue, east side, between Linden Boulevard and Stanley Avenue, viewing south toward the\nlatter.\nAbout 1929\n",
     "metadata": {
-      "cookie": "eval",
-      "len_base": 147,
-      "len_exp": 149,
+      "back_id": "705779b",
+      "cookie": "blah",
       "distance": 0,
-      "score": 1.0,
-      "back_id": "730730b",
-      "record": {
-        "id": "730730f",
-        "photo_url": "http://images.nypl.org/index.php?id=730730f&t=w",
-        "preferred_url": "http://digitalgallery.nypl.org/nypldigital/id?730730f",
-        "location": "Brooklyn Bridge, New York, N.Y.",
-        "date": "1939",
-        "title": "Bridges - Brooklyn Bridge - [Wall Street outline - Lower Manhattan skyline.]",
-        "alt_title": "",
-        "back_id": "730730b",
-        "borough": null,
-        "outside_nyc": false
-      },
-      "raw_text": "The Brooklyn Bridge and Manhattan's Wall Street outline as photographed southwestward from the Manhattan Bridge.\n\nAlexander Alland\nNO REPRODUCTIONS\n\nNeg. # 4069\n\n1939"
-    }
+      "len_base": 127,
+      "len_exp": 128,
+      "score": 1.0
+    },
+    "photo_id": "705779f-a"
   },
   {
-    "photo_id": "722405f-b",
-    "before": "view 1: Park Avenue, w.s., n. fr. nr. 129th St.\nNeg. no. A-1250\nview 2: Park Avenue, w.s., n. fr. nr. 129th St.\nNeg. no. A-1248\nP. L. Sperr, photographer\nApril 25, 1941\n",
-    "after": "view 1: Park Avenue, w.s., n. fr. nr. 129th St.\nNeg. no. A-1250\n\nview 2: Park Avenue, w.s., n. fr. nr. 129th St.\nNeg. no. A-1248\n\nP. L. Sperr, photographer\nApril 25, 1941",
+    "after": "755 Park Avenue, at S. E. corner of 72nd Street, seen from N. W. corner, apartment building built about 1913. Note parks in center of the avenue being narrowed and remodelled. This work has not yet begun above 72nd Street.\n\nEarly 1929.\n\nCapital Photo Service.",
+    "before": "755 Psrk Avenue, at S. E. corner of 72nd Street, seen from N. W. corner, apartment building built about 1913. Note parks in center of the avenue being narrowed and remodelled. This work has not yet begun above 72nd Street.\nEarly 1929.\nCapital Photo Service.\n",
     "metadata": {
-      "cookie": "eval",
-      "len_base": 169,
-      "len_exp": 170,
-      "distance": 0,
-      "score": 1.0,
-      "back_id": "722405b",
-      "record": {
-        "id": "722405f",
-        "photo_url": "http://images.nypl.org/index.php?id=722405f&t=w",
-        "preferred_url": "http://digitalgallery.nypl.org/nypldigital/id?722405f",
-        "location": "Park Avenue & 129th Street, Manhattan, NY",
-        "date": "1941; \n\n\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t1948",
-        "title": "Manhattan: Park Avenue - 129th Street",
-        "alt_title": "",
-        "back_id": "722405b",
-        "borough": "Manhattan",
-        "outside_nyc": false
-      },
-      "raw_text": "view 1: Park Avenue, w.s., n. fr. nr. 129th St.\nNeg. no. A-1250\n\nview 2: Park Avenue, w.s., n. fr. nr. 129th St.\nNeg. no. A-1248\n\nP. L. Sperr, photographer\nApril 25, 1941"
-    }
+      "back_id": "722335b",
+      "cookie": "blah",
+      "distance": 1,
+      "len_base": 258,
+      "len_exp": 259,
+      "score": 0.9961240310077519
+    },
+    "photo_id": "722335f-a"
   },
   {
-    "photo_id": "720349f-a",
-    "before": "Haven Avenue and about 176th Street, looking west from Riverside Drive.\nP. L. Sperr\nSummer 1923\n",
-    "after": "Haven Avenue and about 176th Street, looking west from Riverside Drive.\n\nP. L. Sperr\n\nSummer 1923\n",
+    "after": "3-39 Allen Street, west side, from but not including Division Street, to and including Hester Street, from Pike Street, across the demolition on the east side of Allen Street.\nOctober 12, 1931.\n\nP. L. Sperr.\n\n(2)\nThe same from a different view, lookinh Southwards.\n\nMay 12th, 1940.\n\nP.L.Sperr,",
+    "before": "3-39 Allen Street, west side, from but not including Division Street, to and including Hester Street, from Pike Street, across\nthe demolition on the east side of Allen Street.\nOctober 12, 1931.\nP. L. Sperr.\n(2)\nThe same from a different view,lookinh Southwards.\nMay I2th,I9440\nP.L.Sperr,\n",
     "metadata": {
-      "cookie": "eval",
-      "len_base": 96,
-      "len_exp": 98,
-      "distance": 0,
-      "score": 1.0,
-      "back_id": "720349b",
-      "record": {
-        "id": "720349f",
-        "photo_url": "http://images.nypl.org/index.php?id=720349f&t=w",
-        "preferred_url": "http://digitalgallery.nypl.org/nypldigital/id?720349f",
-        "location": "Haven Avenue & 176th Street, Manhattan, NY",
-        "date": "1923",
-        "title": "Manhattan: Haven Avenue - 176th Street",
-        "alt_title": "",
-        "back_id": "720349b",
-        "borough": "Manhattan",
-        "outside_nyc": false
-      },
-      "raw_text": "Haven Avenue and about 176th Street, looking west from Riverside Drive.\n\nP. L. Sperr\n\nSummer 1923\n\nNO REPRODUCTIONS"
-    }
-  },
-  {
-    "photo_id": "721573f-a",
-    "before": "Maiden Lane, north side, east from but not including Pearl Street. This view also shows Fire Engine Company No. 4 at 119 Maiden Lane,\neast of Pearl Street.\nJune 14, 1930.\nP. L. Sperr.\n",
-    "after": "Maiden Lane, north side, east from but not including Pearl Street. This view also shows Fire Engine Company No. 4 at 119 Maiden Lane, east of Pearl Street.\n\nJune 14, 1930.\n\nP. L. Sperr.",
-    "metadata": {
-      "cookie": "eval",
-      "len_base": 184,
-      "len_exp": 185,
-      "distance": 0,
-      "score": 1.0,
-      "back_id": "721573b",
-      "record": {
-        "id": "721573f",
-        "photo_url": "http://images.nypl.org/index.php?id=721573f&t=w",
-        "preferred_url": "http://digitalgallery.nypl.org/nypldigital/id?721573f",
-        "location": "Maiden Lane & Pearl Street, Manhattan, NY",
-        "date": "1930",
-        "title": "Manhattan: Maiden Lane - Pearl Street",
-        "alt_title": "",
-        "back_id": "721573b",
-        "borough": "Manhattan",
-        "outside_nyc": false
-      },
-      "raw_text": "Maiden Lane, north side, east from but not including Pearl Street. This view also shows Fire Engine Company No. 4 at 119 Maiden Lane, east of Pearl Street.\n\nJune 14, 1930.\n\nP. L. Sperr.\nNO REPRODUCTIONS."
-    }
-  },
-  {
-    "photo_id": "732111f-b",
-    "before": "Plumb Island, easterly end, showing a shack thereon. In the far background appears the Administrative buildings of Floyd Bennett Field and to the right of them Barren Island which is distinguishable by its smoke stack. This is a set of two views taken the same day.\nJuly 7, 1935.\nP. L. Sperr.\n",
-    "after": "Plumb Island, easterly end, showing a shack thereon. In the far background appears the Administrative buildings of Floyd Bennett Field and to the right of them Barren Island which is distinguishable by its smoke stack. This is a set of two views taken the same day.\nJuly 7, 1935.\n\nP. L. Sperr.",
-    "metadata": {
-      "cookie": "eval",
-      "len_base": 293,
+      "back_id": "715899b",
+      "cookie": "blah",
+      "distance": 6,
+      "len_base": 288,
       "len_exp": 293,
-      "distance": 0,
-      "score": 1.0,
-      "back_id": "732111b",
-      "record": {
-        "id": "732111f",
-        "photo_url": "http://images.nypl.org/index.php?id=732111f&t=w",
-        "preferred_url": "http://digitalgallery.nypl.org/nypldigital/id?732111f",
-        "location": "Plumb Island, Brooklyn, N.Y.",
-        "date": "1935",
-        "title": "Islands - Plumb Island - Brooklyn.",
-        "alt_title": "",
-        "back_id": "732111b",
-        "borough": null,
-        "outside_nyc": false
-      },
-      "raw_text": "Plumb Island, easterly end, showing a shack thereon. In the far background appears the Administrative buildings of Floyd Bennett Field and to the right of them Barren Island which is distinguishable by its smoke stack. This is a set of two views taken the same day.\nJuly 7, 1935.\n\nP. L. Sperr.\nNO REPRODUCTIONS."
-    }
+      "score": 0.9791666666666666
+    },
+    "photo_id": "715899f-b"
   },
   {
-    "photo_id": "707352f-a",
-    "before": "1. Williams Ave. south from Glenmore Ave.\nP.L. Sperr, photographer\nNeg. A-255\nJuly 24, 1941\n",
-    "after": "1. Williams Ave. south from Glenmore Ave.\nP.L. Sperr, photographer\nNeg. A-255\nJuly 24, 1941",
+    "after": "Jerome Ave. (foreground, not seen), west side, north from East 195th to East 197th (right) Streets, showing the site upon which was later erected Walton High School.\n\nMay 8, 1928.\n\nR. L. Sperr.",
+    "before": "Jerome Ave. (foreground, not seen), west side, north from East 195th to East 197th (right) Streets, showing the site upon which was later erected Walton High School.\nMay 8, 1928.\nR. L. Sperr.\n",
     "metadata": {
-      "cookie": "eval",
+      "back_id": "701348b",
+      "cookie": "blah",
+      "distance": 0,
+      "len_base": 192,
+      "len_exp": 193,
+      "score": 1.0
+    },
+    "photo_id": "701348f-a"
+  },
+  {
+    "after": "Glenmore Avenue, north side, at Warwick Street, viewing east across the latter.\n\nSeptember 14, 1940\n\nP. L. Sperr",
+    "before": "Glenmore Avenue, north side, at Warwick Street, viewing east\nacross the latter.\nSeptember 14, 1940\nP. L. Sperr\n",
+    "metadata": {
+      "back_id": "704631b",
+      "cookie": "blah",
+      "distance": 0,
+      "len_base": 111,
+      "len_exp": 112,
+      "score": 1.0
+    },
+    "photo_id": "704631f-a"
+  },
+  {
+    "after": "East 135th Street, north side (buildings thereon), at Brook Ave., as seen across the clearance from East 134th Street. The clearance between the two streets is part of an extensive area which was cleared for the construction of an approach to the Triborough Bridge.\n\nP. L. Sperr.",
+    "before": "East 135th Street, north side (buildings thereon), at Brook Ave., as seen across the clearance from East 134th Street. The clearance between the two streets is part of an extensive area which was cleared for the construction of an approach to the Triborough Bridge.\nJuly 29, 1937.\nP. L. Sperr.\n",
+    "metadata": {
+      "back_id": "700049b",
+      "cookie": "blah",
+      "distance": 15,
+      "len_base": 294,
+      "len_exp": 279,
+      "score": 0.9489795918367347
+    },
+    "photo_id": "700049f-a"
+  },
+  {
+    "after": "335-313 East 95th Street, north side, east of First Avenue.\n\nJuly 31, 1926.\n\nP. L. Sperr.",
+    "before": "335-313 East 95th Street, north side, east of First Avenue.\nJuly 31, 1926.\nP. L. Sperr.\n",
+    "metadata": {
+      "back_id": "714862b",
+      "cookie": "blah",
+      "distance": 0,
+      "len_base": 88,
+      "len_exp": 89,
+      "score": 1.0
+    },
+    "photo_id": "714862f-a"
+  },
+  {
+    "after": "West 59th Street, at Fifth Avenue (shown on the left), showing several open barouches at the Grand Army Plaza. On the left appears buildings on the east side of Fifth Avenue, south from but not including East 59th Street, to and including East 57th Street, showing on the extreme left margin a portion of the Savoy-Plaza Hotel. Across the truck appears the female figurine atop the Pulitzer Memorial. No. 1 is an enlargement made by the photographer; No. 2 being a copy of the original negative by the N.Y.P.I.\n\nAbout 1936.\n\nGift of Dr. Michael Wishengrad A.R.P.S.",
+    "before": "West 59th Street, at Fifth Avenue (shown on the left), showing several open barouches at the Grand Army Plaza. On the left appears buildings on the east side of Fifth Avenue, south from but not including East 59th Street, to and including East 57th Street, showing on the extreme left margin a portion of the Savoy-Plaza Hotel. Across the truck appears the female figurine atop the Pulitzer Memorial. No. 1 is an enlargement made by the photographer; No. 2 being a copv\nof the original negative bv the N.Y.P.L.\nAbout 1936.\nGift of Dr. Michael Wishengrad A.R.P.S.\n",
+    "metadata": {
+      "back_id": "714018b",
+      "cookie": "blah",
+      "distance": 3,
+      "len_base": 563,
+      "len_exp": 564,
+      "score": 0.9946714031971581
+    },
+    "photo_id": "714018f"
+  },
+  {
+    "after": "St Nicholas Avenue, Amsterdam Avenue to 162nd Street, West side, (Before Reconstruction).\n\nPresident Borough of Manhattan.",
+    "before": "St Nicholas Avenue, Amsterdam Avenue to 162nd Street, West side,\n(Before Reconstruction).\nPresident Borough of Manhatten.\n",
+    "metadata": {
+      "back_id": "723147b",
+      "cookie": "blah",
+      "distance": 1,
+      "len_base": 122,
+      "len_exp": 122,
+      "score": 0.9918032786885246
+    },
+    "photo_id": "723147f-a"
+  },
+  {
+    "after": "42nd Street, south side, west from, but not including, Second Avenue; Public School No. 27 is the H-shaped building east of Third Avenue.\n\nSeptember 9, 1928.\n\nP. L. Sperr.",
+    "before": "42nd Street, south side, west from, but not including, Second Avenue; Public School No. 27 is the H-shaped building east\nof Third Avenue.\nSeptember 9, 1928.\nP. L. Sperr.\n",
+    "metadata": {
+      "back_id": "712787b",
+      "cookie": "blah",
+      "distance": 0,
+      "len_base": 170,
+      "len_exp": 171,
+      "score": 1.0
+    },
+    "photo_id": "712787f-a"
+  },
+  {
+    "after": "284 to 294 Eighth Avenue, east side, north of West 24th, to 25th Streets, as shown in two portions, consisting of buildings numbered 284 to 288 (in View No. 2) and 288 to 294 (View No. 1). The latter are at the S.E. corner of this thoroughfare and West 25th Street. Note the Eighth Avenue Mission at No. 290 and slightly to the south of same. View No. 3 is similar, showing a better perspective of the aforementioned Mission.\n\nNo. 1 June 25, 1928.\n2 About 1910\n3 March 21, 1938.\n\nP. L. Sperr (No's. 1 & 3)\n\nAnonymous Gift (No. 2)",
+    "before": "284 to 294 Eighth Avenue, east side, north of West 24th, to 25th Streets, as shown in two portions, consisting of buildings numbered 284 to 288 (in View No. 2) and 288 to 294 (View No. 1). The latter are at the S.E. corner of this thoroughfare and West 25th Street. Note the Eighth Avenue Mission at No. 290 and slightly to the south of same. View No. 3 is similar, showing a better perspective of the aforementioned Mission.\n\nNo. 1  June 25, 1928.\n2  About 1910\n3  March 21, i938.\n\nP. L. Sperr (No's. 1 & 3)\n\nAnonymous Gift (No. 2)",
+    "metadata": {
+      "back_id": "710126b",
+      "cookie": "blah",
+      "distance": 1,
+      "len_base": 532,
+      "len_exp": 529,
+      "score": 0.9981203007518797
+    },
+    "photo_id": "710126f-c"
+  },
+  {
+    "after": "Broadway, west side, north from Fulton to Vesey Streets, showing St. Pauls Chapel surrounded by its Churchyard. At the rear of the latter (facing) on Church Street) appears a unit of the Trinity Church Offices.\n\nAbout 1930\n\nEwing Galloway",
+    "before": "Broadway, west side, north from Fulton to Vesey Streets, showing St. Pauls Chapel surrounded by its churchyard. At the rear of the latter (facing on Church Street) appears a unit of the Trinity Church Offices.\nAbout 1930\nEwing Galloway\n",
+    "metadata": {
+      "back_id": "717112b",
+      "cookie": "blah",
+      "distance": 2,
+      "len_base": 236,
+      "len_exp": 238,
+      "score": 0.9915254237288136
+    },
+    "photo_id": "717112f-a"
+  },
+  {
+    "after": "(1)\n206 East 11th Street, south side, east of Third Ave. Building shown is used by the Free Magyar Reformed Church, formerly the Welsh Cong. Church.\nMay 18, 1934.\n\nP. L. Sperr.\n\n(2)\nThe same structure at an earlier date. Note the marble plaque over the door bearing an inscription identifying same as the Welsh Congregational Church, A.D. 1887.\nApril 6, 1928.\n\nP. L. Sperr.",
+    "before": "(1)\n206 East 11th Street, south side, east of Third Ave. Building shown is used by the Free Magyar Reformed Church, formerly the Welsh Cong. Church.\nMay 18, 1934.\nP. L. Sperr.\n(2)\nThe same structure at an earlier date. Note the marble plaque over the door bearing an inscription identifying same as the Welsh\nCongregational Church, A.D. 1887.\nApril 6, 1928.\nP. L. Sperr\n",
+    "metadata": {
+      "back_id": "711070b",
+      "cookie": "blah",
+      "distance": 1,
+      "len_base": 370,
+      "len_exp": 373,
+      "score": 0.9972972972972973
+    },
+    "photo_id": "711070f-a"
+  },
+  {
+    "after": "Eastchester Road, south from Pelham Parkway South. The thoroughfare was paved by the W.P.A.\n\nJanuary 26, 1937\n\nW.P.A. Photo\nFive Boroughs Project",
+    "before": "Eastchester Road, south from Pelham Parkway South. The\nthoroughfare was paved by the W.P.A.\nJanuary 26, 1937\nW.P.A. Photo\nFive Boroughs Project\n",
+    "metadata": {
+      "back_id": "700958b",
+      "cookie": "blah",
+      "distance": 0,
+      "len_base": 144,
+      "len_exp": 145,
+      "score": 1.0
+    },
+    "photo_id": "700958f-a"
+  },
+  {
+    "after": "Broadway, north from Bowling Green, as viewed from the U. S. Custom House.\n\nBrown Bros.\nAbout 1935",
+    "before": "Broadway, north from Bowling Green, as viewed from the U. S. Custom House.\nBrown Bros.  About 1935\n",
+    "metadata": {
+      "back_id": "716937b",
+      "cookie": "blah",
+      "distance": 0,
+      "len_base": 99,
+      "len_exp": 98,
+      "score": 1.0
+    },
+    "photo_id": "716937f-a"
+  },
+  {
+    "after": "(1)\nBronx: E.177th Street, and Westchester Avenue from Subway Station showing view of new buildings.\n(2)and (3)\nSame.\n\nP.L. Speer.\nSeptember 4, 1939.",
+    "before": "(1)\nBRONX:East 177 Street and Westchester Ave. from Subway Station showing view of new Parkchester development buildings.\n(2)and (3)\nSame.\nP.L.Speer.\nNO RDPRODUTIOS.  September 4, 1939.\n\n",
+    "metadata": {
+      "back_id": "700243b",
+      "cookie": "blah",
+      "distance": 56,
+      "len_base": 187,
+      "len_exp": 149,
+      "score": 0.7005347593582888
+    },
+    "photo_id": "700243f-c"
+  },
+  {
+    "after": "Cross Island Boulevard, at the S.E. corner of 14th Avenue, showing the parish house of the Grace Protestant Episcopal Church. It was formerly the chapel.\n\nMarch 5, 1932\nViews 1,2\n\nP. L. Sperr",
+    "before": "Cross Psland Boulevard, at the S.E. corner of 14th Avenue, showing the parish house of the Grace Protestant Episcopal Church. It was formerly the chapel.\nMarch 5, 1932\nViews 1,2\nP. L. Sperr\n",
+    "metadata": {
+      "back_id": "726443b",
+      "cookie": "blah",
+      "distance": 1,
+      "len_base": 190,
+      "len_exp": 191,
+      "score": 0.9947368421052631
+    },
+    "photo_id": "726443f-b"
+  },
+  {
+    "after": "(1) Broadway, east side, north from Wall to Pine Streets, August 7, 1929.\n\nP. L. Sperr.\n\n(2) The same, in an eastward direction, as seen from No. 74 Trinity Place. The buildings occupying this block front are, the 21-story American Surety Co. Building, No. 100-96 Broadway, at the S.E. corner of Pine Street and the 11-story First National Bank, 94-90 Broadway, at the N.E. corner of Wall Street. The latter was replaced by a 21-story structure in 1931.\n\nNEG #3325\n\nP. L. Sperr.\n\nAugust 20, 1929.",
+    "before": "(1)\nBroadway, east side, north from Wall to Pine Streets,\nAugust 7, 1929.\nP. L. Sperr.\n(2)\nThe same, in an eastward direction, as seen from No. 74 Trinity Place. The buildings occupying this block front are, the 21-story American Surety Co. Building, No. 100-96 Broadway, at the S.E. corner of Pine Street and the 11-story First National Bank, 94-90 Broadway, at the N.E. corner of Wall Street. The latter was replaced by a 21-story structure in 1931.\nNEG # 3325  August 20, 1929.\nP. L. Sperr.\n",
+    "metadata": {
+      "back_id": "717024b",
+      "cookie": "blah",
+      "distance": 20,
+      "len_base": 494,
+      "len_exp": 496,
+      "score": 0.9595141700404858
+    },
+    "photo_id": "717024f-b"
+  },
+  {
+    "after": "Main Street, west side, south from 59th Avenue (foreground), showing the area where new housing developments will be erected. The dwellings under construction in the center background are on Horace Harding Boulevard, Main Street being on the extreme left and is a new thoroughfare here.\n\nP. L. Sperr\n\nApril 19, 1936\nViews 1,2",
+    "before": "Main Street, west side, south from 59th Avenue (foreground), showing the area where new housing developments will be erected. The dwellings under construction in the center background are on Horace Harding Boulevard, Main Street being on the extreme left\nand is a new thoroughfare here.\nP. L. Sperr  April 19, 1936\nNO REPRODUCTIONS  Views 1,2\n",
+    "metadata": {
+      "back_id": "727324b",
+      "cookie": "blah",
+      "distance": 17,
+      "len_base": 343,
+      "len_exp": 325,
+      "score": 0.9504373177842566
+    },
+    "photo_id": "727324f-b"
+  },
+  {
+    "after": "Henry Hudson Bridge: A set of 2 views of the concrete base under construction at the edge of Inwood Hill Park, Manhattan. Slightly north of same is the Railroad Bridge that carries the New York Central tracks across the Harlem River. In the right background is visible the New Jersey Shore.\n\nSeptember 31, 1935.\nView 2:-September 16, 1935.\n\nP. L. Sperr.\n(Not a dry mount item).",
+    "before": "Henry Hudson Bridge: A set of 2 views of the concrete base under construction at the edge of Inwood Hill Park, Manhattan. Slightly north of same is the Railroad Bridge that carries the New York Central tracks across the Harlem River. In the right background is visible the New Jersey Shore.\nSeptember 31 [sic], 1935.\nView 2:-September 16, 1935.\nP. L. Sperr.\n(Not a dry mount item).\n",
+    "metadata": {
+      "back_id": "730818b",
+      "cookie": "blah",
+      "distance": 6,
+      "len_base": 382,
+      "len_exp": 377,
+      "score": 0.9842931937172775
+    },
+    "photo_id": "730818f-b"
+  },
+  {
+    "after": "Oakdale Street, east from Lyndale Avenue.\n\nApril 30, 1933\n\nP. L. Sperr",
+    "before": "Oakdale Street, east from Lyndale Avenue.\nApril 30, 1933\nP. L. Sperr\n",
+    "metadata": {
+      "back_id": "729237b",
+      "cookie": "blah",
+      "distance": 0,
+      "len_base": 69,
+      "len_exp": 70,
+      "score": 1.0
+    },
+    "photo_id": "729237f-a"
+  },
+  {
+    "after": "Clinton Street, east side, north from Hamilton Avenue to Huntington Street. The buildings are being demolished for the widening of the avenue and its reconstruction into Gowanus Parkway, a link in the Belt Parkway system of highways.\n\nSeptember 7, 1940\n\nP. L. Sperr",
+    "before": "Clinton Street, east side, north from Hamilton Avenue to Huntington Street. The buildings are being demolished for the widening of the avenue and its reconstruction into Gowanus Parkway, a link in the Belt Parkway system of highways.\n\nSeptember 7, 1940\n\nP. L. Sperr\n",
+    "metadata": {
+      "back_id": "703692b",
+      "cookie": "blah",
+      "distance": 0,
+      "len_base": 266,
+      "len_exp": 265,
+      "score": 1.0
+    },
+    "photo_id": "703692f-a"
+  },
+  {
+    "after": "Newspapers: China Daily News Series--No. 11\nSetting type by hand from 40,000 characters necessary for the publication of a Chinese newspaper.\n1940\nAlexander Alland",
+    "before": "Newspapers: China Daily News Series--No. 11\nSetting type by hand from 40,000 characters necessary for the\npublication of a Chinese newspaper.\n1940\nAlexander Alland\n",
+    "metadata": {
+      "back_id": "732240b",
+      "cookie": "blah",
+      "distance": 0,
+      "len_base": 164,
+      "len_exp": 163,
+      "score": 1.0
+    },
+    "photo_id": "732240f"
+  },
+  {
+    "after": "Seventh Avenue, east side, north from a point midway between West 58th Street, and Central Park South (59th Street). To the right are entrances to the Lisbon and the Madrid, units of the Central Park Apartments. These two structures in 1928 were replaced by the present New York Athletic Club.\n\nJune 4, 1915\n\nBorough President of Manhattan\nNo. 678",
+    "before": "Seventh Avenue, east side, north from a point midway between West 58th Street,and Central Park South (59th Street). To the right are entrances to the Lisbon and the Madrid, units of the Central Park Apartments. These two structures in 1928 were replaced by the present\nNew York Athletic Club.\nJune 4, 1915\nBorough President of Manhattan\nNo. 678\n",
+    "metadata": {
+      "back_id": "709946b",
+      "cookie": "blah",
+      "distance": 1,
+      "len_base": 345,
+      "len_exp": 347,
+      "score": 0.9971014492753624
+    },
+    "photo_id": "709946f-a"
+  },
+  {
+    "after": "The nearly finished Pershing Square Building, Park Avenue, east side, from 41st to 42nd Streets, showing also the North side of 41st Street looking east from Park Avenue.\n\nJanuary 19, 1923.\n\nIrving Underhill.\nGift of York & Sawyer.",
+    "before": "The nearly finished Pershing Sguare Building, Park avenue, east side, from 41st to 42nd Streets, showing also the North side\nof 41st Street looking east from Park avenue.\nJanuary 19, 1923.\nIrving Underhill.\nGift of York A Sawyer.\n",
+    "metadata": {
+      "back_id": "722176b",
+      "cookie": "blah",
+      "distance": 4,
+      "len_base": 230,
+      "len_exp": 231,
+      "score": 0.9826086956521739
+    },
+    "photo_id": "722176f-a"
+  },
+  {
+    "after": "326 Howard Avenue, west side, south of Eddy Street, showing the pond on the John Gans estate. The estate was formerly owned by George H. Kendall and was called \"Kenwood\" (1907-1898). Prior to that it was the estate of W. B. Duncan (1874). The three views were taken the same day.\n\nMay 18, 1926.\n\nP. L. Sperr.",
+    "before": "326 Howard Avenue, west side, south of Eddy Street, showing the pond on the John Gans estate. The estate was formerly owned by George H. Kendall and was called \"Kenwood\" (1907-1898). Prior to that it was the estate of W. B. Duncan (1874). The three views were taken the same\nday.\nMay 18, 1926.\nP. L. Sperr.\n",
+    "metadata": {
+      "back_id": "728963b",
+      "cookie": "blah",
+      "distance": 0,
+      "len_base": 307,
+      "len_exp": 308,
+      "score": 1.0
+    },
+    "photo_id": "728963f-c"
+  },
+  {
+    "after": "Lexington Avenue, east side, north from S. W. corner of 60th Street.\nApril 9, 1928.\nP.L. Sperr; Photographer.",
+    "before": "Lexington Avenue, east side, north from S. W. corner of 60th Street.\nApril 9, 1928.\nP.L. Sperr, Photographer.  NO REPRODUCTIONS.\nIRE NEV YORE\nPUBUiC LIBRARY\nwsTOR LENOx AND\nTILDDEN FODNDDAIIONS\n",
+    "metadata": {
+      "back_id": "721037b",
+      "cookie": "blah",
+      "distance": 75,
+      "len_base": 194,
+      "len_exp": 109,
+      "score": 0.6134020618556701
+    },
+    "photo_id": "721037f-a"
+  },
+  {
+    "after": "1. Williams Ave. north from East New York Ave. Neg. A-284\nP.L. Sperr, photographer\nJuly 24, 1941",
+    "before": "1. Williams Ave. north from East New York Ave. Neg. A-284\nP.L. Sperr, pMetographer  July 24, 1941\n",
+    "metadata": {
+      "back_id": "707353b",
+      "cookie": "blah",
+      "distance": 2,
+      "len_base": 98,
+      "len_exp": 96,
+      "score": 0.9795918367346939
+    },
+    "photo_id": "707353f-a"
+  },
+  {
+    "after": "(1)\nDelancey Street, at and adjoining the N.E. corner of Eldridge Street.\nApril 7, 1928.\n\nP. L. Sperr.\nNeg.# 757\n\n(2)\nThe same, from a different angle.\nApril 25, 1934.\n\nP. L. Sperr.\nNeg.# 761\n\n(3)\nThe same as No. 1, but at a later date.\nJuly 1, 1930.\n\nP. L. Sperr.\nNeg.# 760",
+    "before": "(1)\nDelancey Street, at and adjoining the N.E. corner of Eldridge\nStreet.\nApril 7, 1928.\nP. L. Sperr.\nMa w 767\n(2)\nThe same, from a different angle.\nApril 25, 1934.\nP. L. Sperr.\nNMg~76V\n(3)\nThe same as No. 1, but at a later date.\nJuly 1, 1930.\nP. L. Sperr.\nNWg ~76o\n",
+    "metadata": {
+      "back_id": "719264b",
+      "cookie": "blah",
+      "distance": 16,
+      "len_base": 266,
+      "len_exp": 274,
+      "score": 0.9398496240601504
+    },
+    "photo_id": "719264f-c"
+  },
+  {
+    "after": "215 East 109th Street, northside, between Second and Third Avenues, and 109th to 110th Street, showing P:S.83.\n\nBoard of Education, N.Y.C.\n1920.",
+    "before": "215 East 109th Street, northside, between Second and Third Avenues, and 109th to l10th Street,\nShowing P:S.83.\nBoard of Education, N.Y.C.\nCREDIT LINE IMPERATIVE.  1020.\n",
+    "metadata": {
+      "back_id": "715011b",
+      "cookie": "blah",
+      "distance": 16,
+      "len_base": 169,
+      "len_exp": 144,
+      "score": 0.9053254437869822
+    },
+    "photo_id": "715011f-a"
+  },
+  {
+    "after": "600-604 Madison Avenue, west side, between 57th and 58th Streets, seen across clearing at the N.E. corner of 57th Street. September 11, 1928.\n\nP. L. Sperr.",
+    "before": "600-604 Madison Avenuue, west side, between 57th and 58th Streets, seen across clearing at the N.E. corner of 57th Street.\nSeptember 11, 1928.\nP. L. Sperr.\n",
+    "metadata": {
+      "back_id": "721401b",
+      "cookie": "blah",
+      "distance": 1,
+      "len_base": 156,
+      "len_exp": 155,
+      "score": 0.9935897435897436
+    },
+    "photo_id": "721401f-a"
+  },
+  {
+    "after": "Columbia Street, east side, from and including Broome Street to Williamsburg Bridge just south of Delancey Street.\n\nOctober 12, 1931.\n\nP. L. Sperr.",
+    "before": "Columbia Street, east side, from and including Broome Street to Williamsburg Bridge just south of Delancey Street.\nOctober 12, 1931.\nP. L. Sperr.\n",
+    "metadata": {
+      "back_id": "719048b",
+      "cookie": "blah",
+      "distance": 0,
+      "len_base": 146,
+      "len_exp": 147,
+      "score": 1.0
+    },
+    "photo_id": "719048f-a"
+  },
+  {
+    "after": "Degraw Street, adjoining the southwest corner of Smith Street showing Public School 58.\n\nBoard of Education of the City of New York September 4, 1930",
+    "before": "DeGraw Street, adjoining the southwest corner of Smith Street\nshowing Public School 58.\n\nBoard of Education of the City of New York September 4,1930\n",
+    "metadata": {
+      "back_id": "703958b",
+      "cookie": "blah",
+      "distance": 2,
+      "len_base": 149,
+      "len_exp": 149,
+      "score": 0.9865771812080537
+    },
+    "photo_id": "703958f-a"
+  },
+  {
+    "after": "640 Fifth Avenue, at the N. W. corner of West 51st St., showing the Vanderbilt home, prior to its proposed demolition. This structure has been sold to the Astor real estate interests and who plan to erect a commercial two story structure here. It was the first of the numerous Vanderbilt houses in this area and now is the last. It was erected for Mrs. William H. Vanderbilt who became the dominant figure in society. Recognition here connoted social acceptance. General Cornelius Vanderbilt inherited it at a later date.\n\nOctober 26, 1940\n\nRobert A. Knudtsen\n221 E. 31st St., N.Y.C.\nNeg. # 1005",
+    "before": "640 Fifth Avenue, at the N. W. corner of West 51st St., showing the Vanderbilt home, prior to its proposed demolition. This structure has been sold to the Astor real estete interests and who plan to erect a commercial two story structure here. It was the first of the numerous Vanderbilt houses in this area and now is the last. It was erected for Mrs. William H. Vanderbilt who became the dominant figure in society. Recognition here connoted social acceptance. General Cornelius Vanderbilt inherited\nit at a later date.\nOctober 26, 1940\nRobert A. Knudtsen\n221 E. 31at St., N.Y.C.\nNeg #1005\n",
+    "metadata": {
+      "back_id": "708943b",
+      "cookie": "blah",
+      "distance": 4,
+      "len_base": 592,
+      "len_exp": 595,
+      "score": 0.9932432432432432
+    },
+    "photo_id": "708943f-a"
+  },
+  {
+    "after": "Riverside Park: A set of 3 views of the crossing at 79th Street, as viewed from different angles. At the completion of the West Side Improvement Project these tracks of the New York Central Railroad will disappear from view, being enclosed in an embankment, the roof of which will provide an automotive causeway.\n\nJuly 11, 1931.\n\nP. L. Sperr.",
+    "before": "Riverside Park: A set of 3 views of the crossing at 79th Street, as viewed from different angles. At the completion of the West Side Improvement Project these tracks of the New York Central Railroad will disappear from view, being enclosed in an embankment, the roof of which\nwill provide an automotive causeway.\nJuly 11, 1931.\nP. L. Sperr.\n",
+    "metadata": {
+      "back_id": "722883b",
+      "cookie": "blah",
+      "distance": 0,
+      "len_base": 341,
+      "len_exp": 342,
+      "score": 1.0
+    },
+    "photo_id": "722883f-c"
+  },
+  {
+    "after": "Gates Avenue (left), at the northwest corner of Waverly Avenue.\n\nP. L. Sperr                     August 28, 1941\n",
+    "before": "Gates Avenue (left), at the northwest corner of Waverly Avenue.\nP. L. Sperr  August 28, 1941\n",
+    "metadata": {
+      "back_id": "704606b",
+      "cookie": "blah",
+      "distance": 0,
+      "len_base": 93,
+      "len_exp": 113,
+      "score": 1.0
+    },
+    "photo_id": "704606f-a"
+  },
+  {
+    "after": "Broadway, west side, north from W. 46th (left) to 47th (right) Streets, showing low structures on this Times Square frontage. The H & H Automat is flanked by the Globe and Central Theatre entrances which are easily distinguishable by the marquees. In the center of this block and this side of Eighth Avenue are the Paramount, and the Edison Hotels, facing on 47th and 46th Streets respectively. The photographer is viewing northwestward towards same from a vantage point at No. 145 W. 45th Street.\n\nAugust 9, 1935.\n\nP.L. Sperr\n\nNeg.# 26 46",
+    "before": "Broadway, west side, north from W. 46th (left) to 47th (right) Streets, showing low structures on this Times Square frontage. The H & H Automat is flanked by the Globe and Central Theatre entrances which are easily distinguishable by the marquees. In the center of this block and this side of Eighth Avenue are the Paramount, and the Edison Hotels, facing on 47th and 48th Streets respectively. The photographer is Viewing northwestward towards same from a vantage point at\nNo. 145 W. 45th Street.\nAugust 9, 1935.\nP.L. Sperr\nWy.42coe\n",
+    "metadata": {
+      "back_id": "717523b",
+      "cookie": "blah",
+      "distance": 11,
+      "len_base": 534,
+      "len_exp": 539,
+      "score": 0.9794007490636704
+    },
+    "photo_id": "717523f-a"
+  },
+  {
+    "after": "Grand Concourse, s.e. cor. 187th St., Bronx.\nNeg. no. A-1231\nP. L. Sperr, photographer\nJuly 19, 1941",
+    "before": "Grand Concourse, s.e. cor. 187th St., Bronx.\n\nNeg. no. A-1231\n\nP. L. Sperr, photographer\nJuly 19, 1941\n",
+    "metadata": {
+      "back_id": "701176b",
+      "cookie": "blah",
+      "distance": 0,
+      "len_base": 103,
+      "len_exp": 100,
+      "score": 1.0
+    },
+    "photo_id": "701176f-a"
+  },
+  {
+    "after": "(1) Lenox Avenue, west side, between 146th and 147th Street, showing the New York Railways Company Car House, now the New York City Omnibus Corporation.\n\n(2) West 145th Street, west of Lenox Avenue.\n\nP. L. Sperr\n\nAugust 21, 1941\nViews 1,2\n\nview 2: neg. no. A-892",
+    "before": "(1) Lenox Avenue, west side, between 146th and 147th Street, showing the New York Railways Company Car House, now the\nNew York City Omnibus Corporation.\n(2) West 145th Street, west of Lenox Avenue.\nP. L. Sperr  August 21, 1941\nViews 1,2\nview 2: neg no. A892",
+    "metadata": {
+      "back_id": "720882b",
+      "cookie": "blah",
+      "distance": 2,
+      "len_base": 257,
+      "len_exp": 262,
+      "score": 0.9922178988326849
+    },
+    "photo_id": "720882f-b"
+  },
+  {
+    "after": "56th Street, north side, from Seventh Avenue to Broadway. April 22, 1929.\n\nP. L. Sperr.",
+    "before": "56th Street, north side, from Seventh Avenue to Broadway.\nApril 22, 1929.\nP. L. Sperr.\n",
+    "metadata": {
+      "back_id": "713822b",
+      "cookie": "blah",
+      "distance": 0,
+      "len_base": 87,
+      "len_exp": 87,
+      "score": 1.0
+    },
+    "photo_id": "713822f-a"
+  },
+  {
+    "after": "Broadway 43 to 44th St.\nPresent site of Paramount Bldg.\nPhotograph by Brown Brothers\n220 West 42nd St.\nNew York City\nNEG. # 4851\n1903",
+    "before": "Broadway 43 to 44th St.  1903\nPresent site of Paramount Bldg.\nPhotograph by Brown Brothers\n220 West 42nd St.\nNew ork City\n",
+    "metadata": {
+      "back_id": "717489b",
+      "cookie": "blah",
+      "distance": 19,
+      "len_base": 122,
+      "len_exp": 133,
+      "score": 0.8442622950819672
+    },
+    "photo_id": "717489f-a"
+  },
+  {
+    "after": "Broadway, west side, from 59th to 57th Streets. In the foreground is the uptown building of the New York Journal. Below this is the General Motors Building. This was originally built about 1921 as a three-story building, and has just been remodelled into a 26-story building.\n\nAbout 1927.\n\nHerbert Photos, Inc.",
+    "before": "Broadway, west side, from 59th to 57th Streets. In the foreground is the uptown building of the New York Journal. Below this is the General Motors Building. This was originally built about 1921 as a three-story building, and has just been remodelled into a 26-story building.\nAbout 1927.\nHerbert Photos, Inc.\n",
+    "metadata": {
+      "back_id": "717591b",
+      "cookie": "blah",
+      "distance": 0,
+      "len_base": 309,
+      "len_exp": 310,
+      "score": 1.0
+    },
+    "photo_id": "717591f"
+  },
+  {
+    "after": "Park Avenue, west side, north from East 60th St., showing the cleared 60th-61st Street frontage and apartment buildings north of same. The prominent 12 story white structure is No. 540 Park Avenue (erected 1908) and is at the N. W. corner of E. 61st Street. Adjoining to the north is the 17 story apartment building, No. 550 Park Ave., a structure over shadowing the Colonial faced Colony Club.\n\nDecember 21st, 1930\nViews 1,2\n\nP. L. Sperr",
+    "before": "Park Avenue, west side, north from East 60th St., showing the cleared 60th-61st Street frontage and apartment buildings north of same. The prominent 12 story white structure is No. 540 Park Avenue (erected 1908) and is at the N. W. corner of E. 61st Street. Adjoining to the north is the 17 story apartment building, No. 550 Park Ave., a structure over shadowing the Colonial facaded Colony Club.\nDecember 21, 1930\nViews 1,2\n. L. Sperr\n",
+    "metadata": {
+      "back_id": "722290b",
+      "cookie": "blah",
+      "distance": 5,
+      "len_base": 436,
+      "len_exp": 438,
+      "score": 0.9885321100917431
+    },
+    "photo_id": "722290f-b"
+  },
+  {
+    "after": "3908 Victory Boulevard, east side, at Cannon Avenue, showing an old Decker house, in all probability F. C. Decker's store shown on James Butler's 1853 map. The white house seen in the background is another old Decker house. Butler's and Beers's maps of 1853 and 1874 respectively, show numerous Decker houses in this locality.\n\nMay 19, 1932\n\nP. L. Sperr",
+    "before": "3908 Victory Boulevard, east side, at Cannon Avenue, showing an old Decker house, in all propability F. C. Decker's store shown on James Butler's 1853 map. The white house seen in the backgrodnd is another old Decker house. Butler's and Beers's maps of 1853 and 1874 respectively, show numerous\nDecker houses in this localityMay 1:, 1932\nP. L. Sperr\n",
+    "metadata": {
+      "back_id": "729822b",
+      "cookie": "blah",
+      "distance": 5,
+      "len_base": 350,
+      "len_exp": 353,
+      "score": 0.9857142857142858
+    },
+    "photo_id": "729822f-a"
+  },
+  {
+    "after": "Throop Avenue, at the S. W. corner of Willoughby Avenue, showing the Throop Avenue Presbyterian Church. It had its origin in a mission established in 1852 on the corner of Throop Avenue and Bartlett Street. The Throop Avenue Presbyterian Church was organized in 1862 and occupied the Throop Avenue Mission Building between Hopkins and Ellery Streets, which was later turned into a synagogue. In 1867 it removed to the S. W. corner of Throop and Willoughby Avenues, occupying a frame structure. The cornerstone for the brick edifice, seen in this view, was laid on November 2, 1889. In 1890 the church was destroyed by fire and a new site was acquired for a new edifice at the N. W. corner of Throop Avenue and Macon Street, where the church is located to this day (1940). The building beyond the church, seen in this view, is between Willoughby and Vernon Avenues. Mr. Eugene L. Armbruster is authority for above references.\n\n1911\n\nEugene L. Armbruster Collection",
+    "before": "Throop Avenue, at the S. W. corner of Willoughby Avenue, showing the Throop Avenue Presbyterian Church. It had its origin in a mission established in 1852 on the corner of Throop Avenue and Bartlett Street. The Throop Avenue Presbyterian Church was organized in 1862 an occupied the Throop Avenue Mission Building between Hopkins and Ellery Streets, which was later turned into a synagogue. In 1867 it removed to the S. W. corner of Throop and Willoughby Avenues, occupying a frame structure. The cornerstone for the brick edifice, seen in this view, was laid on November 2, 18?9. In 1890 the church was destroyed by fire and a new site was acquired for a new edifice at the N. W. corner of Throop Avenue and Macon Street, where the church is located to this day (1940). The building beyond the church, seen in this view, is between Willoughby and Vernon Avenues. Mr. Eugene L. Armbruster is authority for above references.\n\n1911\n\nEugene L. Armbruster Collection",
+    "metadata": {
+      "back_id": "707047b",
+      "cookie": "blah",
+      "distance": 2,
+      "len_base": 962,
+      "len_exp": 963,
+      "score": 0.997920997920998
+    },
+    "photo_id": "707047f-a"
+  },
+  {
+    "after": "National Street, at the N.W. corner of 42nd Street, showing the Union Evangelical Church. It was built in 1871. Charles P. Leverich donated the site and edifice providing that it remain forever undenominational and free.\n\nView 1: Eugene L. Armbruster Collection April, 1925\n\nViews 2,3: P. L. Sperr\nOctober 2, 1935",
+    "before": "National Street, at the N.W. corner of 42nd Street, showing the Union Evangelical Church. It was built in 1871. Charles P. Leverich donated the site and edifice providing that it remain forever undenominational and free. View 1: Eugene L. Armbruster Collection April,1925\nViews 2,3: P. L. Sperr\nNO REPRODUCTIONS  October 2, 1935\n",
+    "metadata": {
+      "back_id": "727459b",
+      "cookie": "blah",
+      "distance": 18,
+      "len_base": 329,
+      "len_exp": 313,
+      "score": 0.9452887537993921
+    },
+    "photo_id": "727459f-c"
+  },
+  {
+    "after": "W. 33rd Street (from left to right), north side, between Ninth and Eighth Avenues, as viewed northeastward across a corner of the railroad yards at the rear of the Post Office (low structure partially shown at the right). The photographer has a vantage point on W. 32nd Street to the west of Ninth Avenue (which does not appear) and shows the West Side area comprising Manhattans' vast garment area that concentrates around Eighth Avenue.\n\nDecember 20, 1930.\n\nP.L. Sperr",
+    "before": "W. 33rd Street (from left to right), north side, between Ninth and Eighth Avenues, as viewed northeastward across a corner of the railroad yards at the rear of the Post Office (low structure partially shown at the right). The photographer has a vantage point on W. 32nd Street to the west of Ninth Avenue (which does not appear) and shows the West Side area comprising Manhattans' vast garment area that concentrates around Eighth Avenue.\nDecember 20, 1930.\nP.L. Sperr\n",
+    "metadata": {
+      "back_id": "712060b",
+      "cookie": "blah",
+      "distance": 0,
+      "len_base": 469,
+      "len_exp": 470,
+      "score": 1.0
+    },
+    "photo_id": "712060f-a"
+  },
+  {
+    "after": "Broadway, west side, from 42nd to 45th Streets. At the left, construction work on the New York Times Building is under way. At 43rd Street is the Hotel Cadillac, and above it is Rector's, which, along with the corner building at 44th Street, will soon be replaced by the Hotel Claridge. From 44th to 45th Streets are the Criterion and New York theatres. The building which they occupy, which at the time of this picture is called the Crystal Gardens, will be demolished in 1935. Broadway is badly torn up from subway construction, which is nearly completed. 1903.\n\nBrown Brothers.",
+    "before": "Broadway, west side, from 42nd to 45th Streets. At the left, construction work on the New York Times Building is under way. At 43rd Street is the Hotel Cadillac, and above it is Rector's which, along with the corner building at 44th Street, will soon be replaced by the Hotel Claridge. From 44th to 45th Streets are the Criterion and New York theatres. The building which they occupy, which at the time of this picture is called the Crystal Gardens, will be demolished in 1935. Broadway is badly torn up from subway construction, which is nearly completed.\n1903.\nBrown Brothers.\nNEG #4463",
+    "metadata": {
+      "back_id": "717475b",
+      "cookie": "blah",
+      "distance": 7,
+      "len_base": 588,
+      "len_exp": 580,
+      "score": 0.9880952380952381
+    },
+    "photo_id": "717475f"
+  },
+  {
+    "after": "Central Park West at N.W. corner of 68th Street. The men in the foreground are working on the Eighth Avenue subway.\nMay 15, 1928.\n\nP. L. Sperr.",
+    "before": "Central Park West at N.W. corner of 68th Street. The men in the foreground are working on the Eighth Avenue subway.\nMay 15, 1928.\nP. L. Sperr.\n\"NNsw ig,\n\"'R:Lem.S0\n~9A.Lswor..,,g  'N3~88eeRS..\n",
+    "metadata": {
+      "back_id": "718454b",
+      "cookie": "blah",
+      "distance": 31,
+      "len_base": 193,
+      "len_exp": 143,
+      "score": 0.8393782383419689
+    },
+    "photo_id": "718454f-a"
+  },
+  {
+    "after": "3888 to 3896 Third Ave., south of, adjoining and at the S.E. corner of East 172nd Street. Also shown is the Third Avenue Elevated Line running north on the avenue.\n\nJames Suydam.\n\nNeg. # 1042",
+    "before": "3888 to 3896 Third Ave., south of, adjoining and at the S.E. co of East 172nd Street. Also shown is the Third Avenue Elevated Line running north on the avenue.\nAbout 1911.\nJames Suydam.\nNeg # 1042\n",
+    "metadata": {
+      "back_id": "700022b",
+      "cookie": "blah",
+      "distance": 17,
+      "len_base": 197,
+      "len_exp": 191,
+      "score": 0.9137055837563451
+    },
+    "photo_id": "700022f"
+  },
+  {
+    "after": "Fifth Avenue at S.E. corner of 64th Street. Residence of James Ben Ali Higgin. About 1910. ",
+    "before": "\nFifth Avenue at N.E. corner of 64th Street. Residence of James Ben Ali Higgin.\nAbout 1910.\n",
+    "metadata": {
+      "back_id": "709099b",
+      "cookie": "blah",
+      "distance": 1,
       "len_base": 92,
       "len_exp": 91,
-      "distance": 0,
-      "score": 1.0,
-      "back_id": "707352b",
-      "record": {
-        "id": "707352f",
-        "photo_url": "http://images.nypl.org/index.php?id=707352f&t=w",
-        "preferred_url": "http://digitalgallery.nypl.org/nypldigital/id?707352f",
-        "location": "Williams Ave. & Glenmore Ave., Brooklyn, NY",
-        "date": "1941",
-        "title": "Brooklyn: Williams Ave. - Glenmore Ave.",
-        "alt_title": "",
-        "back_id": "707352b",
-        "borough": "Brooklyn",
-        "outside_nyc": false
-      },
-      "raw_text": "1. Williams Ave. south from Glenmore Ave.\nP.L. Sperr, photographer\nNeg. A-255\nJuly 24, 1941"
-    }
+      "score": 0.9891304347826086
+    },
+    "photo_id": "709099f-a"
   },
   {
-    "photo_id": "700749f-a",
-    "before": "319 to 329 City Island Avenue (City Island), adjoining and at the S. W. corner of Bay Street. The long 2-story frame building bears Nos. 321 to 329. In the center of the house, at No. 325, is the City Island Branch of the New York Public Library (note small sign above entrance), and at 329, at the corner where the United States flag is seen, is the City Island station of the United States Post Office.\nJuly 6, 1928\nP. L. Sperr\n",
-    "after": "319 to 329 City Island Avenue (City Island), adjoining and at the S. W. corner of Bay Street. The long 2-story frame building bears Nos. 321 to 329. In the center of the house, at No. 325, is the City Island Branch of the New York Public Library (note small sign above entrance), and at 329, at the corner where the United States flag is seen, is the City Island station of the United States Post Office.\n\nJuly 6, 1928\n\nP. L. Sperr",
+    "after": "(1) 246 East 82nd Street, south side, west of Second Ave. Building shown is a frame house, and was formerly occupied by the Dispensary Hospital.\n\nOctober 9, 1934.\n\nP. L. Sperr.\n\n(2) The same, another view.\n\nOctober 9, 1934.\n\nP. L. Sperr.",
+    "before": "(1)\n246 East 82nd Street, south side, west of Second Ave. Building shown is a frame house, and was formerly cccupied by the Dispensary Hospital.\nOctober 9, 1934.\nP. L. Sperr.\n(2)\nThe same, another view.\nOctober 9, 1934.\nP. L. Sperr.\n",
     "metadata": {
-      "cookie": "eval",
-      "len_base": 430,
-      "len_exp": 431,
-      "distance": 0,
-      "score": 1.0,
-      "back_id": "700749b",
-      "record": {
-        "id": "700749f",
-        "photo_url": "http://images.nypl.org/index.php?id=700749f&t=w",
-        "preferred_url": "http://digitalgallery.nypl.org/nypldigital/id?700749f",
-        "location": "City Island Avenue & Bay Street, Bronx, NY",
-        "date": "",
-        "title": "Bronx: City Island Avenue - Bay Street",
-        "alt_title": "",
-        "back_id": "700749b",
-        "borough": "Bronx",
-        "outside_nyc": false
-      },
-      "raw_text": "319 to 329 City Island Avenue (City Island), adjoining and at the S. W. corner of Bay Street. The long 2-story frame building bears Nos. 321 to 329. In the center of the house, at No. 325, is the City Island Branch of the New York Public Library (note small sign above entrance), and at 329, at the corner where the United States flag is seen, is the City Island station of the United States Post Office.\n\nJuly 6, 1928\n\nP. L. Sperr\nNO REPRODUCTIONS"
-    }
+      "back_id": "714622b",
+      "cookie": "blah",
+      "distance": 1,
+      "len_base": 233,
+      "len_exp": 237,
+      "score": 0.9957081545064378
+    },
+    "photo_id": "714622f-b"
   },
   {
-    "photo_id": "720842f-a",
-    "before": "1. Lenox Ave. & 116th St., n.e. cor.\nNeg. A-169\nP.L. Sperr, photographer\nJuly 9, 1941",
-    "after": "1. Lenox Ave. & 116th St., n.e. cor. Neg. A-169\nP.L. Sperr, photographer\nJuly 9, 1941",
+    "after": "West 76th Street, south side, west from No. 140 (left, private house adjoining St. Andrews M.E. Church), a point midway between Columbus and Amsterdam Aves., across the latter to the North (Hudson) River.\n\nSeptember 25, 1936.\n\nW.P.A. Photo.\nFederal Art Project.",
+    "before": "West 76th Street, south side, west from No. 140 (left, private house adjoining St. Andrews M.E. Church), a point midway between Columbus and Amsterdam Aves.. across the latter to the North (Hudson) River.\nSeptember 25, 1936.\nW.P.A. Photo.\nFederal Art Project.\n",
     "metadata": {
-      "cookie": "eval",
-      "len_base": 85,
-      "len_exp": 85,
-      "distance": 0,
-      "score": 1.0,
-      "back_id": "720842b",
-      "record": {
-        "id": "720842f",
-        "photo_url": "http://images.nypl.org/index.php?id=720842f&t=w",
-        "preferred_url": "http://digitalgallery.nypl.org/nypldigital/id?720842f",
-        "location": "Lenox Avenue & 116th Street, Manhattan, NY",
-        "date": "1941",
-        "title": "Manhattan: Lenox Avenue - 116th Street",
-        "alt_title": "",
-        "back_id": "720842b",
-        "borough": "Manhattan",
-        "outside_nyc": false
-      },
-      "raw_text": "1. Lenox Ave. & 116th St., n.e. cor. Neg. A-169\nP.L. Sperr, photographer\nJuly 9, 1941"
-    }
-  },
-  {
-    "photo_id": "722267f-a",
-    "before": "Park Ave., at the S.E. corner of East 54th Street. July 11, 1936.\n\nP. L. Sperr.\n",
-    "after": "Park Ave., at the S.E. corner of East 54th Street.\nJuly 11, 1936.\n\nP. L. Sperr.",
-    "metadata": {
-      "cookie": "eval",
-      "len_base": 80,
-      "len_exp": 79,
-      "distance": 0,
-      "score": 1.0,
-      "back_id": "722267b",
-      "record": {
-        "id": "722267f",
-        "photo_url": "http://images.nypl.org/index.php?id=722267f&t=w",
-        "preferred_url": "http://digitalgallery.nypl.org/nypldigital/id?722267f",
-        "location": "Park Avenue & 51st Street, Manhattan, NY",
-        "date": "1928",
-        "title": "Manhattan: Park Avenue - 51st Street",
-        "alt_title": "",
-        "back_id": "722267b",
-        "borough": "Manhattan",
-        "outside_nyc": false
-      },
-      "raw_text": "Park Ave., at the S.E. corner of East 54th Street.\nJuly 11, 1936.\n\nP. L. Sperr.\nNO REPRODUCTIONS."
-    }
-  },
-  {
-    "photo_id": "710698f-a",
-    "before": "Eleventh Avenue at N.E. corner of 43rd Street.\nMarch 26, 1935.\nP. L. Sperr.\n",
-    "after": "Eleventh Avenue at N.E. corner of 43rd Street.\nMarch 26, 1935.\n\nP. L. Sperr.",
-    "metadata": {
-      "cookie": "eval",
-      "len_base": 76,
-      "len_exp": 76,
-      "distance": 0,
-      "score": 1.0,
-      "back_id": "710698b",
-      "record": {
-        "id": "710698f",
-        "photo_url": "http://images.nypl.org/index.php?id=710698f&t=w",
-        "preferred_url": "http://digitalgallery.nypl.org/nypldigital/id?710698f",
-        "location": "11th Avenue & 43rd Street, Manhattan, NY",
-        "date": "1935",
-        "title": "Manhattan: 11th Avenue - 43rd Street",
-        "alt_title": "",
-        "back_id": "710698b",
-        "borough": "Manhattan",
-        "outside_nyc": false
-      },
-      "raw_text": "Eleventh Avenue at N.E. corner of 43rd Street.\nMarch 26, 1935.\n\nP. L. Sperr.\nNO REPRODUCTIONS."
-    }
-  },
-  {
-    "photo_id": "703816f-a",
-    "before": "(1)\nCortelyou Road, south side, west of East 40th Street, showing the Michel Cummings house (foreground) which was occupied by W. Cummings in 1873; and now falling into decay. Also seen are rears of houses which face East 39th Street.\nMarch 1925.\nEugene L. Armbruster Collection.\n\n(2)\nThe same area, further westward, showing also the Holy Cross Cemetery at the right.\nOctober 1928.\nEugene L. Armbruster Collection.\n",
-    "after": "(1)\nCortelyou Road, south side, west of East 40th Street, showing the Michel Cummings house (foreground) which was occupied by W. Cummings in 1873; and now falling into decay. Also seen are rears of houses which face East 39th Street.\nMarch 1925.\nEugene L. Armbruster Collection.\n\n(2)\nThe same area, further westward, showing also the Holy Cross Cemetery at the right.\nOctober 1928.\nEugene L. Armbruster Collection.",
-    "metadata": {
-      "cookie": "eval",
-      "len_base": 416,
-      "len_exp": 415,
-      "distance": 0,
-      "score": 1.0,
-      "back_id": "703816b",
-      "record": {
-        "id": "703816f",
-        "photo_url": "http://images.nypl.org/index.php?id=703816f&t=w",
-        "preferred_url": "http://digitalgallery.nypl.org/nypldigital/id?703816f",
-        "location": "Cortelyou Road & 40th Street, Brooklyn, NY",
-        "date": "",
-        "title": "Brooklyn: Cortelyou Road - 40th Street",
-        "alt_title": "",
-        "back_id": "703816b",
-        "borough": "Brooklyn",
-        "outside_nyc": false
-      },
-      "raw_text": "(1)\nCortelyou Road, south side, west of East 40th Street, showing the Michel Cummings house (foreground) which was occupied by W. Cummings in 1873; and now falling into decay. Also seen are rears of houses which face East 39th Street.\nMarch 1925.\nEugene L. Armbruster Collection.\nMAY BE REPRODUCED.\n\n(2)\nThe same area, further westward, showing also the Holy Cross Cemetery at the right.\nOctober 1928.\nEugene L. Armbruster Collection.\nMAY BE REPRODUCED."
-    }
-  },
-  {
-    "photo_id": "724357f-b",
-    "before": "(1)\nAn aerial view of West Broadway, north from and including Barclay Street. Also shown is Barclay Street, at West Broadway.\nApril 3, 1934.\nP. L. Sperr.\n(2)\nThe same, from a different angle.\nApril 3, 1934.\nP. L. Sperr.\n",
-    "after": "(1)\nAn aerial view of West Broadway, north from and including Barclay Street. Also shown is Barclay Street, at West Broadway.\n\nApril 3, 1934.\n\nP. L. Sperr.\n\n(2)\nThe same, from a different angle.\n\nApril 3, 1934.\n\nP. L. Sperr.",
-    "metadata": {
-      "cookie": "eval",
-      "len_base": 220,
-      "len_exp": 224,
-      "distance": 0,
-      "score": 1.0,
-      "back_id": "724357b",
-      "record": {
-        "id": "724357f",
-        "photo_url": "http://images.nypl.org/index.php?id=724357f&t=w",
-        "preferred_url": "http://digitalgallery.nypl.org/nypldigital/id?724357f",
-        "location": "West Broadway & Barclay Street, Manhattan, NY",
-        "date": "1934",
-        "title": "Manhattan: West Broadway - Barclay Street",
-        "alt_title": "",
-        "back_id": "724357b",
-        "borough": "Manhattan",
-        "outside_nyc": false
-      },
-      "raw_text": "(1)\nAn aerial view of West Broadway, north from and including Barclay Street. Also shown is Barclay Street, at West Broadway.\n\nApril 3, 1934.\n\nP. L. Sperr.\nNO REPRODUCTIONS.\n\n(2)\nThe same, from a different angle.\n\nApril 3, 1934.\n\nP. L. Sperr.\nNO REPRODUCTIONS."
-    }
-  },
-  {
-    "photo_id": "706236f-a",
-    "before": "68-76 Pennsylvania Ave., west side, north of Atlantic Ave. To the right partially seen, is the Tyrian Temple. The building bearing the sign was the old New Lots post-office, said to have been built by a Col. Brown (?) in the 1870's. His son Miles A. Brown was postmaster in 1874.\n1922.\nEugene L. Armbruster Collection.",
-    "after": "68-76 Pennsylvania Ave., west side, north of Atlantic Ave. To the right partially seen, is the Tyrian Temple. The building bearing the sign was the old New Lots post-office, said to have been built by a Col. Brown (?) in the 1870's. His son Miles A. Brown was postmaster in 1874.\n\n1922.\n\nEugene L. Armbruster Collection.",
-    "metadata": {
-      "cookie": "eval",
-      "len_base": 318,
-      "len_exp": 320,
-      "distance": 0,
-      "score": 1.0,
-      "back_id": "706236b",
-      "record": {
-        "id": "706236f",
-        "photo_url": "http://images.nypl.org/index.php?id=706236f&t=w",
-        "preferred_url": "http://digitalgallery.nypl.org/nypldigital/id?706236f",
-        "location": "Pennsylvania Avenue & Atlantic Avenue, Brooklyn, NY",
-        "date": "1922",
-        "title": "Brooklyn: Pennsylvania Avenue - Atlantic Avenue",
-        "alt_title": "",
-        "back_id": "706236b",
-        "borough": "Brooklyn",
-        "outside_nyc": false
-      },
-      "raw_text": "68-76 Pennsylvania Ave., west side, north of Atlantic Ave. To the right partially seen, is the Tyrian Temple. The building bearing the sign was the old New Lots post-office, said to have been built by a Col. Brown (?) in the 1870's. His son Miles A. Brown was postmaster in 1874.\n\n1922.\n\nEugene L. Armbruster Collection.\nMAY BE REPRODUCED."
-    }
+      "back_id": "714523b",
+      "cookie": "blah",
+      "distance": 1,
+      "len_base": 260,
+      "len_exp": 261,
+      "score": 0.9961538461538462
+    },
+    "photo_id": "714523f-a"
   }
 ];

@@ -1,0 +1,39 @@
+<!-- localturk template for evaluating before/after OCR -->
+
+<link rel="stylesheet" href="codediff.css">
+<link rel="stylesheet" href="style.css">
+
+<script src="jquery-1.8.3.min.js"></script>
+<script src="difflib.js"></script>
+<script src="codediff.js"></script>
+
+Which is better?
+<input type="submit" name="Before" data-key="b" value="Before (b)"> &nbsp;
+<input type="submit" name="After" data-key="a" value="After (a)"> &nbsp;
+<input type="submit" name="Neutral" data-key="n" value="Neutral (n)"> &nbsp;
+| &nbsp;
+<select></select>
+<a id="tool-link" target="_blank" href="#">OCR Tool (v)</a>&nbsp;
+<a id="oldnyc-link" target="_blank" href="#">OldNYC (o)</a>&nbsp;
+<button id="show-image">Show Image (i)</button>
+
+<h2 id="photo-id"></h2>
+<img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" id="image">
+<div id="diff"></div>
+<pre id="metadata"></pre>
+
+<textarea name="notes" placeholder="notes" cols="80" rows="5"></textarea>
+
+<script type="text/javascript">
+function decodeHtml(html) {
+    var txt = document.createElement("textarea");
+    txt.innerHTML = html;
+    return txt.value;
+}
+
+var changes = [
+    JSON.parse(atob("${BASE64}"))
+];
+</script>
+
+<script src="review.js"></script>
