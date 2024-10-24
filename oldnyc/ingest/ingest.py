@@ -52,7 +52,7 @@ def run():
         photo["photo_id"].split("-")[0]: photo["text"]
         for photo in json.load(open("../oldnyc.github.io/data.json"))["photos"]
     }
-    gpt_text = {
+    gpt_text: dict[str, str] = {
         id: r["text"]
         for id, r in json.load(open("data/gpt-ocr.json")).items()
         if r["text"] != "(rotated)"

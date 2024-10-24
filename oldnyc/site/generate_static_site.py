@@ -9,11 +9,20 @@ import subprocess
 import sys
 import time
 from collections import OrderedDict, defaultdict
-from typing import Iterable
+from typing import Iterable, Sequence
 
 from oldnyc.ingest.dates import extract_years
 from oldnyc.item import load_items
 from oldnyc.site import dates_from_text
+from oldnyc.site.site_data_type import (
+    DateFields,
+    PopularPhoto,
+    SiteItem,
+    SiteJson,
+    SitePhoto,
+    SiteResponse,
+    Timestamps,
+)
 from oldnyc.site.title_cleaner import is_pure_location
 
 # Make sure the oldnyc.github.io repo is in a clean state.
@@ -32,21 +41,21 @@ args = parser.parse_args()
 
 # TODO: replace this with JSON
 # strip leading 'var popular_photos = ' and trailing ';'
-popular_photos = json.loads(open("data/popular-photos.js").read()[20:-2])
+popular_photos: list[PopularPhoto] = json.loads(open("data/popular-photos.js").read()[20:-2])
 pop_ids = {x["id"] for x in popular_photos}
 
 # TODO: replace this with JSON
 # strip leading 'var lat_lons = ' and trailing ';'
-lat_lon_to_ids = json.loads(open("data/nyc-lat-lons-ny.js").read()[15:-1])
+lat_lon_to_ids: dict[str, list[str]] = json.loads(open("data/nyc-lat-lons-ny.js").read()[15:-1])
 
 rs = load_items("data/photos.ndjson")
 id_to_record = {r.id: r for r in rs}
 
-id_to_dims = {}
+id_to_dims: dict[str, tuple[int, int]] = {}
 for photo_id, width, height in csv.reader(open("data/nyc-image-sizes.txt")):
     id_to_dims[photo_id] = (int(width), int(height))
 
-self_hosted_ids = set()
+self_hosted_ids = set[str]()
 for photo_id, width, height in csv.reader(open("data/self-hosted-sizes.txt")):
     id_to_dims[photo_id] = (int(width), int(height))
     self_hosted_ids.add(photo_id)
@@ -58,7 +67,7 @@ id_to_rotation = user_rotations["fixes"]
 
 
 # Load the previous iteration of OCR. Corrections are applied on top of this.
-old_data = json.load(open("../oldnyc.github.io/data.json"))
+old_data: SiteJson = json.load(open("../oldnyc.github.io/data.json"))
 old_photo_id_to_text = {r["photo_id"]: r["text"] for r in old_data["photos"] if r["text"]}
 manual_ocr_fixes = json.load(open("data/feedback/fixes.json"))
 back_id_to_correction = manual_ocr_fixes["fixes"]
@@ -68,7 +77,7 @@ print(f"{len(back_id_to_correction)} OCR fixes")
 #     'last_date': '2017-06-04T15:09:35',
 #     'last_timestamp': 1496603375454,
 # }
-id_to_text = {}
+id_to_text: dict[str, str] = {}
 for photo_id, r in id_to_record.items():
     if photo_id in old_photo_id_to_text:
         id_to_text[photo_id] = old_photo_id_to_text[photo_id]
@@ -94,12 +103,12 @@ def image_url(photo_id: str, is_thumb: bool) -> str:
 
 
 def make_response(photo_ids: Iterable[str]):
-    response = []
+    response: list[SiteResponse] = []
     for photo_id in photo_ids:
         r = id_to_record[photo_id]
         dims = id_to_dims.get(photo_id)
         if not dims:
-            sys.stderr.write(f"Missing dimensinos for {photo_id}\n")
+            sys.stderr.write(f"Missing dimensions for {photo_id}\n")
             dims = (600, 400)
         w, h = dims
         ocr_text = id_to_text.get(photo_id)
@@ -120,7 +129,7 @@ def make_response(photo_ids: Iterable[str]):
             # Best to hide these or (better) extract them from the backing text.
             date = ""
         date = date.replace(", ", "; ")
-        date_fields = {
+        date_fields: DateFields = {
             "date_source": "nypl",
             "date": date,
             "years": extract_years(date),
@@ -135,7 +144,7 @@ def make_response(photo_ids: Iterable[str]):
                     "dates_from_text": new_dates,
                     "years": years,
                 }
-        r = {
+        resp: SiteResponse = {
             "id": photo_id,
             "title": title,
             **date_fields,
@@ -149,21 +158,21 @@ def make_response(photo_ids: Iterable[str]):
             # TODO: switch to r.url after reviewing other diffs
         }
         if original_title:
-            r["original_title"] = original_title
+            resp["original_title"] = original_title
         if rotation:
-            r["rotation"] = rotation
+            resp["rotation"] = rotation
 
         # sort the keys for more stable diffing
         # we can't just use sort_keys=True in json.dump because the photo_ids
         # in the response have a meaningful sort order.
-        response.append({k: r[k] for k in sorted(r.keys())})
+        response.append({k: resp[k] for k in sorted(resp.keys())})  # type: ignore
 
     # Sort by earliest date; undated photos go to the back. Use id as tie-breaker.
     response.sort(key=lambda rec: (min(rec["years"]) or "z", rec["id"]))
     return response
 
 
-def group_by_year(response):
+def group_by_year(response: Sequence[SiteItem]) -> OrderedDict[str, int]:
     counts = defaultdict(int)
     for rec in response:
         for year in extract_years(rec["date"]):
@@ -171,12 +180,26 @@ def group_by_year(response):
     return OrderedDict((y, counts[y]) for y in sorted(counts.keys()))
 
 
+def site_response_to_site_json(r: SiteResponse, latlon: tuple[float, float]) -> SitePhoto:
+    copy = SiteItem(r)
+    # copy: SiteItem = {**r}  # type: ignore
+    # del copy["id"]  # type: ignore
+    lat, lon = latlon
+    return SitePhoto(
+        {
+            **copy,
+            "photo_id": r["id"],
+            "location": {"lat": lat, "lon": lon},
+        }
+    )
+
+
 SORT_PRETTY = {"indent": 2, "sort_keys": True}
 
-all_photos = []
-latlon_to_count = {}
-id4_to_latlon = defaultdict(lambda: {})  # first 4 of id -> id -> latlon
-textless_photo_ids = []
+all_photos: list[SitePhoto] = []
+latlon_to_count: dict[str, dict[str, int]] = {}
+id4_to_latlon = defaultdict[str, dict[str, str]](dict)  # first 4 of id -> id -> "lat,lon"
+textless_photo_ids: list[str] = []
 for latlon, photo_ids in lat_lon_to_ids.items():
     outfile = "../oldnyc.github.io/by-location/%s.json" % latlon.replace(",", "")
     photos = make_response(photo_ids)
@@ -186,17 +209,12 @@ for latlon, photo_ids in lat_lon_to_ids.items():
     for id_ in photo_ids:
         id4_to_latlon[id_[:4]][id_] = latlon
 
+    lat, lon = [float(x) for x in latlon.split(",")]
     for response in photos:
         photo_id = response["id"]
         if not response["text"] and "f" in photo_id:
             textless_photo_ids.append(photo_id)
-        lat, lon = [float(x) for x in latlon.split(",")]
-        response["photo_id"] = photo_id
-        response["location"] = {"lat": lat, "lon": lon}
-        response["width"] = int(response["width"])
-        response["height"] = int(response["height"])
-        del response["id"]
-        all_photos.append(response)
+        all_photos.append(site_response_to_site_json(response, (lat, lon)))
 
 photo_ids_on_site = {photo["photo_id"] for photo in all_photos}
 
@@ -205,7 +223,7 @@ sys.stderr.write(f"Missing popular: {missing_popular}\n")
 print("Date extraction stats:")
 dates_from_text.log_stats()
 
-timestamps = {
+timestamps: Timestamps = {
     "timestamp": (
         old_data["timestamp"]
         if args.leave_timestamps_unchanged
@@ -254,11 +272,12 @@ json.dump(
 all_photos.sort(key=lambda photo: photo["photo_id"])
 
 # Complete data dump -- file size does not matter.
+site_json: SiteJson = {
+    "photos": all_photos,
+    **timestamps,
+}
 json.dump(
-    {
-        "photos": all_photos,
-        **timestamps,
-    },
+    site_json,
     open("../oldnyc.github.io/data.json", "w"),
     **SORT_PRETTY,
 )
