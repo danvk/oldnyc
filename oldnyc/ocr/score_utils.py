@@ -34,7 +34,6 @@ def contiguous_chunks(xs: list[int]) -> list[list[int]]:
 
 
 def try_transpositions(base_txt: str, exp_text: str, name: str = "") -> tuple[int, str]:
-    """mutates in_lines"""
     d = Levenshtein.distance(normalize_whitespace(base_txt), exp_text)
     in_lines = base_txt.split("\n")
     short_lines = [i for i, line in enumerate(in_lines) if len(line) <= 30]
@@ -52,9 +51,9 @@ def try_transpositions(base_txt: str, exp_text: str, name: str = "") -> tuple[in
             lines = in_lines[:]
             for before, after in zip(chunk, perm):
                 lines[after] = in_lines[before]
-                dt = Levenshtein.distance(normalize_whitespace("\n".join(lines)), exp_text)
-                if dt < best_perm[0]:
-                    best_perm = (dt, perm[:])
+            dt = Levenshtein.distance(normalize_whitespace("\n".join(lines)), exp_text)
+            if dt < best_perm[0]:
+                best_perm = (dt, perm[:])
 
         if best_perm[0] < d:
             dt, perm = best_perm

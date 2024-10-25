@@ -3,6 +3,7 @@ import Levenshtein
 from oldnyc.ocr.score_utils import (
     contiguous_chunks,
     normalize_whitespace,
+    score_for_pair,
     try_transpositions,
 )
 
@@ -48,3 +49,18 @@ Neg. # 4069
             "1939",
         ]
     )
+
+
+def test_no_drop_line():
+    site = """343 West 18th Street, north side, showing the Hand Decorated Fabrics Laboratory of Textile High School.
+
+Board of Education, N.Y.C.
+
+1931."""
+
+    gpt = """343 West 18th Street, north side, showing the and Decorated Fabrics Laboratory of Textile High School.
+
+Board of Education, N.Y.C.
+"""
+    score, d, adjusted = score_for_pair(site, gpt)
+    assert d > 5
