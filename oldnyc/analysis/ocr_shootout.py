@@ -179,11 +179,8 @@ def main():
 
     random.shuffle(both_ids)
     n_match = 0
-    n_out = 0
     n_date_mismatch = 0
     n_uniq_date_mismatch = 0
-    task_out = csv.DictWriter(open("data/feedback/review/changes.txt", "w"), ["back_id", "BASE64"])
-    task_out.writeheader()
     changes = []
     distances = Counter[int]()
     for id in tqdm(both_ids):
@@ -204,8 +201,8 @@ def main():
         distances[d] += 1
         if score == 1.0:
             n_match += 1
-        # elif n_out < 100 and id in magically_touched:  # and is_mismatch:
-        if id in REVIEW_IDS:
+        elif d > 10 and id in magically_touched:  # and is_mismatch:
+            # if id in REVIEW_IDS:
             out = {
                 "photo_id": back_to_photo_id[id],
                 "before": site,
@@ -220,20 +217,24 @@ def main():
                 },
             }
             changes.append(out)
-            task_out.writerow(
-                {
-                    "back_id": id,
-                    "BASE64": base64.b64encode(json.dumps(out).encode("utf8")).decode("utf-8"),
-                }
-            )
-            n_out += 1
-            print(id, "\t", d)
+            # print(id, "\t", d)
         else:
             # break
             pass
 
         # if d > 500:
         #     print(f"{id} {d=} {len(site)=} {len(gpt)=}")
+
+    changes.sort(key=lambda x: x["metadata"]["distance"], reverse=True)
+    task_out = csv.DictWriter(open("data/feedback/review/changes.txt", "w"), ["back_id", "BASE64"])
+    task_out.writeheader()
+    task_out.writerows(
+        {
+            "back_id": change["photo_id"],
+            "BASE64": base64.b64encode(json.dumps(change).encode("utf8")).decode("utf-8"),
+        }
+        for change in changes
+    )
 
     open("data/feedback/review/changes.js", "w").write(
         "var changes = %s;" % json.dumps(changes, indent=2, sort_keys=True)
