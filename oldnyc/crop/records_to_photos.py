@@ -8,6 +8,8 @@ import os
 import sys
 from dataclasses import dataclass
 
+from tqdm import tqdm
+
 from oldnyc.crop.extract_photos import ExtractedPhoto
 from oldnyc.item import load_items
 
@@ -63,7 +65,7 @@ if __name__ == "__main__":
     num_images, num_photos = 0, 0
 
     out = []
-    for idx, r in enumerate(rs):
+    for idx, r in enumerate(tqdm(rs)):
         digital_id = r.id
         image_file = "%s.jpg" % digital_id
         expansion = expansions.get(image_file) or Photo(crops={}, metadata=Size(0, 0))
@@ -84,9 +86,6 @@ if __name__ == "__main__":
                 new_r.photo_url = photo_file
                 out.append(new_r)
                 num_photos += 1
-
-        if num_photos % 1000 == 0:
-            sys.stderr.write("Processed %d images -> %d photos\n" % (num_images, num_photos))
 
     sys.stderr.write("Skipped %d records\n" % skipped)
     with open(out_ndjson, "w") as f:
