@@ -6,7 +6,7 @@ import csv
 import json
 import random
 import sys
-from collections import Counter
+from collections import Counter, defaultdict
 
 from tqdm import tqdm
 
@@ -177,6 +177,17 @@ def main():
 
     sys.stderr.write(f"{len(magically_touched)=}\n")
 
+    # Keep an ID from the existing site if:
+    # 1. It's marked as such in a manual review of big changes
+    # 2. It's a big edit from a magic cookie
+    # 3. It has more unique dates than the GPT version.
+    keep_ids = defaultdict[str, list[str]](list)
+    with open("/Users/danvk/Documents/oldnyc/big-changes.txt") as f:
+        for row in csv.DictReader(f):
+            back_id = row["back_id"]
+            if row["Before"] or row["Before (minor)"]:
+                keep_ids[back_id].append("big_change_manual")
+
     random.shuffle(both_ids)
     n_match = 0
     n_date_mismatch = 0
@@ -196,12 +207,15 @@ def main():
             n_date_mismatch += 1
             if len(set(dates_gpt)) < len(set(dates_site)):
                 n_uniq_date_mismatch += 1
+                keep_ids[id].append("uniq_dates")
 
         score, d, adjusted = score_for_pair(site, gpt)
         distances[d] += 1
         if score == 1.0:
             n_match += 1
-        elif d > 10 and id in magically_touched:  # and is_mismatch:
+        if d >= 10 and id in magically_touched:
+            keep_ids[id].append("big_magic_cookie")
+        elif d >= 70:  #  and id in magically_touched:  # and is_mismatch:
             # if id in REVIEW_IDS:
             out = {
                 "photo_id": back_to_photo_id[id],
@@ -239,12 +253,14 @@ def main():
     open("data/feedback/review/changes.js", "w").write(
         "var changes = %s;" % json.dumps(changes, indent=2, sort_keys=True)
     )
+    open("data/site-ocr-keep-ids.txt", "w").write(json.dumps(keep_ids, indent=2, sort_keys=True))
 
     sys.stderr.write(f"{n_match=}\n")
     sys.stderr.write(f"{n_date_mismatch=}\n")
     sys.stderr.write(f"{n_uniq_date_mismatch=}\n")
-    for d in sorted(distances.keys()):
-        sys.stderr.write(f"{d}\t{distances[d]}\n")
+    sys.stderr.write(f"Num keeping from site: {len(keep_ids)}\n")
+    # for d in sorted(distances.keys()):
+    #     sys.stderr.write(f"{d}\t{distances[d]}\n")
 
 
 if __name__ == "__main__":

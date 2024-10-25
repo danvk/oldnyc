@@ -63,6 +63,20 @@ $('#show-image').on('click', (e) => {
   const photoId = changes[selectedIndex()].photo_id;
   $('#image').attr('src', backOfCardUrlForPhotoId(photoId)).show();
 });
+$('#one-line').on('click', (e) => {
+  e.preventDefault();
+  const record = changes[selectedIndex()];
+  $('#diff').empty().append(
+    codediff.buildView(
+      normalizeWhitespace(record.before || ''), normalizeWhitespace(record.after), {})
+    );
+});
+$('#many-lines').on('click', (e) => {
+  e.preventDefault();
+  const record = changes[selectedIndex()];
+  $('#diff').empty().append(
+    codediff.buildView(record.before || '', record.after, {}));
+});
 
 $('#search').on('keypress', function(e) {
   if (e.key === 'Enter') {
@@ -97,6 +111,10 @@ $(window).on('keypress', function(e) {
     window.open(url, '_blank');
   } else if (e.which == 'i'.charCodeAt(0)) {
     $('#show-image').click();
+  } else if (e.which == '1'.charCodeAt(0)) {
+    $('#one-line').click();
+  } else if (e.which == '2'.charCodeAt(0)) {
+    $('#many-lines').click();
   }
 });
 
@@ -128,6 +146,9 @@ function backId(photo_id) {
 }
 function backOfCardUrlForPhotoId(photo_id) {
   return 'http://images.nypl.org/?id=' + backId(photo_id) + '&t=w';
+}
+function normalizeWhitespace(txt) {
+  return txt.replace(/\n/g, ' ').replace(/ +/g, ' ');
 }
 
 function buildUI(record) {
