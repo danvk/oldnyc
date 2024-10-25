@@ -44,6 +44,7 @@ if __name__ == "__main__":
             # overwrite existing entries, but prefer non-rotated OCR
             if not (back_id in mapping and rotated) or (existing_rotated and not rotated):
                 out = {
+                    # TODO: do the cleaning in ingest.py rather than here.
                     "text": clean(gpt_text) if not rotated else "(rotated)",
                     "original": gpt_text,
                 }
