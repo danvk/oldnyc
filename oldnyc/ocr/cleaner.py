@@ -21,6 +21,7 @@ def swap_chars(txt: str) -> str:
     txt = re.sub(r"\\&", "&", txt)
     txt = re.sub(r"''", '"', txt)
     txt = re.sub(I_NUM_RE, r"1\1", txt)
+    txt = txt.replace("IIth", "11th")
     return txt
 
 
@@ -107,7 +108,11 @@ def merge_lines(txt: str) -> str:
 def is_negative(txt: str) -> bool:
     """Is this a negative / slide number?"""
     return (
-        re.match(r"(?:neg(?:ative)?|slide)[. #]*(?:no\.? )?(?:[A-Z]-)?\d+\.?$", txt, flags=re.I)
+        re.match(
+            r"(?:neg(?:ative)?|slide)[. #:]*(?:no\.? )?(?:[A-Z]?-)?\d+(?: [A-Z])?\.?$",
+            txt,
+            flags=re.I,
+        )
         is not None
     )
 

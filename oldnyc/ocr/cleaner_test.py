@@ -210,6 +210,10 @@ def test_is_negative():
     for text in texts:
         assert cleaner.is_negative(text), text
 
+    negatives = ["1931."]
+    for text in negatives:
+        assert not cleaner.is_negative(text), text
+
 
 def test_fix_i17th():
     assert cleaner.swap_chars("April 19,I941") == "April 19,1941"
