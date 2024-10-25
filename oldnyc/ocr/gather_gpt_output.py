@@ -23,13 +23,13 @@ if __name__ == "__main__":
         try:
             data = json.loads(data_str)
         except json.decoder.JSONDecodeError:
-            sys.stderr.write(f"JSON response for {back_id} is malformed.\n")
+            sys.stderr.write(f"{back_id}\tmalformed JSON\n")
             data_str += '"}'
             data = json.loads(data_str)
         rotated = data.get("rotated")
         gpt_text = data["text"]
         if rotated:
-            sys.stderr.write(f"GPT says {back_id} is rotated.\n")
+            sys.stderr.write(f"{back_id}\trotated\n")
         if not (back_id in mapping and rotated):
             # defer to an existing entry if this one is rotated
             out = {
