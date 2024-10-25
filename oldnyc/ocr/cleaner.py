@@ -35,12 +35,16 @@ WARNINGS = [
 WARNING_RE_STR = "|".join(WARNINGS)
 
 
+YEAR_PAT = re.compile(r"\d{4}")
+
+
 def is_warning(line):
     line = re.sub(r"[,.]$", "", line)
     # line = line.upper()
     for base in WARNINGS:
         d = editdistance.eval(base, line)
-        if 2 * d < len(base):
+        # allow some wiggle room, but don't swallow anything that might be a date
+        if 2 * d < len(base) and not re.search(YEAR_PAT, line):
             return True
     return False
 
@@ -56,8 +60,9 @@ def remove_warnings(txt: str) -> str:
             word = warning.split(" ")[0] + " "
             if word in line:
                 idx = line.index(word)
+                # allow some wiggle room, but don't swallow anything that might be a date
                 d = editdistance.eval(warning, line[idx:])
-                if 2 * d < len(warning):
+                if 2 * d < len(warning) and not re.search(YEAR_PAT, line[idx:]):
                     lines[i] = line[: idx - 1]
     txt = "\n".join(lines)
     # As a final pass, remove all exact matches, wherever they occur

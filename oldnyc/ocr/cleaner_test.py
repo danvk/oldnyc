@@ -93,6 +93,12 @@ NEG #3039
 January I7th, 1939
 
 P. L. Sperr.""",
+    # 11
+    """379 Madison Street, north side and north west corner of Jackson Street, showing P.S. 12.
+
+Board of Education, N.Y.C.
+CREDIT LINE IMPERATIVE. 1920.
+NEG: 2870""",
 ]
 
 
@@ -102,6 +108,11 @@ def test_remove_warning():
 
     assert "CPDlr LLND IEERA1IvE" in samples[4]
     assert "CPDlr LLND IEERA1IvE" not in cleaner.remove_warnings(samples[4])
+
+    assert "CREDIT LINE IMPERATIVE" in samples[11]
+    assert "1920" in samples[11]
+    assert "1920" in cleaner.remove_warnings(samples[11])
+    assert "CREDIT LINE IMPERATIVE" not in cleaner.remove_warnings(samples[11])
 
 
 def test_merge_lines():
