@@ -24,14 +24,20 @@ if __name__ == "__main__":
             data = json.loads(data_str)
         except json.decoder.JSONDecodeError:
             sys.stderr.write(f"{back_id}\tmalformed JSON\n")
-            data_str += '"}'
-            data = json.loads(data_str)
+            continue
+            # This can all be patched by adding a trailing '"}', but the
+            # OCR text generally has other issues and should be dropped.
+            # data_str += '"}'
+            # data = json.loads(data_str)
         rotated = data.get("rotated")
         gpt_text = data["text"]
-        if rotated:
-            sys.stderr.write(f"{back_id}\trotated\n")
-        if not (back_id in mapping and rotated):
-            # defer to an existing entry if this one is rotated
+        # if rotated:
+        #     sys.stderr.write(f"{back_id}\trotated\n")
+        has_existing = back_id in mapping
+        existing_rotated = has_existing and mapping[back_id]["text"] == "(rotated)"
+
+        # overwrite existing entries, but prefer non-rotated OCR
+        if not (back_id in mapping and rotated) or (existing_rotated and not rotated):
             out = {
                 "text": clean(gpt_text) if not rotated else "(rotated)",
                 "original": gpt_text,
@@ -39,6 +45,10 @@ if __name__ == "__main__":
             if out["text"] != out["original"]:
                 n_altered += 1
             mapping[back_id] = out
+
+    for back_id, out in mapping.items():
+        if out["text"] == "(rotated)":
+            sys.stderr.write(f"{back_id}\trotated\n")
 
     sys.stderr.write(f"Writing {len(mapping)} records.\n")
     sys.stderr.write(f"{n_altered} were altered by cleaning.\n")
