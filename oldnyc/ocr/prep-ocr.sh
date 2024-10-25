@@ -24,7 +24,7 @@ done < "$ids_file"
 echo 'Cropping to text'
 rm -rf /tmp/crops
 mkdir /tmp/crops
-./ocr/crop_morphology.py --beta 2 --output_pattern '/tmp/crops/%s.png' '/tmp/rotated/*.jpg' '/tmp/rotated/*.png'
+poetry run oldnyc/crop/crop_to_text.py --beta 2 --output_pattern '/tmp/crops/%s.png' '/tmp/rotated/*.jpg' '/tmp/rotated/*.png'
 
 # Step 3: increase contrast, cap width, convert to JPEG
 # TODO: "1500" makes no sense any more
@@ -52,7 +52,7 @@ done
 # Step 5: Produce a GPT batch
 echo 'Generating GPT batch file'
 gpt_out=$GPT_DIR/$(basename $ids_file).jsonl
-./ocr/generate_gpt_batch.py \
+poetry run oldnyc/ocr/generate_gpt_batch.py \
     --model gpt-4o-mini \
     --image_directory /tmp/contrast-1500 \
     "$ids_file" \
