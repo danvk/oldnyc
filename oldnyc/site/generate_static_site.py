@@ -67,8 +67,9 @@ id_to_rotation = user_rotations["fixes"]
 
 
 # Load the previous iteration of OCR. Corrections are applied on top of this.
-old_data: SiteJson = json.load(open("../oldnyc.github.io/data.json"))
-old_photo_id_to_text = {r["photo_id"]: r["text"] for r in old_data["photos"] if r["text"]}
+# old_data: SiteJson = json.load(open("../oldnyc.github.io/data.json"))
+# old_photo_id_to_text = {r["photo_id"]: r["text"] for r in old_data["photos"] if r["text"]}
+old_times: Timestamps = json.load(open("../oldnyc.github.io/timestamps.json"))
 manual_ocr_fixes = json.load(open("data/feedback/fixes.json"))
 back_id_to_correction = manual_ocr_fixes["fixes"]
 print(f"{len(back_id_to_correction)} OCR fixes")
@@ -79,8 +80,8 @@ print(f"{len(back_id_to_correction)} OCR fixes")
 # }
 id_to_text: dict[str, str] = {}
 for photo_id, r in id_to_record.items():
-    if photo_id in old_photo_id_to_text:
-        id_to_text[photo_id] = old_photo_id_to_text[photo_id]
+    if r.back_text:
+        id_to_text[photo_id] = r.back_text
     if r.back_id in back_id_to_correction:
         id_to_text[photo_id] = back_id_to_correction[r.back_id]["text"]
 
@@ -225,16 +226,16 @@ dates_from_text.log_stats()
 
 timestamps: Timestamps = {
     "timestamp": (
-        old_data["timestamp"]
+        old_times["timestamp"]
         if args.leave_timestamps_unchanged
         else time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
     ),
     "rotation_time": user_rotations["last_date"],
     "ocr_time": (
-        old_data["ocr_time"] if args.leave_timestamps_unchanged else manual_ocr_fixes["last_date"]
+        old_times["ocr_time"] if args.leave_timestamps_unchanged else manual_ocr_fixes["last_date"]
     ),
     "ocr_ms": (
-        old_data["ocr_ms"]
+        old_times["ocr_ms"]
         if args.leave_timestamps_unchanged
         else manual_ocr_fixes["last_timestamp"]
     ),

@@ -48,15 +48,14 @@ def run():
         row["image_id"].lower(): row
         for row in csv.DictReader(open("data/originals/Milstein_data_for_DV_2.csv"))
     }
-    site_text = {
-        photo["photo_id"].split("-")[0]: photo["text"]
-        for photo in json.load(open("../oldnyc.github.io/data.json"))["photos"]
-    }
+    # back_id -> text as it was on the site in September 2024
+    site_text: dict[str, str] = json.load(open("data/site-ocr-2024.json"))
     gpt_text: dict[str, str] = {
         id: r["text"]
         for id, r in json.load(open("data/gpt-ocr.json")).items()
         if r["text"] != "(rotated)"
     }
+    site_ocr_back_ids_to_keep = set[str](json.load(open("data/site-ocr-keep-ids.txt")).keys())
     mods_details = json.load(open("data/mods-details.json"))
 
     counters = Counter[str]()
@@ -145,19 +144,18 @@ def run():
         if alt_title2:
             counters["alt_title2"] += 1
 
-        ocr_site = site_text.get(id)
-        if id not in site_text:
+        back_id = photo_id_to_backing_id(id) if id.endswith("f") else None
+        if not back_id and mods_detail:
+            back_id = mods_detail.get("back_id")
+
+        ocr_site = site_text.get(back_id) if back_id else None
+        if back_id not in site_text:
             counters["ocr: site: missing"] += 1
-        elif ocr_site is None:
-            counters["ocr: site: blank"] += 1
-        elif ocr_site == "":
+        elif ocr_site is None or ocr_site == "":
             counters["ocr: site: blank"] += 1
         else:
             counters["ocr: site: present"] += 1
 
-        back_id = photo_id_to_backing_id(id) if id.endswith("f") else None
-        if not back_id and mods_detail:
-            back_id = mods_detail.get("back_id")
         counters["back_id: " + ("present" if back_id else "missing")] += 1
         ocr_gpt = gpt_text.get(back_id) if back_id else None
         if ocr_gpt:
@@ -168,6 +166,26 @@ def run():
             counters["ocr: either"] += 1
         if back_id:
             counters["ocr: has back"] += 1
+
+        # TODO: dedupe branches
+        back_text: str | None = None
+        back_text_source: str | None = None
+        if ocr_gpt:
+            if ocr_site:
+                if back_id in site_ocr_back_ids_to_keep:
+                    back_text = ocr_site
+                    back_text_source = "site"
+                else:
+                    back_text = ocr_gpt
+                    back_text_source = "gpt"
+            else:
+                back_text = ocr_gpt
+                back_text_source = "gpt"
+        elif ocr_site:
+            back_text = ocr_site
+            back_text_source = "site"
+
+        counters[f"back_text_source: {back_text_source}"] += 1
 
         if outside_nyc(geographics):
             counters["filtered: outside nyc"] += 1
@@ -188,8 +206,8 @@ def run():
             creator=clean_creator(creator) or None,
             source=source,
             address=full_address,
-            back_text=ocr_site or ocr_gpt,
-            back_text_source="site" if ocr_site else "gpt" if ocr_gpt else None,
+            back_text=back_text,
+            back_text_source=back_text_source,
             subject=Subject(name=names, temporal=temporals, geographic=geographics, topic=topics),
         )
         out.write(json.dumps(dataclasses.asdict(r)))
