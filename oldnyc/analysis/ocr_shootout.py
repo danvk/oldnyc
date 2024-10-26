@@ -139,18 +139,10 @@ REVIEW_IDS = [
 
 
 def main():
-    items = load_items("data/images.ndjson")
-    front_to_back = {r.id: r.back_id for r in items if r.back_id}
+    photos = load_items("data/photos.ndjson")
+    back_to_photo_id = {r.back_id: r.id for r in photos if r.back_id}
 
-    site_data: SiteJson = json.load(open("../oldnyc.github.io/data.json"))
-    site_text: dict[str, str] = {}
-    back_to_photo_id = dict[str, str]()
-    for photo in site_data["photos"]:
-        id = photo["photo_id"].split("-")[0]
-        back_id = front_to_back.get(id)
-        if back_id and photo["text"]:
-            site_text[back_id] = photo["text"]
-            back_to_photo_id[back_id] = photo["photo_id"]
+    site_text: dict[str, str] = json.load(open("data/site-ocr-2024.json"))
 
     gpt_text: dict[str, str] = {
         id: r["text"]

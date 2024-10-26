@@ -377,19 +377,6 @@ var changes = [
     "photo_id": "716578f-d"
   },
   {
-    "after": "(1)\nHotel Martinique, Broadway, at the N.E. corner of 32nd Street.\n\nP. L. Sperr\n\nApril 22, 1929.\n\n(2)\nThe same, an aerial view.\n\n\nP. L. Sperr\n\nApril 22, 1929.\n\nAccording to the New York Times of July 1, 1939, the abovementioned structure has been leased by the Metropolitan Insurance Company until December 31, 1949 to a syndicate headed by Frank W. Kridel, operator of several other large hotels.\n\nThe 600-room hostelry has been improved and modernized; public rooms and some other parts of the building have been air-conditioned. Many of the original features for which this hotel is famous have been retained in a more modern setting. The elaborate Roman-style ceiling is admired by many. It was laid by Italian workmen brought to this country for this purpose. The inlaid tiles in the lobby and corridors and the ancient Wynwood Martinique clock are retained to delight lovers of antiques and clock experts. The clock is perhaps the most interesting decorative piece in the building. It was fashioned by hand by H.T. Crawford, clockmaker to royalty, in 1691, under a special commission from Sir Ralph Wynwood. It furnished the English craftsman carved the figure of St. Matthew, standing and kneeling, attended by cherubs around the day of the month. At Sir Ralph Wynwood's death the fifteen-foot\n\nIt was later bought for $8,500 by Mrs. Elizabeth C. Cole of New York. William H. Martin purchased it in 1911 from the estate to add to this collection. Later owners were Cornelius Vanderbilt and Oliver H. Belmont, but Mr. Martin again thought to install in the Broadway hotel which has been in operation for forty years.",
-    "before": "According to the New York Times ofJuly 1, 1939, the above mentioned structure had been leased by the Metropolitan Insurance Company until December 31, 1949 to a syndicate headed by Frank W.Eridel, operator of several other large hotels.\nThe 500-room hostelry had been improved and modernized; public rooms and some other parts of the building had been air conditioned. Many of the original features for which this hotel is famous have been retained in a more modern setting.\n\nThe elaborate Roman-style floor is admired by many. It was laid by Italian workmen brought to this country for this purpose. They inlaid tiles in the lobby and corridors and the ancient Wynwood Martinique clock are retained to delight lovers of antiques and clock experts. This clock is perhaps the most interesting decorative piece in the building. It was fashioned by hand by H.T. Crawford, clockmaker to royalty, in 1691, under a special cormission from Sir. Nalph Wynwood. In the burnished wood the English craftsman carved the figures of St. Matthew, standing and kneeling, attended by cherubs around the dials Mhich still correctly show the hour, the day of the week and the day of the month. At Sir RalphWynwood's death the fifteen-foot timepiece ent to the Mittendorf colledticn of clocks in Russia. It was later boumht for'B,50O by Mrs. Elisaheth C. Cole of New YArk. William R.H. Martin purchased it in 1911 from the Cole estate to add to this collection. Later owners were Cornelius Vanderbilt and and Oliver H.P. Belmont,but Mr. Martin again boumht it to install in the Broadway hotel which has been in oeration for forty years.\n",
-    "metadata": {
-      "back_id": "717394b",
-      "cookie": "blah",
-      "distance": 351,
-      "len_base": 1617,
-      "len_exp": 1622,
-      "score": 0.7829313543599258
-    },
-    "photo_id": "717394f-b"
-  },
-  {
     "after": "RITZ - CARLTON HOTEL, NEW YORK\nELEVATOR EQUIPMENT\nBY\nOTIS ELEVATOR COMPANY\nWarren & Wetmore, Architects\nM. Reid & Co., Inc., Builders",
     "before": "0E\nI 74  1 .2  w. E\n1.-~3  \nw:-.  S.\n'A0\n~Ni.  PR11,\n1  w'\n'  'O..,  \"\"uuu.....,,  .P\"'uiiiii,,,,  ] 2a 2 2 2S ]\"ii:iiiiii,,\njG S : : :S :\"441Ii1iiiiiii g\nSi.J - ~ S 22 E E If W,A(IIIIiiiiiiii iDE\nMi C 2 2 5 E E E f I 22)111I111IIIIiiii:w N\nf50 . : as E M M M M L11J4iiiIiiiiiiiEGI :  ,ww24w\nNS4  iELV M E E E A E E E1111111IIi:S\n'~bAN M E s s sS1111HHIII\"TE\n  ,yr'\n9  --E\nfaw.  , 0\ni:\nNwI4  '  \n.w  Ew\nMAE~ 9\n2 asw~\n",
     "metadata": {
@@ -401,6 +388,19 @@ var changes = [
       "score": 0.15827338129496404
     },
     "photo_id": "721338f-a"
+  },
+  {
+    "after": "(1)\nHotel Martinique, Broadway, at the N.E. corner of 32nd Street.\n\nP. L. Sperr\n\nApril 22, 1929.\n\n(2)\nThe same, an aerial view.\n\n\nP. L. Sperr\n\nApril 22, 1929.\n\nAccording to the New York Times of July 1, 1939, the abovementioned structure has been leased by the Metropolitan Insurance Company until December 31, 1949 to a syndicate headed by Frank W. Kridel, operator of several other large hotels.\n\nThe 600-room hostelry has been improved and modernized; public rooms and some other parts of the building have been air-conditioned. Many of the original features for which this hotel is famous have been retained in a more modern setting. The elaborate Roman-style ceiling is admired by many. It was laid by Italian workmen brought to this country for this purpose. The inlaid tiles in the lobby and corridors and the ancient Wynwood Martinique clock are retained to delight lovers of antiques and clock experts. The clock is perhaps the most interesting decorative piece in the building. It was fashioned by hand by H.T. Crawford, clockmaker to royalty, in 1691, under a special commission from Sir Ralph Wynwood. It furnished the English craftsman carved the figure of St. Matthew, standing and kneeling, attended by cherubs around the day of the month. At Sir Ralph Wynwood's death the fifteen-foot\n\nIt was later bought for $8,500 by Mrs. Elizabeth C. Cole of New York. William H. Martin purchased it in 1911 from the estate to add to this collection. Later owners were Cornelius Vanderbilt and Oliver H. Belmont, but Mr. Martin again thought to install in the Broadway hotel which has been in operation for forty years.",
+    "before": "According to the New York Times ofJuly 1, 1939, the above mentioned structure had been leased by the Metropolitan Insurance Company until December 31, 1949 to a syndicate headed by Frank W.Eridel, operator of several other large hotels.\nThe 500-room hostelry had been improved and modernized; public rooms and some other parts of the building had been air conditioned. Many of the original features for which this hotel is famous have been retained in a more modern setting.\n\nThe elaborate Roman-style floor is admired by many. It was laid by Italian workmen brought to this country for this purpose. They inlaid tiles in the lobby and corridors and the ancient Wynwood Martinique clock are retained to delight lovers of antiques and clock experts. This clock is perhaps the most interesting decorative piece in the building. It was fashioned by hand by H.T. Crawford, clockmaker to royalty, in 1691, under a special cormission from Sir. Nalph Wynwood. In the burnished wood the English craftsman carved the figures of St. Matthew, standing and kneeling, attended by cherubs around the dials Mhich still correctly show the hour, the day of the week and the day of the month. At Sir RalphWynwood's death the fifteen-foot timepiece ent to the Mittendorf colledticn of clocks in Russia. It was later boumht for'B,50O by Mrs. Elisaheth C. Cole of New YArk. William R.H. Martin purchased it in 1911 from the Cole estate to add to this collection. Later owners were Cornelius Vanderbilt and and Oliver H.P. Belmont,but Mr. Martin again boumht it to install in the Broadway hotel which has been in oeration for forty years.\n",
+    "metadata": {
+      "back_id": "717394b",
+      "cookie": "blah",
+      "distance": 351,
+      "len_base": 1617,
+      "len_exp": 1622,
+      "score": 0.7829313543599258
+    },
+    "photo_id": "717394f-b"
   },
   {
     "after": "(1)\nFulton Street, east from South Elliott Place, showing the B. M. T. elevated and buildings on the north side of\nthe street.\nJune 15, 1940\nP. L. Sperr\n\n(2)\nViewing east along the south side of Fulton Street from a point slightly west of South Elliott Street. W\u00fcst's store is at the S. W. corner of the two thoroughfares.\nJune 15, 1940\nP. L. Sperr\n\n(3)\nFulton St. at Elliott Pl., B'klyn.\n731-5 Fulton St.\nMay 13, 1942\nP. L. Sperr",
@@ -507,19 +507,6 @@ var changes = [
     "photo_id": "700185f-a"
   },
   {
-    "after": "35th Avenue, south side, between 76th and 77th Streets, showing the garden court of the Cambridge Court Apartments and the rears of the buildings. The buildings front on 76th and 77th Street. The view is south.\n\nBrown Brothers\n\nNeg. # 1787A\n\nAbout 1928",
-    "before": "35th Avenue, south side, between 76th and 77th Streets, showing the garden court of the Cambridge Court Apartments and the rears of the buildings. The buildings front on 76th\nand 77th Street. The view is south.\nBrown Brothers  About 1928\n\nThe Cambridge Court garden, designed by Olmstead Brothers in 1923.  Located on 85th and 86th Streets, between Roosevelt and 37th Avenues.  Unfortunately Cambridge Court failed as a cooperative during the Depression, and its beautiful garden has been, for the most part, destroyed by fences and use as a parking lot in some instances.\n",
-    "metadata": {
-      "back_id": "725234b",
-      "cookie": "blah",
-      "distance": 328,
-      "len_base": 573,
-      "len_exp": 252,
-      "score": 0.42757417102966844
-    },
-    "photo_id": "725234f-a"
-  },
-  {
     "after": "East 26th Street, west across First Avenue, showing features of this Bellevue Hospital sector. A unit of this institution is at the right, the Out Patient Bldg. Across the open corner on the left, appears the College Bldg. In the background is the outstanding New York Life Insurance Co. Bldg.\n\nOctober 13, 1939\n\nP. L. Sperr",
     "before": "East 26th Street, west across First Avenue, showing features of this Bellevue Hospital sector. A unit of this institution is at the right, the Out Patient Bldg. Across the open corner on the left, appears the College Bldg. In the background is the outstanding New York Life Insurance Co. Bldg.\nOctober 13, 1939\nP. L. Sperr\n\nLower end of East 26th street was the location of the female nurses residences. (426 and 440 East 26 St) Bellevue School of Nursing also housed classrooms and labs for nursing students enrolled in 3 year diploma program.\n\nEmpty lot at corner of 1st avenue and E 26 St became a diner which fed many people who worked at Bellevue.\n",
     "metadata": {
@@ -531,6 +518,19 @@ var changes = [
       "score": 0.4977029096477795
     },
     "photo_id": "711822f-a"
+  },
+  {
+    "after": "35th Avenue, south side, between 76th and 77th Streets, showing the garden court of the Cambridge Court Apartments and the rears of the buildings. The buildings front on 76th and 77th Street. The view is south.\n\nBrown Brothers\n\nNeg. # 1787A\n\nAbout 1928",
+    "before": "35th Avenue, south side, between 76th and 77th Streets, showing the garden court of the Cambridge Court Apartments and the rears of the buildings. The buildings front on 76th\nand 77th Street. The view is south.\nBrown Brothers  About 1928\n\nThe Cambridge Court garden, designed by Olmstead Brothers in 1923.  Located on 85th and 86th Streets, between Roosevelt and 37th Avenues.  Unfortunately Cambridge Court failed as a cooperative during the Depression, and its beautiful garden has been, for the most part, destroyed by fences and use as a parking lot in some instances.\n",
+    "metadata": {
+      "back_id": "725234b",
+      "cookie": "blah",
+      "distance": 328,
+      "len_base": 573,
+      "len_exp": 252,
+      "score": 0.42757417102966844
+    },
+    "photo_id": "725234f-a"
   },
   {
     "after": "WATCH RELEASE DATE\nWide World Photo: Please Watch Credit\nMain Caption for Pictures #829148, #829151 and #796402\n\nNEW YORK CITY FIFTY YEARS AGO IN THE MIDDLE OF THE GREAT BLIZZARD\n\nNew York, N.Y. - Fifty years ago on March 13 New York was paralyzed by the worst storm in its history--the blizzard of '88. It had snowed steadily for twenty-four hours on March 12, and the snow continued to fall on the 13th, while the temperature dropped to four degrees below zero and the wind rose to a velocity of eighty-four miles an hour. It was estimated that the storm took a toll of 400 lives and $20,000,000 in property damage. The complex life of the city was at a complete standstill for two days. Thawing temperatures on March 14 aided in the slow task of digging out, which continued for several days. There were countless freak consequences of the storm, such as the sending of messages from Boston to New York by way of London, because all land telegraph service was disrupted, but the submarine cables were undisturbed. The average fall of snow was three feet four inches, but the high winds piled the drifts up to second-story window levels in many places. Three scenes from the blizzard are sent you.\nH-3/9/38 (S)\n\n(Special feature layout for release March 13)\nWide World Photo: Please Watch Credit\n829148 - Please See Main Caption Above\nNEW YORK CITY FIFTY YEARS AGO IN THE MIDDLE OF THE GREAT BLIZZARD\n\nNew York, N.Y. - This photograph was taken after the storm had subsided and shows New Street, looking toward Wall Street.\nH-3/9/38 (S)\n",
@@ -780,19 +780,6 @@ var changes = [
     "photo_id": "706198f-c"
   },
   {
-    "after": "Ave. T. Hendrick J. Lotts, smokehouse or ice house, Ave. T, Flatlands. East side Strome Kill, Flatbush. on Ryders Pond Photographer: D.B. Austin, 22 Christopher St., Oceanside, L.I., N.Y. (90 yrs. old in 1952)  ",
-    "before": "Ave. T. Hendrick J. Lotts, smokehouse or ice house, Ave. T., Flatlands.\nEast side Strome Kill, Flatbush.\non Ryders Pond\nPhotographer: D.B. Austin, 22 Christopher St., Oceanside, L.I, N.Y. (90 yrs. old in 1952)\n\n[This caption is substantially incorrect. This smokehouse was on the property of the Hendrick I. Lott House, which still stands at 1940 East 36th Street, between Fillmore Avenue and Avenue S, in the Marine Park section of Brooklyn.]\n",
-    "metadata": {
-      "back_id": "707020b",
-      "cookie": "blah",
-      "distance": 235,
-      "len_base": 444,
-      "len_exp": 211,
-      "score": 0.4707207207207207
-    },
-    "photo_id": "707020f-a"
-  },
-  {
     "after": "4048 Hubbard Place, south side, west of King's Highway, once known as No. 13 Hubbard Place, showing The Hubbard Homestead, believed to have been built in 1705 by the Ditmas Family. This house was known as the \"Little House with the Windmill\", also as the Van Sinderen House having been the home of the Rev. Tiplianus Van Sinderen for whom it was built. The Reverend served as pastor for the Dutch Reformed Church from 1742 to 1796, when he died. This house was occupied by the Misses E. and J. Ditmas in 1860 and by Harry Fisher, the owner since 1906; it is still standing (1936). 1922.\n\nEugene L. Armbruster Collection.\n\nThe same, from a different angle.\n1922.\n\nEugene L. Armbruster Collection.\n\nThe same, from a different angle.\n1922.\n\nEugene L. Armbruster Collection.\n\nThe same, from another angle.\nOctober 1928.\n\nEugene L. Armbruster Collection.",
     "before": "(1)\n4048 Hubbard Pgace, south side, west of King's Highway, once known as No. 13 Hubbard Place, shoing The Hubbard HHomestead, believed to have been built in 1705 by the Ditmas Family. This house was known as the \"Little House with the Windmill\", also as the Van Sinderen House having been the home of the Rev. Ulpianius Van Sinderen for whom it was built. The Peverend served as pastor for the Dgtch Reformed Church from 1742 to 1796, when he died. This house was occupied by the Misses E. and J. Ditmas in 1860 and by Harry Fisher, the owner since 1906; it is still\nstanding (1936).\n1922.\nEugene L. Asrmbruster Collection.\n",
     "metadata": {
@@ -804,6 +791,19 @@ var changes = [
       "score": 0.624
     },
     "photo_id": "705009f-d"
+  },
+  {
+    "after": "Ave. T. Hendrick J. Lotts, smokehouse or ice house, Ave. T, Flatlands. East side Strome Kill, Flatbush. on Ryders Pond Photographer: D.B. Austin, 22 Christopher St., Oceanside, L.I., N.Y. (90 yrs. old in 1952)  ",
+    "before": "Ave. T. Hendrick J. Lotts, smokehouse or ice house, Ave. T., Flatlands.\nEast side Strome Kill, Flatbush.\non Ryders Pond\nPhotographer: D.B. Austin, 22 Christopher St., Oceanside, L.I, N.Y. (90 yrs. old in 1952)\n\n[This caption is substantially incorrect. This smokehouse was on the property of the Hendrick I. Lott House, which still stands at 1940 East 36th Street, between Fillmore Avenue and Avenue S, in the Marine Park section of Brooklyn.]\n",
+    "metadata": {
+      "back_id": "707020b",
+      "cookie": "blah",
+      "distance": 235,
+      "len_base": 444,
+      "len_exp": 211,
+      "score": 0.4707207207207207
+    },
+    "photo_id": "707020f-a"
   },
   {
     "after": "Hotel Plaza\nPersian Room Lounge\nF. S. LINCOLN\nPhotographer\n114 EAST 32nd STREET\nNEW YORK CITY\n252 P5\nTHE NEW YORK PUBLIC LIBRARY\nASTOR LENOX & TILDEN\nFOUNDATIONS\n3156\nLOCAL HISTORY\nAND GENEALOGY\nThis photograph was used in NYPL Art Deco exhibit, Apr. 30, 1972.  ",
@@ -897,17 +897,17 @@ var changes = [
     "photo_id": "718179f-c"
   },
   {
-    "after": "Court Street, from Bryant Street to Gowanus Canal, showing in the background the Ina S. Bushey and Sons boat building plant.\n\nOctober 8, 1937.\n\nP. L. Sperr.",
-    "before": "Court Street, from Bryant Street to Gowanus Canal, showing in the background the Ira S. Bushey and Sons boat building plant.\nOctober 8, 1937.\nP. L. Sperr.\n\nNote: Ira S. Bushey was more than a shipyard. They also were a fuel terminal. The fuel tanks are still in use as of 2015. Submitted by Carolina Salguero, PortSide NewYork, www.portsidenewyork.org, portsidenewyork@gmail.com\n",
+    "after": "Joralemon Street, at and adjoining the N.W. corner of Clinton Street, showing at the corner, No. 153, the home of Dr. G. Johnson. Upon this site now (1929) stands the Clinton Arms, a 6-story structure.\nAbout 1890.\n\nEugene L. Armbruster Collection.",
+    "before": "'oEDDdoEASE E2 AVN\n'uophoopIo) 2oivnacwxv 'g ouoEug\n'068t 1nocv\n'oannonais Aaoss-g w 'suIv OoTgII) o6I1 spaw19 (626I) aou ei1s aIu1 oodg 'uosuuog 't '2; Jo oaou ouun '0GI 'og '2ouroo oun Tw Fupaous 'qooaug ooulIg Jo 4ooaoo 'u'w ouIi FuIuofpa Duw Tw 'ioeaig uomoIooog\n",
     "metadata": {
-      "back_id": "703863b",
+      "back_id": "705159b",
       "cookie": "blah",
       "distance": 224,
-      "len_base": 379,
-      "len_exp": 156,
-      "score": 0.40897097625329815
+      "len_base": 267,
+      "len_exp": 247,
+      "score": 0.16104868913857673
     },
-    "photo_id": "703863f-a"
+    "photo_id": "705159f"
   },
   {
     "after": "562 Jerome Street, adjoining the S. W. corner of Dumont Avenue, showing the old Duryea House, a colonial home. About 1900\n\nEugene L. Armbruster Collection\n\n(2)\n\nAnother view of the house, years later.\n\nAugust, 1934\n\nS. Landsman\n\nview 1 - Neg. #1806e\nview 2 ",
@@ -923,17 +923,17 @@ var changes = [
     "photo_id": "705125f-b"
   },
   {
-    "after": "Joralemon Street, at and adjoining the N.W. corner of Clinton Street, showing at the corner, No. 153, the home of Dr. G. Johnson. Upon this site now (1929) stands the Clinton Arms, a 6-story structure.\nAbout 1890.\n\nEugene L. Armbruster Collection.",
-    "before": "'oEDDdoEASE E2 AVN\n'uophoopIo) 2oivnacwxv 'g ouoEug\n'068t 1nocv\n'oannonais Aaoss-g w 'suIv OoTgII) o6I1 spaw19 (626I) aou ei1s aIu1 oodg 'uosuuog 't '2; Jo oaou ouun '0GI 'og '2ouroo oun Tw Fupaous 'qooaug ooulIg Jo 4ooaoo 'u'w ouIi FuIuofpa Duw Tw 'ioeaig uomoIooog\n",
+    "after": "Court Street, from Bryant Street to Gowanus Canal, showing in the background the Ina S. Bushey and Sons boat building plant.\n\nOctober 8, 1937.\n\nP. L. Sperr.",
+    "before": "Court Street, from Bryant Street to Gowanus Canal, showing in the background the Ira S. Bushey and Sons boat building plant.\nOctober 8, 1937.\nP. L. Sperr.\n\nNote: Ira S. Bushey was more than a shipyard. They also were a fuel terminal. The fuel tanks are still in use as of 2015. Submitted by Carolina Salguero, PortSide NewYork, www.portsidenewyork.org, portsidenewyork@gmail.com\n",
     "metadata": {
-      "back_id": "705159b",
+      "back_id": "703863b",
       "cookie": "blah",
       "distance": 224,
-      "len_base": 267,
-      "len_exp": 247,
-      "score": 0.16104868913857673
+      "len_base": 379,
+      "len_exp": 156,
+      "score": 0.40897097625329815
     },
-    "photo_id": "705159f"
+    "photo_id": "703863f-a"
   },
   {
     "after": "The Plaza Hotel\nNew York City\n\nHotel Plaza\nPersian Room.\n\nF. S. LINCOLN\nPhotographer\n114 EAST 34th STREET\nNEW YORK CITY\n252 P1\n\nTHE NEW YORK PUBLIC LIBRARY\nASTOR LENOX & TILDEN\nFOUNDATIONS\n315G\nLOCAL HISTORY AND GENEALOGY\n\nThis photograph was used in NYPL\nAll Dates are in 1914.",
@@ -949,19 +949,6 @@ var changes = [
     "photo_id": "709044f"
   },
   {
-    "after": "Empire State Building, Fifth Avenue, west side, 33rd to 34th Street, completed except for observation tower. 1931.\nBrowning, Photographer.\n\n\nTHE NEW YORK PUBLIC LIBRARY\nASTOR, LENOX & TILDEN FOUNDATIONS\n\n315G\nLOCAL HISTORY AND GENEALOGY\n\nTHE NEW YORK PUBLIC LIBRARY\nASTOR, LENOX AND TILDEN FOUNDATIONS\n\nThis photograph was used in NYPL Art Dec exhibit, Apr 30, 1975.",
-    "before": "Empire State Building, Fifth Avenue, west side, 33rd to 34th Street,\ncompleted except for observation tower.\n1931.\nBrowning, Photographer.\n",
-    "metadata": {
-      "back_id": "708551b",
-      "cookie": "blah",
-      "distance": 223,
-      "len_base": 139,
-      "len_exp": 366,
-      "score": 0.0
-    },
-    "photo_id": "708551f-a"
-  },
-  {
     "after": "ASIATIC EXHIBITION OF ANIMALS\nMUSEUM OF NAT'L HIST. - TIGER GROUP\n12/12/30\nCOPYRIGHT BY\nF. S. Lincoln\nPhotographer\n114 EAST 32nd STREET\nNEW YORK CITY\nTHIS PRINT IS SOLD FOR REFERENCE ONLY. REPRODUCTION IS NOT ALLOWED IN ANY FORM WITHOUT WRITTEN PERMISSION FROM F. S. LINCOLN\n640P7",
     "before": "45;A Y iC. 2 M I5iTiOA o~ N N A(AO1 M OU Y5O ~ o s DAr'i. MiiT --- TiO..E R G.2oo P\nz9/:o\nCOPVIiGHT BV\np7 C  LINCOLN\nPhoographer\n11: EAST )1e STREET\n640P7 s4\n",
     "metadata": {
@@ -973,6 +960,19 @@ var changes = [
       "score": 0.0
     },
     "photo_id": "718484f"
+  },
+  {
+    "after": "Empire State Building, Fifth Avenue, west side, 33rd to 34th Street, completed except for observation tower. 1931.\nBrowning, Photographer.\n\n\nTHE NEW YORK PUBLIC LIBRARY\nASTOR, LENOX & TILDEN FOUNDATIONS\n\n315G\nLOCAL HISTORY AND GENEALOGY\n\nTHE NEW YORK PUBLIC LIBRARY\nASTOR, LENOX AND TILDEN FOUNDATIONS\n\nThis photograph was used in NYPL Art Dec exhibit, Apr 30, 1975.",
+    "before": "Empire State Building, Fifth Avenue, west side, 33rd to 34th Street,\ncompleted except for observation tower.\n1931.\nBrowning, Photographer.\n",
+    "metadata": {
+      "back_id": "708551b",
+      "cookie": "blah",
+      "distance": 223,
+      "len_base": 139,
+      "len_exp": 366,
+      "score": 0.0
+    },
+    "photo_id": "708551f-a"
   },
   {
     "after": "From the CHANIN ORGANIZATION\nEXECUTIVE OFFICES: CHANIN BUILDING, 122 EAST 42ND STREET, NEW YORK\n\nTELEPHONE OXFORD 7-2200\nElbert Severance, Press Representative\nHOME TELEPHONE: BOULEVARD 3-1189\n\n4/21/67\n\nNEW YORK'S OLD METROPOLITAN OPERA HOUSE MAKES WAY FOR OFFICE TOWER\n\nAbandoned by the Metropolitan Opera Company, which gave its 1966-67 season in its new home in the Lincoln Center of Performing Arts, New York's old Metropolitan Opera House now is being demolished to make room for a 40-story office tower.\n\nThe new building was designed by the Offices of Irwin S. Chanin, Architect, which over the years has given the city, and the Middle Atlantic Coast from New England to Virginia, great office buildings, urban apartment houses, hotels, legitimate and motion picture theatres, suburban residential communities, a great shopping center and commercial and industrial buildings.\n\nErected in 1883, the old Metropolitan was the last survivor in a theatrical, opera and concert district, mostly located south of 42nd Street, which over the years has moved northward by a mile or more with its spine, in general, still Broadway, upon which the old Metropolitan faced.\n\nThe new building, to contain about 1-million square feet of office and commercial space, will stand on land that still belongs to the Metropolitan Opera Association. It has been leased for a long term of years to the sponsors of the office building, who will pay a ground rent of about $500,000 a year. The ground rent will help meet the operating deficit of the opera company.\n\nLike all other opera companies and symphony orchestras, the opera company's boxoffice receipts, even at capacity, cannot meet operating costs.\n\n\u2014s\u2014",
@@ -1066,19 +1066,6 @@ var changes = [
     "photo_id": "730206f-c"
   },
   {
-    "after": "(1)\nWall Street, west across Broad & Nassau Street's, to Broadway. At the latter point is the dominant Trinity Church. The four corners in the center are occupied by, the Drexel Morgan Bldg, the Kiernan Telegraphic Agency, the 5 story (later 7) structure soon to be the Manhattan Trust Co. home and the U. S. Sub Treasury. Note the absence of the Washington statue on the steps of the latter.\n\nBetween 1872-80\n\n(2)\n\nWall Street and at the head of Street may be seen the spires of Trinity Church. At the right of picture may be seen the Sub-Treasury Building, East Side, and the statue of George Washington, corner of Wall street and Nassau.\n\nNo date, nor record.",
-    "before": "Wall Street, west across Broad & Nassau Street's, to Broadway. At the latter point is the dominant Trinity Church. The four corners in the center are occupied by, the Drexel Morgan Bldg., the Kiernan Telegraphic Agency, the 5 story (later 7) structure soon to be the Manhattan Trust Co. home and the U. S. Sub Treasury. Note the absence of the Washington statue on the steps of the latter.\nN4eg e 33o\nBetween 1872280\n(2)\nWall Street and at the Pead of Street may be seen the )pires of Trinity Church. At the rigght of picture may be seen the Sub-Treasury Building,East Side, an8 tho statue of George WWashington,corner of Wall street and\nNassau.\nNo date,nor record.\n\nThis shows the Gillender Building, completed in 1897 and demolished in 1910 for the Bankers Trust Bldg at Broad and Wall.  Since there are no cars, I'd guess 1897.\nJHale 5-27-15",
-    "metadata": {
-      "back_id": "723863b",
-      "cookie": "blah",
-      "distance": 202,
-      "len_base": 844,
-      "len_exp": 662,
-      "score": 0.7606635071090048
-    },
-    "photo_id": "723863f-a"
-  },
-  {
     "after": "World's Fair 1939 - Brazil\nFlushing Meadows Park.\n\nF. S. LINCOLN\n\nPhotographer\n114 EAST 32nd STREET\nNEW YORK CITY\n\nTHIS PRINT IS SOLD FOR REFERENCE ONLY. REPRODUCTION IS NOT ALLOWED IN ANY FORM WITHOUT WRITTEN PERMISSION FROM F. S. LINCOLN\n\n886P63",
     "before": "22026G JL. 93eS e0gP\n252wL, 7Re22S P2.2\nP. S LINN.oLN\nMMEEE~SEMS2SEE2\n886P6S\n",
     "metadata": {
@@ -1090,6 +1077,19 @@ var changes = [
       "score": 0.0
     },
     "photo_id": "726697f"
+  },
+  {
+    "after": "(1)\nWall Street, west across Broad & Nassau Street's, to Broadway. At the latter point is the dominant Trinity Church. The four corners in the center are occupied by, the Drexel Morgan Bldg, the Kiernan Telegraphic Agency, the 5 story (later 7) structure soon to be the Manhattan Trust Co. home and the U. S. Sub Treasury. Note the absence of the Washington statue on the steps of the latter.\n\nBetween 1872-80\n\n(2)\n\nWall Street and at the head of Street may be seen the spires of Trinity Church. At the right of picture may be seen the Sub-Treasury Building, East Side, and the statue of George Washington, corner of Wall street and Nassau.\n\nNo date, nor record.",
+    "before": "Wall Street, west across Broad & Nassau Street's, to Broadway. At the latter point is the dominant Trinity Church. The four corners in the center are occupied by, the Drexel Morgan Bldg., the Kiernan Telegraphic Agency, the 5 story (later 7) structure soon to be the Manhattan Trust Co. home and the U. S. Sub Treasury. Note the absence of the Washington statue on the steps of the latter.\nN4eg e 33o\nBetween 1872280\n(2)\nWall Street and at the Pead of Street may be seen the )pires of Trinity Church. At the rigght of picture may be seen the Sub-Treasury Building,East Side, an8 tho statue of George WWashington,corner of Wall street and\nNassau.\nNo date,nor record.\n\nThis shows the Gillender Building, completed in 1897 and demolished in 1910 for the Bankers Trust Bldg at Broad and Wall.  Since there are no cars, I'd guess 1897.\nJHale 5-27-15",
+    "metadata": {
+      "back_id": "723863b",
+      "cookie": "blah",
+      "distance": 202,
+      "len_base": 844,
+      "len_exp": 662,
+      "score": 0.7606635071090048
+    },
+    "photo_id": "723863f-a"
   },
   {
     "after": "Carl Schurz Park. A set of four views of the Gracie Mansion located in the Park, east of East End Ave., between East 88th and 89th Streets, if these streets continued to the East River. It was acquired by the City of New York in 1896 from an owner-occupant, one Babcock. May 1923.\n\nEugene L. Armbruster Collection.\n\nCLI\n\nThe Gracie Mansion was designated as the official residence of the Mayor of the City of New York on January 8, 1942 by an act of the Board of Estimate.\n\nSee \"The New York Times,\" January 9, 1942.",
@@ -1105,19 +1105,6 @@ var changes = [
     "photo_id": "718097f-d"
   },
   {
-    "after": "(1) Smith Street, north from 3rd Street, at the right. At the left, work is in progress on the new Eighth Ave., Subway.\n\nOctober 1928.\n\nEugene L. Armbruster Collection.\n\n(2) The same, showing Smith Street, four years later, after the subway was constructed. In the foreground, right, is Second Street.\n\nJune 5, 1932.\n\nP. L. Sperr.",
-    "before": "(1)\nSmith Street, north from 3rd Street, at the right. At the left, work is in progress on the new Eighth Ave., Subway.\nOctober 1928.\nEugene L. Armbruster Cellection.\n(2)\nThe same, showing Smith Street, four years later, after the subway was constructed. It the foreground, right, is Second Street.\nJune S, 1932.\nP. L. Sperr.\nIt's actually a photo of Smith Street and the corner is 2nd Street, I know because the first house going down 2nd Street with a bump out on the fa\u00e7ade is still there in 2015.\n\nphagenberg@gmail.com",
-    "metadata": {
-      "back_id": "706812b",
-      "cookie": "blah",
-      "distance": 199,
-      "len_base": 522,
-      "len_exp": 330,
-      "score": 0.6187739463601533
-    },
-    "photo_id": "706812f-b"
-  },
-  {
     "after": "65th Street, west of Broadway, north side, showing intersection Broadway and Amsterdam, in site is the High School of Commerce.\n\nBoard of Education, N.Y.C.\n\n1920",
     "before": "65th Street, west of Broadway, north side, showing intersection Broadway and Amsterdam, in site is the High School of Commerce.\nBoard of Education, N.Y.C.\n  1930\n\nThe face of the photograph reads:\nAbove photo: W 65th St, west of Broadway - High School of Commerce 589/C2\n\nOn photo:\nHigh school of Commerce - Manhattan - 65th St west of Broadway, N. Y. City 5522",
     "metadata": {
@@ -1129,6 +1116,19 @@ var changes = [
       "score": 0.44875346260387816
     },
     "photo_id": "714186f-a"
+  },
+  {
+    "after": "(1) Smith Street, north from 3rd Street, at the right. At the left, work is in progress on the new Eighth Ave., Subway.\n\nOctober 1928.\n\nEugene L. Armbruster Collection.\n\n(2) The same, showing Smith Street, four years later, after the subway was constructed. In the foreground, right, is Second Street.\n\nJune 5, 1932.\n\nP. L. Sperr.",
+    "before": "(1)\nSmith Street, north from 3rd Street, at the right. At the left, work is in progress on the new Eighth Ave., Subway.\nOctober 1928.\nEugene L. Armbruster Cellection.\n(2)\nThe same, showing Smith Street, four years later, after the subway was constructed. It the foreground, right, is Second Street.\nJune S, 1932.\nP. L. Sperr.\nIt's actually a photo of Smith Street and the corner is 2nd Street, I know because the first house going down 2nd Street with a bump out on the fa\u00e7ade is still there in 2015.\n\nphagenberg@gmail.com",
+    "metadata": {
+      "back_id": "706812b",
+      "cookie": "blah",
+      "distance": 199,
+      "len_base": 522,
+      "len_exp": 330,
+      "score": 0.6187739463601533
+    },
+    "photo_id": "706812f-b"
   },
   {
     "after": "Monroe Street, west from Lewis Street, showing a sewer project of the W. P. A.\n\nMay 6, 1936\n\nWorks Progress Administration\nFive Boroughs Project\n\nView 2: Monroe St. at the N.E. corner of Franklin Avenue.\n\nP. L. Sperr\n\nNo Reproduction\n\nNEG. # 3592 (VIEW 2)",
@@ -1222,19 +1222,6 @@ var changes = [
     "photo_id": "718479f-a"
   },
   {
-    "after": "562 Jerome St., west side, south of Dumont Ave., showing the Duryea house, built in 1740; it was reshingled in 1840, and again in 1920. It was still standing in 1924.\n\nAbout 1890.\n\nEugene L. Armbruster Collection.",
-    "before": "CEOTd0ME2W S9 AVN\nuopqooIe3 xIe1sMxoaMIV 'T ouoEng\n'068I Tnocv\n'p2sI up Eupuusus LIpus\nwaa 1I '026I uI uIuNw pus '0pgI Gp popFupusox saa 1p 20tLI up 1Ipnc 'osnog waCxnd ouu EuIaogs 'oav Tuoammd Io uTnos 'opps 1sew \" 2u ouoaC 299\n",
-    "metadata": {
-      "back_id": "705126b",
-      "cookie": "blah",
-      "distance": 188,
-      "len_base": 229,
-      "len_exp": 213,
-      "score": 0.17903930131004364
-    },
-    "photo_id": "705126f-a"
-  },
-  {
     "after": "(1)\nThe Beresford, Central Park West, west side, from 81st to 82nd Streets. In foreground is shown construction work on Eighth Avenue subway.\nJuly 13, 1927.\n\nP. L. Sperr, Photographer.\n\n(2)\nClearing after demolition of the Beresford. A new building with the same name will be erected on the site.\nOctober 28, 1928.\n\nP. L. Sperr, Photographer.",
     "before": "Clearing after demolition of the Beresford. A new building with the same name will be erected on the site.\nOctober 28, 1928.\nP. L. Sperr, Photographer.\n",
     "metadata": {
@@ -1246,6 +1233,19 @@ var changes = [
       "score": 0.0
     },
     "photo_id": "718497f-b"
+  },
+  {
+    "after": "562 Jerome St., west side, south of Dumont Ave., showing the Duryea house, built in 1740; it was reshingled in 1840, and again in 1920. It was still standing in 1924.\n\nAbout 1890.\n\nEugene L. Armbruster Collection.",
+    "before": "CEOTd0ME2W S9 AVN\nuopqooIe3 xIe1sMxoaMIV 'T ouoEng\n'068I Tnocv\n'p2sI up Eupuusus LIpus\nwaa 1I '026I uI uIuNw pus '0pgI Gp popFupusox saa 1p 20tLI up 1Ipnc 'osnog waCxnd ouu EuIaogs 'oav Tuoammd Io uTnos 'opps 1sew \" 2u ouoaC 299\n",
+    "metadata": {
+      "back_id": "705126b",
+      "cookie": "blah",
+      "distance": 188,
+      "len_base": 229,
+      "len_exp": 213,
+      "score": 0.17903930131004364
+    },
+    "photo_id": "705126f-a"
   },
   {
     "after": "110-118 Schermerhorn Street, south side, between Boerum Place and Smith Street, showing the Friend's (Hicksite) Church and School.\n\nApril 7, 1932.\n\nP. L. Sperr.",
@@ -1300,6 +1300,19 @@ var changes = [
     "photo_id": "701280f-b"
   },
   {
+    "after": "Hamilton Avenue (left), at the intersection of Hicks Street, showing Shaft 17-A, Tunnel No. 2, of the Board of Water Supply, City of New York.\n\nView 1: June 6, 1931\n\nP. L. Sperr\n\nViews 1, 3 as south from Hicks Street. The building will soon be razed for the construction of the Giovanna Parkway.\n\nview 2: Neg. No. A-1024\nview 3: Neg. No. A-1025",
+    "before": "Hamilton Avenue (left), at the eeeats intersection of Hicks Street, showing Shaft 17-A, Tunnel No. 2, of\nVoww 1 June e, 1931\n1'22ES-eee. ~68 9:37-5,99N59S\nVN-o M A 6S~ 6a948 N-9 AR-- JE2~ 7L\nTN9) 6rNN oSS. Se 0-g A- 6eS2--S22\ny S6:  -SS PA-SS\nVicww 2Neg.No. A-io28S\nViw S:NEEg.Ne. A.O1E'\n",
+    "metadata": {
+      "back_id": "704753b",
+      "cookie": "blah",
+      "distance": 180,
+      "len_base": 288,
+      "len_exp": 344,
+      "score": 0.375
+    },
+    "photo_id": "704753f-c"
+  },
+  {
     "after": "Carl Schurz Park. A view of the front of Gracie Mansion that faces the East River. This area was once known as Hoorns Hook, as its first owner, Siebert Classon, came from Hoorn, Holland. Prior to the present occupancy by the Museum of the City of New York, its last owner was a Babcock, in 1896. This set consists of four views, all more or less similar.\n\nMay 1925.\n\nEugene L. Armbruster Collection.  View 1-4\n\n\nCredit Line: Inspective\n\nThe Mansion was designated as the official residence of the Mayor of the City of New York by the Board of Estimate on January 8, 1942.\n\nSee \"The New York Times,\" January 9, 1942.",
     "before": "Carl Schurz Park. A view of the front of Gracie Mansion that faces the East River. This area was once known as Hoorns Hook,as its first owner, Siebert Classon, came from Hoorn, Holland. Prior to the present occupancy by the Museum of the City of New York, its last owner was a Babcock, in 1896. This set oonsists of four views, all more or less\nsimilar.\nMay 1925.\nEugene L. Armbruster Collection. V 6cr5 /-6(\nCA2-23\n92  628, 2~5ARS23EE~ S,\n) V  0S5.3 6  ~eCA\n.  S 7\nS,~. 1322 h : 8S S  NS\nP. 9R\n",
     "metadata": {
@@ -1311,19 +1324,6 @@ var changes = [
       "score": 0.6363636363636364
     },
     "photo_id": "718093f-d"
-  },
-  {
-    "after": "(1)\nWest 10th Street, north of the Coney Island (Reigelmann) Boardwalk to Surf Ave., showing at the right the Cyclone Roller Coaster and in the background the entrance to Luna Park.\nDecember 1923.\n\nEugene L. Armbruster Collection.\n\n(2)\nThe same, a closer view of the background.\nJanuary 1924.\n\nEugene L. Armbruster Collection.",
-    "before": "West 10th Street, north of the Coney Island (Reigelmann) Boardwalk to Surf Ave., showing at the right the Cyclone Roller Coaster and in\nthe background the entrance to Luna Park.\nDecember 1923.\nEugene L. Armbruster Collection.\n(2)\nThe same, a closer view of the background.\nJanuary 1924.\nEugene L. Armbruster Collection.\n\nthis is not the Cyclone roller coaster. It is The Giant Racer which was built in 1911. It operated until 1926 when it was torn down to make way for The Cyclone roller coaster. ",
-    "metadata": {
-      "back_id": "702512b",
-      "cookie": "blah",
-      "distance": 180,
-      "len_base": 497,
-      "len_exp": 326,
-      "score": 0.6378269617706238
-    },
-    "photo_id": "702512f-b"
   },
   {
     "after": "149 to 135 East Houston Street, south side, from but not including Eldridge (left), to and including Forsyth Streets, showing the Sunshine Theatre (a motion picture house) Nos. 141-143. Also shown is construction work in progress on the Independent System Subway (Eighth Ave. subway). This clearance was created by the demolition of houses which faced on the north side of East Houston and the south side of East 1st Streets.\n\nJune 6, 1930.\n\nP. L. Sperr.\n\n\nRebuilt 1919 or 20. This was formerly the German Evangelical Mission Church, built about 1840, which afterward (about 1910) removed to Stebbins Ave., Bronx\n\nSee N.Y. Hist. Soc. Bulletin, Vol. 22, no. 1, Jan. 1938, p. 20",
@@ -1339,17 +1339,17 @@ var changes = [
     "photo_id": "719484f-a"
   },
   {
-    "after": "Hamilton Avenue (left), at the intersection of Hicks Street, showing Shaft 17-A, Tunnel No. 2, of the Board of Water Supply, City of New York.\n\nView 1: June 6, 1931\n\nP. L. Sperr\n\nViews 1, 3 as south from Hicks Street. The building will soon be razed for the construction of the Giovanna Parkway.\n\nview 2: Neg. No. A-1024\nview 3: Neg. No. A-1025",
-    "before": "Hamilton Avenue (left), at the eeeats intersection of Hicks Street, showing Shaft 17-A, Tunnel No. 2, of\nVoww 1 June e, 1931\n1'22ES-eee. ~68 9:37-5,99N59S\nVN-o M A 6S~ 6a948 N-9 AR-- JE2~ 7L\nTN9) 6rNN oSS. Se 0-g A- 6eS2--S22\ny S6:  -SS PA-SS\nVicww 2Neg.No. A-io28S\nViw S:NEEg.Ne. A.O1E'\n",
+    "after": "(1)\nWest 10th Street, north of the Coney Island (Reigelmann) Boardwalk to Surf Ave., showing at the right the Cyclone Roller Coaster and in the background the entrance to Luna Park.\nDecember 1923.\n\nEugene L. Armbruster Collection.\n\n(2)\nThe same, a closer view of the background.\nJanuary 1924.\n\nEugene L. Armbruster Collection.",
+    "before": "West 10th Street, north of the Coney Island (Reigelmann) Boardwalk to Surf Ave., showing at the right the Cyclone Roller Coaster and in\nthe background the entrance to Luna Park.\nDecember 1923.\nEugene L. Armbruster Collection.\n(2)\nThe same, a closer view of the background.\nJanuary 1924.\nEugene L. Armbruster Collection.\n\nthis is not the Cyclone roller coaster. It is The Giant Racer which was built in 1911. It operated until 1926 when it was torn down to make way for The Cyclone roller coaster. ",
     "metadata": {
-      "back_id": "704753b",
+      "back_id": "702512b",
       "cookie": "blah",
       "distance": 180,
-      "len_base": 288,
-      "len_exp": 344,
-      "score": 0.375
+      "len_base": 497,
+      "len_exp": 326,
+      "score": 0.6378269617706238
     },
-    "photo_id": "704753f-c"
+    "photo_id": "702512f-b"
   },
   {
     "after": "(1)\nAve. V, at the S.W. corner of East 73rd Street, showing the Stoofhoff-Bergen house. The Bergen house stands on what was Bergen Island, which was granted in 1646 by Governor Kieft to Captain John Underhill, the famous New Englander whom was employed by Governor Kieft to fight the Pequot Indians. The island was then called by the Dutch \"Meller's Island,\" and by the Indians \"Wmbascoe,\" and was sold by Underhill to Thomas Spicer, who bought from the Indians what rights they then held. Spicer is said to have built the old house in 1656, soon after the erection of the Schenck-Crooke house. The house was bought of Spicer's heirs in 1665 for 125 guilders in wampum by Elbert Elbertsen, who came from North Brabant and owned six hundred acres in Flatlands. And later, through inheritance and purchase, the house came into the hands of John Bergen, whose heirs finally sold it to the speculators who laid out Bergen Beach in 1893. Johannes Bergen (1764-1824) added the east wing and in 1819 enlarged the main building; his son, Cornelius (1798-1865) added the west wing.\n\nEugene L. Armbruster Collection. 1922.\n\n(2)\nThe same, a view of the front with the east wing on the right.\n1922.\n\nEugene L. Armbruster Collection.\n\n(3)\nThe same, showing the west wing in the foreground.\n1922.\n\nEugene L. Armbruster Collection.\n\n(4)\nThe same, as No. 3.\n1922.\n\nEugene L. Armbruster Collection.",
@@ -1378,19 +1378,6 @@ var changes = [
     "photo_id": "715731f"
   },
   {
-    "after": "Bayonne Bridge, New Jersey\n\nF. S. LINCOLN\nPhotographer\n114 EAST 32nd STREET\nNEW YORK CITY\n\nTHIS PRINT IS SOLD FOR REFERENCE ONLY. REPRODUCTION IS NOT ALLOWED IN ANY FORM WITHOUT WRITTEN PERMISSION FROM F. S. LINCOLN\n\n111P9\n",
-    "before": "M'oge-. D.Aa. '-ew -22Sg\nF. S LINCOLN\nPhoographer\n111P9\nNEG 340G\n",
-    "metadata": {
-      "back_id": "730642b",
-      "cookie": "blah",
-      "distance": 177,
-      "len_base": 65,
-      "len_exp": 223,
-      "score": 0.0
-    },
-    "photo_id": "730642f"
-  },
-  {
     "after": "Carl Schurz Park: A set of 3 views of the Gracie Mansion, located in the northern end of the Park at what would be the foot of East 88th Street, if the street continued to the East River. This set shows the front of the house, that overlooked the East River. 1913.\n\nEugene L. Armbruster Collection.\n\nThe house was made the official residence of the Mayor of the City of New York on January 8, 1942 by an act of the Board of Estimate.\n\nSee \"The New York Times,\" January 9, 1942.",
     "before": "Carl Schurz Park: A set of 3 views of the Gracie Mansion, located in the northern end of the Park at what would be the foot of East 88th Street, if the street continued to the East River. This set shows the front of the house, that overlooked the East River.\n1913.\nEugene L. Armbruster Collection.\n\n",
     "metadata": {
@@ -1415,6 +1402,19 @@ var changes = [
       "score": 0.4119601328903655
     },
     "photo_id": "718483f-a"
+  },
+  {
+    "after": "Bayonne Bridge, New Jersey\n\nF. S. LINCOLN\nPhotographer\n114 EAST 32nd STREET\nNEW YORK CITY\n\nTHIS PRINT IS SOLD FOR REFERENCE ONLY. REPRODUCTION IS NOT ALLOWED IN ANY FORM WITHOUT WRITTEN PERMISSION FROM F. S. LINCOLN\n\n111P9\n",
+    "before": "M'oge-. D.Aa. '-ew -22Sg\nF. S LINCOLN\nPhoographer\n111P9\nNEG 340G\n",
+    "metadata": {
+      "back_id": "730642b",
+      "cookie": "blah",
+      "distance": 177,
+      "len_base": 65,
+      "len_exp": 223,
+      "score": 0.0
+    },
+    "photo_id": "730642f"
   },
   {
     "after": "Tillary Street, east from Flatbush Avenue Extention. The area in the center, which was formerly the north side of Tillary *treet, was cleared of all its buildings in connection with the proposes construction of *ort Greene Houses.\n\nView 2 shows the south side of the street only, seen across Flatbush Avenue Extention.\n\nP. L. Sperr\n\nViews 1,2: August 23, 1939",
@@ -1508,19 +1508,6 @@ var changes = [
     "photo_id": "702608f-d"
   },
   {
-    "after": "Carl Schurz Park. A view of the Gracie Mansion, built in 1813 by Archibald Gracie and now (1937) occupied by the Museum of the City of New York. Samuel Provost, the first Bishop of New York and later president of Columbia, owned a farm of 90 acres here, the woodlands of which extended between 66th and 75th Streets and was called Jones Woods. Archibald Gracie bought this property from the heirs of Jacob Walton. His wife was Esther, a grand-daughter of Thomas Fitch of Connecticut. Two other grand-daughters of Governor Fitch married President Timothy Dwight of Yale and Moses Rogers, Merchant, who built the house at No. 7 State Street. (present R.C. Mission of Our Lady of the Rosary) respectively. This set of four views show the front of the house that faces the East River. In the background appears a row of houses that are on the west side of East End Ave., at East 89th Street.\n\nMay 1923.\n\nEugene L. Armbruster Collection.\n\nOn January 8, 1942 the Board of Estimate officially designated the mansion as to future residence of New York City\u2019s mayor.\n\nSee \"The New York Times,\" January 9, 1942.",
-    "before": "Carl Schurz Park. A view of the Gracie Mansion, built in 1813 by Archibald Gracie and now (1937) occupied by the Museum of the City of New York. Samuel Provost, the first Bishop of New York and later president of Columbia, owned a farm of 90 acres here, the woodlands of which extended between 68th and 75th Streets and was called Jones Woods. Archibald Gracie bought this property from the heirs of Jacob Walton. His wife was Esther, a grand-daughter of Thomas Fitch of Connecticut. Two other granddaughters of Governor Fitch married President Timothy Dwight of Yale and Moses Rogers, Merchant, who built the house at No. 7 State Street. (present R.C. Mission of Our Lady of the Rosary) respectively. This set of four views show the front of the house that faces the East River. In the background appears a row of houses that are on the est side of East End Ave., at East 89th Street.\nMay 1923.\nEugene L. Armbruster Collection.\n",
-    "metadata": {
-      "back_id": "718098b",
-      "cookie": "blah",
-      "distance": 170,
-      "len_base": 929,
-      "len_exp": 1101,
-      "score": 0.8170075349838536
-    },
-    "photo_id": "718098f-d"
-  },
-  {
     "after": "79 Fourth Avenue, e.s, betw. 10th and 11th Sts.\n\nJune 12, 1933\nP.L. Sperr, photographer\n\n(This duplicate print has been mounted with non-acidic materials because the original print is deteriorating.\nJune 20, 1973)",
     "before": "79 Fourth Avenue between 10th and 11th Streets\n",
     "metadata": {
@@ -1534,17 +1521,17 @@ var changes = [
     "photo_id": "708169f-a"
   },
   {
-    "after": "P.L. Sperr, photographer  6-16-1942",
-    "before": "[On back of photo:]\n\nP.L. Sperr, photographer   6-16-1942\n\n[On front of card upon which photo is mounted (NYPL link):]\n\nBrooklyn    PACIFIC ST. E. across BOERUM PL.    [and, handwritten in upper R corner:]  249 / B3  ",
+    "after": "Carl Schurz Park. A view of the Gracie Mansion, built in 1813 by Archibald Gracie and now (1937) occupied by the Museum of the City of New York. Samuel Provost, the first Bishop of New York and later president of Columbia, owned a farm of 90 acres here, the woodlands of which extended between 66th and 75th Streets and was called Jones Woods. Archibald Gracie bought this property from the heirs of Jacob Walton. His wife was Esther, a grand-daughter of Thomas Fitch of Connecticut. Two other grand-daughters of Governor Fitch married President Timothy Dwight of Yale and Moses Rogers, Merchant, who built the house at No. 7 State Street. (present R.C. Mission of Our Lady of the Rosary) respectively. This set of four views show the front of the house that faces the East River. In the background appears a row of houses that are on the west side of East End Ave., at East 89th Street.\n\nMay 1923.\n\nEugene L. Armbruster Collection.\n\nOn January 8, 1942 the Board of Estimate officially designated the mansion as to future residence of New York City\u2019s mayor.\n\nSee \"The New York Times,\" January 9, 1942.",
+    "before": "Carl Schurz Park. A view of the Gracie Mansion, built in 1813 by Archibald Gracie and now (1937) occupied by the Museum of the City of New York. Samuel Provost, the first Bishop of New York and later president of Columbia, owned a farm of 90 acres here, the woodlands of which extended between 68th and 75th Streets and was called Jones Woods. Archibald Gracie bought this property from the heirs of Jacob Walton. His wife was Esther, a grand-daughter of Thomas Fitch of Connecticut. Two other granddaughters of Governor Fitch married President Timothy Dwight of Yale and Moses Rogers, Merchant, who built the house at No. 7 State Street. (present R.C. Mission of Our Lady of the Rosary) respectively. This set of four views show the front of the house that faces the East River. In the background appears a row of houses that are on the est side of East End Ave., at East 89th Street.\nMay 1923.\nEugene L. Armbruster Collection.\n",
     "metadata": {
-      "back_id": "706162b",
+      "back_id": "718098b",
       "cookie": "blah",
-      "distance": 169,
-      "len_base": 217,
-      "len_exp": 35,
-      "score": 0.2211981566820277
+      "distance": 170,
+      "len_base": 929,
+      "len_exp": 1101,
+      "score": 0.8170075349838536
     },
-    "photo_id": "706162f-a"
+    "photo_id": "718098f-d"
   },
   {
     "after": "Tiborough Bridge, NYC\n\nF. S. LINCOLN\n\nPhotographer\n114 EAST 32nd STREET\nNEW YORK CITY\n\nTHIS PRINT IS SOLD FOR REFERENCE ONLY. REPRODUCTION IS NOT ALLOWED IN ANY FORM WITHOUT WRITTEN PERMISSION FROM F. S. LINCOLN\n\n461P8\n",
@@ -1558,6 +1545,19 @@ var changes = [
       "score": 0.0
     },
     "photo_id": "730997f"
+  },
+  {
+    "after": "P.L. Sperr, photographer  6-16-1942",
+    "before": "[On back of photo:]\n\nP.L. Sperr, photographer   6-16-1942\n\n[On front of card upon which photo is mounted (NYPL link):]\n\nBrooklyn    PACIFIC ST. E. across BOERUM PL.    [and, handwritten in upper R corner:]  249 / B3  ",
+    "metadata": {
+      "back_id": "706162b",
+      "cookie": "blah",
+      "distance": 169,
+      "len_base": 217,
+      "len_exp": 35,
+      "score": 0.2211981566820277
+    },
+    "photo_id": "706162f-a"
   },
   {
     "after": "INSTITUTE OF OPHTHALMOLOGY\n165th & WASH. AVE - VIEW FROM WEST\n4/26/33\n\nF. S. LINCOLN\nPhotographer\n114 EAST 32nd STREET\nNEW YORK CITY\n162 P2\n\nIF PUBLISHED, CREDIT\nIS TO BE GIVEN TO\nF. S. LINCOLN",
@@ -1612,19 +1612,6 @@ var changes = [
     "photo_id": "721872f-a"
   },
   {
-    "after": "Saks Fifth Avenue\n\nF. S. LINCOLN\n\nPhotographer\n114 EAST 32nd STREET\nNEW YORK CITY\n\nTHIS PRINT IS SOLD FOR REFERENCE ONLY. REPRODUCTION IS NOT ALLOWED IN ANY FORM WITHOUT WRITTEN PERMISSION FROM F. S. LINCOLN\n\n900P2",
-    "before": "Saks Fifth Avenue\nF.S. LINCOLN\nPhotographer\n900 P-\n",
-    "metadata": {
-      "back_id": "708907b",
-      "cookie": "blah",
-      "distance": 163,
-      "len_base": 51,
-      "len_exp": 214,
-      "score": 0.0
-    },
-    "photo_id": "708907f"
-  },
-  {
     "after": "(1) Ave. U., south side, west of Gerritsen Creek. This property dating from a grant of 1645 to Hugh Gerritsen, has been transferred by wills to the following owners: Rem Gerritsen, Garret Gerritsen, and from Samuel Gerritsen, to Johannes Gerritsen, who in 1765 left it to his son Samuel. He, in 1822, left it to his son John S. and his daughters, Jane and Elizabeth. In 1864, John Samuel Gerritsen left this farm to Samuel J., who in turn left it in 1876 to Mary C., born 1822, and Helen Van Brunt born 1824. In 1864, Samuel J., sold what he did not bequeath to his two daughters, to one Pothemus. All this property in 1879, was purchased by Helen Van Brunt (Mrs. Stephen Harriman). Her heirs conveyed it to William C. Whitney in 1899; and he restored the mill to its original condition in 1900, and vastly improved the house. The first mill was erected in 1656, this one was erected in 1831. Harry Payne Whitney was the last owner. This house and most of the out buildings are on condemned property, which is to be used for Marine Park. 1922. Eugene L. Armbruster Collection.  (2) The same, the mill and house are to be demolished. The creek will be filled and will be a part of Marine Park. May 12, 1922. Eugene L. Armbruster Collection.  (3) The same, another view. 1922. Eugene L. Armbruster Collection.  (4) The same, showing the outbuildings. 1922. Eugene L. Armbruster Collection.   ",
     "before": "Ave. U., south side, west of Gerritsen Creek. This property\ndating from a grant of 1645 to Hugh Gerritsen, has been transferred by  wills to the following owners:- Rem Gerritsen, Garret Gerritsen, and\nfrom Sarauel Gerritsen, to Johannus Gerritsen, who in 1765 left it to\nhis son Samuel. He, in 1822, left it to his son John S. and hi: daughters, Jane and Elizabeth. In 1864, John Samuel Gerritsen left this\nfarm to Samuel J., who in turn left it in 1876 to Mary C., born 1822,\nand Helen Van Brunt born 1824. I1 1864, Samuel J., sold what he did\nnot bequeath to his two daughters, to one Pothemus. All this property\nin 1879, was purchased by Helen Van Brunt (Mrs. Stephen Harriman).\nHer heirs conveyed it to William C. Whitney in 1899: and he restored\nthe mill to its original condition in 1900, and vastly improved the\nhouse. The first mill was erected in 1656, this one was erected in\n1831. Harry Payne Whitney was the last owner. This house and most of\nthe out buildings are on condemned property, which is to be used for\nMarine Park.\n1922.\nEugene L. Armbruster Collection.\nThe same, the mill and house are to be demolished. The creekw4ll  be filled and will be a part of Marine Park.\nMay 12, 1922.\nEugene L. Armbruster Collection.\n",
     "metadata": {
@@ -1651,17 +1638,17 @@ var changes = [
     "photo_id": "709532f"
   },
   {
-    "after": "57th Street at the N.E. corner of Fifth Avenue, taken from the Heckscher Building on the S.W. corner. The roof of the mansion built by Mrs. Mary Mason Jones is shown. At this date it is being used by the New York Trust Company. In November of this year the bank will demolish it and erect its new fifteen-story building on the site.\n\nAugust 15, 1929.\n\nP. L. Sperr.\n\n(2)\nThe same from the West side of Fifth Avenue looking North towards the North East corner of West 57th Street.\n\nGeorge Balgue,\n\n\n1906",
-    "before": "57th Street at the N.E. corner of Fifth Avenue, taken from the Heckscher Building on the S.W. corner. The roof of the mansion built by Mrs. Mary Mason Jones is shown. At this date it is being used by the New York Trust Company. II: November of this year the bank will demolish it and erect its new fifteen-story building on the site.\n\nThis photograph was taken before 1926 when the Hotel Netherland (59th & 5th) was demolished for replacement by the Hotel Sherry-Netherland.\n\nAugust 15, 1929.\nP. L. Sperr.\n(2)\nThe same from the West side of Fifth Avenue looking North\ntowards the North East corner of West 57th Street.\n1906\nGeorge Balgue,\nMay be Heproduced.\n",
+    "after": "Saks Fifth Avenue\n\nF. S. LINCOLN\n\nPhotographer\n114 EAST 32nd STREET\nNEW YORK CITY\n\nTHIS PRINT IS SOLD FOR REFERENCE ONLY. REPRODUCTION IS NOT ALLOWED IN ANY FORM WITHOUT WRITTEN PERMISSION FROM F. S. LINCOLN\n\n900P2",
+    "before": "Saks Fifth Avenue\nF.S. LINCOLN\nPhotographer\n900 P-\n",
     "metadata": {
-      "back_id": "713867b",
+      "back_id": "708907b",
       "cookie": "blah",
-      "distance": 161,
-      "len_base": 658,
-      "len_exp": 501,
-      "score": 0.7553191489361702
+      "distance": 163,
+      "len_base": 51,
+      "len_exp": 214,
+      "score": 0.0
     },
-    "photo_id": "713867f-b"
+    "photo_id": "708907f"
   },
   {
     "after": "TWIN CROWNS FOR NEW PEACOCK ALLEY\n\nTwin towers atop the new Waldorf-Astoria Hotel make an interesting addition to the New York skyline. This is a spectacular view of the top of the new Waldorf-Astoria at Park Ave., 49th and 50th Sts., 47 stories in height, the world's tallest hotel, opening Oct. 1st. The domes are made of copper sheet leaf, and are surmounted by two beacons, 625 feet above Park Ave.\n\nPhoto by Underwood and Underwood\n\n\nTHE NEW YORK PUBLIC LIBRARY\nASTOR LENOX & TILDEN FOUNDATIONS\n315G\nLOCAL HISTORY AND GENEALOGY\n\nThis photograph was used in NYPL Art Deco exhibit, Apr. 30, 1975.",
@@ -1675,6 +1662,19 @@ var changes = [
       "score": 0.6290322580645161
     },
     "photo_id": "722225f-a"
+  },
+  {
+    "after": "57th Street at the N.E. corner of Fifth Avenue, taken from the Heckscher Building on the S.W. corner. The roof of the mansion built by Mrs. Mary Mason Jones is shown. At this date it is being used by the New York Trust Company. In November of this year the bank will demolish it and erect its new fifteen-story building on the site.\n\nAugust 15, 1929.\n\nP. L. Sperr.\n\n(2)\nThe same from the West side of Fifth Avenue looking North towards the North East corner of West 57th Street.\n\nGeorge Balgue,\n\n\n1906",
+    "before": "57th Street at the N.E. corner of Fifth Avenue, taken from the Heckscher Building on the S.W. corner. The roof of the mansion built by Mrs. Mary Mason Jones is shown. At this date it is being used by the New York Trust Company. II: November of this year the bank will demolish it and erect its new fifteen-story building on the site.\n\nThis photograph was taken before 1926 when the Hotel Netherland (59th & 5th) was demolished for replacement by the Hotel Sherry-Netherland.\n\nAugust 15, 1929.\nP. L. Sperr.\n(2)\nThe same from the West side of Fifth Avenue looking North\ntowards the North East corner of West 57th Street.\n1906\nGeorge Balgue,\nMay be Heproduced.\n",
+    "metadata": {
+      "back_id": "713867b",
+      "cookie": "blah",
+      "distance": 161,
+      "len_base": 658,
+      "len_exp": 501,
+      "score": 0.7553191489361702
+    },
+    "photo_id": "713867f-b"
   },
   {
     "after": "West 42nd Street, south side, west from (No. 320) but not including Eighth Ave., to and including Ninth Ave., showing prominently the 35-story McGraw-Hill Building, No. 330. Also shown is a general view in a southwesterly direction of the surrounding area with the Hudson River and the New Jersey shore discernible in the background.\n\n1936.\n\nW.P.A. Photo.\nFederal Writers Project.\n\nTHE NEW YORK PUBLIC LIBRARY\nASTOR LENOX & TILDEN\nFOUNDATIONS\n\n315G\nLOCAL HISTORY\nAND GENEALOGY\n\n\nThis photograph was used in NYPL Art Deco Exhibit, Apr. 30, 1972.",
@@ -1742,19 +1742,6 @@ var changes = [
     "photo_id": "711106f-c"
   },
   {
-    "after": "Rubber toys peddler, at Delancey St. near Essex St.\n\nApril 25, 1934,\nP.L. Sperr, photographer\n\n(This duplicate print has been mounted because the original print is deteriorating. Non-acidic materials have been used this time. June 20, 1973)  ",
-    "before": "Rubber toys peddler at Delancey Street near Essex Street\nApril 25, 1924\nP.L. Sperr, photographer",
-    "metadata": {
-      "back_id": "732565b",
-      "cookie": "blah",
-      "distance": 156,
-      "len_base": 96,
-      "len_exp": 242,
-      "score": 0.0
-    },
-    "photo_id": "732565f-a"
-  },
-  {
     "after": "E.187th Street, south Side, from Marion to Webster Avenues, viewing east toward the latter and showing Public School No. 85.\n\nBoard of Education of the City of New York\n\n\n1930's",
     "before": "PS 85 on Marion Avenue",
     "metadata": {
@@ -1766,6 +1753,19 @@ var changes = [
       "score": 0.0
     },
     "photo_id": "700292f-a"
+  },
+  {
+    "after": "Rubber toys peddler, at Delancey St. near Essex St.\n\nApril 25, 1934,\nP.L. Sperr, photographer\n\n(This duplicate print has been mounted because the original print is deteriorating. Non-acidic materials have been used this time. June 20, 1973)  ",
+    "before": "Rubber toys peddler at Delancey Street near Essex Street\nApril 25, 1924\nP.L. Sperr, photographer",
+    "metadata": {
+      "back_id": "732565b",
+      "cookie": "blah",
+      "distance": 156,
+      "len_base": 96,
+      "len_exp": 242,
+      "score": 0.0
+    },
+    "photo_id": "732565f-a"
   },
   {
     "after": "E. 42 St., east fr. Grand Central Station\n1923\nLOOKING EAST ON 42ND STREET FROM GRAND CENTRAL\nARMY NEEDS\nCHAUFFEURS, MOTOR EXPERTS, MECHANICS, AND OTHER SKILLED TRADESMEN APPLY DEPART. OFFICE\nCAUTION",
@@ -1885,6 +1885,19 @@ var changes = [
     "photo_id": "717917f-c"
   },
   {
+    "after": "S.A. Brown is registered name of daughter operated by Thos. H. Tucker, died Apr. 17, 1944, obit in: N.Y. Herald Tribune Apr. 18, 1944.\n\n(1) Fulton Street, south side, east from Water, to Front Streets. April 1, 1928.\n\nP. L. Sperr.\n\n(2) The same, also showing Water Street, at, adjoining and south of the S.E. corner of Fulton Street. September 23, 1931.\n\nP. L. Sperr.\n\n(3) The same, showing a further view southward on Water Street. May 1923.\n\nEugene L. Armbruster Collection.",
+    "before": "Fulton Street, south side, east from Water, to Front\nStreets.\nApril 1, 1928.\nP. L. Sperr.\nThe same, also showing Water Street, at, adjoining and south of the S.E. corner of Fulton Street.\nSeptember 23, 1931.\nP. L. Sperr.\nThe same, showing a further view southward on Water Street.\nMay 1923.\nEugene L. Armbruster Collection.\n",
+    "metadata": {
+      "back_id": "719935b",
+      "cookie": "blah",
+      "distance": 147,
+      "len_base": 324,
+      "len_exp": 476,
+      "score": 0.5462962962962963
+    },
+    "photo_id": "719935f-c"
+  },
+  {
     "after": "Water St, at and adj. n.w. cor. Montgomery St.\n\nMar. 30, 1934\nP.L. Sperr, photographer\n\n(This duplicate has been mounted with non-acidic materials because the original print is deteriorating.\n\nJune 20, 1973)",
     "before": "Water Street, at and adj. N.W. corner Montgomery Street.\n\nMay 30, 1934\n\nP.L. Sperr",
     "metadata": {
@@ -1911,17 +1924,17 @@ var changes = [
     "photo_id": "730897f"
   },
   {
-    "after": "S.A. Brown is registered name of daughter operated by Thos. H. Tucker, died Apr. 17, 1944, obit in: N.Y. Herald Tribune Apr. 18, 1944.\n\n(1) Fulton Street, south side, east from Water, to Front Streets. April 1, 1928.\n\nP. L. Sperr.\n\n(2) The same, also showing Water Street, at, adjoining and south of the S.E. corner of Fulton Street. September 23, 1931.\n\nP. L. Sperr.\n\n(3) The same, showing a further view southward on Water Street. May 1923.\n\nEugene L. Armbruster Collection.",
-    "before": "Fulton Street, south side, east from Water, to Front\nStreets.\nApril 1, 1928.\nP. L. Sperr.\nThe same, also showing Water Street, at, adjoining and south of the S.E. corner of Fulton Street.\nSeptember 23, 1931.\nP. L. Sperr.\nThe same, showing a further view southward on Water Street.\nMay 1923.\nEugene L. Armbruster Collection.\n",
+    "after": "Office of J. Magrin & Co.\nNew York, NY 411 - 5th Ave.\nJoseph Douglas Stein, Arch.\n\nJ. Magrin & Co.\n411 5th Ave.\n\nF. S. LINCOLN\nPhotographer\n114 EAST 32nd STREET\nNEW YORK CITY\n\nWHEN PUBLISHED, CREDIT\nIS TO BE GIVEN TO\nF. S. LINCOLN\n739P3",
+    "before": "Magnum & Co.\n411 5th Ave.\n\nF. S. Lincoln\nPhotographer\n114 East 52nd Street\nNew York City\n\nWhen published, credit\nis to be given to\nF. S. Lincoln\n739P3",
     "metadata": {
-      "back_id": "719935b",
+      "back_id": "708609b",
       "cookie": "blah",
-      "distance": 147,
-      "len_base": 324,
-      "len_exp": 476,
-      "score": 0.5462962962962963
+      "distance": 146,
+      "len_base": 150,
+      "len_exp": 236,
+      "score": 0.026666666666666616
     },
-    "photo_id": "719935f-c"
+    "photo_id": "708609f-a"
   },
   {
     "after": "P.L. Sperr, photographer  6-18-1942",
@@ -1935,19 +1948,6 @@ var changes = [
       "score": 0.1097560975609756
     },
     "photo_id": "706548f-a"
-  },
-  {
-    "after": "Office of J. Magrin & Co.\nNew York, NY 411 - 5th Ave.\nJoseph Douglas Stein, Arch.\n\nJ. Magrin & Co.\n411 5th Ave.\n\nF. S. LINCOLN\nPhotographer\n114 EAST 32nd STREET\nNEW YORK CITY\n\nWHEN PUBLISHED, CREDIT\nIS TO BE GIVEN TO\nF. S. LINCOLN\n739P3",
-    "before": "Magnum & Co.\n411 5th Ave.\n\nF. S. Lincoln\nPhotographer\n114 East 52nd Street\nNew York City\n\nWhen published, credit\nis to be given to\nF. S. Lincoln\n739P3",
-    "metadata": {
-      "back_id": "708609b",
-      "cookie": "blah",
-      "distance": 146,
-      "len_base": 150,
-      "len_exp": 236,
-      "score": 0.026666666666666616
-    },
-    "photo_id": "708609f-a"
   },
   {
     "after": "Wall Street, north side, west from William Street (right), across Nassau Street (center), to Broadway (left margin). Shown is an early view of the financial district. The date of the view is determined by the absence of the Washington statue on the Sub Treasury steps (1883) and the presence of the massive National Bank of the Republic (1886) to the right of Trinity Church.\n\nBetween 1880-3\n\nGift of Urbrock Collection\n\nNOTE: To the right of the sub-treasury Bldg is the old U.S. Branch Bank, late the U.S. Assay Office.\nOn the extreme right of the view is the Merchant's National Bank.",
@@ -1976,6 +1976,19 @@ var changes = [
     "photo_id": "708291f-a"
   },
   {
+    "after": "Riverside Drive, north from 156th Street, showing the semi-rural condition of the street.\nAbout 1918.",
+    "before": "Riverside Drive, north from 156th Street, showing the semi-rural condition of the street.\nAbout 1918.\n\n\n(Based on houses that exist and don't, and the condition of Boulevard Lafayette/Riverside Drive, this is probably 1908 or earlier, not 1918.) ",
+    "metadata": {
+      "back_id": "722814b",
+      "cookie": "blah",
+      "distance": 142,
+      "len_base": 246,
+      "len_exp": 101,
+      "score": 0.4227642276422764
+    },
+    "photo_id": "722814f-a"
+  },
+  {
     "after": "Kill-van-Kull Bridge\nBayonne, N.J. Staten Island, N.Y.\n\nF. S. LINCOLN\nPhotographer\n114 EAST 32nd STREET\nNEW YORK CITY\n\nWHEN PUBLISHED, CREDIT\nIS TO BE GIVEN TO\nF. S. LINCOLN\n111P7\n",
     "before": "VCD60-SWL.6E C52SS\nVN;.  i7-,eo33A E8 29-9,\nV\nAP,  LEiNNE\n,,,'~-8\n3 ES~\nEEEEE\nP S INC7N\nAl1P7\n",
     "metadata": {
@@ -2002,19 +2015,6 @@ var changes = [
     "photo_id": "702917f-a"
   },
   {
-    "after": "11th Street (formerly Hammond Street), south side, east from and including West 4th Street, St. Vincent's Hospital in the background, on the N.E. corner of Seventh Avenue and the true West 11th Street. The North Baptist Church, built in 1882 to replace the original edifice on Christopher Street, is shown at 236-232 West 11th Street. The classical temple at 220, the S.W. corner of Waverly Place, is the Protestant Episcopal Church of St. John the Evangelist (1856).\nAugust 6, 1932.\n\nP. L. Sperr.\n\n(2)\nThe same, the following spring. This apparent intersection at right angles of two supposedly parallel streets has already been explained in describing 4th Street north from the corner of 10th Street. Neither of these streets was numbered when originally laid out. This part of 4th Street has been West 4th Street since probably 1820, but Hammond Street did not lose its name till around 1870. Latterly this crossing has become dangerous, so there is a special traffic light on the N.E. corner.\nMay 20, 1933.\n\nP. L. Sperr.",
-    "before": "(1)\n11th Street (formerly Hammond Street), south side, east from and including West 4th Street, St. Vincent's Hospital in the background, on the N.E. corner of Seventh Avenue and the true West 11th Street. The classical temple at 220, the S.E. corner of Waverly Place, is the Protestant Episcopal Church of St. John the Evangelist (1856).\nAugust 6, 1932.\nP. L. Sperr\n\n(2)\nThe same, the following spring. This apparent intersection at right angles of two supposedly parallel streets has already been explained in describing 4th Street north from the corner of 10th Street. Neither of these streets was numbered when originally laid out. This part of 4th Street has been West 4th Street since probably 1820, but Hammond Street did not lose its name till around 1870.\nLatterly this crossing has become dangerous, so there is a special traffic light on the N.E. corner.\nMay 20, 1933.\nP. L. Sperr",
-    "metadata": {
-      "back_id": "711107b",
-      "cookie": "blah",
-      "distance": 140,
-      "len_base": 891,
-      "len_exp": 1024,
-      "score": 0.8428731762065096
-    },
-    "photo_id": "711107f-b"
-  },
-  {
     "after": "Saks 5th Ave\nPercival Goodman, Inc. Decorators\n\nF. S. Lincoln\nPhotographer\n114 EAST 32nd STREET\nNEW YORK CITY\n\nWHEN PUBLISHED, CREDIT\nIS TO BE GIVEN TO\nF. S. LINCOLN\n900P6",
     "before": "Ee.. s3G\nNGLP 7o2--S N.. 32233R8:\nEi50E3\nTEEE\n5\nS\n900P6\n",
     "metadata": {
@@ -2028,17 +2028,17 @@ var changes = [
     "photo_id": "708911f"
   },
   {
-    "after": "Riverside Drive, north from 156th Street, showing the semi-rural condition of the street.\nAbout 1918.\nNEG; 2822",
-    "before": "Riverside Drive, north from 156th Street, showing the semi-rural condition of the street.\nAbout 1918.\n\n\n(Based on houses that exist and don't, and the condition of Boulevard Lafayette/Riverside Drive, this is probably 1908 or earlier, not 1918.) ",
+    "after": "11th Street (formerly Hammond Street), south side, east from and including West 4th Street, St. Vincent's Hospital in the background, on the N.E. corner of Seventh Avenue and the true West 11th Street. The North Baptist Church, built in 1882 to replace the original edifice on Christopher Street, is shown at 236-232 West 11th Street. The classical temple at 220, the S.W. corner of Waverly Place, is the Protestant Episcopal Church of St. John the Evangelist (1856).\nAugust 6, 1932.\n\nP. L. Sperr.\n\n(2)\nThe same, the following spring. This apparent intersection at right angles of two supposedly parallel streets has already been explained in describing 4th Street north from the corner of 10th Street. Neither of these streets was numbered when originally laid out. This part of 4th Street has been West 4th Street since probably 1820, but Hammond Street did not lose its name till around 1870. Latterly this crossing has become dangerous, so there is a special traffic light on the N.E. corner.\nMay 20, 1933.\n\nP. L. Sperr.",
+    "before": "(1)\n11th Street (formerly Hammond Street), south side, east from and including West 4th Street, St. Vincent's Hospital in the background, on the N.E. corner of Seventh Avenue and the true West 11th Street. The classical temple at 220, the S.E. corner of Waverly Place, is the Protestant Episcopal Church of St. John the Evangelist (1856).\nAugust 6, 1932.\nP. L. Sperr\n\n(2)\nThe same, the following spring. This apparent intersection at right angles of two supposedly parallel streets has already been explained in describing 4th Street north from the corner of 10th Street. Neither of these streets was numbered when originally laid out. This part of 4th Street has been West 4th Street since probably 1820, but Hammond Street did not lose its name till around 1870.\nLatterly this crossing has become dangerous, so there is a special traffic light on the N.E. corner.\nMay 20, 1933.\nP. L. Sperr",
     "metadata": {
-      "back_id": "722814b",
+      "back_id": "711107b",
       "cookie": "blah",
-      "distance": 139,
-      "len_base": 246,
-      "len_exp": 111,
-      "score": 0.4349593495934959
+      "distance": 140,
+      "len_base": 891,
+      "len_exp": 1024,
+      "score": 0.8428731762065096
     },
-    "photo_id": "722814f-a"
+    "photo_id": "711107f-b"
   },
   {
     "after": "Temple Emanuel, 5th Ave\nOscar Bach, Metal Work\nconstructed 1921\n\nF. S. Lincoln\nPhotographer\n114 EAST 32nd STREET\nNEW YORK CITY\n653P1\nTEMPLE EMANUEL, 5th AVE\nOSCAR BACH, METAL WORK",
@@ -2054,19 +2054,6 @@ var changes = [
     "photo_id": "709106f"
   },
   {
-    "after": "F. S. LINCOLN\nPhotographer\n114 EAST 32nd STREET\nNEW YORK CITY\n\nTHIS PRINT IS SOLD FOR REFERENCE ONLY. REPRODUCTION IS NOT ALLOWED IN ANY FORM WITHOUT WRITTEN PERMISSION FROM F. S. LINCOLN\n\n902P17\nCastle Village\nCabrini Blvd north fr. 181st St.\n",
-    "before": "F.S. Lincoln\nPhotographer\n114 EAST 52nd STREET\nNEW YORK CITY\n\n902P17\nCastle Village\nCabrini Blvd north fr 181st\n",
-    "metadata": {
-      "back_id": "717972b",
-      "cookie": "blah",
-      "distance": 138,
-      "len_base": 112,
-      "len_exp": 244,
-      "score": 0.0
-    },
-    "photo_id": "717972f"
-  },
-  {
     "after": "(1)\nSecond Avenue east side at 16th Street, showing Stuyvesant Park Square across the Parkway may be seen the N.Y. INfirmary for the Women and Childrens Dispensary.\n\n(2)\nSecond Avenue, east side and north of 17th Street, showing at the southeast corner of 17th Street a bit of Stuyvesant Square.\n\nP.L.Speer.\n\nJuly 19, 1939.",
     "before": "Second Avenue east side at 16th Street, showing Stuyvestant Park Square across the Parkway may be seen the N.Y. Infirmary for the Womens and Childrens Dispensary. P.L. Speer. July 19, 1939. ",
     "metadata": {
@@ -2078,6 +2065,19 @@ var changes = [
       "score": 0.27368421052631575
     },
     "photo_id": "707792f-b"
+  },
+  {
+    "after": "F. S. LINCOLN\nPhotographer\n114 EAST 32nd STREET\nNEW YORK CITY\n\nTHIS PRINT IS SOLD FOR REFERENCE ONLY. REPRODUCTION IS NOT ALLOWED IN ANY FORM WITHOUT WRITTEN PERMISSION FROM F. S. LINCOLN\n\n902P17\nCastle Village\nCabrini Blvd north fr. 181st St.\n",
+    "before": "F.S. Lincoln\nPhotographer\n114 EAST 52nd STREET\nNEW YORK CITY\n\n902P17\nCastle Village\nCabrini Blvd north fr 181st\n",
+    "metadata": {
+      "back_id": "717972b",
+      "cookie": "blah",
+      "distance": 138,
+      "len_base": 112,
+      "len_exp": 244,
+      "score": 0.0
+    },
+    "photo_id": "717972f"
   },
   {
     "after": "Flushing Meadow Park (Queens): The theme of the New York World's Fair 1939-40--the Trylon and Perisphere--symbolizing American democracy.\n\nMay 29, 1939\nViews 1,2,3\n\nP. L. Sperr\n\nC6 - NEG. 2858",
@@ -2093,19 +2093,6 @@ var changes = [
     "photo_id": "726680f-c"
   },
   {
-    "after": "157-159 East 23rd Street, east side, between Beverly Road and Tilden Ave., showing a frame dwelling, No. 157, at the left.\nMarch 29, 1932.\n\nP. L. Sperr.",
-    "before": "'ENOIIO0G061E 0N\nIedE T d\n2C6I 'e2 uo2aw\n'ng9I au1 1v 'LCI 'og 'HupIIoap owuaI s Fupwous 'oav uopIpL pus pw9E ApIeaog uoeauec 'epps 1svo 'Teeaig pJCg 194E 6I19L\n",
-    "metadata": {
-      "back_id": "702658b",
-      "cookie": "blah",
-      "distance": 138,
-      "len_base": 161,
-      "len_exp": 152,
-      "score": 0.1428571428571429
-    },
-    "photo_id": "702658f-a"
-  },
-  {
     "after": "(1) Monroe Street, south side, east from but not including Catherine Street. A portion of the Manhattan Bridge is shown in the background. June 21, 1933. P. L. Sperr.  B2(2) The same, from a point of view slightly eastward. NEG # 3672 June 21, 1933. P. L. Sperr.  (3) The same, as No. 1, but at a later date, showing Knickerbocker village under construction. April 25, 1934. P. L. Sperr.   ",
     "before": "(1)\nMonroe Street, south side, east from but not including Catherine Street. A portion of the Manhattan Bridge is shown in the background.\nJune 21, 1933.\nP. L. Sperr.\n(2)\nThe same, as No. 1, but at a later date, showing Knickerbocker\nVillage under construction.\nApril 26, 1934.\nP. L. Sperr.\n(3)\nThe same view as No. 1, from a point of view slightly eastward.\nJune 21, 1933.\nP. L. Sperr.\n",
     "metadata": {
@@ -2117,6 +2104,19 @@ var changes = [
       "score": 0.6434108527131783
     },
     "photo_id": "721667f-c"
+  },
+  {
+    "after": "157-159 East 23rd Street, east side, between Beverly Road and Tilden Ave., showing a frame dwelling, No. 157, at the left.\nMarch 29, 1932.\n\nP. L. Sperr.",
+    "before": "'ENOIIO0G061E 0N\nIedE T d\n2C6I 'e2 uo2aw\n'ng9I au1 1v 'LCI 'og 'HupIIoap owuaI s Fupwous 'oav uopIpL pus pw9E ApIeaog uoeauec 'epps 1svo 'Teeaig pJCg 194E 6I19L\n",
+    "metadata": {
+      "back_id": "702658b",
+      "cookie": "blah",
+      "distance": 138,
+      "len_base": 161,
+      "len_exp": 152,
+      "score": 0.1428571428571429
+    },
+    "photo_id": "702658f-a"
   },
   {
     "after": "INTERNATIONAL MUSIC HALL\nR.K.O. BLDG. - SCULPTURE OVER ENTRANCE\n11/5/32\n\nF. S. LINCOLN\nPhotographer\n114 EAST 32nd STREET\nNEW YORK CITY\n130 P3\n\nIF PUBLISHED, CREDIT\nIS TO BE GIVEN TO\nF. S. LINCOLN",
@@ -2132,19 +2132,6 @@ var changes = [
     "photo_id": "709560f"
   },
   {
-    "after": "Twelfth Avenue, at the head of W. 48th Street, showing shore activity at Pier #88 and the moored French Liner \"S. S. Normandie.\"\n\n1939\n\nAlexander Alland\n\nThis photo is one of a series that appeared in the published volume \"Portrait of N. Y.\" by Felix Reisenberg and Alex. Alland, IRGV.\n",
-    "before": "Twelfth Avenue, at the head of Wesr 48th Street, showing shore activity at Pier 88 and the moored French Liner \"S. S. Normandie.\"\n\n1939\n\nAlexander Alland\n\n",
-    "metadata": {
-      "back_id": "710782b",
-      "cookie": "blah",
-      "distance": 136,
-      "len_base": 155,
-      "len_exp": 286,
-      "score": 0.1225806451612903
-    },
-    "photo_id": "710782f"
-  },
-  {
     "after": "Kill van Kull Bridge\nBayonne, Staten Island, NY\n\nF. S. LINCOLN\nPhotographer\n114 EAST 32nd STREET\nNEW YORK CITY\n\nWHEN PUBLISHED, CREDIT\nIS TO BE GIVEN TO\nF. S. LINCOLN\n111P3",
     "before": "KDC 02 EL2S C\n'64989SEE EEE2 256S D8\n)\nEiD9S9S\nEEE\nEEEMES\nR S 1NCRN\nAA1PS\n",
     "metadata": {
@@ -2156,6 +2143,19 @@ var changes = [
       "score": 0.0
     },
     "photo_id": "730854f"
+  },
+  {
+    "after": "Twelfth Avenue, at the head of W. 48th Street, showing shore activity at Pier #88 and the moored French Liner \"S. S. Normandie.\"\n\n1939\n\nAlexander Alland\n\nThis photo is one of a series that appeared in the published volume \"Portrait of N. Y.\" by Felix Reisenberg and Alex. Alland, IRGV.\n",
+    "before": "Twelfth Avenue, at the head of Wesr 48th Street, showing shore activity at Pier 88 and the moored French Liner \"S. S. Normandie.\"\n\n1939\n\nAlexander Alland\n\n",
+    "metadata": {
+      "back_id": "710782b",
+      "cookie": "blah",
+      "distance": 136,
+      "len_base": 155,
+      "len_exp": 286,
+      "score": 0.1225806451612903
+    },
+    "photo_id": "710782f"
   },
   {
     "after": "ASIATIC EXHIBITION OF ANIMALS\nMUSEUM OF NAT'L HIST. - MONKEY GROUP\n12/12/30\nCOPYRIGHT BY\nF. S. LINCOLN\nPhotographer\n114 EAST 32nd STREET\nNEW YORK CITY\nTHIS PRINT IS SOLD FOR REFERENCE ONLY. REPRODUCTION IS NOT ALLOWED IN ANY FORM WITHOUT WRITTEN PERMISSION FROM F. S. LINCOLN\n640 4",
@@ -2171,19 +2171,6 @@ var changes = [
     "photo_id": "718481f"
   },
   {
-    "after": "NYC World's Fair 1939 Brazil\n\nF. S. LINCOLN\nPhotographer\n114 EAST 32nd STREET\nNEW YORK CITY\n\nTHIS PRINT IS SOLD FOR REFERENCE ONLY. REPRODUCTION IS NOT ALLOWED IN ANY FORM WITHOUT WRITTEN PERMISSION FROM F. S. LINCOLN\n\n886P23\n\nWorld's Fair 1939\nBrazil\nFlushing Meadows Park",
-    "before": "NYC World's Fair 1939 -\nBrazil\n\nF.S. Lincoln\nPhotographer\n114 EAST 32nd STREET\nNEW YORK CITY\n\n886P23\n\nWorld's Fair 1939\nBrazil\nFlushing Meadow Park\n\n",
-    "metadata": {
-      "back_id": "726695b",
-      "cookie": "blah",
-      "distance": 135,
-      "len_base": 149,
-      "len_exp": 273,
-      "score": 0.09395973154362414
-    },
-    "photo_id": "726695f-a"
-  },
-  {
     "after": "P.L. Sperr collection\nRec'd January 13, 1945",
     "before": "Hotel Netherland, at center, Fifth Avenue and 59th Street (northeast corner). Savoy Hotel at right, Metropolitan Club at extreme left.\n\nP.L. Sperr collection\nRec'd January 13, 1945\n",
     "metadata": {
@@ -2197,17 +2184,17 @@ var changes = [
     "photo_id": "709060f-a"
   },
   {
-    "after": "Van Corlear Place, north from Jacobus Place to West 227th Street, as photographed to show pavement conditions. These photos are progressive. In the last appears a modern apartment bldg. on the north side of 227th Street. The grade there slopes down to Marble Hill Avenue\n\nMay 3, 1937\n1-2-3\n\nW. P. A., photo\nFive Boroughs Project",
-    "before": "Van Corlear Place, north from Jacobus Place to West 227th Street, as photographed to show pavement conditions. These photos are progressive. In the last appears a modern apartment bldg. on the north side of 227th Street. The grade\nthere slopes down to Marble Hill Avenue\nMay 3, 1937\n1-2-3\nW. P. A., photo\nFive Boroughs Project\n\n(This is actually West 227th Street looking west from Van Corlear Avenue to Adrian Avenue.  The apartment house is on Andrian Avenue.)\n",
+    "after": "NYC World's Fair 1939 Brazil\n\nF. S. LINCOLN\nPhotographer\n114 EAST 32nd STREET\nNEW YORK CITY\n\nTHIS PRINT IS SOLD FOR REFERENCE ONLY. REPRODUCTION IS NOT ALLOWED IN ANY FORM WITHOUT WRITTEN PERMISSION FROM F. S. LINCOLN\n\n886P23\n\nWorld's Fair 1939\nBrazil\nFlushing Meadows Park",
+    "before": "NYC World's Fair 1939 -\nBrazil\n\nF.S. Lincoln\nPhotographer\n114 EAST 32nd STREET\nNEW YORK CITY\n\n886P23\n\nWorld's Fair 1939\nBrazil\nFlushing Meadow Park\n\n",
     "metadata": {
-      "back_id": "723690b",
+      "back_id": "726695b",
       "cookie": "blah",
-      "distance": 134,
-      "len_base": 463,
-      "len_exp": 328,
-      "score": 0.7105831533477323
+      "distance": 135,
+      "len_base": 149,
+      "len_exp": 273,
+      "score": 0.09395973154362414
     },
-    "photo_id": "723690f-b"
+    "photo_id": "726695f-a"
   },
   {
     "after": "The Poppenhusen Institute\n\nP H I L A N T H R O P I S T :- a lover of mankind; one who sympathizes with and endeavors to help his fellow men. -{dictionary.}\n\nOne who fully deserved the term, but received little recognition beyond his immediate locale for his gifts, was Conrad Poppenhusen of College Point.\n\nA German immigrant, arriving in America in 1843, he soon made a fortune, lost it, and then made another.\n\nPoppenhusen's early business training was acquired in Germany, where his father owned a concern that manufactured numerous small articles out of whalebone. Upon his arrival in America, with considerable means, he went into a partnership and continued the same type of manufacture. Whalebone was becoming a scarce commodity at about this time and when Conrad made the acquaintance of Charles Goodyear he turned his attention to the development of rubber. Not a scientist by any means, but a good businessman, Poppenhusen eventually established a factory in College Point, manufacturing combs and other small articles out of hard rubber. We might say that hard rubber articles were the plastics of one hundred years ago.\n\nIn 1898 several of the hard rubber firms were consolidated and became the American Hard Rubber Company, still in existence and still in College Point.\n\nAfter attaining marked financial success through his application to business, he turned that success to the lasting benefit of the community. He took a deep interest in many fields, such as town planning, providing homes for his employees in whose welfare he took a personal interest, and other aid projects. At one time he gave $30,000 for the building of the College Point Reformed Church and in celebration of his 50th birthday he made a gift of more than a thousand dollars to help provide College Point Institute, designed a century ago to provide free instruction in the Arts and Crafts and also commercial and industrial subjects.\n\nCollege Point gets its name from the fact that the Rev. W. A. Muhlenberg founded St. Paul's College there in 1853. The college is long gone but the community holds its name; College Point.\n\nThe institute, built in 1868, dominates the landscape above the factory near the homes of its workers and played an important role in the life of the community. It served as a bank, school, town office, library, jail, and gathering place. The building expresses the tastes of the times between 1854 and 1880.\n\nA historical room has recently been undertaken, and here may be seen many old maps, photographs, and antiques of the past, and attempts to revive the town of the past, to revive the flavor of life a century ago.",
@@ -2234,6 +2221,19 @@ var changes = [
       "score": 0.6338797814207651
     },
     "photo_id": "730909f-c"
+  },
+  {
+    "after": "Van Corlear Place, north from Jacobus Place to West 227th Street, as photographed to show pavement conditions. These photos are progressive. In the last appears a modern apartment bldg. on the north side of 227th Street. The grade there slopes down to Marble Hill Avenue\n\nMay 3, 1937\n1-2-3\n\nW. P. A., photo\nFive Boroughs Project",
+    "before": "Van Corlear Place, north from Jacobus Place to West 227th Street, as photographed to show pavement conditions. These photos are progressive. In the last appears a modern apartment bldg. on the north side of 227th Street. The grade\nthere slopes down to Marble Hill Avenue\nMay 3, 1937\n1-2-3\nW. P. A., photo\nFive Boroughs Project\n\n(This is actually West 227th Street looking west from Van Corlear Avenue to Adrian Avenue.  The apartment house is on Andrian Avenue.)\n",
+    "metadata": {
+      "back_id": "723690b",
+      "cookie": "blah",
+      "distance": 134,
+      "len_base": 463,
+      "len_exp": 328,
+      "score": 0.7105831533477323
+    },
+    "photo_id": "723690f-b"
   },
   {
     "after": "(1) Broadway, east side, north from and including 28th Street. In the centre of the picture is the Hotel Breslin, and above it is the famous Gilsey House, now remodelled into an office building. June 2, 1928.\n\nP. L. Sperr.\n\n(2) Broadway, The same June 7th, 1937\n\nW.P.A. Photography\n\n(3) Broadway, East side, between 29th-31st Streets, showing on North East corner the old Lord and Taylor Dry Goods Store. The Hotel Breslin is located on the South East corner.\n\nJune 15th, 1937\n\n(A reader notes that Lord Taylor was located at this location. Believe they moved up downtown from somewhere on 193 Street)",
@@ -2288,30 +2288,30 @@ var changes = [
     "photo_id": "711898f-b"
   },
   {
-    "after": "Free Building\nNew York World's Fair, 1939\n\nF. S. Lincoln\nPhotographer\n114 EAST 32nd STREET\nNEW YORK CITY\n\nWHEN PUBLISHED, CREDIT\nIS TO BE GIVEN TO\nF. S. LINCOLN\n\n88! P11\n881 P11\n",
-    "before": "2L. 22-:\n~g 3e-2: WS\n\n'.\nW.M.w4 AW4e71 ~SNr,1Esy\nN  . L  L2SS\n..33F--  r Sw\nE3E32\nWRPNPU8LSRE0,CEEDIT\nP. S 1NiUU\nBRi P11\n8SAP11\nN6g.~942\n",
+    "after": "Broadway, west side, north from Cortlandt Street. Towering building in the midground is the Woolworth.\n\nJune 4, 1933.\n\nP. L. Sperr.\n\nView 2 is a duplicate of the above, mounted in June 1973 with non-acidic glue, because the original print is deteriorating.  ",
+    "before": "View 1\nBroadway, west side, north from Cortlandt Street. Towering building\nin the midground is the Woolworth.\nJune 4, 1933.\nP. L. Sperr.\n\n",
     "metadata": {
-      "back_id": "726688b",
+      "back_id": "717074b",
       "cookie": "blah",
       "distance": 131,
-      "len_base": 137,
-      "len_exp": 178,
-      "score": 0.04379562043795615
+      "len_base": 138,
+      "len_exp": 258,
+      "score": 0.050724637681159424
     },
-    "photo_id": "726688f"
+    "photo_id": "717074f-b"
   },
   {
-    "after": "COPYRIGHT BY\nF. S. LINCOLN\nPhotographer\n114 EAST 32nd STREET\nNEW YORK CITY\nTHIS PRINT IS SOLD FOR REFERENCE ONLY. REPRODUCTION IS NOT ALLOWED IN ANY FORM WITHOUT WRITTEN PERMISSION FROM F. S. LINCOLN\n742P5",
+    "after": "COPYRIGHT BY\nF. S. LINCOLN\nPhotographer\n114 EAST 32nd STREET\nNEW YORK CITY\nTHIS PRINT IS SOLD FOR REFERENCE ONLY, REPRODUCTION IS NOT ALLOWED IN ANY FORM WITHOUT WRITTEN PERMISSION FROM F. S. LINCOLN\n742P1",
     "before": "COPYRIGHT BY\nF. S. LINCOLN\nPhotographer\n114 EAST 32nd STREET\nNEW YORK CITY\n",
     "metadata": {
-      "back_id": "719852b",
+      "back_id": "719849b",
       "cookie": "blah",
       "distance": 131,
       "len_base": 75,
       "len_exp": 205,
       "score": 0.0
     },
-    "photo_id": "719852f"
+    "photo_id": "719849f"
   },
   {
     "after": "89th Street - No 304 - 306 West",
@@ -2340,30 +2340,30 @@ var changes = [
     "photo_id": "708096f-a"
   },
   {
-    "after": "Broadway, west side, north from Cortlandt Street. Towering building in the midground is the Woolworth.\n\nJune 4, 1933.\n\nP. L. Sperr.\n\nView 2 is a duplicate of the above, mounted in June 1973 with non-acidic glue, because the original print is deteriorating.  ",
-    "before": "View 1\nBroadway, west side, north from Cortlandt Street. Towering building\nin the midground is the Woolworth.\nJune 4, 1933.\nP. L. Sperr.\n\n",
-    "metadata": {
-      "back_id": "717074b",
-      "cookie": "blah",
-      "distance": 131,
-      "len_base": 138,
-      "len_exp": 258,
-      "score": 0.050724637681159424
-    },
-    "photo_id": "717074f-b"
-  },
-  {
-    "after": "COPYRIGHT BY\nF. S. LINCOLN\nPhotographer\n114 EAST 32nd STREET\nNEW YORK CITY\nTHIS PRINT IS SOLD FOR REFERENCE ONLY, REPRODUCTION IS NOT ALLOWED IN ANY FORM WITHOUT WRITTEN PERMISSION FROM F. S. LINCOLN\n742P1",
+    "after": "COPYRIGHT BY\nF. S. LINCOLN\nPhotographer\n114 EAST 32nd STREET\nNEW YORK CITY\nTHIS PRINT IS SOLD FOR REFERENCE ONLY. REPRODUCTION IS NOT ALLOWED IN ANY FORM WITHOUT WRITTEN PERMISSION FROM F. S. LINCOLN\n742P5",
     "before": "COPYRIGHT BY\nF. S. LINCOLN\nPhotographer\n114 EAST 32nd STREET\nNEW YORK CITY\n",
     "metadata": {
-      "back_id": "719849b",
+      "back_id": "719852b",
       "cookie": "blah",
       "distance": 131,
       "len_base": 75,
       "len_exp": 205,
       "score": 0.0
     },
-    "photo_id": "719849f"
+    "photo_id": "719852f"
+  },
+  {
+    "after": "Free Building\nNew York World's Fair, 1939\n\nF. S. Lincoln\nPhotographer\n114 EAST 32nd STREET\nNEW YORK CITY\n\nWHEN PUBLISHED, CREDIT\nIS TO BE GIVEN TO\nF. S. LINCOLN\n\n88! P11\n881 P11\n",
+    "before": "2L. 22-:\n~g 3e-2: WS\n\n'.\nW.M.w4 AW4e71 ~SNr,1Esy\nN  . L  L2SS\n..33F--  r Sw\nE3E32\nWRPNPU8LSRE0,CEEDIT\nP. S 1NiUU\nBRi P11\n8SAP11\nN6g.~942\n",
+    "metadata": {
+      "back_id": "726688b",
+      "cookie": "blah",
+      "distance": 131,
+      "len_base": 137,
+      "len_exp": 178,
+      "score": 0.04379562043795615
+    },
+    "photo_id": "726688f"
   },
   {
     "after": "",
@@ -2392,19 +2392,6 @@ var changes = [
     "photo_id": "723496f-c"
   },
   {
-    "after": "Kill van Kull Bridge\nStaten Island to Bayonne, N.J.\n\nF. S. LINCOLN\nPhotographer\n114 EAST 32nd STREET\nNEW YORK CITY\n\nWHEN PUBLISHED, CREDIT\nIS TO BE GIVEN TO\nF. S. LINCOLN\n111P7\n",
-    "before": "7AD.e-N2~~2e-y\n2Ne6 N3RAo 2 Syoaeg ~Mo5\nF. S LNCOLN\nVRENPUEUUSRED,CEEDII\nR S NC7UN\n111P0\nNEG ~ 3410\n",
-    "metadata": {
-      "back_id": "730845b",
-      "cookie": "blah",
-      "distance": 129,
-      "len_base": 100,
-      "len_exp": 177,
-      "score": 0.0
-    },
-    "photo_id": "730845f"
-  },
-  {
     "after": "Tri-Boro Bridge\nNew York City\n\nF. S. Lincoln\nPhotographer\n114 EAST 34TH STREET\nNEW YORK CITY\n\nWHEN PUBLISHED, CREDIT\nIS TO BE GIVEN TO\nF. S. LINCOLN\n\n461P8\n\n315G\nLOCAL HISTORY\nAND GENEALOGY",
     "before": "Tri-Boro Bridge\nNew York City\n\nF. S. LINCOLN\nPhotographer",
     "metadata": {
@@ -2418,17 +2405,17 @@ var changes = [
     "photo_id": "731047f"
   },
   {
-    "after": "Daily News Building\n\nF. S. LINCOLN\nPhotographer\n114 EAST 32ND STREET\nNEW YORK CITY\n\n597P10\n\nTHE NEW YORK PUBLIC LIBRARY\nASTOR, LENOX & TILDEN\nFOUNDATIONS\n\n315G\nLOCAL HISTORY\nAND GENEALOGY\n\nThis photograph was used in NYPL\nArt Deco exhibit, Apr 30, 1972.",
-    "before": "Daily News Building\n\nF.S. LINCOLN\nPhotographer\n114? East 83rd Street\nNew York City\n\nThis photograph was used in NYPL Art Deco exhibit, Apr 20, 1935 ",
+    "after": "Kill van Kull Bridge\nStaten Island to Bayonne, N.J.\n\nF. S. LINCOLN\nPhotographer\n114 EAST 32nd STREET\nNEW YORK CITY\n\nWHEN PUBLISHED, CREDIT\nIS TO BE GIVEN TO\nF. S. LINCOLN\n111P7\n",
+    "before": "7AD.e-N2~~2e-y\n2Ne6 N3RAo 2 Syoaeg ~Mo5\nF. S LNCOLN\nVRENPUEUUSRED,CEEDII\nR S NC7UN\n111P0\nNEG ~ 3410\n",
     "metadata": {
-      "back_id": "712802b",
+      "back_id": "730845b",
       "cookie": "blah",
-      "distance": 128,
-      "len_base": 148,
-      "len_exp": 253,
-      "score": 0.1351351351351351
+      "distance": 129,
+      "len_base": 100,
+      "len_exp": 177,
+      "score": 0.0
     },
-    "photo_id": "712802f"
+    "photo_id": "730845f"
   },
   {
     "after": "Joralemon Street, west from, but not including Boerum Place. On the right is shown the Borough Hall Building.\n\nAbout 1930.\n\nEwing Galloway.",
@@ -2444,17 +2431,17 @@ var changes = [
     "photo_id": "705169f-a"
   },
   {
-    "after": "Bayonne Bridge\nNew Jersey\nCOPYRIGHT BY\nF. S. LINCOLN\nPhotographer\n114 EAST 32nd STREET\nNEW YORK CITY\nIF PUBLISHED, CREDIT\nIS TO BE GIVEN TO\nF. S. LINCOLN",
-    "before": "Dagre. bie.\ne..o A---\nNEe ~ 34o5\nEAAVEENE\n..5NSSE..\n222:2\n11ipI0\nRSDi4\n",
+    "after": "Daily News Building\n\nF. S. LINCOLN\nPhotographer\n114 EAST 32ND STREET\nNEW YORK CITY\n\n597P10\n\nTHE NEW YORK PUBLIC LIBRARY\nASTOR, LENOX & TILDEN\nFOUNDATIONS\n\n315G\nLOCAL HISTORY\nAND GENEALOGY\n\nThis photograph was used in NYPL\nArt Deco exhibit, Apr 30, 1972.",
+    "before": "Daily News Building\n\nF.S. LINCOLN\nPhotographer\n114? East 83rd Street\nNew York City\n\nThis photograph was used in NYPL Art Deco exhibit, Apr 20, 1935 ",
     "metadata": {
-      "back_id": "730641b",
+      "back_id": "712802b",
       "cookie": "blah",
-      "distance": 127,
-      "len_base": 71,
-      "len_exp": 153,
-      "score": 0.0
+      "distance": 128,
+      "len_base": 148,
+      "len_exp": 253,
+      "score": 0.1351351351351351
     },
-    "photo_id": "730641f"
+    "photo_id": "712802f"
   },
   {
     "after": "(1)\nRiverside Drive, west side, at West 122nd Street, showing the Tomb of General U.S. Grant. The body of Grant, hero of the Civil War, to whom General Lee of the Confederacy surrendered at Appomattox, and twice President of the United States, and that of his wife, lie in two caskets on a sunken level within this monument. The Tomb is open to the public and is a major point of interest to visitors to the metropolis. This view is southward from a point in Riverside Park and shows the northern (left) and western (right) sides of the Mausoleum. The towered structure in the background is the Riverside Baptist Church, at the S.E. corner of West 122nd Street and the Drive. It is often called the Rockefeller Church; it having been built by the Rockefeller family.\nP. L. Sperr.\nJune 2, 1935.\n\n(2)\nThe same, but viewed northward and showing the entrance, which is the south side. At the extreme right appears a part of the International House, which is on the east side of the Drive, slightly north of West 122nd Street. It is a unit of Columbia University.\nP. L. Sperr.\nJune 2, 1935.\n\n(3)\nThe same as view No. 2, as seen from the park which descends the slope to the Hudson River.\nAugust 28, 1936.\nP. L. Sperr.",
@@ -2470,6 +2457,19 @@ var changes = [
     "photo_id": "722938f-c"
   },
   {
+    "after": "Bayonne Bridge\nNew Jersey\nCOPYRIGHT BY\nF. S. LINCOLN\nPhotographer\n114 EAST 32nd STREET\nNEW YORK CITY\nIF PUBLISHED, CREDIT\nIS TO BE GIVEN TO\nF. S. LINCOLN",
+    "before": "Dagre. bie.\ne..o A---\nNEe ~ 34o5\nEAAVEENE\n..5NSSE..\n222:2\n11ipI0\nRSDi4\n",
+    "metadata": {
+      "back_id": "730641b",
+      "cookie": "blah",
+      "distance": 127,
+      "len_base": 71,
+      "len_exp": 153,
+      "score": 0.0
+    },
+    "photo_id": "730641f"
+  },
+  {
     "after": "COPYRIGHT BY\nF. S. LINCOLN\n\nPhotographer\n114 EAST 32nd STREET\nNEW YORK CITY\n\nTHIS PRINT IS SOLD FOR REFERENCE ONLY. REPRODUCTION IS NOT ALLOWED IN ANY FORM WITHOUT WRITTEN PERMISSION FROM F. S. LINCOLN\n\n742P9",
     "before": "COPYRIGHT BY\nF.S. LINCOLN\nPhotographer\n114 EAST 32nd STREET\nNEW YORK CITY\n742P9",
     "metadata": {
@@ -2481,19 +2481,6 @@ var changes = [
       "score": 0.0
     },
     "photo_id": "719854f"
-  },
-  {
-    "after": "COPYRIGHT BY\nF. S. LINCOLN\n\nPhotographer\n114 EAST 32nd STREET\nNEW YORK CITY\n\nTHIS PRINT IS SOLD FOR REFERENCE ONLY. REPRODUCTION IS NOT ALLOWED IN ANY FORM WITHOUT WRITTEN PERMIS-ION FROM F. S. LINCOLN\n\n742P10",
-    "before": "COPYRIGHT BY\nF.S. LINCOLN\nPhotographer\n114 EAST 32nd STREET\nNEW YORK CITY\n742P10",
-    "metadata": {
-      "back_id": "719855b",
-      "cookie": "blah",
-      "distance": 126,
-      "len_base": 80,
-      "len_exp": 209,
-      "score": 0.0
-    },
-    "photo_id": "719855f"
   },
   {
     "after": "Kill van Kull Bridge\nStaten Island to Bayonne, N.J.\n\nF. S. LINCOLN\nPhotographer\n114 EAST 32nd STREET\nNEW YORK CITY\n\nWHEN PUBLISHED, CREDIT\nIS TO BE GIVEN TO\nF. S. LINCOLN\n111 P 10",
@@ -2509,17 +2496,17 @@ var changes = [
     "photo_id": "730847f"
   },
   {
-    "after": "COPYRIGHT BY\nF. S. LINCOLN\nPhotographer\n114 EAST 32nd STREET\nNEW YORK CITY\n\nTHIS PRINT IS SOLD FOR REFERENCE ONLY. REPRODUCTION IS NOT ALLOWED IN ANY FORM WITHOUT WRITTEN PERMISSION FROM F. S. LINCOLN\n\n742P8",
-    "before": "COPYRIGHT BY\nF.S. LINCOLN\nPhotographer\n114 EAST 32nd STREET\nNEW YORK CITY\n742P8",
+    "after": "COPYRIGHT BY\nF. S. LINCOLN\n\nPhotographer\n114 EAST 32nd STREET\nNEW YORK CITY\n\nTHIS PRINT IS SOLD FOR REFERENCE ONLY. REPRODUCTION IS NOT ALLOWED IN ANY FORM WITHOUT WRITTEN PERMIS-ION FROM F. S. LINCOLN\n\n742P10",
+    "before": "COPYRIGHT BY\nF.S. LINCOLN\nPhotographer\n114 EAST 32nd STREET\nNEW YORK CITY\n742P10",
     "metadata": {
-      "back_id": "719853b",
+      "back_id": "719855b",
       "cookie": "blah",
       "distance": 126,
-      "len_base": 79,
-      "len_exp": 207,
+      "len_base": 80,
+      "len_exp": 209,
       "score": 0.0
     },
-    "photo_id": "719853f"
+    "photo_id": "719855f"
   },
   {
     "after": "WHEN THE MARKET BROKE IN RECORD PANIC--CROWDS GATHER AT SUB TREASURY TO WATCH MOBS SURGE ABOUT STOCK EXCHANGE ACROSS THE STREET\n\nNEW YORK.--PHOTO SHOWS: An exciting moment during the break of the market in the record panic when nearly 13,000,000 shares were traded. Here the crowds are gathered at the Sub Treasury, watching the excitement of still another crowd at the Stock Exchange, across the corner--at Broad and Wall Streets.\n\nWALL STREET CROWD.\n\nS/119x207\n\nEVENING WRAP FOR THE NEW YORK HERALD.",
@@ -2535,6 +2522,19 @@ var changes = [
     "photo_id": "721856f-a"
   },
   {
+    "after": "COPYRIGHT BY\nF. S. LINCOLN\nPhotographer\n114 EAST 32nd STREET\nNEW YORK CITY\n\nTHIS PRINT IS SOLD FOR REFERENCE ONLY. REPRODUCTION IS NOT ALLOWED IN ANY FORM WITHOUT WRITTEN PERMISSION FROM F. S. LINCOLN\n\n742P8",
+    "before": "COPYRIGHT BY\nF.S. LINCOLN\nPhotographer\n114 EAST 32nd STREET\nNEW YORK CITY\n742P8",
+    "metadata": {
+      "back_id": "719853b",
+      "cookie": "blah",
+      "distance": 126,
+      "len_base": 79,
+      "len_exp": 207,
+      "score": 0.0
+    },
+    "photo_id": "719853f"
+  },
+  {
     "after": "528-530 W. 136th St. ss. bet. Amsterdam & B'way.\n1046-1050 Lexington Avenue, west side, between 74th and 75th Streets.\nNovember 20, 1911\nWurts Brothers, Photographers",
     "before": "528-430 W. 136th St. between Amsterdam and Broadway  ",
     "metadata": {
@@ -2546,19 +2546,6 @@ var changes = [
       "score": 0.0
     },
     "photo_id": "715604f"
-  },
-  {
-    "after": "548-556 West 50th Street, south side, east of Eleventh Avenue. In the centre is the Roman Catholic Church of St. Cyril.\n\nApril 21, 1934.\n\nP.L. Sperr.\n",
-    "before": "548-556 West 50th Street, south side, east of Eleventh Avenue. In the centre is the Roman Catholic Church of St.Cyril.\napril S1, 1934.\nP.L. Sperr.\n\nI grew up next door to the church at 554 West 50th Street and the church was actually called St. Cyril and St. Methodius.\n\n",
-    "metadata": {
-      "back_id": "713502b",
-      "cookie": "blah",
-      "distance": 125,
-      "len_base": 271,
-      "len_exp": 150,
-      "score": 0.5387453874538746
-    },
-    "photo_id": "713502f-a"
   },
   {
     "after": "Daily News Building\n\nF. S. LINCOLN\nPhotographer\n114 EAST 32ND STREET\nNEW YORK CITY\n597P5\n\nTHE NEW YORK PUBLIC LIBRARY\nASTOR LENOX & TILDEN\nFOUNDATIONS\n315g\nLOCAL HISTORY\nAND GENEALOGY\n\n\nThis photograph was used in NYPL Art Deco exhibit, Apr. 30, 1975  ",
@@ -2587,17 +2574,17 @@ var changes = [
     "photo_id": "710149f-b"
   },
   {
-    "after": "King's Highway, at the S.E. corner of Tilden Ave., showing the Flatlands Neck Sabbath Church. The congregation of this Church were incorporated in 1867. Originally it was a Sabbath School, and it was established by John Remsen on land donated by him to the people of the \"Neck\". 1923.\n\nEugene L. Armbruster Collection.\n\n(2)\nThe same, at a later date.\nMarch 1925.\nEugene L. Armbruster Collection.\n\n(3)\nThe same as No. 2, from another angle. Because of the widening of King's Highway, the building will be moved back to the new curb line.\nMarch 1925.\nEugene L. Armbruster Collection.\n\n(4)\nAnother view of the church.\nMarch 1925.\nEugene L. Armbruster Collection.\n\nRESUMING STREET TO BE NORTH AND SOUTH",
-    "before": "(1)\nKing's Highway, at the S.E. corner of Tilden Ave., showing the Flatlands Neck Sabbath Church. The congregation of this Church were incorporated in 1867. Originally it was a Sabbath School, and it was established by John Remsen on land donated by him to the people of the\n'Neck\".\n1923.\nEugene L. Armbruster Collection.\n(2)\nThe same, at a later date.\nMarch 1925.\nEugene L. Armbruster Collection.\n(3)\nThe same as No. 2, from another angle. Because of the widening of King's Highway, the building will be moved.back.to the new curb line.,\nMarch 1925.\nEuiene L. Armbruster Collaction.\n",
+    "after": "548-556 West 50th Street, south side, east of Eleventh Avenue. In the centre is the Roman Catholic Church of St. Cyril.\n\nApril 21, 1934.\n\nP.L. Sperr.\n",
+    "before": "548-556 West 50th Street, south side, east of Eleventh Avenue. In the centre is the Roman Catholic Church of St.Cyril.\napril S1, 1934.\nP.L. Sperr.\n\nI grew up next door to the church at 554 West 50th Street and the church was actually called St. Cyril and St. Methodius.\n\n",
     "metadata": {
-      "back_id": "705298b",
+      "back_id": "713502b",
       "cookie": "blah",
-      "distance": 124,
-      "len_base": 584,
-      "len_exp": 698,
-      "score": 0.7876712328767124
+      "distance": 125,
+      "len_base": 271,
+      "len_exp": 150,
+      "score": 0.5387453874538746
     },
-    "photo_id": "705298f-d"
+    "photo_id": "713502f-a"
   },
   {
     "after": "HOTEL PIERRE\n5th ave + 61 st. - Roof Garden Restaurant\n6/17/33\n\nF. S. LINCOLN\nPhotographer\n114 EAST 32nd STREET\nNEW YORK CITY\n\n177P6\n\nIF PUBLISHED, CREDIT\nIS TO BE GIVEN TO\nF. S. LINCOLN",
@@ -2613,30 +2600,17 @@ var changes = [
     "photo_id": "709088f"
   },
   {
-    "after": "F. S. Lincoln\nPhotographer\n114 EAST 32ND STREET\nNEW YORK CITY\n119P/12\n\nTHE NEW YORK PUBLIC LIBRARY\nASTOR LENOX & TILDEN\nFOUNDATIONS\n\n315G\nLOCAL HISTORY\nAND GENEALOGY\n\nThis photograph was used in\nNYPL Art Deco exhibit, Apr. 30, 1975.",
-    "before": "Center Theatre\n\nF. S. LINCOLN\nPhotographer\n114 EAST 32nd STREET\nNEW YORK CITY\n119P12\n\nThis photograph was used in\nNYPL Art Deco Exhibit, April 30 1975",
+    "after": "King's Highway, at the S.E. corner of Tilden Ave., showing the Flatlands Neck Sabbath Church. The congregation of this Church were incorporated in 1867. Originally it was a Sabbath School, and it was established by John Remsen on land donated by him to the people of the \"Neck\". 1923.\n\nEugene L. Armbruster Collection.\n\n(2)\nThe same, at a later date.\nMarch 1925.\nEugene L. Armbruster Collection.\n\n(3)\nThe same as No. 2, from another angle. Because of the widening of King's Highway, the building will be moved back to the new curb line.\nMarch 1925.\nEugene L. Armbruster Collection.\n\n(4)\nAnother view of the church.\nMarch 1925.\nEugene L. Armbruster Collection.\n\nRESUMING STREET TO BE NORTH AND SOUTH",
+    "before": "(1)\nKing's Highway, at the S.E. corner of Tilden Ave., showing the Flatlands Neck Sabbath Church. The congregation of this Church were incorporated in 1867. Originally it was a Sabbath School, and it was established by John Remsen on land donated by him to the people of the\n'Neck\".\n1923.\nEugene L. Armbruster Collection.\n(2)\nThe same, at a later date.\nMarch 1925.\nEugene L. Armbruster Collection.\n(3)\nThe same as No. 2, from another angle. Because of the widening of King's Highway, the building will be moved.back.to the new curb line.,\nMarch 1925.\nEuiene L. Armbruster Collaction.\n",
     "metadata": {
-      "back_id": "709538b",
+      "back_id": "705298b",
       "cookie": "blah",
-      "distance": 123,
-      "len_base": 150,
-      "len_exp": 232,
-      "score": 0.18000000000000005
+      "distance": 124,
+      "len_base": 584,
+      "len_exp": 698,
+      "score": 0.7876712328767124
     },
-    "photo_id": "709538f"
-  },
-  {
-    "after": "Brazil\nN.Y. World's Fair\n1939.\n\nF. S. LINCOLN - 5/19/39\nPhotographer\n114 EAST 32nd STREET\nNEW YORK CITY\nWHEN PUBLISHED, CREDIT\nIS TO BE GIVEN TO\nF. S. LINCOLN\n886P7",
-    "before": "22-S\n6 6LE ~-S\n.A\nN YAv..wA A6.A 73E\n  . F S 1NCOLN\n.,.5~-  T 31e TTREET\n' eS9eo8\nVossswwaaaaawwwwww~~~~~~~8~~~4\nods  VRENPUUtREDCREDT\no 18 I0BE GNVEN 10\nR S 1NC7UU\nB86P7\n",
-    "metadata": {
-      "back_id": "726694b",
-      "cookie": "blah",
-      "distance": 123,
-      "len_base": 171,
-      "len_exp": 164,
-      "score": 0.2807017543859649
-    },
-    "photo_id": "726694f"
+    "photo_id": "705298f-d"
   },
   {
     "after": "(1)\n\nAmsterdam Ave., east side, north from West 91st Street, showing the Central Baptist Church at the S.E. corner of 92nd Street; and the old M.E. Church Home occupying the block front between 92nd and 93rd Streets. North of the latter is a 15-story apartment house at the N.E. corner of 93rd Street. View No. 2 of this set is from 92nd Street and shows the Home prior to its demolition and replacement by a modern 17-story apartment structure. The former occupants are now at their new home in Riverdale being on Spuyten Duyvil Parkway at 244th Street.\n\nNovember 7, 1937.\n\nP. L. Sperr.\n\n(2) The same.\nOctober 14th, 1939\n\nP.L. Sperr,\n\n\n(3) The same from a point farther North on Amsterdam Avenue and not including the S.E. corner of 92nd Street.\n\nNovember 7th, 1937\n\nP.L. Sperr.\nP.L. Sperr,\n",
@@ -2652,6 +2626,32 @@ var changes = [
     "photo_id": "715958f-c"
   },
   {
+    "after": "Brazil\nN.Y. World's Fair\n1939.\n\nF. S. LINCOLN - 5/19/39\nPhotographer\n114 EAST 32nd STREET\nNEW YORK CITY\nWHEN PUBLISHED, CREDIT\nIS TO BE GIVEN TO\nF. S. LINCOLN\n886P7",
+    "before": "22-S\n6 6LE ~-S\n.A\nN YAv..wA A6.A 73E\n  . F S 1NCOLN\n.,.5~-  T 31e TTREET\n' eS9eo8\nVossswwaaaaawwwwww~~~~~~~8~~~4\nods  VRENPUUtREDCREDT\no 18 I0BE GNVEN 10\nR S 1NC7UU\nB86P7\n",
+    "metadata": {
+      "back_id": "726694b",
+      "cookie": "blah",
+      "distance": 123,
+      "len_base": 171,
+      "len_exp": 164,
+      "score": 0.2807017543859649
+    },
+    "photo_id": "726694f"
+  },
+  {
+    "after": "F. S. Lincoln\nPhotographer\n114 EAST 32ND STREET\nNEW YORK CITY\n119P/12\n\nTHE NEW YORK PUBLIC LIBRARY\nASTOR LENOX & TILDEN\nFOUNDATIONS\n\n315G\nLOCAL HISTORY\nAND GENEALOGY\n\nThis photograph was used in\nNYPL Art Deco exhibit, Apr. 30, 1975.",
+    "before": "Center Theatre\n\nF. S. LINCOLN\nPhotographer\n114 EAST 32nd STREET\nNEW YORK CITY\n119P12\n\nThis photograph was used in\nNYPL Art Deco Exhibit, April 30 1975",
+    "metadata": {
+      "back_id": "709538b",
+      "cookie": "blah",
+      "distance": 123,
+      "len_base": 150,
+      "len_exp": 232,
+      "score": 0.18000000000000005
+    },
+    "photo_id": "709538f"
+  },
+  {
     "after": "(1)\n\n42 Union Square East and clearing on the S.E. corner of 17th Street, site of 44 Union Square and the Westmoreland apartment house (100 East 17th Street), which have been demolished to make room for the new Tammany Hall. Part of the Guardian Life Insurance Building and the old houses 105-17 East 17th Street, are shown across the clearing. The date is in the third year of Mayor James J. Walker's first term.\n\nJuly 7, 1928.\n\nP. L. Sperr.\n\n(2)\n\n42 Union Square East and the new Tammany Hall, at S.E. corner of 17th Street. The date is Election Day in what would have been the fourth and last year of Mayor James J. Walker's second term. Mayor O'Brien, elected the previous November to fill out the last year of Walker's term, was defeated by the Republican-Fusion Candidate La Guardia. A rough and bitter contest at the polls is going on as this picture is taken.\n\nNovember 7, 1933.\n\nP. L. Sperr.",
     "before": "(1)\n42 Union Square East and clearing on the S.E. corner of 17th Street, site of 44 Union Square and the Westmoreland apartment house (100 East 17th Street), which have been demolished to make room for the new Tammany Hall. Part of the Guardian Life Insurance Building and the old houses 105-17 East 17th Street, on the north side of 17th Street, are shown across the clearing. The date is in the third year of Mayor James J. Walker's first term.\nJuly 7, 1928.\nP. L. Sperr.\n\n(2)\n42 Union Square East and the new Tammany Hall, at S.E. corner of 17th Street. The date is Election Day in what would have been the fourth and last year of Mayor James J. Walker's second term. Mayor O'Brien, elected the previous November to fill out the last year of Walker's term, was defeated by the Republican - Fusion candidate [Fiorello] La Guardia. A rough and bitter contest at the polls is going on as this picture is taken.\nNovember 7, 1933.\nP. L. Sperr.\n\nStamp of The New York Public Library, Astor Lenox and Tilden Foundations.",
     "metadata": {
@@ -2663,6 +2663,19 @@ var changes = [
       "score": 0.8799212598425197
     },
     "photo_id": "723622f-b"
+  },
+  {
+    "after": "Seventh Ave., west side, north from West 12th Street, showing a clearance extending to 13th Street where the former \"Old Rhinelander Flats\" stood. At the N.W. corner of 13th Street is the Metropolitan Temple. This set consists of two negative and two positive photostats of original photographs that were discoloring in the files.\n\nJuly 18, 1937.\n\nP. L. Sperr.",
+    "before": "Seventh Ave., west side, north from West 12th Street, showing a clearance extending to 13th Street where the former \"Old Rhinelander Flats\" stood. At the N.W. corner of 13th Street is the Metropolitan Temple.\nJuly 18, 1937.\nP. L. Sperr.\n",
+    "metadata": {
+      "back_id": "709658b",
+      "cookie": "blah",
+      "distance": 122,
+      "len_base": 237,
+      "len_exp": 360,
+      "score": 0.4852320675105485
+    },
+    "photo_id": "709658f-c"
   },
   {
     "after": "Waverly Pl, s.s, e. fr. Grove St.\nMar. 6, 1933\nP.L. Sperr, photographer\n(This duplicate has been mounted with non-acidic materials because the original is deteriorating.\nJune 20, 1973)",
@@ -2678,17 +2691,17 @@ var changes = [
     "photo_id": "724314f-a"
   },
   {
-    "after": "Seventh Ave., west side, north from West 12th Street, showing a clearance extending to 13th Street where the former \"Old Rhinelander Flats\" stood. At the N.W. corner of 13th Street is the Metropolitan Temple. This set consists of two negative and two positive photostats of original photographs that were discoloring in the files.\n\nJuly 18, 1937.\n\nP. L. Sperr.",
-    "before": "Seventh Ave., west side, north from West 12th Street, showing a clearance extending to 13th Street where the former \"Old Rhinelander Flats\" stood. At the N.W. corner of 13th Street is the Metropolitan Temple.\nJuly 18, 1937.\nP. L. Sperr.\n",
+    "after": "P.L. Sperr, photographer\n8-6-1942",
+    "before": "P.L. Speer, photographer\n\n8-6-1942\n\n\nchurch at far end of road; St. Augustine RC Church, 116 6th Avenue, Brooklyn, NY between Sterling Place and Park Place.\n",
     "metadata": {
-      "back_id": "709658b",
+      "back_id": "706882b",
       "cookie": "blah",
-      "distance": 122,
-      "len_base": 237,
-      "len_exp": 360,
-      "score": 0.4852320675105485
+      "distance": 121,
+      "len_base": 157,
+      "len_exp": 33,
+      "score": 0.2292993630573248
     },
-    "photo_id": "709658f-c"
+    "photo_id": "706882f-a"
   },
   {
     "after": "Forty-Eighth Street, looking north-west from a point between Second and Third Avenues, Manhattan\n\nFederal Art Project\n\"Changing New York\"\nBerenice Abbott, photographer\n\n[Note: negative at Museum of the City of New York]\nCode I D\nFeb. 1, 1938\n\nThe towering structures are the Waldorf-Astoria and Shelton hotels. These structures are on Lexington Ave. at 49th St.  ",
@@ -2715,32 +2728,6 @@ var changes = [
       "score": 0.8273894436519258
     },
     "photo_id": "706774f-d"
-  },
-  {
-    "after": "P.L. Sperr, photographer\n8-6-1942",
-    "before": "P.L. Speer, photographer\n\n8-6-1942\n\n\nchurch at far end of road; St. Augustine RC Church, 116 6th Avenue, Brooklyn, NY between Sterling Place and Park Place.\n",
-    "metadata": {
-      "back_id": "706882b",
-      "cookie": "blah",
-      "distance": 121,
-      "len_base": 157,
-      "len_exp": 33,
-      "score": 0.2292993630573248
-    },
-    "photo_id": "706882f-a"
-  },
-  {
-    "after": "Sixth Avenue Extension South, north from West Houston Street. Shown under construction is the new thoroughfare and the subway under same. This incorporated the former Hancock Street. The 6 story tenements at the left are at the bend formed by Cornelia Street. This appears in both Views 1 and 2. View 3 is taken from atop the Graphic Arts Building on Varick Street.\nNote the dome atop the new church of the St. Carlos Missionary Fathers. This organization was formerly located where the circular open pit is in the center of View 2.\nThe Sixth Avenue \"El\" line turns eastward on W. 3rd Street. This structure was taken down in 1938.\n\nView 1: September 1, 1928\nView 2: October 11, 1928\nView 3: Juhe 23, 1930\n\nP. L. Sperr\n\nReader s... caption is mistaken. Should read: \"The six-story tenements at the left are at the bend of BEDFORD street.\"",
-    "before": "Sixth Avenue Extension South, north from West Houston Street. Shown under construction is the new thoroughfare and the subway under same. This incorporated the former Hancock Street. The 6 story tenements at the left are at the bend formed by Cornelia Street. This appears in both Views 1 and 2. View 3 is taken from atop the Graphic Arts Building on Varick Street.\nNote the dome atop the new church of the St. Carlos Missionary Fathers. This organization was formerly located where the circular open pit is in the center of View 2. The Sixth Avenue \"El\" line turns eastward on W. 3rd Street. This structure was taken down in 1938.\nView 1: September 1, 1928\nView 2: October 11, 1928\nView 3: June 23, 1930\nP. L. Sperr\n",
-    "metadata": {
-      "back_id": "709280b",
-      "cookie": "blah",
-      "distance": 120,
-      "len_base": 717,
-      "len_exp": 838,
-      "score": 0.8326359832635983
-    },
-    "photo_id": "709280f-c"
   },
   {
     "after": "Grove Street, south side, west from Bedford, to Hudson Streets. This thoroughfare makes a decided turn midway between these points; the area to east of same (foreground) was the old Hering Farm, and that to the west, the Trinity Church Farm. Upon the latter, on the west side of Hudson Street, is St. Luke's Protestant Episcopal Chapel, erected 1821-4. The cornerstone for this edifice was laid June 4, 1821. View 2 is photographed in an eastward direction from Hudson Street. View 3 shows the gateway entrance to Grove Court, for photo of same see files under that classification.\n\nEugene L. Armbruster Coll.\n\nP. L. Sperr\n\nGeorge D. Chinn\n\nAbout 1913\nMarch 15, 1932\nOctober 9, 1938.",
@@ -2782,17 +2769,17 @@ var changes = [
     "photo_id": "701354f-c"
   },
   {
-    "after": "42nd Street, south side, from Lexington to Madison Avenues, inclusive, showing the Chanin Building, 122 East 42nd Street, under construction.\n\nMay 15, 1928.\n\n",
-    "before": "Chanin Building under construction.\nSouthwest corner of Lexington Avenue and 42nd Street ",
+    "after": "Sixth Avenue Extension South, north from West Houston Street. Shown under construction is the new thoroughfare and the subway under same. This incorporated the former Hancock Street. The 6 story tenements at the left are at the bend formed by Cornelia Street. This appears in both Views 1 and 2. View 3 is taken from atop the Graphic Arts Building on Varick Street.\nNote the dome atop the new church of the St. Carlos Missionary Fathers. This organization was formerly located where the circular open pit is in the center of View 2.\nThe Sixth Avenue \"El\" line turns eastward on W. 3rd Street. This structure was taken down in 1938.\n\nView 1: September 1, 1928\nView 2: October 11, 1928\nView 3: Juhe 23, 1930\n\nP. L. Sperr\n\nReader s... caption is mistaken. Should read: \"The six-story tenements at the left are at the bend of BEDFORD street.\"",
+    "before": "Sixth Avenue Extension South, north from West Houston Street. Shown under construction is the new thoroughfare and the subway under same. This incorporated the former Hancock Street. The 6 story tenements at the left are at the bend formed by Cornelia Street. This appears in both Views 1 and 2. View 3 is taken from atop the Graphic Arts Building on Varick Street.\nNote the dome atop the new church of the St. Carlos Missionary Fathers. This organization was formerly located where the circular open pit is in the center of View 2. The Sixth Avenue \"El\" line turns eastward on W. 3rd Street. This structure was taken down in 1938.\nView 1: September 1, 1928\nView 2: October 11, 1928\nView 3: June 23, 1930\nP. L. Sperr\n",
     "metadata": {
-      "back_id": "712831b",
+      "back_id": "709280b",
       "cookie": "blah",
-      "distance": 119,
-      "len_base": 89,
-      "len_exp": 158,
-      "score": 0.0
+      "distance": 120,
+      "len_base": 717,
+      "len_exp": 838,
+      "score": 0.8326359832635983
     },
-    "photo_id": "712831f-a"
+    "photo_id": "709280f-c"
   },
   {
     "after": "Rockefeller Center, New York\nFebruary 12, 1975\n\nManhattan in Rockefeller Center have been New York City's most talked about restaurant and nightclub with outstanding entertainment and top cuisine plus an unexcelled view of the Manhattan skyline.\n\nOpened to the public as a formal skyscraper supper club in 1934, the Rainbow Room, above two stories in height, occupies the entire eastern end of the RCA Building's 65th floor. Its 24 floor-to-ceiling windows line the north and south sides of the spacious dining room permitting breathtaking views of Manhattan island and surrounding areas for 50 miles. Panels between the windows are covered with plum colored silk taffeta, complimented by gold draperies and emerald green carpeting. The tables are set on three levels beneath a magnificent crystal chandelier of classic design.\n\nCocktails and dining are offered nightly, seven days a week. Brunch is served from 11:30 a.m. to 3 p.m. Saturday and Sunday.\n\n#2726",
@@ -2806,6 +2793,19 @@ var changes = [
       "score": 0.8891992551210428
     },
     "photo_id": "713331f-a"
+  },
+  {
+    "after": "42nd Street, south side, from Lexington to Madison Avenues, inclusive, showing the Chanin Building, 122 East 42nd Street, under construction.\n\nMay 15, 1928.\n\n",
+    "before": "Chanin Building under construction.\nSouthwest corner of Lexington Avenue and 42nd Street ",
+    "metadata": {
+      "back_id": "712831b",
+      "cookie": "blah",
+      "distance": 119,
+      "len_base": 89,
+      "len_exp": 158,
+      "score": 0.0
+    },
+    "photo_id": "712831f-a"
   },
   {
     "after": "(1)\nEast 180th Street, north side, between Vyse and Bryant Avenues, showing the West Farms Presbyterian Church and grave yard. The church was built in 1815 and in its graveyard. The church was built in 1815 and in its graveyard are buried many Civil War Veterans. The monument is to the soldiers of the Civil War 1861-1865 and was erected in 1909.\nGift of Randall Comfort\n1911\n\n(2)\nThe West Farms Presbyterian Church, twenty-seven years later. Note the markedly changed exterior of the church and its environs.\nP. L. Sperr\nApril 16, 1938\n\n(3)\nAnother view of the old church.\nE. P. Chrystie\nAugust 23, 1925",
@@ -2847,19 +2847,6 @@ var changes = [
     "photo_id": "710058f-a"
   },
   {
-    "after": "(1)\nAve. V, south side, at the S.W. corner of 73rd Street. A view of the Stoothof Bergen House, sections of which are said to have been built as early as 1633; however the records are not definite or certain. In old history it was on Bergen or Broken Island, completely surrounded by water. On the maps of 1908 it appears as the Kings Hotel, erected in 1652.\n\n1923.\n\nEugene L. Armbruster Collection.\n\n(2)\nThe same, a closer view.\n\nMay 1923.\n\nEugene L. Armbruster Collection.\n\n(3)\nThe same, from another angle.\n\nMay 1923.\n\nEugene L. Armbruster Collection.",
-    "before": "(1)\nAve. V, south side, at the S.W. corner of E.73rd Street. A view of the Stoothoff Bergen House, sections of which are said to have been built as early as 1633; however the records are not definite or certain. In old history it was on Bergen or Broken Island, completely surrournded by water. On the maps of 1929,the building is not in existence. On the maps of 1908 it appears as the Kings Hotel, erected in 1652.\n1923.\nEugene L: Armbruster Collection.\n(2)\nThe same, a closer view.\nMay 1923.\nEugene L. Armbruster Collection.\n",
-    "metadata": {
-      "back_id": "707150b",
-      "cookie": "blah",
-      "distance": 115,
-      "len_base": 528,
-      "len_exp": 554,
-      "score": 0.7821969696969697
-    },
-    "photo_id": "707150f-a"
-  },
-  {
     "after": "(1) Triborough Bridge, under construction at Astoria Park, Queens.\nSeptember 9, 1935.\n\nP. L. Sperr.\n\n(2) The same, from a different angle.\nSeptember 9, 1935.\n\nP. L. Sperr.\n\nAnother copy of this photograph appears in the NYC photo file under \"Eastman Experimental Paste F-No. 2.\"  ",
     "before": "Tribereugh Bridge, umder constructiaw at Astoria Park, Qaeens.\nSeptewmer 9, 1935.\nP. L. Sperr.\nThe sane, frea a different angle.\nSeptewmer 9, 1935.\nP. L. Sperr.\n2.~~c-NRY 36:,17N9R~:223~R~7~RAYCE A.N4902\n22R 13S7S2W 62(-22N7 72R ~ N1 E'\n",
     "metadata": {
@@ -2871,6 +2858,19 @@ var changes = [
       "score": 0.5147679324894514
     },
     "photo_id": "731027f-b"
+  },
+  {
+    "after": "(1)\nAve. V, south side, at the S.W. corner of 73rd Street. A view of the Stoothof Bergen House, sections of which are said to have been built as early as 1633; however the records are not definite or certain. In old history it was on Bergen or Broken Island, completely surrounded by water. On the maps of 1908 it appears as the Kings Hotel, erected in 1652.\n\n1923.\n\nEugene L. Armbruster Collection.\n\n(2)\nThe same, a closer view.\n\nMay 1923.\n\nEugene L. Armbruster Collection.\n\n(3)\nThe same, from another angle.\n\nMay 1923.\n\nEugene L. Armbruster Collection.",
+    "before": "(1)\nAve. V, south side, at the S.W. corner of E.73rd Street. A view of the Stoothoff Bergen House, sections of which are said to have been built as early as 1633; however the records are not definite or certain. In old history it was on Bergen or Broken Island, completely surrournded by water. On the maps of 1929,the building is not in existence. On the maps of 1908 it appears as the Kings Hotel, erected in 1652.\n1923.\nEugene L: Armbruster Collection.\n(2)\nThe same, a closer view.\nMay 1923.\nEugene L. Armbruster Collection.\n",
+    "metadata": {
+      "back_id": "707150b",
+      "cookie": "blah",
+      "distance": 115,
+      "len_base": 528,
+      "len_exp": 554,
+      "score": 0.7821969696969697
+    },
+    "photo_id": "707150f-a"
   },
   {
     "after": "(1) Trinity Place, West Side and North from, but not including Cedar Street, There is also shown a portion of the Sixth Avenue \"I\". The intersection shown is Liberty Street.\n\nP.L.Sperr, \n \nJune 4th, 1933\n\n(2) Trinity Place, North of Cedar Street after the removal of the \"I\".\n\nP.L.Sperr, \n \nJuly 17th, 1939\n\n(3) Trinity Place, North across Thames Street, (rear of Trinity Church and Grave Yard,) also the Trinity Building on Sixth Avenue. The \"I\" was removed 1940-41.\n\nP.L.Sperr, \n \nMarch 4th, 1939",
@@ -2886,19 +2886,6 @@ var changes = [
     "photo_id": "723578f-c"
   },
   {
-    "after": "121-101 West 51st Street, west of, adjoining, and at the N.W. corner of Sixth Avenue.\n\nMarch 26, 1928.\n\nP.L. Sperr.\n\nW.P. Sun 3/6/39 - Nos. 111-123 W. 51st St. Hld to 112-116 W. 52nd St. to de 1st part of parking structure 10,000  ",
-    "before": "121-101 West 51st Street, west of, adjoining, and at the N.W.\ncorner of Sixth Avenue.\nMarch 26, 1928.\nP.L. Sperr.\n\n",
-    "metadata": {
-      "back_id": "713543b",
-      "cookie": "blah",
-      "distance": 113,
-      "len_base": 115,
-      "len_exp": 231,
-      "score": 0.017391304347826098
-    },
-    "photo_id": "713543f-a"
-  },
-  {
     "after": "Tri-Boro Bridge\nNew York City\nF. S. Lincoln\nPhotographer\n114 EAST 32nd STREET\nNEW YORK CITY\nWHEN PUBLISHED, CREDIT\nIS TO BE GIVEN TO\nF. S. LINCOLN\n461 P2",
     "before": "12S1DE2N4~\nPNM4N 85\nAEd ~~3415\nINCOLN  L3\nTE3E  (SaR\nT3E3E\nWRENPUBUSRED,CRE0II\nS 1NCTUN:\n461P2\n",
     "metadata": {
@@ -2910,6 +2897,19 @@ var changes = [
       "score": 0.0
     },
     "photo_id": "731000f"
+  },
+  {
+    "after": "121-101 West 51st Street, west of, adjoining, and at the N.W. corner of Sixth Avenue.\n\nMarch 26, 1928.\n\nP.L. Sperr.\n\nW.P. Sun 3/6/39 - Nos. 111-123 W. 51st St. Hld to 112-116 W. 52nd St. to de 1st part of parking structure 10,000  ",
+    "before": "121-101 West 51st Street, west of, adjoining, and at the N.W.\ncorner of Sixth Avenue.\nMarch 26, 1928.\nP.L. Sperr.\n\n",
+    "metadata": {
+      "back_id": "713543b",
+      "cookie": "blah",
+      "distance": 113,
+      "len_base": 115,
+      "len_exp": 231,
+      "score": 0.017391304347826098
+    },
+    "photo_id": "713543f-a"
   },
   {
     "after": "Madison Avenue, east side, between E. 23rd and E. 24th Streets, showing\nMetropolitan Life Insurance Building after dark.\n\nPhotographer Unknown\nabout 1908",
@@ -2964,17 +2964,17 @@ var changes = [
     "photo_id": "720710f-c"
   },
   {
-    "after": "Park Avenue, south on west side from 71st Street to 67th Street, on Lenox Hill, showing old Presbyterian Hospital between 71st and 70th, shortly before its demolition. On north west corner of 71st may be seen part of the G.S. Brewster residence, which will be demolished in 1929, and in the south west corner of 74th Street the George S. Blumenthal residence.\n\nP.L. Sperr, Photographer.\n\nView 2 is a duplicate of the above, mounted June 1973 with non-acidic glue, because the original print is deteriorating.",
-    "before": "Park Avenue, south on west side from 71st Street to 67st; Street, on Lenox Pill, showing old Presbyterien Hospital between 7lst and 70th, shortly before its demolition. On north west corner of 71st may be seen part of the G.S. Brewster residence, which will be demolished in 1929, end in the south west corner of 74th Street the George S.\nBlumenthal residence.\nMarch 31, 1928.\nP.L. Sperr,Photcgrapher.\n(ww 22 A 2o40Nee2 ( 06ee-eee, .-me2R2Re7eA: /F73 .Ar6 ~M25eeRc 3Nr6 Seewse 7Se eAgR~a7~P1DT7E 22J2Nio5S 77A0\n",
+    "after": "(1)\nBroadway, west side, north from Vesey (left) to Barclay (right) Streets, showing the Astor House, built in 1832 and opened in 1836 by Boyden, a hotel keeper from Boston. It was reopened September 1, 1875 by F.J. Allan and A.J. Dunn. The portion at the N.W. corner of Vesey Street was demolished and is today (1937) the site of the Astor Building; No. 217 Broadway. On this site in 1780 there was an encampment of Negro slaves, enticed by Lord Dunmore from Virginia. Large numbers died from small pox and were buried in the ground later occupied by Stewarts (Department Store) at Chambers Street and Broadway.\n\nDate----?\n\nEugene L. Armbruster Collection.\n\n(2)\nThe same, at a later date and showing a more extensive view to and including Park Place. Note the portion of the Astor House still standing. This was taken down in March 1926 and there upon was erected the 44-story Transportation Building, No. 225 Broadway, at the S.W. corner of Barclay Street. The Woolworth Building occupies the block between Barclay Street and Park Place.\n\nMay 1924.\n\nEugene L. Armbruster Collection.\n\n(3)\nA similar view, slightly more inclusive northward.\nAbout 1890.\n\nAugust Loeffler\nP. L. Sperr.",
+    "before": "Broadway, west side, north from Vesey (left) to Barclay (right) Streets, showing the Astor House, built in 1832 and opened in 1836 by Boyden, a hotel keeper from Boston. It was reopened September 1, 1875 by F.J. Allan and A.J. Dunn. The portion at the N.W. corner of Vesey Street was demolished and is today (1937) the site of the Astor Building, No. 217 Broadway. On this site in 1780 there was an encampment of Negro slaves, enticed by Lord Dunmore from Virginia. Large numbers died from small pox and were buried in the ground later occupied by Stewarts (Department Store) at Chambers Street and Broadway.\nDate---f\nEugane L. Armbruster Collection.\n(2)\nThe same, at a later date and showing a more extensive view to and including Park Place. Note the portion of the Astor House still standing. This was taken down in March 1926 and there upon was erected the 44Ntorv Transportation Bcilding, No. 225 Broadway, at the S.W. corner of Barclay Street. The Woolworth Building occupies the block between Barely\nStreet and Park Place.\nMay 1924.\nEugene L. Armbruster Collection.\n",
     "metadata": {
-      "back_id": "722331b",
+      "back_id": "717147b",
       "cookie": "blah",
       "distance": 110,
-      "len_base": 511,
-      "len_exp": 508,
-      "score": 0.7847358121330724
+      "len_base": 1073,
+      "len_exp": 1182,
+      "score": 0.8974836905871388
     },
-    "photo_id": "722331f-b"
+    "photo_id": "717147f-b"
   },
   {
     "after": "New York World's Fair, 1939\nfrom: F. S. LINCOLN\nPhotographer\n114 EAST 32nd STREET\nNEW YORK CITY\nWHEN PUBLISHED, CREDIT\nIS TO BE GIVEN TO\nF. S. LINCOLN\n881 P10",
@@ -2990,17 +2990,17 @@ var changes = [
     "photo_id": "726687f"
   },
   {
-    "after": "(1)\nBroadway, west side, north from Vesey (left) to Barclay (right) Streets, showing the Astor House, built in 1832 and opened in 1836 by Boyden, a hotel keeper from Boston. It was reopened September 1, 1875 by F.J. Allan and A.J. Dunn. The portion at the N.W. corner of Vesey Street was demolished and is today (1937) the site of the Astor Building; No. 217 Broadway. On this site in 1780 there was an encampment of Negro slaves, enticed by Lord Dunmore from Virginia. Large numbers died from small pox and were buried in the ground later occupied by Stewarts (Department Store) at Chambers Street and Broadway.\n\nDate----?\n\nEugene L. Armbruster Collection.\n\n(2)\nThe same, at a later date and showing a more extensive view to and including Park Place. Note the portion of the Astor House still standing. This was taken down in March 1926 and there upon was erected the 44-story Transportation Building, No. 225 Broadway, at the S.W. corner of Barclay Street. The Woolworth Building occupies the block between Barclay Street and Park Place.\n\nMay 1924.\n\nEugene L. Armbruster Collection.\n\n(3)\nA similar view, slightly more inclusive northward.\nAbout 1890.\n\nAugust Loeffler\nP. L. Sperr.",
-    "before": "Broadway, west side, north from Vesey (left) to Barclay (right) Streets, showing the Astor House, built in 1832 and opened in 1836 by Boyden, a hotel keeper from Boston. It was reopened September 1, 1875 by F.J. Allan and A.J. Dunn. The portion at the N.W. corner of Vesey Street was demolished and is today (1937) the site of the Astor Building, No. 217 Broadway. On this site in 1780 there was an encampment of Negro slaves, enticed by Lord Dunmore from Virginia. Large numbers died from small pox and were buried in the ground later occupied by Stewarts (Department Store) at Chambers Street and Broadway.\nDate---f\nEugane L. Armbruster Collection.\n(2)\nThe same, at a later date and showing a more extensive view to and including Park Place. Note the portion of the Astor House still standing. This was taken down in March 1926 and there upon was erected the 44Ntorv Transportation Bcilding, No. 225 Broadway, at the S.W. corner of Barclay Street. The Woolworth Building occupies the block between Barely\nStreet and Park Place.\nMay 1924.\nEugene L. Armbruster Collection.\n",
+    "after": "Park Avenue, south on west side from 71st Street to 67th Street, on Lenox Hill, showing old Presbyterian Hospital between 71st and 70th, shortly before its demolition. On north west corner of 71st may be seen part of the G.S. Brewster residence, which will be demolished in 1929, and in the south west corner of 74th Street the George S. Blumenthal residence.\n\nP.L. Sperr, Photographer.\n\nView 2 is a duplicate of the above, mounted June 1973 with non-acidic glue, because the original print is deteriorating.",
+    "before": "Park Avenue, south on west side from 71st Street to 67st; Street, on Lenox Pill, showing old Presbyterien Hospital between 7lst and 70th, shortly before its demolition. On north west corner of 71st may be seen part of the G.S. Brewster residence, which will be demolished in 1929, end in the south west corner of 74th Street the George S.\nBlumenthal residence.\nMarch 31, 1928.\nP.L. Sperr,Photcgrapher.\n(ww 22 A 2o40Nee2 ( 06ee-eee, .-me2R2Re7eA: /F73 .Ar6 ~M25eeRc 3Nr6 Seewse 7Se eAgR~a7~P1DT7E 22J2Nio5S 77A0\n",
     "metadata": {
-      "back_id": "717147b",
+      "back_id": "722331b",
       "cookie": "blah",
       "distance": 110,
-      "len_base": 1073,
-      "len_exp": 1182,
-      "score": 0.8974836905871388
+      "len_base": 511,
+      "len_exp": 508,
+      "score": 0.7847358121330724
     },
-    "photo_id": "717147f-b"
+    "photo_id": "722331f-b"
   },
   {
     "after": "225-211 East 51st Street, north side, between Second and Third Aves. Temple Beth Hamedroth is in the centre.\n\nMarch 28, 1928.\n\nP. L. Sperr.\n",
@@ -3016,30 +3016,17 @@ var changes = [
     "photo_id": "713509f-a"
   },
   {
-    "after": "(1) King's Highway, north side, between West 6th and 7th Streets, showing the home of N. and G. Stillwell in 1860. This house which was erected in 1830, was demolished in 1926 to make way for a theatre, an apartment house and a series of two family brick houses.\n\n1922.\n\nEugene L. Armbruster Collection.\n\n(2) The same, taken from West 7th Street.\n\nApril 1923.\n\nEugene L. Armbruster Collection.\n\n(3) The same, viewed from West 6th Street. The house in the rear is on Quentin Road. It was demolished in 1926.\n\nApril 1923.\n\nEugene L. Armbruster Collection.\n\n(4) The same, a rear view.\n\nApril 1923.\n\nEugene L. Armbruster Collection.\n\nASSUMING STREET TO BE EAST AND WEST",
-    "before": "(1)\nKing's Highway, north side, between West 6th and 7th Streets, showing the home of N. and G. Stillwell in 1860. This house which was erected in 1830, was demolished in 1926 to make way for a theatre, an\napartment house and a series of two family brick houses.\n1922.\nEugene L. Armbruster Collection.\n(2)\nThe same, taken from West 7th Street.\nApril 1923.\nEugene L. Armbruster Collection.\n(3)\nThe same, viewed from West 6th Street. The house in the rear\nis on Quentin Road. It was demolished in 1926.\nApril 1923.\nEugene L. Armbruster Collection.\n",
+    "after": "Edgecombe Ave., west side, south from and including West 162nd Street, showing the Jumel Mansion (Roger Morris House) in the center of Roger Morris Park. Buildings on the right are on Jumel Terrace, west side, south from West 162nd to 160th Streets. Prominent apartment house, (left) is the Roger Morris, No. 400 West 160th Street at the S.W. corner of Edgecombe Ave. October 1923.\n\nEugene L. Armbruster Collection.\n\nThe same, from another angle. October 1923.\n\nEugene L. Armbruster Collection.\n\nA view showing the facade, which faces West 160th Street. Edgecombe Ave. is on the right. October 1923.\n\nEugene L. Armbruster Collection.\n\nSimilar to No. 3, as viewed westward on the Ave. October 1923.\n\nEugene L. Armbruster Collection.",
+    "before": "(1)\nEdgecombe Ave., west side, south from and including West 162nd Street, showing the Jumel Mansion (Roger Morris House) in the center of Roger Morris Park. Buildings on the right are on Jumel Terrace, west side, south from West 162nd to 160th Streets. Prominent apartment house, (left) is the Roger Morris, No. 400 West 160th Street at the S.W. corner of Edgecombe Ave.\nOctober 1923.\nEugene L. Armbruster Collection.\n\n(2)\nThe same, from another angle.\nOctober 1923.\nEugene L. Armbruster Collection.\n\n(3)\nA view showing the facade, which faces West 160th Street. Edgecombe\nAve. is on the right.\nOctober 1923.\nEugene L. Armbruster Collection.\n",
     "metadata": {
-      "back_id": "705207b",
+      "back_id": "719633b",
       "cookie": "blah",
       "distance": 108,
-      "len_base": 546,
-      "len_exp": 665,
-      "score": 0.8021978021978022
+      "len_base": 643,
+      "len_exp": 731,
+      "score": 0.8320373250388803
     },
-    "photo_id": "705207f-c"
-  },
-  {
-    "after": "Richmond Hill Savings Bank\nJamaica Ave, Jamaica, L. I. Ny,\n115-20 Jamaica Ave\n\nF. S. LINCOLN\nPhotographer\n114 EAST 32nd STREET\nNEW YORK CITY\n\nWHEN PUBLISHED, CREDIT\nIS TO BE GIVEN TO\nF. S. LINCOLN\n480P2",
-    "before": "Richmond Hill Savings Bank\nJamaica Ave, Jamaica LI, NY\n115-20 Jamaica Ave\nF. S. Lincoln\nPhotographer\n",
-    "metadata": {
-      "back_id": "727005b",
-      "cookie": "blah",
-      "distance": 108,
-      "len_base": 101,
-      "len_exp": 202,
-      "score": 0.0
-    },
-    "photo_id": "727005f"
+    "photo_id": "719633f-d"
   },
   {
     "after": "Inst. of Ophthalmology\n165th & Ft. Washington\n\nColumbia Presbyterian Hospital\nInstitute of Ophthalmology.\n\nF. S. LINCOLN\nPhotographer\n114 EAST 32ND STREET\nNEW YORK CITY\n162 P1",
@@ -3055,43 +3042,17 @@ var changes = [
     "photo_id": "715734f"
   },
   {
-    "after": "(1)\n217-241 East 86th Street, north side, between Third and Second Avenues.\nMarch 29, 1929.\n\nP. L. Sperr.\n\n(2)\nThe same, from a different angle. Note the German \"Hofbraus\" here; a local feature of this (Yorkville) section.\nP. L. Sperr.\n\n(3)\nSimilar to No. 2 but slightly eastward. Elevated station shown is of the Second Ave. Line.\nP. L. Sperr.",
-    "before": "(1)\n217-241 East 86th Street, north side, between Third and Second\nAvenues.\nMarch 29, 1929.\nP. L. Sperr.\nNeg 6: 9y3\n(2)\nThe same, from a different angle. Note the German \"Hofbraus\" here; a local feature of this (Yorkville) section.\nNEG:~ 2943  August 17, 1936.\nP. L. Sperr.\n",
+    "after": "(1) King's Highway, north side, between West 6th and 7th Streets, showing the home of N. and G. Stillwell in 1860. This house which was erected in 1830, was demolished in 1926 to make way for a theatre, an apartment house and a series of two family brick houses.\n\n1922.\n\nEugene L. Armbruster Collection.\n\n(2) The same, taken from West 7th Street.\n\nApril 1923.\n\nEugene L. Armbruster Collection.\n\n(3) The same, viewed from West 6th Street. The house in the rear is on Quentin Road. It was demolished in 1926.\n\nApril 1923.\n\nEugene L. Armbruster Collection.\n\n(4) The same, a rear view.\n\nApril 1923.\n\nEugene L. Armbruster Collection.\n\nASSUMING STREET TO BE EAST AND WEST",
+    "before": "(1)\nKing's Highway, north side, between West 6th and 7th Streets, showing the home of N. and G. Stillwell in 1860. This house which was erected in 1830, was demolished in 1926 to make way for a theatre, an\napartment house and a series of two family brick houses.\n1922.\nEugene L. Armbruster Collection.\n(2)\nThe same, taken from West 7th Street.\nApril 1923.\nEugene L. Armbruster Collection.\n(3)\nThe same, viewed from West 6th Street. The house in the rear\nis on Quentin Road. It was demolished in 1926.\nApril 1923.\nEugene L. Armbruster Collection.\n",
     "metadata": {
-      "back_id": "714704b",
+      "back_id": "705207b",
       "cookie": "blah",
       "distance": 108,
-      "len_base": 274,
-      "len_exp": 344,
-      "score": 0.6058394160583942
+      "len_base": 546,
+      "len_exp": 665,
+      "score": 0.8021978021978022
     },
-    "photo_id": "714704f-c"
-  },
-  {
-    "after": "Edgecombe Ave., west side, south from and including West 162nd Street, showing the Jumel Mansion (Roger Morris House) in the center of Roger Morris Park. Buildings on the right are on Jumel Terrace, west side, south from West 162nd to 160th Streets. Prominent apartment house, (left) is the Roger Morris, No. 400 West 160th Street at the S.W. corner of Edgecombe Ave. October 1923.\n\nEugene L. Armbruster Collection.\n\nThe same, from another angle. October 1923.\n\nEugene L. Armbruster Collection.\n\nA view showing the facade, which faces West 160th Street. Edgecombe Ave. is on the right. October 1923.\n\nEugene L. Armbruster Collection.\n\nSimilar to No. 3, as viewed westward on the Ave. October 1923.\n\nEugene L. Armbruster Collection.",
-    "before": "(1)\nEdgecombe Ave., west side, south from and including West 162nd Street, showing the Jumel Mansion (Roger Morris House) in the center of Roger Morris Park. Buildings on the right are on Jumel Terrace, west side, south from West 162nd to 160th Streets. Prominent apartment house, (left) is the Roger Morris, No. 400 West 160th Street at the S.W. corner of Edgecombe Ave.\nOctober 1923.\nEugene L. Armbruster Collection.\n\n(2)\nThe same, from another angle.\nOctober 1923.\nEugene L. Armbruster Collection.\n\n(3)\nA view showing the facade, which faces West 160th Street. Edgecombe\nAve. is on the right.\nOctober 1923.\nEugene L. Armbruster Collection.\n",
-    "metadata": {
-      "back_id": "719633b",
-      "cookie": "blah",
-      "distance": 108,
-      "len_base": 643,
-      "len_exp": 731,
-      "score": 0.8320373250388803
-    },
-    "photo_id": "719633f-d"
-  },
-  {
-    "after": "Bryant Park, looking west from the rear of the New York Public Library, and showing the Park being drastically remodelled, under the regime of Park Commissioner Robert Moses. The remarkable thing about this job was the small size of the budget allowed for it and the results accomplished nonetheless. April 25, 1934.\n\n\nNote: A better print appears in the N.Y.C. picture file under \"Eastman Experimental Paste F-No.4\" #1336/B1",
-    "before": "Bryant Park, looking west from the rear of the New York Public Library, and showing the Park being drastically remodeled, under the regime of Park Commissioner Robert Moses. The remarkable thing about this job was the small size of the budget allowed for it and\nthe results accomplished nonetheless.\nApril 25, 1934.\n",
-    "metadata": {
-      "back_id": "717903b",
-      "cookie": "blah",
-      "distance": 108,
-      "len_base": 316,
-      "len_exp": 425,
-      "score": 0.6582278481012658
-    },
-    "photo_id": "717903f-a"
+    "photo_id": "705207f-c"
   },
   {
     "after": "St. Peter Claver Church, s.e. cor. Jefferson Avenue and Claver Place, Brooklyn.\n\nP. L. Sperr, photographer\nabout Aug. 24, 1941\n",
@@ -3107,6 +3068,45 @@ var changes = [
     "photo_id": "705112f-a"
   },
   {
+    "after": "Richmond Hill Savings Bank\nJamaica Ave, Jamaica, L. I. Ny,\n115-20 Jamaica Ave\n\nF. S. LINCOLN\nPhotographer\n114 EAST 32nd STREET\nNEW YORK CITY\n\nWHEN PUBLISHED, CREDIT\nIS TO BE GIVEN TO\nF. S. LINCOLN\n480P2",
+    "before": "Richmond Hill Savings Bank\nJamaica Ave, Jamaica LI, NY\n115-20 Jamaica Ave\nF. S. Lincoln\nPhotographer\n",
+    "metadata": {
+      "back_id": "727005b",
+      "cookie": "blah",
+      "distance": 108,
+      "len_base": 101,
+      "len_exp": 202,
+      "score": 0.0
+    },
+    "photo_id": "727005f"
+  },
+  {
+    "after": "Bryant Park, looking west from the rear of the New York Public Library, and showing the Park being drastically remodelled, under the regime of Park Commissioner Robert Moses. The remarkable thing about this job was the small size of the budget allowed for it and the results accomplished nonetheless. April 25, 1934.\n\n\nNote: A better print appears in the N.Y.C. picture file under \"Eastman Experimental Paste F-No.4\" #1336/B1",
+    "before": "Bryant Park, looking west from the rear of the New York Public Library, and showing the Park being drastically remodeled, under the regime of Park Commissioner Robert Moses. The remarkable thing about this job was the small size of the budget allowed for it and\nthe results accomplished nonetheless.\nApril 25, 1934.\n",
+    "metadata": {
+      "back_id": "717903b",
+      "cookie": "blah",
+      "distance": 108,
+      "len_base": 316,
+      "len_exp": 425,
+      "score": 0.6582278481012658
+    },
+    "photo_id": "717903f-a"
+  },
+  {
+    "after": "(1)\n217-241 East 86th Street, north side, between Third and Second Avenues.\nMarch 29, 1929.\n\nP. L. Sperr.\n\n(2)\nThe same, from a different angle. Note the German \"Hofbraus\" here; a local feature of this (Yorkville) section.\nP. L. Sperr.\n\n(3)\nSimilar to No. 2 but slightly eastward. Elevated station shown is of the Second Ave. Line.\nP. L. Sperr.",
+    "before": "(1)\n217-241 East 86th Street, north side, between Third and Second\nAvenues.\nMarch 29, 1929.\nP. L. Sperr.\nNeg 6: 9y3\n(2)\nThe same, from a different angle. Note the German \"Hofbraus\" here; a local feature of this (Yorkville) section.\nNEG:~ 2943  August 17, 1936.\nP. L. Sperr.\n",
+    "metadata": {
+      "back_id": "714704b",
+      "cookie": "blah",
+      "distance": 108,
+      "len_base": 274,
+      "len_exp": 344,
+      "score": 0.6058394160583942
+    },
+    "photo_id": "714704f-c"
+  },
+  {
     "after": "West 10th Street, east side, south from Surf Ave., to the Boardwalk, showing the Cyclone Roller Coaster.\n\nJanuary 1924.\n\nEugene L. Armbruster Collection.",
     "before": "West 10th Street, east side, south from Surf Ave., to the Boardwalk,\nshowing the Cyclone Roller Coaster.\nJanuary 1924.\nEugene L. Arwbruster Collection.\n\nThis is not the Cyclone which was not yet built in 1924. The Cyclone opened on this sight in June of 1927 ",
     "metadata": {
@@ -3118,19 +3118,6 @@ var changes = [
       "score": 0.5868725868725868
     },
     "photo_id": "702513f-a"
-  },
-  {
-    "after": "St. north\nDECATURE FROM BROADWAY\nRose Knit Shop is at 966 Decatur\n\nIdentified by: F. Distenfeld.\nForest Hills, N.Y.\nMay 12, 1968\n\nPhotographer: P.L. Sperr\nAug. 3, 1941",
-    "before": "Decatur St. north from Broadway\nRose Knit Shop is at 966 Decatur\n\nPhotographer: P.L. Sperr\nAug. 3, 1941\n\nIdentified by: F. Distenfeld\nForest Hills, N.Y.\nMay 12,1968\n",
-    "metadata": {
-      "back_id": "703948b",
-      "cookie": "blah",
-      "distance": 106,
-      "len_base": 165,
-      "len_exp": 167,
-      "score": 0.35757575757575755
-    },
-    "photo_id": "703948f-a"
   },
   {
     "after": "(1)\n\n9-17 Commerce Street, north side, at, adjoining, and west of Seventh Ave. All these are frames with stucco and brick fronts.\n\nMarch 15, 1932.\n\nP. L. Sperr.\n\n(2)\n\nA view solely of Nos. 15 and 17; the latter being a 2\u00bd-story affair.\nThis picture has been reversed in the printing.\n\nMarch 25, 1932.\n\nJ. Clarence Davies Collection.\n\n(3)\n\nThe same as No. 1\n\nMarch 15, 1932.\n\nP. L. Sperr.",
@@ -3146,17 +3133,17 @@ var changes = [
     "photo_id": "719161f-c"
   },
   {
-    "after": "\nWall Street, at the N.W. corner of Pearl Street. Also shown is pearl Street, west side, north from Wall, to and including Pine Stret s. The view shows the Second and Third Ave., elevated structure on Pearl Street.\n\nAbout 1929.\n\nUnderwood & Underwood.\n\nThis is the new bldg of the Saving Bank for Savings.",
-    "before": "Wall Street, at the N.W. corner of Pearl Street. Also shown is Pearl Street, west side, north from Wall, to and including Pine Street. The view shows the Second and Third Ave., elevated structure on Pearl Street.\n\nThis is the new building of K Seamens Bank for Savings.\nAbout 1929.\nUnderwood & Underwood.\n  rg7  1(S a. ~ Ee7 247 , k;  -A\nC:5r-.  A  ,721 0 2~R\n",
+    "after": "St. north\nDECATURE FROM BROADWAY\nRose Knit Shop is at 966 Decatur\n\nIdentified by: F. Distenfeld.\nForest Hills, N.Y.\nMay 12, 1968\n\nPhotographer: P.L. Sperr\nAug. 3, 1941",
+    "before": "Decatur St. north from Broadway\nRose Knit Shop is at 966 Decatur\n\nPhotographer: P.L. Sperr\nAug. 3, 1941\n\nIdentified by: F. Distenfeld\nForest Hills, N.Y.\nMay 12,1968\n",
     "metadata": {
-      "back_id": "723943b",
+      "back_id": "703948b",
       "cookie": "blah",
-      "distance": 105,
-      "len_base": 360,
-      "len_exp": 305,
-      "score": 0.7083333333333333
+      "distance": 106,
+      "len_base": 165,
+      "len_exp": 167,
+      "score": 0.35757575757575755
     },
-    "photo_id": "723943f-a"
+    "photo_id": "703948f-a"
   },
   {
     "after": "Third Avenue, west side, north from 43rd Street, seen from Bartholomew Building on N.E. corner of Third Avenue and 42nd Street.\nThe building under construction between 46th and 47th Streets is the new Buchanan apartment house.\nIn the center of the picture is the Hotel Shelton, Lexington Avenue at S.E. corner of 49th Street, and a little to the left may be seen the twin towers of the New York Central power plant at 49th Street between Park and Lexington Avenues, about to be demolished to make way for the new Waldorf Astoria. Behind them, on the horizon are the new hotels Savoy-Plaza and Sherry Netherland at Fifth Avenue and 59th Street.\n\nP.L. Sperr, Photographer.",
@@ -3172,6 +3159,19 @@ var changes = [
     "photo_id": "708072f-a"
   },
   {
+    "after": "\nWall Street, at the N.W. corner of Pearl Street. Also shown is pearl Street, west side, north from Wall, to and including Pine Stret s. The view shows the Second and Third Ave., elevated structure on Pearl Street.\n\nAbout 1929.\n\nUnderwood & Underwood.\n\nThis is the new bldg of the Saving Bank for Savings.",
+    "before": "Wall Street, at the N.W. corner of Pearl Street. Also shown is Pearl Street, west side, north from Wall, to and including Pine Street. The view shows the Second and Third Ave., elevated structure on Pearl Street.\n\nThis is the new building of K Seamens Bank for Savings.\nAbout 1929.\nUnderwood & Underwood.\n  rg7  1(S a. ~ Ee7 247 , k;  -A\nC:5r-.  A  ,721 0 2~R\n",
+    "metadata": {
+      "back_id": "723943b",
+      "cookie": "blah",
+      "distance": 105,
+      "len_base": 360,
+      "len_exp": 305,
+      "score": 0.7083333333333333
+    },
+    "photo_id": "723943f-a"
+  },
+  {
     "after": "F. S. LINCOLN\nPhotographer\n114 EAST 32nd STREET\nNEW YORK CITY\n\nTHIS PRINT IS SOLD FOR REFERENCE ONLY. REPRODUCTION IS NOT ALLOWED IN ANY FORM WITHOUT WRITTEN PERMISSION FROM F. S. LINCOLN\n\n388P18\nKRESS BLDG.",
     "before": "9w gw 1  P. 3. LINCOLN\nPhotographer\n114 EAST 11J STREET\nNi8Vv yORK GITV\nTNIIE PT:INIT 1S SOLDD POONh RREPEPPENIOCE ONL.Y. R:EP7RNOOODDCCT1ON 1S NOT AL. OOVVEDD IN ANIY P0R1M V1TR:OU:T VUPh:TTENI PERRMI1SS1OONI PRNOON F. S. L.1ECO.N\n40  ooSSP1S\n~9.  W(9eSs r  O..DG.\n",
     "metadata": {
@@ -3183,32 +3183,6 @@ var changes = [
       "score": 0.6052631578947368
     },
     "photo_id": "708647f"
-  },
-  {
-    "after": "Kill van Kull Bridge\nStaten Island to Bayonne, N.J.\n\nF. S. LINCOLN\nPhotographer\n114 EAST 32nd STREET\nNEW YORK CITY\n\nWHEN PUBLISHED, CREDIT\nIS TO BE GIVEN TO\nF. S. LINCOLN\n111P6",
-    "before": "T77Ae..4,1 2A-96\n.2Sr-ze- eW-o NS 22Vo-eg J\nF. S LINCOLN\nPhoographer\nVRENPUEUSRED,CEE0IT\n19 I0 BE GIVPN I0\nR S 1N.4UU\n111P6\n",
-    "metadata": {
-      "back_id": "730850b",
-      "cookie": "blah",
-      "distance": 104,
-      "len_base": 124,
-      "len_exp": 176,
-      "score": 0.16129032258064513
-    },
-    "photo_id": "730850f"
-  },
-  {
-    "after": "Newport Street, east from Rockaway Ave., showing in the center a 5-story building, which is P.S. No. 184.\nMarch 1925.\nEugene L. Armbruster Collection.",
-    "before": "Newport Street, east from Rockaway Ave., showing in the center a 5-story\nbuilding, which is P.S. No. 164.\nMarch 1925.\nEugene L. Armbruster Collection.\n\n=======================================\n\nTHAT'S P.S. 184, NOT 164\n\n-- Steve Morse <steve@stevemorse.org>",
-    "metadata": {
-      "back_id": "706058b",
-      "cookie": "blah",
-      "distance": 104,
-      "len_base": 256,
-      "len_exp": 150,
-      "score": 0.59375
-    },
-    "photo_id": "706058f-a"
   },
   {
     "after": "3rd Avenue, at the S. E. corner of 27th Street. These buildings were razed later in the year to make possible the widening of the avenue and its incorporation into the Belt Parkway. The tracks are on Third Avenue.\n\nP. L. Sperr\n\nJuly 21, 1940\nviews 1,\n\nview 2: Neg. No A-968\n\nview - shows Nos. 253-51 Third Avenue, adjoining the N. E. corner of 25th Street.",
@@ -3224,17 +3198,30 @@ var changes = [
     "photo_id": "702287f-b"
   },
   {
-    "after": "(1)\nThroop Ave., west side, north from, but not including Hart to Willoughby Streets, showing the Throop Ave. Presbyterian Church, which had its origin in a mission established in 1852, on the corner of Throop Ave., and Bartlett Street. The church as such was organized on June 8, 1862, at Throop Ave., near Hopkins Street. In 1867 it moved to a small frame building at the S.W. corner of Throop and Willoughby Aves. The cornerstone of this building, was laid on November 2, 1889. A part of the wall fell during a storm on January 9, 1890. The edifice was opened for service on November 2, 1890; shortly thereafter it was destroyed by fire. A new site was later acquired at the corner of Throop Ave., and Macon Street.\nOctober 12, 1911.\n\nEugene L. Armbruster Collection.\n\n(2)\nThe same, showing a closer view of the church.\nOctober 12, 1911.\n\nEugene L. Armbruster Collection.",
-    "before": "(1)\nThroop Ave., west side, north from, but not including Hart to Willoughby Streets, showing the Throop Ave. Presbyterian Church, which had its origin in a mission established in 1852, on the corner of Throop Ave., and Bartlett Street. The church as such was organized on June 8, 1862, at Throop Ave., near Hopkins Street. In 1867 it moved to a small frame building at the S.W. corner of Throop and Willoughby Aves. The cornerstone of this building, was laid on November 2, 1889. A part of the wall fell during a storm on January 9, 1890. The edifice was opened for service on November 2, 1890; shortly thereafter it was destroyed by fire. A new site was later acquired at the corner of Throop Ave. and Macon Street.\nOctober 12, 1911.\nEugene L. Armbruster Collection.\n",
+    "after": "Newport Street, east from Rockaway Ave., showing in the center a 5-story building, which is P.S. No. 184.\nMarch 1925.\nEugene L. Armbruster Collection.",
+    "before": "Newport Street, east from Rockaway Ave., showing in the center a 5-story\nbuilding, which is P.S. No. 164.\nMarch 1925.\nEugene L. Armbruster Collection.\n\n=======================================\n\nTHAT'S P.S. 184, NOT 164\n\n-- Steve Morse <steve@stevemorse.org>",
     "metadata": {
-      "back_id": "707048b",
+      "back_id": "706058b",
       "cookie": "blah",
-      "distance": 103,
-      "len_base": 769,
-      "len_exp": 874,
-      "score": 0.8660598179453836
+      "distance": 104,
+      "len_base": 256,
+      "len_exp": 150,
+      "score": 0.59375
     },
-    "photo_id": "707048f-a"
+    "photo_id": "706058f-a"
+  },
+  {
+    "after": "Kill van Kull Bridge\nStaten Island to Bayonne, N.J.\n\nF. S. LINCOLN\nPhotographer\n114 EAST 32nd STREET\nNEW YORK CITY\n\nWHEN PUBLISHED, CREDIT\nIS TO BE GIVEN TO\nF. S. LINCOLN\n111P6",
+    "before": "T77Ae..4,1 2A-96\n.2Sr-ze- eW-o NS 22Vo-eg J\nF. S LINCOLN\nPhoographer\nVRENPUEUSRED,CEE0IT\n19 I0 BE GIVPN I0\nR S 1N.4UU\n111P6\n",
+    "metadata": {
+      "back_id": "730850b",
+      "cookie": "blah",
+      "distance": 104,
+      "len_base": 124,
+      "len_exp": 176,
+      "score": 0.16129032258064513
+    },
+    "photo_id": "730850f"
   },
   {
     "after": "From:  F. S. LINCOLN - 5/8/39\nPhotographer\n114 EAST 32nd STREET\nNEW YORK CITY\nWHEN PUBLISHED, CREDIT\nIS TO BE GIVEN TO\nF. S. LINCOLN\n881P14\nNew York World's Fair 1939",
@@ -3250,6 +3237,19 @@ var changes = [
     "photo_id": "726690f"
   },
   {
+    "after": "(1)\nThroop Ave., west side, north from, but not including Hart to Willoughby Streets, showing the Throop Ave. Presbyterian Church, which had its origin in a mission established in 1852, on the corner of Throop Ave., and Bartlett Street. The church as such was organized on June 8, 1862, at Throop Ave., near Hopkins Street. In 1867 it moved to a small frame building at the S.W. corner of Throop and Willoughby Aves. The cornerstone of this building, was laid on November 2, 1889. A part of the wall fell during a storm on January 9, 1890. The edifice was opened for service on November 2, 1890; shortly thereafter it was destroyed by fire. A new site was later acquired at the corner of Throop Ave., and Macon Street.\nOctober 12, 1911.\n\nEugene L. Armbruster Collection.\n\n(2)\nThe same, showing a closer view of the church.\nOctober 12, 1911.\n\nEugene L. Armbruster Collection.",
+    "before": "(1)\nThroop Ave., west side, north from, but not including Hart to Willoughby Streets, showing the Throop Ave. Presbyterian Church, which had its origin in a mission established in 1852, on the corner of Throop Ave., and Bartlett Street. The church as such was organized on June 8, 1862, at Throop Ave., near Hopkins Street. In 1867 it moved to a small frame building at the S.W. corner of Throop and Willoughby Aves. The cornerstone of this building, was laid on November 2, 1889. A part of the wall fell during a storm on January 9, 1890. The edifice was opened for service on November 2, 1890; shortly thereafter it was destroyed by fire. A new site was later acquired at the corner of Throop Ave. and Macon Street.\nOctober 12, 1911.\nEugene L. Armbruster Collection.\n",
+    "metadata": {
+      "back_id": "707048b",
+      "cookie": "blah",
+      "distance": 103,
+      "len_base": 769,
+      "len_exp": 874,
+      "score": 0.8660598179453836
+    },
+    "photo_id": "707048f-a"
+  },
+  {
     "after": "(1)\n1262 Richmond Terrace, east side, south of Pelton Avenue, showing a front view of the Pelton House. It was in part erected about 1730, another part was added about 1776, and was the headquarters of General Cortlandt Skinner during the Revolutionary War. It is said that major Andr\u00e9 was billeted here during the Revolutionary War, and that Prince William Henry, afterwards King William IV, was here once. Rockwell Kent, nationally known artist, occupied for a time a part of the house. For additional data see \"Staten Island and its People\" by Leng and Davis, vol. 2, p. 936; also \"Legends, Stories and Folklore of Old Staten Island.\" by Hine and Davis, p. 86.\n\n1895\n\nPhoto by Aug. Loeffler\nFrom Staten Island Museum Collection through P. L. Sperr\n\n(2)\nAnother front view of the house, at a later date.\n\n1924\n\nP. L. Sperr\n\n(3)\nA view of the rear of the house, facing south.\n\n1924\n\nP. L. Sperr",
     "before": "1262 Richmond Terrace, east side, south of\nPelton Avenue, showing a :ront view of the Pelton House. It was in part erecteo about 1730, anothcr part was added about 1776, and was the headquarters of General Cortlandt Skinner during the Revolutionary War. It is said tnat major Andre was billeted hcre during the Revolutionary War, and that Prince William Henry, afterwards King William IV, was here once. Rockwell hent, nati3Ial1y known artist, occupleo for a time a part of the house. For additional data see \"Staten Island and its People\" by Leng and Davis, vol. 2, p. 936; also \"Legends, Stories and Folklore of O1d Staten Island.\" by Hine and Davis, p. 86.\n1895\nPhoto by AuP. Loeffler\nFrom Staten Island Museum Collection through P. L. Sperr\n(2)\nAnother front view of the house, at a later\ndate.\n",
     "metadata": {
@@ -3261,6 +3261,19 @@ var changes = [
       "score": 0.8710888610763454
     },
     "photo_id": "729481f-c"
+  },
+  {
+    "after": "F. S. LINCOLN\nPhotographer\n114 EAST 32nd STREET\nNEW YORK CITY\nTH'S PRINT IS SOLD FOR REFERENCE ONLY. REPRODUC'TION IS NOT ALLOWED IN ANY FORM WITHOUT WRITTEN PERMISSION FROM F. S. LINCOLN\n388P13",
+    "before": "P. S LLINCOLN\nPhotographer\n1Ni 5AST 1e STREET\niem RRINIT 1E SOLD POR: R:EPER:ENiCE ONiLV. wiIAiOOVT iAR TE5N1 9 RANiSE ON PRON( F S L1NCOLN\noS8P1S\n",
+    "metadata": {
+      "back_id": "708645b",
+      "cookie": "blah",
+      "distance": 102,
+      "len_base": 147,
+      "len_exp": 194,
+      "score": 0.30612244897959184
+    },
+    "photo_id": "708645f"
   },
   {
     "after": "Renard Motors Building\nNY Worlds Fair 1939\n\nF. S. Lincoln\nPhotographer\n114 EAST 32nd STREET\nNEW YORK CITY\n\nWHEN PUBLISHED; CREDIT\nIS TO BE GIVEN TO\nF. S. LINCOLN\n\n881P12\n",
@@ -3289,19 +3302,6 @@ var changes = [
     "photo_id": "729285f-a"
   },
   {
-    "after": "F. S. LINCOLN\nPhotographer\n114 EAST 32nd STREET\nNEW YORK CITY\nTH'S PRINT IS SOLD FOR REFERENCE ONLY. REPRODUC'TION IS NOT ALLOWED IN ANY FORM WITHOUT WRITTEN PERMISSION FROM F. S. LINCOLN\n388P13",
-    "before": "P. S LLINCOLN\nPhotographer\n1Ni 5AST 1e STREET\niem RRINIT 1E SOLD POR: R:EPER:ENiCE ONiLV. wiIAiOOVT iAR TE5N1 9 RANiSE ON PRON( F S L1NCOLN\noS8P1S\n",
-    "metadata": {
-      "back_id": "708645b",
-      "cookie": "blah",
-      "distance": 102,
-      "len_base": 147,
-      "len_exp": 194,
-      "score": 0.30612244897959184
-    },
-    "photo_id": "708645f"
-  },
-  {
     "after": "Eighth Avenue at N. W. corner of 48th Street.\nP.L. Sperr, Photographer.\n\n(1)\nEighth Avenue at N. W. corner of 48th Street.\nP.L. Sperr, Photographer.\n\n(2)\nEighth Avenue at N. W. corner of 48th Street.\nP.L. Sperr, Photographer.\n\n(3)\nEighth Avenue at N. W. corner of 48th Street.\nP.L. Sperr, Photographer.",
     "before": "Eighth Avenue at N. W. corner of 48th Street.\nFebruary 3, 1929.\nP.L. Sperr,Photographer.\nEighth Avenue at N. W. corner of 48th Street.\nFebruary 3, 1929.\nP.L. Sperr, Photographer.\nEighth Avenue at N. W. corner of 48th Street.\nFebruary 19, 1933.\nP.L. Sperr,Photographer.\n",
     "metadata": {
@@ -3313,32 +3313,6 @@ var changes = [
       "score": 0.6245353159851301
     },
     "photo_id": "710198f-c"
-  },
-  {
-    "after": "World's Fair 1939 - Brazil\nFlushing Meadow Park\n\nF.S. LINCOLN\nPhotographer\n114 EAST 32nd STREET\nNEW YORK CITY\n\n886P67\n8867721",
-    "before": "A606  Rese E-g\n9S22 22222N4\ne  22E1E99VS\nL. .NrS7\nTEM2217:\nN6P 85-\n. 8EGP72 1\n",
-    "metadata": {
-      "back_id": "726701b",
-      "cookie": "blah",
-      "distance": 100,
-      "len_base": 78,
-      "len_exp": 125,
-      "score": 0.0
-    },
-    "photo_id": "726701f"
-  },
-  {
-    "after": "(1)\npark Ave., west side, south from East 133rd to 132nd Streets.\n\nMarch 6, 1936.\n\nP. L. Sperr.\n\n(2)\nThe same, showing a view farther south. The S.W. corner of East 133rd Street is now an empty lot as a result of the demolition of three houses which formerly occupied this site (see view 1). Also note the empty space (in centre of view) caused by the demolition of one of the houses. Also visible (on extreme left) is a portion of the elevated structure of the New York Central Railroad which, at this point, makes a sharp bend eastward and heads across the Harlem River.\n\nDecember 16, 1936.\n\nP. L. Sperr.\n\n(3)\nThe same, from a point slightly northward. The prominent 5-story building shown is No. 1980 Park Ave., at the N.W. corner of East 133rd Street and also bears No. 65 East 133rd Street. Also seen (in centre of view) are the rears of 3-story houses facing on the north side of East 132nd Street.\n\nDecember 16, 1936.\n\nP. L. Sperr.",
-    "before": "The same, showing a view farther south. The S.W. corner of East 133rd Street is now an empty lot as a result of the demolition of three houses which formerly occupied this site (see view 1). Also note the empty space (in centre of view) caused by the demolition of one of the houses. Also visible (on extreme left) is a portion of the elevated structure of the New York Central Railroad which, at this point, makes a sharp bend eastward\nand heads across the Harlem River.\nDecember 16, 1936.\nP. L. Sperr.\n(3)\nThe same, from a point slightly northward. The prominent 5-story building shown is No. 1950 Park Ave., at the N.W. corner of East 133rd Street and also bears No. 65 East 133rd Street. Also seen (in centre of view) are the rears of 3-story houses facing on the north side of East 132nd Street.\nDecember 16, 1936.\nP.  'L. Sperr.\n",
-    "metadata": {
-      "back_id": "722409b",
-      "cookie": "blah",
-      "distance": 100,
-      "len_base": 835,
-      "len_exp": 938,
-      "score": 0.8802395209580838
-    },
-    "photo_id": "722409f-c"
   },
   {
     "after": "F. S. LINCOLN\nPhotographer\n114 EAST 32nd STREET\nNEW YORK CITY\n886P64\nWorld's Fair 1939 - Brazil\nFlushing Meadows Park",
@@ -3354,6 +3328,19 @@ var changes = [
     "photo_id": "726698f"
   },
   {
+    "after": "703-705 Broadway, north of the N.W. corner of West 4th Street.\nFebruary 7, 1937.\n\nP. L. Sperr.\n\nJohn G. Wendel, furrier, lived in 705 Broadway from 1842 - 1854 and moved from there to his mansion at 39th St & Fifth Ave.\nInfo from Mary Watkins.",
+    "before": "703-705 Broadway, north of the N.W. corner of West 4th Street.\nFebruary 7, 1937\nP. L. Sperr\n\nJohn G. Wendel, furrier, lived in 705 Broadway from 1842-1854 ???? moved from there to his mansion at 39th St. and Fifth Ave.\n\n~2~~~ 2222S, 9---,E--:\n2M3E 11--SS22- EW2EE352S2:\n5029--- 93~-S3ESE.EEE, 88--SS 2E\nVw A-ANS8-8\n",
+    "metadata": {
+      "back_id": "717286b",
+      "cookie": "blah",
+      "distance": 100,
+      "len_base": 315,
+      "len_exp": 243,
+      "score": 0.6825396825396826
+    },
+    "photo_id": "717286f-a"
+  },
+  {
     "after": "Jerome Ave., west side, north from (No. 2553) but not including West 190th Street. The 5-story building is at the N.W. corner of West 192nd Street and on the right is the elevated structure of the I.R.T. Woodlawn subway line.\n\nP. L. Sperr.  \n\nJanuary 30, 1938.\n\n\"El\" was erected 1915-17\n\nWhy? Look at autos & clothes, very earliest is 1932 but Sperr dates incorrectly.",
     "before": "Jerome Ave., west side, north from (No. 2553) but not including West 190th Street. The 5-story building is at the N.W. corner of West 192nd Street and on the right is the elevated structure of the I.R.T. Woodlawn subway line.\nJanuary 30, 1938.\nP. L. Sperr.\n    .LL~F~SS.\n3.. 22:74\n",
     "metadata": {
@@ -3367,17 +3354,17 @@ var changes = [
     "photo_id": "701342f-a"
   },
   {
-    "after": "703-705 Broadway, north of the N.W. corner of West 4th Street.\nFebruary 7, 1937.\n\nP. L. Sperr.\n\nJohn G. Wendel, furrier, lived in 705 Broadway from 1842 - 1854 and moved from there to his mansion at 39th St & Fifth Ave.\nInfo from Mary Watkins.",
-    "before": "703-705 Broadway, north of the N.W. corner of West 4th Street.\nFebruary 7, 1937\nP. L. Sperr\n\nJohn G. Wendel, furrier, lived in 705 Broadway from 1842-1854 ???? moved from there to his mansion at 39th St. and Fifth Ave.\n\n~2~~~ 2222S, 9---,E--:\n2M3E 11--SS22- EW2EE352S2:\n5029--- 93~-S3ESE.EEE, 88--SS 2E\nVw A-ANS8-8\n",
+    "after": "(1)\npark Ave., west side, south from East 133rd to 132nd Streets.\n\nMarch 6, 1936.\n\nP. L. Sperr.\n\n(2)\nThe same, showing a view farther south. The S.W. corner of East 133rd Street is now an empty lot as a result of the demolition of three houses which formerly occupied this site (see view 1). Also note the empty space (in centre of view) caused by the demolition of one of the houses. Also visible (on extreme left) is a portion of the elevated structure of the New York Central Railroad which, at this point, makes a sharp bend eastward and heads across the Harlem River.\n\nDecember 16, 1936.\n\nP. L. Sperr.\n\n(3)\nThe same, from a point slightly northward. The prominent 5-story building shown is No. 1980 Park Ave., at the N.W. corner of East 133rd Street and also bears No. 65 East 133rd Street. Also seen (in centre of view) are the rears of 3-story houses facing on the north side of East 132nd Street.\n\nDecember 16, 1936.\n\nP. L. Sperr.",
+    "before": "The same, showing a view farther south. The S.W. corner of East 133rd Street is now an empty lot as a result of the demolition of three houses which formerly occupied this site (see view 1). Also note the empty space (in centre of view) caused by the demolition of one of the houses. Also visible (on extreme left) is a portion of the elevated structure of the New York Central Railroad which, at this point, makes a sharp bend eastward\nand heads across the Harlem River.\nDecember 16, 1936.\nP. L. Sperr.\n(3)\nThe same, from a point slightly northward. The prominent 5-story building shown is No. 1950 Park Ave., at the N.W. corner of East 133rd Street and also bears No. 65 East 133rd Street. Also seen (in centre of view) are the rears of 3-story houses facing on the north side of East 132nd Street.\nDecember 16, 1936.\nP.  'L. Sperr.\n",
     "metadata": {
-      "back_id": "717286b",
+      "back_id": "722409b",
       "cookie": "blah",
       "distance": 100,
-      "len_base": 315,
-      "len_exp": 243,
-      "score": 0.6825396825396826
+      "len_base": 835,
+      "len_exp": 938,
+      "score": 0.8802395209580838
     },
-    "photo_id": "717286f-a"
+    "photo_id": "722409f-c"
   },
   {
     "after": "Maiden Lane, west from and including Front Street (across the foreground), showing what appears to be a tobacco center at this location. This thoroughfare which derived its name from the Dutch, divides at a point above Gold Street to form in addition Liberty Street (left). The large structure forming the apex at that point is the Great American Insurance Company Building. To the left of same is the 24 storied Fire Companies Building. Note the Singer Building tower (with flag atop) in the background.\n\nOctober 1914.\n\nGeorge L. Balgue.\n\nSeaman's Bank for Savings, begun in 1829 on 2nd floor of 141 Maiden Lane.\n\nW. Corner (Peter Murdock)",
@@ -3393,56 +3380,17 @@ var changes = [
     "photo_id": "721562f-a"
   },
   {
-    "after": "Penny Bridge, showing the Bridge house at the foot of Laurel Hill Blvd.\n\nP.L. Sperr\n\nNote: The bridge was closed down when the new span, the Kosciuszko Bridge, was built. The closing took place in 1939. These views are across Newtown Creek, from the Brooklyn\n\nView 1: August 13, 1938.\nViews 2 & 3: August 1939",
-    "before": "Penny Bridge, showing the Bridge house at the foot of Laurel Hill Blvd.\nView 1: August 13, 1938.\nView 2: August 22, 1939.\nP.L. Sperr\n\nNote: The bridge was closed down when the new span, the Kosciusco Bridge, was built. The closing took place in 1939. These views are across Newtown Creek, from the Brooklyn shore. ",
+    "after": "World's Fair 1939 - Brazil\nFlushing Meadow Park\n\nF.S. LINCOLN\nPhotographer\n114 EAST 32nd STREET\nNEW YORK CITY\n\n886P67\n8867721",
+    "before": "A606  Rese E-g\n9S22 22222N4\ne  22E1E99VS\nL. .NrS7\nTEM2217:\nN6P 85-\n. 8EGP72 1\n",
     "metadata": {
-      "back_id": "730933b",
+      "back_id": "726701b",
       "cookie": "blah",
-      "distance": 99,
-      "len_base": 314,
-      "len_exp": 309,
-      "score": 0.6847133757961783
+      "distance": 100,
+      "len_base": 78,
+      "len_exp": 125,
+      "score": 0.0
     },
-    "photo_id": "730933f-c"
-  },
-  {
-    "after": "Sixth Avenue, west side, south from Waverly Place (right, not seen). In the center, at Washington Place is St. Josephs Roman Catholic Church and its adjacent Sunday School building. The tall office building at the left occupies the triangular site at Cornelia Street. Note the absence of the Sixth Avenue Elevated in the later views.\n\nView 1: March 15, 1932\nView 2: January 17, 1939\nView 3: March 9, 1939\n\nP. L. Sperr\n\nPlaque reads: \"This edifice is the oldest Catholic Church building in Manhattan, erected in 1833\"",
-    "before": "Sixth Avenue, west side, south from Waverly Place (right, not seen). In the center,at Washington Place is St. Josephs Roman Catholic Church and its adjacent Sunday School building. The tall  office building at the left occupies the triangular site at Cornelia Street. Note the absence of the Sixth Avenue Elevated in the later views.\nView 1: March 15, 1932\nView 2: January 17, 1939\nView 3: March 9, 1939\nP. L. Sperr\n",
-    "metadata": {
-      "back_id": "709311b",
-      "cookie": "blah",
-      "distance": 99,
-      "len_base": 416,
-      "len_exp": 516,
-      "score": 0.7620192307692308
-    },
-    "photo_id": "709311f-c"
-  },
-  {
-    "after": "134-36 and 124-32 White Street, at, adjoining and west of the N.W. corner of Baxter Street (right) as viewed northward across a portion of the new Criminal Court site. View No. 2 is northward on Baxter Street from Bayard Street (extreme right) and shows mainly the 6 story structure (No. 134-36) that is directly at the corner.\n\nJune 10, 1938.\nView 2: June 12, 1938.\n\nP. L. Sperr",
-    "before": "134-36 and 124-32 White Street, at, adjoining and west of the N.W. corner of Baxter Street (right) as viewed northward across a\nportion of the new Criminal Court site.\nView No. 2 from Bayard Street is facing northward along Baxter Street (extreme right) and shows several buildings on White Street.\nJune 10, 1938.\nView 2:June 12, 1938.\nP. L. Sperr\n",
-    "metadata": {
-      "back_id": "724755b",
-      "cookie": "blah",
-      "distance": 99,
-      "len_base": 348,
-      "len_exp": 379,
-      "score": 0.7155172413793103
-    },
-    "photo_id": "724755f-b"
-  },
-  {
-    "after": "Bainbridge Avenue, at, adjoining and north of the N.E. corner of E. 194th Street.\n\nMay 18, 1938.\n\nP. L. Sperr.",
-    "before": "tNolLondoEISH ON\noLIodg T '2\naO6I '8t Aw\nnoexu9 U176I 'E J9\nouoo E'N auo Jo guxou puw Bupupofpw 'aw 'onuoav oBptxcupw8\n",
-    "metadata": {
-      "back_id": "700446b",
-      "cookie": "blah",
-      "distance": 99,
-      "len_base": 119,
-      "len_exp": 110,
-      "score": 0.16806722689075626
-    },
-    "photo_id": "700446f-a"
+    "photo_id": "726701f"
   },
   {
     "after": "74th Street, north side showing the Bohemian Free Church between Second and First Avenue, looking east.\n\nVictor Volnar",
@@ -3458,6 +3406,45 @@ var changes = [
     "photo_id": "714418f-a"
   },
   {
+    "after": "134-36 and 124-32 White Street, at, adjoining and west of the N.W. corner of Baxter Street (right) as viewed northward across a portion of the new Criminal Court site. View No. 2 is northward on Baxter Street from Bayard Street (extreme right) and shows mainly the 6 story structure (No. 134-36) that is directly at the corner.\n\nJune 10, 1938.\nView 2: June 12, 1938.\n\nP. L. Sperr",
+    "before": "134-36 and 124-32 White Street, at, adjoining and west of the N.W. corner of Baxter Street (right) as viewed northward across a\nportion of the new Criminal Court site.\nView No. 2 from Bayard Street is facing northward along Baxter Street (extreme right) and shows several buildings on White Street.\nJune 10, 1938.\nView 2:June 12, 1938.\nP. L. Sperr\n",
+    "metadata": {
+      "back_id": "724755b",
+      "cookie": "blah",
+      "distance": 99,
+      "len_base": 348,
+      "len_exp": 379,
+      "score": 0.7155172413793103
+    },
+    "photo_id": "724755f-b"
+  },
+  {
+    "after": "Penny Bridge, showing the Bridge house at the foot of Laurel Hill Blvd.\n\nP.L. Sperr\n\nNote: The bridge was closed down when the new span, the Kosciuszko Bridge, was built. The closing took place in 1939. These views are across Newtown Creek, from the Brooklyn\n\nView 1: August 13, 1938.\nViews 2 & 3: August 1939",
+    "before": "Penny Bridge, showing the Bridge house at the foot of Laurel Hill Blvd.\nView 1: August 13, 1938.\nView 2: August 22, 1939.\nP.L. Sperr\n\nNote: The bridge was closed down when the new span, the Kosciusco Bridge, was built. The closing took place in 1939. These views are across Newtown Creek, from the Brooklyn shore. ",
+    "metadata": {
+      "back_id": "730933b",
+      "cookie": "blah",
+      "distance": 99,
+      "len_base": 314,
+      "len_exp": 309,
+      "score": 0.6847133757961783
+    },
+    "photo_id": "730933f-c"
+  },
+  {
+    "after": "Bainbridge Avenue, at, adjoining and north of the N.E. corner of E. 194th Street.\n\nMay 18, 1938.\n\nP. L. Sperr.",
+    "before": "tNolLondoEISH ON\noLIodg T '2\naO6I '8t Aw\nnoexu9 U176I 'E J9\nouoo E'N auo Jo guxou puw Bupupofpw 'aw 'onuoav oBptxcupw8\n",
+    "metadata": {
+      "back_id": "700446b",
+      "cookie": "blah",
+      "distance": 99,
+      "len_base": 119,
+      "len_exp": 110,
+      "score": 0.16806722689075626
+    },
+    "photo_id": "700446f-a"
+  },
+  {
     "after": "Kill van Kull Bridge - arch Record\n\nF. S. LINCOLN\nPhotographer\n114 EAST 32nd STREET\nNEW YORK CITY\n111 P4\n\nKill Van Kull Bridge",
     "before": "P. S LNCOLN\n..55N8E.\n'222A2S7\n111P(\nGiA M N22 6-2\n9)\n",
     "metadata": {
@@ -3471,17 +3458,43 @@ var changes = [
     "photo_id": "730855f"
   },
   {
-    "after": "(1)\nStuyvesant Square Park: An open area between East 15th (right, southern boundary) and East 17th (left, northern boundary) Streets, that is bisected by Second Ave. The eastern side of same, as shown with the Beth Israel Hospital thereon, is Livingston Place. On the lower left appears the nave and bell-tower of St. Georges P.E. Church, located on the western edge, which is called Rutherford Place. This park, a portion of the former Stuyvesant Farm was bequeathed to the City by Peter Stuyvesant. The Park Department in conjunction with the W.P.A. attempted to improve same in 1936, as a playground for East Side children, but were restrained by the various hospitals in this vicinity. Their plea being based upon the original grant of land; \"for park purposes.\" A judicial decree was granted in their favor. For further data, see newspapers for 1936-1937. Photographers vantage point is the Consolidated Edison Building, No. 4 Irving Place and shows an eastward perspective across the \"Gas House\" area of Manhattan to Greenpoint, Brooklyn. Separating these localities of the City is the East River.\nSeptember 23, 1930.\n\nP. L. Sperr.\n\n(2 & 3)\nTwo similar views, taken the same day.\nSeptember 23, 1930.\n\nP. L. Sperr.",
-    "before": "Stuyvesant Square Park: An open area between East 15th (right, southern boundary) and East 17th (left, northern boundary) Streets, that is bisected by Second Ave. The eastern side of same, as shown with the Beth Israel Hospital thereon, is Livingston Place. On the lower left appears the nave and bell-tower of St. Georges P.E. Church, located on the western edge, which is called Rutherford Place. This park, a portion of the former Stuyvesant Farm was bequeathed to the City by Peter Stuyvesant. The Park Department in conjunction with the W.P.A. attempted to improve same in 1936, as a playground for East Side children, but were restrained by the various hospitals in this vicinity. Their plea being based upon the original grant of land; \"for park purposes.\" E judicial decree was granted in their favor. For further data, see newspapers for 1936-1937. Photographers vantage point is the Consolidated Edison Building, No. 4 Irving Place and shows an eastward perspective across the \"Gas House\" area of Manhattan to Greenpoint, Brooklyn. Separating these localities of the City is the East River.\nSeptember 23, 1930.\n",
+    "after": "Sixth Avenue, west side, south from Waverly Place (right, not seen). In the center, at Washington Place is St. Josephs Roman Catholic Church and its adjacent Sunday School building. The tall office building at the left occupies the triangular site at Cornelia Street. Note the absence of the Sixth Avenue Elevated in the later views.\n\nView 1: March 15, 1932\nView 2: January 17, 1939\nView 3: March 9, 1939\n\nP. L. Sperr\n\nPlaque reads: \"This edifice is the oldest Catholic Church building in Manhattan, erected in 1833\"",
+    "before": "Sixth Avenue, west side, south from Waverly Place (right, not seen). In the center,at Washington Place is St. Josephs Roman Catholic Church and its adjacent Sunday School building. The tall  office building at the left occupies the triangular site at Cornelia Street. Note the absence of the Sixth Avenue Elevated in the later views.\nView 1: March 15, 1932\nView 2: January 17, 1939\nView 3: March 9, 1939\nP. L. Sperr\n",
     "metadata": {
-      "back_id": "723438b",
+      "back_id": "709311b",
+      "cookie": "blah",
+      "distance": 99,
+      "len_base": 416,
+      "len_exp": 516,
+      "score": 0.7620192307692308
+    },
+    "photo_id": "709311f-c"
+  },
+  {
+    "after": "Roger Morris Park: The Jumel Mansion located in this open area bounded by Edgecombe Avenue and Jumel Terrace, between West 160th and 162nd Streets. This was Washington's Headquarters in the Revolutionary War and is near Fort George.\n\nPrior to 1900\n\nGift of Urbrock Collection\n\nTHE NEW YORK PUBLIC LIBRARY\nASTOR, LENOX, AND TILDEN FOUNDATIONS\n\n315G\nLOCAL HISTORY AND GENEALOGY",
+    "before": "Roger Morris Park: The Jumel Mansion located in this open area bounded by Edgecombe Avenue and Jumel Terrace, between West 160th and 162nd Streets. This was Washington's Headquarters in the Revolutionary War and is near Fort George.\nPrior to 1900\nGift of Urbrock Collection\n\n",
+    "metadata": {
+      "back_id": "723043b",
       "cookie": "blah",
       "distance": 98,
-      "len_base": 1121,
-      "len_exp": 1220,
-      "score": 0.9125780553077609
+      "len_base": 275,
+      "len_exp": 375,
+      "score": 0.6436363636363636
     },
-    "photo_id": "723438f-c"
+    "photo_id": "723043f-a"
+  },
+  {
+    "after": "Cherry Street, east from (No. 24, left margin), a point between Franklin Square and Roosevelt Street, and to the latter, showing a slum area, long known as Cherry Hill and in which numerous sociological studies have been conducted. Irrespective of same, it still has a similar appearance in 1938, although several of the buildings on the right have been demolished as part of a slum clearance project under the joint auspices of the City and the Works Progress Administration. Included in same was the demolition of No. 29 1/2 which is reputed to be possible the oldest structure in Manhattan, containing half the present size and composed of yellow clay. Note the narrow walks and the cobblestoned street bed, the latter sloping downhill with horse drawn vehicles there upon, forming the contour which has given this area it's name. Several gas lamps appear in conjunction with numerous saloons and former residences converted into tenements. Urchins in the foreground are the progeny of the inhabitants of the squalid buildings lining this street. These differ radically from the former residents who in their day formed the select of the City; No. 1 being the first presidential residence. A tablet to this effect is now attached to the base of the Brooklyn Bridge at this point. \"Boss\" Tweed is humorously reported by Dennis Lynch, in his book bearing that title, to have offered to donate the funds to erect a church there, stating it to have been his birth place. True or false, it is a fact that he was born on this street, as was his father.\n\nMay 1906.\n\nGeorge L. Balgue.\n",
+    "before": "Cherry Street, east from (No. 24, left margin), a point between Franklin Square and Roosevelt Street, and to the latter, showing a slum area, long known as Cherry Hill and in which numerous sociological studies have been conducted. Irrespective of same, it still has a similar appearance in 1938, although several of the buildings on the right have been demolished as part of a slum clearance project under the joint auspices of the City and the Works Progress Administration. Included in same was the demolition of No. 29 1/2 which is reputed to be possible the oldest structure in Manhattan, containing from the writers personal observation old Dutch brick, same being half the present size and composed of yellow clay.\nNote the narrow walks and the cobblestoned street bed, the latter sloping downhill with horse drawn vehicles there upon. forming the contour which has given this area its name. Several gas lamps appear in conjunction with numerous saloons and former residences converted into tenements.\nUrchins in the foreground are the progeny of the inhabitants of the squalid buildings lining this street. These differ radically from the former residents who in their day formed the select of the City; No. 1 being the first Presidential residence. A tablet to this effect is now attached to the base of the Brooklyn Bridge at this point. \"Boss' Tweed is humorously reported by Dennis Lynch, in his book bearing that title, to have offered to donate the funds to erect a church there, stating it to have been his birth place. True or false, it is a fact that he was born on this street, as was his father.\n",
+    "metadata": {
+      "back_id": "718678b",
+      "cookie": "blah",
+      "distance": 98,
+      "len_base": 1615,
+      "len_exp": 1580,
+      "score": 0.9393188854489164
+    },
+    "photo_id": "718678f-a"
   },
   {
     "after": "(1) 2866 West 6th Street, west side, between Neptune Ave., and Sheepshead Bay Road, showing The Harvest, formerly the Coney Island House, later the Oceanic Hotel. It formerly stood, prior to 1921, at No. 622 Neptune Ave.\n\nDecember 1923.\n\nEugene L. Armbruster Collection.\n\n(2) The same, also showing overhead the Culver (B.M.T) Line.\n\nDecember 1923.\n\nEugene L. Armbruster Collection.\n\n(3) The same, another view. Once a railroad ran from this Hotel to the beach and the Cars left every few minutes to accommodate the guests.\n\nDecember 1923.\n\nEugene L. Armbruster Collection.\n\n(4) The same, in an abandoned state.\n\nOctober 1928.\n\nEugene L. Armbruster Collection.",
@@ -3495,6 +3508,19 @@ var changes = [
       "score": 0.8227848101265822
     },
     "photo_id": "702449f-c"
+  },
+  {
+    "after": "(1)\nStuyvesant Square Park: An open area between East 15th (right, southern boundary) and East 17th (left, northern boundary) Streets, that is bisected by Second Ave. The eastern side of same, as shown with the Beth Israel Hospital thereon, is Livingston Place. On the lower left appears the nave and bell-tower of St. Georges P.E. Church, located on the western edge, which is called Rutherford Place. This park, a portion of the former Stuyvesant Farm was bequeathed to the City by Peter Stuyvesant. The Park Department in conjunction with the W.P.A. attempted to improve same in 1936, as a playground for East Side children, but were restrained by the various hospitals in this vicinity. Their plea being based upon the original grant of land; \"for park purposes.\" A judicial decree was granted in their favor. For further data, see newspapers for 1936-1937. Photographers vantage point is the Consolidated Edison Building, No. 4 Irving Place and shows an eastward perspective across the \"Gas House\" area of Manhattan to Greenpoint, Brooklyn. Separating these localities of the City is the East River.\nSeptember 23, 1930.\n\nP. L. Sperr.\n\n(2 & 3)\nTwo similar views, taken the same day.\nSeptember 23, 1930.\n\nP. L. Sperr.",
+    "before": "Stuyvesant Square Park: An open area between East 15th (right, southern boundary) and East 17th (left, northern boundary) Streets, that is bisected by Second Ave. The eastern side of same, as shown with the Beth Israel Hospital thereon, is Livingston Place. On the lower left appears the nave and bell-tower of St. Georges P.E. Church, located on the western edge, which is called Rutherford Place. This park, a portion of the former Stuyvesant Farm was bequeathed to the City by Peter Stuyvesant. The Park Department in conjunction with the W.P.A. attempted to improve same in 1936, as a playground for East Side children, but were restrained by the various hospitals in this vicinity. Their plea being based upon the original grant of land; \"for park purposes.\" E judicial decree was granted in their favor. For further data, see newspapers for 1936-1937. Photographers vantage point is the Consolidated Edison Building, No. 4 Irving Place and shows an eastward perspective across the \"Gas House\" area of Manhattan to Greenpoint, Brooklyn. Separating these localities of the City is the East River.\nSeptember 23, 1930.\n",
+    "metadata": {
+      "back_id": "723438b",
+      "cookie": "blah",
+      "distance": 98,
+      "len_base": 1121,
+      "len_exp": 1220,
+      "score": 0.9125780553077609
+    },
+    "photo_id": "723438f-c"
   },
   {
     "after": "General View: Manhatten Columbus Street, between Broadway and Centre Street showing Barnums Museum opened in 1810, where court House now stands and view looking northwards on Broadway.\n\nAbout 1850.",
@@ -3523,30 +3549,69 @@ var changes = [
     "photo_id": "730856f"
   },
   {
-    "after": "Cherry Street, east from (No. 24, left margin), a point between Franklin Square and Roosevelt Street, and to the latter, showing a slum area, long known as Cherry Hill and in which numerous sociological studies have been conducted. Irrespective of same, it still has a similar appearance in 1938, although several of the buildings on the right have been demolished as part of a slum clearance project under the joint auspices of the City and the Works Progress Administration. Included in same was the demolition of No. 29 1/2 which is reputed to be possible the oldest structure in Manhattan, containing half the present size and composed of yellow clay. Note the narrow walks and the cobblestoned street bed, the latter sloping downhill with horse drawn vehicles there upon, forming the contour which has given this area it's name. Several gas lamps appear in conjunction with numerous saloons and former residences converted into tenements. Urchins in the foreground are the progeny of the inhabitants of the squalid buildings lining this street. These differ radically from the former residents who in their day formed the select of the City; No. 1 being the first presidential residence. A tablet to this effect is now attached to the base of the Brooklyn Bridge at this point. \"Boss\" Tweed is humorously reported by Dennis Lynch, in his book bearing that title, to have offered to donate the funds to erect a church there, stating it to have been his birth place. True or false, it is a fact that he was born on this street, as was his father.\n\nMay 1906.\n\nGeorge L. Balgue.\n",
-    "before": "Cherry Street, east from (No. 24, left margin), a point between Franklin Square and Roosevelt Street, and to the latter, showing a slum area, long known as Cherry Hill and in which numerous sociological studies have been conducted. Irrespective of same, it still has a similar appearance in 1938, although several of the buildings on the right have been demolished as part of a slum clearance project under the joint auspices of the City and the Works Progress Administration. Included in same was the demolition of No. 29 1/2 which is reputed to be possible the oldest structure in Manhattan, containing from the writers personal observation old Dutch brick, same being half the present size and composed of yellow clay.\nNote the narrow walks and the cobblestoned street bed, the latter sloping downhill with horse drawn vehicles there upon. forming the contour which has given this area its name. Several gas lamps appear in conjunction with numerous saloons and former residences converted into tenements.\nUrchins in the foreground are the progeny of the inhabitants of the squalid buildings lining this street. These differ radically from the former residents who in their day formed the select of the City; No. 1 being the first Presidential residence. A tablet to this effect is now attached to the base of the Brooklyn Bridge at this point. \"Boss' Tweed is humorously reported by Dennis Lynch, in his book bearing that title, to have offered to donate the funds to erect a church there, stating it to have been his birth place. True or false, it is a fact that he was born on this street, as was his father.\n",
+    "after": "Centre Street, west side, from Leonard, across Franklin to White Streets, showing at that location the Tombs and the Criminal Courts Bldg., joined by the \"Bridge of Sighs\". These are to be replaced by modern structures which will be erected in the near future on the cleared lands seen in the foreground. An article on same appears in the New York Times of August 1, 1938 on page 21. The photographers vantage point is on Baxter Street, viewing westward from Leonard St (in No. 1), between Leonard and Franklin Streets. The new Criminal Courts Bldg. and city prison will cost $18,500,000. of which the P.W.A. will supply $10,175,000. It will have four wings; the northerly unit, containing the 16 story prison building will be separated from the courts by an open courtyard. A 17 story structure, providing for Magistrate, Special and General sessions and Supreme Courts with their staffs, will also house 28 court rooms, two grand jury rooms and four floors of offices for the District Attorney and have its main entrance on Center Street.\n\nP. L. Sperr\n\nJune 12, 1938.\nViews 1, 2 and 3.",
+    "before": "Centre Street,west side, from Leonard, across Franklin to Vhite Streets, showing at that location the Tombs and te Criminal Couurts Bldg., joined by the \"Bridge of Sighs\". Tese are to be replaced by modern structures which will be erected in the near future on the cleared lands seen in the foreground. An article on same apoears in the Nev York Times of Aucust 1, 1D38 on page 21. The photocraphers vantae point is on Baxter Street, viewing westward from Leonard St (in No. 1), between Leonard and Franklin Streets.\n(in No. 2) and Bavard Street (in No. 3).\nThe new Criminal Courts Pldg. and city prison will cost '18,500,O00. of which the P.W.A. will supply ~8,325,O00 against the city share of ~10,175,000. It will have four winggs; the norther1y unit, containing the 16 story prison building will be separated from the courts by an open courtyard. A 17 story structure, providing for Magistrate, Special and General sessions and Supreme Courts with their staffs, will also house 28 court rooms, two grand jury rooms and four floors of offices for the District Attorney and have\nits main entrance on Center Street.\nJue 12, 1938.\nViews 1,2 and 3.\nP. L. Sperr\n",
     "metadata": {
-      "back_id": "718678b",
+      "back_id": "718583b",
       "cookie": "blah",
-      "distance": 98,
-      "len_base": 1615,
-      "len_exp": 1580,
-      "score": 0.9393188854489164
+      "distance": 97,
+      "len_base": 1160,
+      "len_exp": 1087,
+      "score": 0.9163793103448276
     },
-    "photo_id": "718678f-a"
+    "photo_id": "718583f-c"
   },
   {
-    "after": "Roger Morris Park: The Jumel Mansion located in this open area bounded by Edgecombe Avenue and Jumel Terrace, between West 160th and 162nd Streets. This was Washington's Headquarters in the Revolutionary War and is near Fort George.\n\nPrior to 1900\n\nGift of Urbrock Collection\n\nTHE NEW YORK PUBLIC LIBRARY\nASTOR, LENOX, AND TILDEN FOUNDATIONS\n\n315G\nLOCAL HISTORY AND GENEALOGY",
-    "before": "Roger Morris Park: The Jumel Mansion located in this open area bounded by Edgecombe Avenue and Jumel Terrace, between West 160th and 162nd Streets. This was Washington's Headquarters in the Revolutionary War and is near Fort George.\nPrior to 1900\nGift of Urbrock Collection\n\n",
+    "after": "Fifth Avenue, west side, at W. 34th Street, showing at the S.W. and N.W. corners respectively the Astor and Stewart homes. The former is shortly to be removed for the second half of the Waldorf-Astoria Hotel. The latter is the home of the Manhattan Club at this date. At the left is a portion of the Hotel Waldorf that was opened in 1893.\n\nAbout 1898\n\nGift of Urbrock Collection\n\nSouth West corner 34th St. and 5th Ave.\nJJ Astor Res. 34th and 5th Ave.\nOn this site stood the Astoria Hotel the second half of the Waldorf-Astoria, and now the Empire State Bldg. stands here.\n\nPhotograph by Brown Brothers\n220 West 42nd St.\nNew York City\n\nNeg. No. 98a\nUrbrock Collection\n\nTHE NEW YORK PUBLIC LIBRARY\nASTOR LENOX & TILDEN FOUNDATIONS\n\n315G\nLOCAL HISTORY AND GENEALOGY",
+    "before": "Fifth Avenue, west side, at W. 34th Street, showing at the S. W. and N. W. corners respectively the Astor and Stewart homes. The former is shortly to be removed for the second half of the Waldorf-Astoria Hotel. The latter is the home of the Manhattan Club at this date. At the left is a portion of the Hotel Waldorf\nthat was opened in 1893.\nAbout 1898\nGift of Urbrock Collection\nSouth West corner 34th St. and 5th Ave.\nJJ Astor Res. 34th and 5th Ave.\nOn this site stood the Astoria Hotel\nthe second half of the Waldorf-Astoria,\nand now the Empire State Bldg. stands here.\nPhotograph by Brown Brothers\n220 West 42nd St.\nNew York City\nNeg.No. 98a\nUrbrock Collection",
     "metadata": {
-      "back_id": "723043b",
+      "back_id": "708576b",
       "cookie": "blah",
-      "distance": 98,
-      "len_base": 275,
-      "len_exp": 375,
-      "score": 0.6436363636363636
+      "distance": 97,
+      "len_base": 663,
+      "len_exp": 763,
+      "score": 0.8536953242835595
     },
-    "photo_id": "723043f-a"
+    "photo_id": "708576f-a"
+  },
+  {
+    "after": "(1) Sheepshead Bay Road, north side, between West 6th and 8th Streets, showing a rear view. Also seen is the rear of the Oceanic Hotel which was the original Coney Island House. It was built in 1829 and stood on Neptune Ave., opposite Shell Road, south of Coney Island Creek. This property was sold by a road Company to John and Albert Terhune; later owned by Peter Lott. One Tooker was the first keeper of the house others who either owned or operated the house were James W. Cropsey in 1834; Cropsey and Wigolm from 1835-1843; A. Fetter, S.W. Fetter, and John I. Snediker in the 1870s and 1880s. In the Brooklyn Atlas, it is now located at No. 2866 West 6th Street, west side, between Neptune Ave., and Sheepshead Bay Road. December 1923. Eugene L. Armbruster Collection.\n\n(2) The same, viewed from Sheepshead Bay Road. October 1928. Eugene L. Armbruster Collection.\n\n(3) The same, rear view, seen from Neptune Ave. October 1928. Eugene L. Armbruster Collection.\n\n(4) The same, viewed from Sheepshead Bay Road. October 1928. Eugene L. Armbruster Collection.",
+    "before": "(1)\nSheepshead Bay Road, north side, between West 6th and 8th Streets, showing a rear view. Also seen is the rear of the Oceanic Hotel which was the original Coney Island House. It was built in 1829 and stood on Neptune Ave., opposite Shell Road, south of Coney Island Creek. This property was sold by a road Company to John and Albert Terhune, later owned by Peter Lott. One Tooker was the first keeper of the house Others who either owned or operated the house were James W. Cropsey in 1834; Cropsey and Woglom from 1835-1843; A. Petter, S.W. Petter, and John I. Snediker in the 1870s and 1880s. In the Brooklyn Atlas, it is now located at No. 2866 West 6th Street, west side, between Neptune Ave., and Sheepshead Bay Road.\nDecember 1923.\nEugene L. Armbruster Collection.\nThe same, viewed from Sheepshead Bay Road.\nOctober 1928.\nEugene L. Armbruster Collection.\n\n(2)\nThe same, viewed from Sheepshead Bay Road.\nOctober 1928.\nEugene L. Armbruster Collection.\n\n(3)\nThe same, rear view, seen from Neptune Ave.\nOctober 1928.\nEugene L. Armbruster Collection.\n\n(4)\nThe same, viewed from Sheepshead Bay Road.\nOctober 1928.\nEugene L. Armbruster Collection.\n",
+    "metadata": {
+      "back_id": "706726b",
+      "cookie": "blah",
+      "distance": 97,
+      "len_base": 1150,
+      "len_exp": 1059,
+      "score": 0.9156521739130434
+    },
+    "photo_id": "706726f-d"
+  },
+  {
+    "after": "(1)\nHenry Street, north side, west from Market to Oliver Streets, (where it terminates), showing the Presbyterian Church of the Sea and land at the N.W. corner of Market Street and the parish house adjoining it. In the far background is shown the Municipal Building.\nSeptember 24, 1927.\n\nP. L. Sperr.\n\n(2)\nThe same, at a later date, including a view of the Woolworth Building.\nJuly 9, 1932.\n\nP. L. Sperr.\n\n(3)\nA portion of the same, showing a more comprehensive view of the parish house bearing No. 61 Henry Street. Also shown is a portion of the Manhattan Bridge.\nSeptember 5, 1927.\n\nP. L. Sperr.",
+    "before": "(1)\nHenry Street, north side, west from Market to Oliver Streets, (where it terminates), showing the Presbyterian Church of the Sea and Land at the N.W. corner of Market Street and the parish house adjoining it. In the far background is shown the Municipal Building.\nSeptember 24, 1927.\nP. L. Sperr.\n(2)\nThe same, at a later date, including a view of the Woolworth Building.\nJuly 9, 1932.\nP. L. Sperr.  Note: A better print is located in NYC photo file under \"Eastman Experimental Posts F - No. 5\"\n(3)\nA portion of the same, showing a more comprehensive view of the parish house bearing No. 6l Henry Street. Also shown is a portion of the Manhattan Bridge.\nSeptember 5, 1927.\nP. L. Sperr.\n",
+    "metadata": {
+      "back_id": "720363b",
+      "cookie": "blah",
+      "distance": 97,
+      "len_base": 689,
+      "len_exp": 597,
+      "score": 0.8592162554426706
+    },
+    "photo_id": "720363f-c"
+  },
+  {
+    "after": "(1)\nHell Gate Bridge spans the notorious channel, called Hell Gate; at the convergance of Long Island Sound and the East River. The seething whirlpools and conflicting currents, made it extremely unnavigable; sinking many vessels, and drowning innumerable men: hence the name. The bridge begins at Port Morris in the Bronx, spanning Ward's and Randall's Islands, to Astoria in Queens. It is one of the classics of modern achievement, being the world's longest continued span. The eastern railway interests combined to build it, and completed it in 1917.\n\nJuly 25, 1936.\n\nP. L. Sperr.\n\n(2)\nSame, over Ward's Island.\nJuly 25, 1936.\n\nP. L. Sperr.\n\n(3)\nSame.\nJuly 25, 1936.\n\nP. L. Sperr.",
+    "before": "(1)\nHell Gate Bridge spans the notorious channel, called Hell Gate; at the convergance of Long Island Sound and the East River. The seething whirlpools and conflicting currents, made it extremely unnavigable; sinking many vessels, and drowning innumerable men: hence the name. The bridge begins at Port Morris in the Bronx, spanning Ward's and Randall's Islands, to Astoria in Queens. It is one of the classics of modern achievement, being the world's longest continued span. The eastern railway tnterests combined to build it, and completed it in 1917.\nJuly 25, 1936.\nP. L. Sperr.\n",
+    "metadata": {
+      "back_id": "730813b",
+      "cookie": "blah",
+      "distance": 97,
+      "len_base": 582,
+      "len_exp": 683,
+      "score": 0.8333333333333334
+    },
+    "photo_id": "730813f-c"
   },
   {
     "after": "(1)\nS.W. corner of Second Avenue and 22nd Street.\nChurch of the Epiphany in background to extreme left.\nP.L.Sperr, Photographer.\n\n(2)\nCorner of Second Avenue and 22nd Street, from Epiphany Branch\nLibrary across Clearing.\nP.L.Sperr, Photographer.",
@@ -3575,30 +3640,17 @@ var changes = [
     "photo_id": "717606f-c"
   },
   {
-    "after": "(1)\nHell Gate Bridge spans the notorious channel, called Hell Gate; at the convergance of Long Island Sound and the East River. The seething whirlpools and conflicting currents, made it extremely unnavigable; sinking many vessels, and drowning innumerable men: hence the name. The bridge begins at Port Morris in the Bronx, spanning Ward's and Randall's Islands, to Astoria in Queens. It is one of the classics of modern achievement, being the world's longest continued span. The eastern railway interests combined to build it, and completed it in 1917.\n\nJuly 25, 1936.\n\nP. L. Sperr.\n\n(2)\nSame, over Ward's Island.\nJuly 25, 1936.\n\nP. L. Sperr.\n\n(3)\nSame.\nJuly 25, 1936.\n\nP. L. Sperr.",
-    "before": "(1)\nHell Gate Bridge spans the notorious channel, called Hell Gate; at the convergance of Long Island Sound and the East River. The seething whirlpools and conflicting currents, made it extremely unnavigable; sinking many vessels, and drowning innumerable men: hence the name. The bridge begins at Port Morris in the Bronx, spanning Ward's and Randall's Islands, to Astoria in Queens. It is one of the classics of modern achievement, being the world's longest continued span. The eastern railway tnterests combined to build it, and completed it in 1917.\nJuly 25, 1936.\nP. L. Sperr.\n",
+    "after": "(1) White Street, west from but not including Baxter Street.\nSeptember 24, 1927.\n\nP. L. Sperr.\n\n(2) The same, at a later date. February 25, 1929.\n\nP. L. Sperr.\n\n(3) A view of the lower portion of No. 131-33 White Street (also bears No. 76-82 Baxter Street) being at the S.W. corner, as shown on the left of Views 1 and 2. This will be included in the demolition necessitated by plans for the new Criminal Courts Building and will form the northeastern corner of same.\n\nNovember 6, 1937.\n\nP. L. Sperr.",
+    "before": "(1)\nWhite Street, facing west from, but not including, Baxter Street.\nSeptember 24, 1927.\nP. LC sperr.\n(2)\nThe same, at a later date.\nFebruary 25, 1929.\nP. L. Sperr.\n(3)\nA view of the lower portion of No. 131-33 White Street at the intersection of Baxter Street. This will be included in the demolition necessitated by plans for the new Criminal Courts Building and will form the northeastern corner of the site.\nNovember 6, 1937.\nP. L. Sperr.\n",
     "metadata": {
-      "back_id": "730813b",
+      "back_id": "724752b",
       "cookie": "blah",
       "distance": 97,
-      "len_base": 582,
-      "len_exp": 683,
-      "score": 0.8333333333333334
+      "len_base": 444,
+      "len_exp": 500,
+      "score": 0.7815315315315315
     },
-    "photo_id": "730813f-c"
-  },
-  {
-    "after": "(1)\nHenry Street, north side, west from Market to Oliver Streets, (where it terminates), showing the Presbyterian Church of the Sea and land at the N.W. corner of Market Street and the parish house adjoining it. In the far background is shown the Municipal Building.\nSeptember 24, 1927.\n\nP. L. Sperr.\n\n(2)\nThe same, at a later date, including a view of the Woolworth Building.\nJuly 9, 1932.\n\nP. L. Sperr.\n\n(3)\nA portion of the same, showing a more comprehensive view of the parish house bearing No. 61 Henry Street. Also shown is a portion of the Manhattan Bridge.\nSeptember 5, 1927.\n\nP. L. Sperr.",
-    "before": "(1)\nHenry Street, north side, west from Market to Oliver Streets, (where it terminates), showing the Presbyterian Church of the Sea and Land at the N.W. corner of Market Street and the parish house adjoining it. In the far background is shown the Municipal Building.\nSeptember 24, 1927.\nP. L. Sperr.\n(2)\nThe same, at a later date, including a view of the Woolworth Building.\nJuly 9, 1932.\nP. L. Sperr.  Note: A better print is located in NYC photo file under \"Eastman Experimental Posts F - No. 5\"\n(3)\nA portion of the same, showing a more comprehensive view of the parish house bearing No. 6l Henry Street. Also shown is a portion of the Manhattan Bridge.\nSeptember 5, 1927.\nP. L. Sperr.\n",
-    "metadata": {
-      "back_id": "720363b",
-      "cookie": "blah",
-      "distance": 97,
-      "len_base": 689,
-      "len_exp": 597,
-      "score": 0.8592162554426706
-    },
-    "photo_id": "720363f-c"
+    "photo_id": "724752f-c"
   },
   {
     "after": "(1)\nJumel Terrace, West Side and North of Sylvan Terrace. Jumel Terrace is so named from Stephen Jumel, who bought the surrounding property in 1810. Jumel Terrace is a short street running parallel to Amsterdam Avenue, from West 160th to 162nd Street.\nOn the East side is the old Jumel Mansion and Roger Morris Park, the latter named for Captain Roger Morris, who built the house in 1758.\n\nP.L. Sperr,\n\n\n(2)\nSame.\nP.L. Sperr,\n\n\n(3)\nSame. Close up of Mansion.\nP.L. Sperr,\n\n\nOctober 12th, 1934\nApril 27th, 1941\nApril 27th, 1941",
@@ -3614,58 +3666,6 @@ var changes = [
     "photo_id": "720722f-c"
   },
   {
-    "after": "Centre Street, west side, from Leonard, across Franklin to White Streets, showing at that location the Tombs and the Criminal Courts Bldg., joined by the \"Bridge of Sighs\". These are to be replaced by modern structures which will be erected in the near future on the cleared lands seen in the foreground. An article on same appears in the New York Times of August 1, 1938 on page 21. The photographers vantage point is on Baxter Street, viewing westward from Leonard St (in No. 1), between Leonard and Franklin Streets. The new Criminal Courts Bldg. and city prison will cost $18,500,000. of which the P.W.A. will supply $10,175,000. It will have four wings; the northerly unit, containing the 16 story prison building will be separated from the courts by an open courtyard. A 17 story structure, providing for Magistrate, Special and General sessions and Supreme Courts with their staffs, will also house 28 court rooms, two grand jury rooms and four floors of offices for the District Attorney and have its main entrance on Center Street.\n\nP. L. Sperr\n\nJune 12, 1938.\nViews 1, 2 and 3.",
-    "before": "Centre Street,west side, from Leonard, across Franklin to Vhite Streets, showing at that location the Tombs and te Criminal Couurts Bldg., joined by the \"Bridge of Sighs\". Tese are to be replaced by modern structures which will be erected in the near future on the cleared lands seen in the foreground. An article on same apoears in the Nev York Times of Aucust 1, 1D38 on page 21. The photocraphers vantae point is on Baxter Street, viewing westward from Leonard St (in No. 1), between Leonard and Franklin Streets.\n(in No. 2) and Bavard Street (in No. 3).\nThe new Criminal Courts Pldg. and city prison will cost '18,500,O00. of which the P.W.A. will supply ~8,325,O00 against the city share of ~10,175,000. It will have four winggs; the norther1y unit, containing the 16 story prison building will be separated from the courts by an open courtyard. A 17 story structure, providing for Magistrate, Special and General sessions and Supreme Courts with their staffs, will also house 28 court rooms, two grand jury rooms and four floors of offices for the District Attorney and have\nits main entrance on Center Street.\nJue 12, 1938.\nViews 1,2 and 3.\nP. L. Sperr\n",
-    "metadata": {
-      "back_id": "718583b",
-      "cookie": "blah",
-      "distance": 97,
-      "len_base": 1160,
-      "len_exp": 1087,
-      "score": 0.9163793103448276
-    },
-    "photo_id": "718583f-c"
-  },
-  {
-    "after": "(1) White Street, west from but not including Baxter Street.\nSeptember 24, 1927.\n\nP. L. Sperr.\n\n(2) The same, at a later date. February 25, 1929.\n\nP. L. Sperr.\n\n(3) A view of the lower portion of No. 131-33 White Street (also bears No. 76-82 Baxter Street) being at the S.W. corner, as shown on the left of Views 1 and 2. This will be included in the demolition necessitated by plans for the new Criminal Courts Building and will form the northeastern corner of same.\n\nNovember 6, 1937.\n\nP. L. Sperr.",
-    "before": "(1)\nWhite Street, facing west from, but not including, Baxter Street.\nSeptember 24, 1927.\nP. LC sperr.\n(2)\nThe same, at a later date.\nFebruary 25, 1929.\nP. L. Sperr.\n(3)\nA view of the lower portion of No. 131-33 White Street at the intersection of Baxter Street. This will be included in the demolition necessitated by plans for the new Criminal Courts Building and will form the northeastern corner of the site.\nNovember 6, 1937.\nP. L. Sperr.\n",
-    "metadata": {
-      "back_id": "724752b",
-      "cookie": "blah",
-      "distance": 97,
-      "len_base": 444,
-      "len_exp": 500,
-      "score": 0.7815315315315315
-    },
-    "photo_id": "724752f-c"
-  },
-  {
-    "after": "(1) Sheepshead Bay Road, north side, between West 6th and 8th Streets, showing a rear view. Also seen is the rear of the Oceanic Hotel which was the original Coney Island House. It was built in 1829 and stood on Neptune Ave., opposite Shell Road, south of Coney Island Creek. This property was sold by a road Company to John and Albert Terhune; later owned by Peter Lott. One Tooker was the first keeper of the house others who either owned or operated the house were James W. Cropsey in 1834; Cropsey and Wigolm from 1835-1843; A. Fetter, S.W. Fetter, and John I. Snediker in the 1870s and 1880s. In the Brooklyn Atlas, it is now located at No. 2866 West 6th Street, west side, between Neptune Ave., and Sheepshead Bay Road. December 1923. Eugene L. Armbruster Collection.\n\n(2) The same, viewed from Sheepshead Bay Road. October 1928. Eugene L. Armbruster Collection.\n\n(3) The same, rear view, seen from Neptune Ave. October 1928. Eugene L. Armbruster Collection.\n\n(4) The same, viewed from Sheepshead Bay Road. October 1928. Eugene L. Armbruster Collection.",
-    "before": "(1)\nSheepshead Bay Road, north side, between West 6th and 8th Streets, showing a rear view. Also seen is the rear of the Oceanic Hotel which was the original Coney Island House. It was built in 1829 and stood on Neptune Ave., opposite Shell Road, south of Coney Island Creek. This property was sold by a road Company to John and Albert Terhune, later owned by Peter Lott. One Tooker was the first keeper of the house Others who either owned or operated the house were James W. Cropsey in 1834; Cropsey and Woglom from 1835-1843; A. Petter, S.W. Petter, and John I. Snediker in the 1870s and 1880s. In the Brooklyn Atlas, it is now located at No. 2866 West 6th Street, west side, between Neptune Ave., and Sheepshead Bay Road.\nDecember 1923.\nEugene L. Armbruster Collection.\nThe same, viewed from Sheepshead Bay Road.\nOctober 1928.\nEugene L. Armbruster Collection.\n\n(2)\nThe same, viewed from Sheepshead Bay Road.\nOctober 1928.\nEugene L. Armbruster Collection.\n\n(3)\nThe same, rear view, seen from Neptune Ave.\nOctober 1928.\nEugene L. Armbruster Collection.\n\n(4)\nThe same, viewed from Sheepshead Bay Road.\nOctober 1928.\nEugene L. Armbruster Collection.\n",
-    "metadata": {
-      "back_id": "706726b",
-      "cookie": "blah",
-      "distance": 97,
-      "len_base": 1150,
-      "len_exp": 1059,
-      "score": 0.9156521739130434
-    },
-    "photo_id": "706726f-d"
-  },
-  {
-    "after": "Fifth Avenue, west side, at W. 34th Street, showing at the S.W. and N.W. corners respectively the Astor and Stewart homes. The former is shortly to be removed for the second half of the Waldorf-Astoria Hotel. The latter is the home of the Manhattan Club at this date. At the left is a portion of the Hotel Waldorf that was opened in 1893.\n\nAbout 1898\n\nGift of Urbrock Collection\n\nSouth West corner 34th St. and 5th Ave.\nJJ Astor Res. 34th and 5th Ave.\nOn this site stood the Astoria Hotel the second half of the Waldorf-Astoria, and now the Empire State Bldg. stands here.\n\nPhotograph by Brown Brothers\n220 West 42nd St.\nNew York City\n\nNeg. No. 98a\nUrbrock Collection\n\nTHE NEW YORK PUBLIC LIBRARY\nASTOR LENOX & TILDEN FOUNDATIONS\n\n315G\nLOCAL HISTORY AND GENEALOGY",
-    "before": "Fifth Avenue, west side, at W. 34th Street, showing at the S. W. and N. W. corners respectively the Astor and Stewart homes. The former is shortly to be removed for the second half of the Waldorf-Astoria Hotel. The latter is the home of the Manhattan Club at this date. At the left is a portion of the Hotel Waldorf\nthat was opened in 1893.\nAbout 1898\nGift of Urbrock Collection\nSouth West corner 34th St. and 5th Ave.\nJJ Astor Res. 34th and 5th Ave.\nOn this site stood the Astoria Hotel\nthe second half of the Waldorf-Astoria,\nand now the Empire State Bldg. stands here.\nPhotograph by Brown Brothers\n220 West 42nd St.\nNew York City\nNeg.No. 98a\nUrbrock Collection",
-    "metadata": {
-      "back_id": "708576b",
-      "cookie": "blah",
-      "distance": 97,
-      "len_base": 663,
-      "len_exp": 763,
-      "score": 0.8536953242835595
-    },
-    "photo_id": "708576f-a"
-  },
-  {
     "after": "* Coney Island: Two views of Dreamland Park, Coney Island's leading amusement center.\n\n\n* N.B. NOT Coney Island.\n\nColumbian Exposition, Chicago, 1893.\n",
     "before": "Coney Psland: Two views of Dreamland Park, Coney lIaland's\nleading aausament center.\n  abeut 1908\nNeg.~ 2Wt3  Views 1,A\n' w5NToT C.Wey S1e--2.\n.wwwwwwwwwwww\n2.ob-ekier E-wwog6io, Cee-6e, 727s\nNe.~ 24t1\n",
     "metadata": {
@@ -3679,32 +3679,6 @@ var changes = [
     "photo_id": "731925f-b"
   },
   {
-    "after": "\"The Jumel Mansion\" p,147\n\nPelletreau, William S.\nEarly New York houses with historical - genealogical notes.\nNew York: Francis P. Harper, 1900.\n\nTHE NEW YORK PUBLIC LIBRARY\nASTOR LENOX & TILDEN FOUNDATIONS\n315G\nLOCAL HISTORY AND GENEALOGY",
-    "before": "\"Ihe Jumel Mansion' p,147\nPelletreau, William S.\nEarly New York houses with historical - genealogical notes.\nNew York: Francis P. Harper, 1900.\n",
-    "metadata": {
-      "back_id": "719626b",
-      "cookie": "blah",
-      "distance": 96,
-      "len_base": 144,
-      "len_exp": 239,
-      "score": 0.33333333333333337
-    },
-    "photo_id": "719626f-a"
-  },
-  {
-    "after": "Roger Morris Park: The Jumel Mansion, located in this open area bounded by Edgecombe Avenue and Jumel Terrace, between West 160th and 162nd Streets. This was Washington's Headquarters in the Revolutionary War and is near Fort George.\n\nPrior to 1900\n\nGift of Urbrock Collection\n\nNeg. No. 99A\n\nTHE NEW YORK PUBLIC LIBRARY\nASTOR LENOX & TILDEN\nFOUNDATIONS\n\n315G\nLOCAL HISTORY\nAND GENEALOGY",
-    "before": "Roger Morris Park: The Jumel Mansion,located in this open area bodnded by Edgecombe Avenue and Jumel Terrace, between West 160th and 162nd Streets. This was Washington's Headquarters in the Revolutionary War and is near Fort George.\nPrior to 1900\nGift of Urbrock Collection\nNeg. No. 99A\n",
-    "metadata": {
-      "back_id": "723044b",
-      "cookie": "blah",
-      "distance": 96,
-      "len_base": 287,
-      "len_exp": 386,
-      "score": 0.6655052264808362
-    },
-    "photo_id": "723044f-a"
-  },
-  {
     "after": "302-304 West 93rd Street, adjoining and west of the S.W. corner of West End Avenue.\nAbout 1915.",
     "before": "302-306 West 93rd Street, adjoining and west of the S.W.\ncorner of West End Avenue.\nAbout 1915. 302 and 304 have been replaced by 677 West End Avenue. 306 still stands\n( rE ,2  7)  N1  NlEE ~ S\n",
     "metadata": {
@@ -3716,19 +3690,6 @@ var changes = [
       "score": 0.5051546391752577
     },
     "photo_id": "714849f-a"
-  },
-  {
-    "after": "NYC World's Fair 1939 -\nFlushing Meadow Park\n\nF. S. LINCOLN\nPhotographer\n114 EAST 32nd STREET\nNEW YORK CITY\n866 66\n886",
-    "before": "A403 A2A6G 7. NS9\nE562 22222\nl3ME2iS\nN23S71.\nN86i 66\n8E2\n",
-    "metadata": {
-      "back_id": "726699b",
-      "cookie": "blah",
-      "distance": 96,
-      "len_base": 57,
-      "len_exp": 118,
-      "score": 0.0
-    },
-    "photo_id": "726699f"
   },
   {
     "after": "Kill van Kull Bridge\nStaten Island to Bayonne, N.J.\n\nF. S. LINCOLN\nPhotographer\n114 EAST 32nd STREET\nNEW YORK CITY\n111 P2",
@@ -3757,6 +3718,45 @@ var changes = [
     "photo_id": "704263f-c"
   },
   {
+    "after": "\"The Jumel Mansion\" p,147\n\nPelletreau, William S.\nEarly New York houses with historical - genealogical notes.\nNew York: Francis P. Harper, 1900.\n\nTHE NEW YORK PUBLIC LIBRARY\nASTOR LENOX & TILDEN FOUNDATIONS\n315G\nLOCAL HISTORY AND GENEALOGY",
+    "before": "\"Ihe Jumel Mansion' p,147\nPelletreau, William S.\nEarly New York houses with historical - genealogical notes.\nNew York: Francis P. Harper, 1900.\n",
+    "metadata": {
+      "back_id": "719626b",
+      "cookie": "blah",
+      "distance": 96,
+      "len_base": 144,
+      "len_exp": 239,
+      "score": 0.33333333333333337
+    },
+    "photo_id": "719626f-a"
+  },
+  {
+    "after": "NYC World's Fair 1939 -\nFlushing Meadow Park\n\nF. S. LINCOLN\nPhotographer\n114 EAST 32nd STREET\nNEW YORK CITY\n866 66\n886",
+    "before": "A403 A2A6G 7. NS9\nE562 22222\nl3ME2iS\nN23S71.\nN86i 66\n8E2\n",
+    "metadata": {
+      "back_id": "726699b",
+      "cookie": "blah",
+      "distance": 96,
+      "len_base": 57,
+      "len_exp": 118,
+      "score": 0.0
+    },
+    "photo_id": "726699f"
+  },
+  {
+    "after": "Roger Morris Park: The Jumel Mansion, located in this open area bounded by Edgecombe Avenue and Jumel Terrace, between West 160th and 162nd Streets. This was Washington's Headquarters in the Revolutionary War and is near Fort George.\n\nPrior to 1900\n\nGift of Urbrock Collection\n\nNeg. No. 99A\n\nTHE NEW YORK PUBLIC LIBRARY\nASTOR LENOX & TILDEN\nFOUNDATIONS\n\n315G\nLOCAL HISTORY\nAND GENEALOGY",
+    "before": "Roger Morris Park: The Jumel Mansion,located in this open area bodnded by Edgecombe Avenue and Jumel Terrace, between West 160th and 162nd Streets. This was Washington's Headquarters in the Revolutionary War and is near Fort George.\nPrior to 1900\nGift of Urbrock Collection\nNeg. No. 99A\n",
+    "metadata": {
+      "back_id": "723044b",
+      "cookie": "blah",
+      "distance": 96,
+      "len_base": 287,
+      "len_exp": 386,
+      "score": 0.6655052264808362
+    },
+    "photo_id": "723044f-a"
+  },
+  {
     "after": "(1) No. 1 Hanover Square, south side, between Stone (right), to Pearl (left) streets, showing the India House. Also shown is Stone Street, west side, south from Hanover Square to Mill Lane, with the Maritime Agency building (part of which is shown), at the S.W. corner of Stone Street. Adjoining the same, is the 4-story building of Chubb & Son at the N.W. corner of Mill Lane. August 21, 1929.\n\nP. L. Sperr.\n\n(2) The same, showing a Municipal Comfort Station in the center of the Square. On the left appears the South Ferry Division of the Second and Third Aves. Elevated Lines, running at this point on Pearl Street. neg. B-62 1923.\n\nEugene L. Armbruster Collection.\n\n(3) The same, showing overhead a navy dirigible. July 27, 1931.\n\nP. L. Sperr.",
     "before": "(1)\nwo. 1 Hanover Square, south side, betweew Stone (right), to Pearl (lft) Streets, showing the India aouse. Also show is Stone Street, west side, south from Hanover Square to Mill Lane, with the Maritime Agency building (part of which is shown), at the S.W. corner of Stone Street. Adjoining same, is the 4-story building of Chubb & Son at the N.W. corner of Mill Lane.\nAugust 21, 1929.\n'. L. Sperr.\n(2)\nThe same, showing a Municipal Comfort Station in the center of the Square. On the left appears the South Ferry Division of the Second and Third Aves. Elevated Lines, running at this point on Pearl Street.\n-2 E 22\n1923.\nEugene L. Armbruster Collection.\n",
     "metadata": {
@@ -3768,32 +3768,6 @@ var changes = [
       "score": 0.8556231003039514
     },
     "photo_id": "720319f-c"
-  },
-  {
-    "after": "C. Manley De Bevoise\n51-05 Browvale Lane\nLittle Neck, N.Y.\n\nTHE NEW YORK PUBLIC LIBRARY\nASTOR, LENOX & TILDEN\nFOUNDATIONS\n\n315G\nLOCAL HISTORY\nAND GENEALOGY",
-    "before": "C. Manley De Bevoise\n51-05 Browvale Lane\nLittle Neck, N.Y.\n",
-    "metadata": {
-      "back_id": "726193b",
-      "cookie": "blah",
-      "distance": 95,
-      "len_base": 59,
-      "len_exp": 155,
-      "score": 0.0
-    },
-    "photo_id": "726193f-a"
-  },
-  {
-    "after": "Riverside Church.\n\nF. S. LINCOLN\nPhotographer\n114 EAST 32nd STREET\nNEW YORK CITY\n635P3",
-    "before": "Riverside Church [handwritten upper left verso]\n\nF.S. Lincoln\nPhotographer\n114 East 33rd STREET\nNew York City\n635P3\n\nA212-R222 E2NRP. S LINCOLN\n.05S22R66:\n6S5PS\n",
-    "metadata": {
-      "back_id": "722787b",
-      "cookie": "blah",
-      "distance": 95,
-      "len_base": 161,
-      "len_exp": 86,
-      "score": 0.40993788819875776
-    },
-    "photo_id": "722787f"
   },
   {
     "after": "Worlds Fair 1939 - Brazil\nFlushing Meadow Park\n\nF. S. LINCOLN\nPhotographer\n114 EAST 32nd STREET\nNEW YORK CITY\n\n886P70",
@@ -3809,6 +3783,19 @@ var changes = [
     "photo_id": "726700f"
   },
   {
+    "after": "Riverside Church.\n\nF. S. LINCOLN\nPhotographer\n114 EAST 32nd STREET\nNEW YORK CITY\n635P3",
+    "before": "Riverside Church [handwritten upper left verso]\n\nF.S. Lincoln\nPhotographer\n114 East 33rd STREET\nNew York City\n635P3\n\nA212-R222 E2NRP. S LINCOLN\n.05S22R66:\n6S5PS\n",
+    "metadata": {
+      "back_id": "722787b",
+      "cookie": "blah",
+      "distance": 95,
+      "len_base": 161,
+      "len_exp": 86,
+      "score": 0.40993788819875776
+    },
+    "photo_id": "722787f"
+  },
+  {
     "after": "1) 122nd Street, adjoining the N.E. corner of Jamaica Avenue, showing an auditorium. One of the signs reads: \"Meeting Rooms for Rent.\" The wooded plot together with the auditorium was known as Columbia Park in 1909 and was, in all probability, a local picnic ground. It may have been C. Annbruster's Richmond Hill Hotel of 1891, on the Brooklyn & Jamaica Plank Road (now Jamaica Avenue), at Willow Street.\n\nP. L. Sperr\n\nAugust 22, 1932\nview: v: April, 19-5\n\n2) This place was the Kew Gardens Jewish Center in 1934.\n\nEugene L. Armbruster Collection\n",
     "before": ") 12nd Street, adjoining the N.E. corner of Jamaica Avenue, showing an aaditbrium. One of the signs reads: \"Meeting Rooas for Rent.' The wooded plot together with the auditorium was known as Columbia Park in 1909 and was, in all probability, a local picnic ground. It may have been C. Annbruster's Richmond Hill Rotel of 1891, on the Brooklyn & Jamaica Plank Road (now Jamaica Avenue), at\nWillow Street.\nP. L. Sperr  Augost 22, 1932\n  Viow 8y-~, 7j~T\n- 6E, i. NS (8~- VES  Og N15\nR 5 34\nT-i2 A\ne-g N.e\n",
     "metadata": {
@@ -3820,6 +3807,45 @@ var changes = [
       "score": 0.8107569721115537
     },
     "photo_id": "725829f-b"
+  },
+  {
+    "after": "C. Manley De Bevoise\n51-05 Browvale Lane\nLittle Neck, N.Y.\n\nTHE NEW YORK PUBLIC LIBRARY\nASTOR, LENOX & TILDEN\nFOUNDATIONS\n\n315G\nLOCAL HISTORY\nAND GENEALOGY",
+    "before": "C. Manley De Bevoise\n51-05 Browvale Lane\nLittle Neck, N.Y.\n",
+    "metadata": {
+      "back_id": "726193b",
+      "cookie": "blah",
+      "distance": 95,
+      "len_base": 59,
+      "len_exp": 155,
+      "score": 0.0
+    },
+    "photo_id": "726193f-a"
+  },
+  {
+    "after": "P.L. Sperr, Photographer.\n\nTHE NEW YORK\nPUBLIC LIBRARY\nASTOR, LENOX AND\nTILDEN FOUNDATIONS\nR",
+    "before": "West side of First Avenue across clearing, 49th to 48th Streets. October 24th, 1928.\nF.L. Sperr, Photographer.\n\n",
+    "metadata": {
+      "back_id": "707618b",
+      "cookie": "blah",
+      "distance": 94,
+      "len_base": 112,
+      "len_exp": 92,
+      "score": 0.1607142857142857
+    },
+    "photo_id": "707618f-a"
+  },
+  {
+    "after": "Feast of Our Lady of Mt. Carmel: Parade, marching south on First Avenue past the filling station adjoining the S.W. corner of 109th Street. A woman in the center of the picture is carrying wax votive images of a head and an abdomen. These will be carried into the church and laid at Our Lady's altar. The filling station in the background was built since 1925, replacing three old frame sheds. The angle made by the building on the left is due to the property line, which at this point coincided with the S.W. side of Roosevelt Road, a country road long since obliterated. July 16, 1930.\n\nP. L. Sperr.\n\nParade, entering and turning south on First Avenue at 115th Street. Jefferson Park lies on the east side of First Avenue from 114th to 111th Streets. July 16, 1930.\n\nP. L. Sperr.\n\nParade, moving east on 114th Street opposite N.W. corner of First Avenue. The girl in the foreground is carrying a giant candle on her head. July 16, 1930.\n\nP. L. Sperr.",
+    "before": "(1)\nFeast of Our Lady of Mt. Carmel: Parade, marching south on First Avenue past the filling station adjoining the S.w. corner of 109th Street. A woman in the centen of the picture is carrying wax votive images of a head and an abdomen. These will be carried into the church and laid at Our Lady's altar. The filling station in the background was built since 1925, replacing three old frame sheds. The angle made by the building on the left is due to the property line, which at this point coincided with the S.W. side of Roosevelt Road, a country\nroad long since obliterated.\nJuly 16, 1930.\nP. L. Sperr.\n  Neg RR0S\n(2)\nParade, entering and turning south on First Aveme at 115th\nStreet.\nJefferson Park lies on the east side of First Avenue from\n114th to 111th Streets.\nJuly 16, 1930.\nP. L. Sperr.\n  i DE2:\nV11S  ( 2H EE1: M  .  E\n(3)\nParade, moving east on 114th Street opposite N.W. corner of First Avenue. The girl in the foreground is carrying a giant\noandle on her head.\nJuly 16, 1930.\nP. L. Sperr.\ni EE 25  iP  -44-  ) 7  (S4 4( :47  1uS  1177\n",
+    "metadata": {
+      "back_id": "731619b",
+      "cookie": "blah",
+      "distance": 94,
+      "len_base": 1049,
+      "len_exp": 952,
+      "score": 0.9103908484270734
+    },
+    "photo_id": "731619f-c"
   },
   {
     "after": "West 53rd Street, north side, west of Fifth Ave., showing a clearance where the old building of the Museum of Modern Art stood. Upon this site, and in conjunction with additional space thru the block (former Rockefeller houses) a new Museum will rise. At the extreme right appears the side of St. Thomas Church (P.E.) with its Bridal entrance and the intertwining dollar sign and bridal knot lattice work decoration.\n\nP. L. Sperr.\n\nAn eastward view of the same area. Fifth Avenue is at the extreme right. Buildings on the left bear Nos. 23 & 21; the excavation including No's. 19 to 3 inclusive.\n\nBuilt for Geo. Blumenthal about March 19, 1938.\nP. L. Sperr.\n23 d 25 W. 53 St.",
@@ -3835,17 +3861,17 @@ var changes = [
     "photo_id": "713652f-b"
   },
   {
-    "after": "Roof Garden Restaurant\nHotel Pierre, New York City\n\nF. S. LINCOLN\nPhotographer\n114 EAST 32nd STREET\nNEW YORK CITY\n\n177P6",
-    "before": "(EgN3--2AS E38R2\n-DEE3S  IeNE( PA2E 'SS.\nP S L3  E2VS\n508-S\n21ST\n177P6\n",
+    "after": "THE NEW YORK PUBLIC LIBRARY\nASTOR LENOX & TILDEN\nFOUNDATIONS\n\n315G\nLOCAL HISTORY\nAND GENEALOGY\n\n* C. Manley Debevoise\nRecd N.Y.P.L. Aug. 1968",
+    "before": "o:  ~'Ng\n.3SS  S rS  E  4\nNA69\n2  .EmwVw\nTM;Cgi0NW\nNS\nNIWI\n.(55S  A\nF 0. Noab Debevosa\nEecd Nv.PL. Aug 56r\n",
     "metadata": {
-      "back_id": "709087b",
+      "back_id": "727635b",
       "cookie": "blah",
       "distance": 94,
-      "len_base": 71,
-      "len_exp": 120,
-      "score": 0.0
+      "len_base": 107,
+      "len_exp": 141,
+      "score": 0.12149532710280375
     },
-    "photo_id": "709087f"
+    "photo_id": "727635f"
   },
   {
     "after": "9418-9424 Ave. K., south side, east from East 94th to East 95th Streets.\nJuly 6, 1933.\n\nP. L. Sperr.",
@@ -3874,6 +3900,19 @@ var changes = [
     "photo_id": "704778f-c"
   },
   {
+    "after": "Roof Garden Restaurant\nHotel Pierre, New York City\n\nF. S. LINCOLN\nPhotographer\n114 EAST 32nd STREET\nNEW YORK CITY\n\n177P6",
+    "before": "(EgN3--2AS E38R2\n-DEE3S  IeNE( PA2E 'SS.\nP S L3  E2VS\n508-S\n21ST\n177P6\n",
+    "metadata": {
+      "back_id": "709087b",
+      "cookie": "blah",
+      "distance": 94,
+      "len_base": 71,
+      "len_exp": 120,
+      "score": 0.0
+    },
+    "photo_id": "709087f"
+  },
+  {
     "after": "Roger Morris Park: The Jumel Mansion located in this open area bounded by Edgecombe Avenue and Jumel Terrace, between West 160th and 162nd Streets. This was Washington Headquarters in the Revolutionary War and is near Fort George.\n\nPrior to 1900\n\nLangill, photo\nUrbrock Collection\n\nTHE NEW YORK PUBLIC LIBRARY\nASTOR LENOX & TILDEN FOUNDATIONS\n\n315g\nLOCAL HISTORY AND GENEALOGY",
     "before": "Roger Morris Park: The Jumel Mansion located in this open area bounded by Edgecombe Avenue and Jumel Terrace, between West 160th and 162nd Streets. This was Washington Headquarters in the Revolutionary War and is near\nFort George.\nPrior to 1900\nLangill, photo\nUrbrock Collection\n\n",
     "metadata": {
@@ -3885,32 +3924,6 @@ var changes = [
       "score": 0.6642857142857144
     },
     "photo_id": "723046f-a"
-  },
-  {
-    "after": "Feast of Our Lady of Mt. Carmel: Parade, marching south on First Avenue past the filling station adjoining the S.W. corner of 109th Street. A woman in the center of the picture is carrying wax votive images of a head and an abdomen. These will be carried into the church and laid at Our Lady's altar. The filling station in the background was built since 1925, replacing three old frame sheds. The angle made by the building on the left is due to the property line, which at this point coincided with the S.W. side of Roosevelt Road, a country road long since obliterated. July 16, 1930.\n\nP. L. Sperr.\n\nParade, entering and turning south on First Avenue at 115th Street. Jefferson Park lies on the east side of First Avenue from 114th to 111th Streets. July 16, 1930.\n\nP. L. Sperr.\n\nParade, moving east on 114th Street opposite N.W. corner of First Avenue. The girl in the foreground is carrying a giant candle on her head. July 16, 1930.\n\nP. L. Sperr.",
-    "before": "(1)\nFeast of Our Lady of Mt. Carmel: Parade, marching south on First Avenue past the filling station adjoining the S.w. corner of 109th Street. A woman in the centen of the picture is carrying wax votive images of a head and an abdomen. These will be carried into the church and laid at Our Lady's altar. The filling station in the background was built since 1925, replacing three old frame sheds. The angle made by the building on the left is due to the property line, which at this point coincided with the S.W. side of Roosevelt Road, a country\nroad long since obliterated.\nJuly 16, 1930.\nP. L. Sperr.\n  Neg RR0S\n(2)\nParade, entering and turning south on First Aveme at 115th\nStreet.\nJefferson Park lies on the east side of First Avenue from\n114th to 111th Streets.\nJuly 16, 1930.\nP. L. Sperr.\n  i DE2:\nV11S  ( 2H EE1: M  .  E\n(3)\nParade, moving east on 114th Street opposite N.W. corner of First Avenue. The girl in the foreground is carrying a giant\noandle on her head.\nJuly 16, 1930.\nP. L. Sperr.\ni EE 25  iP  -44-  ) 7  (S4 4( :47  1uS  1177\n",
-    "metadata": {
-      "back_id": "731619b",
-      "cookie": "blah",
-      "distance": 94,
-      "len_base": 1049,
-      "len_exp": 952,
-      "score": 0.9103908484270734
-    },
-    "photo_id": "731619f-c"
-  },
-  {
-    "after": "THE NEW YORK PUBLIC LIBRARY\nASTOR LENOX & TILDEN\nFOUNDATIONS\n\n315G\nLOCAL HISTORY\nAND GENEALOGY\n\n* C. Manley Debevoise\nRecd N.Y.P.L. Aug. 1968",
-    "before": "o:  ~'Ng\n.3SS  S rS  E  4\nNA69\n2  .EmwVw\nTM;Cgi0NW\nNS\nNIWI\n.(55S  A\nF 0. Noab Debevosa\nEecd Nv.PL. Aug 56r\n",
-    "metadata": {
-      "back_id": "727635b",
-      "cookie": "blah",
-      "distance": 94,
-      "len_base": 107,
-      "len_exp": 141,
-      "score": 0.12149532710280375
-    },
-    "photo_id": "727635f"
   },
   {
     "after": "51",
@@ -3926,17 +3939,17 @@ var changes = [
     "photo_id": "716051f-b"
   },
   {
-    "after": "P.L. Sperr, Photographer.\n\nTHE NEW YORK\nPUBLIC LIBRARY\nASTOR, LENOX AND\nTILDEN FOUNDATIONS\nR",
-    "before": "West side of First Avenue across clearing, 49th to 48th Streets. October 24th, 1928.\nF.L. Sperr, Photographer.\n\n",
+    "after": "(1)\nCentral Park West, west side, from 87th to 89th Streets. The Mohonk and Minnewaska Apartments, shown at the S.W. corner of 88th Street, have been demolished and replaced by a modern apartment house. The Walden School is on the N.W. corner of 88th Street and beyond it is the St. Urban. These buildings are still standing (1935).\nFebruary 2, 1929.\n\nP. L. Sperr, Photographer.\n\n\n(2)\nThe same, from a somewhat greater distance.\nFebruary 2, 1929.\n\nP. L. Sperr, Photographer.\n\n\nTHE NEW YORK\nPUBLIC LIBRARY\nASTOR, LENOX AND\nTILDEN FOUNDATIONS\nR L",
+    "before": "(11\nCentral Park West, west side, from 87th to 89th Streets. The Mohonk and Minnewaska Apartments, shown at the S.W. corner of B8th Street, have been demolished and replaced by a modern apartment house. The Walden School is on the N.W. corner of 88th Street and beyond it is the St. Urban. These buildings\nare still standing (1935).\nFebruary 2, 1929.\nP. L. Sperr, Photographer.\nNV2g ~E e  pNS,\ni63 ~.2\n(2)\nThe same, from a somewhat greater distance.\nFebruary 2, 1929.\nP. L. Sperr, Photographer.\n",
     "metadata": {
-      "back_id": "707618b",
+      "back_id": "718501b",
       "cookie": "blah",
-      "distance": 94,
-      "len_base": 112,
-      "len_exp": 92,
-      "score": 0.1607142857142857
+      "distance": 93,
+      "len_base": 495,
+      "len_exp": 544,
+      "score": 0.8121212121212121
     },
-    "photo_id": "707618f-a"
+    "photo_id": "718501f-b"
   },
   {
     "after": "(1)\nWendel House, N. W. corner Fifth Avenue and 39th Street across Union League Club site.                     July 10, 1932.\nP.L. Sperr, Photographer.\n\n(2)\nWendel Barn 39th Street, adjoining N. W. corner Fifth Avenue.\nP.L. Sperr, Photographer.                     July 10, 1932.\n\n(3)\nWendel Home N.W. corner Fifth Avenue and 39th Street.\nP.L. Sperr, Photographer.                     June 14, 1931.\n\nSLICE # 29/C3\nTHE NEW YORK PUBLIC LIBRARY\nASTOR, LENOX AND TILDEN FOUNDATIONS",
@@ -3978,56 +3991,17 @@ var changes = [
     "photo_id": "705306f-d"
   },
   {
-    "after": "(1)\nCentral Park West, west side, from 87th to 89th Streets. The Mohonk and Minnewaska Apartments, shown at the S.W. corner of 88th Street, have been demolished and replaced by a modern apartment house. The Walden School is on the N.W. corner of 88th Street and beyond it is the St. Urban. These buildings are still standing (1935).\nFebruary 2, 1929.\n\nP. L. Sperr, Photographer.\n\n\n(2)\nThe same, from a somewhat greater distance.\nFebruary 2, 1929.\n\nP. L. Sperr, Photographer.\n\n\nTHE NEW YORK\nPUBLIC LIBRARY\nASTOR, LENOX AND\nTILDEN FOUNDATIONS\nR L",
-    "before": "(11\nCentral Park West, west side, from 87th to 89th Streets. The Mohonk and Minnewaska Apartments, shown at the S.W. corner of B8th Street, have been demolished and replaced by a modern apartment house. The Walden School is on the N.W. corner of 88th Street and beyond it is the St. Urban. These buildings\nare still standing (1935).\nFebruary 2, 1929.\nP. L. Sperr, Photographer.\nNV2g ~E e  pNS,\ni63 ~.2\n(2)\nThe same, from a somewhat greater distance.\nFebruary 2, 1929.\nP. L. Sperr, Photographer.\n",
+    "after": "(1)\nWashington Square Park, showing the center fountain with the Washington Arch in the background, and children at play in the water.  18-22 Washington Square North, west of Fifth Avenue, are the houses in background.\nP.L. Sperr.\n\n\n(2)\nThe same; from another angle.\nP.L. Sperr.\n\nAugust 6th, 1932\n\n(3) The same.\nP.L. Sperr.\n\nAugust 6th, 1932",
+    "before": "(I)\nWashington Square Park,showing the center fountain with the Washington Arch in thc background,and children at play in the water.  I8-22 Washington Square North,west of Fifth\nAvenue,are the houses in background.\nAugust 6th,1932\nP.L.Sperr.\n\nNEG ~~376E\n(2)\nThe same,from another angle .\nAES ~S766\nAugust 6th,1932\nP.L.Sperr.\n\n(3) The same.\nAugaut 6th,1932\nP.L.Sperr.\n\nNES~~ 3767\n",
     "metadata": {
-      "back_id": "718501b",
-      "cookie": "blah",
-      "distance": 93,
-      "len_base": 495,
-      "len_exp": 544,
-      "score": 0.8121212121212121
-    },
-    "photo_id": "718501f-b"
-  },
-  {
-    "after": "19-31 West 8th Street (formerly also known as Clinton Place'), north side, between Fifth and Sixth Avenues; part of the principal small shop and restaurant street of the Village. Marta's, shown at 23 West 8th Street, is a dancing restaurant, with Spanish entertainers.\n\nApril 26, 1933.\n\nP. L. Sperr.\n\n\nTHE NEW YORK PUBLIC LIBRARY\nASTOR, LENOX AND TILDEN FOUNDATIONS\n\n315G\nLOCAL HISTORY AND GENEALOGY",
-    "before": "19-31 West 8th Street (formerly also known as Clinton Place), north side, between Fifth and Sixth Avenues; part of the principal\nsmall shop and restaurant street of the Village.\nMarta's, shown at 23 West 8th Street, is a dancing restaurant, with\nSpanish entertainers.\nApril 26, 1933.\nP. L. Sperr.\n  Niea w 5E2\n",
-    "metadata": {
-      "back_id": "710991b",
+      "back_id": "724029b",
       "cookie": "blah",
       "distance": 92,
-      "len_base": 310,
-      "len_exp": 399,
-      "score": 0.7032258064516129
+      "len_base": 379,
+      "len_exp": 341,
+      "score": 0.7572559366754618
     },
-    "photo_id": "710991f-a"
-  },
-  {
-    "after": "CONTRACT  ROUTE IV  SECTION BC NO. 10\nLOCATION  9th Av. at 32nd St.\nSUBJECT  Construction Photo.\nDESCRIPTION  Derrick need in placing 100 ft girders\nDATE  Aug. 1915\n\nPurchased from Neikrug Galleries, Inc., May 25, 1976  ",
-    "before": "ROUTE I, SECTION 8C, NO. 9\nLOCATION: 9th Ave at 53rd St.\nSUBJECT: Construction Photo.\nDESCRIPTION: Derrick used in placing 100 ft. girders  ",
-    "metadata": {
-      "back_id": "710427b",
-      "cookie": "blah",
-      "distance": 92,
-      "len_base": 140,
-      "len_exp": 220,
-      "score": 0.34285714285714286
-    },
-    "photo_id": "710427f-a"
-  },
-  {
-    "after": "Washington Street, east side, south from Carlisle to Rector Street's. At the right is the 35 storied No. 19 Rector Street Bldg. occupying the southerly side of that thoroughfare from Washington to Greenwich Street's. View 2 shows several of the Carlisle Street buildings on the left.\n\nApril 28, 1940\nNo's. 1-2\n\nP. L. Sperr\n\nView 3, Washington Street, east side at Carlton Street, looking north from #113-115 Washington Street.\n\nApril 28, 1940.",
-    "before": "Washington Street, east side, south from Carlisle to Rector Street's. At the right is the 35 storied No. 19 Rector Street Bldg. occupying the southerly side of that thoroughfare from Washington to Greenwich Street's. View 2 shows several of the Carlisle Street buildings\non the left.\nApril 28, 1940\nNo's. 1-2\nP. L. Sperr\nView 3,\nEEEEE~:MEET2C2ES\nApril 28, 1940.",
-    "metadata": {
-      "back_id": "724084b",
-      "cookie": "blah",
-      "distance": 92,
-      "len_base": 361,
-      "len_exp": 443,
-      "score": 0.7451523545706371
-    },
-    "photo_id": "724084f-c"
+    "photo_id": "724029f-c"
   },
   {
     "after": "(1) Feast of Our Lady of Mt. Carmel: A pedlar with rubber toys, on the S.E. corner of First Avenue and 114th Street; the view is north.\n\nJuly 16, 1934.\n\nP. L. Sperr.\n\n(2) Refreshments on the Feast Day of Our Lady of Mt. Carmel: corn on the cob and soda pop for sale.\nThe scene is First Avenue near 114th Street.\nJuly 16, 1934.\n\nP. L. Sperr.\n\n(3) Another ear of corn, on 114th Street east of Pleasant Avenue.\nThe old Standard Gas-Light works on the north side of the street, which now belong to Consolidated Gas, are about to be demolished.\n\nJuly 16, 1934.\n\nP. L. Sperr.",
@@ -4056,17 +4030,43 @@ var changes = [
     "photo_id": "715733f"
   },
   {
-    "after": "(1)\nWashington Square Park, showing the center fountain with the Washington Arch in the background, and children at play in the water.  18-22 Washington Square North, west of Fifth Avenue, are the houses in background.\nP.L. Sperr.\n\n\n(2)\nThe same; from another angle.\nP.L. Sperr.\n\nAugust 6th, 1932\n\n(3) The same.\nP.L. Sperr.\n\nAugust 6th, 1932",
-    "before": "(I)\nWashington Square Park,showing the center fountain with the Washington Arch in thc background,and children at play in the water.  I8-22 Washington Square North,west of Fifth\nAvenue,are the houses in background.\nAugust 6th,1932\nP.L.Sperr.\n\nNEG ~~376E\n(2)\nThe same,from another angle .\nAES ~S766\nAugust 6th,1932\nP.L.Sperr.\n\n(3) The same.\nAugaut 6th,1932\nP.L.Sperr.\n\nNES~~ 3767\n",
+    "after": "CONTRACT  ROUTE IV  SECTION BC NO. 10\nLOCATION  9th Av. at 32nd St.\nSUBJECT  Construction Photo.\nDESCRIPTION  Derrick need in placing 100 ft girders\nDATE  Aug. 1915\n\nPurchased from Neikrug Galleries, Inc., May 25, 1976  ",
+    "before": "ROUTE I, SECTION 8C, NO. 9\nLOCATION: 9th Ave at 53rd St.\nSUBJECT: Construction Photo.\nDESCRIPTION: Derrick used in placing 100 ft. girders  ",
     "metadata": {
-      "back_id": "724029b",
+      "back_id": "710427b",
       "cookie": "blah",
       "distance": 92,
-      "len_base": 379,
-      "len_exp": 341,
-      "score": 0.7572559366754618
+      "len_base": 140,
+      "len_exp": 220,
+      "score": 0.34285714285714286
     },
-    "photo_id": "724029f-c"
+    "photo_id": "710427f-a"
+  },
+  {
+    "after": "Washington Street, east side, south from Carlisle to Rector Street's. At the right is the 35 storied No. 19 Rector Street Bldg. occupying the southerly side of that thoroughfare from Washington to Greenwich Street's. View 2 shows several of the Carlisle Street buildings on the left.\n\nApril 28, 1940\nNo's. 1-2\n\nP. L. Sperr\n\nView 3, Washington Street, east side at Carlton Street, looking north from #113-115 Washington Street.\n\nApril 28, 1940.",
+    "before": "Washington Street, east side, south from Carlisle to Rector Street's. At the right is the 35 storied No. 19 Rector Street Bldg. occupying the southerly side of that thoroughfare from Washington to Greenwich Street's. View 2 shows several of the Carlisle Street buildings\non the left.\nApril 28, 1940\nNo's. 1-2\nP. L. Sperr\nView 3,\nEEEEE~:MEET2C2ES\nApril 28, 1940.",
+    "metadata": {
+      "back_id": "724084b",
+      "cookie": "blah",
+      "distance": 92,
+      "len_base": 361,
+      "len_exp": 443,
+      "score": 0.7451523545706371
+    },
+    "photo_id": "724084f-c"
+  },
+  {
+    "after": "19-31 West 8th Street (formerly also known as Clinton Place'), north side, between Fifth and Sixth Avenues; part of the principal small shop and restaurant street of the Village. Marta's, shown at 23 West 8th Street, is a dancing restaurant, with Spanish entertainers.\n\nApril 26, 1933.\n\nP. L. Sperr.\n\n\nTHE NEW YORK PUBLIC LIBRARY\nASTOR, LENOX AND TILDEN FOUNDATIONS\n\n315G\nLOCAL HISTORY AND GENEALOGY",
+    "before": "19-31 West 8th Street (formerly also known as Clinton Place), north side, between Fifth and Sixth Avenues; part of the principal\nsmall shop and restaurant street of the Village.\nMarta's, shown at 23 West 8th Street, is a dancing restaurant, with\nSpanish entertainers.\nApril 26, 1933.\nP. L. Sperr.\n  Niea w 5E2\n",
+    "metadata": {
+      "back_id": "710991b",
+      "cookie": "blah",
+      "distance": 92,
+      "len_base": 310,
+      "len_exp": 399,
+      "score": 0.7032258064516129
+    },
+    "photo_id": "710991f-a"
   },
   {
     "after": "F. S. Lincoln\nPhotographer\n114 EAST 32nd STREET\nNEW YORK CITY\n119P11\n\nTHE NEW YORK PUBLIC LIBRARY\nASTOR LENOX & TILDEN\nFOUNDATIONS\n\n315G\nLOCAL HISTORY\nAND GENEALOGY\n\nThis photograph was used in NYPL\nArt Deco exhibit, Apr. 30, 1975.",
@@ -4093,32 +4093,6 @@ var changes = [
       "score": 0.9033613445378151
     },
     "photo_id": "729311f-b"
-  },
-  {
-    "after": "Hamilton Avenue, east side, south from Huntington Street, showing the demolition of buildings to make possible the widening of the avenue as the northerly extension of the Belt Parkway. View 2 is south from Mill Street, two blocks below Huntington Street. On the left is the south side of Garnet Street.\n\nSeptember 7, 1940\nViews 1,2\n\nP. L. Sperr\n\nView 3 is south from Mill Street and shows construction work on the Parkway after all the buildings were razed.",
-    "before": "Hamilton Avenue, east side, south from Huntington Street, showing the demolition of buildings to make possible the widening of the avenue as the northerly extension of the Belt Parkway. View 2 is south from Mill Street, two blocks below Huntington Street. On the left is the south side of Garnet Street.\nSeptember 7, 1940\nViews 1,2\nP. L. Sperr  Visw A. 9-  ~gNN,5V1\n2A  765o  Vw 3 -S 2--. NeS  2 62-~S7eS\nwS 8-S.2 Te2  kC5. 26~E2\nLNew 5-3\n",
-    "metadata": {
-      "back_id": "704759b",
-      "cookie": "blah",
-      "distance": 91,
-      "len_base": 439,
-      "len_exp": 458,
-      "score": 0.7927107061503417
-    },
-    "photo_id": "704759f-c"
-  },
-  {
-    "after": "418 West 28th Street, between 9th and 10th Avenues, adjoining the Chelsea Boys Playground, showing P.S. 33.\n\nBoard of Education, N.Y.C.\n1920.",
-    "before": "418 WCs 28th Street, between 9th and 10th Avenues,\n",
-    "metadata": {
-      "back_id": "711899b",
-      "cookie": "blah",
-      "distance": 91,
-      "len_base": 51,
-      "len_exp": 141,
-      "score": 0.0
-    },
-    "photo_id": "711899f-a"
   },
   {
     "after": "Roger Morris Park: The Jumel Mansion, located in this open area bounded by Edgecombe Avenue and Jumel Terrace, between West 160th and 162nd Streets. This was Washington's Headquarters in the Revolutionary War and is near Fort George.\n\nGift of Urbrock Collection\n\n\nTHE NEW YORK PUBLIC LIBRARY\nASTOR LENOX & TILDEN FOUNDATIONS\n315G\nLOCAL HISTORY AND GENEALOGY",
@@ -4160,6 +4134,32 @@ var changes = [
     "photo_id": "704372f-c"
   },
   {
+    "after": "Hamilton Avenue, east side, south from Huntington Street, showing the demolition of buildings to make possible the widening of the avenue as the northerly extension of the Belt Parkway. View 2 is south from Mill Street, two blocks below Huntington Street. On the left is the south side of Garnet Street.\n\nSeptember 7, 1940\nViews 1,2\n\nP. L. Sperr\n\nView 3 is south from Mill Street and shows construction work on the Parkway after all the buildings were razed.",
+    "before": "Hamilton Avenue, east side, south from Huntington Street, showing the demolition of buildings to make possible the widening of the avenue as the northerly extension of the Belt Parkway. View 2 is south from Mill Street, two blocks below Huntington Street. On the left is the south side of Garnet Street.\nSeptember 7, 1940\nViews 1,2\nP. L. Sperr  Visw A. 9-  ~gNN,5V1\n2A  765o  Vw 3 -S 2--. NeS  2 62-~S7eS\nwS 8-S.2 Te2  kC5. 26~E2\nLNew 5-3\n",
+    "metadata": {
+      "back_id": "704759b",
+      "cookie": "blah",
+      "distance": 91,
+      "len_base": 439,
+      "len_exp": 458,
+      "score": 0.7927107061503417
+    },
+    "photo_id": "704759f-c"
+  },
+  {
+    "after": "418 West 28th Street, between 9th and 10th Avenues, adjoining the Chelsea Boys Playground, showing P.S. 33.\n\nBoard of Education, N.Y.C.\n1920.",
+    "before": "418 WCs 28th Street, between 9th and 10th Avenues,\n",
+    "metadata": {
+      "back_id": "711899b",
+      "cookie": "blah",
+      "distance": 91,
+      "len_base": 51,
+      "len_exp": 141,
+      "score": 0.0
+    },
+    "photo_id": "711899f-a"
+  },
+  {
     "after": "WORLD'S GREATEST BRIDGE SPAN NEARING COMPLETION\n\nNEW YORK CITY--An excellent and exclusive set of photos on the great Kill van Kull Bridge which will reach 8,075 feet from Staten Island to Bayonne, New Jersey. The structure, which is rapidly nearing completion, will have four lanes for vehicular traffic and two lanes for rapid transit. The arch will be 1,675 feet long--the world's biggest. The span, when complete, will have cost about $18,000,000.\n\nA general view of the almost-completed span--looking toward Bayonne, New Jersey.\n\nBRIDGE 6 (EXCLUSIVE)\n\nPhoto by UNDERWOOD and UNDERWOOD\nPhoto by UNDERWOOD and UNDERWOOD\n\n1696323",
     "before": "WORLD'S GREATEST BRIDGE SPAN NEARING COMPLETION\nNEW YORK CITY -- An excellent and exclusive set of photos on the great Kill van Kull Bridge which will reach 8,075 feet from Staten Island to Bayonne, New Jersey. The structure, which is rapidly nearing completion, will have four lanes for vehicular traffic and two lanes for rapid transit. The arch will be 1,675 feet long--the world's biggest. The span, when complete, will have cost about $18,000,000.\nA general view of the almost-completed span-lookng toward Bayonne, New Jersey\n1626333  3RID3E 6 (23LISIVE)\n",
     "metadata": {
@@ -4199,45 +4199,6 @@ var changes = [
     "photo_id": "709096f-a"
   },
   {
-    "after": "(1)\nSt. Luke's Chapel (Protestant Episcopal, Trinity Parish), 481 Hudson Street, opposite the western end of Grove Street, between Barrow and Christopher Streets. This is one of the older church edifices in the city, having been built in 1821.\n1914.\nGift of Samuel Landsman.\n\n(2)\nThe church, fifteen years later, seen from the southeast.\nJune, 1929.\nEugene L. Armbruster Collection.\n\n(3)\nThe same as (2), seen from the northeast. The building in the background is the Federal Building and Post Office on Washington Street.\nJune, 1929.\nEugene L. Armbruster Collection.\n\n(4)\nAnother view of St. Luke's Chapel in the late 1920's.\nAugust 10, 1927.\nP. L. Sperr.",
-    "before": "(1)\nSt. Luke's Chapel (Protestant Episcopal, Trinity Parish), 481 Hudson Street, opposite the western end of Grove Street, between Barrow and Christopher Streets. This is one of the older church\nedifices in the city, having been built in 1821.\n1914.\nGift of Samuel Landsman:\n(2)\nThe church, fifteen years later, seen from the southeast.\nJune, 1929.\nEugene L. Armbruster Collection.\n(3)\nThe same as (2), seen from the northeast. The building in the background is the Federal Building and Post Office on Washington Street.\nJune, 1929.\nEugene L. Armbruster Collection.\n",
-    "metadata": {
-      "back_id": "720553b",
-      "cookie": "blah",
-      "distance": 89,
-      "len_base": 566,
-      "len_exp": 656,
-      "score": 0.842756183745583
-    },
-    "photo_id": "720553f-d"
-  },
-  {
-    "after": "New York Academy of Medicine, Fifth Avenue at 103rd Street, S.E. corner.\nMay 15, 1928.\nP.L. Sperr, Photographer.",
-    "before": "New York Academy of Medicine, Fifth Avenue\nMay 15, 1928.\nP.L. Sperr, Photogragher.\n\"'~3SSSa8~-8SSSwS-.,\nCiIVCShO N33S)g\nNV AONS I EO0;\n~NSN27E5;\n'3~aNu\n",
-    "metadata": {
-      "back_id": "709203b",
-      "cookie": "blah",
-      "distance": 89,
-      "len_base": 152,
-      "len_exp": 112,
-      "score": 0.4144736842105263
-    },
-    "photo_id": "709203f-a"
-  },
-  {
-    "after": "Fifth Avenue, north from 40th Street. At centre is the New York Public Library and above it is the Bristol office building, formerly the Bristol Hotel.\nNote Republican National Committee campaign streamer for Charles E. Hughes, presidential candidate defeated by Woodrow Wilson.\n\nFall 1916.\n\nNg.741\n\nROOM 300\n*Slides in Public Education Division\n\nROOM 300\n\n315G\nLOCAL HISTORY AND GENEALOGY",
-    "before": "Fifth Avenue, north from 40th Street. Rt centre is the New York Public Library and above it is the Bristol office\nbuilding, formerly the Bristol Hotel.\nNote Republican National Committee campaign streamer for Charles E. HugDeS, presidential candidate defeated by Woodrow\nWilson.\nFall 1916.\nN, 04V\nJ\nT 317\n",
-    "metadata": {
-      "back_id": "708682b",
-      "cookie": "blah",
-      "distance": 89,
-      "len_base": 305,
-      "len_exp": 389,
-      "score": 0.7081967213114755
-    },
-    "photo_id": "708682f-a"
-  },
-  {
     "after": "(1) Main Ave., adjoining the N.W. corner of Vernon Boulevard, showing the Rapelje Mansion, erected in 1780 by Jacobus Riker at 29 Main Street (old number). This house was occupied by the family for over a hundred years. It was still standing in October 1934.\n\n1922.\n\nEugene L. Armbruster Collection.\n\n(2) The same, showing the west side of the house.\n\n1922.\n\nEugene L. Armbruster Collection.\n\n(3) The same, showing also the front of the house facing on Main Ave.\n\n1922.\n\nEugene L. Armbruster Collection.\n\n(4) The same, showing the east side of the house.\n\n1922.\n\nEugene L. Armbruster Collection.",
     "before": "(1)\nMain Ave., adjoining the N.W. corner of Vernon Boulevard, showing the Rapelje Mansion, erected in 1780 by Jacobus Riker at 29 Main Street (old number). This house was occupied by the family for over a hundred years. It was still standing in October 1934.\n1922.\nEugene L. Armbruster Collection.\n(2)\nThe same, showing the west side of the house.\n1922.\nEugene L. Armbruster Collection.\n(3)\nThe same, showing also the front of the house facing on Main Ave.\n1922.\nEugene L. Armbruster Collection.\n",
     "metadata": {
@@ -4264,30 +4225,43 @@ var changes = [
     "photo_id": "709076f-a"
   },
   {
-    "after": "IGOR'S BAR\nWINES & LIQUORS\n\nALL KINDS OF MARINE\nUPHOLSTERING\n\nHIGH GRADE LODGING\n\nLEWIS BROTHERS\n\n(1)",
-    "before": "Brooklyn. Nelson Street, e. fr. Hamilton Ave. ",
+    "after": "(1)\nSt. Luke's Chapel (Protestant Episcopal, Trinity Parish), 481 Hudson Street, opposite the western end of Grove Street, between Barrow and Christopher Streets. This is one of the older church edifices in the city, having been built in 1821.\n1914.\nGift of Samuel Landsman.\n\n(2)\nThe church, fifteen years later, seen from the southeast.\nJune, 1929.\nEugene L. Armbruster Collection.\n\n(3)\nThe same as (2), seen from the northeast. The building in the background is the Federal Building and Post Office on Washington Street.\nJune, 1929.\nEugene L. Armbruster Collection.\n\n(4)\nAnother view of St. Luke's Chapel in the late 1920's.\nAugust 10, 1927.\nP. L. Sperr.",
+    "before": "(1)\nSt. Luke's Chapel (Protestant Episcopal, Trinity Parish), 481 Hudson Street, opposite the western end of Grove Street, between Barrow and Christopher Streets. This is one of the older church\nedifices in the city, having been built in 1821.\n1914.\nGift of Samuel Landsman:\n(2)\nThe church, fifteen years later, seen from the southeast.\nJune, 1929.\nEugene L. Armbruster Collection.\n(3)\nThe same as (2), seen from the northeast. The building in the background is the Federal Building and Post Office on Washington Street.\nJune, 1929.\nEugene L. Armbruster Collection.\n",
     "metadata": {
-      "back_id": "705916b",
+      "back_id": "720553b",
       "cookie": "blah",
-      "distance": 88,
-      "len_base": 46,
-      "len_exp": 101,
-      "score": 0.0
+      "distance": 89,
+      "len_base": 566,
+      "len_exp": 656,
+      "score": 0.842756183745583
     },
-    "photo_id": "705916f-a"
+    "photo_id": "720553f-d"
   },
   {
-    "after": "1. Myrtle Ave. near Navy St., Bklyn.\n   R.C.\n   St. Edwards's Church from Myrtle Ave.\n   108 St.Edwards St\n   P.L. Sperr, photographer\n   Neg. A-21\n   Apr. 11, 1941\n\n2. Myrtle Ave. east from Navy St.    P.L. Sperr, photographer\n   Neg. A-257\n   Apr. 11, 1941",
-    "before": "1. Myrtle Ave. near Navy St., Bklyn. eg. A-21 St. 8doarddChurch fromMyrtle Ave. Apr. 11, 1941\nzeek sr g2D2wWo S2P.L. Sperr, photographer\n2. Nyrtle Ave. east from Navy St.  Neg. A-2S7 P.L. Sperr, photographer  Apr. 11, 1941\n",
+    "after": "Fifth Avenue, north from 40th Street. At centre is the New York Public Library and above it is the Bristol office building, formerly the Bristol Hotel.\nNote Republican National Committee campaign streamer for Charles E. Hughes, presidential candidate defeated by Woodrow Wilson.\n\nFall 1916.\n\nNg.741\n\nROOM 300\n*Slides in Public Education Division\n\nROOM 300\n\n315G\nLOCAL HISTORY AND GENEALOGY",
+    "before": "Fifth Avenue, north from 40th Street. Rt centre is the New York Public Library and above it is the Bristol office\nbuilding, formerly the Bristol Hotel.\nNote Republican National Committee campaign streamer for Charles E. HugDeS, presidential candidate defeated by Woodrow\nWilson.\nFall 1916.\nN, 04V\nJ\nT 317\n",
     "metadata": {
-      "back_id": "705797b",
+      "back_id": "708682b",
       "cookie": "blah",
-      "distance": 88,
-      "len_base": 223,
-      "len_exp": 258,
-      "score": 0.6053811659192825
+      "distance": 89,
+      "len_base": 305,
+      "len_exp": 389,
+      "score": 0.7081967213114755
     },
-    "photo_id": "705797f-b"
+    "photo_id": "708682f-a"
+  },
+  {
+    "after": "New York Academy of Medicine, Fifth Avenue at 103rd Street, S.E. corner.\nMay 15, 1928.\nP.L. Sperr, Photographer.",
+    "before": "New York Academy of Medicine, Fifth Avenue\nMay 15, 1928.\nP.L. Sperr, Photogragher.\n\"'~3SSSa8~-8SSSwS-.,\nCiIVCShO N33S)g\nNV AONS I EO0;\n~NSN27E5;\n'3~aNu\n",
+    "metadata": {
+      "back_id": "709203b",
+      "cookie": "blah",
+      "distance": 89,
+      "len_base": 152,
+      "len_exp": 112,
+      "score": 0.4144736842105263
+    },
+    "photo_id": "709203f-a"
   },
   {
     "after": "Seventh Avenue, west side, from 43rd to 42nd Streets. At the extreme right, may be seen the Paramount Theatre. At the left centre background is the Rialto Theatre, now demolished and at the extreme left is the Hermitage Hotel.\n\nMarch 21, 1934.\n\nP.L. Sperr, Photographer.",
@@ -4301,32 +4275,6 @@ var changes = [
       "score": 0.5707317073170732
     },
     "photo_id": "709799f-a"
-  },
-  {
-    "after": "Bx. Alexander Ave. at 142nd St. from 141st St. Neg. A-274\nP.L.Sperr\nAp. 30, 1941",
-    "before": "Bx. view from the south side of 141st St. to the w/s of Alexander Ave. north to 142nd St. (Metropolis Theatre is far right) Neg. A-274\nAp. 37, 1341\nP.L.Sperr\n",
-    "metadata": {
-      "back_id": "700402b",
-      "cookie": "blah",
-      "distance": 88,
-      "len_base": 158,
-      "len_exp": 80,
-      "score": 0.44303797468354433
-    },
-    "photo_id": "700402f-a"
-  },
-  {
-    "after": "(1)\n75 Bennett Street, at the N. W. corner of Heberton Avenue, showing the Port Richmond branch of the New York Public Library.\nAbout 1905\n\nBy Mulford Simonson\nFrom Staten Island Museum Collection through P. L. Sperr\n\n(2)\nThe same, at a later date.\nP. L. Sperr\n\n(3)\nAn additional view.\nP. L. Sperr\nApril 2, 1924",
-    "before": "75 Bennett Ad  sety at the N. W. corner ef Heberton Avenue, showing the Port Richmond branch of the New,York Public Library.\nw\nAbout 1905\nBy Malford Simonson\nrom Staten Island Esseum Collection through P. L. Sperr\n(2)  or3The same,at a later date.\nSummer 1923\nEi. Sperr\nEBdsaoworrow:\nAPJ\n(3)\nAn additional view.\nApril 2, 1924\nP. L. sberr \".,9  woaaaooucrowwsk)\n",
-    "metadata": {
-      "back_id": "728602b",
-      "cookie": "blah",
-      "distance": 88,
-      "len_base": 361,
-      "len_exp": 311,
-      "score": 0.7562326869806094
-    },
-    "photo_id": "728602f-c"
   },
   {
     "after": "P.L. Sperr collection\nRec'd November 13, 1945",
@@ -4355,17 +4303,17 @@ var changes = [
     "photo_id": "709037f-a"
   },
   {
-    "after": "1. Northwest across the corner of the park at Union Ave. and Bayard St., Brooklyn.\n\n1. North 12th St. at Driggs Ave., Brooklyn.\n\n2. Driggs Ave. at N. 12th St., Brooklyn.\n\nSept. 22, 1941\n\nP.L. Sperr, photographer",
-    "before": "1. North 12th St. at Driggs Ave., Brooklyn.\nSept. 22, 1941\n2. Driggs Ave. at N.12th St., Brooklyn.\nSept. 22, 1941\nP.L. Sperr, photographer\n",
+    "after": "IGOR'S BAR\nWINES & LIQUORS\n\nALL KINDS OF MARINE\nUPHOLSTERING\n\nHIGH GRADE LODGING\n\nLEWIS BROTHERS\n\n(1)",
+    "before": "Brooklyn. Nelson Street, e. fr. Hamilton Ave. ",
     "metadata": {
-      "back_id": "704031b",
+      "back_id": "705916b",
       "cookie": "blah",
       "distance": 88,
-      "len_base": 139,
-      "len_exp": 211,
-      "score": 0.36690647482014394
+      "len_base": 46,
+      "len_exp": 101,
+      "score": 0.0
     },
-    "photo_id": "704031f-b"
+    "photo_id": "705916f-a"
   },
   {
     "after": "(1) Clinton Street, east side, at and south of Pierrepont Street. Also shown is Pierrepont Street, south side, east of Clinton Street. Now (1929) the \"Brooklyn Trust Co.\" occupies the corner of Pierrepont Street and southward on Clinton Street to Montague Street. The corner building facing Pierrepont Street was occupied at one time, by the Brooklyn Club which was organized in 1865; later in 1914 the Club was removed to 131 Remsen Street. Prior to the occupation of the building by the Club, it was occupied by the Greenleaf Female Institute. 1914. Eugene L. Armbruster Collection.  (2) Same, showing only Pierrepont Street. 1914. Eugene L. Armbruster Collection.   ",
@@ -4381,6 +4329,58 @@ var changes = [
     "photo_id": "703655f-b"
   },
   {
+    "after": "1. Northwest across the corner of the park at Union Ave. and Bayard St., Brooklyn.\n\n1. North 12th St. at Driggs Ave., Brooklyn.\n\n2. Driggs Ave. at N. 12th St., Brooklyn.\n\nSept. 22, 1941\n\nP.L. Sperr, photographer",
+    "before": "1. North 12th St. at Driggs Ave., Brooklyn.\nSept. 22, 1941\n2. Driggs Ave. at N.12th St., Brooklyn.\nSept. 22, 1941\nP.L. Sperr, photographer\n",
+    "metadata": {
+      "back_id": "704031b",
+      "cookie": "blah",
+      "distance": 88,
+      "len_base": 139,
+      "len_exp": 211,
+      "score": 0.36690647482014394
+    },
+    "photo_id": "704031f-b"
+  },
+  {
+    "after": "Bx. Alexander Ave. at 142nd St. from 141st St. Neg. A-274\nP.L.Sperr\nAp. 30, 1941",
+    "before": "Bx. view from the south side of 141st St. to the w/s of Alexander Ave. north to 142nd St. (Metropolis Theatre is far right) Neg. A-274\nAp. 37, 1341\nP.L.Sperr\n",
+    "metadata": {
+      "back_id": "700402b",
+      "cookie": "blah",
+      "distance": 88,
+      "len_base": 158,
+      "len_exp": 80,
+      "score": 0.44303797468354433
+    },
+    "photo_id": "700402f-a"
+  },
+  {
+    "after": "(1)\n75 Bennett Street, at the N. W. corner of Heberton Avenue, showing the Port Richmond branch of the New York Public Library.\nAbout 1905\n\nBy Mulford Simonson\nFrom Staten Island Museum Collection through P. L. Sperr\n\n(2)\nThe same, at a later date.\nP. L. Sperr\n\n(3)\nAn additional view.\nP. L. Sperr\nApril 2, 1924",
+    "before": "75 Bennett Ad  sety at the N. W. corner ef Heberton Avenue, showing the Port Richmond branch of the New,York Public Library.\nw\nAbout 1905\nBy Malford Simonson\nrom Staten Island Esseum Collection through P. L. Sperr\n(2)  or3The same,at a later date.\nSummer 1923\nEi. Sperr\nEBdsaoworrow:\nAPJ\n(3)\nAn additional view.\nApril 2, 1924\nP. L. sberr \".,9  woaaaooucrowwsk)\n",
+    "metadata": {
+      "back_id": "728602b",
+      "cookie": "blah",
+      "distance": 88,
+      "len_base": 361,
+      "len_exp": 311,
+      "score": 0.7562326869806094
+    },
+    "photo_id": "728602f-c"
+  },
+  {
+    "after": "1. Myrtle Ave. near Navy St., Bklyn.\n   R.C.\n   St. Edwards's Church from Myrtle Ave.\n   108 St.Edwards St\n   P.L. Sperr, photographer\n   Neg. A-21\n   Apr. 11, 1941\n\n2. Myrtle Ave. east from Navy St.    P.L. Sperr, photographer\n   Neg. A-257\n   Apr. 11, 1941",
+    "before": "1. Myrtle Ave. near Navy St., Bklyn. eg. A-21 St. 8doarddChurch fromMyrtle Ave. Apr. 11, 1941\nzeek sr g2D2wWo S2P.L. Sperr, photographer\n2. Nyrtle Ave. east from Navy St.  Neg. A-2S7 P.L. Sperr, photographer  Apr. 11, 1941\n",
+    "metadata": {
+      "back_id": "705797b",
+      "cookie": "blah",
+      "distance": 88,
+      "len_base": 223,
+      "len_exp": 258,
+      "score": 0.6053811659192825
+    },
+    "photo_id": "705797f-b"
+  },
+  {
     "after": "Thirteenth Ave., north from 40th Street, showing a retail food market that is a local feature. This set consists of two views. October 10, 1933.\n\nP. L. Sperr.\n\nView 1 NEG. # 4610\nView 2 NEG. # 4609",
     "before": "Thirteenth Ave., north from 40th Street, showing a retail food market\nOctober 10, 1933.\nM:22SSSS4-S\nVe N ES ~ :GIG\nNi1  NS10S  V(: 2 I E\n",
     "metadata": {
@@ -4392,19 +4392,6 @@ var changes = [
       "score": 0.35766423357664234
     },
     "photo_id": "702529f-a"
-  },
-  {
-    "after": "Schermerhorn Street, west from Third Avenue. The building with the Greek columned portico is the Family Court.\n\nMay 17, 1940\n\nP. L. Sperr",
-    "before": "Schermerhorn Street, west from Third Avenue. The\n",
-    "metadata": {
-      "back_id": "706657b",
-      "cookie": "blah",
-      "distance": 87,
-      "len_base": 49,
-      "len_exp": 137,
-      "score": 0.0
-    },
-    "photo_id": "706657f-a"
   },
   {
     "after": "Fifth Avenue, at the S. W. corner of West 34th Street, showing the remaining Astor home outlined against the Hotel Waldorf. The latter stands on the site of the other of these twin houses. The remaining dwelling is to go the same way, providing the site for the second half of the combined Hotel Waldorf-Astoria. In time, the Empire State Building will succeed these.\n\nBetw. 1893-98\n\nGift of Urbrock Collection\n\nTHE NEW YORK PUBLIC LIBRARY\nASTOR LENOX & TILDEN\nFOUNDATIONS\n\nLocal History and Genealogy",
@@ -4420,17 +4407,30 @@ var changes = [
     "photo_id": "708575f-a"
   },
   {
-    "after": "N. Y. World's Fair, 1939.\n\nF. S. LINCOLN\n\nPhotographer\n114 EAST 32nd STREET\nNEW YORK CITY\n\nWHEN PUBLISHED, CREDIT\nIS TO BE GIVEN TO\nF. S. LINCOLN\n\n886P1",
-    "before": "N Y Av-ewA Rg, 1539\nP. S LINCOLN\nPhoographer\nVNPNPUBLSRED,CREDII\nK S INC7U\nRRgP1\n",
+    "after": "(1)\nPark Avenue at S.W. corner of 39th Street, showing old mansion and two houses adjacent on Park Avenue which will be demolished in 1933. The top of the Allerton House Fraternity Clubs building at Madison Avenue and 38th Street is just visible over the roof of the corner house.\nMay 31, 1928.\n\nP. L. Sperr.\n\n(2)\nThe same, five years later, showing demolition nearly complete. The large blank wall shown in the center of the picture is that of the first house on the south side of 39th Street. In the background rise the towers of the Allerton House Fraternity Clubs, on the S.E. corner of 38th Street, the International Combustion Building at 200 Madison Avenue, and, between them, the Empire State Building.\nSeptember 9, 1933.\n\nP. L. Sperr.\n\n(3)\nThe same, after completion of the demolition.\nOctober 1, 1933.\n\nP. L. Sperr.",
+    "before": "Park Avenue at S.W. corner of 39th Street, showing an old mansion and two houses adjacent on Park Avenue which will be demolished in 1933. The top of the Allerton House Fraternity Clubs building at Madison Avenue and 38th Street is just visible\nover the roof of the corner house.\nMay 31, 1928.\nP. L. Sperr.\n(2)\nThe same, five years later, showing demolition nearly complete. The large blank wall shown in the center of the picture is that of the first house on the south side of 39th Street. In the background rise the towers of the Allerton House Fraternity Clubs, on the S.E. corner of 38th Street, the International Combustion Building at 200 Madison Avenue, and,\nbetween them, the Empire State Building.\nSeptember 9, 1933.\nP. L. Sperr.\n",
     "metadata": {
-      "back_id": "726691b",
+      "back_id": "722091b",
       "cookie": "blah",
       "distance": 87,
-      "len_base": 81,
-      "len_exp": 152,
+      "len_base": 740,
+      "len_exp": 825,
+      "score": 0.8824324324324324
+    },
+    "photo_id": "722091f-c"
+  },
+  {
+    "after": "Schermerhorn Street, west from Third Avenue. The building with the Greek columned portico is the Family Court.\n\nMay 17, 1940\n\nP. L. Sperr",
+    "before": "Schermerhorn Street, west from Third Avenue. The\n",
+    "metadata": {
+      "back_id": "706657b",
+      "cookie": "blah",
+      "distance": 87,
+      "len_base": 49,
+      "len_exp": 137,
       "score": 0.0
     },
-    "photo_id": "726691f"
+    "photo_id": "706657f-a"
   },
   {
     "after": "1953-1961 Mc Donald Ave., between Quentin Road and King's Highway.\nApril 1923.\nEugene L. Armbruster Collection.",
@@ -4446,17 +4446,17 @@ var changes = [
     "photo_id": "705642f-a"
   },
   {
-    "after": "(1)\nPark Avenue at S.W. corner of 39th Street, showing old mansion and two houses adjacent on Park Avenue which will be demolished in 1933. The top of the Allerton House Fraternity Clubs building at Madison Avenue and 38th Street is just visible over the roof of the corner house.\nMay 31, 1928.\n\nP. L. Sperr.\n\n(2)\nThe same, five years later, showing demolition nearly complete. The large blank wall shown in the center of the picture is that of the first house on the south side of 39th Street. In the background rise the towers of the Allerton House Fraternity Clubs, on the S.E. corner of 38th Street, the International Combustion Building at 200 Madison Avenue, and, between them, the Empire State Building.\nSeptember 9, 1933.\n\nP. L. Sperr.\n\n(3)\nThe same, after completion of the demolition.\nOctober 1, 1933.\n\nP. L. Sperr.",
-    "before": "Park Avenue at S.W. corner of 39th Street, showing an old mansion and two houses adjacent on Park Avenue which will be demolished in 1933. The top of the Allerton House Fraternity Clubs building at Madison Avenue and 38th Street is just visible\nover the roof of the corner house.\nMay 31, 1928.\nP. L. Sperr.\n(2)\nThe same, five years later, showing demolition nearly complete. The large blank wall shown in the center of the picture is that of the first house on the south side of 39th Street. In the background rise the towers of the Allerton House Fraternity Clubs, on the S.E. corner of 38th Street, the International Combustion Building at 200 Madison Avenue, and,\nbetween them, the Empire State Building.\nSeptember 9, 1933.\nP. L. Sperr.\n",
+    "after": "N. Y. World's Fair, 1939.\n\nF. S. LINCOLN\n\nPhotographer\n114 EAST 32nd STREET\nNEW YORK CITY\n\nWHEN PUBLISHED, CREDIT\nIS TO BE GIVEN TO\nF. S. LINCOLN\n\n886P1",
+    "before": "N Y Av-ewA Rg, 1539\nP. S LINCOLN\nPhoographer\nVNPNPUBLSRED,CREDII\nK S INC7U\nRRgP1\n",
     "metadata": {
-      "back_id": "722091b",
+      "back_id": "726691b",
       "cookie": "blah",
       "distance": 87,
-      "len_base": 740,
-      "len_exp": 825,
-      "score": 0.8824324324324324
+      "len_base": 81,
+      "len_exp": 152,
+      "score": 0.0
     },
-    "photo_id": "722091f-c"
+    "photo_id": "726691f"
   },
   {
     "after": "(1) Ryder ave., at the S.W. corner of Ave. S., showing the home of E. Ryder (1857) and E.H. Ryder (1860-1873). It was occupied by one Hill in 1922. This house, in the Brooklyn Atlas of 1929, is in East 29th Street, just south of Ave. S., and will either be moved or demolished at a subsequent date.\n\n1922.\n\nEugene L. Armbruster Collection.\n\n(2) The same, looking north on Ryder Ave.\n\nApril 1922.\n\nEugene L. Armbruster Collection.\n\n(3) The same, showing the barns near East 28th Street.\n\n1922.\n\nEugene L. Armbruster Collection.\n\n(4) The same, viewed from Ave. S.\n\nApril 1923.\n\nEugene L. Armbruster Collection.",
@@ -4472,6 +4472,19 @@ var changes = [
     "photo_id": "706542f-d"
   },
   {
+    "after": "(1)\nMacdougal Street, west side, from Houston Street to West 3rd (formerly Amity) Street, where the Sixth Avenue Elevated crosses Macdougal Street, and north. In the background is one of the new apartment houses on Washington Square West (q.v.), and at the end of the vista the Empire State Building, the tallest office building in the world. 59 Macdougal Street at the S.W. corner of Houston, and 61 to 67 inclusive, at and adjoining the N.W. corner, were demolished late in 1929 when work began on the Houston Street branch of the Independent (municipal) Subway.\nFebruary 20, 1932.\n\nP. L. Sperr.\n\n(2)\nThe same, at a later date. Note the play space on the north side of Houston Street, between MacDougal Street and Sixth Ave. Extension.\nFebruary 7, 1937.\n\nP. L. Sperr.\n\n(3)\nThe same as No. 2, slightly northward.\nFebruary 7, 1937.\n\nP. L. Sperr.",
+    "before": "Macdougal Street, west side, from Houston Street to West 3rd (formerly Amity) Street, where the Sixth Avenue Elevated crosses Macdougal Street, and north. In the background is one of the new apartment houses on Washington Square West (.v.), and at the end of the vista the Empire State Building, the tallest office building in the world. 59 Macdougal Street at the S.W. corner of Houston, and 6l to 67 inclusive, at and adjoining the N.W. corner, were demolished late in 1V29 when work began on the Houston Street branch of the Independent (municipal) Subway.\nFebruary 2O, 1932.\nP. L. Sperr.\nThe same, at a later date. Note the play space on the north side of Houston Street, between MacDougal Street and Sixth Ave. Extension.\nFebruary 7, 1937.\nP. L. Sperr.\n",
+    "metadata": {
+      "back_id": "721165b",
+      "cookie": "blah",
+      "distance": 86,
+      "len_base": 758,
+      "len_exp": 845,
+      "score": 0.8865435356200527
+    },
+    "photo_id": "721165f-c"
+  },
+  {
     "after": "(1)\n\nSixth Ave., (not shown) between West 50th and 48th Streets and showing the future site of Radio City being cleared. Buildings shown on the right are on 48th Street, between Sixth and Fifth Aves; the parking lot includes the 49th Street side. Across the skyline (left to right) appears Collegiate Church of St. Nicholas, Grand Central Building, Chrysler Building, Fred. F. French Building, Chanin Building, Ruppert Building, Lincoln Building, Lefcourt National Building and 500 Fifth Ave. Building. In the foreground appears a portion of the few buildings left on the east side of Sixth Ave. and which today (1937) still remain, Radio City being built around them.\nSeptember 14, 1931.\n\nP. L. Sperr.\n\n(2)\n\nThe same, and showing the 50th Street station of the Sixth Ave. Elevated Line. Building across the station roof is No. 1258 (old number being 886) Sixth Ave., at the S.E. corner of 50th Street. This view shows on the left the three corners of Fifth Ave. and 49th Street, through the clearance at the N.W. corner.\nSeptember 14, 1931.\n\nP. L. Sperr.\n\n(3)\n\nThe same as the preceding view.\n\nSeptember 14, 1931.\n\nP. L. Sperr.",
     "before": "(1)\nSixth Ave., (not shown) between West 5Oth and 48th Streets and showing the future site of Radio City being cleared. Buildings shown on the right are on 48th Street, between Sixth and Fifth Aves; the parking lot includes the 49th Street side. Across the skyline (left to right) appears Collegiate Church of St. Nicholas, Grand Central Building, Chrysler Building, Fred. F. French Building, Chanin Building. Ruppert Building, Lincoln Building, Lefcourt National Building and 500 Fifth Ave. Building. In the foreground appears a portion of the few buildings left on the east side of Sixth Ave. and which today (1937)\nstill remain, Radio City being built around them.\nSeptember 14, 1931.\nP. L. Sperr.\n(2)\nThe same, and showing the 50th Street station of the Sixth Ave. Elevated Line. Building across the station roof is No. 1258 (old number.being 886) Sixth Ave., at the S.E. corner of 5Oth Street. This view shows on the left the three corners of Fifth Ave. and 49th Street, through the clearance at the N.W. corner.\nSeptember 14, 1931.\n",
     "metadata": {
@@ -4483,19 +4496,6 @@ var changes = [
       "score": 0.9171483622350675
     },
     "photo_id": "709565f-c"
-  },
-  {
-    "after": "Antique fire engine in the Museum of the New York Fire Department, showing part of the first floor.\n\nAgner International Photos\n10 West 56th St., New York, N.Y. C16-3470\n\n112",
-    "before": "Antique fire engine in the Museum of the New York Fire Department,at 100 Duane St., showing part of the first floor. ",
-    "metadata": {
-      "back_id": "719362b",
-      "cookie": "blah",
-      "distance": 86,
-      "len_base": 117,
-      "len_exp": 174,
-      "score": 0.2649572649572649
-    },
-    "photo_id": "719362f-a"
   },
   {
     "after": "(1) and (2)\nSixth Avenue and Sullivan Street, north from Broome Street. The former is thru the center and the Butterick Building fronts on same at Spring Street. This structure bears No. 161 Sixth Avenue. Buildings at the left are included with this thoroughfare tho previously they faced on the now obliterated Clark Street. To the right appears an extensive view up Sullivan Street. The C.G. Hussey & Co. occupy the two-story building, No. 140-8 Sixth Avenue.\nF5 - Neg: 2724\nP. L. Sperr\nF6 - Neg: 2719\nJuly 25, 1939\nViews 1, 2\n\n(3)\nA similar view to No. 2. The cleared land in the foreground is a triangular plot separating the Avenue from Sullivan Street.\nView 3: June 27, 1932\nF-7 Neg: 2720\nP. L. Sperr",
@@ -4511,32 +4511,6 @@ var changes = [
     "photo_id": "709260f-c"
   },
   {
-    "after": "(1)\nMacdougal Street, west side, from Houston Street to West 3rd (formerly Amity) Street, where the Sixth Avenue Elevated crosses Macdougal Street, and north. In the background is one of the new apartment houses on Washington Square West (q.v.), and at the end of the vista the Empire State Building, the tallest office building in the world. 59 Macdougal Street at the S.W. corner of Houston, and 61 to 67 inclusive, at and adjoining the N.W. corner, were demolished late in 1929 when work began on the Houston Street branch of the Independent (municipal) Subway.\nFebruary 20, 1932.\n\nP. L. Sperr.\n\n(2)\nThe same, at a later date. Note the play space on the north side of Houston Street, between MacDougal Street and Sixth Ave. Extension.\nFebruary 7, 1937.\n\nP. L. Sperr.\n\n(3)\nThe same as No. 2, slightly northward.\nFebruary 7, 1937.\n\nP. L. Sperr.",
-    "before": "Macdougal Street, west side, from Houston Street to West 3rd (formerly Amity) Street, where the Sixth Avenue Elevated crosses Macdougal Street, and north. In the background is one of the new apartment houses on Washington Square West (.v.), and at the end of the vista the Empire State Building, the tallest office building in the world. 59 Macdougal Street at the S.W. corner of Houston, and 6l to 67 inclusive, at and adjoining the N.W. corner, were demolished late in 1V29 when work began on the Houston Street branch of the Independent (municipal) Subway.\nFebruary 2O, 1932.\nP. L. Sperr.\nThe same, at a later date. Note the play space on the north side of Houston Street, between MacDougal Street and Sixth Ave. Extension.\nFebruary 7, 1937.\nP. L. Sperr.\n",
-    "metadata": {
-      "back_id": "721165b",
-      "cookie": "blah",
-      "distance": 86,
-      "len_base": 758,
-      "len_exp": 845,
-      "score": 0.8865435356200527
-    },
-    "photo_id": "721165f-c"
-  },
-  {
-    "after": "(1) Ninth Avenue, east side, at 37th Street, and looking northwards.\nNeg. Photostat #\n\n(2) Ninth Avenue north from 38th Street, showing McGraw Hill building in background.\nNeg. Photostat #\n\n(3) Ninth Avenue east side at 40th Street, from a point south of 40th Street, looking north.\n\nP.L. Speer.\n\nApril 17, 1941.\n\nNegative Photostat # 1192\n\nNeg. # 1073 [ALL 3 VIEWS ON A NEGATIVE PHOTOSTAT].",
-    "before": "(1)\nNinth Avenue, east side, at 37th Street, and looking\nnorthwards.\nNegative Photostat\n(2)\nNinth Avenue north from 38th Street, showing McGraw\nHill building in background.\nNegative Photostat\n(31\nNinth Avenue east side at 40th Street, from a point\nsouth of 40th Street, looking north.\nP.L.5peer.\nNO REPRODUCTION.  April 17, 1941.\nNegative Photostat #1192\n",
-    "metadata": {
-      "back_id": "710388b",
-      "cookie": "blah",
-      "distance": 86,
-      "len_base": 355,
-      "len_exp": 391,
-      "score": 0.7577464788732394
-    },
-    "photo_id": "710388f"
-  },
-  {
     "after": "F. S. LINCOLN\nPhotographer\n114 EAST 32nd STREET\nNEW YORK CITY\n388P5\nKRESS BLDG.\n\nIF PUBLISHED, CREDIT\nIS TO BE GIVEN TO\nF. S. LINCOLN",
     "before": "ESVEE9D\nPhotographer\n399S\nVWmS E.44.\n1P PUBLISHED, CREDIT\nR S 1Ci1\n",
     "metadata": {
@@ -4548,6 +4522,19 @@ var changes = [
       "score": 0.0
     },
     "photo_id": "708639f"
+  },
+  {
+    "after": "Antique fire engine in the Museum of the New York Fire Department, showing part of the first floor.\n\nAgner International Photos\n10 West 56th St., New York, N.Y. C16-3470\n\n112",
+    "before": "Antique fire engine in the Museum of the New York Fire Department,at 100 Duane St., showing part of the first floor. ",
+    "metadata": {
+      "back_id": "719362b",
+      "cookie": "blah",
+      "distance": 86,
+      "len_base": 117,
+      "len_exp": 174,
+      "score": 0.2649572649572649
+    },
+    "photo_id": "719362f-a"
   },
   {
     "after": "Broadway, west side, north from and including Cedar Street, showing the 14-story New York Title and Mortgage Co. Building (No. 135-137, at the N.W. corner of Cedar Street); the 19-story Washington Life Insurance Co. Building (No. 141, at the S.W. corner of Liberty Street); the 56-story Singer City Investing Building (No. 165, adjoining the S.W. corner of Cortlandt Street); the 26-story American Telegraph and Telephone Co. Building (No. 195-207, entire block front from Dey to Fulton Streets) and the 55-story Woolworth Building (No. 229-237, entire front from Barclay Street, to Park Place).\n\nAbout 1922.\n\nUnderwood and Underwood.\n",
@@ -4563,30 +4550,30 @@ var changes = [
     "photo_id": "717064f-a"
   },
   {
-    "after": "Third Avenue, west side, from 44th to 45th Streets. About 1920.\nJames Suydam, Photographer.",
-    "before": "Third Avenue, west side, from 44th to 45th Streets.\nAbout 1920.\nJames Suydam, Photographer.\n1 r~  1N)\nNI i  1AS ~SR221\n1N - w2\n\"ENEW W5sg\n'7BLN 1N6.g\n'N awot..,g\n~~~AN FoUNpArsyg\n",
+    "after": "(1) Ninth Avenue, east side, at 37th Street, and looking northwards.\nNeg. Photostat #\n\n(2) Ninth Avenue north from 38th Street, showing McGraw Hill building in background.\nNeg. Photostat #\n\n(3) Ninth Avenue east side at 40th Street, from a point south of 40th Street, looking north.\n\nP.L. Speer.\n\nApril 17, 1941.\n\nNegative Photostat # 1192\n\nNeg. # 1073 [ALL 3 VIEWS ON A NEGATIVE PHOTOSTAT].",
+    "before": "(1)\nNinth Avenue, east side, at 37th Street, and looking\nnorthwards.\nNegative Photostat\n(2)\nNinth Avenue north from 38th Street, showing McGraw\nHill building in background.\nNegative Photostat\n(31\nNinth Avenue east side at 40th Street, from a point\nsouth of 40th Street, looking north.\nP.L.5peer.\nNO REPRODUCTION.  April 17, 1941.\nNegative Photostat #1192\n",
     "metadata": {
-      "back_id": "708073b",
+      "back_id": "710388b",
       "cookie": "blah",
-      "distance": 85,
-      "len_base": 179,
-      "len_exp": 91,
-      "score": 0.5251396648044693
+      "distance": 86,
+      "len_base": 355,
+      "len_exp": 391,
+      "score": 0.7577464788732394
     },
-    "photo_id": "708073f-a"
+    "photo_id": "710388f"
   },
   {
-    "after": "New York Telephone Co., Brooklyn building\n\nNYHOLM & LINCOLN\nARCHITECTURAL PHOTOGRAPHERS 112 EAST 24th STREET - NEW YORK CITY\n74576",
-    "before": "New York Telephone Co., Brooklyn Building\n\nNo date.\n",
+    "after": "Fifth Avenue at S.W. corner of 40th Street across Union League Club Site.\n\nP.L.Sperr, Photographer.\nJuly 10, 1932.\n\n",
+    "before": "Fifth Avenue at S.W. corner of 40th Street across Union League\nClub Site.\nJuly 1O, 1932.\nP.L.Sperr,Photographer.\n.. 2) -71D A  N2  1~T20\nggg;OiiCEO2 REOTID\nR: E:E1MO1E'\n12S2 D133\nhNO AEN EB)\n",
     "metadata": {
-      "back_id": "707385b",
+      "back_id": "708654b",
       "cookie": "blah",
       "distance": 85,
-      "len_base": 52,
-      "len_exp": 130,
-      "score": 0.0
+      "len_base": 191,
+      "len_exp": 116,
+      "score": 0.5549738219895288
     },
-    "photo_id": "707385f"
+    "photo_id": "708654f-a"
   },
   {
     "after": "Route Interborough Bridge Connector, (566) Sect. H.C.6\nLocation Interborough Bridge\nSubject Construction Photograph\nDescription Cast used in distributing track material\nJune 26, 1917\n\nPurchased from Neikrug Galleries, Inc., May 25, 1976  ",
@@ -4615,19 +4602,6 @@ var changes = [
     "photo_id": "709048f-a"
   },
   {
-    "after": "38th Ave. (Lincoln St., also Ailanthus Place), south side, east of Union St., showing in the right foreground No. 197 38th Ave., owned by Chris Louvere in 1873; next is the First Congregational Church; and beyond it, at the S. E. corner of Bowne St. and 38th Ave., is the M. B. Parsons Estate. View No. two is the same showing partially the N. W. corner of 38th Ave and Bowne St.; No three shows the west side of Bowne St. viewed northward. The congregation of the church seen in this view was formed in 1851 and the edifice erected in 1856 at a cost of 14,000 dollars on a site donated by the Parsons family. The first church of this congregation was dedicated on January 29, 1852 and stood on the east side of Union St, south of 38th Ave. When the present building was erected, the old one was moved to the rear of it and used as a Sunday School. It has since been abolished.\n\nView: January 1923\n1-3\nView: 1922\n2\n\nEugene L. Armbruster Collection.",
-    "before": "38th Ave. (Lincoln St., also Ailantus Place), south side, east of Union St., showing in the right foreground No. 197 38th Ave.. owned by Chris Louveree in 1873; next is the First Congre.P tional Church; and beyound it, at the S. E. corner of Boune St. and 38th ,Ave., is the M:. B. Parsons Lstate. View Ho. two is the same showing partially the N. W. corner of 38th Ave and Bowne St.; No thr e shows the west side of Bowne St. viewed northward. The congregation of the church seen in this view was formed in 1851 and the edifice erected in 1856 at a cost of 14,000 dollars on a site donated by the Parsons fanily. The first church of this congregation was dedicated on January 29, 1852 and stod on the east side of nion St, south of 38th Ave. When the present building was erected, the old one was moved to the rear of it and used as a Sunday School. It has since been abolished.\n",
-    "metadata": {
-      "back_id": "725273b",
-      "cookie": "blah",
-      "distance": 85,
-      "len_base": 880,
-      "len_exp": 948,
-      "score": 0.9034090909090909
-    },
-    "photo_id": "725273f-c"
-  },
-  {
     "after": "ASIATIC EXHIBITION OF ANIMALS\nMUSEUM OF NAT'L HIST. -\n12/12/30\n\nNYHOLM & LINCOLN\nARCHITECTURAL PHOTOGRAPHERS\n\n113 EAST 24th STREET - NEW YORK CITY",
     "before": "ASIATIC EXHIBITION OF ANIMALS\nMUSEUM OF NAT'L HIST\n12/12/30",
     "metadata": {
@@ -4641,17 +4615,56 @@ var changes = [
     "photo_id": "718482f"
   },
   {
-    "after": "Fifth Avenue at S.W. corner of 40th Street across Union League Club Site.\n\nP.L.Sperr, Photographer.\nJuly 10, 1932.\n\n",
-    "before": "Fifth Avenue at S.W. corner of 40th Street across Union League\nClub Site.\nJuly 1O, 1932.\nP.L.Sperr,Photographer.\n.. 2) -71D A  N2  1~T20\nggg;OiiCEO2 REOTID\nR: E:E1MO1E'\n12S2 D133\nhNO AEN EB)\n",
+    "after": "Third Avenue, west side, from 44th to 45th Streets. About 1920.\nJames Suydam, Photographer.",
+    "before": "Third Avenue, west side, from 44th to 45th Streets.\nAbout 1920.\nJames Suydam, Photographer.\n1 r~  1N)\nNI i  1AS ~SR221\n1N - w2\n\"ENEW W5sg\n'7BLN 1N6.g\n'N awot..,g\n~~~AN FoUNpArsyg\n",
     "metadata": {
-      "back_id": "708654b",
+      "back_id": "708073b",
       "cookie": "blah",
       "distance": 85,
-      "len_base": 191,
-      "len_exp": 116,
-      "score": 0.5549738219895288
+      "len_base": 179,
+      "len_exp": 91,
+      "score": 0.5251396648044693
     },
-    "photo_id": "708654f-a"
+    "photo_id": "708073f-a"
+  },
+  {
+    "after": "New York Telephone Co., Brooklyn building\n\nNYHOLM & LINCOLN\nARCHITECTURAL PHOTOGRAPHERS 112 EAST 24th STREET - NEW YORK CITY\n74576",
+    "before": "New York Telephone Co., Brooklyn Building\n\nNo date.\n",
+    "metadata": {
+      "back_id": "707385b",
+      "cookie": "blah",
+      "distance": 85,
+      "len_base": 52,
+      "len_exp": 130,
+      "score": 0.0
+    },
+    "photo_id": "707385f"
+  },
+  {
+    "after": "38th Ave. (Lincoln St., also Ailanthus Place), south side, east of Union St., showing in the right foreground No. 197 38th Ave., owned by Chris Louvere in 1873; next is the First Congregational Church; and beyond it, at the S. E. corner of Bowne St. and 38th Ave., is the M. B. Parsons Estate. View No. two is the same showing partially the N. W. corner of 38th Ave and Bowne St.; No three shows the west side of Bowne St. viewed northward. The congregation of the church seen in this view was formed in 1851 and the edifice erected in 1856 at a cost of 14,000 dollars on a site donated by the Parsons family. The first church of this congregation was dedicated on January 29, 1852 and stood on the east side of Union St, south of 38th Ave. When the present building was erected, the old one was moved to the rear of it and used as a Sunday School. It has since been abolished.\n\nView: January 1923\n1-3\nView: 1922\n2\n\nEugene L. Armbruster Collection.",
+    "before": "38th Ave. (Lincoln St., also Ailantus Place), south side, east of Union St., showing in the right foreground No. 197 38th Ave.. owned by Chris Louveree in 1873; next is the First Congre.P tional Church; and beyound it, at the S. E. corner of Boune St. and 38th ,Ave., is the M:. B. Parsons Lstate. View Ho. two is the same showing partially the N. W. corner of 38th Ave and Bowne St.; No thr e shows the west side of Bowne St. viewed northward. The congregation of the church seen in this view was formed in 1851 and the edifice erected in 1856 at a cost of 14,000 dollars on a site donated by the Parsons fanily. The first church of this congregation was dedicated on January 29, 1852 and stod on the east side of nion St, south of 38th Ave. When the present building was erected, the old one was moved to the rear of it and used as a Sunday School. It has since been abolished.\n",
+    "metadata": {
+      "back_id": "725273b",
+      "cookie": "blah",
+      "distance": 85,
+      "len_base": 880,
+      "len_exp": 948,
+      "score": 0.9034090909090909
+    },
+    "photo_id": "725273f-c"
+  },
+  {
+    "after": "211 East 48th Street, north side, east of Third Avenue, showing the first glass brick building.\n\nApril 26, 1940\n\nGeorge D. Chinn\n\nbut O'God not the last\n1966",
+    "before": "211 East 48th Street, north side, east of Third Avenue, showing the first glass brick building. [designed by William Lescaze]\n\nApril 26, 1940\n\nGeorge D. Chinn\n\n[handwritten note, with line to \"first\" in caption]:\nbut O'God not the last! 1966",
+    "metadata": {
+      "back_id": "713318b",
+      "cookie": "blah",
+      "distance": 84,
+      "len_base": 241,
+      "len_exp": 157,
+      "score": 0.6514522821576764
+    },
+    "photo_id": "713318f-a"
   },
   {
     "after": "(1) The George Washington Bridge, looking towards New York, from the State line between New York and New Jersey.\n\nSeptember 29, 1932.\n\nP. L. Sperr.\n\n(2) A view emphasising the north side. Apartment houses shown are in the Washington Heights section of Manhattan.\n\nSeptember 29, 1932.\n\nP. L. Sperr.\n(No. 2, not a dry mount item).",
@@ -4693,32 +4706,6 @@ var changes = [
     "photo_id": "702830f"
   },
   {
-    "after": "(1) 66th Street, southeast corner and Columbus Avenue, looking across Lincoln Square, Remey Dancing School can be seen.\n\n(2) Columbus Avenue north of West 67th Street after \"E1\" demolition.\n\n(3) Columbus Avenue, east side from West 67th Street looking northwards.\n\nP. L. Sperr",
-    "before": "(1) 66th Street, southeast corner and Columbus Avenue, looking across Lincoln Square, Remey Dancing School can be seen. neg #4929\n(2) Columbus Avenue north of West 67th Street after 'El'\ndemolition.\n(3) Columbus Avenue, east side from West 67th Street looking\nnorthwards.\nP. L. Sperr\nView 1: April 19, 1941\nView 2: November 28, 1940\nView 3: April 19 1941\n",
-    "metadata": {
-      "back_id": "719073b",
-      "cookie": "blah",
-      "distance": 84,
-      "len_base": 355,
-      "len_exp": 276,
-      "score": 0.7633802816901408
-    },
-    "photo_id": "719073f-c"
-  },
-  {
-    "after": "211 East 48th Street, north side, east of Third Avenue, showing the first glass brick building.\n\nApril 26, 1940\n\nGeorge D. Chinn\n\nbut O'God not the last\n1966",
-    "before": "211 East 48th Street, north side, east of Third Avenue, showing the first glass brick building. [designed by William Lescaze]\n\nApril 26, 1940\n\nGeorge D. Chinn\n\n[handwritten note, with line to \"first\" in caption]:\nbut O'God not the last! 1966",
-    "metadata": {
-      "back_id": "713318b",
-      "cookie": "blah",
-      "distance": 84,
-      "len_base": 241,
-      "len_exp": 157,
-      "score": 0.6514522821576764
-    },
-    "photo_id": "713318f-a"
-  },
-  {
     "after": "F. S. LINCOLN\nPhotographer\n114 EAST 32nd STREET\nNEW YORK CITY\n\nTHIS PRINT IS SOLD FOR REFERENCE ONLY. REPRODUCTION IS NOT ALLOWED IN ANY FORM WITHOUT WRITTEN PERMISSION FROM F. S. LINCOLN\n\n388P4",
     "before": ". 3. LINCOLN\nPRotographer\n114 EAST 32ae STREET\nNv VORK CIIV\nVW1S PRMINIT 1S SOOLD PORt RREPERhENICE ONLY. WMITM4O(T UUPhiTTRNi PJRRM1SSIOON FRNON F. S. LINICCLN1\nS8Srd\n",
     "metadata": {
@@ -4732,30 +4719,17 @@ var changes = [
     "photo_id": "708638f"
   },
   {
-    "after": "1. Brook Ave., e.s., at 158th St. Large clearing at n.e. cor.\nP.L. Sperr, photographer\nApril 30, 1941\n\n2. 158th St. east from Brook Ave.\nP.L. Sperr, photogBapher\nApril 30, 1941",
-    "before": "1.\nBrook Ave., e.s., at 158th St.   Large clearing at n.e. cor.\nNeg. A-222  April 30, 1941\nP.L. Sperr, photographer\n\n2.\n158th St. east from Brook Ave.\nNeg. A-234  April 30, 1941\nP.L. Sperr, photographer\n",
+    "after": "(1) 66th Street, southeast corner and Columbus Avenue, looking across Lincoln Square, Remey Dancing School can be seen.\n\n(2) Columbus Avenue north of West 67th Street after \"E1\" demolition.\n\n(3) Columbus Avenue, east side from West 67th Street looking northwards.\n\nP. L. Sperr",
+    "before": "(1) 66th Street, southeast corner and Columbus Avenue, looking across Lincoln Square, Remey Dancing School can be seen. neg #4929\n(2) Columbus Avenue north of West 67th Street after 'El'\ndemolition.\n(3) Columbus Avenue, east side from West 67th Street looking\nnorthwards.\nP. L. Sperr\nView 1: April 19, 1941\nView 2: November 28, 1940\nView 3: April 19 1941\n",
     "metadata": {
-      "back_id": "700673b",
+      "back_id": "719073b",
       "cookie": "blah",
-      "distance": 83,
-      "len_base": 203,
-      "len_exp": 176,
-      "score": 0.5911330049261083
+      "distance": 84,
+      "len_base": 355,
+      "len_exp": 276,
+      "score": 0.7633802816901408
     },
-    "photo_id": "700673f-a"
-  },
-  {
-    "after": "(1) 1325 Flushing Ave., north side, east of Cypress Ave., showing in the foreground, the Nicholas Wyckoff farmhouse, acquired in 1765; from a Schenck. Another Nicholas Wyckoff was owner from 1852-1860. For more data see the N.Y. Sun. February 18, 1939. 1922.\nEugene L. Armbruster Collection.\n\n(2) The same, looking south, showing a rear view of the out-buildings of the farmhouse.\nEugene L. Armbruster Collection. September 1928.\n\n(3) The same, showing another angle. Note that one of the barns is partially demolished by fire.\nEugene L. Armbruster Collection. September 1928.\n\n(4) The same, showing another close up of the barn. It was erected in 1650 or 1656 (marked on rafter) and partially demolished by fire in 1700. The original joists remained and the barn was rebuilt around them. It was again partially destroyed by fire in March 1922.\nEugene L. Armbruster Collection. 1922.",
-    "before": "(1)\n1325 Flushing Ave., north side, east of Cypress Ave., showing in the foreground, the Nicholas Wyckoff farmhouse, accuired in 1765; from a Schenck. Another Nicholas Wyckoff was owner from 1852-1860. For more\ndata see the N.Y. Sun. February 18, 19  1666.\nEugene L. Armbruster Collection.\n(2)\nThe same, looking south, showing a rear view of the out-buildings\nof the farmhouse.\nSeptember 1928.\nEugene L. Armbruster Collection.\n(3)\nThe same, showing another angle. Note that one of the barns is\npartially demolished by fire.\nSeptember 1928.\nEugene L. Armbruster Collection.\n(4)\nThe same, showing another close up of the barn. It was erected in 1650 or 1656 (marked on rafter) and partially demolished by fire in 1700. The original joists remained and the barn was rebuilt around them.\nIt was again partially destroyed by fire in March 1922.\n1922.\nEugene L. Armbruster Collection.\n",
-    "metadata": {
-      "back_id": "704402b",
-      "cookie": "blah",
-      "distance": 83,
-      "len_base": 879,
-      "len_exp": 883,
-      "score": 0.9055745164960182
-    },
-    "photo_id": "704402f-c"
+    "photo_id": "719073f-c"
   },
   {
     "after": "(1)\n612 Flatbush Ave., west side, north of Chester Court, showing the Gerritsen farmhouse, erected by J. Birdsall, in 1800 on the site of the Isaac Lefferts house, which was destroyed by the British in 1776.\n\n1922.\n\nEugene L. Armbruster Collection.\n\n(2)\nThe same, showing the other side of the house.\n\n1922.\n\nEugene L. Armbruster Collection.\n\n(3)\nThe same, showing a closer view.\n\n1922.\n\nEugene L. Armbruster Collection.\n\n(4)\nThe same, another angle.\n\n1914.\n\nEugene L. Armbruster Collection.",
@@ -4771,6 +4745,32 @@ var changes = [
     "photo_id": "704240f-d"
   },
   {
+    "after": "(1) 1325 Flushing Ave., north side, east of Cypress Ave., showing in the foreground, the Nicholas Wyckoff farmhouse, acquired in 1765; from a Schenck. Another Nicholas Wyckoff was owner from 1852-1860. For more data see the N.Y. Sun. February 18, 1939. 1922.\nEugene L. Armbruster Collection.\n\n(2) The same, looking south, showing a rear view of the out-buildings of the farmhouse.\nEugene L. Armbruster Collection. September 1928.\n\n(3) The same, showing another angle. Note that one of the barns is partially demolished by fire.\nEugene L. Armbruster Collection. September 1928.\n\n(4) The same, showing another close up of the barn. It was erected in 1650 or 1656 (marked on rafter) and partially demolished by fire in 1700. The original joists remained and the barn was rebuilt around them. It was again partially destroyed by fire in March 1922.\nEugene L. Armbruster Collection. 1922.",
+    "before": "(1)\n1325 Flushing Ave., north side, east of Cypress Ave., showing in the foreground, the Nicholas Wyckoff farmhouse, accuired in 1765; from a Schenck. Another Nicholas Wyckoff was owner from 1852-1860. For more\ndata see the N.Y. Sun. February 18, 19  1666.\nEugene L. Armbruster Collection.\n(2)\nThe same, looking south, showing a rear view of the out-buildings\nof the farmhouse.\nSeptember 1928.\nEugene L. Armbruster Collection.\n(3)\nThe same, showing another angle. Note that one of the barns is\npartially demolished by fire.\nSeptember 1928.\nEugene L. Armbruster Collection.\n(4)\nThe same, showing another close up of the barn. It was erected in 1650 or 1656 (marked on rafter) and partially demolished by fire in 1700. The original joists remained and the barn was rebuilt around them.\nIt was again partially destroyed by fire in March 1922.\n1922.\nEugene L. Armbruster Collection.\n",
+    "metadata": {
+      "back_id": "704402b",
+      "cookie": "blah",
+      "distance": 83,
+      "len_base": 879,
+      "len_exp": 883,
+      "score": 0.9055745164960182
+    },
+    "photo_id": "704402f-c"
+  },
+  {
+    "after": "1. Brook Ave., e.s., at 158th St. Large clearing at n.e. cor.\nP.L. Sperr, photographer\nApril 30, 1941\n\n2. 158th St. east from Brook Ave.\nP.L. Sperr, photogBapher\nApril 30, 1941",
+    "before": "1.\nBrook Ave., e.s., at 158th St.   Large clearing at n.e. cor.\nNeg. A-222  April 30, 1941\nP.L. Sperr, photographer\n\n2.\n158th St. east from Brook Ave.\nNeg. A-234  April 30, 1941\nP.L. Sperr, photographer\n",
+    "metadata": {
+      "back_id": "700673b",
+      "cookie": "blah",
+      "distance": 83,
+      "len_base": 203,
+      "len_exp": 176,
+      "score": 0.5911330049261083
+    },
+    "photo_id": "700673f-a"
+  },
+  {
     "after": "Broad Street, north from Stone Street. In the midground is Beaver Street, with the lower part of the White Building just appearing. Beyond, at Exchange Place, is the Johnston Building. View 2 is slightly later and includes the Blair and the Mackay Buildings above the latter. On the right is the Mills Building. No. 3 is a slightly more inclusive view. Note the pyramidal Bankers Trust Bldg. completed and the final stages of the Equitable Trust Co. Bldg.\n\nViews 1,2: Thomas W. Kennedy, photo\nThru Beecher Ogden\nMuseum Photographers Assn.\n\nView 3: George L. Balgue, photo\n\n1: About 1895\n2: 1906\n3: September 1927",
     "before": "Broad Street, north from Stone Street. In the midground is Beaver Street, with the lower part of the White Building just appearing. Beyond, at Exchange Place, is the Johnston Building. View 2 is slightly later and includes the Blair and the Mackay Buildings above the latter. On the right is the Mills Building. No. 3 is a slightly more inclusive view. Note the pyramidal Bankers Trust Bldg. completed and the final stages of the Equitable Trust Co. Bldg.\n1: About 1895\n1906\n3: September 1927\nViews 1,2fThomas W. Fennedy, photo\nThru Beecher Ogden\nMuseum Photographers Assn.\nView 3: eorge L. Dalgue, photo\n",
     "metadata": {
@@ -4782,19 +4782,6 @@ var changes = [
       "score": 0.8644628099173554
     },
     "photo_id": "716870f-c"
-  },
-  {
-    "after": "Lenox Avenue, east side, north from 113th Street, showing construct- ion of I. R. T. subway.\n\nApril 9, 1901.\n\n\nWm. B. Parsons - Collection",
-    "before": "Lenox Avenue, east side, north from 113th Street, showing construct..  ion of I. R. T. subway.\n  ARril 9, 1901.\nMWe C 7wrsoos 32 076,\nNCg 4 14G\n'TE NEw W0gg\n'7RBCLENimy\n4~ioR.Lswox nwn\n\"M3EN FOUNbATh;yg\n",
-    "metadata": {
-      "back_id": "720840b",
-      "cookie": "blah",
-      "distance": 82,
-      "len_base": 203,
-      "len_exp": 138,
-      "score": 0.5960591133004927
-    },
-    "photo_id": "720840f-a"
   },
   {
     "after": "Reformed Low Dutch Church of Harlem, Lenox Avenue at N. W. corner of 123rd Street. This church is now (1935) the Ephesus Seventh Day Adventist Church. About 1910.\n\n\n\nTHE NEW YORK\nPUBLIC LIBRARY\n\nASTOR, LENOX AND\nTILDEN FOUNDATIONS\n\n315N\nU. S. HIST.\nLOCAL HIST. & GENE.",
@@ -4810,17 +4797,17 @@ var changes = [
     "photo_id": "720860f-a"
   },
   {
-    "after": "(1)\n\nSullivan Street, north from and including Canal Street, the year before the demolition of buildings for the construction of the Independent (municipal) Subway line and the southward extension of Sixth Ave. The west side of Sullivan Street, from Canal to Grand Streets, inclusive, including Nos. 2 to 24 Sullivan Street, will become part of the west side of Sixth Ave. Notice the new building (since 1922) at the S.W. corner of Grand Street. The entire east side of Sullivan Street, from Canal to Watts Streets, including the ten-story Powell Chocolate factory at the east corner of Canal Street, will be razed.\n\nSullivan Street begins here and runs north to West 3rd Street, and, since 1904, to Washington Square. It is the sixth of a group of streets named for Revolutionary generals, and laid out west of and parallel to Broadway.\n\n1926.\n\n\n(2)\n\nThe same, showing demolition in progress.\n\nOctober 10, 1927.\n\nP. L. Sperr.",
-    "before": "Sullivan Street, north from and including Canal Street, the year before the demolition of buildings for the construction of the Independent (municipal) Subway line and the southward extension of Sixth Ave. The west side of Sullivan Street, from Canal to Grand Streets, inclusive, including Nos. 2 to 24 Sullivan Street, will become part of the west side of Sixth Ave. Notice the new building (since 1922) at the S.W. corner of Grand Street. The entire east side of Sullivan Street, from Canal to Watts Streets, including the ten-story Powell Chocolate factory at the east corner of Canal Street,\nwill be razed.\nSullivan Street begins here and runs north to West 3rd Street, and, since 1904, to Washington Square. IIt is the sixth of a group of streets named for Revolutionary generals, and laid out west of and parallel\nto Broadway.\n1926.\n",
+    "after": "Lenox Avenue, east side, north from 113th Street, showing construct- ion of I. R. T. subway.\n\nApril 9, 1901.\n\n\nWm. B. Parsons - Collection",
+    "before": "Lenox Avenue, east side, north from 113th Street, showing construct..  ion of I. R. T. subway.\n  ARril 9, 1901.\nMWe C 7wrsoos 32 076,\nNCg 4 14G\n'TE NEw W0gg\n'7RBCLENimy\n4~ioR.Lswox nwn\n\"M3EN FOUNbATh;yg\n",
     "metadata": {
-      "back_id": "723457b",
+      "back_id": "720840b",
       "cookie": "blah",
       "distance": 82,
-      "len_base": 839,
-      "len_exp": 926,
-      "score": 0.902264600715137
+      "len_base": 203,
+      "len_exp": 138,
+      "score": 0.5960591133004927
     },
-    "photo_id": "723457f-b"
+    "photo_id": "720840f-a"
   },
   {
     "after": "327-301 East 41st Street, east of, adjoining, and at the N.E. corner of Second Avenue. Essex House, at the right, is No. 313-327; and the Hotel Tudor, shown nearing completion, is No. 305-309 East 41st Street. This is the twelfth unit of the Tudor City development. The Daily News Building (1929) occupies the entire west side of Second Avenue from 41st to 42nd Streets. In the background may be seen the Chanin Building (1928) in the same position on Lexington Avenue.\n\nJuly 17, 1930.\n\nPeyser & Patzig.",
@@ -4836,69 +4823,17 @@ var changes = [
     "photo_id": "712710f-a"
   },
   {
-    "after": "(1) Brighton Beach Ave., south side, between East 4th Street and Coney Island Ave., showing the Brighton Beach Hotel, and the Brighton Beach Music Hall, at the right, under the process of demolition. In the foreground is a section of the Brighton Beach Line of the B.M.T.\n\nJuly 15, 1924.\n\nEugene L. Armbruster Collection.\n\n(2) The same, showing a closer view of the hotel.\n\nJuly 15, 1924.\n\nEugene L. Armbruster Collection.\n\n(3) The same, seen looking north from the beach.\n\nJuly 15, 1924.\n\nEugene L. Armbruster Collection.\n\n(4) The same, looking west.\n\nJuly 15, 1924.\n\nEugene L. Armbruster Collection.",
-    "before": "(1)\nBrighton Beach Ave., south side, between East 4th Street and Coney Island Ave., showing the Brighton Beach Hotel, and the Brighton Beach Music Hall, at the right, under the process of demolition. In the fore- ground is a section of the Brighton Beach Line of the B.M.T.\nJuly 15, 1924.\nEugene L. Armbruster Collection.\n(2)\nThe same,showing a closer view of the hotel.\n\nJuly 15, 1924.\nEugene L. Armbruster Collection.  w\n(3)\nThe same, seen looking north from the beach.\nJuly 15, 1924.\nEugene L. Armbruster Collection.\n",
+    "after": "(1)\n\nSullivan Street, north from and including Canal Street, the year before the demolition of buildings for the construction of the Independent (municipal) Subway line and the southward extension of Sixth Ave. The west side of Sullivan Street, from Canal to Grand Streets, inclusive, including Nos. 2 to 24 Sullivan Street, will become part of the west side of Sixth Ave. Notice the new building (since 1922) at the S.W. corner of Grand Street. The entire east side of Sullivan Street, from Canal to Watts Streets, including the ten-story Powell Chocolate factory at the east corner of Canal Street, will be razed.\n\nSullivan Street begins here and runs north to West 3rd Street, and, since 1904, to Washington Square. It is the sixth of a group of streets named for Revolutionary generals, and laid out west of and parallel to Broadway.\n\n1926.\n\n\n(2)\n\nThe same, showing demolition in progress.\n\nOctober 10, 1927.\n\nP. L. Sperr.",
+    "before": "Sullivan Street, north from and including Canal Street, the year before the demolition of buildings for the construction of the Independent (municipal) Subway line and the southward extension of Sixth Ave. The west side of Sullivan Street, from Canal to Grand Streets, inclusive, including Nos. 2 to 24 Sullivan Street, will become part of the west side of Sixth Ave. Notice the new building (since 1922) at the S.W. corner of Grand Street. The entire east side of Sullivan Street, from Canal to Watts Streets, including the ten-story Powell Chocolate factory at the east corner of Canal Street,\nwill be razed.\nSullivan Street begins here and runs north to West 3rd Street, and, since 1904, to Washington Square. IIt is the sixth of a group of streets named for Revolutionary generals, and laid out west of and parallel\nto Broadway.\n1926.\n",
     "metadata": {
-      "back_id": "703329b",
+      "back_id": "723457b",
       "cookie": "blah",
-      "distance": 81,
-      "len_base": 520,
-      "len_exp": 601,
-      "score": 0.8442307692307692
+      "distance": 82,
+      "len_base": 839,
+      "len_exp": 926,
+      "score": 0.902264600715137
     },
-    "photo_id": "703329f-d"
-  },
-  {
-    "after": "(1)\n125th Street, 2nd; to 3rd Avenue. North side, (Before Reconstruction).\n\nNo date.\n\n(2)\nSame. (After Reconstruction).\n\nPresident Borough of Manhatten.\n\nSeptember 18, 1921.\n\n315N\nU. S. Hist.\nLOCAL DIST. & GEN.",
-    "before": "(1)\n125th Street, 2nd, to 3rd Avenue, North Side, (before reconstruction)\nNo Date\n\n(2)\nSame (after reconstruction)\nSeptember 18, 1921",
-    "metadata": {
-      "back_id": "715357b",
-      "cookie": "blah",
-      "distance": 81,
-      "len_base": 133,
-      "len_exp": 210,
-      "score": 0.39097744360902253
-    },
-    "photo_id": "715357f-b"
-  },
-  {
-    "after": "Sixth Avenue, east side, north from W. 48th Street, showing prominently the excavation for the new Rodkef\u00ebler Center Building. This is at the N. E. corner and is to be titled \"the U.S. Rubber Co. Building.\" The enclosure is provided for the public who, as quite obvious, enjoy watching the foundation construction. The publicity agent capitalized on this quirk and had the fence lettered \"Sidewalk Superintendents Club\". The insignia is titled, \"De.beste stuurlin staan an wal\", which translated is \"The best pilots stand on the shore\". This originated with the Netherlands Building, an adjoining Rockefeller Center unit.\n\nViews 1,2: July 18, 1939\nView 3: June 21, 1939\n\nP. L. Sperr",
-    "before": "Sixth Avenue, east side, north from W. 48th Street, showing prominently the excavation for the new Rodkefeller Center Building. This is at the N. E. corner and is to be titled \"the U. S. Rubber Co. Building.\" The enclosure is provided for the public who, as quite obvious, enjoy watching the foundation construction. The publicity agent capitalized on this quirk and had the fence lettered \"Sidewalk Superintendents Club\". The insignia is titled, \"De beste stuurlui staan aan wal\", which translated is \"The best pilots stand on the shore\". This originated with the Netherlands Building, an adjoining Rockefeller Center unit.\nViews 1,2: July 18, 193'\nView 3: June 21, 1939\nP. L. Sperr\n\nEd. Note -- Properly translates from Dutch as \"Best mates stand ashore\".",
-    "metadata": {
-      "back_id": "709527b",
-      "cookie": "blah",
-      "distance": 81,
-      "len_base": 757,
-      "len_exp": 682,
-      "score": 0.892998678996037
-    },
-    "photo_id": "709527f-c"
-  },
-  {
-    "after": "West side of First Avenue from 45th to 46th Street.\nP.L. Sperr, Photographer.\nTHE NEW YORK PUBLIC LIBRARY\nASTOR, LENOX AND TILDEN FOUNDATIONS\nR L",
-    "before": "West side of First Avenue from 45th to 46th Street. September 2,1928.  P.L. Sperr, Photographer.\n",
-    "metadata": {
-      "back_id": "707609b",
-      "cookie": "blah",
-      "distance": 81,
-      "len_base": 97,
-      "len_exp": 145,
-      "score": 0.1649484536082474
-    },
-    "photo_id": "707609f-b"
-  },
-  {
-    "after": "Western terminus of Fort George Avenue at Audubon Avenue. Since this is a horse shoe-shaped Avenue which connects the northern extremities of Audubon and Amsterdam Avenues, and which intersects no cross-streets throughout its entire length it has been found advisable to classify these pictures chronologically rather than geographically. October 26, 1927.\nP.L. Sperr, Photographer.\n\nGarden and shacks on Fort George Avenue, above the Harlem River. October 26, 1927.\nP.L. Sperr, Photographer.\n\nLuncheon shack on Fort George Avenue. October 26, 1927.\nP.L. Sperr, Photographer.",
-    "before": "(1)\nWestern terminus of Fort George Avenue at Audubon Avenue. Since this is a horse shoe-shaped avenue which connects the northern extremities of Audubon and Amsterdam Avenues, and which intersects no cross-streets throughout its entire length it has been found advisable to classify these pictures chronologically rather than geographically.\noctober 26, 1927.\nP.L. Sperr,Photographer.\n  TRE NEV iOR0\nPUBDC LIERARV\nAS1ON LLENOE AND\nTILDEN POUNDAIIONS\n(2)\nD7arden and shacks on Fort George Avenue, above the Harlem\nRiver.\nOctober 26, 1927.\nP.L. Sperr, Photographer.\n(3)\nLuncheon shack on Fort George Avenue.\nOctober 26, 1927.\nP.L. Sperr,Photographer.\n",
-    "metadata": {
-      "back_id": "719790b",
-      "cookie": "blah",
-      "distance": 81,
-      "len_base": 650,
-      "len_exp": 575,
-      "score": 0.8753846153846154
-    },
-    "photo_id": "719790f-a"
+    "photo_id": "723457f-b"
   },
   {
     "after": "(1)\nBryant Park and rear of Public Library from Wurlitzer Building, 42nd Street west of Sixth Avenue.\nP.L. Sperr, Photographer. May 7, 1930.\n\n(2)\nRear of Public Library 42nd to 40th Streets, from steps of 42nd Street station of Sixth Avenue \"L\".\nP.L. Sperr, Photographer. May 1930.\n\n(3)\nNew York Public Library, Fifth Avenue from 40th to 42nd Streets.\nAt extreme right may be seen construction of building at 500 Fifth Avenue, on site of Bristol Hotel.\nP.L. Sperr, Photographer. September 28, 1930.",
@@ -4914,6 +4849,19 @@ var changes = [
     "photo_id": "708697f-c"
   },
   {
+    "after": "Sixth Avenue, east side, north from W. 48th Street, showing prominently the excavation for the new Rodkef\u00ebler Center Building. This is at the N. E. corner and is to be titled \"the U.S. Rubber Co. Building.\" The enclosure is provided for the public who, as quite obvious, enjoy watching the foundation construction. The publicity agent capitalized on this quirk and had the fence lettered \"Sidewalk Superintendents Club\". The insignia is titled, \"De.beste stuurlin staan an wal\", which translated is \"The best pilots stand on the shore\". This originated with the Netherlands Building, an adjoining Rockefeller Center unit.\n\nViews 1,2: July 18, 1939\nView 3: June 21, 1939\n\nP. L. Sperr",
+    "before": "Sixth Avenue, east side, north from W. 48th Street, showing prominently the excavation for the new Rodkefeller Center Building. This is at the N. E. corner and is to be titled \"the U. S. Rubber Co. Building.\" The enclosure is provided for the public who, as quite obvious, enjoy watching the foundation construction. The publicity agent capitalized on this quirk and had the fence lettered \"Sidewalk Superintendents Club\". The insignia is titled, \"De beste stuurlui staan aan wal\", which translated is \"The best pilots stand on the shore\". This originated with the Netherlands Building, an adjoining Rockefeller Center unit.\nViews 1,2: July 18, 193'\nView 3: June 21, 1939\nP. L. Sperr\n\nEd. Note -- Properly translates from Dutch as \"Best mates stand ashore\".",
+    "metadata": {
+      "back_id": "709527b",
+      "cookie": "blah",
+      "distance": 81,
+      "len_base": 757,
+      "len_exp": 682,
+      "score": 0.892998678996037
+    },
+    "photo_id": "709527f-c"
+  },
+  {
     "after": "(1) Madison Sq. Garden\nCity Hall: Figure of Diana surmounting Cupola. City Hall park opposite, Murray Street between Broadway and Park Row.\n\nViews 2, and 3. same.\n",
     "before": "(1) Madison Sq. Garden.  Figure of Diana surmounting Cupola.\nViews 2, and 3. same.\n",
     "metadata": {
@@ -4927,43 +4875,82 @@ var changes = [
     "photo_id": "721240f-c"
   },
   {
-    "after": "(1) Amboy Road, west of the N.W. corner of Huguenot Ave., showing the Huguenot Park Reformed Church. It was dedicated on May 18, 1924, as a National monument to the Huguenot settlers of America. For additional information see Staten Island and its People by Leng and Davis, vol. 1, p 442.\n\nP. L. Sperr.\n\n(2) Another view of the church, looking eastward.\n\nSeptember 24, 1930.\n\nP. L. Sperr.\n\n(3) An additional view.\n\nSeptember 24, 1930.\n\nP. L. Sperr.",
-    "before": "(1)\nAmboy Road, west of the N.W. corner of Huguenot Ave., showing the Hugnenot Park Reformed Church. It was dedicated on May 16, 1924, as a National monument to the Huguenot settlers of America. For additional information see Staten lIsland and its People by Leng\nand Davis, vol. 1, p 442.\nSeptember 24, 1930.\nP. L. Sperr.\n(2)\nAnother view of the church, looking eastward.\nSeptember 24, 1930.\nP. L. Sperr.\n",
+    "after": "(1) Brighton Beach Ave., south side, between East 4th Street and Coney Island Ave., showing the Brighton Beach Hotel, and the Brighton Beach Music Hall, at the right, under the process of demolition. In the foreground is a section of the Brighton Beach Line of the B.M.T.\n\nJuly 15, 1924.\n\nEugene L. Armbruster Collection.\n\n(2) The same, showing a closer view of the hotel.\n\nJuly 15, 1924.\n\nEugene L. Armbruster Collection.\n\n(3) The same, seen looking north from the beach.\n\nJuly 15, 1924.\n\nEugene L. Armbruster Collection.\n\n(4) The same, looking west.\n\nJuly 15, 1924.\n\nEugene L. Armbruster Collection.",
+    "before": "(1)\nBrighton Beach Ave., south side, between East 4th Street and Coney Island Ave., showing the Brighton Beach Hotel, and the Brighton Beach Music Hall, at the right, under the process of demolition. In the fore- ground is a section of the Brighton Beach Line of the B.M.T.\nJuly 15, 1924.\nEugene L. Armbruster Collection.\n(2)\nThe same,showing a closer view of the hotel.\n\nJuly 15, 1924.\nEugene L. Armbruster Collection.  w\n(3)\nThe same, seen looking north from the beach.\nJuly 15, 1924.\nEugene L. Armbruster Collection.\n",
     "metadata": {
-      "back_id": "728323b",
+      "back_id": "703329b",
       "cookie": "blah",
-      "distance": 80,
-      "len_base": 406,
-      "len_exp": 448,
-      "score": 0.8029556650246306
+      "distance": 81,
+      "len_base": 520,
+      "len_exp": 601,
+      "score": 0.8442307692307692
     },
-    "photo_id": "728323f-c"
+    "photo_id": "703329f-d"
   },
   {
-    "after": "(1) to (3)\nEleventh Avenue west side and north of 46th Street showing Gas station on the North west corner, other views from different angles.\n\nP.L.Speer.                             September 4th 1940.\n\nview #1 view #2 view #3 - Neg # 1940",
-    "before": "11th Ave w.s. North of 46th Street\n(1) to (3)\nEleventh Avenue west side and north of 46th Street showing Gas station on the North west corner, other\nviews from different angles.\nP.L.Speer.\nNO REPRODUCTiON.  September 4 1940.\n",
+    "after": "Western terminus of Fort George Avenue at Audubon Avenue. Since this is a horse shoe-shaped Avenue which connects the northern extremities of Audubon and Amsterdam Avenues, and which intersects no cross-streets throughout its entire length it has been found advisable to classify these pictures chronologically rather than geographically. October 26, 1927.\nP.L. Sperr, Photographer.\n\nGarden and shacks on Fort George Avenue, above the Harlem River. October 26, 1927.\nP.L. Sperr, Photographer.\n\nLuncheon shack on Fort George Avenue. October 26, 1927.\nP.L. Sperr, Photographer.",
+    "before": "(1)\nWestern terminus of Fort George Avenue at Audubon Avenue. Since this is a horse shoe-shaped avenue which connects the northern extremities of Audubon and Amsterdam Avenues, and which intersects no cross-streets throughout its entire length it has been found advisable to classify these pictures chronologically rather than geographically.\noctober 26, 1927.\nP.L. Sperr,Photographer.\n  TRE NEV iOR0\nPUBDC LIERARV\nAS1ON LLENOE AND\nTILDEN POUNDAIIONS\n(2)\nD7arden and shacks on Fort George Avenue, above the Harlem\nRiver.\nOctober 26, 1927.\nP.L. Sperr, Photographer.\n(3)\nLuncheon shack on Fort George Avenue.\nOctober 26, 1927.\nP.L. Sperr,Photographer.\n",
     "metadata": {
-      "back_id": "710712b",
+      "back_id": "719790b",
       "cookie": "blah",
-      "distance": 80,
-      "len_base": 225,
-      "len_exp": 240,
-      "score": 0.6444444444444444
+      "distance": 81,
+      "len_base": 650,
+      "len_exp": 575,
+      "score": 0.8753846153846154
     },
-    "photo_id": "710712f-c"
+    "photo_id": "719790f-a"
   },
   {
-    "after": "(1) Amboy Road, west of the N.W. corner of Huguenot Ave., showing the Huguenot Park Reformed Church. It was dedicated on May 18, 1924, as a National monument to the Huguenot settlers of America. For additional information see Staten Island and its People by Leng and Davis, vol. 1, p 442.\n\nP. L. Sperr.\n\n(2) Another view of the church, looking eastward.\n\nSeptember 24, 1930.\n\nP. L. Sperr.\n\n(3) An additional view.\n\nSeptember 24, 1930.\n\nP. L. Sperr.",
-    "before": "(1)\nAmboy Road, west of the N.W. corner of Huguenot Ave., showing the Eugcenot Park Reformed Church. It was dedicated on May 16, 1924, as a National monument to the Huguenot settlers of America. For additional information see Staten Island and its People by Leng\nand Davis, vol. 1, p 442.\nSeptember 24, 1930.\nP. L. Sperr.\n(2)\nAnother view of the church, looking eastward.\nSeptember 24, 1930.\nP. L. S9err.\n",
+    "after": "West side of First Avenue from 45th to 46th Street.\nP.L. Sperr, Photographer.\nTHE NEW YORK PUBLIC LIBRARY\nASTOR, LENOX AND TILDEN FOUNDATIONS\nR L",
+    "before": "West side of First Avenue from 45th to 46th Street. September 2,1928.  P.L. Sperr, Photographer.\n",
     "metadata": {
-      "back_id": "728321b",
+      "back_id": "707609b",
+      "cookie": "blah",
+      "distance": 81,
+      "len_base": 97,
+      "len_exp": 145,
+      "score": 0.1649484536082474
+    },
+    "photo_id": "707609f-b"
+  },
+  {
+    "after": "(1)\n125th Street, 2nd; to 3rd Avenue. North side, (Before Reconstruction).\n\nNo date.\n\n(2)\nSame. (After Reconstruction).\n\nPresident Borough of Manhatten.\n\nSeptember 18, 1921.\n\n315N\nU. S. Hist.\nLOCAL DIST. & GEN.",
+    "before": "(1)\n125th Street, 2nd, to 3rd Avenue, North Side, (before reconstruction)\nNo Date\n\n(2)\nSame (after reconstruction)\nSeptember 18, 1921",
+    "metadata": {
+      "back_id": "715357b",
+      "cookie": "blah",
+      "distance": 81,
+      "len_base": 133,
+      "len_exp": 210,
+      "score": 0.39097744360902253
+    },
+    "photo_id": "715357f-b"
+  },
+  {
+    "after": "1 & 2\nPacific Street, east from Buffalo Avenue. Note the tent, on the left, which is a colored woman's Evangelist's place.\nP. L. Sperr\nview 1: Neg. A-1042\nview 2: Neg. A-1043\n\n3. Same as above.\nP.L. Sperr, photographer\n\nJuly 13, 1940\nViews 1,2\nAug. 2, 1941",
+    "before": "1 & 2\nPacific Street, east from Buffalo Avenue. Note the tent, on the left, which is a colored woman's Evangelist's place.\n\nP. L. Sperr         July 12, 1940\nViews 1,2\n\nview 1: Neg No. A-1042\nview 2: Neg No. A-1043\n\n3.\nSame as above.    Aug. 2, 1941\nP.L. Sperr, photographer",
+    "metadata": {
+      "back_id": "706185b",
       "cookie": "blah",
       "distance": 80,
-      "len_base": 405,
-      "len_exp": 448,
-      "score": 0.8024691358024691
+      "len_base": 274,
+      "len_exp": 256,
+      "score": 0.708029197080292
     },
-    "photo_id": "728321f-c"
+    "photo_id": "706185f-c"
+  },
+  {
+    "after": "(1)\nWashington Street, east side, north from Little West 12th., to and including West 13th Streets. Also shown is Little West 12th Street, at and adjoining the N.E. corner of Washington Street. In the foreground, appears a portion of Gansevoort Market Stand.\n\nJuly 28, 1931.\n\nP. L. Sperr.\n\n(2)\nThe same, showing a further view on Little West 12th Street.\n\nJuly 28, 1931.\n\nP. L. Sperr.\n\n(3)\nThe same as No. 2, at a later date.\n\nMarch 16, 1933.\n\nP. L. Sperr.",
+    "before": "Washington Street, east side, north from Little West 12th., to and including West 13th Streets. Also shown is Little West 12th Street, at and adjoining the N.E. corner of Washington Street. In the foreground, appears a portion of Gansevoort Market Stand.\nJuly 28, 1931.\nL. Sperr.\nThe same, showing a further view on Little West 12th Street.\nJuly 28, 1931.\nP. L. Sperr.\n",
+    "metadata": {
+      "back_id": "724221b",
+      "cookie": "blah",
+      "distance": 80,
+      "len_base": 369,
+      "len_exp": 456,
+      "score": 0.7831978319783197
+    },
+    "photo_id": "724221f-c"
   },
   {
     "after": "Third Avenue at S.E. corner of 36th Street, showing Chanin and Chrysler buildings. October 6, 1933.\n\nP.L. Sperr, photographer.\n\nTHE NEW YORK\nPUBLIC LIBRARY\nASTOR, LENOX AND\nTILDEN FOUNDATIONS\nR",
@@ -4992,17 +4979,43 @@ var changes = [
     "photo_id": "723431f-b"
   },
   {
-    "after": "1 & 2\nPacific Street, east from Buffalo Avenue. Note the tent, on the left, which is a colored woman's Evangelist's place.\nP. L. Sperr\nview 1: Neg. A-1042\nview 2: Neg. A-1043\n\n3. Same as above.\nP.L. Sperr, photographer\n\nJuly 13, 1940\nViews 1,2\nAug. 2, 1941",
-    "before": "1 & 2\nPacific Street, east from Buffalo Avenue. Note the tent, on the left, which is a colored woman's Evangelist's place.\n\nP. L. Sperr         July 12, 1940\nViews 1,2\n\nview 1: Neg No. A-1042\nview 2: Neg No. A-1043\n\n3.\nSame as above.    Aug. 2, 1941\nP.L. Sperr, photographer",
+    "after": "734-6 and 738 West End Avenue, east side, between 95th and 96th Streets, the first two being uniform with 732 West End Avenue, shown in another picture. 738 is the building on the S.E. corner of 96th Street. All these houses were built between 1885 and 1891. About 1929 736 and 738 will be demolished and replaced by a 14-story fireproof building, shown in another view. About 1910.\n\n\nTHE NEW YORK PUBLIC LIBRARY\nASTOR, LENOX AND TILDEN FOUNDATIONS\nR E S E R V E D",
+    "before": "734-6 and 738 West End Avenue, east side, between 95th and 96th Streets, the first two being uniform with 732 West End Avenue, shown in another picture.  738 is the building on the S.E. corner of 96th Street.  All these houses were built between 1885 and 1891. About 1929 736 and 738 will be demolished and replaced by a 14-story fireproof building, shown in another view.\nAbout 1910.",
     "metadata": {
-      "back_id": "706185b",
+      "back_id": "724471b",
       "cookie": "blah",
       "distance": 80,
-      "len_base": 274,
-      "len_exp": 256,
-      "score": 0.708029197080292
+      "len_base": 384,
+      "len_exp": 464,
+      "score": 0.7916666666666666
     },
-    "photo_id": "706185f-c"
+    "photo_id": "724471f"
+  },
+  {
+    "after": "(1) Amboy Road, west of the N.W. corner of Huguenot Ave., showing the Huguenot Park Reformed Church. It was dedicated on May 18, 1924, as a National monument to the Huguenot settlers of America. For additional information see Staten Island and its People by Leng and Davis, vol. 1, p 442.\n\nP. L. Sperr.\n\n(2) Another view of the church, looking eastward.\n\nSeptember 24, 1930.\n\nP. L. Sperr.\n\n(3) An additional view.\n\nSeptember 24, 1930.\n\nP. L. Sperr.",
+    "before": "(1)\nAmboy Road, west of the N.W. corner of Huguenot Ave., showing the Eugcenot Park Reformed Church. It was dedicated on May 16, 1924, as a National monument to the Huguenot settlers of America. For additional information see Staten Island and its People by Leng\nand Davis, vol. 1, p 442.\nSeptember 24, 1930.\nP. L. Sperr.\n(2)\nAnother view of the church, looking eastward.\nSeptember 24, 1930.\nP. L. S9err.\n",
+    "metadata": {
+      "back_id": "728321b",
+      "cookie": "blah",
+      "distance": 80,
+      "len_base": 405,
+      "len_exp": 448,
+      "score": 0.8024691358024691
+    },
+    "photo_id": "728321f-c"
+  },
+  {
+    "after": "(1) to (3)\nEleventh Avenue west side and north of 46th Street showing Gas station on the North west corner, other views from different angles.\n\nP.L.Speer.                             September 4th 1940.\n\nview #1 view #2 view #3 - Neg # 1940",
+    "before": "11th Ave w.s. North of 46th Street\n(1) to (3)\nEleventh Avenue west side and north of 46th Street showing Gas station on the North west corner, other\nviews from different angles.\nP.L.Speer.\nNO REPRODUCTiON.  September 4 1940.\n",
+    "metadata": {
+      "back_id": "710712b",
+      "cookie": "blah",
+      "distance": 80,
+      "len_base": 225,
+      "len_exp": 240,
+      "score": 0.6444444444444444
+    },
+    "photo_id": "710712f-c"
   },
   {
     "after": "(1)\nCentral Park, Cliffs above the Pond.\n          May 15, 1933.\n\nP. L. Sperr.\n\n(2)\nCliffs above the Pond; the view is south, showing tall buildings\non 59th Street.\n          May 21, 1933.\n\nP. L. Sperr.\n          Neg: 2789\n\n(3)\nA view eastward and parallel to 59th Street (right) showing the southeastern corner of the park with the pond in the center. Across the trees appears the Metropolitan Club, Netherlands and\nPlaza Hotels.\n          May 10, 1910.\n\nWalter L. Bogert\n          Neg: 2787\n\nNegative photostats available in LHG, Neg. No. 113(a,b,c). ",
@@ -5018,30 +5031,17 @@ var changes = [
     "photo_id": "718200f-c"
   },
   {
-    "after": "(1)\nWashington Street, east side, north from Little West 12th., to and including West 13th Streets. Also shown is Little West 12th Street, at and adjoining the N.E. corner of Washington Street. In the foreground, appears a portion of Gansevoort Market Stand.\n\nJuly 28, 1931.\n\nP. L. Sperr.\n\n(2)\nThe same, showing a further view on Little West 12th Street.\n\nJuly 28, 1931.\n\nP. L. Sperr.\n\n(3)\nThe same as No. 2, at a later date.\n\nMarch 16, 1933.\n\nP. L. Sperr.",
-    "before": "Washington Street, east side, north from Little West 12th., to and including West 13th Streets. Also shown is Little West 12th Street, at and adjoining the N.E. corner of Washington Street. In the foreground, appears a portion of Gansevoort Market Stand.\nJuly 28, 1931.\nL. Sperr.\nThe same, showing a further view on Little West 12th Street.\nJuly 28, 1931.\nP. L. Sperr.\n",
+    "after": "(1) Amboy Road, west of the N.W. corner of Huguenot Ave., showing the Huguenot Park Reformed Church. It was dedicated on May 18, 1924, as a National monument to the Huguenot settlers of America. For additional information see Staten Island and its People by Leng and Davis, vol. 1, p 442.\n\nP. L. Sperr.\n\n(2) Another view of the church, looking eastward.\n\nSeptember 24, 1930.\n\nP. L. Sperr.\n\n(3) An additional view.\n\nSeptember 24, 1930.\n\nP. L. Sperr.",
+    "before": "(1)\nAmboy Road, west of the N.W. corner of Huguenot Ave., showing the Hugnenot Park Reformed Church. It was dedicated on May 16, 1924, as a National monument to the Huguenot settlers of America. For additional information see Staten lIsland and its People by Leng\nand Davis, vol. 1, p 442.\nSeptember 24, 1930.\nP. L. Sperr.\n(2)\nAnother view of the church, looking eastward.\nSeptember 24, 1930.\nP. L. Sperr.\n",
     "metadata": {
-      "back_id": "724221b",
+      "back_id": "728323b",
       "cookie": "blah",
       "distance": 80,
-      "len_base": 369,
-      "len_exp": 456,
-      "score": 0.7831978319783197
+      "len_base": 406,
+      "len_exp": 448,
+      "score": 0.8029556650246306
     },
-    "photo_id": "724221f-c"
-  },
-  {
-    "after": "734-6 and 738 West End Avenue, east side, between 95th and 96th Streets, the first two being uniform with 732 West End Avenue, shown in another picture. 738 is the building on the S.E. corner of 96th Street. All these houses were built between 1885 and 1891. About 1929 736 and 738 will be demolished and replaced by a 14-story fireproof building, shown in another view. About 1910.\n\n\nTHE NEW YORK PUBLIC LIBRARY\nASTOR, LENOX AND TILDEN FOUNDATIONS\nR E S E R V E D",
-    "before": "734-6 and 738 West End Avenue, east side, between 95th and 96th Streets, the first two being uniform with 732 West End Avenue, shown in another picture.  738 is the building on the S.E. corner of 96th Street.  All these houses were built between 1885 and 1891. About 1929 736 and 738 will be demolished and replaced by a 14-story fireproof building, shown in another view.\nAbout 1910.",
-    "metadata": {
-      "back_id": "724471b",
-      "cookie": "blah",
-      "distance": 80,
-      "len_base": 384,
-      "len_exp": 464,
-      "score": 0.7916666666666666
-    },
-    "photo_id": "724471f"
+    "photo_id": "728323f-c"
   },
   {
     "after": "Sixth Avenue, east side, north from 16th Street.\nP.L. Sperr, Photographer.\n\nThe same slightly northward. Prominently shown is the former Siegel-Cooper Dep't. Store Building. Note the Empire State Building across the horizon.\nP. L. Sperr.\n\nThe same.\nP. L. Sperr.\nJune 11, 1933.",
@@ -5057,43 +5057,17 @@ var changes = [
     "photo_id": "709370f-c"
   },
   {
-    "after": "24th Street, east from Third Avenue. Near Fourth Avenue is the Polish Roman Catholic Church of Our Lady of Czenstochowa.\n\nView 2 shows the World War shrine at the church.\n\nView 3 shows two small homes in the interior of the block near the rear of the church.\n\nP. L. Sperr\n\nview 1: Neg. No. A-949\nview 2: Neg. No. A-950\nview 3: Neg. No. A-951\n\nJuly 22, 1940\nViews 1-3",
-    "before": "24th Street, east from Third Avenue. Near Fourth Avenue is the Polish Roman Catholic Church of Our Lady of Czenstochowa.\n\nView 2 shows the World War shrine at the church.\n\nView 3 shows two small homes in the interior of the block near\nthe rear of the church.\n\nP. L. Sperr  July 22, 1940\n\n",
+    "after": "Kings Highway, west side, north from East 40th Street.\n\nApril 1926.\n\nEugene L. Armbruster collection.\n\n*ASSUMING STREET TO BE NORTH AND SOUTH*  ",
+    "before": "April 1926.\nEugene L. Armbruster Coll ction.\nAd6UUAN1NG ETREET r\nBE NROONPN4 AMD: SOuU1N4\n",
     "metadata": {
-      "back_id": "702656b",
+      "back_id": "705246b",
       "cookie": "blah",
       "distance": 79,
-      "len_base": 288,
-      "len_exp": 366,
-      "score": 0.7256944444444444
+      "len_base": 90,
+      "len_exp": 144,
+      "score": 0.12222222222222223
     },
-    "photo_id": "702656f-c"
-  },
-  {
-    "after": "New York World's Fair, 1939.\n\nF. S. LINCOLN\n\nPhotographer\n114 EAST 32nd STREET\nNEW YORK CITY\n\nWHEN PUBLISHED, CREDIT\nIS TO BE GIVEN TO\nF. S. LINCOLN\n\n881 P5",
-    "before": "AWeewYoR( A2--19 NA, 1aSF\n1 P. S LNCoLN\nPRoographer\n1N4 EAST 11s STREET\nWHENPU8LSHED,CREDIT\nP S 1NC0N\n8yP5\n",
-    "metadata": {
-      "back_id": "726685b",
-      "cookie": "blah",
-      "distance": 79,
-      "len_base": 107,
-      "len_exp": 156,
-      "score": 0.26168224299065423
-    },
-    "photo_id": "726685f"
-  },
-  {
-    "after": "Old City College Building, S. E. corner of Lexington Avenue and 23rd Street.\n\nP.L. Sperr, Photographer.\n",
-    "before": "Old City College Building, S. E. corner of Lexington Avenue and\n23rd Street.\nJuly 25, 1927.\nP.L. Sperr, Photographer.\nTHE NEW YORK\nPUBLIC LIBRARY\nASTOR, LENOX AND\nTILDEN FOUNDATIONS\n",
-    "metadata": {
-      "back_id": "720922b",
-      "cookie": "blah",
-      "distance": 79,
-      "len_base": 182,
-      "len_exp": 104,
-      "score": 0.5659340659340659
-    },
-    "photo_id": "720922f-a"
+    "photo_id": "705246f-a"
   },
   {
     "after": "Eleventh Avenue at N. W. corner of 30th Street.\nP. L. Sperr, Photographer.\nJanuary 28, 1932.",
@@ -5109,6 +5083,32 @@ var changes = [
     "photo_id": "710616f-a"
   },
   {
+    "after": "24th Street, east from Third Avenue. Near Fourth Avenue is the Polish Roman Catholic Church of Our Lady of Czenstochowa.\n\nView 2 shows the World War shrine at the church.\n\nView 3 shows two small homes in the interior of the block near the rear of the church.\n\nP. L. Sperr\n\nview 1: Neg. No. A-949\nview 2: Neg. No. A-950\nview 3: Neg. No. A-951\n\nJuly 22, 1940\nViews 1-3",
+    "before": "24th Street, east from Third Avenue. Near Fourth Avenue is the Polish Roman Catholic Church of Our Lady of Czenstochowa.\n\nView 2 shows the World War shrine at the church.\n\nView 3 shows two small homes in the interior of the block near\nthe rear of the church.\n\nP. L. Sperr  July 22, 1940\n\n",
+    "metadata": {
+      "back_id": "702656b",
+      "cookie": "blah",
+      "distance": 79,
+      "len_base": 288,
+      "len_exp": 366,
+      "score": 0.7256944444444444
+    },
+    "photo_id": "702656f-c"
+  },
+  {
+    "after": "Old City College Building, S. E. corner of Lexington Avenue and 23rd Street.\n\nP.L. Sperr, Photographer.\n",
+    "before": "Old City College Building, S. E. corner of Lexington Avenue and\n23rd Street.\nJuly 25, 1927.\nP.L. Sperr, Photographer.\nTHE NEW YORK\nPUBLIC LIBRARY\nASTOR, LENOX AND\nTILDEN FOUNDATIONS\n",
+    "metadata": {
+      "back_id": "720922b",
+      "cookie": "blah",
+      "distance": 79,
+      "len_base": 182,
+      "len_exp": 104,
+      "score": 0.5659340659340659
+    },
+    "photo_id": "720922f-a"
+  },
+  {
     "after": "(1)\n5769 East 58th Street, at the south east intersection of King's Highway and Church Ave. A view of the modernized farm-house, known as the John Remsen Farm-house, also known as the Peter Remsen Farm-house. It was built in 1797- by Johannus Remsen (1793-1868) who married Catherine Schenck daughter of Tunis Schenck, one of the original settlers of New Utrecht. The rear extension to the house was erected in 1865.\n\nMarch 1922.\n\nEugene L. Armbruster collection.\n\n(2)\nThe same, from another angle.\n1922.\n\nEugene L. Armbruster Collection.",
     "before": "5769 East 58th Street, at the south east intersection of King's Highway and Church Ave. A view of the modernized farm-house, known as the John Remsen Farmhouse, also known as the Peter Remsen Farm-house. It was built in 1797- by Johannus Remsen (1793-1868) who marriod Catherine Schenck daughter of Tunis Schenck, one of the original settlers of New Utrecht. The rear extension to the house was erected in 1865.\nMarch 1922.\nEugene L. Armbruster Collection.\n",
     "metadata": {
@@ -5122,17 +5122,17 @@ var changes = [
     "photo_id": "702788f-b"
   },
   {
-    "after": "Kings Highway, west side, north from East 40th Street.\n\nApril 1926.\n\nEugene L. Armbruster collection.\n\n*ASSUMING STREET TO BE NORTH AND SOUTH*  ",
-    "before": "April 1926.\nEugene L. Armbruster Coll ction.\nAd6UUAN1NG ETREET r\nBE NROONPN4 AMD: SOuU1N4\n",
+    "after": "New York World's Fair, 1939.\n\nF. S. LINCOLN\n\nPhotographer\n114 EAST 32nd STREET\nNEW YORK CITY\n\nWHEN PUBLISHED, CREDIT\nIS TO BE GIVEN TO\nF. S. LINCOLN\n\n881 P5",
+    "before": "AWeewYoR( A2--19 NA, 1aSF\n1 P. S LNCoLN\nPRoographer\n1N4 EAST 11s STREET\nWHENPU8LSHED,CREDIT\nP S 1NC0N\n8yP5\n",
     "metadata": {
-      "back_id": "705246b",
+      "back_id": "726685b",
       "cookie": "blah",
       "distance": 79,
-      "len_base": 90,
-      "len_exp": 144,
-      "score": 0.12222222222222223
+      "len_base": 107,
+      "len_exp": 156,
+      "score": 0.26168224299065423
     },
-    "photo_id": "705246f-a"
+    "photo_id": "726685f"
   },
   {
     "after": "(1) Weehawken Street, west side, north from but not including Christopher Street (where it commences), to and including West 10th Street (where it terminates), showing an old 2\u00bd-story house in a state of collapse, bearing No. 391 West Street (all houses here shown bear West Street numbers). On the extreme left appears a portion of the West Side Vehicular Express Highway. May 15, 1937. P. L. Sperr.  (2) The same, a better view of the buildings which surplanted the Weehawken Market about 1830. About 1936. Gift of Dr. Michael Wishengrad, A.R.P.S.  ",
@@ -5213,30 +5213,17 @@ var changes = [
     "photo_id": "700207f-a"
   },
   {
-    "after": "Hotel Pierre, New York City\n\nF. S. LINCOLN\nPhotographer\n114 EAST 32nd STREET\nNEW YORK CITY\n177 P 4",
-    "before": "22N 2 1Ny\nEEVEENE\n03NS7T.\nE22E2\n177 RA4-\n",
+    "after": "Fifth Avenue, east side, north from 31st Street. 1907.\nPhotograph by Brown Brothers.",
+    "before": "Fifth Avenue, east side, north from 31st Street.\n1907.\nPhotograph by Brown Brothers.\nNeg. ~ 22o4\nTHE NEw yONg\nPDBLC LIERARV\nASTOR LERi02 AN5\nTILDEN PS SDATIiSg\nL\n",
     "metadata": {
-      "back_id": "709086b",
+      "back_id": "708484b",
       "cookie": "blah",
       "distance": 77,
-      "len_base": 41,
-      "len_exp": 98,
-      "score": 0.0
+      "len_base": 162,
+      "len_exp": 84,
+      "score": 0.5246913580246914
     },
-    "photo_id": "709086f"
-  },
-  {
-    "after": "(1-4)\n\nMaspeth Ave. (foreground), east of 57th Street, showing in the foreground the Queens Head Tavern which is on the S.E. corner of Maspeth Ave. and 58th Street (along line of telegraph poles at the right.) This homestead was founded by James Way who left his estate to his nephew, Samuel Way in the middle of the 18th Century. In 1815, Garret Furman acquired the land. Captain Peter Berton ran a tavern here in July 1783. In 1873 McCrady and Elder operated it as a hotel. Another history concerning this house is that it was erected by the town of Newtown and leased to tavern keepers. It was a resort for the soldiers during the Revolutionary war; later a stage stop, and afterwards a private dwelling. A gas station and tavern occupied the place in 1933. In front of this tavern was a toll house, in 1852. This is a set of three views from slightly different angles.\n\nJanuary 1924.\nView 2: 1922.\nView 3: January 1924.\nView 4: March 1925\n\nEugene L. Armbruster Collection. ",
-    "before": "(1-4)\nMaspeth Ave. (foreground), east of 57th Street, showing in t foreground the Queens Head Tavern which is on the S.E. corner of Maspeth Ave. and 58th Street (along line of telegraph poles at th right.) This homestead was founded by James Way who left his est to his nephew,Samuel Way in the middle of the 18th Century. In 1 Garret Furman acquired the land. Captain Peter Berton ran a tave here in July 1783. In 1873 McCrady and Elder operated it as a hc Another history concerning this house is that it was erected by t town of Newtown and leased to tavern keepers. It was a resort fc soldiers during the Revolutionary war; later a stage stop, and af wards a private dwelling. A gas station and tavern occupied the in 1933. In front of this tavern was a toll house, in 1852. Thi a set of three views from slightly different angles.\nJanuary 1924.\nView 2: 1922.\nView 3: January 1924.\nEugene L. Armbruster Collection. View 4: March 1925\n",
-    "metadata": {
-      "back_id": "727358b",
-      "cookie": "blah",
-      "distance": 77,
-      "len_base": 938,
-      "len_exp": 977,
-      "score": 0.917910447761194
-    },
-    "photo_id": "727358f-d"
+    "photo_id": "708484f-a"
   },
   {
     "after": "Chrysler Building nearing completion, Lexington Avenue, east side, from 42nd to 43rd Street.\n\nOctober 14, 1929.\n\nPeyser & Patzig, Photographer\n",
@@ -5265,30 +5252,30 @@ var changes = [
     "photo_id": "703589f-a"
   },
   {
-    "after": "CONTRACT ROUTE In SECTION No. 23\nLOCATION S. Bank of Harlem River at 1st Av.\nSUBJECT Construction Photo\nDESCRIPTION Mr. L. Drawn pan ready to be floated off falsework\nDATE Aug. 21, 1915\n\nPurchased from Neikrug Galleries, Inc., May 25, 1976  ",
-    "before": "CONTRACT___ ROUTE  I10 SECTION 5C  No. 23\nLOCATION  S. Bank of Harlem River at 1st Ave\nSUBJECT  Construction Photo\nDESCRIPTION  New \u201cL\u201d drawspan ready to be floated off falsework\nDATE  Aug. 21 1915\nPUBLIC SERVICE COMM \u201cR\u201d 1st DIST ENGINEER THIRD DIVISION Purchased from Neikrug Galleries Inc. May 25, 1976\n",
+    "after": "Hotel Pierre, New York City\n\nF. S. LINCOLN\nPhotographer\n114 EAST 32nd STREET\nNEW YORK CITY\n177 P 4",
+    "before": "22N 2 1Ny\nEEVEENE\n03NS7T.\nE22E2\n177 RA4-\n",
     "metadata": {
-      "back_id": "731103b",
+      "back_id": "709086b",
       "cookie": "blah",
       "distance": 77,
-      "len_base": 306,
-      "len_exp": 241,
-      "score": 0.7483660130718954
+      "len_base": 41,
+      "len_exp": 98,
+      "score": 0.0
     },
-    "photo_id": "731103f-a"
+    "photo_id": "709086f"
   },
   {
-    "after": "Fifth Avenue, east side, north from 31st Street. 1907.\nPhotograph by Brown Brothers.",
-    "before": "Fifth Avenue, east side, north from 31st Street.\n1907.\nPhotograph by Brown Brothers.\nNeg. ~ 22o4\nTHE NEw yONg\nPDBLC LIERARV\nASTOR LERi02 AN5\nTILDEN PS SDATIiSg\nL\n",
+    "after": "(1-4)\n\nMaspeth Ave. (foreground), east of 57th Street, showing in the foreground the Queens Head Tavern which is on the S.E. corner of Maspeth Ave. and 58th Street (along line of telegraph poles at the right.) This homestead was founded by James Way who left his estate to his nephew, Samuel Way in the middle of the 18th Century. In 1815, Garret Furman acquired the land. Captain Peter Berton ran a tavern here in July 1783. In 1873 McCrady and Elder operated it as a hotel. Another history concerning this house is that it was erected by the town of Newtown and leased to tavern keepers. It was a resort for the soldiers during the Revolutionary war; later a stage stop, and afterwards a private dwelling. A gas station and tavern occupied the place in 1933. In front of this tavern was a toll house, in 1852. This is a set of three views from slightly different angles.\n\nJanuary 1924.\nView 2: 1922.\nView 3: January 1924.\nView 4: March 1925\n\nEugene L. Armbruster Collection. ",
+    "before": "(1-4)\nMaspeth Ave. (foreground), east of 57th Street, showing in t foreground the Queens Head Tavern which is on the S.E. corner of Maspeth Ave. and 58th Street (along line of telegraph poles at th right.) This homestead was founded by James Way who left his est to his nephew,Samuel Way in the middle of the 18th Century. In 1 Garret Furman acquired the land. Captain Peter Berton ran a tave here in July 1783. In 1873 McCrady and Elder operated it as a hc Another history concerning this house is that it was erected by t town of Newtown and leased to tavern keepers. It was a resort fc soldiers during the Revolutionary war; later a stage stop, and af wards a private dwelling. A gas station and tavern occupied the in 1933. In front of this tavern was a toll house, in 1852. Thi a set of three views from slightly different angles.\nJanuary 1924.\nView 2: 1922.\nView 3: January 1924.\nEugene L. Armbruster Collection. View 4: March 1925\n",
     "metadata": {
-      "back_id": "708484b",
+      "back_id": "727358b",
       "cookie": "blah",
       "distance": 77,
-      "len_base": 162,
-      "len_exp": 84,
-      "score": 0.5246913580246914
+      "len_base": 938,
+      "len_exp": 977,
+      "score": 0.917910447761194
     },
-    "photo_id": "708484f-a"
+    "photo_id": "727358f-d"
   },
   {
     "after": "(1)\nCentral Park: The Lake, northern end, a view northwest towards\nthe Hotel Beresford at 81st Street.\nMay 17, 1933.\n\nP. L. Sperr.\n\n(2)\nThe same, another view.\nMay 17, 1933.\n\nP. L. Sperr.",
@@ -5317,30 +5304,17 @@ var changes = [
     "photo_id": "722494f-b"
   },
   {
-    "after": "(1)\nChurch of the Epiphany (Roman Catholic), 373 Second Avenue, west side, between 22nd and 23rd Streets.\nP.L. Sperr, Photographer.\n\n(2)\nChurch of the Epiphany (Roman Catholic), 373 Second Avenue, west side, between 22nd and 23rd Streets.\nNEG # 3613A\nP.L. Sperr, Photographer.\n\n(3)\nChurch of the Epiphany (Roman Catholic), 373 Second Avenue, west side, between 22nd and 23rd Streets.\nP.L. Sperr, Photographer.",
-    "before": "(1)\nChurch of the Epiphany (Roman Catholic), 373 Second Avenue,\nwest side, between 21st and 2nd Streets.\nOctober 27, 1927.\nP.L. Sperr, Photographer.\n(2)\nChurch of the Epiphany (Roman Catholic), 373 Second Avenue,\nwest sidc, between 21st and 2nd Streets.\nNEG ~ SG73A  December 22, 1929.\nP.L. Sperr, Photographer.\n(3)\nChurch of the Epiphany (Roman Catholic), 373 Second Avenue,\nwest side, between 21st and 2nd Streets.\nDecember 22, 1929.\nP.L. Sperr, Photographer.\n",
+    "after": "CONTRACT ROUTE In SECTION No. 23\nLOCATION S. Bank of Harlem River at 1st Av.\nSUBJECT Construction Photo\nDESCRIPTION Mr. L. Drawn pan ready to be floated off falsework\nDATE Aug. 21, 1915\n\nPurchased from Neikrug Galleries, Inc., May 25, 1976  ",
+    "before": "CONTRACT___ ROUTE  I10 SECTION 5C  No. 23\nLOCATION  S. Bank of Harlem River at 1st Ave\nSUBJECT  Construction Photo\nDESCRIPTION  New \u201cL\u201d drawspan ready to be floated off falsework\nDATE  Aug. 21 1915\nPUBLIC SERVICE COMM \u201cR\u201d 1st DIST ENGINEER THIRD DIVISION Purchased from Neikrug Galleries Inc. May 25, 1976\n",
     "metadata": {
-      "back_id": "707798b",
+      "back_id": "731103b",
       "cookie": "blah",
-      "distance": 76,
-      "len_base": 462,
-      "len_exp": 409,
-      "score": 0.8354978354978355
+      "distance": 77,
+      "len_base": 306,
+      "len_exp": 241,
+      "score": 0.7483660130718954
     },
-    "photo_id": "707798f-c"
-  },
-  {
-    "after": "Flushing Meadow Park; Viewing north from southern end of the park and shoeing the World's Fair Grounds (1939-40) in the background.\n\nP. L. Sperr\n\nView #1 : Neg. A-872\nView #2: Neg. A-873\nView #3: Neg. A-875\n\nJuly 7, 1940\nViews 1-3",
-    "before": "Flushing Meadow Park: Viewing north from southern end of the park and showing the World's Fair Grounds (1939-1940) in the background.\nP. L. Sperr   July 9, 1940",
-    "metadata": {
-      "back_id": "726639b",
-      "cookie": "blah",
-      "distance": 76,
-      "len_base": 160,
-      "len_exp": 230,
-      "score": 0.525
-    },
-    "photo_id": "726639f-c"
+    "photo_id": "731103f-a"
   },
   {
     "after": "1. Bergen Street, east from Rochester Avenue, showing demolition for the Kingsborough Houses. In the background is St. Josephs 2. Institute, at Buffalo Avenue, seen also in view 2.\n\nP. L. Sperr\nview 1: Neg. No. A-1017\nview 2: Neg. No. A-1018\n\n3. Bergen St. at Rochester Ave. & Edward Rd.\n\nP.L. Sperr\n\nJuly 13, 1940\nViews 1,2\n\nAug. 2, 1941",
@@ -5356,30 +5330,17 @@ var changes = [
     "photo_id": "703228f-c"
   },
   {
-    "after": "(1) West 51st Street, south side, east from Seventh Ave. Parking lot shown, is at the rear of Roxy's Theatre (extreme right) and is between Seventh and Sixth Aves. Prominent buildings shown, is the R.K.O. Building, a unit of Radio City. Also note the General Electric Building (Lexington Ave), another building on this street.\nSept March 18, 1932.\n\nP. L. Sperr.\n\n(2) A view of the immediate foreground (parking lot) of No. 1, and showing the rears of buildings on the west side of Sixth Ave., between 51st and 50th Streets. Also shown is the uncompleted 70-story R.C.A. Building, with its 16-story Sixth Ave. Entrance.\n\nSeptember 11, 1932.\n\nP. L. Sperr.\n\n(3) The same, at a later date.\nSeptember 11, 1932.\n\nP. L. Sperr.",
-    "before": "(1)\nWest 51st Street, south side, east from Seventh Ave. Parking lob shown, is at the cear of Roxy's Theatre (extreme right) and is between Seventh and Sixth Aves. Prominent buildings shown, is the R.K.O. Building,a unit of Padio City. Also note the General Electric Building )Lex\nington Ave)., another building on this street.\nS March 18, 19SD.\nP. L. Sperr.\n(2)\nA view of the immediate foreground (parking lot) of No. 1, and showing the rears of buildings on the west side of Sixth Ave., between 51st and 50th Streets. Also shown is the uncompleted 70-story R.C.A.\nBuilding, with its 16-story Sixth Ave. Entrance.\nSeptember 11, 1932.\nP. L. Sperr.\n",
+    "after": "(1)\nChurch of the Epiphany (Roman Catholic), 373 Second Avenue, west side, between 22nd and 23rd Streets.\nP.L. Sperr, Photographer.\n\n(2)\nChurch of the Epiphany (Roman Catholic), 373 Second Avenue, west side, between 22nd and 23rd Streets.\nNEG # 3613A\nP.L. Sperr, Photographer.\n\n(3)\nChurch of the Epiphany (Roman Catholic), 373 Second Avenue, west side, between 22nd and 23rd Streets.\nP.L. Sperr, Photographer.",
+    "before": "(1)\nChurch of the Epiphany (Roman Catholic), 373 Second Avenue,\nwest side, between 21st and 2nd Streets.\nOctober 27, 1927.\nP.L. Sperr, Photographer.\n(2)\nChurch of the Epiphany (Roman Catholic), 373 Second Avenue,\nwest sidc, between 21st and 2nd Streets.\nNEG ~ SG73A  December 22, 1929.\nP.L. Sperr, Photographer.\n(3)\nChurch of the Epiphany (Roman Catholic), 373 Second Avenue,\nwest side, between 21st and 2nd Streets.\nDecember 22, 1929.\nP.L. Sperr, Photographer.\n",
     "metadata": {
-      "back_id": "713556b",
+      "back_id": "707798b",
       "cookie": "blah",
       "distance": 76,
-      "len_base": 648,
-      "len_exp": 719,
-      "score": 0.8827160493827161
+      "len_base": 462,
+      "len_exp": 409,
+      "score": 0.8354978354978355
     },
-    "photo_id": "713556f-c"
-  },
-  {
-    "after": "134-142 East 30th Street, south side, east of Lexington Avenue.\n\nP. L. Sperr\n\n(2)\n\n142 East 30th Street, south side, between Third and Lexington Avenues, showing a 3-story building with an old iron balcony. The wide entrance beneath same, (right), leads thru a passageway to a 1-story brick and frame rear building.\n\nGEORGE D. CHINN",
-    "before": "134-142 East 30th Street, south side, east of Lexington\nAvenue.\nJuly 23, 1934\nP. L. Sperr\n(2)\n142 East 30th Street, south side, between Third and Lexington Avenues, showing a 3-story building with an old iron balcony. The wide entrance beneath same, (right), leads thru a passageway to a 1-story brick and\nframe rear building. (The rear building is actually a carriage house).\nJune, 1938\nOEORGE D. CHINN\n",
-    "metadata": {
-      "back_id": "711955b",
-      "cookie": "blah",
-      "distance": 76,
-      "len_base": 404,
-      "len_exp": 332,
-      "score": 0.8118811881188119
-    },
-    "photo_id": "711955f-b"
+    "photo_id": "707798f-c"
   },
   {
     "after": "(1)\nBowery, west side, south from Canal, to, but not including Bayard Streets. The view shows the Thalia Theatre, (46-48 Bowery) and Atlantic Gardens, adjoining it on the north.\n\nMay 25, 1904.\n\nBrown Brothers.\n\n(2)\nThe same, at a later date and showing the Thalia Theatre in a state of collapse. Also shown is the Citizens Saving Bank, re-placing the former building on the corner. In the foreground, a portion of the Manhattan Bridge Plaza, erection of which necessitated a structual change in the Third Ave., Elevated.\n\nDecember 26, 1929.\n\nP. L. Sperr.\n\n(3)\nThe same, a closer view.\n\nSeptember 24, 1927.\n\nP. L. Sperr.",
@@ -5395,43 +5356,43 @@ var changes = [
     "photo_id": "716736f-c"
   },
   {
-    "after": "(1)\nGerry Mansion at S. E. corner of Fifth Avenue and 61st Street, demolished in 1929.\nP.L. Sperr, Photographer. \n\n(2)\nFifth Avenue from 61st to 63rd Streets, seen from Central Park. House marked X was Elbridge T. Gerry mansion, at S. E. corner of Fifth Avenue and 61st Street. Demolished in 1929 to make way for an apartment house.\nP.L. Sperr, Photographer.\n\n(3)\nExcavation at S. E. corner Fifth Avenue and 61st Street.\nP.L. Sperr, Photographer.",
-    "before": "Gerry Mansion at S. E. corner of Fifth Avenue and 61st Street,\ndemolished in 1929.\nJune 8, 1928.\nP.L. Sperr,Photographer.\nFifth Avenue from 6lst to 63rd Streets, seen from Central Park. House marked Y was Elbridge T. Gerry mansion, at S. E. coraer\nof Fifth Avenue and olst Street.\nDemolished in 1929 to make way for The Pierre Hotel\nFebruary 20, 1929.\nP.L. Sperr,Photographer.\nExcavation at S. E. corner Fifth Avenue and 6lst Street.\nAugust 15, 1929.\nP.L.Sperr,Photographer.\n",
+    "after": "134-142 East 30th Street, south side, east of Lexington Avenue.\n\nP. L. Sperr\n\n(2)\n\n142 East 30th Street, south side, between Third and Lexington Avenues, showing a 3-story building with an old iron balcony. The wide entrance beneath same, (right), leads thru a passageway to a 1-story brick and frame rear building.\n\nGEORGE D. CHINN",
+    "before": "134-142 East 30th Street, south side, east of Lexington\nAvenue.\nJuly 23, 1934\nP. L. Sperr\n(2)\n142 East 30th Street, south side, between Third and Lexington Avenues, showing a 3-story building with an old iron balcony. The wide entrance beneath same, (right), leads thru a passageway to a 1-story brick and\nframe rear building. (The rear building is actually a carriage house).\nJune, 1938\nOEORGE D. CHINN\n",
     "metadata": {
-      "back_id": "709082b",
+      "back_id": "711955b",
       "cookie": "blah",
-      "distance": 75,
-      "len_base": 475,
-      "len_exp": 446,
-      "score": 0.8421052631578947
+      "distance": 76,
+      "len_base": 404,
+      "len_exp": 332,
+      "score": 0.8118811881188119
     },
-    "photo_id": "709082f-c"
+    "photo_id": "711955f-b"
   },
   {
-    "after": "(1) East 63rd Street, east side, between Ave. U, and Strickland Ave., showing the Schenck-Crooke house, which was also known as the Jan Marten Schenck house. The land was at one time known as Mill Island; probably named because of a mill that was built by Albert Elbertzen Stoothoff about 1664. He sold in 1675 (not 1657) a half interest in the mill and island to Jan Martense Schenck. Bergen states: \"The Schenck family built the house\", and he gives the purchase year as 1657; hence, it is believed that if Jan Schenck built the house, it would date after 1675. Jan Martense Schenck acquired title to the entire island, and as he devised it both to his son Martin Janse Schenck by his will of 1688 9, it was sold in 1785 by the heirs of John Schenck to Mrs. Susan Caton, a daughter of Joris Martense. Margaret, a daughter of Mrs. Susan Caton married General Philip Crooke. This mill became known as Crooke's mill and was demolished prior to 1881. The house still stands in 1929.\n\n1922.\n\nEugene L. Armbruster Collection.\n\n(2) A view of the front of the house.\n\n1922.\n\nEugene L. Armbruster Collection.\n\n(3) The same, showing the rear, viewed westward.\n\n1922.\n\nEugene L. Armbruster Collection.\n\n(4) The same, viewed northwestward.\n\n1922.\n\nEugene L. Armbruster Collection.",
-    "before": "(1)\nEast 63rd Street, east side, between Ave. U, and Strickland Ave., showing the Schenck-Crooke house, which was also known as the Jan Martense Schenck house. The land was at one time known as Mill Island; probably named because of a mill that was built by Elbert Elbertsen Stoothoff about 1664. He sold in 1675 (not 1657) a half interest in the mill and island to Jan Martense Schenck. Bergen states: \"The Schenck family built the house\", and he gave the purchase year as 1657; hence, it is believed that the house was built about that year. If the Schencks built the house, it would date after 1675. Jan Martense evidently acquired title to the entire island, and mill as he devised both to his son Martin Janse Schenck by his will of 1688 9. This property was sold in 1785 by the heirs of John Schenck to Mrs. Susan Caton, a daughter of Joris Martense. Margaret, a daughter of Mrs. Susan Caton married general Philip Crooke. This mill became known as Crooke's mill and was demolished prior to 1881. The house still stands in 1929.\n\n1922.\n\nEugene L. Armbruster Collection.\n\n(2)\nA view of the front of the house.\n\n1922.\n\nEugene L. Armbruster Collection.\n\n(3)\nThe same, showing the rear, viewed westward.\n\n1922.\n\nEugene L. Armbruster Collection.\n\n(4)\nThe same, viewed northwestward.\n\n1922.\n\nEugene L. Armbruster Collection.",
+    "after": "Flushing Meadow Park; Viewing north from southern end of the park and shoeing the World's Fair Grounds (1939-40) in the background.\n\nP. L. Sperr\n\nView #1 : Neg. A-872\nView #2: Neg. A-873\nView #3: Neg. A-875\n\nJuly 7, 1940\nViews 1-3",
+    "before": "Flushing Meadow Park: Viewing north from southern end of the park and showing the World's Fair Grounds (1939-1940) in the background.\nP. L. Sperr   July 9, 1940",
     "metadata": {
-      "back_id": "702809b",
+      "back_id": "726639b",
       "cookie": "blah",
-      "distance": 75,
-      "len_base": 1324,
-      "len_exp": 1270,
-      "score": 0.9433534743202416
+      "distance": 76,
+      "len_base": 160,
+      "len_exp": 230,
+      "score": 0.525
     },
-    "photo_id": "702809f-d"
+    "photo_id": "726639f-c"
   },
   {
-    "after": "301 West 4th Street at the N.E. corner of Bank Street. May 9, 1933.\n\nP. L. Sperr.\n",
-    "before": "301 West 4th Street at the N.E. corner of Bank Street.\nMay 9, 1933.\nP. L. Sperr.\n\nStamp: THE NEW YORK PUBLIC LIBRARY\nASTOR, LENOX AND TILDEN FOUNDATIONS\nR   L",
+    "after": "(1) West 51st Street, south side, east from Seventh Ave. Parking lot shown, is at the rear of Roxy's Theatre (extreme right) and is between Seventh and Sixth Aves. Prominent buildings shown, is the R.K.O. Building, a unit of Radio City. Also note the General Electric Building (Lexington Ave), another building on this street.\nSept March 18, 1932.\n\nP. L. Sperr.\n\n(2) A view of the immediate foreground (parking lot) of No. 1, and showing the rears of buildings on the west side of Sixth Ave., between 51st and 50th Streets. Also shown is the uncompleted 70-story R.C.A. Building, with its 16-story Sixth Ave. Entrance.\n\nSeptember 11, 1932.\n\nP. L. Sperr.\n\n(3) The same, at a later date.\nSeptember 11, 1932.\n\nP. L. Sperr.",
+    "before": "(1)\nWest 51st Street, south side, east from Seventh Ave. Parking lob shown, is at the cear of Roxy's Theatre (extreme right) and is between Seventh and Sixth Aves. Prominent buildings shown, is the R.K.O. Building,a unit of Padio City. Also note the General Electric Building )Lex\nington Ave)., another building on this street.\nS March 18, 19SD.\nP. L. Sperr.\n(2)\nA view of the immediate foreground (parking lot) of No. 1, and showing the rears of buildings on the west side of Sixth Ave., between 51st and 50th Streets. Also shown is the uncompleted 70-story R.C.A.\nBuilding, with its 16-story Sixth Ave. Entrance.\nSeptember 11, 1932.\nP. L. Sperr.\n",
     "metadata": {
-      "back_id": "710915b",
+      "back_id": "713556b",
       "cookie": "blah",
-      "distance": 75,
-      "len_base": 158,
-      "len_exp": 82,
-      "score": 0.5253164556962026
+      "distance": 76,
+      "len_base": 648,
+      "len_exp": 719,
+      "score": 0.8827160493827161
     },
-    "photo_id": "710915f-a"
+    "photo_id": "713556f-c"
   },
   {
     "after": "(1)\nEast Tremont Ave., north side, between Silver Street and Haight Ave., showing the Westchester Methodist Episcopal Church (the low structure in the center).\n\nP. L. Sperr.                          August 3, 1928.\n\n(2)\nThe same, at a later date.\n\nP. L. Sperr.                          August 25, 1935.\n\nASSUMING STREET TO\nBE EAST AND WEST",
@@ -5447,19 +5408,6 @@ var changes = [
     "photo_id": "700941f-b"
   },
   {
-    "after": "Washington Square, seen from a roof at Sixth Avenue near 4th Street. The principal New York University building is on Washington Square East from Washington to Waverly Places. On the N.E. corner of Waverly and University Places a tall apartment building is going to be erected in 1929. The tall building north of the square is the new One Fifth Avenue. To the right may be seen the new apartment building at 32 Washington Square West, recently erected onto the site of the old Hicks-Lord house. Behind it, on the horizon, the tower of the Consolidated Gas building, Irving Place and 14th Street, is nearing completion. Nearer in the foreground are the roofs of the Holley Hotel, 35-6 Washington Square West, and the old houses 37-39, which are soon to be replaced by an apartment building. The spires in the immediate foreground belong to the Washington Square Methodist Episcopal Church at 135 West Fourth Street. Down in the park, to the right of the fountain, and nearer, may be seen the newly rebuilt comfort station.\n\nP. L. Sperr.\n\n(2)\nSixth Avenue, West side, at West 4th Street, north west from Third Street, showing the Excelsior Accordion Manufacturing Company's building.\n\nP.L. Sperr,\n\n\n\nApril 3, 1928.\n\nMarch 15th, 1932.",
-    "before": "Washington Square, seen from a roof at Sixth Avenue near 4th Street. The principal New York University building is on Washington Square East from Washington to Waverly Flaces. On the N.E. corner of Waverly and University Places a tall apartment building is going to be erected in 1929. The tall building north of the scuare is the new One Fifth Avenue. To the right may be seen the new apartment building at 32 Washington Square West, recently erected on the site of the old Hicks-Lorc house. Behind it, on the horison, the tower of the Consolidated Gas building, Irving Place\nand 14th Street, is nearing completion.\nNearer in the foreground are the roofs of the Holley Hotel, 35-6 Washington Square West, and the old houses 37-39, which are soow to be replaced by an apartment building. The spires in the immediate foreground beloag to the Washington Sduare Methodist Episcopal Church at 135 West Fourth Street. Down in the park, to the right of the fountain, and nearer, may be seen the newly\nrebuilt comfort station.\nApril 3, 1928.\nP. L. Sperr.\n(2)\nSixth Avenue,West side,at West 4th Street,north west from Third Street,showing the Excelsior Accordion Manafacturing Company's\nbuilding.\nMarch 15th,1932.\nP.L.Sperr,\n\nNVN( iw u0S\nT~--S----SS1\n",
-    "metadata": {
-      "back_id": "723989b",
-      "cookie": "blah",
-      "distance": 75,
-      "len_base": 1243,
-      "len_exp": 1231,
-      "score": 0.9396621078037007
-    },
-    "photo_id": "723989f-b"
-  },
-  {
     "after": "Celebrations, Parades and Municipal Events: The Dewey Arch erected on Fifth Avenue at E. 24th Street. This photograph is eastward towards the building line at Madison Avenue. Appearing there is the Madison Square Presbyterian Church (erected 1854) surrounded by the ever growing Metropolitan Life Ins. Co. At the right margin is the old Hotel Bartholdi at the S. E. corner of 23rd Street and Broadway.\n\nCopyright 1899\nJ. S. Johnston\nGift of Urbrock Collection\n\n1898\nParade Sept 30/99.",
     "before": "Celebrations, Parades and Municipal Events: The Dewey Arch erected on Fifth Avenue at E. 24th Street. This photograph is eastward towards the building line at Madison Avenue. Appearing there is the Madison Square Presbyterian Church (erected 1854) surrounded by the ever growing Metropolitan Life Ins. Co. At the right margin is the old Hotel Bartholdi at the S. E. corner of 23rd Street and Broadway. 1898. ",
     "metadata": {
@@ -5471,6 +5419,19 @@ var changes = [
       "score": 0.8161764705882353
     },
     "photo_id": "731192f-a"
+  },
+  {
+    "after": "(1) East 63rd Street, east side, between Ave. U, and Strickland Ave., showing the Schenck-Crooke house, which was also known as the Jan Marten Schenck house. The land was at one time known as Mill Island; probably named because of a mill that was built by Albert Elbertzen Stoothoff about 1664. He sold in 1675 (not 1657) a half interest in the mill and island to Jan Martense Schenck. Bergen states: \"The Schenck family built the house\", and he gives the purchase year as 1657; hence, it is believed that if Jan Schenck built the house, it would date after 1675. Jan Martense Schenck acquired title to the entire island, and as he devised it both to his son Martin Janse Schenck by his will of 1688 9, it was sold in 1785 by the heirs of John Schenck to Mrs. Susan Caton, a daughter of Joris Martense. Margaret, a daughter of Mrs. Susan Caton married General Philip Crooke. This mill became known as Crooke's mill and was demolished prior to 1881. The house still stands in 1929.\n\n1922.\n\nEugene L. Armbruster Collection.\n\n(2) A view of the front of the house.\n\n1922.\n\nEugene L. Armbruster Collection.\n\n(3) The same, showing the rear, viewed westward.\n\n1922.\n\nEugene L. Armbruster Collection.\n\n(4) The same, viewed northwestward.\n\n1922.\n\nEugene L. Armbruster Collection.",
+    "before": "(1)\nEast 63rd Street, east side, between Ave. U, and Strickland Ave., showing the Schenck-Crooke house, which was also known as the Jan Martense Schenck house. The land was at one time known as Mill Island; probably named because of a mill that was built by Elbert Elbertsen Stoothoff about 1664. He sold in 1675 (not 1657) a half interest in the mill and island to Jan Martense Schenck. Bergen states: \"The Schenck family built the house\", and he gave the purchase year as 1657; hence, it is believed that the house was built about that year. If the Schencks built the house, it would date after 1675. Jan Martense evidently acquired title to the entire island, and mill as he devised both to his son Martin Janse Schenck by his will of 1688 9. This property was sold in 1785 by the heirs of John Schenck to Mrs. Susan Caton, a daughter of Joris Martense. Margaret, a daughter of Mrs. Susan Caton married general Philip Crooke. This mill became known as Crooke's mill and was demolished prior to 1881. The house still stands in 1929.\n\n1922.\n\nEugene L. Armbruster Collection.\n\n(2)\nA view of the front of the house.\n\n1922.\n\nEugene L. Armbruster Collection.\n\n(3)\nThe same, showing the rear, viewed westward.\n\n1922.\n\nEugene L. Armbruster Collection.\n\n(4)\nThe same, viewed northwestward.\n\n1922.\n\nEugene L. Armbruster Collection.",
+    "metadata": {
+      "back_id": "702809b",
+      "cookie": "blah",
+      "distance": 75,
+      "len_base": 1324,
+      "len_exp": 1270,
+      "score": 0.9433534743202416
+    },
+    "photo_id": "702809f-d"
   },
   {
     "after": "(1) East 115th Street, north side, east of Pleasant Ave. Shown are the rears of houses on the east side of Pleasant Ave., between East 115th and 116th Streets.\n\nNovember 9, 1934.\n\nP. L. Sperr.\n\n(2) Showing a view further eastward to the Harlem River, as seen across clearance on the site of the Standard Gas Light Co., Plant.\n\nSeptember 12, 1934.\n\nP. L. Sperr.\n\n(3) The same as NO. 1, at a later date.\n\nJuly 19, 1935.\n\nP. L. Sperr.",
@@ -5486,17 +5447,43 @@ var changes = [
     "photo_id": "715103f-c"
   },
   {
-    "after": "East 28th Street, between Aves. T. and U.\nAbout 1928.\nBorough Advertising Agency.  ",
-    "before": "L22\nETTSE3E~\nNEG. :7O0\n",
+    "after": "301 West 4th Street at the N.E. corner of Bank Street. May 9, 1933.\n\nP. L. Sperr.\n",
+    "before": "301 West 4th Street at the N.E. corner of Bank Street.\nMay 9, 1933.\nP. L. Sperr.\n\nStamp: THE NEW YORK PUBLIC LIBRARY\nASTOR, LENOX AND TILDEN FOUNDATIONS\nR   L",
     "metadata": {
-      "back_id": "702691b",
+      "back_id": "710915b",
       "cookie": "blah",
-      "distance": 74,
-      "len_base": 23,
-      "len_exp": 83,
-      "score": 0.0
+      "distance": 75,
+      "len_base": 158,
+      "len_exp": 82,
+      "score": 0.5253164556962026
     },
-    "photo_id": "702691f-a"
+    "photo_id": "710915f-a"
+  },
+  {
+    "after": "(1)\nGerry Mansion at S. E. corner of Fifth Avenue and 61st Street, demolished in 1929.\nP.L. Sperr, Photographer. \n\n(2)\nFifth Avenue from 61st to 63rd Streets, seen from Central Park. House marked X was Elbridge T. Gerry mansion, at S. E. corner of Fifth Avenue and 61st Street. Demolished in 1929 to make way for an apartment house.\nP.L. Sperr, Photographer.\n\n(3)\nExcavation at S. E. corner Fifth Avenue and 61st Street.\nP.L. Sperr, Photographer.",
+    "before": "Gerry Mansion at S. E. corner of Fifth Avenue and 61st Street,\ndemolished in 1929.\nJune 8, 1928.\nP.L. Sperr,Photographer.\nFifth Avenue from 6lst to 63rd Streets, seen from Central Park. House marked Y was Elbridge T. Gerry mansion, at S. E. coraer\nof Fifth Avenue and olst Street.\nDemolished in 1929 to make way for The Pierre Hotel\nFebruary 20, 1929.\nP.L. Sperr,Photographer.\nExcavation at S. E. corner Fifth Avenue and 6lst Street.\nAugust 15, 1929.\nP.L.Sperr,Photographer.\n",
+    "metadata": {
+      "back_id": "709082b",
+      "cookie": "blah",
+      "distance": 75,
+      "len_base": 475,
+      "len_exp": 446,
+      "score": 0.8421052631578947
+    },
+    "photo_id": "709082f-c"
+  },
+  {
+    "after": "Washington Square, seen from a roof at Sixth Avenue near 4th Street. The principal New York University building is on Washington Square East from Washington to Waverly Places. On the N.E. corner of Waverly and University Places a tall apartment building is going to be erected in 1929. The tall building north of the square is the new One Fifth Avenue. To the right may be seen the new apartment building at 32 Washington Square West, recently erected onto the site of the old Hicks-Lord house. Behind it, on the horizon, the tower of the Consolidated Gas building, Irving Place and 14th Street, is nearing completion. Nearer in the foreground are the roofs of the Holley Hotel, 35-6 Washington Square West, and the old houses 37-39, which are soon to be replaced by an apartment building. The spires in the immediate foreground belong to the Washington Square Methodist Episcopal Church at 135 West Fourth Street. Down in the park, to the right of the fountain, and nearer, may be seen the newly rebuilt comfort station.\n\nP. L. Sperr.\n\n(2)\nSixth Avenue, West side, at West 4th Street, north west from Third Street, showing the Excelsior Accordion Manufacturing Company's building.\n\nP.L. Sperr,\n\n\n\nApril 3, 1928.\n\nMarch 15th, 1932.",
+    "before": "Washington Square, seen from a roof at Sixth Avenue near 4th Street. The principal New York University building is on Washington Square East from Washington to Waverly Flaces. On the N.E. corner of Waverly and University Places a tall apartment building is going to be erected in 1929. The tall building north of the scuare is the new One Fifth Avenue. To the right may be seen the new apartment building at 32 Washington Square West, recently erected on the site of the old Hicks-Lorc house. Behind it, on the horison, the tower of the Consolidated Gas building, Irving Place\nand 14th Street, is nearing completion.\nNearer in the foreground are the roofs of the Holley Hotel, 35-6 Washington Square West, and the old houses 37-39, which are soow to be replaced by an apartment building. The spires in the immediate foreground beloag to the Washington Sduare Methodist Episcopal Church at 135 West Fourth Street. Down in the park, to the right of the fountain, and nearer, may be seen the newly\nrebuilt comfort station.\nApril 3, 1928.\nP. L. Sperr.\n(2)\nSixth Avenue,West side,at West 4th Street,north west from Third Street,showing the Excelsior Accordion Manafacturing Company's\nbuilding.\nMarch 15th,1932.\nP.L.Sperr,\n\nNVN( iw u0S\nT~--S----SS1\n",
+    "metadata": {
+      "back_id": "723989b",
+      "cookie": "blah",
+      "distance": 75,
+      "len_base": 1243,
+      "len_exp": 1231,
+      "score": 0.9396621078037007
+    },
+    "photo_id": "723989f-b"
   },
   {
     "after": "(1)\nMuseum of the City of New York, Fifth Avenue at 103rd Street.\nP.L. Sperr, Photographer.\n\n(2)\nMuseum of the City of New York, Fifth Avenue at 103 Street, from Central Park.\nP.L. Sperr, Photographer.\n\n(3)\nMuseum of the City of New York, Fifth Avenue at 103rd Street.\nP.L. Sperr, Photographer.",
@@ -5510,6 +5497,32 @@ var changes = [
       "score": 0.7950138504155124
     },
     "photo_id": "709207f-c"
+  },
+  {
+    "after": "(1) Park Ave., west side, north from East 53rd (lower left), to 59th (center right) Streets, as seen from the General Electric Building (570 Lexington Ave.), at the S.W. corner of East 51st Street. Also shown is a general view northwestward over the Plaza and Central Park area with their hotel and apartment house fringe.\n\nDecember 1, 1932.\n\nP. L. Sperr.\n\n(2) A limited view to 56th Street.\n\nDecember 1, 1932.\n\nP. L. Sperr.",
+    "before": "Park Ave., west side, north from East 53rd (lower left), to 59th (center right) Streets, as seen from the General Electric Building (570 Lexington Ave)., at the S.W. corner of East 5lst Street. Also shown is a general view northwestward over the Plaza and CentralPark area with\ntheir hotel and apartment house fringe.\nDecember 1, 1932.\nP. L. Sperr.\n",
+    "metadata": {
+      "back_id": "722259b",
+      "cookie": "blah",
+      "distance": 74,
+      "len_base": 349,
+      "len_exp": 424,
+      "score": 0.7879656160458453
+    },
+    "photo_id": "722259f-b"
+  },
+  {
+    "after": "East 28th Street, between Aves. T. and U.\nAbout 1928.\nBorough Advertising Agency.  ",
+    "before": "L22\nETTSE3E~\nNEG. :7O0\n",
+    "metadata": {
+      "back_id": "702691b",
+      "cookie": "blah",
+      "distance": 74,
+      "len_base": 23,
+      "len_exp": 83,
+      "score": 0.0
+    },
+    "photo_id": "702691f-a"
   },
   {
     "after": "(1)\nRutgers Street, east side, between Henry Street and East Broadway,\nshowing the rears of buildings facing on East Broadway.\nMarch 30, 1934.\n\nP. L. Sperr.\n\n(2)\nThe same at an earlier date, showing the rear and side walls of the Jewish Daily Forward Building at 173-175 East Broadway. (The Jewish Daily Forward\nis an official organ of the Socialist Party of America).\nApril 5, 1932.\n\nP. L. Sperr.\n",
@@ -5538,17 +5551,43 @@ var changes = [
     "photo_id": "702811f-b"
   },
   {
-    "after": "(1) Park Ave., west side, north from East 53rd (lower left), to 59th (center right) Streets, as seen from the General Electric Building (570 Lexington Ave.), at the S.W. corner of East 51st Street. Also shown is a general view northwestward over the Plaza and Central Park area with their hotel and apartment house fringe.\n\nDecember 1, 1932.\n\nP. L. Sperr.\n\n(2) A limited view to 56th Street.\n\nDecember 1, 1932.\n\nP. L. Sperr.",
-    "before": "Park Ave., west side, north from East 53rd (lower left), to 59th (center right) Streets, as seen from the General Electric Building (570 Lexington Ave)., at the S.W. corner of East 5lst Street. Also shown is a general view northwestward over the Plaza and CentralPark area with\ntheir hotel and apartment house fringe.\nDecember 1, 1932.\nP. L. Sperr.\n",
+    "after": "F. S. LINCOLN\nPhotographer\n114 EAST 32nd STREET\nNEW YORK CITY\n\n484P3A\nCHRYSLER BLDG\n42nd & LEX AVE\nSHOW ROOM",
+    "before": "Chrysler Building\n42nd + Lex Ave\nShowroom\n\nF.S. Lincoln\nPhotographer",
     "metadata": {
-      "back_id": "722259b",
+      "back_id": "712822b",
       "cookie": "blah",
-      "distance": 74,
-      "len_base": 349,
-      "len_exp": 424,
-      "score": 0.7879656160458453
+      "distance": 73,
+      "len_base": 68,
+      "len_exp": 108,
+      "score": 0.0
     },
-    "photo_id": "722259f-b"
+    "photo_id": "712822f"
+  },
+  {
+    "after": "Madison Square Garden, on N.E. corner of Madison Avenue and 26th Street, during the Democratic Convention of 1924 which was memorable for the Smith-McAdoo deadlock. On the S.E. corner is shown the Manhattan Club, occupying the old Lawrence Jerome residence.\n\nSummer 1924.\n\n\nNegative available in L.T.G. (glossy photograph). Neg. No. 172\n\nSlide available # 114",
+    "before": "Madison SCuare Garden, on N.E. corner of Madison Avenue and 26th Street, during the Democratic Convention of 1924 which was memorable for the Smith-McAdoo deadlock. On the S.E. corner is shown the Manhattan Club, occupying the old Lawrence Jerome\nresidence.\nSummer 1924.\n5iici. alm.iubGt ~110\n",
+    "metadata": {
+      "back_id": "721233b",
+      "cookie": "blah",
+      "distance": 73,
+      "len_base": 293,
+      "len_exp": 359,
+      "score": 0.7508532423208192
+    },
+    "photo_id": "721233f-a"
+  },
+  {
+    "after": "(1)\nTenth Avenue northeast corner and 26th Street, Chelsea Park at right.\n\nAugust 25, 1940.\n\n(2)\nTenth Avenue east side between 25th to 26th Streets showing demolition for Chelsea Houses and looking northwards.\n\nP.L. Sperr.\n\n(3)\n10th Ave. from 25th to 26th St.\nP.L. Sperr, photographer\nAugust 1, 1941.",
+    "before": "944th Avneue northeast corner and 26th Street, Chelsea\nPark at right.\nAugust 25, 1940.\n(2)\nTenth Avenue east side between 25th to 26th Streets showing demolition for Chelsea Houses and looking northwards.\nP.L.Speer.\n  April 16, 1941.\no)\n10h Ave. from 25th to 26th St.\nNeg. A-218  August 1, 1941\n. .L. Sperr, photographer\n",
+    "metadata": {
+      "back_id": "710504b",
+      "cookie": "blah",
+      "distance": 73,
+      "len_base": 321,
+      "len_exp": 301,
+      "score": 0.7725856697819314
+    },
+    "photo_id": "710504f-c"
   },
   {
     "after": "North on Sixth Avenue from S.W. corner of 54th Street.\nP.L. Sperr, Photographer.\nMarch 28, 1928.",
@@ -5590,32 +5629,6 @@ var changes = [
     "photo_id": "704186f-b"
   },
   {
-    "after": "63 Prince Street, at the N. W. corner of Lafayette Street (right), showing the home of Samuel Gouveneur, the son-in-law of President James Monroe, who retired here and died in 1831.\n\nAbout 1925\n\nCopywrite---Irving Underhill, photo\nGift of Urbrock Collection",
-    "before": "63 Prince Street, at the N. W. corner of Lafayette Street (right), showing the home of Samuel Gouveneur, the son-inlaw of President James Monroe, who retired here and died\nin 1831.\nAbout 1915\nCopywrite---Irving Underhill, photo\nGift of Urbrock Collection\n\nI think this is the south west corner of Lafayette and Prince Streets.\n\n",
-    "metadata": {
-      "back_id": "722660b",
-      "cookie": "blah",
-      "distance": 73,
-      "len_base": 328,
-      "len_exp": 257,
-      "score": 0.7774390243902439
-    },
-    "photo_id": "722660f-a"
-  },
-  {
-    "after": "(1)\nTenth Avenue northeast corner and 26th Street, Chelsea Park at right.\n\nAugust 25, 1940.\n\n(2)\nTenth Avenue east side between 25th to 26th Streets showing demolition for Chelsea Houses and looking northwards.\n\nP.L. Sperr.\n\n(3)\n10th Ave. from 25th to 26th St.\nP.L. Sperr, photographer\nAugust 1, 1941.",
-    "before": "944th Avneue northeast corner and 26th Street, Chelsea\nPark at right.\nAugust 25, 1940.\n(2)\nTenth Avenue east side between 25th to 26th Streets showing demolition for Chelsea Houses and looking northwards.\nP.L.Speer.\n  April 16, 1941.\no)\n10h Ave. from 25th to 26th St.\nNeg. A-218  August 1, 1941\n. .L. Sperr, photographer\n",
-    "metadata": {
-      "back_id": "710504b",
-      "cookie": "blah",
-      "distance": 73,
-      "len_base": 321,
-      "len_exp": 301,
-      "score": 0.7725856697819314
-    },
-    "photo_id": "710504f-c"
-  },
-  {
     "after": "153-151 East 86th Street, east of, adjoining, and at the N.E. corner of Lexington Ave. No. 153 is a branch of the Y, M. C. A.\n\nAugust 2, 1927.\n\nP. L. Sperr.",
     "before": "153-151 East 38th Street, east of, addition, and at the N.E. corner of Lexington Ave. No. 153 is a branch of the Y, M. C. A.\nAugst 2, 1927.\nP. L. Sperr.\n\nThis shows up on the E 86th st between Park & Lex set of photos.",
     "metadata": {
@@ -5629,95 +5642,17 @@ var changes = [
     "photo_id": "714713f-a"
   },
   {
-    "after": "F. S. LINCOLN\nPhotographer\n114 EAST 32nd STREET\nNEW YORK CITY\n\n484P3A\nCHRYSLER BLDG\n42nd & LEX AVE\nSHOW ROOM",
-    "before": "Chrysler Building\n42nd + Lex Ave\nShowroom\n\nF.S. Lincoln\nPhotographer",
+    "after": "63 Prince Street, at the N. W. corner of Lafayette Street (right), showing the home of Samuel Gouveneur, the son-in-law of President James Monroe, who retired here and died in 1831.\n\nAbout 1925\n\nCopywrite---Irving Underhill, photo\nGift of Urbrock Collection",
+    "before": "63 Prince Street, at the N. W. corner of Lafayette Street (right), showing the home of Samuel Gouveneur, the son-inlaw of President James Monroe, who retired here and died\nin 1831.\nAbout 1915\nCopywrite---Irving Underhill, photo\nGift of Urbrock Collection\n\nI think this is the south west corner of Lafayette and Prince Streets.\n\n",
     "metadata": {
-      "back_id": "712822b",
+      "back_id": "722660b",
       "cookie": "blah",
       "distance": 73,
-      "len_base": 68,
-      "len_exp": 108,
-      "score": 0.0
+      "len_base": 328,
+      "len_exp": 257,
+      "score": 0.7774390243902439
     },
-    "photo_id": "712822f"
-  },
-  {
-    "after": "Madison Square Garden, on N.E. corner of Madison Avenue and 26th Street, during the Democratic Convention of 1924 which was memorable for the Smith-McAdoo deadlock. On the S.E. corner is shown the Manhattan Club, occupying the old Lawrence Jerome residence.\n\nSummer 1924.\n\n\nNegative available in L.T.G. (glossy photograph). Neg. No. 172\n\nSlide available # 114",
-    "before": "Madison SCuare Garden, on N.E. corner of Madison Avenue and 26th Street, during the Democratic Convention of 1924 which was memorable for the Smith-McAdoo deadlock. On the S.E. corner is shown the Manhattan Club, occupying the old Lawrence Jerome\nresidence.\nSummer 1924.\n5iici. alm.iubGt ~110\n",
-    "metadata": {
-      "back_id": "721233b",
-      "cookie": "blah",
-      "distance": 73,
-      "len_base": 293,
-      "len_exp": 359,
-      "score": 0.7508532423208192
-    },
-    "photo_id": "721233f-a"
-  },
-  {
-    "after": "91st corner of (formerly 9th) Street, between Columbus and Amsterdam Avenues, showing the Apthorp Mansion, shortly before it's demolition in 1892. Built 1790\n\nUrbrock Collection,\nArtotype by,\nE. Bierstadt.\nRepro. in Stoke's Icon.\n",
-    "before": "91st  corner of  Columbus (formerly 9th)Avenue\n\nshowing the Apthorp Mansion, shortly before its demolition\nin 1892. Built 1790\nDecember 31st,1938.\nUrbrock Collection,\nArchetype by,\nE.Bierstsdt.\nRepro. in Stoke's Icon.",
-    "metadata": {
-      "back_id": "714812b",
-      "cookie": "blah",
-      "distance": 72,
-      "len_base": 217,
-      "len_exp": 230,
-      "score": 0.6682027649769585
-    },
-    "photo_id": "714812f"
-  },
-  {
-    "after": "20th (Old Bowery Bay) Road (along front of Geo. Kouwenhoven house seen at left), between 33rd and 36th Streets. This is a rear view of the Lawrence family's private cemetery taken from 21st Ave. Eventually it will be removed because it is in the direct line of the extension of 35th Street. In the background are the Steinway and Sons piano and foundry factories.\n\nEugene L. Ambruster Collection.\n\n(2)\n\nThe same, at another angle.\n\nArthur White.\n\n1927?",
-    "before": "(1)\n20th (01d Bowery Bad Road (along front of Geo. Kouwenhoven house seen at left), between 33rd and 36th Streets. This is a rear view of the Lawrence family's private cemetery taken from 21st Ave. Eventually it will be removed because it is in the direct line of the extension of 35th Street. In the background are the Steinway and Sons piano and foundry factories.\nMarch 1925.\nEugene L. Ambruster Collection.\n",
-    "metadata": {
-      "back_id": "725096b",
-      "cookie": "blah",
-      "distance": 72,
-      "len_base": 411,
-      "len_exp": 452,
-      "score": 0.8248175182481752
-    },
-    "photo_id": "725096f-a"
-  },
-  {
-    "after": "Throop Ave., north from Hopkins St., B'klyn.\nSept. 25, 1941\nP.L. Sperr, photographer",
-    "before": "Throop Ave., north from Hopkins St., B'klyn.\nSept. 25, 1941\nP.L. Sperr, Motographer\nView of All Saints Roman Catholic Church at Flushing & Throop avenues\n",
-    "metadata": {
-      "back_id": "707043b",
-      "cookie": "blah",
-      "distance": 72,
-      "len_base": 154,
-      "len_exp": 84,
-      "score": 0.5324675324675325
-    },
-    "photo_id": "707043f-a"
-  },
-  {
-    "after": "340 West End Avenue, on N.E. corner of 76th Street, and adjacent houses, erected between 1885 and 1891. About 1910.\n\n",
-    "before": "340 West End Avenue, on N.E. corner of 76th Street, and adjacent\nhouses, erected between 1883 and 1891.\nAbout 1910.\nD1o  Neg.~\nTHE NEw yOgr\nPUBLC LERAEy\nWSTOR isNOx FNir\nTELDsN POUNoAiONs\n\n",
-    "metadata": {
-      "back_id": "724451b",
-      "cookie": "blah",
-      "distance": 72,
-      "len_base": 189,
-      "len_exp": 117,
-      "score": 0.6190476190476191
-    },
-    "photo_id": "724451f-a"
-  },
-  {
-    "after": "Pitkin Avenue, north side, east from Hendrix Street to Schenck Avenue, seen from underneath the Fulton Street Line elevated structure.\n\nSeptember 14, 1940\n\nP.L. Sperr",
-    "before": "Pitkin Avenue, north side, east from Hendrix Street to Schenck\nSeptember 14, 1940\nP.L. Sperr\n",
-    "metadata": {
-      "back_id": "706287b",
-      "cookie": "blah",
-      "distance": 72,
-      "len_base": 93,
-      "len_exp": 166,
-      "score": 0.22580645161290325
-    },
-    "photo_id": "706287f-a"
+    "photo_id": "722660f-a"
   },
   {
     "after": "F. S. LINCOLN\nPhotographer\n114 EAST 32nd STREET\nNEW YORK CITY\n\nWHEN PUBLISHED, CREDIT\nIS TO BE GIVEN TO\nF. S. LINCOLN\n886P6\n\nN.Y. World's Fair, 1939.",
@@ -5746,17 +5681,43 @@ var changes = [
     "photo_id": "722566f-c"
   },
   {
-    "after": "(1)\nThanksgiving Ragamuffins, 1933, No. 64: 59th Street at Columbus Circle. These ragamuffins really are colored. This block, from Columbus Circle to Ninth Avenue, is part of the \"San Juan Hill\" negro colony, in the west 60's around Amsterdam Avenue and west to the river.\nNovember 30, 1933.\n\nP. L. Sperr.\n\n(2)\nNo. 65. Staten Island, on the grounds of the U. S. Government Quarantine Station near Fort Wadsworth, on the east side of the Island. The church steeple is that of St. John's Protestant Episcopal Church, on Bay Street.\nNovember 30, 1933.\n\nP. L. Sperr.\n\n(3)\nNo. 66. The same trio, seated.\nNovember 30, 1933.\n\nP. L. Sperr.",
-    "before": "Thanksgiving Ragamuffins, 1933, No. 64: 59th Street at Columbus Circle. These ragamuffins really are colored. This block, from Columbus Circle to Ninth Avenue, is part of the \"San Juan Hill\" negro colony, in the west 60's around Amsterdam\nAvenue and west to the r iver.\nNovember 30, 1933.\nP. L. Sperr.\n(2)\nNo. 65. Staten Island, on the grounds of the U. S. Government Quarantine Station near Fort Wadsworth, on the east side of the Island. The church steeple is that of St. John's Protestant\nEpiscopal Church, on Bay Street.\nNovember 30, 1933.\nP. L. Sperr.\n",
+    "after": "Throop Ave., north from Hopkins St., B'klyn.\nSept. 25, 1941\nP.L. Sperr, photographer",
+    "before": "Throop Ave., north from Hopkins St., B'klyn.\nSept. 25, 1941\nP.L. Sperr, Motographer\nView of All Saints Roman Catholic Church at Flushing & Throop avenues\n",
     "metadata": {
-      "back_id": "733371b",
+      "back_id": "707043b",
       "cookie": "blah",
       "distance": 72,
-      "len_base": 557,
-      "len_exp": 631,
-      "score": 0.8707360861759426
+      "len_base": 154,
+      "len_exp": 84,
+      "score": 0.5324675324675325
     },
-    "photo_id": "733371f-c"
+    "photo_id": "707043f-a"
+  },
+  {
+    "after": "20th (Old Bowery Bay) Road (along front of Geo. Kouwenhoven house seen at left), between 33rd and 36th Streets. This is a rear view of the Lawrence family's private cemetery taken from 21st Ave. Eventually it will be removed because it is in the direct line of the extension of 35th Street. In the background are the Steinway and Sons piano and foundry factories.\n\nEugene L. Ambruster Collection.\n\n(2)\n\nThe same, at another angle.\n\nArthur White.\n\n1927?",
+    "before": "(1)\n20th (01d Bowery Bad Road (along front of Geo. Kouwenhoven house seen at left), between 33rd and 36th Streets. This is a rear view of the Lawrence family's private cemetery taken from 21st Ave. Eventually it will be removed because it is in the direct line of the extension of 35th Street. In the background are the Steinway and Sons piano and foundry factories.\nMarch 1925.\nEugene L. Ambruster Collection.\n",
+    "metadata": {
+      "back_id": "725096b",
+      "cookie": "blah",
+      "distance": 72,
+      "len_base": 411,
+      "len_exp": 452,
+      "score": 0.8248175182481752
+    },
+    "photo_id": "725096f-a"
+  },
+  {
+    "after": "Pitkin Avenue, north side, east from Hendrix Street to Schenck Avenue, seen from underneath the Fulton Street Line elevated structure.\n\nSeptember 14, 1940\n\nP.L. Sperr",
+    "before": "Pitkin Avenue, north side, east from Hendrix Street to Schenck\nSeptember 14, 1940\nP.L. Sperr\n",
+    "metadata": {
+      "back_id": "706287b",
+      "cookie": "blah",
+      "distance": 72,
+      "len_base": 93,
+      "len_exp": 166,
+      "score": 0.22580645161290325
+    },
+    "photo_id": "706287f-a"
   },
   {
     "after": "2289 Arthur Kill Road, south side, east of Rossville Avenue. The house belonged to George Oakley (1874 and 1898), and later to Virginia Cutting. The dates refer to maps on which the owners' names appear.\n\nP. L. Sperr\n\n(2)\n\nThe same, five years later.\n\nP.L. Sperr\n\n(3)\n\nAnother view of the house at a still later date.\n\nP. L. Sperr",
@@ -5770,6 +5731,58 @@ var changes = [
       "score": 0.8134715025906736
     },
     "photo_id": "728372f-c"
+  },
+  {
+    "after": "(1)\nThanksgiving Ragamuffins, 1933, No. 64: 59th Street at Columbus Circle. These ragamuffins really are colored. This block, from Columbus Circle to Ninth Avenue, is part of the \"San Juan Hill\" negro colony, in the west 60's around Amsterdam Avenue and west to the river.\nNovember 30, 1933.\n\nP. L. Sperr.\n\n(2)\nNo. 65. Staten Island, on the grounds of the U. S. Government Quarantine Station near Fort Wadsworth, on the east side of the Island. The church steeple is that of St. John's Protestant Episcopal Church, on Bay Street.\nNovember 30, 1933.\n\nP. L. Sperr.\n\n(3)\nNo. 66. The same trio, seated.\nNovember 30, 1933.\n\nP. L. Sperr.",
+    "before": "Thanksgiving Ragamuffins, 1933, No. 64: 59th Street at Columbus Circle. These ragamuffins really are colored. This block, from Columbus Circle to Ninth Avenue, is part of the \"San Juan Hill\" negro colony, in the west 60's around Amsterdam\nAvenue and west to the r iver.\nNovember 30, 1933.\nP. L. Sperr.\n(2)\nNo. 65. Staten Island, on the grounds of the U. S. Government Quarantine Station near Fort Wadsworth, on the east side of the Island. The church steeple is that of St. John's Protestant\nEpiscopal Church, on Bay Street.\nNovember 30, 1933.\nP. L. Sperr.\n",
+    "metadata": {
+      "back_id": "733371b",
+      "cookie": "blah",
+      "distance": 72,
+      "len_base": 557,
+      "len_exp": 631,
+      "score": 0.8707360861759426
+    },
+    "photo_id": "733371f-c"
+  },
+  {
+    "after": "91st corner of (formerly 9th) Street, between Columbus and Amsterdam Avenues, showing the Apthorp Mansion, shortly before it's demolition in 1892. Built 1790\n\nUrbrock Collection,\nArtotype by,\nE. Bierstadt.\nRepro. in Stoke's Icon.\n",
+    "before": "91st  corner of  Columbus (formerly 9th)Avenue\n\nshowing the Apthorp Mansion, shortly before its demolition\nin 1892. Built 1790\nDecember 31st,1938.\nUrbrock Collection,\nArchetype by,\nE.Bierstsdt.\nRepro. in Stoke's Icon.",
+    "metadata": {
+      "back_id": "714812b",
+      "cookie": "blah",
+      "distance": 72,
+      "len_base": 217,
+      "len_exp": 230,
+      "score": 0.6682027649769585
+    },
+    "photo_id": "714812f"
+  },
+  {
+    "after": "340 West End Avenue, on N.E. corner of 76th Street, and adjacent houses, erected between 1885 and 1891. About 1910.\n\n",
+    "before": "340 West End Avenue, on N.E. corner of 76th Street, and adjacent\nhouses, erected between 1883 and 1891.\nAbout 1910.\nD1o  Neg.~\nTHE NEw yOgr\nPUBLC LERAEy\nWSTOR isNOx FNir\nTELDsN POUNoAiONs\n\n",
+    "metadata": {
+      "back_id": "724451b",
+      "cookie": "blah",
+      "distance": 72,
+      "len_base": 189,
+      "len_exp": 117,
+      "score": 0.6190476190476191
+    },
+    "photo_id": "724451f-a"
+  },
+  {
+    "after": "(1)\nAcross excavation at S. E. corner of Fifth Avenue and 58th Street, from near Plaza Hotel.\nTall building at right of centre is 5 East 57th Street.\nP.L. Sperr, Photographer.  August 15, 1929.\n\n(2)\nFifth Avenue at S. E. corner of 58th Street, showing Jones Estate Holdings remodelled for business.\nP.L. Sperr, Photographer.  February 20, 1928.\n\n(3)\nThe same as No. 2, from a different angle.\nP. L. Sperr.\n\nFebruary 20, 1928.\n\nTHE NEW YORK PUBLIC LIBRARY\nASTOR, LENOX AND TILDEN FOUNDATIONS",
+    "before": "(1)\nAcross excavation at S. E. corner of Fifth Avenue and 58th\nStreet, from near Plaza Hotel.\nTall building at right of centre is 5 East 57th Street.\nAugust 15, 1929.\nP.L. Sperr,Photographer.\n(2)\nFifth Avenue at S. E. corner of 58th Street, showing Jones Estate Holdings remodelled for business.\nFebruary 20, 1928.\nP.L. Sperr,Photographer.\n(3)\nThe same as No. 2, from a differe angle.\nESFebruary 20, 1928.\nP. L. Sperr.  \n\n  L.:  E\n  \n\n\n",
+    "metadata": {
+      "back_id": "709068b",
+      "cookie": "blah",
+      "distance": 71,
+      "len_base": 436,
+      "len_exp": 490,
+      "score": 0.8371559633027523
+    },
+    "photo_id": "709068f-c"
   },
   {
     "after": "Erection of Chrysler Building, Lexington Avenue, east side, from 42nd to 43rd Street.\n\nPeyser & Patzig, Photographer\n\n\nTHE NEW YORK PUBLIC LIBRARY\n\nASTOR, LENOX AND TILDEN FOUNDATIONS",
@@ -5798,45 +5811,6 @@ var changes = [
     "photo_id": "704802f-b"
   },
   {
-    "after": "Sterling Place, west from Classon Avenue, showing W. P. A. workmen making preliminary preparations for a sewer project.\n\nViews 1,2:\nAugust 24, 1936\n\nWorks Progress Administration\nFive Boroughs Project\n\nView 3: Sterling Place, east from Classon Avenue.\n\nP. L. Sperr\nNo Reproduction\nSep. 14, 1941",
-    "before": "Sterling Place, west from Classon Avenue, showing W. P. A. workmen making preliminary preparations for a\nsewer project.\nViews 1,2:\nAugust 24, 1936\nWorks Progress Administration\nFive Boroughs Project\nVod 3:  PD-r. 2-2~ Ae  - C.\nP0  .7. 7V~ 907\n7 ' z A\nD.\n",
-    "metadata": {
-      "back_id": "706888b",
-      "cookie": "blah",
-      "distance": 71,
-      "len_base": 254,
-      "len_exp": 294,
-      "score": 0.7204724409448819
-    },
-    "photo_id": "706888f-c"
-  },
-  {
-    "after": "(1)\nAcross excavation at S. E. corner of Fifth Avenue and 58th Street, from near Plaza Hotel.\nTall building at right of centre is 5 East 57th Street.\nP.L. Sperr, Photographer.  August 15, 1929.\n\n(2)\nFifth Avenue at S. E. corner of 58th Street, showing Jones Estate Holdings remodelled for business.\nP.L. Sperr, Photographer.  February 20, 1928.\n\n(3)\nThe same as No. 2, from a different angle.\nP. L. Sperr.\n\nFebruary 20, 1928.\n\nTHE NEW YORK PUBLIC LIBRARY\nASTOR, LENOX AND TILDEN FOUNDATIONS",
-    "before": "(1)\nAcross excavation at S. E. corner of Fifth Avenue and 58th\nStreet, from near Plaza Hotel.\nTall building at right of centre is 5 East 57th Street.\nAugust 15, 1929.\nP.L. Sperr,Photographer.\n(2)\nFifth Avenue at S. E. corner of 58th Street, showing Jones Estate Holdings remodelled for business.\nFebruary 20, 1928.\nP.L. Sperr,Photographer.\n(3)\nThe same as No. 2, from a differe angle.\nESFebruary 20, 1928.\nP. L. Sperr.  \n\n  L.:  E\n  \n\n\n",
-    "metadata": {
-      "back_id": "709068b",
-      "cookie": "blah",
-      "distance": 71,
-      "len_base": 436,
-      "len_exp": 490,
-      "score": 0.8371559633027523
-    },
-    "photo_id": "709068f-c"
-  },
-  {
-    "after": "1. Sixth Avenue, east side, north from West 18th Street, showing prominently the former Seigel-Cooper Department Store building. This occupies the entire frontage of the 18th to 19th Streets block. Above same are additional former retail establishments. These were Alexanders and Cammeyers. Beyond is the office building, No. 7. W. 23rd Street that contains the Masonic Temple. The Empire State Building at 34th Street overshadows this structure. View 2 emphasises the Seigel-Cooper building. This in its day was one of the outstanding stores of the city. View 1: October 28, 1939 View 2: May 1940 VIEW1 NEG# 3153 P. L. Sperr  3. 6th Ave. from roof at n.w. cor. 19th St. Neg. A-10 P. L. Sperr, photographer July 17, 1941 View 2: Neg.# 975  ",
-    "before": "Sixth Avenue, east side, north from West 18th Street, showing prominently the former Seigel-Cooper Department Store building. This occupies the entire frontage of the 18th to 19th Streets block. Above same are additional former retail establishments. These were Alexanders and Cammeyers. Beyond is the office building, No. 7. W. 23rd Street that contains the Masonic Temple. The Empire State Building at 34th Street overshadows this structure.\nView 2 emphasises the Seigel-Cooper building. This in its\nday was one of the outstanding stores of the city.\n\nView 1: October 28, 1939\nView 2: May 1940\n6h Ave. from roof at n.w. cor. 19th St.\nNeg. A-10  July 17, 1941\nP. L. Sperr, photographer",
-    "metadata": {
-      "back_id": "709376b",
-      "cookie": "blah",
-      "distance": 71,
-      "len_base": 686,
-      "len_exp": 740,
-      "score": 0.8965014577259476
-    },
-    "photo_id": "709376f-c"
-  },
-  {
     "after": "49th Street, north side, from Sixth to and including Fifth Avenues.\n\nJanuary 14, 1932 ?\n\nInternational News\n\nat least one year earlier\nClearance for RC\nwas already well advanced",
     "before": "49th Street, north side, from Sixth to and including Fifth  Avenues.\nJanuary 14, 1932\nInternational News\n",
     "metadata": {
@@ -5848,32 +5822,6 @@ var changes = [
       "score": 0.32380952380952377
     },
     "photo_id": "713404f-a"
-  },
-  {
-    "after": "(1)\nBennett Street, at and adjoining the N. W. corner of Heberton Avenue, showing the Port Richmond branch of the New York Public Library (right) and the old J. Decker mansion (Beers's 1874 map). The view is from Port Richmond Park.\n\nBy Mulford Simonson\nFrom Staten Island Museum Collection through P. L. Sperr\n\nAbout 1905\n\n(2)\nThe same location, years later. The Scandinavian Lutheran Church occupies the site of the old Decker house.\n\nP. L. Sperr\n\n(3)\nAn additional view.\n\nP. L. Sperr\n\nMay 28, 1927\n\nMarch 6, 1930",
-    "before": "Bennett Street, at and adjoining the N. W. corner of Heberton Avenue, shoting the Port Richmond branch of the New York Public Library (right) and the old J. Decker mansion (Beers's 1874 map). The view is from Port Richmond Park.\nAbout 1905\nBy Mulford Simonson\nFrom Staten Island Museum Collection through P. L. Sperr\n(2)\nThe same location, vears later. The Scandinavian Lutheran Church occupies the site of the old Decker\nhouse.\nMay 28, 1927\nP. L. Sperr\n(3)\nAn additional view.\nMarch 6, 1930\nP. . Sperr\n",
-    "metadata": {
-      "back_id": "728603b",
-      "cookie": "blah",
-      "distance": 71,
-      "len_base": 503,
-      "len_exp": 515,
-      "score": 0.8588469184890656
-    },
-    "photo_id": "728603f-c"
-  },
-  {
-    "after": "3, 5 East 44th Street, adjoining the N. E. corner of Fifth Avenue (Delmonico's). These houses are included in a picture of Delmonico's dated 1907; since that time the stoop has been taken off No. 5 and new doorway built, which is shown here. No. 3 is about to be demolished and replaced by a 6-story building. 1909.\n\n\nBronze doorway built 1898-99, #5 is entrance to Campiello!",
-    "before": "3, 5 East 44th Street, adjoining he N. E. corner of Fifth Avenue (Delmonico's). These houses are included in a picture of Delmonico's dated 1907;4gince that time the stoop ngF been taken off No. 5 and new doorway built, which is shown heref)  tr3 No. 3 is about to be demolished and replaced by a 6-story building.\n1909.\n\n",
-    "metadata": {
-      "back_id": "713183b",
-      "cookie": "blah",
-      "distance": 71,
-      "len_base": 322,
-      "len_exp": 376,
-      "score": 0.7795031055900621
-    },
-    "photo_id": "713183f-a"
   },
   {
     "after": "West side of First Avenue across clearing, 58th to 57th Streets. October 24, 1928.\nP.L. Sperr, Photographer\n\nTHE NEW YORK\nPUBLIC LIBRARY\nASTOR, LENOX AND\nTILDEN FOUNDATIONS\nR L",
@@ -5889,6 +5837,58 @@ var changes = [
     "photo_id": "707639f-a"
   },
   {
+    "after": "1. Sixth Avenue, east side, north from West 18th Street, showing prominently the former Seigel-Cooper Department Store building. This occupies the entire frontage of the 18th to 19th Streets block. Above same are additional former retail establishments. These were Alexanders and Cammeyers. Beyond is the office building, No. 7. W. 23rd Street that contains the Masonic Temple. The Empire State Building at 34th Street overshadows this structure. View 2 emphasises the Seigel-Cooper building. This in its day was one of the outstanding stores of the city. View 1: October 28, 1939 View 2: May 1940 VIEW1 NEG# 3153 P. L. Sperr  3. 6th Ave. from roof at n.w. cor. 19th St. Neg. A-10 P. L. Sperr, photographer July 17, 1941 View 2: Neg.# 975  ",
+    "before": "Sixth Avenue, east side, north from West 18th Street, showing prominently the former Seigel-Cooper Department Store building. This occupies the entire frontage of the 18th to 19th Streets block. Above same are additional former retail establishments. These were Alexanders and Cammeyers. Beyond is the office building, No. 7. W. 23rd Street that contains the Masonic Temple. The Empire State Building at 34th Street overshadows this structure.\nView 2 emphasises the Seigel-Cooper building. This in its\nday was one of the outstanding stores of the city.\n\nView 1: October 28, 1939\nView 2: May 1940\n6h Ave. from roof at n.w. cor. 19th St.\nNeg. A-10  July 17, 1941\nP. L. Sperr, photographer",
+    "metadata": {
+      "back_id": "709376b",
+      "cookie": "blah",
+      "distance": 71,
+      "len_base": 686,
+      "len_exp": 740,
+      "score": 0.8965014577259476
+    },
+    "photo_id": "709376f-c"
+  },
+  {
+    "after": "Sterling Place, west from Classon Avenue, showing W. P. A. workmen making preliminary preparations for a sewer project.\n\nViews 1,2:\nAugust 24, 1936\n\nWorks Progress Administration\nFive Boroughs Project\n\nView 3: Sterling Place, east from Classon Avenue.\n\nP. L. Sperr\nNo Reproduction\nSep. 14, 1941",
+    "before": "Sterling Place, west from Classon Avenue, showing W. P. A. workmen making preliminary preparations for a\nsewer project.\nViews 1,2:\nAugust 24, 1936\nWorks Progress Administration\nFive Boroughs Project\nVod 3:  PD-r. 2-2~ Ae  - C.\nP0  .7. 7V~ 907\n7 ' z A\nD.\n",
+    "metadata": {
+      "back_id": "706888b",
+      "cookie": "blah",
+      "distance": 71,
+      "len_base": 254,
+      "len_exp": 294,
+      "score": 0.7204724409448819
+    },
+    "photo_id": "706888f-c"
+  },
+  {
+    "after": "3, 5 East 44th Street, adjoining the N. E. corner of Fifth Avenue (Delmonico's). These houses are included in a picture of Delmonico's dated 1907; since that time the stoop has been taken off No. 5 and new doorway built, which is shown here. No. 3 is about to be demolished and replaced by a 6-story building. 1909.\n\n\nBronze doorway built 1898-99, #5 is entrance to Campiello!",
+    "before": "3, 5 East 44th Street, adjoining he N. E. corner of Fifth Avenue (Delmonico's). These houses are included in a picture of Delmonico's dated 1907;4gince that time the stoop ngF been taken off No. 5 and new doorway built, which is shown heref)  tr3 No. 3 is about to be demolished and replaced by a 6-story building.\n1909.\n\n",
+    "metadata": {
+      "back_id": "713183b",
+      "cookie": "blah",
+      "distance": 71,
+      "len_base": 322,
+      "len_exp": 376,
+      "score": 0.7795031055900621
+    },
+    "photo_id": "713183f-a"
+  },
+  {
+    "after": "(1)\nBennett Street, at and adjoining the N. W. corner of Heberton Avenue, showing the Port Richmond branch of the New York Public Library (right) and the old J. Decker mansion (Beers's 1874 map). The view is from Port Richmond Park.\n\nBy Mulford Simonson\nFrom Staten Island Museum Collection through P. L. Sperr\n\nAbout 1905\n\n(2)\nThe same location, years later. The Scandinavian Lutheran Church occupies the site of the old Decker house.\n\nP. L. Sperr\n\n(3)\nAn additional view.\n\nP. L. Sperr\n\nMay 28, 1927\n\nMarch 6, 1930",
+    "before": "Bennett Street, at and adjoining the N. W. corner of Heberton Avenue, shoting the Port Richmond branch of the New York Public Library (right) and the old J. Decker mansion (Beers's 1874 map). The view is from Port Richmond Park.\nAbout 1905\nBy Mulford Simonson\nFrom Staten Island Museum Collection through P. L. Sperr\n(2)\nThe same location, vears later. The Scandinavian Lutheran Church occupies the site of the old Decker\nhouse.\nMay 28, 1927\nP. L. Sperr\n(3)\nAn additional view.\nMarch 6, 1930\nP. . Sperr\n",
+    "metadata": {
+      "back_id": "728603b",
+      "cookie": "blah",
+      "distance": 71,
+      "len_base": 503,
+      "len_exp": 515,
+      "score": 0.8588469184890656
+    },
+    "photo_id": "728603f-c"
+  },
+  {
     "after": "(1)\nFeast of St. Anthony of Padua, 1928, No. 4. The tower, being carried in the procession on 106th Street, moving west towards First Avenue. It takes three to four dozen men to carry it. a severe eight piece band is riding in front, under the statue of St. Anthony. The boys who manage the ropes also ride on the tower.\nOnly the two lower sections of the tower are shown. A bishop, with mitre and crozier, occupies the face of the tower in the section above St. Anthony.\nSeptember 3, 1928.\n\nP. L. Sperr.\n\n(2)\nNo. 5. The same, a closer view, taken as the statue arrives alongside 401 East 106th Street, adjoining the corner of First Avenue.\nThe camera is close enough to show how the weight of the tower is distributed onto the shoulders of the bearers. Notice also the man in shirt sleeves and straw hat, riding in front among the musicians; he is evidently rendering or leading a song.\nSeptember 3, 1928.\n\nP. L. Sperr.\n\n(3)\nNo. 6. A close rear view of the tower, which is in about the same position as in view No. 5, but has been turned to face north. The bearers are resting, leaning on the heavy cross-poles by which they lift the whole structure.\nSeptember 3, 1928.\n\nP. L. Sperr.",
     "before": "(1)\nFeaat of St. Anthony of Padua, 1W226, No. 4. The tower, being carried in the procession on 10th Street, moving west towards First Avenue. It takes three to four dozen men to carry it. A seven or eight piece band is riding in front, under the statue of St. Anthony. The boys who manage the ropes also\nride on the tower.\nOnly the two lower sections of the tower are shown. A bishop, with mitre and crozier, occupies the face of the tower in the\nsection above St. Anthony.\nSeptember 3, 1928.\nP. L. Sperr.\n(2)\nNo. 3. The same, a closer view, taken as the statue arrives alongside 401 East 1Ooth Street, adjoining the corner of\nFirst Avenue.\nThe camera is close enough to show how the weight of the tower is distributed onto the shoulders of the bearera. Notice also the man in shirt sleeves and straw hat, riding in front among the musicians; he is evidently rendering or leading a song.\nSeptember 3, 1928.\nP. L. Sperr.\nNO RaPRODUCTIONS.  RT22:  1P (Eff ](15(44-  N  11 G 1\n(3)\nNo. o. A close rear view of the tower, which is in about the aame position as in view No. 3, but has been turned to face north. Tho bearers are resting, leaning on the heavy cosspoles by which they lift the whole structure.\nSeptemben 3, 1928.\nP. L. Sperr.\n",
     "metadata": {
@@ -5900,19 +5900,6 @@ var changes = [
       "score": 0.9424635332252836
     },
     "photo_id": "731682f-c"
-  },
-  {
-    "after": "(1)\n\nHudson Street, west side, north from and including Jay, to and including Harrison Streets. Also shown (in foreground), is Worth Street, at, adjoining and east of the N.E. corner of Hudson Street. Notice the U.S. Marine Hospital No. 70, on the extreme left. Building with tower is the Mercantile Exchange.\n\nAugust 20, 1928.\n\nP. L. Sperr.\n\n(2)\n\nThe same, another view. Excavation work seen in progress at the S.E. corner of Worth Street is for the new 24-story Western Union Building.\n\nAugust 20, 1928.\n\nP. L. Sperr.\n\n(3)\n\nThe same, from a different angle.\n\nAugust 20, 1928.\n\nP. L. Sperr.",
-    "before": "(1)\nHudson Street, west side, noh th from and including Jay, to and including Harrison Streets. Also shown (in foreground), is Worth Street, at, adjoining and east of the N.E. corner of Hudson Street. Notice the U.S. Narine Hospital No. 70, on the extreme left. Building with tower is the\nMercantile Exchange.\nAugust 20, 1928.\nP. L. Sperr.\n(2)\nThe same, another view. Excavation work seen in progress at the S.E. corner of Worth Street is for the new 24-story Western Union Building.\nAugust 20, 1928.\nP. L. Sperr.\n",
-    "metadata": {
-      "back_id": "720468b",
-      "cookie": "blah",
-      "distance": 71,
-      "len_base": 514,
-      "len_exp": 591,
-      "score": 0.8618677042801557
-    },
-    "photo_id": "720468f-c"
   },
   {
     "after": "(1)\n\n109 to 95 East Houston Street, south side, west from but not including (left, not shown) Chrystie Street, to the Bowery, showing St. Augustine's Chapel (Trinity Parish) at Nos. 109-105, and the 11-story Fisher Building (Nos. 103-97). Also shown, at the N.W. corner of Second Ave., is construction work in progress on the Independent System Subway (Eighth Ave. subway) after demolition of the houses which formerly occupied the site. St. Augustine's Chapel was erected in 1876 and is considered to be a striking architectural feature of New York. It has two parts, a mission house and the church proper. The mission house contains a large hall, guild and school-rooms. The work is almost entirely among the poorer classes of the neighborhood and includes social activities of a varied nature. June 6, 1930.\n\nP. L. Sperr.\n\n(2)\n\nThe same, a slightly limited view. June 6, 1930.\n\nP. L. Sperr.",
@@ -5928,95 +5915,17 @@ var changes = [
     "photo_id": "719477f-b"
   },
   {
-    "after": "(1)\nWorth Street, Mulberry to Baxter Street.\n(Before reconstruction).\n\nAugust 2, 1920.\n\n(2)\nSame, after reconstruction.\n\nPresident Borough of Manhatten.\n\nAugust 2, 1921.",
-    "before": "(1)\nWorth Street, view from Mulberry Street toward Baxter Street,\nbefore reconstruction.\nAugust 2, 1920.\n\n(2)\nSame view after reconstruction in 1921.\n\n",
+    "after": "(1)\n\nHudson Street, west side, north from and including Jay, to and including Harrison Streets. Also shown (in foreground), is Worth Street, at, adjoining and east of the N.E. corner of Hudson Street. Notice the U.S. Marine Hospital No. 70, on the extreme left. Building with tower is the Mercantile Exchange.\n\nAugust 20, 1928.\n\nP. L. Sperr.\n\n(2)\n\nThe same, another view. Excavation work seen in progress at the S.E. corner of Worth Street is for the new 24-story Western Union Building.\n\nAugust 20, 1928.\n\nP. L. Sperr.\n\n(3)\n\nThe same, from a different angle.\n\nAugust 20, 1928.\n\nP. L. Sperr.",
+    "before": "(1)\nHudson Street, west side, noh th from and including Jay, to and including Harrison Streets. Also shown (in foreground), is Worth Street, at, adjoining and east of the N.E. corner of Hudson Street. Notice the U.S. Narine Hospital No. 70, on the extreme left. Building with tower is the\nMercantile Exchange.\nAugust 20, 1928.\nP. L. Sperr.\n(2)\nThe same, another view. Excavation work seen in progress at the S.E. corner of Worth Street is for the new 24-story Western Union Building.\nAugust 20, 1928.\nP. L. Sperr.\n",
     "metadata": {
-      "back_id": "724829b",
+      "back_id": "720468b",
       "cookie": "blah",
-      "distance": 70,
-      "len_base": 151,
-      "len_exp": 169,
-      "score": 0.5364238410596027
+      "distance": 71,
+      "len_base": 514,
+      "len_exp": 591,
+      "score": 0.8618677042801557
     },
-    "photo_id": "724829f-b"
-  },
-  {
-    "after": "Lafayette Avenue, east from Throop Avenue. A short way off is Public School No. 25. View 2 shows the north side of the avenue.\n\nP. L. Sperr\n\nview 1: Neg No. A-1012\nview 2: Neg No. A-1013\n\nAugust 26, 1941\nViews 1,2",
-    "before": "Lafayette Avenue, east from Throop Avenue. A short way off is Public School No. 25. View 2 shows the north side of the avenue. August 26, 1941. P. L. Sperr. ",
-    "metadata": {
-      "back_id": "705375b",
-      "cookie": "blah",
-      "distance": 70,
-      "len_base": 157,
-      "len_exp": 213,
-      "score": 0.554140127388535
-    },
-    "photo_id": "705375f-b"
-  },
-  {
-    "after": "Fifth Avenue, east side, from 74th to 75th Streets.\nJune, 1925.",
-    "before": "Fifth Avenue, east side, from 74th to 75th Streets.\nJme, 1925.\nN6g a So2\n'DNSNEw W0gg\n'NBBC LRPisy\nAS'ON LENOY Ayg\nASN FOUNDATENeg\n",
-    "metadata": {
-      "back_id": "709141b",
-      "cookie": "blah",
-      "distance": 70,
-      "len_base": 131,
-      "len_exp": 63,
-      "score": 0.46564885496183206
-    },
-    "photo_id": "709141f-a"
-  },
-  {
-    "after": "1197 Park Avenue, at S. E. corner of 94th Street, from S. W. corner of 93rd Street, showing Mansion and garden of the late George Ehret, brewer, which were sold that spring for three million dollars, and are about to be demolished. June 3, 1928.\n\nP.L. Sperr, Photographer.\n\n(2)\n\nThe same, taken from the sidewalk in front of 1180 Park Avenue, and showing the front door more clearly. June 3, 1928.\n\nP.L. Sperr, Photographer.\n\n(3)\n\nThe same, the old George Ehret mansion and garden, some fifty years old, which were sold that spring by his estate, are about to be demolished for an apartment house. The car making the turn down 94th Street to the east is an old T-model Ford.\n\nP.L. Sperr, Photographer.",
-    "before": "(1)\n1197 Park Avenue, at S. E. corner of 94th Street, from S. W. corner of 93rd Street, showing Mansion and garden of the late George Ehret, brewer, which were sold that spring for three million\ndollars, and are about to be demolished.\nJune 3, 1928.\nP.L. Sperr,Photographer.\n(2)\nThe same, taken from the sidewalk in front of 1180 Park Avenue,\nand showing the front door more clearly.\nJune 3, 1928.\nP.L. Sperr,Photographer.\n(3)\nThe same. The old George Ehret mansion and garden, some fifty years old, which were sold that spring by his estate, ere about\nto be demolished for an apartment house.\nThe car making the turn down 94th Street to the east is an old\nT-model Ford.\nJune 3, 1928.\nP.L. Sperr, Photographer.\nEEE  T ----S2~S  1I R bV,\nE B8:Y;\nA)  l :6ARS)  )a\n",
-    "metadata": {
-      "back_id": "722379b",
-      "cookie": "blah",
-      "distance": 70,
-      "len_base": 762,
-      "len_exp": 701,
-      "score": 0.9081364829396326
-    },
-    "photo_id": "722379f-a"
-  },
-  {
-    "after": "4th Avenue, 29th Street, to 30th Street. (Before Reconstruction).\nPresident Borough Of Manhattan.\nMarch 21, 1920.",
-    "before": "4th Avenue,  29th Street to 30th Street 1920 ",
-    "metadata": {
-      "back_id": "708271b",
-      "cookie": "blah",
-      "distance": 70,
-      "len_base": 45,
-      "len_exp": 113,
-      "score": 0.0
-    },
-    "photo_id": "708271f-a"
-  },
-  {
-    "after": "High Bridge Park: The new roadway that links the Harlem River Drive (right) with the George Washington Bridge over the Hudson River. At the left is the distinctive water tower. The bridge that identifies this locale is in the center. Beneath the George Washington Bridge. It is now popularly known as the 181st Street Bridge over the Harlem River.\n\nMay 19, 1940\nViews 1,2\n\nP. L. Sperr",
-    "before": "High Bridge Park: The new roadway that links the Harlem River Drive (right) with the George Washington Bridge over the Hudson River. At the left is the distinctive water tower. TPe bridge that identifies this locald is in the center. Beneath same is the vehicular connection with the Bronx. This was formerly the George Vashington Bridge. It is now popularly known as the\n181st Street Bridge over the Harlem River.\nMay 19, 1940\nViews 1,2\nP. L. Sperr\n",
-    "metadata": {
-      "back_id": "720425b",
-      "cookie": "blah",
-      "distance": 70,
-      "len_base": 450,
-      "len_exp": 384,
-      "score": 0.8444444444444444
-    },
-    "photo_id": "720425f-b"
-  },
-  {
-    "after": "West side of First Avenue, south of 50th Street. March 20, 1928.\nP.L. Sperr, Photographer.\n\nTHE NEW YORK\nPUBLIC LIBRARY\nASTOR, LENOX AND\nTILDEN FOUNDATIONS\nR L",
-    "before": "West side Of First Avenue, south of 50th Street. March 20, 1928.\n\nP. L. Sperr, Photographer.\n",
-    "metadata": {
-      "back_id": "707622b",
-      "cookie": "blah",
-      "distance": 70,
-      "len_base": 93,
-      "len_exp": 159,
-      "score": 0.24731182795698925
-    },
-    "photo_id": "707622f"
+    "photo_id": "720468f-c"
   },
   {
     "after": "Eleventh Avenue, north from W. 37th Street, showing a thoroughfare popularly known as \"Railroad or Death\" Avenue because of the evident activity. In this view appears a New York Central Railroad train being drawn by a diesel engine. Note demolition of tenements at the left which bore No's. 459-61. In the center, mostly obscured by box cars, is the metal shack that houses the Lincoln Tunnel shaft entrance. This is better shown in View 2 and which includes the new Ventilator Building to same. The latter is at the S.W. corner of W. 39th Street. Note an early appearance of this site as shown in View 3.\n\nView 2:\nView 3:\n\nP.L. Sperr",
@@ -6045,6 +5954,19 @@ var changes = [
     "photo_id": "708641f"
   },
   {
+    "after": "Lafayette Avenue, east from Throop Avenue. A short way off is Public School No. 25. View 2 shows the north side of the avenue.\n\nP. L. Sperr\n\nview 1: Neg No. A-1012\nview 2: Neg No. A-1013\n\nAugust 26, 1941\nViews 1,2",
+    "before": "Lafayette Avenue, east from Throop Avenue. A short way off is Public School No. 25. View 2 shows the north side of the avenue. August 26, 1941. P. L. Sperr. ",
+    "metadata": {
+      "back_id": "705375b",
+      "cookie": "blah",
+      "distance": 70,
+      "len_base": 157,
+      "len_exp": 213,
+      "score": 0.554140127388535
+    },
+    "photo_id": "705375f-b"
+  },
+  {
     "after": "park Avenue, east from St. Edwards Street, showing demolition of buildings for Fort Greene Houses. The area already cleared is the block from St. Edwards Street to North Elliott Place.\n\nP. L. Sperr\n\nLate summer, 1939\nViews 1,2\n\nView 3: September 17, 1941\n\nNote: View 3 shows the area east from Navy Street and the Wallabout Houses nearing completion. Views 1,2 are east from St. Edwards Street.",
     "before": "Park Avenue, east from NAVY =========== Street (something) showing demolition of buildings for the Fort Greene Houses. The area already cleared is the block from St. Edwards Street to North Elliott Place.\nLate summer, 1939\nViews 1,2\nP.L. Sperr\n\nNote: View 3 shows the view(?) east from Navy Street and the Wallabout (?) Houses nearing completion. Views 1,2 are east from St. Edwards Street.\n",
     "metadata": {
@@ -6058,17 +5980,56 @@ var changes = [
     "photo_id": "706203f-c"
   },
   {
-    "after": "IDENTIFICATION: Central Park\nDATE: 1927?\nPHOTOGRAPHER: Fairchild Aerial Surveys, Inc.\n270 W. 38, NYC\nREPRODUCTION RIGHTS: Held by Photographer\n\nNegative photostat available in LH+G: Neg. No. 142\n",
-    "before": "IDENTIFICATION: Central Park\nDANE: 19277\nPPIOI0GRAPHER: Fairchild Aerial Sarveys, IInc.\n27O W. 38, NYC\nNEOATIVE: 3141\nREPRODTCTION RIG'TS: Held by Photographer /2gNee0~ozBe2:222N242Ne 2AR 2Nd7N901NWe79822.\n",
+    "after": "Fifth Avenue, east side, from 74th to 75th Streets.\nJune, 1925.",
+    "before": "Fifth Avenue, east side, from 74th to 75th Streets.\nJme, 1925.\nN6g a So2\n'DNSNEw W0gg\n'NBBC LRPisy\nAS'ON LENOY Ayg\nASN FOUNDATENeg\n",
     "metadata": {
-      "back_id": "718182b",
+      "back_id": "709141b",
       "cookie": "blah",
       "distance": 70,
-      "len_base": 206,
-      "len_exp": 195,
-      "score": 0.6601941747572815
+      "len_base": 131,
+      "len_exp": 63,
+      "score": 0.46564885496183206
     },
-    "photo_id": "718182f-a"
+    "photo_id": "709141f-a"
+  },
+  {
+    "after": "(1)\n\nThe Hall of Records Building, 35 to 1 Chambers Street at the N.W. corner of Centre Street, as seen from Park Row.\nThe building on this site was used in Revolutionary times as a prison for American officers and dignitaries; it later was used as the Hall of Records. It was replaced in 1911 by the present building, designed by John R. Thomas, at a cost of over $7,000,000.\n\nJune 22, 1933.\n\nP. L. Sperr.\n\n(2)\n\nThe same, as seen from a pathway in City Hall Park; at the extreme right is the Municipal Building.\n\nMarch 5, 1934.\n\nP. L. Sperr.\n\n(3)\n\nThe same as No. 1.\n\nOctober 20, 1936.\n\nP. L. Sperr.",
+    "before": "The Hall of Records Building, 35 to 1 Chambers Street at the N.W. corner of Centre Street, as seen from Park Row. The building on this site was used in Revolutionary times as a prison for American officers and dignitaries; it later was used as the Hall of Records. It was replaced in 1911 by the present building, designed by John R. Thomas, at a cost of over $7,000,000.\nJune 22, 1933.\n19\nP. L. Sperr.  V2. A225\n(2)\nThe same, as seen from a pathway in City Hall Park; at the\nextreme right is the Municipal Building.\nMarch 5, 1934.\nP. L. Sperr.\n",
+    "metadata": {
+      "back_id": "718599b",
+      "cookie": "blah",
+      "distance": 70,
+      "len_base": 545,
+      "len_exp": 600,
+      "score": 0.8715596330275229
+    },
+    "photo_id": "718599f-c"
+  },
+  {
+    "after": "4th Avenue, 29th Street, to 30th Street. (Before Reconstruction).\nPresident Borough Of Manhattan.\nMarch 21, 1920.",
+    "before": "4th Avenue,  29th Street to 30th Street 1920 ",
+    "metadata": {
+      "back_id": "708271b",
+      "cookie": "blah",
+      "distance": 70,
+      "len_base": 45,
+      "len_exp": 113,
+      "score": 0.0
+    },
+    "photo_id": "708271f-a"
+  },
+  {
+    "after": "(1)\nWorth Street, Mulberry to Baxter Street.\n(Before reconstruction).\n\nAugust 2, 1920.\n\n(2)\nSame, after reconstruction.\n\nPresident Borough of Manhatten.\n\nAugust 2, 1921.",
+    "before": "(1)\nWorth Street, view from Mulberry Street toward Baxter Street,\nbefore reconstruction.\nAugust 2, 1920.\n\n(2)\nSame view after reconstruction in 1921.\n\n",
+    "metadata": {
+      "back_id": "724829b",
+      "cookie": "blah",
+      "distance": 70,
+      "len_base": 151,
+      "len_exp": 169,
+      "score": 0.5364238410596027
+    },
+    "photo_id": "724829f-b"
   },
   {
     "after": "(1)\n6-10 Rutgers Street, at, adjoining, and south of the S.W. corner of East Broadway. The two buildings, Nos. 8-10 will be renovated. On the extreme left appears a portion of St. Teresa's R.C. Church, located at the N.W. corner of Henry Street.\nApril 20, 1931.\n\nP. L. Sperr.\n\n(2)\nThe same, at a later date.\nMarch 19, 1934.\n\nP. L. Sperr.",
@@ -6084,16 +6045,55 @@ var changes = [
     "photo_id": "723077f-b"
   },
   {
-    "after": "(1)\n\nThe Hall of Records Building, 35 to 1 Chambers Street at the N.W. corner of Centre Street, as seen from Park Row.\nThe building on this site was used in Revolutionary times as a prison for American officers and dignitaries; it later was used as the Hall of Records. It was replaced in 1911 by the present building, designed by John R. Thomas, at a cost of over $7,000,000.\n\nJune 22, 1933.\n\nP. L. Sperr.\n\n(2)\n\nThe same, as seen from a pathway in City Hall Park; at the extreme right is the Municipal Building.\n\nMarch 5, 1934.\n\nP. L. Sperr.\n\n(3)\n\nThe same as No. 1.\n\nOctober 20, 1936.\n\nP. L. Sperr.",
-    "before": "The Hall of Records Building, 35 to 1 Chambers Street at the N.W. corner of Centre Street, as seen from Park Row. The building on this site was used in Revolutionary times as a prison for American officers and dignitaries; it later was used as the Hall of Records. It was replaced in 1911 by the present building, designed by John R. Thomas, at a cost of over $7,000,000.\nJune 22, 1933.\n19\nP. L. Sperr.  V2. A225\n(2)\nThe same, as seen from a pathway in City Hall Park; at the\nextreme right is the Municipal Building.\nMarch 5, 1934.\nP. L. Sperr.\n",
+    "after": "IDENTIFICATION: Central Park\nDATE: 1927?\nPHOTOGRAPHER: Fairchild Aerial Surveys, Inc.\n270 W. 38, NYC\nREPRODUCTION RIGHTS: Held by Photographer\n\nNegative photostat available in LH+G: Neg. No. 142\n",
+    "before": "IDENTIFICATION: Central Park\nDANE: 19277\nPPIOI0GRAPHER: Fairchild Aerial Sarveys, IInc.\n27O W. 38, NYC\nNEOATIVE: 3141\nREPRODTCTION RIG'TS: Held by Photographer /2gNee0~ozBe2:222N242Ne 2AR 2Nd7N901NWe79822.\n",
     "metadata": {
-      "back_id": "718599b",
+      "back_id": "718182b",
       "cookie": "blah",
       "distance": 70,
-      "len_base": 545,
-      "len_exp": 600,
-      "score": 0.8715596330275229
+      "len_base": 206,
+      "len_exp": 195,
+      "score": 0.6601941747572815
     },
-    "photo_id": "718599f-c"
+    "photo_id": "718182f-a"
+  },
+  {
+    "after": "1197 Park Avenue, at S. E. corner of 94th Street, from S. W. corner of 93rd Street, showing Mansion and garden of the late George Ehret, brewer, which were sold that spring for three million dollars, and are about to be demolished. June 3, 1928.\n\nP.L. Sperr, Photographer.\n\n(2)\n\nThe same, taken from the sidewalk in front of 1180 Park Avenue, and showing the front door more clearly. June 3, 1928.\n\nP.L. Sperr, Photographer.\n\n(3)\n\nThe same, the old George Ehret mansion and garden, some fifty years old, which were sold that spring by his estate, are about to be demolished for an apartment house. The car making the turn down 94th Street to the east is an old T-model Ford.\n\nP.L. Sperr, Photographer.",
+    "before": "(1)\n1197 Park Avenue, at S. E. corner of 94th Street, from S. W. corner of 93rd Street, showing Mansion and garden of the late George Ehret, brewer, which were sold that spring for three million\ndollars, and are about to be demolished.\nJune 3, 1928.\nP.L. Sperr,Photographer.\n(2)\nThe same, taken from the sidewalk in front of 1180 Park Avenue,\nand showing the front door more clearly.\nJune 3, 1928.\nP.L. Sperr,Photographer.\n(3)\nThe same. The old George Ehret mansion and garden, some fifty years old, which were sold that spring by his estate, ere about\nto be demolished for an apartment house.\nThe car making the turn down 94th Street to the east is an old\nT-model Ford.\nJune 3, 1928.\nP.L. Sperr, Photographer.\nEEE  T ----S2~S  1I R bV,\nE B8:Y;\nA)  l :6ARS)  )a\n",
+    "metadata": {
+      "back_id": "722379b",
+      "cookie": "blah",
+      "distance": 70,
+      "len_base": 762,
+      "len_exp": 701,
+      "score": 0.9081364829396326
+    },
+    "photo_id": "722379f-a"
+  },
+  {
+    "after": "West side of First Avenue, south of 50th Street. March 20, 1928.\nP.L. Sperr, Photographer.\n\nTHE NEW YORK\nPUBLIC LIBRARY\nASTOR, LENOX AND\nTILDEN FOUNDATIONS\nR L",
+    "before": "West side Of First Avenue, south of 50th Street. March 20, 1928.\n\nP. L. Sperr, Photographer.\n",
+    "metadata": {
+      "back_id": "707622b",
+      "cookie": "blah",
+      "distance": 70,
+      "len_base": 93,
+      "len_exp": 159,
+      "score": 0.24731182795698925
+    },
+    "photo_id": "707622f"
+  },
+  {
+    "after": "High Bridge Park: The new roadway that links the Harlem River Drive (right) with the George Washington Bridge over the Hudson River. At the left is the distinctive water tower. The bridge that identifies this locale is in the center. Beneath the George Washington Bridge. It is now popularly known as the 181st Street Bridge over the Harlem River.\n\nMay 19, 1940\nViews 1,2\n\nP. L. Sperr",
+    "before": "High Bridge Park: The new roadway that links the Harlem River Drive (right) with the George Washington Bridge over the Hudson River. At the left is the distinctive water tower. TPe bridge that identifies this locald is in the center. Beneath same is the vehicular connection with the Bronx. This was formerly the George Vashington Bridge. It is now popularly known as the\n181st Street Bridge over the Harlem River.\nMay 19, 1940\nViews 1,2\nP. L. Sperr\n",
+    "metadata": {
+      "back_id": "720425b",
+      "cookie": "blah",
+      "distance": 70,
+      "len_base": 450,
+      "len_exp": 384,
+      "score": 0.8444444444444444
+    },
+    "photo_id": "720425f-b"
   }
 ];
