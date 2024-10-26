@@ -7,6 +7,7 @@ just some date mentioned in the photo.
 
 import re
 from datetime import datetime
+from typing import Generator
 
 import datefinder
 
@@ -59,20 +60,33 @@ year_re = re.compile(r"^%s$" % year_pat)
 anchored_year_re = re.compile(r"[ .] (%s)\." % year_pat)
 
 
+def split_with_indices(txt: str, delim: str):
+    indices: list[int] = []
+    start = 0
+    while True:
+        try:
+            idx = txt.index(delim, start)
+        except ValueError:
+            break
+        indices.append(idx)
+        start = idx + 1
+
+    indices = [-1] + indices + [len(txt)]
+    return [(txt[a + len(delim) : b], a + len(delim), b) for a, b in zip(indices, indices[1:])]
+
+
 def match_full_line_date(text: str):
     """Match a year or month year alone on a line of text."""
     date_spans: list[tuple[str, int, int]] = []
-    for raw_line in text.split("\n"):
+    for raw_line, a, b in split_with_indices(text, "\n"):
         line = raw_line.replace(".", "").strip()
         m = month_year_re.match(line)
         if m:
-            idx = text.index(raw_line)
-            date_spans.append((parse_mon_year(line), idx, idx + len(raw_line)))
+            date_spans.append((parse_mon_year(line), a, b))
             continue
         m = year_re.match(line)
         if m:
-            idx = text.index(raw_line)
-            date_spans.append((line, idx, idx + len(raw_line)))
+            date_spans.append((line, a, b))
     return date_spans
 
 

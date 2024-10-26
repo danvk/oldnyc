@@ -1,4 +1,4 @@
-from oldnyc.site.dates_from_text import get_dates_from_text
+from oldnyc.site.dates_from_text import get_dates_from_text, split_with_indices
 
 text_701590f = """Pelham Bay Park - Orchard Beach: Shown, in a set of three views, are
 the newly erected bath houses built by the Works Progress Administration.
@@ -207,6 +207,20 @@ test_709795f = """
 Seventh Avenue, west side, north from 42nd Street, excavation for Times Building is at extreme right; in the background is the nearly-completed Astor Hotel; and just north of it is the intersection of Seventh Avenue with Broadway. 1903. Photograph by Brown Brothers.
 """
 
+test_715511f = """(1)
+52 East 129th Street, a 2 -story frame house, south side, east of
+Madison Ave.
+July 31, 1932.
+P. L. Sperr.
+
+(2)
+The same.
+1932.
+J. Clarence Davies Collection, Museum of the City of New York.
+Negative No. 296.
+
+"""
+
 
 def test_get_full_date():
     assert get_dates_from_text(text_701590f) == ["1938-01-25"]
@@ -237,8 +251,21 @@ def test_about_prior_circa():
     assert get_dates_from_text(text_708323f) == ["1923"]
 
 
+def test_split_with_indices():
+    assert split_with_indices("a b c d", " ") == [
+        ("a", 0, 1),
+        ("b", 2, 3),
+        ("c", 4, 5),
+        ("d", 6, 7),
+    ]
+    assert split_with_indices("abcd", " ") == [("abcd", 0, 4)]
+    assert split_with_indices(" abcd", " ") == [("", 0, 0), ("abcd", 1, 5)]
+    assert split_with_indices("ab cd ", " ") == [("ab", 0, 2), ("cd", 3, 5), ("", 6, 6)]
+
+
 def test_multiple_dates():
     assert get_dates_from_text(text_715761f) == ["1932", "1934-11-05", "1934-10-12"]
+    assert get_dates_from_text(test_715511f) == ["1932-07-31", "1932"]
 
 
 def test_views():
