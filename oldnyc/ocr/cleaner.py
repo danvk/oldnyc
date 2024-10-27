@@ -114,7 +114,7 @@ def is_negative(txt: str) -> bool:
     """Is this a negative / slide number?"""
     return (
         re.match(
-            r"(?:neg(?:ative)?|slide)[. #;:]*(?:no\.? )?(?:[A-Z]?-)?\d+(?: [A-Z])?\.?$",
+            r"(?:neg(?:ative)?|slide)[. #;:]*(?:no\.? )?(?:[-A-Z #;.:_]*)\d+(?:[-A-Z #;.:_0-9]*)\.?$",
             txt,
             flags=re.I,
         )

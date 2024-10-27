@@ -207,7 +207,7 @@ def test_is_negative():
         "Neg # 717",
         "Negative No. 375.",
         "NEG. # 4546",
-        # "Neg. H 829.",
+        "Neg. H 829.",
         "Slide #109",
         "Neg. no. 45",
         "Neg. # -1407",
@@ -215,26 +215,26 @@ def test_is_negative():
         "Neg # 601 C",
         "NEG:#3553",
         "NEG; 2822",
-        # "Neg. # 1786A",
+        "Neg. # 1786A",
         # "D4 Neg. # 4041",
-        # "Neg. No. 98a",
+        "Neg. No. 98a",
         # "Neg. Photostat #",
         # "Negative Photostat # 1192",
-        # "NEG # 3613A",
+        "NEG # 3613A",
         # "D2 - NEG # 3268"
         # "D2- NEGH # 3268"
         # "D3 NEGH # 3277"
         # "D3 NEG # 3277"
-        # "Neg # A.1378"
-        # "Neg. No. A_513"
-        # "Neg # 603B 4x5 neg"
-        # "Neg # 686 8x10 neg"
+        "Neg # A.1378",
+        "Neg. No. A_513",
+        "Neg # 603B 4x5 neg",
+        "Neg # 686 8x10 neg",
         # "756 D2 VIEW 1 - NEG. #3332"
         # "756 D3 " 2. NEG # 3333"
         # "756 D4 " 3 NEG # 3334"
-        # "Neg. No. A_349"
-        # "Neg. No. A 535"
-        # "Neg. No. A. 535"
+        "Neg. No. A_349",
+        "Neg. No. A 535",
+        "Neg. No. A. 535",
     ]
     for text in texts:
         assert cleaner.is_negative(text), text
