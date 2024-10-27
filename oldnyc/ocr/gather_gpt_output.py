@@ -4,11 +4,8 @@
 import json
 import sys
 
-from oldnyc.ocr.cleaner import clean
-
 if __name__ == "__main__":
     mapping = {}
-    n_altered = 0
     for gpt_output_file in sys.argv[1:]:
         # Prefix file with "!" to indicate that images were manually rotated.
         ignore_rotation = False
@@ -44,12 +41,8 @@ if __name__ == "__main__":
             # overwrite existing entries, but prefer non-rotated OCR
             if not (back_id in mapping and rotated) or (existing_rotated and not rotated):
                 out = {
-                    # TODO: do the cleaning in ingest.py rather than here.
-                    "text": clean(gpt_text) if not rotated else "(rotated)",
-                    "original": gpt_text,
+                    "text": gpt_text if not rotated else "(rotated)",
                 }
-                if out["text"] != out["original"]:
-                    n_altered += 1
                 mapping[back_id] = out
 
     for back_id, out in mapping.items():
@@ -57,5 +50,4 @@ if __name__ == "__main__":
             sys.stderr.write(f"{back_id}\trotated\n")
 
     sys.stderr.write(f"Writing {len(mapping)} records.\n")
-    sys.stderr.write(f"{n_altered} were altered by cleaning.\n")
     print(json.dumps(mapping, indent=2))

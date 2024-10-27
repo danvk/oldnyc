@@ -68,18 +68,15 @@ Ap7-:  Wg ~E 33~4
 
 (3) The same, seen from the south side, and showing the Park after completion of the work. The flower beds are planted with ivy. The large corner building, at Sixth Avenue and 42nd Street, is the department store of Stern Brothers. July 6, 1935. P. L. Sperr. NO REPHODUCTIONS.
 """,
-    # 8
-    """(1)
-Hunter Avenue, at Hylan Boulevard.
-July 1, 1932.
-F. L. Sperr
-No REFROductions
+    # 8: 731107b
+    """Harlem River bridges--Willis Avenue Bridge: The Willis A Avenue (Bronx) Bridge over the Harlem River. It is also known as the 1st Avenue (Manhattan) Bridge.
 
-(2)
-The same, at a later date.
-May 26, 1935.
-F. L. Sperr
-NO REFROductions.
+        View 2 shows the 1st Avenue approach to the bridge.
+
+View 1: George L. Balgue                          August, 1930
+
+
+View 2: P. L. Sperr                                   August, 1936
 """,
     # 9
     """54 and 56 (right to left) Irving Place, adjoining and north of the N. E. corner of E. 17th Street, showing two 3 story former private dwellings. That, with the bay window is now occupied by the Cooperative Cafeteria, an enterprise long associated with the wife of Norman Thomas, the Socialist.
@@ -99,6 +96,16 @@ P. L. Sperr.""",
 Board of Education, N.Y.C.
 CREDIT LINE IMPERATIVE. 1920.
 NEG: 2870""",
+    # 12
+    """(1) Hoyt Street, east side, from Schermerhorn to State Streets, Also seen is 311-313 1/2 State Street, at the N.E. corner of Hoyt Street. May 25, 1929. P. L. Sperr.  (2) The same, showing the house which was built about 1874 by the Clark family whose estate comprise surrounding area. April 7, 1932. P. L. Sperr.  (3) The same, from a different angle. April 7, 1932. P. L. Sperr.""",
+    # 13
+    "Dime Savings Bank of Brooklyn\nmain office\n\nF. S. LINCOLN\nPhotographer\n114 EAST 32nd STREET\nNEW YORK CITY\n123 P.V.\n\nIF PUBLISHED, CREDIT\nIS TO BE GIVEN TO\nF. S. LINCOLN",
+    # 14 - 721373b
+    "COPYRIGHT BY\nF. S. LINCOLN\nPhotographer\n114 EAST 32nd STREET\nNEW YORK CITY\nTHS PRINT IS SOLD FOR REFERENCE ONLY. REPRODUCTION IS NOT AL OWE D IN ANY FORM WITHOUT WRITTEN P RMISS ON FROM F. S. LINCOLN\n955P4\nConstance Spry\n",
+    # 15 - 723104b
+    "St. Luke's Place, no.6. Mayor J.J. Walker's home.\nFoto Topics, Inc., 265 W.54th St., N.Y.C.\n\nTHE NEW YORK PUBLIC LIBRARY\nASTOR LENOX & TILDEN\nFOUNDATIONS\n\n315G\nLOCAL HISTORY\nAND GENEALOGY",
+    # 16 - 724749b
+    "West Street, 13th, to 14th Street. (Before Reconstruction).\nPresident Borough of Manhatten.\nCREDIT LINE IMPERATIVE.\nJune 19, 1918.\nNeg. # 1983",
 ]
 
 
@@ -210,7 +217,7 @@ def test_is_negative():
         "Neg # 717",
         "Negative No. 375.",
         "NEG. # 4546",
-        # "Neg. H 829.",
+        "Neg. H 829.",
         "Slide #109",
         "Neg. no. 45",
         "Neg. # -1407",
@@ -218,31 +225,36 @@ def test_is_negative():
         "Neg # 601 C",
         "NEG:#3553",
         "NEG; 2822",
-        # "Neg. # 1786A",
+        "Neg. # 1786A",
         # "D4 Neg. # 4041",
-        # "Neg. No. 98a",
+        "Neg. No. 98a",
         # "Neg. Photostat #",
         # "Negative Photostat # 1192",
-        # "NEG # 3613A",
+        "NEG # 3613A",
         # "D2 - NEG # 3268"
         # "D2- NEGH # 3268"
         # "D3 NEGH # 3277"
         # "D3 NEG # 3277"
-        # "Neg # A.1378"
-        # "Neg. No. A_513"
-        # "Neg # 603B 4x5 neg"
-        # "Neg # 686 8x10 neg"
+        "Neg # A.1378",
+        "Neg. No. A_513",
+        "Neg # 603B 4x5 neg",
+        "Neg # 686 8x10 neg",
         # "756 D2 VIEW 1 - NEG. #3332"
         # "756 D3 " 2. NEG # 3333"
         # "756 D4 " 3 NEG # 3334"
-        # "Neg. No. A_349"
-        # "Neg. No. A 535"
-        # "Neg. No. A. 535"
+        "Neg. No. A_349",
+        "Neg. No. A 535",
+        "Neg. No. A. 535",
+        "Neg. photograph available in G. Neg. No. 1",
     ]
     for text in texts:
         assert cleaner.is_negative(text), text
 
-    negatives = ["1931."]
+    negatives = [
+        "1931.",
+        "Neg. B-12 - B-15 Bridges - Highbridge",  # 730832b
+        "Neg. A-449  Sunnyside Yards.",  # 727293b, 727296b
+    ]
     for text in negatives:
         assert not cleaner.is_negative(text), text
 
@@ -250,6 +262,7 @@ def test_is_negative():
 def test_fix_i17th():
     assert cleaner.swap_chars("April 19,I941") == "April 19,1941"
     assert cleaner.swap_chars("June IIth, 1913.") == "June 11th, 1913."
+    assert cleaner.swap_chars("II2th to II4th Streets") == "112th to 114th Streets"
     txt = cleaner.clean(samples[10])
     assert txt == (
         """Sixth Avenue, North from West 4th Street, after the removal of the "L".
@@ -260,17 +273,43 @@ P. L. Sperr."""
     )
 
 
-# This one is too hard for now
-"""
-    txt = cleaner.remove_warnings(samples[8])
-    assert txt == ('''(1)
-Hunter Avenue, at Hylan Boulevard.
-July 1, 1932.
-F. L. Sperr
+def test_split_interior_whitespace():
+    assert (
+        cleaner.split_interior_whitespace(samples[8])
+        == """Harlem River bridges--Willis Avenue Bridge: The Willis A Avenue (Bronx) Bridge over the Harlem River. It is also known as the 1st Avenue (Manhattan) Bridge.
 
-(2)
-The same, at a later date.
-May 26, 1935.
-F. L. Sperr
-''')
+View 2 shows the 1st Avenue approach to the bridge.
+
+View 1: George L. Balgue
+August, 1930
+
+
+View 2: P. L. Sperr
+August, 1936
 """
+    )
+
+    assert (
+        cleaner.split_interior_whitespace(samples[12])
+        == """(1) Hoyt Street, east side, from Schermerhorn to State Streets, Also seen is 311-313 1/2 State Street, at the N.E. corner of Hoyt Street. May 25, 1929. P. L. Sperr.
+
+(2) The same, showing the house which was built about 1874 by the Clark family whose estate comprise surrounding area. April 7, 1932. P. L. Sperr.
+
+(3) The same, from a different angle. April 7, 1932. P. L. Sperr."""
+    )
+
+
+def test_remove_stamps():
+    assert cleaner.remove_stamps(samples[13]) == "Dime Savings Bank of Brooklyn\nmain office\n"
+    assert cleaner.remove_stamps(samples[14]) == "Constance Spry\n"
+    assert (
+        cleaner.remove_stamps(samples[15])
+        == "St. Luke's Place, no.6. Mayor J.J. Walker's home.\nFoto Topics, Inc., 265 W.54th St., N.Y.C.\n"
+    )
+
+
+def test_clean():
+    assert (
+        cleaner.clean(samples[16])
+        == "West Street, 13th, to 14th Street. (Before Reconstruction).\nJune 19, 1918."
+    )

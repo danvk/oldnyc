@@ -132,16 +132,10 @@
   "700514b": [
     "spelling"
   ],
-  "700515b": [
-    "spelling"
-  ],
   "700516b": [
     "spelling"
   ],
   "700531b": [
-    "spelling"
-  ],
-  "700548b": [
     "spelling"
   ],
   "700614b": [
@@ -178,9 +172,6 @@
   ],
   "700762b": [
     "uniq_dates"
-  ],
-  "700770b": [
-    "spelling"
   ],
   "700801b": [
     "spelling"
@@ -357,9 +348,6 @@
   "702044b": [
     "uniq_dates"
   ],
-  "702084b": [
-    "spelling"
-  ],
   "702104b": [
     "spelling"
   ],
@@ -451,9 +439,6 @@
   "702953b": [
     "uniq_dates"
   ],
-  "702956b": [
-    "spelling"
-  ],
   "702959b": [
     "uniq_dates"
   ],
@@ -530,9 +515,6 @@
   "704067b": [
     "uniq_dates"
   ],
-  "704092b": [
-    "spelling"
-  ],
   "704149b": [
     "uniq_dates"
   ],
@@ -540,9 +522,6 @@
     "spelling"
   ],
   "704189b": [
-    "spelling"
-  ],
-  "704195b": [
     "spelling"
   ],
   "704258b": [
@@ -648,9 +627,6 @@
   ],
   "704944b": [
     "spelling"
-  ],
-  "705026b": [
-    "big_magic_cookie"
   ],
   "705051b": [
     "spelling"
@@ -806,10 +782,6 @@
   "706182b": [
     "big_magic_cookie"
   ],
-  "706189b": [
-    "big_magic_cookie",
-    "spelling"
-  ],
   "706203b": [
     "big_change_manual"
   ],
@@ -863,9 +835,6 @@
   ],
   "706588b": [
     "spelling"
-  ],
-  "706609b": [
-    "big_magic_cookie"
   ],
   "706651b": [
     "big_magic_cookie"
@@ -963,9 +932,6 @@
   "707247b": [
     "uniq_dates"
   ],
-  "707269b": [
-    "spelling"
-  ],
   "707278b": [
     "spelling"
   ],
@@ -1017,9 +983,6 @@
     "uniq_dates",
     "spelling"
   ],
-  "707524b": [
-    "spelling"
-  ],
   "707564b": [
     "uniq_dates"
   ],
@@ -1069,11 +1032,8 @@
   "707745b": [
     "uniq_dates"
   ],
-  "707757b": [
-    "big_magic_cookie"
-  ],
   "707774b": [
-    "uniq_dates"
+    "followup_manual"
   ],
   "707778b": [
     "uniq_dates"
@@ -1089,9 +1049,6 @@
   ],
   "707850b": [
     "uniq_dates"
-  ],
-  "707883b": [
-    "spelling"
   ],
   "707907b": [
     "spelling"
@@ -1161,9 +1118,6 @@
   "708008b": [
     "big_magic_cookie"
   ],
-  "708012b": [
-    "big_magic_cookie"
-  ],
   "708031b": [
     "spelling"
   ],
@@ -1190,9 +1144,6 @@
   ],
   "708178b": [
     "spell_d25_manual"
-  ],
-  "708191b": [
-    "big_magic_cookie"
   ],
   "708193b": [
     "uniq_dates"
@@ -1277,8 +1228,7 @@
     "big_change_manual"
   ],
   "708610b": [
-    "big_magic_cookie",
-    "spelling"
+    "big_magic_cookie"
   ],
   "708611b": [
     "big_change_manual"
@@ -1404,9 +1354,6 @@
   "709010b": [
     "big_change_manual"
   ],
-  "709034b": [
-    "big_magic_cookie"
-  ],
   "709041b": [
     "spelling"
   ],
@@ -1433,9 +1380,6 @@
   ],
   "709090b": [
     "big_change_manual"
-  ],
-  "709102b": [
-    "big_magic_cookie"
   ],
   "709103b": [
     "big_magic_cookie"
@@ -1484,8 +1428,7 @@
     "uniq_dates"
   ],
   "709268b": [
-    "uniq_dates",
-    "spelling"
+    "uniq_dates"
   ],
   "709284b": [
     "uniq_dates"
@@ -1558,9 +1501,6 @@
   ],
   "709532b": [
     "big_change_manual"
-  ],
-  "709535b": [
-    "spelling"
   ],
   "709538b": [
     "big_change_manual"
@@ -1933,15 +1873,8 @@
   "710921b": [
     "uniq_dates"
   ],
-  "710968b": [
-    "spelling"
-  ],
   "710975b": [
     "uniq_dates"
-  ],
-  "710978b": [
-    "big_magic_cookie",
-    "spelling"
   ],
   "710983b": [
     "uniq_dates"
@@ -1974,9 +1907,6 @@
   ],
   "711086b": [
     "spell_d25_manual"
-  ],
-  "711088b": [
-    "big_magic_cookie"
   ],
   "711146b": [
     "spelling"
@@ -2017,6 +1947,7 @@
     "uniq_dates"
   ],
   "711881b": [
+    "big_magic_cookie",
     "spelling"
   ],
   "711883b": [
@@ -2078,9 +2009,6 @@
   ],
   "712300b": [
     "uniq_dates"
-  ],
-  "712325b": [
-    "spelling"
   ],
   "712355b": [
     "spell_d25_manual"
@@ -2219,9 +2147,6 @@
   "713066b": [
     "spelling"
   ],
-  "713068b": [
-    "uniq_dates"
-  ],
   "713098b": [
     "big_change_manual"
   ],
@@ -2236,9 +2161,6 @@
     "uniq_dates"
   ],
   "713128b": [
-    "big_magic_cookie"
-  ],
-  "713161b": [
     "big_magic_cookie"
   ],
   "713172b": [
@@ -2322,21 +2244,11 @@
   "713591b": [
     "spell_d25_manual"
   ],
-  "713592b": [
-    "big_magic_cookie"
-  ],
-  "713593b": [
-    "big_magic_cookie"
-  ],
-  "713595b": [
-    "big_magic_cookie"
-  ],
   "713597b": [
     "spell_d25_manual"
   ],
   "713601b": [
-    "big_magic_cookie",
-    "spelling"
+    "big_magic_cookie"
   ],
   "713606b": [
     "uniq_dates",
@@ -2365,9 +2277,6 @@
   ],
   "713732b": [
     "uniq_dates"
-  ],
-  "713835b": [
-    "spelling"
   ],
   "713872b": [
     "spell_d25_manual"
@@ -2437,12 +2346,6 @@
   ],
   "714334b": [
     "uniq_dates"
-  ],
-  "714345b": [
-    "big_magic_cookie"
-  ],
-  "714346b": [
-    "big_magic_cookie"
   ],
   "714412b": [
     "big_change_manual"
@@ -2529,11 +2432,11 @@
   "714981b": [
     "big_magic_cookie"
   ],
-  "714982b": [
-    "spelling"
-  ],
   "714984b": [
     "big_magic_cookie"
+  ],
+  "714985b": [
+    "spelling"
   ],
   "714988b": [
     "uniq_dates"
@@ -2559,6 +2462,9 @@
   "715150b": [
     "spelling"
   ],
+  "715204b": [
+    "big_magic_cookie"
+  ],
   "715229b": [
     "big_magic_cookie",
     "spelling"
@@ -2571,9 +2477,6 @@
     "big_magic_cookie"
   ],
   "715238b": [
-    "big_magic_cookie"
-  ],
-  "715241b": [
     "big_magic_cookie"
   ],
   "715243b": [
@@ -2591,9 +2494,6 @@
     "big_magic_cookie"
   ],
   "715280b": [
-    "spelling"
-  ],
-  "715285b": [
     "spelling"
   ],
   "715337b": [
@@ -2614,13 +2514,7 @@
   "715366b": [
     "uniq_dates"
   ],
-  "715369b": [
-    "big_magic_cookie"
-  ],
   "715378b": [
-    "big_magic_cookie"
-  ],
-  "715379b": [
     "big_magic_cookie"
   ],
   "715387b": [
@@ -2635,9 +2529,6 @@
     "uniq_dates",
     "big_magic_cookie",
     "spelling"
-  ],
-  "715400b": [
-    "big_magic_cookie"
   ],
   "715432b": [
     "big_magic_cookie"
@@ -2718,8 +2609,7 @@
     "big_magic_cookie"
   ],
   "715983b": [
-    "big_magic_cookie",
-    "spelling"
+    "big_magic_cookie"
   ],
   "716045b": [
     "uniq_dates"
@@ -2817,9 +2707,6 @@
   "716977b": [
     "spelling"
   ],
-  "716981b": [
-    "spelling"
-  ],
   "716999b": [
     "uniq_dates"
   ],
@@ -2892,9 +2779,6 @@
     "big_magic_cookie"
   ],
   "717627b": [
-    "big_magic_cookie"
-  ],
-  "717628b": [
     "big_magic_cookie"
   ],
   "717649b": [
@@ -3020,12 +2904,6 @@
   "718469b": [
     "uniq_dates"
   ],
-  "718471b": [
-    "big_magic_cookie"
-  ],
-  "718480b": [
-    "spelling"
-  ],
   "718482b": [
     "big_change_manual"
   ],
@@ -3115,9 +2993,6 @@
   ],
   "719051b": [
     "spelling"
-  ],
-  "719056b": [
-    "big_magic_cookie"
   ],
   "719071b": [
     "spell_d25_manual"
@@ -3372,9 +3247,6 @@
   "720663b": [
     "uniq_dates"
   ],
-  "720689b": [
-    "uniq_dates"
-  ],
   "720720b": [
     "spelling"
   ],
@@ -3509,8 +3381,7 @@
     "uniq_dates"
   ],
   "721442b": [
-    "big_magic_cookie",
-    "spelling"
+    "big_magic_cookie"
   ],
   "721443b": [
     "big_magic_cookie"
@@ -3521,9 +3392,6 @@
   ],
   "721450b": [
     "uniq_dates"
-  ],
-  "721464b": [
-    "spelling"
   ],
   "721465b": [
     "spelling"
@@ -3610,9 +3478,6 @@
     "uniq_dates",
     "big_magic_cookie"
   ],
-  "722076b": [
-    "spelling"
-  ],
   "722077b": [
     "uniq_dates",
     "big_magic_cookie"
@@ -3639,9 +3504,6 @@
     "spelling"
   ],
   "722275b": [
-    "spelling"
-  ],
-  "722289b": [
     "spelling"
   ],
   "722292b": [
@@ -3700,10 +3562,6 @@
     "uniq_dates",
     "big_magic_cookie"
   ],
-  "722698b": [
-    "big_magic_cookie",
-    "spelling"
-  ],
   "722699b": [
     "uniq_dates",
     "big_magic_cookie",
@@ -3738,10 +3596,6 @@
   ],
   "722874b": [
     "big_magic_cookie"
-  ],
-  "722888b": [
-    "big_magic_cookie",
-    "spelling"
   ],
   "722896b": [
     "spelling"
@@ -3825,9 +3679,6 @@
   ],
   "723583b": [
     "uniq_dates"
-  ],
-  "723604b": [
-    "spelling"
   ],
   "723622b": [
     "big_change_manual"
@@ -3933,9 +3784,6 @@
   "724097b": [
     "spelling"
   ],
-  "724139b": [
-    "spelling"
-  ],
   "724179b": [
     "uniq_dates"
   ],
@@ -3967,9 +3815,6 @@
   "724392b": [
     "spelling"
   ],
-  "724406b": [
-    "spelling"
-  ],
   "724439b": [
     "big_magic_cookie"
   ],
@@ -3996,6 +3841,7 @@
     "spelling"
   ],
   "724596b": [
+    "big_magic_cookie",
     "spelling"
   ],
   "724635b": [
@@ -4336,9 +4182,6 @@
   "726164b": [
     "uniq_dates"
   ],
-  "726165b": [
-    "spelling"
-  ],
   "726193b": [
     "big_change_manual"
   ],
@@ -4488,9 +4331,6 @@
   ],
   "727450b": [
     "spelling"
-  ],
-  "727512b": [
-    "big_magic_cookie"
   ],
   "727574b": [
     "spelling"
@@ -4908,9 +4748,6 @@
   "730835b": [
     "uniq_dates"
   ],
-  "730857b": [
-    "spelling"
-  ],
   "730865b": [
     "uniq_dates",
     "big_magic_cookie"
@@ -5010,9 +4847,6 @@
   "731695b": [
     "big_magic_cookie"
   ],
-  "731702b": [
-    "spelling"
-  ],
   "731864b": [
     "uniq_dates"
   ],
@@ -5024,9 +4858,6 @@
   ],
   "731889b": [
     "big_magic_cookie"
-  ],
-  "731916b": [
-    "spelling"
   ],
   "731924b": [
     "big_magic_cookie"
@@ -5078,7 +4909,7 @@
     "uniq_dates"
   ],
   "732817b": [
-    "spelling"
+    "followup_manual"
   ],
   "732890b": [
     "big_change_manual"

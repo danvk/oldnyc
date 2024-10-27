@@ -12,6 +12,7 @@ from tqdm import tqdm
 
 from oldnyc.ingest.util import STATES, clean_creator, clean_date, clean_title, normalize_whitespace
 from oldnyc.item import Item, Subject
+from oldnyc.ocr.cleaner import clean as clean_ocr
 
 
 def photo_id_to_backing_id(photo_id: str) -> str | None:
@@ -170,10 +171,10 @@ def run():
         back_text: str | None = None
         back_text_source: str | None = None
         if ocr_gpt:
-            back_text = ocr_gpt
+            back_text = clean_ocr(ocr_gpt)
             back_text_source = "gpt"
         if ocr_site and (not ocr_gpt or back_id in site_ocr_back_ids_to_keep):
-            back_text = ocr_site
+            back_text = clean_ocr(ocr_site)
             back_text_source = "site"
 
         if back_text:
