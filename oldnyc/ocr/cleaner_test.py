@@ -104,6 +104,8 @@ NEG: 2870""",
     "COPYRIGHT BY\nF. S. LINCOLN\nPhotographer\n114 EAST 32nd STREET\nNEW YORK CITY\nTHS PRINT IS SOLD FOR REFERENCE ONLY. REPRODUCTION IS NOT AL OWE D IN ANY FORM WITHOUT WRITTEN P RMISS ON FROM F. S. LINCOLN\n955P4\nConstance Spry\n",
     # 15 - 723104b
     "St. Luke's Place, no.6. Mayor J.J. Walker's home.\nFoto Topics, Inc., 265 W.54th St., N.Y.C.\n\nTHE NEW YORK PUBLIC LIBRARY\nASTOR LENOX & TILDEN\nFOUNDATIONS\n\n315G\nLOCAL HISTORY\nAND GENEALOGY",
+    # 16 - 724749b
+    "West Street, 13th, to 14th Street. (Before Reconstruction).\nPresident Borough of Manhatten.\nCREDIT LINE IMPERATIVE.\nJune 19, 1918.\nNeg. # 1983",
 ]
 
 
@@ -260,7 +262,7 @@ def test_is_negative():
 def test_fix_i17th():
     assert cleaner.swap_chars("April 19,I941") == "April 19,1941"
     assert cleaner.swap_chars("June IIth, 1913.") == "June 11th, 1913."
-    # II2th to II4th Streets,
+    assert cleaner.swap_chars("II2th to II4th Streets") == "112th to 114th Streets"
     txt = cleaner.clean(samples[10])
     assert txt == (
         """Sixth Avenue, North from West 4th Street, after the removal of the "L".
@@ -303,4 +305,11 @@ def test_remove_stamps():
     assert (
         cleaner.remove_stamps(samples[15])
         == "St. Luke's Place, no.6. Mayor J.J. Walker's home.\nFoto Topics, Inc., 265 W.54th St., N.Y.C.\n"
+    )
+
+
+def test_clean():
+    assert (
+        cleaner.clean(samples[16])
+        == "West Street, 13th, to 14th Street. (Before Reconstruction).\nJune 19, 1918."
     )

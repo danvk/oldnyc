@@ -40,7 +40,7 @@ WARNING_RE_STR = "|".join(WARNINGS)
 YEAR_PAT = re.compile(r"\d{4}")
 
 
-def is_warning(line):
+def is_warning(line: str):
     line = re.sub(r"[,.]$", "", line)
     # line = line.upper()
     for base in WARNINGS:
@@ -48,6 +48,8 @@ def is_warning(line):
         # allow some wiggle room, but don't swallow anything that might be a date
         if 2 * d < len(base) and not re.search(YEAR_PAT, line):
             return True
+    if re.match(r"President Borough of Manhatt[ae]n\.?", line):
+        return True
     return False
 
 
