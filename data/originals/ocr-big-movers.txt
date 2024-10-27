@@ -1,0 +1,1000 @@
+back_id	Choice
+710454b	site
+725840b	site
+722023b	gpt
+709097b	gpt
+709056b	gpt
+718933b	gpt
+717160b	gpt
+708582b	site
+722426b	site
+721015b	gpt
+721180b	gpt
+722050b	gpt
+730670b	site
+732890b	site
+721404b	gpt
+716818b	gpt
+720246b	gpt
+705124b	gpt
+717679b	gpt
+714124b	site
+702997b	gpt
+706592b	gpt
+721337b	gpt
+712958b	site
+707791b	gpt
+702674b	gpt
+706200b	gpt
+700184b	gpt
+717985b	gpt
+717263b	gpt
+706042b	site
+716578b	gpt
+721338b	gpt
+717394b	gpt
+704536b	gpt
+704949b	gpt
+717398b	gpt
+700039b	site
+704948b	gpt
+708980b	site
+705289b	gpt
+700134b	gpt
+700185b	gpt
+725234b	gpt
+711822b	gpt
+721921b	gpt
+722102b	gpt
+700442b	gpt
+724023b	site
+700445b	gpt
+700443b	gpt
+709061b	gpt
+708067b	site
+717977b	gpt
+721660b	gpt
+712823b	gpt
+707758b	gpt
+705155b	gpt
+708644b	gpt
+708646b	gpt
+718289b	gpt
+731104b	gpt
+724753b	gpt
+720654b	gpt
+706198b	gpt
+725662b	gpt
+707020b	gpt
+705009b	gpt
+709046b	gpt
+708552b	site
+710428b	gpt
+705042b	gpt
+724903b	gpt
+715276b	gpt
+718179b	gpt
+705159b	gpt
+703863b	gpt
+705125b	gpt
+718484b	gpt
+709010b	site
+708551b	site
+709044b	gpt
+717448b	gpt
+709004b	site
+709005b	site
+718485b	gpt
+711177b	gpt
+712565b	gpt
+723919b	site
+705141b	gpt
+730206b	gpt
+723863b	gpt
+726697b	gpt
+718097b	gpt
+706812b	gpt
+714186b	site
+705750b	gpt
+718264b	gpt
+720617b	site
+725082b	gpt
+719642b	gpt
+720653b	gpt
+718095b	gpt
+718479b	gpt
+705126b	gpt
+718497b	gpt
+706634b	gpt
+706067b	gpt
+708640b	gpt
+702512b	gpt
+701280b	gpt
+704753b	gpt
+718093b	gpt
+719484b	gpt
+707152b	gpt
+715731b	site
+718483b	gpt
+730642b	gpt
+718096b	gpt
+705807b	gpt
+707071b	gpt
+708909b	site
+708908b	site
+709113b	gpt
+727634b	site
+708433b	site
+708169b	gpt
+702608b	gpt
+718098b	gpt
+706162b	site
+730997b	gpt
+715730b	site
+719965b	gpt
+733273b	site
+708910b	site
+721872b	gpt
+709532b	site
+707109b	gpt
+708907b	site
+713867b	gpt
+722225b	gpt
+722247b	gpt
+713098b	site
+708283b	gpt
+715732b	site
+704353b	gpt
+700292b	gpt
+732565b	gpt
+711106b	gpt
+712947b	gpt
+721668b	gpt
+711971b	site
+709008b	gpt
+726641b	gpt
+719866b	gpt
+730851b	gpt
+722110b	gpt
+719725b	gpt
+717917b	gpt
+730897b	site
+719935b	gpt
+724279b	gpt
+706548b	gpt
+722249b	gpt
+708609b	site
+723928b	gpt
+708291b	site
+702917b	gpt
+730844b	gpt
+708911b	gpt
+711107b	gpt
+722814b	gpt
+709106b	site
+717972b	gpt
+709092b	gpt
+707792b	gpt
+721667b	gpt
+726680b	gpt
+702658b	gpt
+709560b	gpt
+710782b	gpt
+730854b	gpt
+709009b	site
+709060b	gpt
+726695b	site
+718481b	gpt
+709007b	site
+726332b	site
+730909b	gpt
+723690b	gpt
+717379b	gpt
+723100b	gpt
+711898b	gpt
+712798b	gpt
+726688b	gpt
+719852b	site
+708096b	gpt
+714791b	gpt
+717074b	gpt
+719849b	site
+716807b	site
+730845b	gpt
+731047b	site
+723496b	gpt
+705169b	gpt
+712802b	site
+708614b	site
+730641b	gpt
+708613b	site
+722938b	gpt
+715604b	site
+730847b	gpt
+719853b	site
+719855b	site
+719854b	site
+721856b	gpt
+710149b	gpt
+712803b	site
+708611b	site
+713502b	gpt
+709088b	gpt
+705298b	gpt
+726694b	gpt
+709538b	site
+715958b	gpt
+723622b	site
+724314b	gpt
+709658b	gpt
+713319b	gpt
+706882b	gpt
+706774b	gpt
+702789b	gpt
+701354b	gpt
+709280b	gpt
+720275b	site
+713331b	site
+712831b	gpt
+725311b	site
+700260b	gpt
+702269b	gpt
+710058b	gpt
+731027b	gpt
+707150b	site
+723578b	gpt
+718058b	gpt
+721197b	gpt
+731000b	gpt
+713543b	gpt
+703889b	gpt
+704400b	gpt
+720710b	gpt
+722274b	gpt
+725948b	site
+722331b	gpt
+726687b	site
+717147b	gpt
+713509b	gpt
+719633b	gpt
+727005b	site
+717903b	gpt
+705207b	gpt
+715734b	gpt
+714704b	site
+705112b	gpt
+702513b	gpt
+703948b	site
+719161b	gpt
+725945b	site
+723943b	gpt
+708072b	gpt
+708647b	gpt
+702287b	gpt
+730850b	gpt
+706058b	gpt
+729481b	gpt
+707048b	gpt
+726690b	gpt
+726689b	site
+729285b	gpt
+708645b	gpt
+710198b	site
+717286b	gpt
+721562b	gpt
+726701b	gpt
+722409b	gpt
+726698b	gpt
+701342b	gpt
+724755b	gpt
+730933b	site
+714418b	gpt
+730855b	gpt
+709311b	gpt
+700446b	gpt
+717124b	site
+702449b	gpt
+723438b	gpt
+723043b	site
+718678b	site
+730856b	gpt
+720363b	site
+707800b	site
+724752b	gpt
+708576b	site
+720722b	gpt
+717606b	site
+718583b	gpt
+706726b	site
+730813b	gpt
+719626b	gpt
+704263b	gpt
+723044b	gpt
+714849b	gpt
+730852b	gpt
+726699b	gpt
+731925b	gpt
+726193b	site
+722787b	gpt
+725829b	gpt
+720319b	gpt
+726700b	gpt
+707885b	gpt
+705173b	gpt
+713652b	gpt
+716051b	site
+709087b	gpt
+707618b	site
+704778b	gpt
+731619b	gpt
+727635b	gpt
+723103b	site
+723046b	site
+718501b	gpt
+720477b	gpt
+705306b	gpt
+708635b	gpt
+724029b	gpt
+724084b	gpt
+710427b	gpt
+731635b	gpt
+715733b	site
+729311b	gpt
+710991b	gpt
+709537b	gpt
+730843b	gpt
+711899b	gpt
+702780b	gpt
+704372b	gpt
+710369b	site
+723045b	site
+704759b	gpt
+700401b	gpt
+709680b	gpt
+725732b	site
+709096b	gpt
+708682b	gpt
+720553b	gpt
+727303b	gpt
+709203b	gpt
+709076b	gpt
+728602b	gpt
+709799b	gpt
+709059b	site
+705916b	site
+702529b	gpt
+705797b	gpt
+700402b	gpt
+703655b	gpt
+709037b	gpt
+704031b	site
+726691b	gpt
+708575b	gpt
+705642b	gpt
+706657b	gpt
+722091b	gpt
+731153b	gpt
+706542b	gpt
+719362b	gpt
+709260b	gpt
+717064b	site
+721165b	gpt
+708639b	gpt
+709565b	gpt
+710388b	gpt
+718482b	site
+708073b	gpt
+708654b	gpt
+725273b	gpt
+730942b	site
+707385b	site
+709048b	gpt
+713318b	site
+708571b	gpt
+719073b	site
+730769b	gpt
+702830b	gpt
+708638b	gpt
+700673b	gpt
+704240b	gpt
+704402b	gpt
+714412b	site
+720840b	gpt
+723457b	gpt
+716870b	gpt
+712710b	gpt
+722200b	site
+720860b	gpt
+709527b	gpt
+721240b	site
+719790b	gpt
+708697b	gpt
+707609b	site
+703329b	gpt
+715357b	site
+710712b	site
+708615b	site
+723431b	gpt
+728323b	gpt
+728321b	gpt
+722088b	gpt
+708055b	gpt
+706185b	gpt
+718200b	site
+724471b	site
+724221b	gpt
+708250b	site
+705246b	gpt
+702656b	site
+702788b	gpt
+709370b	site
+724323b	gpt
+710616b	gpt
+726685b	gpt
+712014b	site
+721501b	gpt
+720922b	gpt
+727302b	gpt
+723158b	gpt
+708643b	gpt
+727719b	gpt
+700207b	site
+722494b	gpt
+709090b	site
+709086b	gpt
+727358b	gpt
+703589b	gpt
+708484b	gpt
+731103b	site
+720999b	gpt
+718250b	gpt
+711955b	site
+716736b	gpt
+703228b	gpt
+713556b	gpt
+726639b	gpt
+707798b	gpt
+715103b	gpt
+723989b	gpt
+702809b	site
+709082b	site
+700941b	gpt
+710915b	gpt
+731192b	site
+722259b	gpt
+713514b	gpt
+723079b	gpt
+702691b	gpt
+702811b	gpt
+708251b	site
+709207b	site
+722660b	gpt
+729112b	gpt
+715996b	gpt
+704186b	gpt
+710504b	gpt
+712822b	site
+709580b	gpt
+721233b	gpt
+714713b	gpt
+733371b	gpt
+706287b	gpt
+722566b	gpt
+707043b	gpt
+725096b	gpt
+728372b	site
+726693b	gpt
+714812b	site
+724451b	gpt
+704802b	gpt
+709376b	site
+709068b	gpt
+719477b	gpt
+713404b	gpt
+713183b	gpt
+731682b	gpt
+706888b	gpt
+707639b	gpt
+720996b	gpt
+720468b	gpt
+728603b	site
+707622b	site
+720425b	site
+709089b	site
+724829b	gpt
+718182b	gpt
+708271b	gpt
+725651b	gpt
+718599b	gpt
+710665b	site
+722379b	gpt
+708641b	gpt
+723077b	gpt
+709141b	gpt
+706203b	site
+705375b	site
+723166b	site
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

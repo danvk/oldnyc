@@ -218,10 +218,20 @@ def test_is_negative():
         "Neg # 601 C",
         "NEG:#3553",
         "NEG; 2822",
+        # "Neg. # 1786A",
+        # "D4 Neg. # 4041",
         # "Neg. No. 98a",
         # "Neg. Photostat #",
         # "Negative Photostat # 1192",
         # "NEG # 3613A",
+        # "D2 - NEG # 3268"
+        # "D2- NEGH # 3268"
+        # "D3 NEGH # 3277"
+        # "D3 NEG # 3277"
+        # "Neg # A.1378"
+        # "Neg. No. A_513"
+        # "Neg # 603B 4x5 neg"
+        # "Neg # 686 8x10 neg"
     ]
     for text in texts:
         assert cleaner.is_negative(text), text
