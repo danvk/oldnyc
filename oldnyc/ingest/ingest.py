@@ -174,7 +174,7 @@ def run():
             back_text = clean_ocr(ocr_gpt)
             back_text_source = "gpt"
         if ocr_site and (not ocr_gpt or back_id in site_ocr_back_ids_to_keep):
-            back_text = ocr_site
+            back_text = clean_ocr(ocr_site)
             back_text_source = "site"
 
         if back_text:
