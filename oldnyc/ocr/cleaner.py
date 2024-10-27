@@ -127,7 +127,16 @@ def remove_neg(txt: str) -> str:
     return "\n".join(line for line in txt.split("\n") if not is_negative(line))
 
 
+def split_interior_whitespace(txt: str) -> str:
+    """Sometimes GPT models two-column text with interior whitespace.
+
+    We prefer distinct lines.
+    """
+    return re.sub(r" {10,}", "\n", txt)
+
+
 def clean(txt: str):
+    # split_interior_whitespace
     return merge_lines(remove_warnings(remove_neg(swap_chars(txt))))
 
 

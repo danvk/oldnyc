@@ -68,18 +68,15 @@ Ap7-:  Wg ~E 33~4
 
 (3) The same, seen from the south side, and showing the Park after completion of the work. The flower beds are planted with ivy. The large corner building, at Sixth Avenue and 42nd Street, is the department store of Stern Brothers. July 6, 1935. P. L. Sperr. NO REPHODUCTIONS.
 """,
-    # 8
-    """(1)
-Hunter Avenue, at Hylan Boulevard.
-July 1, 1932.
-F. L. Sperr
-No REFROductions
+    # 8: 731107b
+    """Harlem River bridges--Willis Avenue Bridge: The Willis A Avenue (Bronx) Bridge over the Harlem River. It is also known as the 1st Avenue (Manhattan) Bridge.
 
-(2)
-The same, at a later date.
-May 26, 1935.
-F. L. Sperr
-NO REFROductions.
+View 2 shows the 1st Avenue approach to the bridge.
+
+View 1: George L. Balgue                          August, 1930
+
+
+View 2: P. L. Sperr                                   August, 1936
 """,
     # 9
     """54 and 56 (right to left) Irving Place, adjoining and north of the N. E. corner of E. 17th Street, showing two 3 story former private dwellings. That, with the bay window is now occupied by the Cooperative Cafeteria, an enterprise long associated with the wife of Norman Thomas, the Socialist.
@@ -260,17 +257,18 @@ P. L. Sperr."""
     )
 
 
-# This one is too hard for now
-"""
-    txt = cleaner.remove_warnings(samples[8])
-    assert txt == ('''(1)
-Hunter Avenue, at Hylan Boulevard.
-July 1, 1932.
-F. L. Sperr
+def test_split_interior_whitespace():
+    assert (
+        cleaner.split_interior_whitespace(samples[8])
+        == """Harlem River bridges--Willis Avenue Bridge: The Willis A Avenue (Bronx) Bridge over the Harlem River. It is also known as the 1st Avenue (Manhattan) Bridge.
 
-(2)
-The same, at a later date.
-May 26, 1935.
-F. L. Sperr
-''')
+View 2 shows the 1st Avenue approach to the bridge.
+
+View 1: George L. Balgue
+August, 1930
+
+
+View 2: P. L. Sperr
+August, 1936
 """
+    )
