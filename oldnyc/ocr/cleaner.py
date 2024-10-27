@@ -112,14 +112,22 @@ def merge_lines(txt: str) -> str:
 
 def is_negative(txt: str) -> bool:
     """Is this a negative / slide number?"""
-    return (
-        re.match(
-            r"(?:neg(?:ative)?|slide)[. #;:]*(?:no\.? )?(?:[-A-Z #;.:_]*)\d+(?:[-A-Z #;.:_0-9]*)\.?$",
-            txt,
-            flags=re.I,
-        )
-        is not None
+    m = re.match(
+        r"(?:neg(?:ative)?|slide)[. #;:]*(?:no\.? )?((?:[-A-Z #;.:_]*)\d+(?:[-A-Z #;.:_0-9]*))\.?$",
+        txt,
+        flags=re.I,
     )
+    if m is None:
+        return False
+    neg_id = m.group(1)
+    if "available" in neg_id:
+        return True
+    # Make sure there's not too many lower-case letters
+    n_lower = 0
+    for c in neg_id:
+        if c.islower():
+            n_lower += 1
+    return n_lower < 10
 
 
 def remove_neg(txt: str) -> str:

@@ -235,11 +235,16 @@ def test_is_negative():
         "Neg. No. A_349",
         "Neg. No. A 535",
         "Neg. No. A. 535",
+        "Neg. photograph available in G. Neg. No. 1",
     ]
     for text in texts:
         assert cleaner.is_negative(text), text
 
-    negatives = ["1931."]
+    negatives = [
+        "1931.",
+        "Neg. B-12 - B-15 Bridges - Highbridge",  # 730832b
+        "Neg. A-449  Sunnyside Yards.",  # 727293b, 727296b
+    ]
     for text in negatives:
         assert not cleaner.is_negative(text), text
 
