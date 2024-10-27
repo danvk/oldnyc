@@ -32,7 +32,7 @@ def main():
 
     old_site: dict[str, str] = json.load(open("data/site-ocr-2024.json"))
     site_sample = random.sample(
-        [back_id for _, back_id in photo_id_backs if back_id in old_site], 100
+        [back_id for _, back_id in photo_id_backs if back_id in old_site], 200
     )
 
     changes = []
@@ -42,6 +42,8 @@ def main():
         gpt = clean(site_text[id])
 
         score, d, adjusted = score_for_pair(site, gpt)
+        if d == 0:
+            continue
         out = {
             "photo_id": back_to_photo_id[id],
             "before": site,
@@ -57,12 +59,16 @@ def main():
         }
         changes.append(out)
 
+    changes = changes[:100]
     # changes.sort(key=lambda x: x["metadata"]["distance"], reverse=True)
-    task_out = csv.DictWriter(open("data/feedback/review/changes.txt", "w"), ["back_id", "BASE64"])
+    task_out = csv.DictWriter(
+        open("data/feedback/review/changes.txt", "w"), ["back_id", "distance", "BASE64"]
+    )
     task_out.writeheader()
     task_out.writerows(
         {
             "back_id": change["photo_id"],
+            "distance": change["metadata"]["distance"],
             "BASE64": base64.b64encode(json.dumps(change).encode("utf8")).decode("utf-8"),
         }
         for change in changes

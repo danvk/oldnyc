@@ -185,6 +185,11 @@ def run():
             back_text = ocr_site
             back_text_source = "site"
 
+        if back_text:
+            back_text = back_text.strip()
+            if "\n" in back_text:
+                back_text += "\n"
+
         counters[f"back_text_source: {back_text_source}"] += 1
 
         if outside_nyc(geographics):

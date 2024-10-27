@@ -235,6 +235,9 @@ def test_is_negative():
         # "756 D2 VIEW 1 - NEG. #3332"
         # "756 D3 " 2. NEG # 3333"
         # "756 D4 " 3 NEG # 3334"
+        # "Neg. No. A_349"
+        # "Neg. No. A 535"
+        # "Neg. No. A. 535"
     ]
     for text in texts:
         assert cleaner.is_negative(text), text
