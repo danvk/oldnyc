@@ -27,11 +27,11 @@ from collections import Counter
 data = json.load(open("data/feedback/corrections.json"))
 
 
-def photo_id_to_backing_id(photo_id):
+def photo_id_to_backing_id(photo_id: str):
     return re.sub(r"f?(?:-[a-z])?$", "b", photo_id, count=1)
 
 
-def clean(text):
+def clean(text: str):
     """Apply some mild cleaning: consolidate newlines, trim whitespace."""
     text = re.sub(r"\n\n\n*", "\n\n", text)
     text = re.sub(r"^ *", "", text, flags=re.M)

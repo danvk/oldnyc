@@ -40,14 +40,14 @@ assert "734557b" in back_to_front
 badwords = ["http", "www", "shit", "cunt", "fuck"]
 
 
-def likely_spam(text):
+def likely_spam(text: str):
     for word in badwords:
         if word in text:
             return True
     return False
 
 
-def unix_time_millis(date_str):
+def unix_time_millis(date_str: str):
     dt = dateutil.parser.parse(date_str)
     epoch = datetime.utcfromtimestamp(0)
     return int((dt - epoch).total_seconds() * 1000.0)

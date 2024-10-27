@@ -3,8 +3,9 @@ import pytest
 from oldnyc.geocode import grid
 
 
-def assert_close(ll1, ll2):
+def assert_close(ll1: tuple[float, float] | None, ll2: tuple[float, float]):
     """Assert that two latitude & longitude tuples are "close"."""
+    assert ll1 is not None
     assert ll1[0] == pytest.approx(ll2[0], 1e-6)
     assert ll1[1] == pytest.approx(ll2[1], 1e-6)
 

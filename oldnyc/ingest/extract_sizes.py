@@ -15,7 +15,7 @@ import sys
 from PIL import Image
 
 
-def image_size(path):
+def image_size(path: str):
     image = Image.open(path)
     width, height = image.size
     return (width, height)

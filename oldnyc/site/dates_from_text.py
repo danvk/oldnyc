@@ -143,7 +143,7 @@ def get_inline_year(text: str):
     return date_spans
 
 
-def get_dates_from_text(text: str):
+def get_dates_from_text(text: str) -> list[str]:
     # TODO: replace with Counter()
     global by_full_line, by_full_date1, by_full_date2, by_leadin, by_inline_my, by_inline_year
     full_dates1 = []  # match_full_date_datefinder(text)

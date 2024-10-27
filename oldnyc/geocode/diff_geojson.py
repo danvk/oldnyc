@@ -22,6 +22,7 @@ import argparse
 import json
 import math
 import random
+from typing import Optional, Sequence
 
 from haversine import haversine
 
@@ -48,12 +49,12 @@ def is_geometry_mismatch(a, b):
 def diff_geojson(
     before_file: str,
     after_file: str,
-    added_file,
-    dropped_file,
-    changed_file,
-    unchanged_file,
-    sample_set,
-    num_samples,
+    added_file: str,
+    dropped_file: str,
+    changed_file: str,
+    unchanged_file: str,
+    sample_set: Optional[Sequence[str]],
+    num_samples: int,
 ):
     before = json.load(open(before_file))["features"]
     old = {x["id"]: x for x in before}
