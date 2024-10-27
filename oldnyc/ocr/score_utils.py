@@ -16,7 +16,7 @@ import sys
 import Levenshtein
 
 
-def normalize_whitespace(text):
+def normalize_whitespace(text: str):
     s = re.compile(r"\s+")
     return " ".join([x for x in s.split(text) if x])
 

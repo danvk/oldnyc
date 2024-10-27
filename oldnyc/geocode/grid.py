@@ -3,6 +3,7 @@
 import csv
 import sys
 from collections import defaultdict
+from typing import Sequence
 
 import numpy as np
 
@@ -28,14 +29,14 @@ for row in csv.DictReader(open("data/intersections.csv")):
 AVE_TO_NUM = {"A": 0, "B": -1, "C": -2, "D": -3}
 
 
-def ave_to_num(ave):
+def ave_to_num(ave: str):
     if ave in AVE_TO_NUM:
         return AVE_TO_NUM[ave]
     else:
         return int(ave)
 
 
-def correl(xs_list, ys_list):
+def correl(xs_list: Sequence[float | int], ys_list: Sequence[float | int]):
     xs = np.array(xs_list, dtype=float)
     ys = np.array(ys_list, dtype=float)
     meanx = xs.mean()
@@ -79,7 +80,7 @@ def get_line(num_to_lls):
     return np.linalg.lstsq(xs, ys)[0]
 
 
-def extrapolate_intersection(avenue, street):
+def extrapolate_intersection(avenue: str, street: int):
     street_to_lls = by_avenue[avenue]
     ave_to_lls = by_street[street]
 
@@ -95,7 +96,7 @@ def extrapolate_intersection(avenue, street):
     return lat, lon
 
 
-def may_extrapolate(avenue, street):
+def may_extrapolate(avenue: str, street: str):
     """Is this a valid intersection to extrapolate?"""
     ave_num = ave_to_num(avenue)
     str_num = int(street)
@@ -116,7 +117,7 @@ num_unclaimed = 0
 num_extrapolated = 0
 
 
-def code(avenue, street):
+def code(avenue: str, street: str) -> tuple[float, float] | None:
     """Find the location of a current or historical intersection.
 
     `avenue` and `street` are strings, e.g. 'A' and '15'.

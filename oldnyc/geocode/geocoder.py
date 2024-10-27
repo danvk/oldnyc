@@ -12,7 +12,7 @@ import time
 import urllib
 import urllib.parse
 import urllib.request
-from typing import Any
+from typing import Any, Optional
 
 GeocodeUrlTemplate = "https://maps.googleapis.com/maps/api/geocode/json?sensor=false&address=%s"
 CacheDir = "geocache"
@@ -29,7 +29,7 @@ FakeResponse = """
 """
 
 
-def _cache_file(loc):
+def _cache_file(loc: str):
     key = base64.b64encode(loc.encode("utf8"))[:-2].decode("ascii")  # minus the trailing '=='
     key = key.replace("/", "-")  # '/' is bad in a file name.
     key = key[:255]  # longest possible filename
@@ -37,13 +37,13 @@ def _cache_file(loc):
 
 
 class Geocoder:
-    def __init__(self, network_allowed, wait_time, api_key=None):
+    def __init__(self, network_allowed: bool, wait_time: int, api_key: Optional[str] = None):
         self._network_allowed = network_allowed
         self._wait_time = wait_time
         self._last_fetch = 0
         self._api_key = api_key
 
-    def _check_cache(self, loc):
+    def _check_cache(self, loc: str):
         """Returns cached results for the location or None if not available."""
         cache_file = _cache_file(loc)
         if CacheDebug:
@@ -53,11 +53,11 @@ class Geocoder:
         except Exception:
             return None
 
-    def _cache_result(self, loc, result):
+    def _cache_result(self, loc: str, result: bytes):
         cache_file = _cache_file(loc)
         open(cache_file, "wb").write(result)
 
-    def _fetch(self, url):
+    def _fetch(self, url: str):
         """Attempts to fetch the URL. Does rate throttling. Returns XML."""
         now = time.time()
         diff = now - self._last_fetch
@@ -74,14 +74,14 @@ class Geocoder:
         f = urllib.request.urlopen(url + "&key=" + self._api_key)
         return f.read()
 
-    def _check_for_lat_lon(self, address):
+    def _check_for_lat_lon(self, address: str):
         """For addresses of the form "@(lat),(lon)", skip the geocoder."""
         m = re.match(r"@([-0-9.]+),([-0-9.]+)$", address)
         if m:
             return FakeResponse % (m.group(1), m.group(2))
 
     # TODO: get a more precise return type from the GMaps API
-    def Locate(self, address, check_cache=True) -> dict[str, Any] | None:
+    def Locate(self, address: str, check_cache=True) -> dict[str, Any] | None:
         """Returns a maps API JSON response for the address or None.
 
         Address should be a fully-qualified address, e.g.
@@ -117,7 +117,7 @@ class Geocoder:
 
             return None
         if not (from_cache or is_lat_lng) and response:
-            self._cache_result(address, data)
+            self._cache_result(address, data)  # type: ignore
 
         return response
 
