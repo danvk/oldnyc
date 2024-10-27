@@ -182,6 +182,7 @@ def clean(txt: str):
     txt = remove_neg(txt)
     txt = remove_warnings(txt)
     txt = merge_lines(txt)
+    txt = re.sub(r"\n{3,}", "\n\n", txt)  # remove excessive newlines
     return txt
 
 
