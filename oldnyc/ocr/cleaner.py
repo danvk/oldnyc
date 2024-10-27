@@ -14,6 +14,7 @@ import re
 import editdistance
 
 I_NUM_RE = re.compile(r"\bI(\d{3}|\d(?:st|nd|rd|th))", re.I)
+II_NUM_RE = re.compile(r"\bII(\d(?:st|nd|rd|th))", re.I)
 
 
 def swap_chars(txt: str) -> str:
@@ -21,6 +22,7 @@ def swap_chars(txt: str) -> str:
     txt = re.sub(r"\\&", "&", txt)
     txt = re.sub(r"''", '"', txt)
     txt = re.sub(I_NUM_RE, r"1\1", txt)
+    txt = re.sub(II_NUM_RE, r"11\1", txt)
     txt = txt.replace("IIth", "11th")
     return txt
 
@@ -149,9 +151,32 @@ def split_interior_whitespace(txt: str) -> str:
     return txt
 
 
+def remove_stamps(txt: str) -> str:
+    """Remove low-value text coming from stamps."""
+    if re.search(r"F\. S\. Lincoln", txt, flags=re.I):
+        lines = txt.split("\n")
+        recording = True
+        out = []
+        for line in lines:
+            if line.lower() == "copyright by":
+                continue
+            if line.lower() == "f. s. lincoln":
+                recording = False
+            elif not recording:
+                if not line or line == "Photographer" or line.startswith("114"):
+                    pass
+                elif not re.match(r"^[-A-Z .,/0-9]+$", line):
+                    recording = True
+            if recording:
+                out.append(line)
+        txt = "\n".join(out)
+    return txt
+
+
 def clean(txt: str):
     txt = swap_chars(txt)
     txt = split_interior_whitespace(txt)
+    txt = remove_stamps(txt)
     txt = remove_neg(txt)
     txt = remove_warnings(txt)
     txt = merge_lines(txt)

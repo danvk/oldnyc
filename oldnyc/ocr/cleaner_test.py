@@ -98,6 +98,10 @@ CREDIT LINE IMPERATIVE. 1920.
 NEG: 2870""",
     # 12
     """(1) Hoyt Street, east side, from Schermerhorn to State Streets, Also seen is 311-313 1/2 State Street, at the N.E. corner of Hoyt Street. May 25, 1929. P. L. Sperr.  (2) The same, showing the house which was built about 1874 by the Clark family whose estate comprise surrounding area. April 7, 1932. P. L. Sperr.  (3) The same, from a different angle. April 7, 1932. P. L. Sperr.""",
+    # 13
+    "Dime Savings Bank of Brooklyn\nmain office\n\nF. S. LINCOLN\nPhotographer\n114 EAST 32nd STREET\nNEW YORK CITY\n123 P.V.\n\nIF PUBLISHED, CREDIT\nIS TO BE GIVEN TO\nF. S. LINCOLN",
+    # 14 - 721373b
+    "COPYRIGHT BY\nF. S. LINCOLN\nPhotographer\n114 EAST 32nd STREET\nNEW YORK CITY\nTHS PRINT IS SOLD FOR REFERENCE ONLY. REPRODUCTION IS NOT AL OWE D IN ANY FORM WITHOUT WRITTEN P RMISS ON FROM F. S. LINCOLN\n955P4\nConstance Spry\n",
 ]
 
 
@@ -289,3 +293,8 @@ August, 1936
 
 (3) The same, from a different angle. April 7, 1932. P. L. Sperr."""
     )
+
+
+def test_remove_stamps():
+    assert cleaner.remove_stamps(samples[13]) == "Dime Savings Bank of Brooklyn\nmain office\n"
+    assert cleaner.remove_stamps(samples[14]) == "Constance Spry\n"
