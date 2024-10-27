@@ -153,19 +153,19 @@ def split_interior_whitespace(txt: str) -> str:
 
 def remove_stamps(txt: str) -> str:
     """Remove low-value text coming from stamps."""
-    if re.search(r"F\. S\. Lincoln", txt, flags=re.I):
+    if re.search(r"F\. S\. Lincoln", txt, flags=re.I) or "THE NEW YORK PUBLIC LIBRARY" in txt:
         lines = txt.split("\n")
         recording = True
         out = []
         for line in lines:
             if line.lower() == "copyright by":
                 continue
-            if line.lower() == "f. s. lincoln":
+            if line.lower() == "f. s. lincoln" or line == "THE NEW YORK PUBLIC LIBRARY":
                 recording = False
             elif not recording:
                 if not line or line == "Photographer" or line.startswith("114"):
                     pass
-                elif not re.match(r"^[-A-Z .,/0-9]+$", line):
+                elif not re.match(r"^[-A-Z .,&/0-9]+$", line):
                     recording = True
             if recording:
                 out.append(line)

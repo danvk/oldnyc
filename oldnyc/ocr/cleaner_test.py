@@ -102,6 +102,8 @@ NEG: 2870""",
     "Dime Savings Bank of Brooklyn\nmain office\n\nF. S. LINCOLN\nPhotographer\n114 EAST 32nd STREET\nNEW YORK CITY\n123 P.V.\n\nIF PUBLISHED, CREDIT\nIS TO BE GIVEN TO\nF. S. LINCOLN",
     # 14 - 721373b
     "COPYRIGHT BY\nF. S. LINCOLN\nPhotographer\n114 EAST 32nd STREET\nNEW YORK CITY\nTHS PRINT IS SOLD FOR REFERENCE ONLY. REPRODUCTION IS NOT AL OWE D IN ANY FORM WITHOUT WRITTEN P RMISS ON FROM F. S. LINCOLN\n955P4\nConstance Spry\n",
+    # 15 - 723104b
+    "St. Luke's Place, no.6. Mayor J.J. Walker's home.\nFoto Topics, Inc., 265 W.54th St., N.Y.C.\n\nTHE NEW YORK PUBLIC LIBRARY\nASTOR LENOX & TILDEN\nFOUNDATIONS\n\n315G\nLOCAL HISTORY\nAND GENEALOGY",
 ]
 
 
@@ -298,3 +300,7 @@ August, 1936
 def test_remove_stamps():
     assert cleaner.remove_stamps(samples[13]) == "Dime Savings Bank of Brooklyn\nmain office\n"
     assert cleaner.remove_stamps(samples[14]) == "Constance Spry\n"
+    assert (
+        cleaner.remove_stamps(samples[15])
+        == "St. Luke's Place, no.6. Mayor J.J. Walker's home.\nFoto Topics, Inc., 265 W.54th St., N.Y.C.\n"
+    )
