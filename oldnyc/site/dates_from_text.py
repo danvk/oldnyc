@@ -7,7 +7,6 @@ just some date mentioned in the photo.
 
 import re
 from datetime import datetime
-from typing import Generator
 
 import datefinder
 
