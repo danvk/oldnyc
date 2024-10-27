@@ -181,6 +181,7 @@ def run():
             back_text_source = "site"
 
         if back_text:
+            # This matches the text that's gone through the OCR correction tool.
             back_text = back_text.strip()
             if "\n" in back_text:
                 back_text += "\n"
