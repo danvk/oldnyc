@@ -244,6 +244,12 @@ def test_is_negative():
         assert not cleaner.is_negative(text), text
 
 
+# 730832b
+"Neg. B-12 - B-15 Bridges - Highbridge\nc. 1930\nE.L. Armbruster - photographer\n"
+# 727293b, 727296b
+"Neg. A-449  Sunnyside Yards."
+
+
 def test_fix_i17th():
     assert cleaner.swap_chars("April 19,I941") == "April 19,1941"
     assert cleaner.swap_chars("June IIth, 1913.") == "June 11th, 1913."
