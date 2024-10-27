@@ -96,6 +96,8 @@ P. L. Sperr.""",
 Board of Education, N.Y.C.
 CREDIT LINE IMPERATIVE. 1920.
 NEG: 2870""",
+    # 12
+    """(1) Hoyt Street, east side, from Schermerhorn to State Streets, Also seen is 311-313 1/2 State Street, at the N.E. corner of Hoyt Street. May 25, 1929. P. L. Sperr.  (2) The same, showing the house which was built about 1874 by the Clark family whose estate comprise surrounding area. April 7, 1932. P. L. Sperr.  (3) The same, from a different angle. April 7, 1932. P. L. Sperr.""",
 ]
 
 
@@ -249,15 +251,10 @@ def test_is_negative():
         assert not cleaner.is_negative(text), text
 
 
-# 730832b
-"Neg. B-12 - B-15 Bridges - Highbridge\nc. 1930\nE.L. Armbruster - photographer\n"
-# 727293b, 727296b
-"Neg. A-449  Sunnyside Yards."
-
-
 def test_fix_i17th():
     assert cleaner.swap_chars("April 19,I941") == "April 19,1941"
     assert cleaner.swap_chars("June IIth, 1913.") == "June 11th, 1913."
+    # II2th to II4th Streets,
     txt = cleaner.clean(samples[10])
     assert txt == (
         """Sixth Avenue, North from West 4th Street, after the removal of the "L".
@@ -282,4 +279,13 @@ August, 1930
 View 2: P. L. Sperr
 August, 1936
 """
+    )
+
+    assert (
+        cleaner.split_interior_whitespace(samples[12])
+        == """(1) Hoyt Street, east side, from Schermerhorn to State Streets, Also seen is 311-313 1/2 State Street, at the N.E. corner of Hoyt Street. May 25, 1929. P. L. Sperr.
+
+(2) The same, showing the house which was built about 1874 by the Clark family whose estate comprise surrounding area. April 7, 1932. P. L. Sperr.
+
+(3) The same, from a different angle. April 7, 1932. P. L. Sperr."""
     )

@@ -138,10 +138,14 @@ def remove_neg(txt: str) -> str:
 def split_interior_whitespace(txt: str) -> str:
     """Sometimes GPT models two-column text with interior whitespace.
 
-    We prefer distinct lines. This also normalizees leading/trailing whitespace.
+    We prefer distinct lines. This also normalizees leading/trailing whitespace and
+    splits up (1), (2), (3), etc. that are all on the same line.
     """
     txt = re.sub(r" {10,}", "\n", txt)
     txt = "\n".join(line.strip() for line in txt.split("\n"))
+    if txt.strip().count("\n") == 0 and " (2)" in txt:
+        # False positives: 715300b and 715979b
+        txt = re.sub(r" +(\(\d\))", r"\n\n\1", txt)
     return txt
 
 
@@ -155,10 +159,14 @@ def clean(txt: str):
 
 
 if __name__ == "__main__":
-    ocr = json.load(open("data/ocr-ocropus-2015.json"))
-    for k, txt in ocr.items():
-        print(k)
-        clean(txt)
+    ocr = json.load(open("data/gpt-ocr.json"))
+    n = 0
+    for k, r in ocr.items():
+        txt = clean(r["text"])
+        # if txt and txt.strip().count("\n") == 0 and " (2)" in txt:
+        if " (2)" in txt:
+            print(n, k, txt)
+            n += 1
         # print '%s:\n%s\n\n-----\n' % (k, clean(txt))
         # txt = clean(txt)
         # txt = '\n'.join('%2d %s' % (len(line), line) for line in txt.split('\n'))
