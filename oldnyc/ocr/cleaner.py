@@ -138,7 +138,12 @@ def split_interior_whitespace(txt: str) -> str:
 
 
 def clean(txt: str):
-    return merge_lines(remove_warnings(remove_neg(split_interior_whitespace(swap_chars(txt)))))
+    txt = swap_chars(txt)
+    txt = split_interior_whitespace(txt)
+    txt = remove_neg(txt)
+    txt = remove_warnings(txt)
+    txt = merge_lines(txt)
+    return txt
 
 
 if __name__ == "__main__":
