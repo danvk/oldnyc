@@ -71,7 +71,7 @@ Ap7-:  Wg ~E 33~4
     # 8: 731107b
     """Harlem River bridges--Willis Avenue Bridge: The Willis A Avenue (Bronx) Bridge over the Harlem River. It is also known as the 1st Avenue (Manhattan) Bridge.
 
-View 2 shows the 1st Avenue approach to the bridge.
+        View 2 shows the 1st Avenue approach to the bridge.
 
 View 1: George L. Balgue                          August, 1930
 

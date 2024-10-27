@@ -130,14 +130,15 @@ def remove_neg(txt: str) -> str:
 def split_interior_whitespace(txt: str) -> str:
     """Sometimes GPT models two-column text with interior whitespace.
 
-    We prefer distinct lines.
+    We prefer distinct lines. This also normalizees leading/trailing whitespace.
     """
-    return re.sub(r" {10,}", "\n", txt)
+    txt = re.sub(r" {10,}", "\n", txt)
+    txt = "\n".join(line.strip() for line in txt.split("\n"))
+    return txt
 
 
 def clean(txt: str):
-    # split_interior_whitespace
-    return merge_lines(remove_warnings(remove_neg(swap_chars(txt))))
+    return merge_lines(remove_warnings(remove_neg(split_interior_whitespace(swap_chars(txt)))))
 
 
 if __name__ == "__main__":
