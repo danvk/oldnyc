@@ -53,7 +53,7 @@ jobs:
     # TODO: remove the OCR shootout after the dust settles, it only really needs to be work once.
     - name: Run OCR shootout
       run: |
-        poetry run oldnyc/ocr/ocr_shootout.py
+        PYTHONPATH=. poetry run oldnyc/ocr/ocr_shootout.py
     - name: Check for diffs
       run: |
         git diff --exit-code data/

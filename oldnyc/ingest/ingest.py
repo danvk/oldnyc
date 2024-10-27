@@ -171,16 +171,11 @@ def run():
         back_text: str | None = None
         back_text_source: str | None = None
         if ocr_gpt:
-            if ocr_site:
-                if back_id in site_ocr_back_ids_to_keep:
-                    back_text = ocr_site
-                    back_text_source = "site"
-                else:
-                    back_text = ocr_gpt
-                    back_text_source = "gpt"
-            else:
-                back_text = ocr_gpt
-                back_text_source = "gpt"
+            back_text = ocr_gpt
+            back_text_source = "gpt"
+            if ocr_site and (back_id in site_ocr_back_ids_to_keep):
+                back_text = ocr_site
+                back_text_source = "site"
         elif ocr_site:
             back_text = ocr_site
             back_text_source = "site"
