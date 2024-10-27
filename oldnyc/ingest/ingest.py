@@ -167,16 +167,12 @@ def run():
         if back_id:
             counters["ocr: has back"] += 1
 
-        # TODO: dedupe branches
         back_text: str | None = None
         back_text_source: str | None = None
         if ocr_gpt:
             back_text = ocr_gpt
             back_text_source = "gpt"
-            if ocr_site and (back_id in site_ocr_back_ids_to_keep):
-                back_text = ocr_site
-                back_text_source = "site"
-        elif ocr_site:
+        if ocr_site and (not ocr_gpt or back_id in site_ocr_back_ids_to_keep):
             back_text = ocr_site
             back_text_source = "site"
 
