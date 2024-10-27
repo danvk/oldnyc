@@ -1,5 +1,8 @@
 #!/usr/bin/env python
-"""Which is better, on-site OCR or GPT?"""
+"""Compare GPT OCR to the existing OCR and decide which one to use for each item.
+
+See https://github.com/danvk/oldnyc/pull/146
+"""
 
 import base64
 import csv
