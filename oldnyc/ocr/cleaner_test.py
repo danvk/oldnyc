@@ -232,6 +232,9 @@ def test_is_negative():
         # "Neg. No. A_513"
         # "Neg # 603B 4x5 neg"
         # "Neg # 686 8x10 neg"
+        # "756 D2 VIEW 1 - NEG. #3332"
+        # "756 D3 " 2. NEG # 3333"
+        # "756 D4 " 3 NEG # 3334"
     ]
     for text in texts:
         assert cleaner.is_negative(text), text
