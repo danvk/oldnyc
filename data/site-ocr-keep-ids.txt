@@ -1032,6 +1032,9 @@
   "707745b": [
     "uniq_dates"
   ],
+  "707774b": [
+    "followup_manual"
+  ],
   "707778b": [
     "uniq_dates"
   ],
@@ -2047,9 +2050,6 @@
   "712528b": [
     "big_magic_cookie"
   ],
-  "712530b": [
-    "uniq_dates"
-  ],
   "712533b": [
     "spelling"
   ],
@@ -2278,9 +2278,6 @@
   "713732b": [
     "uniq_dates"
   ],
-  "713735b": [
-    "uniq_dates"
-  ],
   "713872b": [
     "spell_d25_manual"
   ],
@@ -2381,9 +2378,6 @@
   "714649b": [
     "uniq_dates"
   ],
-  "714652b": [
-    "big_magic_cookie"
-  ],
   "714661b": [
     "uniq_dates"
   ],
@@ -2392,9 +2386,6 @@
   ],
   "714718b": [
     "spelling"
-  ],
-  "714723b": [
-    "big_magic_cookie"
   ],
   "714724b": [
     "spelling"
@@ -2523,14 +2514,8 @@
   "715366b": [
     "uniq_dates"
   ],
-  "715377b": [
-    "big_magic_cookie"
-  ],
   "715378b": [
     "big_magic_cookie"
-  ],
-  "715381b": [
-    "uniq_dates"
   ],
   "715387b": [
     "big_magic_cookie",
@@ -4816,9 +4801,6 @@
   "731066b": [
     "big_magic_cookie"
   ],
-  "731075b": [
-    "big_magic_cookie"
-  ],
   "731082b": [
     "spelling"
   ],
@@ -4925,6 +4907,9 @@
   ],
   "732478b": [
     "uniq_dates"
+  ],
+  "732817b": [
+    "followup_manual"
   ],
   "732890b": [
     "big_change_manual"

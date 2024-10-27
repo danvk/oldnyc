@@ -143,19 +143,18 @@ def main():
     # 3. It has more unique dates than the GPT version.
     manual = dict[str, str]()
     keep_ids = defaultdict[str, list[str]](list)
-    with open("data/originals/ocr-big-movers.txt") as f:
-        for row in csv.DictReader(f, delimiter="\t"):
-            back_id = row["back_id"]
-            if row["Choice"] == "site":
-                keep_ids[back_id].append("big_change_manual")
-            manual[back_id] = row["Choice"]
-
-    with open("data/originals/ocr-spelld25.txt") as f:
-        for row in csv.DictReader(f, delimiter="\t"):
-            back_id = row["back_id"]
-            if row["Choice"] == "site":
-                keep_ids[back_id].append("spell_d25_manual")
-            manual[back_id] = row["Choice"]
+    manual_sources = [
+        ("data/originals/ocr-big-movers.txt", "big_change_manual"),
+        ("data/originals/ocr-spelld25.txt", "spell_d25_manual"),
+        ("data/originals/ocr-followup.txt", "followup_manual"),
+    ]
+    for src_file, label in manual_sources:
+        with open(src_file) as f:
+            for row in csv.DictReader(f, delimiter="\t"):
+                back_id = row["back_id"]
+                if row["Choice"] == "site":
+                    keep_ids[back_id].append(label)
+                manual[back_id] = row["Choice"]
 
     random.shuffle(both_ids)
     n_match = 0
