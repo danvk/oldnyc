@@ -50,7 +50,6 @@ jobs:
     - name: Check for diffs
       run: |
         git diff --exit-code data/
-        - name: Generate static site
     - name: Split records to photos
       run: |
         export PYTHONPATH=.
