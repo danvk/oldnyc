@@ -1,0 +1,517 @@
+Abingdon Square
+Abraham Kazan Street
+Abraham Place
+Absecon Road
+Academy Street
+Adam C Powell Boulevard
+Adam Clayton Powell Jr Boulevard
+Albany Street
+Allen Street
+Amsterdam Avenue
+Andes Road
+Ann Street
+Arden Street
+Asser Levy Place
+Astor Place
+Attorney Street
+Audubon Avenue
+Avenue A
+Avenue B
+Avenue C
+Avenue D
+Avenue of the Americas
+Avenue of the Finest
+Avenue of the Strongest
+Bank Street
+Barclay Street
+Barrow Street
+Barry Road
+Baruch Drive
+Baruch Place
+Battery Park Plaza
+Battery Place
+Baxter Street
+Bayard Street
+Beach Street
+Beak Street
+Bear Road
+Beaver Street
+Bedford Street
+Beekman Place
+Beekman Street
+Bennett Avenue
+Benson Street
+Bernard Baruch Way
+Bethune Street
+Bialystoker Place
+Bialystoker Street
+Bleecker Street
+Boat Basin
+Bogardus Place
+Bond Street
+Bowery
+Bowling Grn
+Bradhurst Avenue
+Bridge Street
+Broad Street
+Broadway
+Broadway Alley
+Broadway Terrace
+Broadway, East
+Broadway, West
+Broome Street
+Bussey Hollow Road
+Cabrini Boulevard
+Canal Street
+Carder Road
+Cardinal Hayes Place
+Carlisle Street
+Carmel-Kent Cliffs Road
+Carmine Street
+Cartigan Road
+Cathedral Pkwy
+Catherine Lane
+Catherine Slip
+Catherine Street
+Cedar Street
+Central Park N
+Central Park S
+Central Park W
+Centre Market Place
+Centre Street
+Chambers Street
+Charles Lane
+Charles Street
+Charlton Street
+Chatham Square
+Cherokee Place
+Cherry Street
+Chisum Place
+Chittenden Avenue
+Christopher Street
+Chrystie Street
+Church Street
+Claremont Avenue
+Clarkson Street
+Clayton Road
+Cleveland Place
+Cliff Street
+Clinton Street
+Coenties Alley
+Coenties Slip
+Collister Street
+Colonel Robert Magaw Place
+Columbia Street
+Columbus Avenue
+Columbus Circle
+Comfort Road
+Commerce Street
+Convent Avenue
+Cooper Square
+Cooper Street
+Cornelia Street
+Cortlandt Alley
+Cortlandt Street
+County Road 47
+Craig Road N
+Craig Road S
+Crosby Street
+Cumming Street
+de Peyster Street
+Delancey Street
+Delancey Street S
+Desbrosses Street
+Dey Street
+Division Road
+Division Street
+Dominick Street
+Dongan Place
+Donnellon Square
+Dover Street
+Downing Street
+Doyers Street
+Dr Martin Luther King Jr Boulevard
+Duane Street
+Duke Ellington Boulevard
+Dutch Street
+Dyckman Street
+E Broadway
+E End Avenue
+E Houston Street
+E River Drive
+E River Piers
+Earlybird Road
+East Road
+Edens Alley
+Edgar Allen Poe Street
+Edgar Street
+Edgecombe Avenue
+Edward M Morgan Place
+Eldridge Street
+Elizabeth Street
+Elk Street
+Ellwood Street
+End Avenue, East
+End Avenue, North
+End Avenue, South
+End Avenue, West
+Enright Road
+Ericsson Place
+Esplanade Gardens Plaza
+Essex Street
+Evans Road
+Exchange Alley
+Exchange Place
+Exchange Plaza
+Extra Place
+F D R Drive
+Fairview Avenue
+Fashion Avenue
+Fdr Drive Svc Road E
+Federal Plaza
+First Avenue Lp
+Fletcher Street
+Foley Square
+Forsyth Street
+Fort George Avenue
+Fort George Hill
+Fort Washington Avenue
+Frankfort Street
+Franklin Place
+Franklin Street
+Frederick Douglass Boulevard
+Frederick Douglass Circle
+Freedom Place
+Freeman Alley
+Front Street
+Fulton Street
+Gansevoort Street
+Gay Street
+Gold Street
+Gouverneur Lane
+Gouverneur Slip E
+Gouverneur Slip W
+Gouverneur Street
+Governors Is
+Governors Island
+Gracie Square
+Gracie Terrace
+Gramercy Park E
+Gramercy Park N
+Gramercy Park S
+Gramercy Park W
+Grand Army Plaza
+Grand Street
+Great Jones Street
+Greene Street
+Greenwich Avenue
+Greenwich Court
+Greenwich Mews
+Greenwich Street
+Gresham Road
+Grove Court
+Grove Street
+Gustave L Levy Place
+Half Moon Road
+Hamilton Place
+Hamilton Terrace
+Hancock Place
+Hanover Square
+Hanover Street
+Harlem River Drive
+Harrison Street
+Haven Avenue
+Haven Plaza
+Hay Road
+Hayes Place
+Henderson Place
+Henry Browne Block
+Henry Hudson Pkwy
+Henry Street
+Henshaw Street
+Hester Street
+Hillside Avenue
+Holland Tunl
+Horatio Street
+Houston Street, East
+Houston Street, West
+Howard Street
+Hubert Street
+Hudson Street
+Indian Road
+Interstate 78
+Irving Place
+Isham Street
+Jackson Street
+James Street
+Jane Street
+Jay Street
+Jefferson Street
+Jersey Street
+John Street
+Jones Street
+Joseph P Ward Street
+Jumel Place
+Jumel Terrace
+Kenmare Street
+Kett Monsr Francis J Plaza
+Kimball Road
+Kimmel Road
+King Street
+la Salle Street
+Lafayette Street
+Laguardia Place
+Laight Street
+Laurel Hill Terrace
+Legion Memorial Square
+Lenox Avenue
+Lenox Terrace Place
+Leonard Street
+Leroy Street
+Lewis Street
+Lexington Avenue
+Liberty Place
+Liberty Street
+Lincoln Center Plaza
+Lindel Lane
+Lispenard Street
+Little W 12th Street
+Little West Street
+Lloyd E Dickens Place
+Loisada Avenue
+Ludlow Street
+Luis Munos Marin Boulevard
+Luis Munoz Marin Boulevard
+Mac Dougal Street
+Macdougal Alley
+Macdougal Street
+Macombs Place
+Madison Avenue
+Madison Square N
+Madison Square Plaza
+Madison Street
+Magaw Place
+Maiden Lane
+Main Street
+Malcolm X Boulevard
+Mangin Street
+Manhattan Avenue
+Margaret Corbin Drive
+Market Slip
+Market Street
+Marketfield Street
+Martin Luther King Boulevard
+Mc Nally Plaza
+Meadowbrook Road
+Mercer Street
+Mill Lane
+Milligan Place
+Minetta Lane
+Minetta Street
+Mitchell Place
+Monroe Street
+Montgomery Street
+Moore Street
+Moore Street, North
+Morningside Avenue
+Morningside Drive
+Morris Street
+Morton Street
+Mosco Street
+Mott Street
+Mount Morris Park W
+Mulberry Street
+Munn Avenue, South
+Murray Street
+N 94th Street
+N End Avenue
+N Moore Street
+N River View Court
+Nagle Avenue
+Nassau Street
+Nathan D Perlman Place
+New Street
+New York Plaza
+Norfolk Street
+Odell Clark Place
+Old Broadway
+Old Mill Road
+Old School House Road
+Old Slip
+Oliver Street
+Orchard Street
+Overlook Terrace
+Owasco Road
+Paladino Avenue
+Park Avenue
+Park Avenue S
+Park Place
+Park Row
+Park Ter E
+Park Ter W
+Patchin Place
+Payson Avenue
+Pearl Street
+Peck Slip
+Pell Street
+Penn Plaza
+Peretz Square
+Perry Street
+Peter Cooper Road
+Pike Slip
+Pike Street
+Pine Street
+Pinehurst Avenue
+Pitt Street
+Platt Street
+Pleasant Avenue
+Plz Lafayette
+Pomander Walk
+Post Avenue
+Prince Street
+Randalls Is Road
+Reade Street
+Rector Place
+Rector Street
+Renwick Street
+Ridge Street
+River Drive, East
+River Piers, East
+River Road
+River Terrace
+River View Court, North
+Riverside Boulevard
+Riverside Drive
+Riverside Drive W
+Riverview Terrace
+Rivington Street
+Robert F Wagner Sr Place
+Rockefeller Plaza
+Rutgers Slip
+Rutgers Street
+Rutherford Place
+Ryders Alley
+S End Avenue
+S Munn Avenue
+S Street Viaduct
+S William Street
+Saint James Place
+Saint Marks Place
+Saint Nicholas Avenue
+Saint Nicholas Terrace
+Seaman Avenue
+Seminary Row
+Sheridan Square
+Sheriff Street
+Sherman Avenue
+Short Avenue
+Sickles Street
+Sniffen Court
+South Street
+Spring Street
+Spruce Street
+St Andrews Plaza
+St Clair Place
+St James Place
+St Johns Lane
+St Lukes Place
+St Nicholas Avenue
+St Nicholas Place
+St Vincents Square
+Staff Street
+Stanton Street
+Staple Street
+State Highway 42
+State Route 301
+State Route 343
+State Route 9a
+State Street
+State Street Plaza
+Stone Street
+Stonewall Place
+Street Viaduct, South
+Stuyvesant Loop E
+Stuyvesant Loop N
+Stuyvesant Loop W
+Stuyvesant Oval
+Stuyvesant Street
+Stuyvesant Walk
+Suffolk Street
+Sullivan Street
+Summer Street
+Sutton Pl S
+Sutton Place
+Sutton Square
+Sylvan Court
+Sylvan Place
+Sylvan Terrace
+Szold Place
+Tampa Road
+Taras Shevchenko Place
+Thames Street
+Thames Street, West
+Thayer Street
+Theatre Alley
+Thelonius Monk Circle
+Thomas Street
+Thompson Street
+Tiemann Place
+Times Square
+Times Square Plaza
+Transverse Road 4
+Triborough Plaza
+Trimble Place
+Trinity Place
+Tudor City Place
+U I Plaza, West
+Union Square E
+Union Square S
+Union Square W
+United Nations Plaza
+University Place
+US Route 9
+Vandam Street
+Vanderbilt Avenue
+Varick Street
+Vermilyea Avenue
+Vesey Street
+Vestry Street
+W Broadway
+W End Avenue
+W Houston Street
+W Thames Street
+W U I Plaza
+W Washington Place
+Wadsworth Avenue
+Wadsworth Terrace
+Walker Street
+Wall Street
+Wanamaker Place
+Wards Is Road
+Warren Street
+Washington Mews
+Washington Place
+Washington Place, West
+Washington Square E
+Washington Square N
+Washington Square S
+Washington Square W
+Washington Street
+Washington Terrace
+Water Street
+Watts Street
+Waverly Place
+Weehawken Street
+West Road
+West Street
+Wheeler Avenue
+White Street
+Whitehall Street
+Willett Street
+William Street
+William Street, South
+Williamsburg Brg
+Wooster Street
+Worth Street
+York Avenue
+York Street

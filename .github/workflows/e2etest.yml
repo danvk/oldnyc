@@ -50,10 +50,20 @@ jobs:
     - name: Check for diffs
       run: |
         git diff --exit-code data/
-    - name: Generate static site
+    - name: Split records to photos
       run: |
         export PYTHONPATH=.
         poetry run oldnyc/crop/records_to_photos.py data/images.ndjson data/crops.ndjson data/photos.ndjson
+        # TODO: remove the OCR shootout after the dust settles, it only really needs to be work once.
+    - name: Run OCR shootout
+      run: |
+        PYTHONPATH=. poetry run oldnyc/ocr/ocr_shootout.py
+    - name: Check for diffs
+      run: |
+        git diff --exit-code data/
+    - name: Generate static site
+      run: |
+        export PYTHONPATH=.
         echo '{"fixes": {}}' > data/feedback/fixes.json
         poetry run oldnyc/site/generate_static_site.py --leave-timestamps-unchanged
     - name: Check for diffs

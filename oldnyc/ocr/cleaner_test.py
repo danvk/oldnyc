@@ -81,6 +81,24 @@ May 26, 1935.
 F. L. Sperr
 NO REFROductions.
 """,
+    # 9
+    """54 and 56 (right to left) Irving Place, adjoining and north of the N. E. corner of E. 17th Street, showing two 3 story former private dwellings. That, with the bay window is now occupied by the Cooperative Cafeteria, an enterprise long associated with the wife of Norman Thomas, the Socialist.
+June 1938
+George D. Chinn
+NEG #3039
+""",
+    # 10
+    """Sixth Avenue, North from West 4th Street, after the removal of the "L".
+
+January I7th, 1939
+
+P. L. Sperr.""",
+    # 11
+    """379 Madison Street, north side and north west corner of Jackson Street, showing P.S. 12.
+
+Board of Education, N.Y.C.
+CREDIT LINE IMPERATIVE. 1920.
+NEG: 2870""",
 ]
 
 
@@ -90,6 +108,11 @@ def test_remove_warning():
 
     assert "CPDlr LLND IEERA1IvE" in samples[4]
     assert "CPDlr LLND IEERA1IvE" not in cleaner.remove_warnings(samples[4])
+
+    assert "CREDIT LINE IMPERATIVE" in samples[11]
+    assert "1920" in samples[11]
+    assert "1920" in cleaner.remove_warnings(samples[11])
+    assert "CREDIT LINE IMPERATIVE" not in cleaner.remove_warnings(samples[11])
 
 
 def test_merge_lines():
@@ -156,6 +179,84 @@ def test_partial_warning():
 
 (3) The same, seen from the south side, and showing the Park after completion of the work. The flower beds are planted with ivy. The large corner building, at Sixth Avenue and 42nd Street, is the department store of Stern Brothers. July 6, 1935. P. L. Sperr.
 """
+    )
+
+
+def test_remove_negative():
+    txt = cleaner.remove_neg(samples[9])
+    assert txt == (
+        """54 and 56 (right to left) Irving Place, adjoining and north of the N. E. corner of E. 17th Street, showing two 3 story former private dwellings. That, with the bay window is now occupied by the Cooperative Cafeteria, an enterprise long associated with the wife of Norman Thomas, the Socialist.
+June 1938
+George D. Chinn
+"""
+    )
+
+
+def test_is_negative():
+    texts = [
+        "NEG #3039",
+        "Negative No. 400",
+        "Neg. #1767",
+        "NEG # 3457",
+        "Neg. # 2246",
+        "Negative # 3956",
+        "Neg. # 2689",
+        "Neg. # 1458",
+        "Neg. # 2231",
+        "Neg. # 1106",
+        "Neg. #724",
+        "NEG# 3507",
+        "Neg. No. A-1074",
+        "Neg # 717",
+        "Negative No. 375.",
+        "NEG. # 4546",
+        # "Neg. H 829.",
+        "Slide #109",
+        "Neg. no. 45",
+        "Neg. # -1407",
+        "Neg #601 A",
+        "Neg # 601 C",
+        "NEG:#3553",
+        "NEG; 2822",
+        # "Neg. # 1786A",
+        # "D4 Neg. # 4041",
+        # "Neg. No. 98a",
+        # "Neg. Photostat #",
+        # "Negative Photostat # 1192",
+        # "NEG # 3613A",
+        # "D2 - NEG # 3268"
+        # "D2- NEGH # 3268"
+        # "D3 NEGH # 3277"
+        # "D3 NEG # 3277"
+        # "Neg # A.1378"
+        # "Neg. No. A_513"
+        # "Neg # 603B 4x5 neg"
+        # "Neg # 686 8x10 neg"
+        # "756 D2 VIEW 1 - NEG. #3332"
+        # "756 D3 " 2. NEG # 3333"
+        # "756 D4 " 3 NEG # 3334"
+        # "Neg. No. A_349"
+        # "Neg. No. A 535"
+        # "Neg. No. A. 535"
+    ]
+    for text in texts:
+        assert cleaner.is_negative(text), text
+
+    negatives = ["1931."]
+    for text in negatives:
+        assert not cleaner.is_negative(text), text
+
+
+def test_fix_i17th():
+    assert cleaner.swap_chars("April 19,I941") == "April 19,1941"
+    assert cleaner.swap_chars("June IIth, 1913.") == "June 11th, 1913."
+    txt = cleaner.clean(samples[10])
+    assert txt == (
+        """Sixth Avenue, North from West 4th Street, after the removal of the "L".
+
+January 17th, 1939
+
+P. L. Sperr."""
     )
 
 

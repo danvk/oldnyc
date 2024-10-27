@@ -13,10 +13,16 @@ import re
 
 import editdistance
 
+I_NUM_RE = re.compile(r"\bI(\d{3}|\d(?:st|nd|rd|th))", re.I)
+
 
 def swap_chars(txt: str) -> str:
     r"""Remove a few common Ocropusisms, like \& and ''"""
-    return re.sub(r"''", '"', re.sub(r"\\&", "&", txt))
+    txt = re.sub(r"\\&", "&", txt)
+    txt = re.sub(r"''", '"', txt)
+    txt = re.sub(I_NUM_RE, r"1\1", txt)
+    txt = txt.replace("IIth", "11th")
+    return txt
 
 
 # See https://github.com/danvk/oldnyc/issues/39
@@ -29,12 +35,16 @@ WARNINGS = [
 WARNING_RE_STR = "|".join(WARNINGS)
 
 
+YEAR_PAT = re.compile(r"\d{4}")
+
+
 def is_warning(line):
     line = re.sub(r"[,.]$", "", line)
     # line = line.upper()
     for base in WARNINGS:
         d = editdistance.eval(base, line)
-        if 2 * d < len(base):
+        # allow some wiggle room, but don't swallow anything that might be a date
+        if 2 * d < len(base) and not re.search(YEAR_PAT, line):
             return True
     return False
 
@@ -50,8 +60,9 @@ def remove_warnings(txt: str) -> str:
             word = warning.split(" ")[0] + " "
             if word in line:
                 idx = line.index(word)
+                # allow some wiggle room, but don't swallow anything that might be a date
                 d = editdistance.eval(warning, line[idx:])
-                if 2 * d < len(warning):
+                if 2 * d < len(warning) and not re.search(YEAR_PAT, line[idx:]):
                     lines[i] = line[: idx - 1]
     txt = "\n".join(lines)
     # As a final pass, remove all exact matches, wherever they occur
@@ -99,8 +110,25 @@ def merge_lines(txt: str) -> str:
     return txt
 
 
+def is_negative(txt: str) -> bool:
+    """Is this a negative / slide number?"""
+    return (
+        re.match(
+            r"(?:neg(?:ative)?|slide)[. #;:]*(?:no\.? )?(?:[A-Z]?-)?\d+(?: [A-Z])?\.?$",
+            txt,
+            flags=re.I,
+        )
+        is not None
+    )
+
+
+def remove_neg(txt: str) -> str:
+    """Remove text like "NEG #3039", "Slide #123", etc."""
+    return "\n".join(line for line in txt.split("\n") if not is_negative(line))
+
+
 def clean(txt: str):
-    return merge_lines(remove_warnings(swap_chars(txt)))
+    return merge_lines(remove_warnings(remove_neg(swap_chars(txt))))
 
 
 if __name__ == "__main__":

@@ -16,9 +16,12 @@ from datetime import datetime
 
 import dateutil.parser
 
-id_to_text = {}
+from oldnyc.feedback.feedback_types import FeedbackJson
+from oldnyc.site.site_data_type import SiteJson
+
+id_to_text: dict[str, str | None] = {}
 back_to_front = defaultdict(list)
-site_data = json.load(open("../oldnyc.github.io/data.json"))
+site_data: SiteJson = json.load(open("../oldnyc.github.io/data.json"))
 last_timestamp = site_data["ocr_time"]  # e.g. "2015-09-27 15:31:07.691170"
 for record in site_data["photos"]:
     photo_id = record["photo_id"]
@@ -55,7 +58,8 @@ num_spam = 0
 
 id_to_corrections = defaultdict(list)
 
-all_feedback = json.load(open("data/feedback/user-feedback.json"))["feedback"]
+feedback_json: FeedbackJson = json.load(open("data/feedback/user-feedback.json"))
+all_feedback = feedback_json["feedback"]
 for back_id, feedback in all_feedback.items():
     if "text" not in feedback:
         continue
@@ -66,15 +70,19 @@ for back_id, feedback in all_feedback.items():
         if row["timestamp"] <= last_time_ms:
             continue
 
-        row["text"] = text["text"]
-        if likely_spam(row["text"]):
+        text = text["text"]
+        if likely_spam(text):
             print(f"Spam: {back_id} / {row}")
             num_spam += 1
             continue
-        row["datetime"] = datetime.fromtimestamp(row["timestamp"] / 1000.0).strftime(
-            "%Y-%m-%dT%H:%M:%S"
+        dt = datetime.fromtimestamp(row["timestamp"] / 1000.0).strftime("%Y-%m-%dT%H:%M:%S")
+        id_to_corrections[back_id].append(
+            {
+                **row,
+                "text": text,
+                "datetime": dt,
+            }
         )
-        id_to_corrections[back_id].append(row)
 
 
 sys.stderr.write("# spam: %d\n" % num_spam)

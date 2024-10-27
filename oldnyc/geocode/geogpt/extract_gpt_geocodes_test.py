@@ -1,4 +1,4 @@
-from geogpt.extract_gpt_geocodes import patch_query
+from oldnyc.geocode.geogpt.extract_gpt_geocodes import patch_query
 
 
 def test_patch_query():
