@@ -68,4 +68,4 @@ docstring-code-line-length = "dynamic"
 typeCheckingMode = "standard"
 
 # This would be the next step:
-reportUnknownParameterType = "warning"
+# reportUnknownParameterType = "warning"
