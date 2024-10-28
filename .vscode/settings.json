@@ -6,7 +6,13 @@
     "[python]": {
         "diffEditor.ignoreTrimWhitespace": false,
         "editor.formatOnSave": true,
-        "editor.formatOnSaveMode": "modifications"
+        "editor.defaultFormatter": "charliermarsh.ruff",
+        "editor.codeActionsOnSave": {
+            "source.organizeImports.ruff": "always",
+        },
         // "editor.wordBasedSuggestions": "off"
+    },
+    "markdownlint.config": {
+        "code-block-style": false
     }
 }

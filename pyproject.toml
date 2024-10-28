@@ -1,0 +1,71 @@
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+name = "oldnyc"
+version = "1.0.0"
+description = "Mapping historic photos of New York City"
+license = "Apache-2.0"
+readme = "README.md"
+authors = [ "Dan Vanderkam <danvdk@gmail.com>" ]
+homepage = "https://oldnyc.org"
+repository = "https://github.com/danvk/oldnyc"
+package-mode = false
+
+[tool.poetry.dependencies]
+python = "^3.11"
+ruff = "^0.6.5"
+requests = "^2.32.3"
+pillow = "^10.4.0"
+chardet = "^5.2.0"
+editdistance = "^0.8.1"
+python-dateutil = "^2.9.0.post0"
+datefinder = "^0.7.3"
+python-dotenv = "^1.0.1"
+haversine = "^2.8.1"
+tqdm = "^4.66.5"
+pytest = "^8.3.3"
+numpy = "^2.1.2"
+levenshtein = "^0.26.0"
+jupyter = "^1.1.1"
+opencv-python = "^4.10.0.84"
+scipy = "^1.14.1"
+vulture = "^2.13"
+pyright = "^1.1.385"
+imagehash = "^4.3.1"
+
+[tool.ruff]
+line-length = 100
+indent-width = 4
+target-version = "py312"
+lint.select = [
+    # Pyflakes
+    "F",
+    # Pycodestyle
+    "E",
+    "W",
+    # isort
+    "I"
+]
+lint.extend-ignore = [
+    "E501"  # long line
+]
+
+[tool.ruff.format]
+indent-style = "space"
+skip-magic-trailing-comma = false
+line-ending = "auto"
+
+# Set the line length limit used when formatting code snippets in
+# docstrings.
+#
+# This only has an effect when the `docstring-code-format` setting is
+# enabled.
+docstring-code-line-length = "dynamic"
+
+[tool.pyright]
+typeCheckingMode = "standard"
+
+# This would be the next step:
+# reportUnknownParameterType = "warning"

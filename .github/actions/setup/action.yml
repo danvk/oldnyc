@@ -1,0 +1,19 @@
+# https://www.jameskerr.blog/posts/sharing-steps-in-github-action-workflows/
+name: Shared setup steps
+description: poetry install and caching
+
+runs:
+  using: "composite"
+  steps:
+    - name: Install poetry
+      shell: bash
+      run: pipx install poetry
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: "3.12"
+        cache: 'poetry'
+    - name: Install dependencies
+      shell: bash
+      run: |
+        poetry install
