@@ -4,11 +4,12 @@ import json
 import sys
 
 from oldnyc.geocode.geocode_types import Coder, Locatable
+from oldnyc.geocode.geogpt.generate_batch import GptResponse
 from oldnyc.item import Item
 
 
 class GptCoder(Coder):
-    queries: dict[str, str]
+    queries: dict[str, GptResponse]
 
     def __init__(self):
         # with open("geogpt/geocodes.json") as f:
@@ -32,12 +33,12 @@ class GptCoder(Coder):
             return None
         sys.stderr.write(f"GPT location: {r.id} {q}\n")
 
-        typ = q["type"]
-        if typ == "no_location":
+        if q["type"] == "no_location":
             return None
 
+        loc: Locatable | None = None
         boro = q["borough"]
-        if typ == "place_name":
+        if q["type"] == "place_name":
             self.num_poi += 1
             return None
             # place = q["place_name"]
@@ -46,27 +47,27 @@ class GptCoder(Coder):
             #     "source": place,
             #     "type": ["point_of_interest", "premise"],
             # }
-        elif typ == "address":
+        elif q["type"] == "address":
             self.num_address += 1
             num = q["number"]
             street = q["street"]
             address = f"{num} {street}"
-            loc = {
-                "address": f"{address}, {boro}, NY",
-                "source": address,
-                **q,
-                "type": ["street_address", "premise"],
-            }
-        elif typ == "intersection":
+            loc = Locatable(
+                address=f"{address}, {boro}, NY",
+                source=address,
+                type=["street_address", "premise"],
+                data=q,
+            )
+        elif q["type"] == "intersection":
             self.num_intersection += 1
             street1 = q["street1"]
             street2 = q["street2"]
-            loc = {
-                "address": f"{street1} & {street2}, {boro}, NY",
-                "source": f"{street1} & {street2}",
-                **q,
-                "type": "intersection",
-            }
+            loc = Locatable(
+                address=f"{street1} & {street2}, {boro}, NY",
+                source=f"{street1} & {street2}",
+                type="intersection",
+                data=q,
+            )
         sys.stderr.write(f"GPT location: {r.id} {loc}\n")
         return loc
 

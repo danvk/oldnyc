@@ -5,9 +5,10 @@ import dataclasses
 import json
 import re
 import sys
+from typing import Literal, TypedDict
 
 from oldnyc.ingest.util import BOROUGHS
-from oldnyc.item import Item, json_to_item
+from oldnyc.item import Item, load_items
 
 # See https://cookbook.openai.com/examples/batch_processing
 SYSTEM_INSTRUCTIONS = """
@@ -38,6 +39,33 @@ Respond in JSON containing the following information:
   type: "no location information"
 }
 """
+
+
+class GptIntersection(TypedDict):
+    type: Literal["intersection"]
+    street1: str
+    street2: str
+    borough: str
+
+
+class GptAddress(TypedDict):
+    type: Literal["address"]
+    number: str
+    street: str
+    borough: str
+
+
+class GptPlaceName(TypedDict):
+    type: Literal["place_name"]
+    place_name: str
+    borough: str
+
+
+class GptNoLocation(TypedDict):
+    type: Literal["no_location"]
+
+
+GptResponse = GptIntersection | GptAddress | GptPlaceName | GptNoLocation
 
 
 def make_gpt_request(r: Item, model: str) -> dict:
@@ -104,7 +132,7 @@ if __name__ == "__main__":
     (ids_file, model) = sys.argv[1:]
     ids = {line.strip() for line in open(ids_file)}
 
-    items = [json_to_item(line) for line in open("data/images.ndjson")]
+    items = load_items("data/images.ndjson")
     id_to_records = {r.id: r for r in items}
 
     for id in ids:
