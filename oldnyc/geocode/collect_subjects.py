@@ -3,8 +3,8 @@
 import sys
 from collections import Counter
 
-from coders import nyc_parks
-from data.item import Item, load_items
+from oldnyc.geocode.coders import nyc_parks
+from oldnyc.item import Item, load_items
 
 
 def print_names(items: list[Item]):
