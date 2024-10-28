@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-"""TODO: what does this do? Can it be deleted?"""
+"""TODO: what does this "fix"? Is it still needed? Can it be deleted?"""
 
 import csv
 import json
