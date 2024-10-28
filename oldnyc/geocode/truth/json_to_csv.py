@@ -1,6 +1,6 @@
 #!/usr/bin/env python
-import json
 import csv
+import json
 import sys
 
 
