@@ -6,6 +6,7 @@ import csv
 import dataclasses
 import json
 import re
+import sys
 from collections import Counter
 
 from tqdm import tqdm
@@ -34,13 +35,24 @@ def sort_uniq(xs: list[str]) -> list[str]:
 
 
 TRISTATE = {"New York", "New Jersey", "Connecticut"}
+OTHER_OUTSIDE = {
+    "West (U.S.)",
+    "Southwest, New",
+    "Nome (Alaska)",
+    "Cumberland (Md.)",
+    "Harpers Ferry (W. Va.)",
+}
 
 
 def outside_nyc(geographics: list[str]) -> bool:
     for g in geographics:
-        if g in STATES and g not in TRISTATE:
+        if (g in STATES and g not in TRISTATE) or g in OTHER_OUTSIDE:
             return True
     return False
+
+
+def strip_punctuation(s: str) -> str:
+    return re.sub(r"[^\w]", "", s)
 
 
 def run():
@@ -116,9 +128,30 @@ def run():
 
         if title != title2:
             counters["mismatch: title mismatch"] += 1
-            # print("---")
-            # print(title)
-            # print(title2)
+            if title == title2 + ".":
+                counters["title mismatch: drop dot"] += 1
+            elif title2 == title + "]":
+                counters["title mismatch: add bracket"] += 1
+            elif strip_punctuation(title).lower() == strip_punctuation(title2).lower():
+                counters["title mismatch: other punctuation"] += 1
+            elif not title2.isascii():
+                counters["title mismatch: non-ascii"] += 1
+            elif title == "No Title":
+                counters["title mismatch: add title"] += 1
+                # print("---", id, "---")
+                # print(title)
+                # print(title2)
+            elif "Directories" in topics or "directory" in title2.lower():
+                counters["title mismatch: directory"] += 1
+            elif outside_nyc(geographics):
+                counters["title mismatch: outside nyc"] += 1
+            elif title2.replace(" and ", "") == title:
+                counters["title mismatch: add and"] += 1
+            else:
+                counters["title mismatch: other"] += 1
+                # print("---", id, "---")
+                # print(title)
+                # print(title2)
 
         mods_detail = mods_details.get(uuid)
         # TODO: store as array
@@ -188,7 +221,7 @@ def run():
         if outside_nyc(geographics):
             counters["filtered: outside nyc"] += 1
             continue
-        if "Directories" in topics:
+        if ("Directories" in topics) or ("directory" in title2.lower()):
             counters["filtered: directory"] += 1
             continue
 
@@ -214,7 +247,7 @@ def run():
 
     for k in sorted(counters.keys()):
         v = counters[k]
-        print(f"{v}\t{k}")
+        sys.stderr.write(f"{v}\t{k}\n")
 
 
 if __name__ == "__main__":
