@@ -221,7 +221,7 @@ def run():
         if outside_nyc(geographics):
             counters["filtered: outside nyc"] += 1
             continue
-        if "Directories" in topics:
+        if ("Directories" in topics) or ("directory" in title2.lower()):
             counters["filtered: directory"] += 1
             continue
 
