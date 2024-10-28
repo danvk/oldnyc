@@ -26,7 +26,8 @@
         "url": "https://digitalcollections.nypl.org/items/510d47dd-9946-a3d9-e040-e00a18064a99",
         "source": "localturk",
         "geocoding_notes": ""
-      }
+      },
+      "geometry": null
     },
     {
       "type": "Feature",
@@ -36,7 +37,8 @@
         "url": "https://digitalcollections.nypl.org/items/510d47dd-6f20-a3d9-e040-e00a18064a99",
         "source": "localturk",
         "geocoding_notes": "This intersection no longer exists, demolished for Laguardia?"
-      }
+      },
+      "geometry": null
     },
     {
       "type": "Feature",
@@ -182,7 +184,8 @@
         "url": "https://digitalcollections.nypl.org/items/a44288b4-9c00-b31f-e040-e00a18060314",
         "source": "localturk",
         "geocoding_notes": "Clinton Avenue isn't very long, but there's no cross street."
-      }
+      },
+      "geometry": null
     },
     {
       "type": "Feature",
@@ -226,7 +229,8 @@
         "url": "https://digitalcollections.nypl.org/items/510d47e2-1464-a3d9-e040-e00a18064a99",
         "source": "localturk",
         "geocoding_notes": ""
-      }
+      },
+      "geometry": null
     },
     {
       "type": "Feature",
@@ -491,7 +495,8 @@
         "url": "https://digitalcollections.nypl.org/items/b4afdefd-4add-146a-e040-e00a180610a2",
         "source": "localturk",
         "geocoding_notes": "No obvious information about Jay Bee Syrup Co in the Bronx"
-      }
+      },
+      "geometry": null
     },
     {
       "type": "Feature",
@@ -535,7 +540,8 @@
         "url": "https://digitalcollections.nypl.org/items/b4afdefd-4c3b-146a-e040-e00a180610a2",
         "source": "localturk",
         "geocoding_notes": "Possible that there's some writing on the bottom. Or maybe there's additional information about what the \"18377\" means?"
-      }
+      },
+      "geometry": null
     },
     {
       "type": "Feature",
@@ -1225,7 +1231,8 @@
         "url": "https://digitalcollections.nypl.org/items/510d47dd-2fa7-a3d9-e040-e00a18064a99",
         "source": "localturk",
         "geocoding_notes": "Some research into where in Central Park, maybe? Maybe there's a list of all overpasses/bridges?"
-      }
+      },
+      "geometry": null
     },
     {
       "type": "Feature",
@@ -1289,7 +1296,7 @@
         ]
       },
       "properties": {
-        "title": "Bryna Court Apartment; Lennie's Café: 195 Prospect Park West-14th St-15 St., Brooklyn",
+        "title": "Bryna Court Apartment; Lennie's Caf\u00e9: 195 Prospect Park West-14th St-15 St., Brooklyn",
         "url": "https://digitalcollections.nypl.org/items/b4afdefd-4c6f-146a-e040-e00a180610a2",
         "source": "localturk",
         "geocoding_notes": ""
@@ -1745,7 +1752,8 @@
         "url": "https://digitalcollections.nypl.org/items/510d47dd-8bbe-a3d9-e040-e00a18064a99",
         "source": "localturk",
         "geocoding_notes": "Not clear where in Manhattan this is, but there must be a specific place where these railroads came in. https://en.wikipedia.org/wiki/New_York,_New_Haven_and_Hartford_Railroad#/map/0"
-      }
+      },
+      "geometry": null
     },
     {
       "type": "Feature",
@@ -2061,7 +2069,8 @@
         "url": "https://digitalcollections.nypl.org/items/510d47e2-05ba-a3d9-e040-e00a18064a99",
         "source": "localturk",
         "geocoding_notes": "The Spuyten Duyvil Parkway is now part of the Henry Hudson Parkway (https://kingsbridgehistoricalsociety.org/forums/topic/spuyten-duyvil-henry-hudson-parkways/). The backing text says this is in Riverdale, but unclear exactly where."
-      }
+      },
+      "geometry": null
     },
     {
       "type": "Feature",
@@ -2377,7 +2386,8 @@
         "url": "https://digitalcollections.nypl.org/items/510d47dd-a146-a3d9-e040-e00a18064a99",
         "source": "localturk",
         "geocoding_notes": "no specifics about which school"
-      }
+      },
+      "geometry": null
     },
     {
       "type": "Feature",
@@ -2438,7 +2448,8 @@
         "url": "https://digitalcollections.nypl.org/items/510d47dc-bc7c-a3d9-e040-e00a18064a99",
         "source": "localturk",
         "geocoding_notes": "\"Van Cortlandt Park\" is pretty big"
-      }
+      },
+      "geometry": null
     },
     {
       "type": "Feature",
@@ -2448,7 +2459,8 @@
         "url": "https://digitalcollections.nypl.org/items/510d47dd-9d2d-a3d9-e040-e00a18064a99",
         "source": "localturk",
         "geocoding_notes": "No cross street"
-      }
+      },
+      "geometry": null
     },
     {
       "type": "Feature",
@@ -3121,7 +3133,8 @@
         "url": "https://digitalcollections.nypl.org/items/510d47dd-5cfa-a3d9-e040-e00a18064a99",
         "source": "localturk",
         "geocoding_notes": "There's a York & Washington in Brooklyn, near 226 Washington. I'm not sure there's a York Street anywhere near a Washington Street in Manhattan."
-      }
+      },
+      "geometry": null
     },
     {
       "type": "Feature",

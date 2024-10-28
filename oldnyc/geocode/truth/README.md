@@ -12,7 +12,7 @@ poetry run oldnyc/geocode/geocode.py --images_ndjson data/images.ndjson --output
 poetry run oldnyc/geocode/truth/json_to_csv.py <(gshuf data/images.ndjson | head -500) /tmp/id-to-location.json data/geocode/random500.csv
 localturk -r --var GOOGLE_MAPS_API_KEY="..." template.html random500.csv out.csv
 poetry run oldnyc/geocode/truth/fix_truth.py data/geocode/out.csv data/geocode/truth.csv
-poetry run oldnyc/geocode/truth/generate_truth_gtjson.py | jq . > data/geocode/truth.geojson
+poetry run oldnyc/geocode/truth/generate_truth_gtjson.py > data/geocode/truth.geojson
 jq -r '.features[].id' data/geocode/truth.geojson > data/geocode/truth-ids.txt
 ```
 

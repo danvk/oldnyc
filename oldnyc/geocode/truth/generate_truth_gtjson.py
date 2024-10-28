@@ -84,7 +84,12 @@ if __name__ == "__main__":
 
     fc = pygeojson.FeatureCollection(localturk_features + surveyor_features)
     # fc = pygeojson.FeatureCollection(surveyor_features)
-    print(pygeojson.dumps(fc))
+    # workaround for https://github.com/hawkaa/pygeojson/issues/18
+    out = json.loads(pygeojson.dumps(fc))
+    for f in out["features"]:
+        if "geometry" not in f:
+            f["geometry"] = None
+    print(json.dumps(out, indent=2))
 
     sys.stderr.write(f"Generated {len(fc.features)} truth features:\n")
     sys.stderr.write(f"  {len(localturk_features)} from localturk\n")
