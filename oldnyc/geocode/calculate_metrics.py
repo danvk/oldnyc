@@ -65,6 +65,7 @@ def tally_stats(truth_features, computed_features):
             "location reason",
             "geocode technique",
             "location string",
+            "truth source",
             "notes",
         ]
     )
@@ -110,7 +111,8 @@ def tally_stats(truth_features, computed_features):
                     geocode_reason,
                     technique,
                     search_term,
-                    truth_feature["properties"]["geocoding_notes"],
+                    truth_feature["properties"]["source"],
+                    truth_feature["properties"].get("geocoding_notes", ""),
                 )
             ]
         )
