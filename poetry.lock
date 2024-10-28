@@ -1919,6 +1919,17 @@ files = [
 ]
 
 [[package]]
+name = "pygeojson"
+version = "0.2.0"
+description = "GeoJSON library for Python with types"
+optional = false
+python-versions = ">=3.7,<4.0"
+files = [
+    {file = "pygeojson-0.2.0-py3-none-any.whl", hash = "sha256:25d627888d613c85138d09a910ad8500d1dbdb0a5d5ef45e55146300f897f8a2"},
+    {file = "pygeojson-0.2.0.tar.gz", hash = "sha256:850fe3f60a140508e26ddf7344e65bb8b28c9671c8b36d249189d648bc15ea6c"},
+]
+
+[[package]]
 name = "pygments"
 version = "2.18.0"
 description = "Pygments is a syntax highlighting package written in Python."
@@ -3064,4 +3075,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.11"
-content-hash = "0d125e097fd0fe6774a04aab27204d8614a1a1415238ce25658b73976b75d9e6"
+content-hash = "bab6562b862b38bffbeeaf63d7deb293c89a44f1b6c5c8082dc133a77085dfdc"
