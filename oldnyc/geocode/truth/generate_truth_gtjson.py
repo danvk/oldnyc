@@ -7,7 +7,7 @@ import json
 if __name__ == "__main__":
     id_to_data = {}
     prev_ids = set()
-    for row in csv.DictReader(open("locatable_turk/truth.csv")):
+    for row in csv.DictReader(open("data/geocode/truth.csv")):
         id_ = row["id"]
         if id_ in prev_ids:
             raise ValueError(f"Duplicate ID: {id_}")
