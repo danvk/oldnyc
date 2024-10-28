@@ -1,0 +1,3143 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9974008,
+          40.7214605
+        ]
+      },
+      "id": "720724f",
+      "properties": {
+        "title": "Manhattan: Kenmare Street - Cleveland Place",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-427f-a3d9-e040-e00a18064a99",
+        "geocoding_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "id": "731839f",
+      "properties": {
+        "title": "Fulton fish market in Manhattan - [Sisters observing fishermen weighing the day's catch.]",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-9946-a3d9-e040-e00a18064a99",
+        "geocoding_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "id": "726438f",
+      "properties": {
+        "title": "Queens: Cross Island Bouleva - 6th Avenue",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-6f20-a3d9-e040-e00a18064a99",
+        "geocoding_notes": "This intersection no longer exists, demolished for Laguardia?"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.89193809999999,
+          40.8246707
+        ]
+      },
+      "id": "465522",
+      "properties": {
+        "title": "A-Re-Co Court, Westchester Avenue and Southern Boulevard. [Bronx]",
+        "url": "https://digitalcollections.nypl.org/items/510d47db-9eef-a3d9-e040-e00a18064a99",
+        "geocoding_notes": "not a photograph"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9958183,
+          40.7166571
+        ]
+      },
+      "id": "716728f",
+      "properties": {
+        "title": "Manhattan: Bowery - Canal Street",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-234c-a3d9-e040-e00a18064a99",
+        "geocoding_notes": "how is this missed?"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.18136853226319,
+          40.565231170756014
+        ]
+      },
+      "id": "731586f",
+      "properties": {
+        "title": "Farming on Staten Island",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-974c-a3d9-e040-e00a18064a99",
+        "geocoding_notes": "location only in backing text"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9322566696808,
+          40.815591343765014
+        ]
+      },
+      "id": "734246f",
+      "properties": {
+        "title": "Harlem River - Bronx - 140th to 145th Streets (East) - [American Bread Wrapper Company.]",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-ac00-a3d9-e040-e00a18064a99",
+        "geocoding_notes": "Harlem River and a street"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.006372,
+          40.739618
+        ]
+      },
+      "id": "711160f",
+      "properties": {
+        "title": "Manhattan: 12th Street (West) - 9th Avenue",
+        "url": "https://digitalcollections.nypl.org/items/510d47dc-f7d0-a3d9-e040-e00a18064a99",
+        "geocoding_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9441544,
+          40.809721
+        ]
+      },
+      "id": "731531f",
+      "properties": {
+        "title": "Ethiopian Hebrews Series, No. 44",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-96de-a3d9-e040-e00a18064a99",
+        "geocoding_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9380475,
+          40.8475479
+        ]
+      },
+      "id": "700226f",
+      "properties": {
+        "title": "Bronx: 177th Street - Broadway",
+        "url": "https://digitalcollections.nypl.org/items/510d47dc-a22d-a3d9-e040-e00a18064a99",
+        "geocoding_notes": "Card says Bronx / Bronx Park but this intersection seems to be in Manhattan."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.98644,
+          40.755822
+        ]
+      },
+      "id": "713053f",
+      "properties": {
+        "title": "Manhattan: 42nd Street (West) - Broadway",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-069c-a3d9-e040-e00a18064a99",
+        "geocoding_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "id": "2040770",
+      "properties": {
+        "title": "Anniversary Day -- Clinton Avenue",
+        "url": "https://digitalcollections.nypl.org/items/a44288b4-9c00-b31f-e040-e00a18060314",
+        "geocoding_notes": "Clinton Avenue isn't very long, but there's no cross street."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.002443,
+          40.738768
+        ]
+      },
+      "id": "711182f",
+      "properties": {
+        "title": "Manhattan: 13th Street (West) - Greenwich Avenue",
+        "url": "https://digitalcollections.nypl.org/items/510d47dc-f7fc-a3d9-e040-e00a18064a99",
+        "geocoding_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.112172,
+          40.5831897
+        ]
+      },
+      "id": "728828f",
+      "properties": {
+        "title": "Richmond: Flagg Place - Toot Hill Road",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-81c6-a3d9-e040-e00a18064a99",
+        "geocoding_notes": "Flagg Place & Todt Hill Road, Staten Island, NY, USA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "id": "1516919",
+      "properties": {
+        "title": "Social conditions: tenements",
+        "url": "https://digitalcollections.nypl.org/items/510d47e2-1464-a3d9-e040-e00a18064a99",
+        "geocoding_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.14409,
+          40.634257
+        ]
+      },
+      "id": "729022f",
+      "properties": {
+        "title": "Richmond: Innis Street - John Street",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-834a-a3d9-e040-e00a18064a99",
+        "geocoding_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9990705,
+          40.7200442
+        ]
+      },
+      "id": "720079f",
+      "properties": {
+        "title": "Manhattan: Grand Street - Lafayette Street",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-3d75-a3d9-e040-e00a18064a99",
+        "geocoding_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.99094128703307,
+          40.717270155039934
+        ]
+      },
+      "id": "720096f",
+      "properties": {
+        "title": "Manhattan: Grand Street - Allen Street",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-3d97-a3d9-e040-e00a18064a99",
+        "geocoding_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.99888039999999,
+          40.7363695
+        ]
+      },
+      "id": "1507739",
+      "properties": {
+        "title": "12th Street (West) #130",
+        "url": "https://digitalcollections.nypl.org/items/510d47e1-feff-a3d9-e040-e00a18064a99",
+        "geocoding_notes": "Just an address, not clear if it's still the same place."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.995474,
+          40.75965
+        ]
+      },
+      "id": "713115f",
+      "properties": {
+        "title": "Manhattan: 42nd Street - 10th Avenue",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-0718-a3d9-e040-e00a18064a99",
+        "geocoding_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.98380700000001,
+          40.752787
+        ]
+      },
+      "id": "712656f",
+      "properties": {
+        "title": "Manhattan: 40th Street (West) - 5th Avenue",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-0386-a3d9-e040-e00a18064a99",
+        "geocoding_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.93572427116393,
+          40.612333819167944
+        ]
+      },
+      "id": "702720f",
+      "properties": {
+        "title": "Brooklyn: 35th Street (East) - Avenue R",
+        "url": "https://digitalcollections.nypl.org/items/510d47dc-c24e-a3d9-e040-e00a18064a99",
+        "geocoding_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9803562883606,
+          40.68875789389966
+        ]
+      },
+      "id": "704508f",
+      "properties": {
+        "title": "Brooklyn: Fulton Street - Hudson Avenue",
+        "url": "https://digitalcollections.nypl.org/items/510d47dc-d042-a3d9-e040-e00a18064a99",
+        "geocoding_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.00646549336243,
+          40.704371232008455
+        ]
+      },
+      "id": "723965f",
+      "properties": {
+        "title": "Manhattan: Wall Street - South Street",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-5bd2-a3d9-e040-e00a18064a99",
+        "geocoding_notes": "40 Wall St is mentioned in the description, but it's actually quite distant."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.87504315211487,
+          40.736966482474266
+        ]
+      },
+      "id": "727133f",
+      "properties": {
+        "title": "Queens: Justice Avenue - 54th Avenue",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-7487-a3d9-e040-e00a18064a99",
+        "geocoding_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.00612887178038,
+          40.744467765411365
+        ]
+      },
+      "id": "711506f",
+      "properties": {
+        "title": "Manhattan: 10th Avenue - 44th Street",
+        "url": "https://digitalcollections.nypl.org/items/510d47dc-fa89-a3d9-e040-e00a18064a99",
+        "geocoding_notes": "The cross-street in the title is incorrect. It's 18th street, not 44th street."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.96996002380371,
+          40.753105659103085
+        ]
+      },
+      "id": "1507953",
+      "properties": {
+        "title": "47th Street (East) #231 - Second Avenue looking east",
+        "url": "https://digitalcollections.nypl.org/items/510d47e1-ffd5-a3d9-e040-e00a18064a99",
+        "geocoding_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.98561917063904,
+          40.7484842657162
+        ]
+      },
+      "id": "708560f",
+      "properties": {
+        "title": "Manhattan: 5th Avenue - 33rd Street",
+        "url": "https://digitalcollections.nypl.org/items/510d47dc-e380-a3d9-e040-e00a18064a99",
+        "geocoding_notes": "The cross-streets are for the Empire State building, not the location where the photo is taken from."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.94379219157102,
+          40.576283759303266
+        ]
+      },
+      "id": "706699f",
+      "properties": {
+        "title": "Brooklyn: Sheepshead Bay",
+        "url": "https://digitalcollections.nypl.org/items/510d47dc-b445-a3d9-e040-e00a18064a99",
+        "geocoding_notes": "Most-precise location is \"Manhattan Beach\""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.99157615211487,
+          40.70008753556121
+        ]
+      },
+      "id": "704820f",
+      "properties": {
+        "title": "Brooklyn: Henry Street - Middagh Street",
+        "url": "https://digitalcollections.nypl.org/items/510d47dc-d2b2-a3d9-e040-e00a18064a99",
+        "geocoding_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "id": "3984737",
+      "properties": {
+        "title": "Tenements & vacant storefronts; Jay Bee Syrup Co.: 3426 [street unknown], Bronx",
+        "url": "https://digitalcollections.nypl.org/items/b4afdefd-4add-146a-e040-e00a180610a2",
+        "geocoding_notes": "No obvious information about Jay Bee Syrup Co in the Bronx"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.8474252465229,
+          40.8432344588248
+        ]
+      },
+      "id": "700941f",
+      "properties": {
+        "title": "Bronx: Tremont Avenue (East - Silver Street",
+        "url": "https://digitalcollections.nypl.org/items/510d47dc-a7c3-a3d9-e040-e00a18064a99",
+        "geocoding_notes": "Haight Avenue does not intersect East Tremont Ave., at least not any more."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.89059326085206,
+          40.83618368624727
+        ]
+      },
+      "id": "700523f",
+      "properties": {
+        "title": "Bronx: Boston Road - 173rd Street (East)",
+        "url": "https://digitalcollections.nypl.org/items/510d47dc-a47f-a3d9-e040-e00a18064a99",
+        "geocoding_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "id": "3985087",
+      "properties": {
+        "title": "Tenement row, Upper East Side: Manhattan",
+        "url": "https://digitalcollections.nypl.org/items/b4afdefd-4c3b-146a-e040-e00a180610a2",
+        "geocoding_notes": "Possible that there's some writing on the bottom. Or maybe there's additional information about what the \"18377\" means?"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.95948259259033,
+          40.68287532006393
+        ]
+      },
+      "id": "706405f",
+      "properties": {
+        "title": "Brooklyn: Putnam Avenue - Irving Place",
+        "url": "https://digitalcollections.nypl.org/items/510d47dc-b1f9-a3d9-e040-e00a18064a99",
+        "geocoding_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.01126479999999,
+          40.7068758
+        ]
+      },
+      "id": "716833f",
+      "properties": {
+        "title": "Manhattan: Broad Street - Wall Street",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-241d-a3d9-e040-e00a18064a99",
+        "geocoding_notes": "subject/name: New York Stock Exchange\n"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.086732,
+          40.634663
+        ]
+      },
+      "id": "104762",
+      "properties": {
+        "title": "Staten Island Hospital New Building, Castleton Ave. Staten Island, N.Y. [old S.R. Smith Infirmary visible in background]",
+        "url": "https://digitalcollections.nypl.org/items/510d47d9-cb8b-a3d9-e040-e00a18064a99",
+        "geocoding_notes": "Got address of Staten Island Hospital from this news clip of demolition! https://www.youtube.com/watch?v=LxH6VS8cHmQ"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.21227427116395,
+          40.55258632946352
+        ]
+      },
+      "id": "729556f",
+      "properties": {
+        "title": "Richmond: Rossville Avenue - Knesel Street",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-8778-a3d9-e040-e00a18064a99",
+        "geocoding_notes": "\"Grover Street\" doesn't seem to exist any more."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.96185670765685,
+          40.80397879245396
+        ]
+      },
+      "id": "716093f",
+      "properties": {
+        "title": "Manhattan: Amsterdam Avenue - Cathedral Parkway",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-1e5a-a3d9-e040-e00a18064a99",
+        "geocoding_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.97550199999999,
+          40.7516208
+        ]
+      },
+      "id": "730149f",
+      "properties": {
+        "title": "General view - Midtown and downtown Manhattan from Chrysler building",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-8c1a-a3d9-e040-e00a18064a99",
+        "geocoding_notes": "View _from_ the Chrysler building; it's a panorama"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.98531088095093,
+          40.74737633122723
+        ]
+      },
+      "id": "708487f",
+      "properties": {
+        "title": "Manhattan: 5th Avenue - 32nd Street",
+        "url": "https://digitalcollections.nypl.org/items/510d47dc-e2ee-a3d9-e040-e00a18064a99",
+        "geocoding_notes": "_Received_ 1945, but clearly depicts a much earlier time, maybe 1900s."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.973889,
+          40.75833790000001
+        ]
+      },
+      "id": "722243f",
+      "properties": {
+        "title": "Manhattan: Park Avenue - Vanderbilt Avenue",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-4e5d-a3d9-e040-e00a18064a99",
+        "geocoding_notes": "Clearly same building depicted in this photo of 350 Park Ave by the current owner https://www.vno.com/office/property/350-park-avenue/3311665/landing"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9648502,
+          40.771874
+        ]
+      },
+      "id": "1558311",
+      "properties": {
+        "title": "35 East 72nd Street - Madison Avenue",
+        "url": "https://digitalcollections.nypl.org/items/510d47e2-cfa8-a3d9-e040-e00a18064a99",
+        "geocoding_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.0881946,
+          40.64688
+        ]
+      },
+      "id": "729455f",
+      "properties": {
+        "title": "Richmond: Richmond Terrace - Jersey Street",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-86ae-a3d9-e040-e00a18064a99",
+        "geocoding_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.94397909999999,
+          40.680097
+        ]
+      },
+      "id": "704559f",
+      "properties": {
+        "title": "Brooklyn: Fulton Street - Brooklyn Avenue",
+        "url": "https://digitalcollections.nypl.org/items/510d47dc-d0a8-a3d9-e040-e00a18064a99",
+        "geocoding_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.98660199999999,
+          40.7427736
+        ]
+      },
+      "id": "1691051",
+      "properties": {
+        "title": "Posters and advertisements on walls of Madison Square Garden",
+        "url": "https://digitalcollections.nypl.org/items/5f35a6a2-c33c-5f1c-e040-e00a18064c3c",
+        "geocoding_notes": "Based on the colonnade, this is MSG 2, which was at 26th & Madison: https://en.wikipedia.org/wiki/Madison_Square_Garden_(1890)"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.00796722090149,
+          40.674725780881005
+        ]
+      },
+      "id": "705500f",
+      "properties": {
+        "title": "Brooklyn: Lorraine Street - Columbia Street",
+        "url": "https://digitalcollections.nypl.org/items/510d47dc-d802-a3d9-e040-e00a18064a99",
+        "geocoding_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.99277649073791,
+          40.5925482635734
+        ]
+      },
+      "id": "703901f",
+      "properties": {
+        "title": "Brooklyn: Cropsey Avenue - 25th Avenue",
+        "url": "https://digitalcollections.nypl.org/items/510d47dc-cb84-a3d9-e040-e00a18064a99",
+        "geocoding_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.97650444746856,
+          40.720730901093965
+        ]
+      },
+      "id": "720912f",
+      "properties": {
+        "title": "Manhattan: Lewis Street - 4th Street (East)",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-43f6-a3d9-e040-e00a18064a99",
+        "geocoding_notes": "Old Streets from NYPL shows that Lewis St once extended further north from Williamsburg Bridge and did indeed intersect E 4th St"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9604219,
+          40.6599675
+        ]
+      },
+      "id": "704240f",
+      "properties": {
+        "title": "Brooklyn: Flatbush Avenue - Chester Court",
+        "url": "https://digitalcollections.nypl.org/items/510d47dc-ce2a-a3d9-e040-e00a18064a99",
+        "geocoding_notes": "According to https://www.prospectpark.org/visit-the-park/places-to-go/lefferts-historic-house/, the Isaac Lefferts house was near Maple and Flatbush (563 Flatbush)."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9787908356903,
+          40.72974748347291
+        ]
+      },
+      "id": "711207f",
+      "properties": {
+        "title": "Manhattan: 14th Street (East) - Avenue B",
+        "url": "https://digitalcollections.nypl.org/items/510d47dc-f82f-a3d9-e040-e00a18064a99",
+        "geocoding_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9959714,
+          40.7680963
+        ]
+      },
+      "id": "734694f",
+      "properties": {
+        "title": "North (Hudson) River - Pier 92",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-af7f-a3d9-e040-e00a18064a99",
+        "geocoding_notes": "\"Pier 92\" remains an accurate location, as does \"12th Ave & West 52nd Street\"."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.979279,
+          40.68825
+        ]
+      },
+      "id": "704527f",
+      "properties": {
+        "title": "Brooklyn: Fulton Street - Rockwell Place",
+        "url": "https://digitalcollections.nypl.org/items/510d47dc-d068-a3d9-e040-e00a18064a99",
+        "geocoding_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.00923942195129,
+          40.734645426397584
+        ]
+      },
+      "id": "722559f",
+      "properties": {
+        "title": "Manhattan: Perry Street - West Street",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-50d5-a3d9-e040-e00a18064a99",
+        "geocoding_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.95822433862304,
+          40.68085495367849
+        ]
+      },
+      "id": "705398f",
+      "properties": {
+        "title": "Brooklyn: Lefferts Place - Classon Avenue",
+        "url": "https://digitalcollections.nypl.org/items/510d47dc-d736-a3d9-e040-e00a18064a99",
+        "geocoding_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9451668,
+          40.7599072
+        ]
+      },
+      "id": "727870f",
+      "properties": {
+        "title": "Queens: Ravenswood",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-7a4a-a3d9-e040-e00a18064a99",
+        "geocoding_notes": "Located thanks to Bowery Boys podcast episode https://www.boweryboyshistory.com/2017/09/fall-ravenswood-old-aristocratic-queens.html#google_vignette"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.0088244,
+          40.7060255
+        ]
+      },
+      "id": "730461f",
+      "properties": {
+        "title": "General view - Wall Street - Northwest",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-8e89-a3d9-e040-e00a18064a99",
+        "geocoding_notes": "There are many possible choices of location for this general view. This is Wall & Hanover."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.87807893254087,
+          40.739866485354696
+        ]
+      },
+      "id": "726218f",
+      "properties": {
+        "title": "Queens: Broadway - Corona Avenue",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-6d68-a3d9-e040-e00a18064a99",
+        "geocoding_notes": "St. James Episcopal Church"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.00144502943039,
+          40.73587523045412
+        ]
+      },
+      "id": "709634f",
+      "properties": {
+        "title": "Manhattan: 7th Avenue South - Perry Street",
+        "url": "https://digitalcollections.nypl.org/items/510d47dc-ebe5-a3d9-e040-e00a18064a99",
+        "geocoding_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9668148,
+          40.7602847
+        ]
+      },
+      "id": "1508239",
+      "properties": {
+        "title": "57th Street (East) #207",
+        "url": "https://digitalcollections.nypl.org/items/510d47e2-0462-a3d9-e040-e00a18064a99",
+        "geocoding_notes": "Sutton Theatre has since been demolished, in 2005 https://cinematreasures.org/theaters/308/"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.980894,
+          40.753488
+        ]
+      },
+      "id": "1557923",
+      "properties": {
+        "title": "Fifth Avenue - West 42nd Street",
+        "url": "https://digitalcollections.nypl.org/items/510d47e2-ef22-a3d9-e040-e00a18064a99",
+        "geocoding_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9953583,
+          40.7458535
+        ]
+      },
+      "id": "711802f",
+      "properties": {
+        "title": "Manhattan: 25th Street (West) - 7th Avenue",
+        "url": "https://digitalcollections.nypl.org/items/510d47dc-fcd9-a3d9-e040-e00a18064a99",
+        "geocoding_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.98697822698364,
+          40.74494218209529
+        ]
+      },
+      "id": "1113250",
+      "properties": {
+        "title": "No. 251, Coleman, Tailor, Little Shop - Pennsylvania Railroad Co. - No. 265 Calumet Club.]",
+        "url": "https://digitalcollections.nypl.org/items/510d47dc-9a7b-a3d9-e040-e00a18064a99",
+        "geocoding_notes": "251 5th Avenue gives a good location. This whole collection could be treated specifically. I think it must be looking to the east based on the decreasing addresses from left to right."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9879666,
+          40.7340863
+        ]
+      },
+      "id": "730376f",
+      "properties": {
+        "title": "General view - [Manhattan - Irving Place - Between 14th and 20th Streets (East).]",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-8ddf-a3d9-e040-e00a18064a99",
+        "geocoding_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.98087842830458,
+          40.721404468835175
+        ]
+      },
+      "id": "3985221",
+      "properties": {
+        "title": "Tenements & storefronts; Sam Fisher Tailor, Ave C Tire, Schlesinger's Bakery: 25-31 Av C-E. 2nd St-E. 3rd St, Manhattan",
+        "url": "https://digitalcollections.nypl.org/items/b4afdefd-4cc1-146a-e040-e00a180610a2",
+        "geocoding_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9529458392868,
+          40.783292752562545
+        ]
+      },
+      "id": "721087f",
+      "properties": {
+        "title": "Manhattan: Lexington Avenue - 92nd Street",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-4554-a3d9-e040-e00a18064a99",
+        "geocoding_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.93626273306577,
+          40.62168514977389
+        ]
+      },
+      "id": "704319f",
+      "properties": {
+        "title": "Brooklyn: Flatbush Avenue - Kings Highway",
+        "url": "https://digitalcollections.nypl.org/items/510d47dc-cec8-a3d9-e040-e00a18064a99",
+        "geocoding_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.94951750000001,
+          40.7416485
+        ]
+      },
+      "id": "725388f",
+      "properties": {
+        "title": "Queens: 50th Avenue - 21st Street",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-66f1-a3d9-e040-e00a18064a99",
+        "geocoding_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9864273,
+          40.7402208
+        ]
+      },
+      "id": "708231f",
+      "properties": {
+        "title": "Manhattan: 4th Avenue - 23rd Street",
+        "url": "https://digitalcollections.nypl.org/items/510d47dc-e0f2-a3d9-e040-e00a18064a99",
+        "geocoding_notes": "Park Ave was formerly called Fourth Ave. https://en.wikipedia.org/wiki/Park_Avenue"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.01327840265503,
+          40.712169638162536
+        ]
+      },
+      "id": "724096f",
+      "properties": {
+        "title": "Manhattan: Washington Street - Dey Street",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-5cd8-a3d9-e040-e00a18064a99",
+        "geocoding_notes": "Approximate based on Dey St (nyc-streets.geojson) and where Washington St. would be had it gone through here."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.94141497406618,
+          40.7901001285668
+        ]
+      },
+      "id": "731693f",
+      "properties": {
+        "title": "Feast of Saint Anthony of Padua",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-9822-a3d9-e040-e00a18064a99",
+        "geocoding_notes": "Location comes from backing text (106th between 1st & 2nd)."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.01616793865357,
+          40.60274304667385
+        ]
+      },
+      "id": "707258f",
+      "properties": {
+        "title": "Brooklyn: Warehouse Ave. - Bay 10th St",
+        "url": "https://digitalcollections.nypl.org/items/510d47dc-b8a2-a3d9-e040-e00a18064a99",
+        "geocoding_notes": "First, you can see sand in the photo. Second, I found this confirmation that Belt Pkway replaced Warehouse Ave. https://www.coneyislandhistory.org/ask-mr-coney-island?page=2"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.95121759999999,
+          40.6732478
+        ]
+      },
+      "id": "706217f",
+      "properties": {
+        "title": "Brooklyn: Park Place - Rogers Avenue",
+        "url": "https://digitalcollections.nypl.org/items/510d47dc-b081-a3d9-e040-e00a18064a99",
+        "geocoding_notes": "the backing test lists the address as 802 Park Pl."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.93356779999999,
+          40.8034551
+        ]
+      },
+      "id": "707979f",
+      "properties": {
+        "title": "Manhattan: 2nd Avenue - 125th Street",
+        "url": "https://digitalcollections.nypl.org/items/510d47dc-defb-a3d9-e040-e00a18064a99",
+        "geocoding_notes": "Transcription on the back should be \"126th to 125th\". This is basd on the address."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "id": "718312f",
+      "properties": {
+        "title": "Manhattan: Central Park - Pathways",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-2fa7-a3d9-e040-e00a18064a99",
+        "geocoding_notes": "Some research into where in Central Park, maybe? Maybe there's a list of all overpasses/bridges?"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.00418312069321,
+          40.72567261921353
+        ]
+      },
+      "id": "723373f",
+      "properties": {
+        "title": "Manhattan: Spring Street - MacDougal Street",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-5732-a3d9-e040-e00a18064a99",
+        "geocoding_notes": "\"Macdougal Street (future N.W. corner of Sixth Avenue)\""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9907356,
+          40.7298841
+        ]
+      },
+      "id": "732570f",
+      "properties": {
+        "title": "Occupations - Peddlers - Umbrellas",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-9eea-a3d9-e040-e00a18064a99",
+        "geocoding_notes": "The backing test says the intersection"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.99159242083206,
+          40.684857310874975
+        ]
+      },
+      "id": "732622f",
+      "properties": {
+        "title": "Public Schools - Brooklyn - P.S. 6",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-9f52-a3d9-e040-e00a18064a99",
+        "geocoding_notes": "There's backing text that's not OCR'd. This is Baltic & Smith St. There does still seem to be a school nearby."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9801793,
+          40.6614383
+        ]
+      },
+      "id": "3985139",
+      "properties": {
+        "title": "Bryna Court Apartment; Lennie's Café: 195 Prospect Park West-14th St-15 St., Brooklyn",
+        "url": "https://digitalcollections.nypl.org/items/b4afdefd-4c6f-146a-e040-e00a180610a2",
+        "geocoding_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.98817641614684,
+          40.75643139735338
+        ]
+      },
+      "id": "730517f",
+      "properties": {
+        "title": "Advertisements - [Advertising signs.]",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-8ef9-a3d9-e040-e00a18064a99",
+        "geocoding_notes": "Location comes from (missing) backing text"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.00361229695893,
+          40.73851212461086
+        ]
+      },
+      "id": "710053f",
+      "properties": {
+        "title": "Manhattan: 8th Avenue - Horatio Street",
+        "url": "https://digitalcollections.nypl.org/items/510d47dc-ef2a-a3d9-e040-e00a18064a99",
+        "geocoding_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.86962692394255,
+          40.85909820472512
+        ]
+      },
+      "id": "700463f",
+      "properties": {
+        "title": "Bronx: Barker Avenue - Thwaites Place",
+        "url": "https://digitalcollections.nypl.org/items/510d47dc-a407-a3d9-e040-e00a18064a99",
+        "geocoding_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9556803,
+          40.8141277
+        ]
+      },
+      "id": "715454f",
+      "properties": {
+        "title": "Manhattan: Lawrence Street - Amsterdam Avenue",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-195c-a3d9-e040-e00a18064a99",
+        "geocoding_notes": "For Lawrence Street, see https://www.nytimes.com/1982/08/01/realestate/l-letters-on-lawrence-ave-054163.html"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.97514218095093,
+          40.765047613794046
+        ]
+      },
+      "id": "416455",
+      "properties": {
+        "title": "No. 36 Central Park South. Between Fifth and Sixth Avenues",
+        "url": "https://digitalcollections.nypl.org/items/510d47da-d685-a3d9-e040-e00a18064a99",
+        "geocoding_notes": "Based on address"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.97572749999999,
+          40.7626132
+        ]
+      },
+      "id": "713808f",
+      "properties": {
+        "title": "Manhattan: 56th Street (West) - 5th Avenue",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-0c82-a3d9-e040-e00a18064a99",
+        "geocoding_notes": "There's a No. 18 W 56th St mentioned in backing text."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.06859690926208,
+          40.6054625258026
+        ]
+      },
+      "id": "728823f",
+      "properties": {
+        "title": "Richmond: Fingerboard Road (We - Grant Avenue",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-81bc-a3d9-e040-e00a18064a99",
+        "geocoding_notes": "https://statenisland.pastperfectonline.com/photo/B52C66EE-7AC7-4C43-B5BB-172746862885:\n\n\"Grant Avenue no longer exists. It appears in the 1917 Staten Island atlas, at that time intersecting Fingerboard Road but not Garfield Avenue. This location is now part of Narrows Road North.\""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.1902206,
+          40.519141
+        ]
+      },
+      "id": "729939f",
+      "properties": {
+        "title": "[Richmond:] Staten Island - Wolfe's Pond Park - Wolfe's Pond",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-8a76-a3d9-e040-e00a18064a99",
+        "geocoding_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9836478981476,
+          40.76031884914885
+        ]
+      },
+      "id": "709827f",
+      "properties": {
+        "title": "Manhattan: 7th Avenue - 49th Street (West)",
+        "url": "https://digitalcollections.nypl.org/items/510d47dc-ed66-a3d9-e040-e00a18064a99",
+        "geocoding_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9770399909851,
+          40.71239861865898
+        ]
+      },
+      "id": "719523f",
+      "properties": {
+        "title": "Manhattan: East River Drive - 89th Street",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-391d-a3d9-e040-e00a18064a99",
+        "geocoding_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.98473981349181,
+          40.76922012544126
+        ]
+      },
+      "id": "719103f",
+      "properties": {
+        "title": "Manhattan: Columbus Avenue - 59th Street (West)",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-35d5-a3d9-e040-e00a18064a99",
+        "geocoding_notes": "The photos are at locations about a block apart. The first is on Columbus _Circle_, not Columbus Avenue. The second is actually on Columbus Ave."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.961967,
+          40.75962
+        ]
+      },
+      "id": "1508257",
+      "properties": {
+        "title": "59th Street (East) - First Avenue, northeast corner",
+        "url": "https://digitalcollections.nypl.org/items/510d47e2-0474-a3d9-e040-e00a18064a99",
+        "geocoding_notes": "intersection is in title"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9630081,
+          40.7739256
+        ]
+      },
+      "id": "714493f",
+      "properties": {
+        "title": "Manhattan: 76th Street (East) - Park Avenue",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-11dc-a3d9-e040-e00a18064a99",
+        "geocoding_notes": "address is in the backing text"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.97980199999999,
+          40.75575
+        ]
+      },
+      "id": "708844f",
+      "properties": {
+        "title": "Manhattan: 5th Avenue - 45th Street",
+        "url": "https://digitalcollections.nypl.org/items/510d47dc-e5b8-a3d9-e040-e00a18064a99",
+        "geocoding_notes": "address is in backing text"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.977302,
+          40.766188
+        ]
+      },
+      "id": "730108f",
+      "properties": {
+        "title": "General view - [Manhattan - Central Park and area south.]",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-8bc8-a3d9-e040-e00a18064a99",
+        "geocoding_notes": "backing text mentions area south of Central Park."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.99630519643404,
+          40.73108818095141
+        ]
+      },
+      "id": "724001f",
+      "properties": {
+        "title": "Manhattan: Washington Square North - University Place",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-5c1a-a3d9-e040-e00a18064a99",
+        "geocoding_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.91526406137694,
+          40.66073315362111
+        ]
+      },
+      "id": "3984719",
+      "properties": {
+        "title": "Brick row house; Edward Larkin Lawyer offices on first floor: Saratoga Ave.-Riverdale Av-Livonia, Brooklyn",
+        "url": "https://digitalcollections.nypl.org/items/b4afdefd-4acb-146a-e040-e00a180610a2",
+        "geocoding_notes": "Saratoga between Livonia & Riverdale"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.97612814550781,
+          40.71776559389106
+        ]
+      },
+      "id": "721594f",
+      "properties": {
+        "title": "Manhattan: Mangin Street - Rivington Street",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-494b-a3d9-e040-e00a18064a99",
+        "geocoding_notes": "Maybe Mangin & Rivington used to extend farther and intersect. E Houston & Mangin still do."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.99446999999999,
+          40.7258441
+        ]
+      },
+      "id": "716679f",
+      "properties": {
+        "title": "Manhattan: Bleecker Street - Lafayette Street",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-22eb-a3d9-e040-e00a18064a99",
+        "geocoding_notes": "Mulberry & Bleecker is probably a more accurate cross street."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9214788,
+          40.8784547
+        ]
+      },
+      "id": "734338f",
+      "properties": {
+        "title": "Harlem River - Bronx - Spuyten Duyvil Road",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-acb8-a3d9-e040-e00a18064a99",
+        "geocoding_notes": "Found an article stating that Spuyten Duyvil Road is now Edsall Ave. Also, Henry Hudson Bridge is mentioned as subject.\nhttps://www.nytimes.com/1994/05/29/realestate/if-you-re-thinking-living-spuyten-duyvil-sunsets-over-palisades-legends.html"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9984849,
+          40.713442
+        ]
+      },
+      "id": "721747f",
+      "properties": {
+        "title": "Manhattan: Mott Street - Pell Street",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-4a7d-a3d9-e040-e00a18064a99",
+        "geocoding_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.0088444,
+          40.7137946
+        ]
+      },
+      "id": "721826f",
+      "properties": {
+        "title": "Manhattan: Murray Street - Church Street",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-4b1b-a3d9-e040-e00a18064a99",
+        "geocoding_notes": "Murray St and Church St are mentioned in backing text"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.97391625522536,
+          40.75688564240282
+        ]
+      },
+      "id": "1508119",
+      "properties": {
+        "title": "Park Avenue #301 - 45th Street - 50th Street",
+        "url": "https://digitalcollections.nypl.org/items/510d47e2-0043-a3d9-e040-e00a18064a99",
+        "geocoding_notes": "Address is still close; this is now \"Waldorf Astoria Residences\". Park Ave ends at 45th, which is why it's mentioned. The photo is closer to 50th."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.81489041468046,
+          40.73929823916108
+        ]
+      },
+      "id": "726900f",
+      "properties": {
+        "title": "Queens: Horace Harding Boule - Kissena Boulevard",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-72b7-a3d9-e040-e00a18064a99",
+        "geocoding_notes": "no date for photo, but it's 1937"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.98342259259034,
+          40.76053013856971
+        ]
+      },
+      "id": "709836f",
+      "properties": {
+        "title": "Manhattan: 7th Avenue - 49th Street",
+        "url": "https://digitalcollections.nypl.org/items/510d47dc-ed78-a3d9-e040-e00a18064a99",
+        "geocoding_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.83769514136961,
+          40.762516924174136
+        ]
+      },
+      "id": "734153f",
+      "properties": {
+        "title": "Flushing River - Queens - [Hunts Point Coke.]",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-ab46-a3d9-e040-e00a18064a99",
+        "geocoding_notes": "This mentions the Bridge of Northern Blvd over the Flushing River which is probably the Flushing Creek on the map."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "id": "730103f",
+      "properties": {
+        "title": "General view - Manhattan - [View from railroad tracks of New York, New Haven and Hartford.]",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-8bbe-a3d9-e040-e00a18064a99",
+        "geocoding_notes": "Not clear where in Manhattan this is, but there must be a specific place where these railroads came in. https://en.wikipedia.org/wiki/New_York,_New_Haven_and_Hartford_Railroad#/map/0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9945944,
+          40.66023209999999
+        ]
+      },
+      "id": "1509729",
+      "properties": {
+        "title": "Fifth Avenue - 23rd Street looking north",
+        "url": "https://digitalcollections.nypl.org/items/510d47e2-06c4-a3d9-e040-e00a18064a99",
+        "geocoding_notes": "Photo border says Brooklyn, NY. Searched for that intersection in Brooklyn."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9555271,
+          40.767947
+        ]
+      },
+      "id": "707653f",
+      "properties": {
+        "title": "Manhattan: 1st Ave. - 72nd St. E",
+        "url": "https://digitalcollections.nypl.org/items/510d47dc-bbb6-a3d9-e040-e00a18064a99",
+        "geocoding_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.00804986871718,
+          40.723471112297695
+        ]
+      },
+      "id": "720496f",
+      "properties": {
+        "title": "Manhattan: Hudson Street - Desbrosses Street",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-40b7-a3d9-e040-e00a18064a99",
+        "geocoding_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.852521,
+          40.679776
+        ]
+      },
+      "id": "725697f",
+      "properties": {
+        "title": "Queens: 86th Street - Liberty Avenue",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-6956-a3d9-e040-e00a18064a99",
+        "geocoding_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9343126,
+          40.8522901
+        ]
+      },
+      "id": "717779f",
+      "properties": {
+        "title": "Manhattan: Broadway - 184th Street",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-2b7f-a3d9-e040-e00a18064a99",
+        "geocoding_notes": "Looked up 4322 Broadway, an adresss mentioned in Backing text."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.90465314047545,
+          40.8525822976639
+        ]
+      },
+      "id": "700813f",
+      "properties": {
+        "title": "Bronx: Creston Avenue - Burnside Avenue (East)",
+        "url": "https://digitalcollections.nypl.org/items/510d47dc-a6c3-a3d9-e040-e00a18064a99",
+        "geocoding_notes": "This is probably Devanney Triangle. Matches current view on street view, and indeed across the street are 2043 and 2039 Creston Ave."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.8773968,
+          40.7354038
+        ]
+      },
+      "id": "727462f",
+      "properties": {
+        "title": "Queens: Newtown - [Newtown plaque of 1652.]",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-7719-a3d9-e040-e00a18064a99",
+        "geocoding_notes": "https://www.brownstoner.com/history/national-register-of-historic-places-ceremony-for-the-first-presbyterian-church-of-newtown/"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.98414740608217,
+          40.72072560671618
+        ]
+      },
+      "id": "719003f",
+      "properties": {
+        "title": "Manhattan: Clinton Street - Stanton Street",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-350d-a3d9-e040-e00a18064a99",
+        "geocoding_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.980894,
+          40.753488
+        ]
+      },
+      "id": "1557931",
+      "properties": {
+        "title": "Fifth Avenue - West 42nd Street",
+        "url": "https://digitalcollections.nypl.org/items/510d47e2-ef2a-a3d9-e040-e00a18064a99",
+        "geocoding_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.84636859999999,
+          40.8770415
+        ]
+      },
+      "id": "700970f",
+      "properties": {
+        "title": "Bronx: Eastchester Road - Boston Road",
+        "url": "https://digitalcollections.nypl.org/items/510d47dc-a7fd-a3d9-e040-e00a18064a99",
+        "geocoding_notes": "intersection mentioned in backing text"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9342142,
+          40.8513672
+        ]
+      },
+      "id": "723806f",
+      "properties": {
+        "title": "Manhattan: Wadsworth Avenue - 183rd Street (West)",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-5a94-a3d9-e040-e00a18064a99",
+        "geocoding_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.7770695,
+          40.6753326
+        ]
+      },
+      "id": "727469f",
+      "properties": {
+        "title": "Queens: New York Boulevard - 131st Avenue",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-7727-a3d9-e040-e00a18064a99",
+        "geocoding_notes": "New York Avenue was renamed Guy R Brewer Boulevard: https://en.wikipedia.org/wiki/Guy_Brewer\n\n131st Ave & 133rd Ave no longer intersect it, but 132nd does."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.98516489814759,
+          40.739091261625205
+        ]
+      },
+      "id": "720920f",
+      "properties": {
+        "title": "Manhattan: Lexington Avenue - 22nd Street",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-4406-a3d9-e040-e00a18064a99",
+        "geocoding_notes": "Same buildings are still there!"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.942978467984,
+          40.775577057989196
+        ]
+      },
+      "id": "733936f",
+      "properties": {
+        "title": "East River - Shore and skyline of Manhattan from East 86th Street - Queensborough Bridge - [Doctor's Hospital ; Municipal Asphalt Plant.]",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-a995-a3d9-e040-e00a18064a99",
+        "geocoding_notes": "\"Queensborough Bridge\" in the title is not at all relevant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.987707,
+          40.751447
+        ]
+      },
+      "id": "717418f",
+      "properties": {
+        "title": "Manhattan: Broadway - 36th Street",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-28ad-a3d9-e040-e00a18064a99",
+        "geocoding_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.8162847,
+          40.8263155
+        ]
+      },
+      "id": "734836f",
+      "properties": {
+        "title": "Weir Creek -- S. Schley Avenue - Throgs Neck Boulevard (Bronx)",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-b09a-a3d9-e040-e00a18064a99",
+        "geocoding_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.96772899999999,
+          40.7649806
+        ]
+      },
+      "id": "416466",
+      "properties": {
+        "title": "No. 565-569 Park Avenue. East Side of Avenue, Between 62nd and 63d Streets",
+        "url": "https://digitalcollections.nypl.org/items/510d47da-d691-a3d9-e040-e00a18064a99",
+        "geocoding_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.0687495015747,
+          40.60140712500281
+        ]
+      },
+      "id": "104972",
+      "properties": {
+        "title": "St. John's Villa Academy, Arrochar, S.I., N.Y. [iron entrance gate, snow-covered landscape and buildings]",
+        "url": "https://digitalcollections.nypl.org/items/510d47d9-caa1-a3d9-e040-e00a18064a99",
+        "geocoding_notes": "https://en.wikipedia.org/wiki/St._John_Villa_Academy"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "id": "1509463",
+      "properties": {
+        "title": "Spuyten Duyvil",
+        "url": "https://digitalcollections.nypl.org/items/510d47e2-05ba-a3d9-e040-e00a18064a99",
+        "geocoding_notes": "The Spuyten Duyvil Parkway is now part of the Henry Hudson Parkway (https://kingsbridgehistoricalsociety.org/forums/topic/spuyten-duyvil-henry-hudson-parkways/). The backing text says this is in Riverdale, but unclear exactly where."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.011955,
+          40.709313
+        ]
+      },
+      "id": "723577f",
+      "properties": {
+        "title": "Manhattan: Trinity Place - Cedar Street",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-58ca-a3d9-e040-e00a18064a99",
+        "geocoding_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.96690509999999,
+          40.7556492
+        ]
+      },
+      "id": "713589f",
+      "properties": {
+        "title": "Manhattan: 52nd Street - 1st Avenue",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-0acc-a3d9-e040-e00a18064a99",
+        "geocoding_notes": "314 E 52nd St is mentioned in backing text"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9920247,
+          40.7275219
+        ]
+      },
+      "id": "710894f",
+      "properties": {
+        "title": "Manhattan: 4th Street - Cooper Square",
+        "url": "https://digitalcollections.nypl.org/items/510d47dc-f5bc-a3d9-e040-e00a18064a99",
+        "geocoding_notes": "Address in backing text"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.97659409200133,
+          40.79657930683446
+        ]
+      },
+      "id": "734578f",
+      "properties": {
+        "title": "North (Hudson) River - Shore and skyline - Manhattan - 59th Street - George Washington Bridge - [Weber-Bunke-Lange Coal Company.]",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-ae97-a3d9-e040-e00a18064a99",
+        "geocoding_notes": "96th & the Hudson River. Not sure what the 59th Street and George Washington Bridge in the title (and on the front of the photo) are referring to."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9770731,
+          40.7515999
+        ]
+      },
+      "id": "712927f",
+      "properties": {
+        "title": "Manhattan: 42nd Street (East) - Lexington Avenue",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-05a2-a3d9-e040-e00a18064a99",
+        "geocoding_notes": "Address in backing text 116 E. 42nd Street"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.90487079629517,
+          40.69594190918903
+        ]
+      },
+      "id": "728250f",
+      "properties": {
+        "title": "Queens: Wyckoff Avenue - Halsey Street",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-7d42-a3d9-e040-e00a18064a99",
+        "geocoding_notes": "I had to double check, but this intersection _is_ in Queens."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9927912,
+          40.731749
+        ]
+      },
+      "id": "711004f",
+      "properties": {
+        "title": "Manhattan: 9th Street (East) - Broadway",
+        "url": "https://digitalcollections.nypl.org/items/510d47dc-f698-a3d9-e040-e00a18064a99",
+        "geocoding_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.00386600000002,
+          40.6785979
+        ]
+      },
+      "id": "704943f",
+      "properties": {
+        "title": "Brooklyn: Hicks Street - Coles Street",
+        "url": "https://digitalcollections.nypl.org/items/510d47dc-d3a8-a3d9-e040-e00a18064a99",
+        "geocoding_notes": "711 Hicks Street mentioned in backing text"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.937218,
+          40.837934
+        ]
+      },
+      "id": "715745f",
+      "properties": {
+        "title": "Manhattan: 166th Street (West) - Amsterdam Avenue",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-1ba2-a3d9-e040-e00a18064a99",
+        "geocoding_notes": "460 W 166th St is one of the addresses mentioned in backing text"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.94240789999999,
+          40.8271944
+        ]
+      },
+      "id": "723163f",
+      "properties": {
+        "title": "Manhattan: St. Nicholas Avenue - Fort George Avenue",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-558e-a3d9-e040-e00a18064a99",
+        "geocoding_notes": "It's Donnellan Square, but it's still there!"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.96678089814758,
+          40.77015776310933
+        ]
+      },
+      "id": "721424f",
+      "properties": {
+        "title": "Manhattan: Madison Avenue - 69th Street",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-47f7-a3d9-e040-e00a18064a99",
+        "geocoding_notes": "Madison ave, west side between 70th and 69th st mentioned in backing text."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.751213,
+          40.683729
+        ]
+      },
+      "id": "728028f",
+      "properties": {
+        "title": "Queens: Springfield Boulevard - 131st Avenue",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-7b86-a3d9-e040-e00a18064a99",
+        "geocoding_notes": "intersection in backing text"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.96537434393312,
+          40.81328860715614
+        ]
+      },
+      "id": "733250f",
+      "properties": {
+        "title": "Squatters Colony at the Hudson River",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-a43a-a3d9-e040-e00a18064a99",
+        "geocoding_notes": "Not sure how I got this one before. Is \"Squatters Colony\" a unique location?"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9255484,
+          40.807738
+        ]
+      },
+      "id": "700044f",
+      "properties": {
+        "title": "Bronx: 135th Street (East) - Willis Avenue",
+        "url": "https://digitalcollections.nypl.org/items/510d47dc-a0c5-a3d9-e040-e00a18064a99",
+        "geocoding_notes": "address mentioned in backing text"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9917708,
+          40.7249759
+        ]
+      },
+      "id": "716791f",
+      "properties": {
+        "title": "Manhattan: Bowery - 1st Street",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-23c9-a3d9-e040-e00a18064a99",
+        "geocoding_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.12339709999999,
+          40.6177488
+        ]
+      },
+      "id": "729107f",
+      "properties": {
+        "title": "Richmond: Manor Road - Rice Avenue",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-83f6-a3d9-e040-e00a18064a99",
+        "geocoding_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.99805585277862,
+          40.714783102356044
+        ]
+      },
+      "id": "722535f",
+      "properties": {
+        "title": "Manhattan: Pell Street - Bowery",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-50a5-a3d9-e040-e00a18064a99",
+        "geocoding_notes": "backing text mentions the view shows Doyers St."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.926025,
+          40.638525
+        ]
+      },
+      "id": "705282f",
+      "properties": {
+        "title": "Brooklyn: Kings Highway - Farragut Road",
+        "url": "https://digitalcollections.nypl.org/items/510d47dc-d64e-a3d9-e040-e00a18064a99",
+        "geocoding_notes": "I didn't find Ditmas Ave around here"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "id": "732872f",
+      "properties": {
+        "title": "Recreation and hobbies - School activities - [A class in natural sciences in one of New York public schools.]",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-a146-a3d9-e040-e00a18064a99",
+        "geocoding_notes": "no specifics about which school"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9959715,
+          40.7120359
+        ]
+      },
+      "id": "1507520",
+      "properties": {
+        "title": "Madison Street #90",
+        "url": "https://digitalcollections.nypl.org/items/510d47e1-fe49-a3d9-e040-e00a18064a99",
+        "geocoding_notes": "No confirmation on the address, but it's plausible."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9830942,
+          40.7571283
+        ]
+      },
+      "id": "713228f",
+      "properties": {
+        "title": "Manhattan: 45th Street (West) - 6th Avenue",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-07fa-a3d9-e040-e00a18064a99",
+        "geocoding_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.0617619,
+          40.6092598
+        ]
+      },
+      "id": "728919f",
+      "properties": {
+        "title": "Richmond: Harbor View Place So - Bay Street",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-827c-a3d9-e040-e00a18064a99",
+        "geocoding_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "id": "701973f",
+      "properties": {
+        "title": "Bronx: Van Cortlandt Park",
+        "url": "https://digitalcollections.nypl.org/items/510d47dc-bc7c-a3d9-e040-e00a18064a99",
+        "geocoding_notes": "\"Van Cortlandt Park\" is pretty big"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "id": "732341f",
+      "properties": {
+        "title": "Occupations - Peddlers - Clothing - Dry goods",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-9d2d-a3d9-e040-e00a18064a99",
+        "geocoding_notes": "No cross street"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.120606,
+          40.601811
+        ]
+      },
+      "id": "729122f",
+      "properties": {
+        "title": "Richmond: Manor Road - Ocean Terrace",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-8414-a3d9-e040-e00a18064a99",
+        "geocoding_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9442683227539,
+          40.830239292169196
+        ]
+      },
+      "id": "715674f",
+      "properties": {
+        "title": "Manhattan: 153rd Street (West) - Amsterdam Avenue",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-1b14-a3d9-e040-e00a18064a99",
+        "geocoding_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9738492,
+          40.7567485
+        ]
+      },
+      "id": "722223f",
+      "properties": {
+        "title": "Manhattan: Park Avenue - Vanderbilt Avenue",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-4e35-a3d9-e040-e00a18064a99",
+        "geocoding_notes": "subject/name: Waldorf-Astoria Hotel"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.0111528048935,
+          40.72462889109513
+        ]
+      },
+      "id": "724647f",
+      "properties": {
+        "title": "Manhattan: West Street - Watts Street",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-6126-a3d9-e040-e00a18064a99",
+        "geocoding_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9387285,
+          40.85030729999999
+        ]
+      },
+      "id": "465515",
+      "properties": {
+        "title": "The Pinehurst. Plan of first floor; Plan of upper floors",
+        "url": "https://digitalcollections.nypl.org/items/510d47db-9ee8-a3d9-e040-e00a18064a99",
+        "geocoding_notes": "History of the Pinehurst available on the co-op's website! http://www.thepinehurst.org/on-the-market/history-of-the-pinehurst/"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.99674639999999,
+          40.7575546
+        ]
+      },
+      "id": "710555f",
+      "properties": {
+        "title": "Manhattan: 10th Avenue - 39th Street",
+        "url": "https://digitalcollections.nypl.org/items/510d47dc-f316-a3d9-e040-e00a18064a99",
+        "geocoding_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.86046800080261,
+          40.73111123523128
+        ]
+      },
+      "id": "725527f",
+      "properties": {
+        "title": "Queens: 63rd Avenue - 96th Street",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-6807-a3d9-e040-e00a18064a99",
+        "geocoding_notes": "http://digitalarchives.queenslibrary.org/browse/newtown-h-vanderveer-house-rego-park\n\nShould be 63rd Rd, not 63rd Ave. 96th Street may no longer exist, but the Queens Library site says this building was between 97th Place and 97th Street."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9528464,
+          40.7914902
+        ]
+      },
+      "id": "709202f",
+      "properties": {
+        "title": "Manhattan: 5th Avenue - 102nd Street",
+        "url": "https://digitalcollections.nypl.org/items/510d47dc-e885-a3d9-e040-e00a18064a99",
+        "geocoding_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.21046339783935,
+          40.557059926012535
+        ]
+      },
+      "id": "733656f",
+      "properties": {
+        "title": "Benedicts Creek - Staten Island [Richmond - View of salt meadows from Arthur Kill Road, above Rossville.]",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-a765-a3d9-e040-e00a18064a99",
+        "geocoding_notes": " this arthur kill road, north of rossville, and there is a creek that possibly relates to the one mentioned."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.0052199,
+          40.72981289999999
+        ]
+      },
+      "id": "709623f",
+      "properties": {
+        "title": "Manhattan: 7th Avenue South - Clarkson Street",
+        "url": "https://digitalcollections.nypl.org/items/510d47dc-ebcf-a3d9-e040-e00a18064a99",
+        "geocoding_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.919301,
+          40.880706
+        ]
+      },
+      "id": "701376f",
+      "properties": {
+        "title": "Bronx: Kappock Street - Independence Avenue",
+        "url": "https://digitalcollections.nypl.org/items/510d47dc-ab1d-a3d9-e040-e00a18064a99",
+        "geocoding_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9614057,
+          40.8072153
+        ]
+      },
+      "id": "731432f",
+      "properties": {
+        "title": "Colleges and Universities - Columbia University",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-9619-a3d9-e040-e00a18064a99",
+        "geocoding_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.837863,
+          40.74890389999999
+        ]
+      },
+      "id": "1509775",
+      "properties": {
+        "title": "Flushing Meadow Park",
+        "url": "https://digitalcollections.nypl.org/items/510d47e2-06f2-a3d9-e040-e00a18064a99",
+        "geocoding_notes": "I spent way too long looking for this when I should have just searched on Google Maps. In any event, here's an original map showing the Pool of Industry in square F4: https://collections.lib.uwm.edu/digital/collection/agdm/id/16961/"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9875885,
+          40.6359424
+        ]
+      },
+      "id": "3984521",
+      "properties": {
+        "title": "Harry's 4 Service Gas Station: 14th Ave.-45th St., Brooklyn",
+        "url": "https://digitalcollections.nypl.org/items/b4afdefd-4a05-146a-e040-e00a180610a2",
+        "geocoding_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.014235,
+          40.704621
+        ]
+      },
+      "id": "716818f",
+      "properties": {
+        "title": "Manhattan: Broadway - Battery Place",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-23ff-a3d9-e040-e00a18064a99",
+        "geocoding_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.98857034722137,
+          40.71784582028311
+        ]
+      },
+      "id": "719670f",
+      "properties": {
+        "title": "Manhattan: Essex Street - Broome Street",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-3a43-a3d9-e040-e00a18064a99",
+        "geocoding_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.81595663488771,
+          40.84630906012008
+        ]
+      },
+      "id": "734117f",
+      "properties": {
+        "title": "Eastchester Bay (North) - Bronx - Ampere Avenue",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-aafe-a3d9-e040-e00a18064a99",
+        "geocoding_notes": "\"Dock at the foot of Ampere Avenue\""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9968643,
+          40.7060855
+        ]
+      },
+      "id": "730335f",
+      "properties": {
+        "title": "General view - Manhattan - [View of Lower Manhattan from Brooklyn Bridge.]",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-8d8d-a3d9-e040-e00a18064a99",
+        "geocoding_notes": "Panoramic view of Manhattan from ~1870"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.99442371163939,
+          40.76128343659894
+        ]
+      },
+      "id": "710570f",
+      "properties": {
+        "title": "Manhattan: 10th Avenue - 44th Street",
+        "url": "https://digitalcollections.nypl.org/items/510d47dc-f334-a3d9-e040-e00a18064a99",
+        "geocoding_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.96514148346711,
+          40.77242946855366
+        ]
+      },
+      "id": "721438f",
+      "properties": {
+        "title": "Manhattan: Madison Avenue - 73rd Street",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-4813-a3d9-e040-e00a18064a99",
+        "geocoding_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.98850915211489,
+          40.74875996668219
+        ]
+      },
+      "id": "720144f",
+      "properties": {
+        "title": "Manhattan: 6th Avenue - 32nd Street (West)",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-3df7-a3d9-e040-e00a18064a99",
+        "geocoding_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.00252338161468,
+          40.734419426701365
+        ]
+      },
+      "id": "709630f",
+      "properties": {
+        "title": "Manhattan: 7th Avenue South - 10th Street",
+        "url": "https://digitalcollections.nypl.org/items/510d47dc-ebdd-a3d9-e040-e00a18064a99",
+        "geocoding_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.88486139021302,
+          40.83252758952212
+        ]
+      },
+      "id": "700211f",
+      "properties": {
+        "title": "Bronx: 172nd Street (East) - West Farms Road",
+        "url": "https://digitalcollections.nypl.org/items/510d47dc-a20f-a3d9-e040-e00a18064a99",
+        "geocoding_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.820195,
+          40.7913
+        ]
+      },
+      "id": "724995f",
+      "properties": {
+        "title": "Queens: 10th Avenue - 147th Street",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-63df-a3d9-e040-e00a18064a99",
+        "geocoding_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9821888465576,
+          40.78263634296252
+        ]
+      },
+      "id": "724453f",
+      "properties": {
+        "title": "Manhattan: West End Avenue - 76th Street (West)",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-5fa2-a3d9-e040-e00a18064a99",
+        "geocoding_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.993588,
+          40.757154
+        ]
+      },
+      "id": "732423f",
+      "properties": {
+        "title": "Occupations - Peddlers - Food - Fruit",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-9dcf-a3d9-e040-e00a18064a99",
+        "geocoding_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.98152189999999,
+          40.767848
+        ]
+      },
+      "id": "719153f",
+      "properties": {
+        "title": "Manhattan: Columbus Circle - [Durland's Riding Academy.]",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-3639-a3d9-e040-e00a18064a99",
+        "geocoding_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9978874,
+          40.7245361
+        ]
+      },
+      "id": "1509161",
+      "properties": {
+        "title": "Broadway #573",
+        "url": "https://digitalcollections.nypl.org/items/510d47e2-0344-a3d9-e040-e00a18064a99",
+        "geocoding_notes": "No verification on address"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9533136,
+          40.6585205
+        ]
+      },
+      "id": "704168f",
+      "properties": {
+        "title": "Brooklyn: Fenimore Street - 32nd Avenue",
+        "url": "https://digitalcollections.nypl.org/items/510d47dc-cd9a-a3d9-e040-e00a18064a99",
+        "geocoding_notes": "Unclear where \"32nd Avenue\" comes from in the title -- maybe 1932?"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.96527438095094,
+          40.79119344081202
+        ]
+      },
+      "id": "718516f",
+      "properties": {
+        "title": "Manhattan: Central Park West - 95th Street",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-3141-a3d9-e040-e00a18064a99",
+        "geocoding_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9873937989502,
+          40.72266168898308
+        ]
+      },
+      "id": "719497f",
+      "properties": {
+        "title": "Manhattan: Houston Street (East) - Avenue A",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-38e9-a3d9-e040-e00a18064a99",
+        "geocoding_notes": "More location information on (missing) backing text"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.98783,
+          40.75069
+        ]
+      },
+      "id": "717408f",
+      "properties": {
+        "title": "Manhattan: Broadway - 35th Street (West)",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-2899-a3d9-e040-e00a18064a99",
+        "geocoding_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.8710687,
+          40.8412754
+        ]
+      },
+      "id": "700392f",
+      "properties": {
+        "title": "Bronx: Adams Street - Van Nest Avenue",
+        "url": "https://digitalcollections.nypl.org/items/510d47dc-a379-a3d9-e040-e00a18064a99",
+        "geocoding_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.99019966137693,
+          40.71299948445386
+        ]
+      },
+      "id": "723085f",
+      "properties": {
+        "title": "Manhattan: Rutgers Street - Madison Street",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-54f2-a3d9-e040-e00a18064a99",
+        "geocoding_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.96100821957398,
+          40.7804890946082
+        ]
+      },
+      "id": "709170f",
+      "properties": {
+        "title": "Manhattan: 5th Avenue - 84th Street",
+        "url": "https://digitalcollections.nypl.org/items/510d47dc-e845-a3d9-e040-e00a18064a99",
+        "geocoding_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.83236520436859,
+          40.75968557191542
+        ]
+      },
+      "id": "725289f",
+      "properties": {
+        "title": "Queens: 39th Avenue - Lawrence Street",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-662b-a3d9-e040-e00a18064a99",
+        "geocoding_notes": "Lawrence Street seems to have become College Point Boulevard."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.98508095659179,
+          40.742170713762185
+        ]
+      },
+      "id": "1691044",
+      "properties": {
+        "title": "Fourth Avenue front",
+        "url": "https://digitalcollections.nypl.org/items/5f35a6a2-c335-5f1c-e040-e00a18064c3c",
+        "geocoding_notes": "This was likely also MSG2: https://en.wikipedia.org/wiki/Madison_Square_Garden_(1890)"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.989119,
+          40.692174
+        ]
+      },
+      "id": "704518f",
+      "properties": {
+        "title": "Brooklyn: Fulton Street - Joralemon Street",
+        "url": "https://digitalcollections.nypl.org/items/510d47dc-d056-a3d9-e040-e00a18064a99",
+        "geocoding_notes": "aerial view"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9843994232788,
+          40.75927413995164
+        ]
+      },
+      "id": "709803f",
+      "properties": {
+        "title": "Manhattan: 7th Avenue - 47th Street (West)",
+        "url": "https://digitalcollections.nypl.org/items/510d47dc-ed36-a3d9-e040-e00a18064a99",
+        "geocoding_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "id": "724113f",
+      "properties": {
+        "title": "Manhattan: Washington Street - York Street",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-5cfa-a3d9-e040-e00a18064a99",
+        "geocoding_notes": "There's a York & Washington in Brooklyn, near 226 Washington. I'm not sure there's a York Street anywhere near a Washington Street in Manhattan."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9748082713501,
+          40.73476923990951
+        ]
+      },
+      "id": "719718f",
+      "properties": {
+        "title": "Manhattan: Exterior Street - 22nd Street (East)",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-3aa3-a3d9-e040-e00a18064a99",
+        "geocoding_notes": "There's still a Skyport there! Unclear what Marginal / Exterior Street was."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.99149969999999,
+          40.7319593
+        ]
+      },
+      "id": "711023f",
+      "properties": {
+        "title": "Manhattan: 10th Street (East) - Broadway",
+        "url": "https://digitalcollections.nypl.org/items/510d47dc-f6be-a3d9-e040-e00a18064a99",
+        "geocoding_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9661534,
+          40.7925463
+        ]
+      },
+      "id": "417397",
+      "properties": {
+        "title": "The Lucitine, nos. 35-37-39 West Ninety-sixth Street",
+        "url": "https://digitalcollections.nypl.org/items/510d47da-d904-a3d9-e040-e00a18064a99",
+        "geocoding_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.92486000000001,
+          40.676046895752336
+        ]
+      },
+      "id": "703362f",
+      "properties": {
+        "title": "Brooklyn: Buffalo Avenue - Pacific Street",
+        "url": "https://digitalcollections.nypl.org/items/510d47dc-c752-a3d9-e040-e00a18064a99",
+        "geocoding_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.95737872023774,
+          40.700966140623606
+        ]
+      },
+      "id": "704900f",
+      "properties": {
+        "title": "Brooklyn: Heyward Street - Bedford Avenue",
+        "url": "https://digitalcollections.nypl.org/items/510d47dc-d352-a3d9-e040-e00a18064a99",
+        "geocoding_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9803237,
+          40.7151316
+        ]
+      },
+      "id": "3985136",
+      "properties": {
+        "title": "Tenements; Louis Hecht Electrician, A. Miller Steel Pipes: 18 Cannon St.-Broome St., Manhattan",
+        "url": "https://digitalcollections.nypl.org/items/b4afdefd-4c6c-146a-e040-e00a180610a2",
+        "geocoding_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.03084164732664,
+          40.64492276475031
+        ]
+      },
+      "id": "734068f",
+      "properties": {
+        "title": "East River - Piers and shoreline - 65th Street, Brooklyn",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-aa9c-a3d9-e040-e00a18064a99",
+        "geocoding_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.994062,
+          40.71011
+        ]
+      },
+      "id": "724267f",
+      "properties": {
+        "title": "Manhattan: Water Street - Market Slip",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-5e2e-a3d9-e040-e00a18064a99",
+        "geocoding_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.0055856,
+          40.6035808
+        ]
+      },
+      "id": "703129f",
+      "properties": {
+        "title": "Brooklyn: Bay 19th Street - Bath Avenue",
+        "url": "https://digitalcollections.nypl.org/items/510d47dc-c580-a3d9-e040-e00a18064a99",
+        "geocoding_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9618754,
+          40.8038356
+        ]
+      },
+      "id": "716266f",
+      "properties": {
+        "title": "Manhattan: Amsterdam Avenue - Cathedral Parkway",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-1fb4-a3d9-e040-e00a18064a99",
+        "geocoding_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9283095,
+          40.8568594
+        ]
+      },
+      "id": "723166f",
+      "properties": {
+        "title": "Manhattan: St. Nicholas Avenue - Fort George Avenue",
+        "url": "https://digitalcollections.nypl.org/items/510d47dd-5594-a3d9-e040-e00a18064a99",
+        "geocoding_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.992006,
+          40.749101
+        ]
+      },
+      "id": "709744f",
+      "properties": {
+        "title": "Manhattan: 7th Avenue - 31st Street",
+        "url": "https://digitalcollections.nypl.org/items/510d47dc-ecc0-a3d9-e040-e00a18064a99",
+        "geocoding_notes": ""
+      }
+    }
+  ]
+}

@@ -1,40 +1,80 @@
 #!/usr/bin/env python
 """Generate a batch of "extract geocodable text" tasks for GPT."""
 
+import dataclasses
 import json
 import re
 import sys
+from typing import Literal, TypedDict
 
+from oldnyc.ingest.util import BOROUGHS
 from oldnyc.item import Item, load_items
 
 # See https://cookbook.openai.com/examples/batch_processing
-# TODO: Make more of an effort to get GPT the Borough (typically in SOURCE column of CSV)
 SYSTEM_INSTRUCTIONS = """
 Your goal is to extract location information from JSON describing a photograph taken
-in New York City. The location information should be in the form of a query that can
-be passed to the Google Maps geocoding API to get a latitude and longitude. It should
-contain either cross streets, a place name, or an address. It should also contain the
-borough that the photograph is in (Manhattan, Brooklyn, Queens, Bronx, Staten Island).
-For example, "14th Street & 1st Avenue, Manhattan, NY".
+in New York City. The location information should be either an intersection of two streets,
+an address, or a place name. It should also contain the borough that the photograph is in
+(Manhattan, Brooklyn, Queens, Bronx, Staten Island).
+Intersections are most desirable, followed by addresses, and then place names.
 If there's no location information in the photo, respond with "no location information".
-If the photo is not in New York City, respond with "not in NYC".
 
 Respond in JSON containing the following information:
 
 {
-  location: string; // Text to send into Google Maps geocoding API to get latitude and longitude of the image
-} |
-'no location information' | 'not in NYC';
+  type: "intersection";
+  street1: string;
+  street2: string;
+  borough: "Manhattan" | "Brooklyn" | "Queens" | "Bronx" | "Staten Island"
+} | {
+  type: "address";
+  number: string;
+  street: string;
+  borough: "Manhattan" | "Brooklyn" | "Queens" | "Bronx" | "Staten Island"
+} | {
+  type: "place_name";
+  place_name: string;
+  borough: "Manhattan" | "Brooklyn" | "Queens" | "Bronx" | "Staten Island"
+} | {
+  type: "no location information"
+}
 """
 
 
-# MODEL = 'gpt-4o-mini'
-MODEL = "gpt-4o"
+class GptIntersection(TypedDict):
+    type: Literal["intersection"]
+    street1: str
+    street2: str
+    borough: str
+
+
+class GptAddress(TypedDict):
+    type: Literal["address"]
+    number: str
+    street: str
+    borough: str
+
+
+class GptPlaceName(TypedDict):
+    type: Literal["place_name"]
+    place_name: str
+    borough: str
+
+
+class GptNoLocation(TypedDict):
+    type: Literal["no_location"]
+
+
+GptResponse = GptIntersection | GptAddress | GptPlaceName | GptNoLocation
 
 
 def make_gpt_request(r: Item, model: str) -> dict:
-    prep_data(r)
-    gpt_data = {"title": r.title, "alt_title": r.alt_title}
+    r = prep_data(r)
+    gpt_data = {"title": r.title, "alt_title": r.alt_title, "description": r.back_text}
+    borough = guess_borough(r)
+    if borough:
+        gpt_data["borough"] = borough
+
     data = json.dumps(gpt_data)
     return {
         "custom_id": r.id,
@@ -58,19 +98,42 @@ def make_gpt_request(r: Item, model: str) -> dict:
     }
 
 
-def prep_data(data: Item):
-    for field in ("title", "alt_title"):
-        v = getattr(data, field)
-        setattr(data, field, re.sub("^Richmond:", "Staten Island:", v))
+def prep_field(txt: str | None) -> str | None:
+    if not txt:
+        return txt
+    return re.sub("^Richmond:", "Staten Island:", txt)
+
+
+def prep_data(item: Item):
+    return dataclasses.replace(
+        item,
+        title=prep_field(item.title),
+        alt_title=[prep_field(t) for t in item.alt_title] if item.alt_title else None,
+    )
+
+
+def guess_borough(item: Item):
+    for b in BOROUGHS:
+        full = f"{b} (New York, N.Y.)"
+        if full in item.subject.geographic:
+            return b
+    for b in BOROUGHS:
+        full = f"{b}, NY"
+        if item.address and item.address.endswith(full):
+            return b
+    for b in BOROUGHS:
+        full = f"/ {b}"
+        if item.source.endswith(full):
+            return b
+    return None
 
 
 if __name__ == "__main__":
-    ids_file = sys.argv[1]
-    model = sys.argv[2] if len(sys.argv) > 2 else MODEL
+    (ids_file, model) = sys.argv[1:]
     ids = {line.strip() for line in open(ids_file)}
 
-    records = load_items("data/items.ndjson")
-    id_to_records = {r.id: r for r in records}
+    items = load_items("data/images.ndjson")
+    id_to_records = {r.id: r for r in items}
 
     for id in ids:
         print(json.dumps(make_gpt_request(id_to_records[id], model)))

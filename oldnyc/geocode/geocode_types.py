@@ -18,6 +18,7 @@ class Locatable(TypedDict):
     grid: NotRequired[str]
     source: str
     type: str | list[str]  # 'point_of_interest', 'intersection'
+    data: NotRequired[Any]
 
 
 class Coder(Protocol):

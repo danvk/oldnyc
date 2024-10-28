@@ -1,0 +1,75 @@
+<div class="instructions">
+  <div id="close-instructions">✖️</div>
+  <p>Thanks for helping to map New York City's history!
+  </p>
+
+  <p>
+    If you can determine exactly where the image was taken, click <b>Locatable!</b>
+    and <b>drag</b> the marker to the right place on the map. You can use the <b>search box</b>
+    to find named places ("Union Square"), addresses ("123 Broadway") or cross streets
+    ("15th Street and 8th Ave"). If it's not clear where the image was taken or if the location
+    is too general ("Central Park"), click <b>Not Locatable</b>. It's OK!
+  </p>
+
+  <p>
+    Feel free to go to the NYPL site or to your favorite search engine to do extra sleuthing.
+    And write anything interesting you notice or discover in the "Notes" box.
+  </p>
+</div>
+<div id="show-instructions" style="display:none">Instructions</div>
+
+<div class="container">
+  <div class="inputside" >
+    <h2>Here's an NYPL image…</h2>
+    <a href="${url}" target="_blank"><img border=0 style="max-height: 600px" src="${photo_url}" /></a>
+
+    <ul id="metadata">
+      <li><a target="_blank" href="${url}">${title}</a> <img src="new-tab.png" width="12" height="12"></li>
+      <li>${alt_title}</li>
+      <li>${date}</li>
+      <li>${source}</li>
+    </ul>
+
+    <b>Backing text</b><br/>
+    <pre>${back_text}</pre>
+  </div>
+  <div class="outputside">
+    <h2>…for you to pin on the map</h2>
+    <input id="pac-input" class="controls" type="text" placeholder="Search for an address, cross streets or a place name" />
+    <div id="map"></div>
+      <fieldset id="geolocatable-radio">
+        <input type="radio" id="loc-yes" name="geolocatable" value="Locatable">
+        <label for="loc-yes">&nbsp;Locatable!</label><br/>
+        <input type="radio" id="loc-maybe" name="geolocatable" value="Maybe">
+        <label for="loc-maybe">&nbsp;Might be locatable with some research</label><br/>
+        <input type="radio" id="loc-no" name="geolocatable" value="Not Locatable">
+        <label for="loc-no">&nbsp;Not Locatable</label><br/>
+      </fieldset>
+
+      <hr/>
+      <h4>Comments and Additional Notes:</h4>
+      <textarea cols="70" rows="5" name="user_notes" placeholder="Any additional notes: how did you figure out where the image was? Anything interesting about it?"></textarea><br>
+
+      <button type="submit" id="submit">Submit</button>
+      <input type="hidden" name="latLng" value="" id="latLng">
+      <input type="hidden" name="lastQuery" value="" id="last-query">
+  </div>
+</div>
+
+</form>
+<form action="/delete-last" method="POST" style="display: inline-block">
+  <br><input type="submit" id="undo-button" data-key="z" value="Undo Last (z)">
+</form>
+
+<script type="text/javascript">
+var subject = ${subject};
+var geolocation = ${location};
+</script>
+
+<script src="init-map.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=${GOOGLE_MAPS_API_KEY}&libraries=places&callback=initMap"
+  async defer></script>
+
+<link rel="stylesheet" type="text/css" href="style.css"/>
+
+<form style="display:none">
