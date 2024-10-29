@@ -8,8 +8,9 @@ To run this, you'll need [localturk][] and [csvkit][]:
 Here are some relevant commands from my CLI history:
 
 ```bash
-poetry run oldnyc/geocode/geocode.py --images_ndjson data/images.ndjson --output_format id-location.json --geocode > data/geocode/id-to-location.json
-poetry run oldnyc/geocode/truth/json_to_csv.py <(gshuf data/images.ndjson | head -500) /tmp/id-to-location.json data/geocode/random500.csv
+gshuf data/images.ndjson | head -500 | jq -r .id > data/geocode/random500-ids.txt
+poetry run oldnyc/geocode/geocode.py --images_ndjson data/images.ndjson --output_format id-location.json --ids_filter data/geocode/random500-ids.txt --geocode > /tmp/id-to-location.json
+poetry run oldnyc/geocode/truth/make_localturk_csv.py data/geocode/random500-ids.txt /tmp/id-to-location.json data/geocode/random500.csv
 localturk -r --var GOOGLE_MAPS_API_KEY="..." template.html random500.csv out.csv
 poetry run oldnyc/geocode/truth/fix_truth.py data/geocode/out.csv data/geocode/truth.csv
 poetry run oldnyc/geocode/truth/generate_truth_gtjson.py > data/geocode/truth.geojson

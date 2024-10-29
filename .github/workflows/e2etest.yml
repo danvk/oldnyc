@@ -17,7 +17,10 @@ jobs:
         # See https://stackoverflow.com/a/692407/388951 for the stdout/stderr redirection
     - name: Generate truth data
       run: |
-        PYTHONPATH=. poetry run oldnyc/geocode/truth/generate_truth_gtjson.py > data/geocode/truth.geojson
+        export PYTHONPATH=.
+        poetry run oldnyc/geocode/geocode.py --images_ndjson data/images.ndjson --output_format id-location.json --ids_filter data/geocode/random500-ids.txt --geocode > /tmp/id-to-location.json
+        poetry run oldnyc/geocode/truth/make_localturk_csv.py data/geocode/random500-ids.txt /tmp/id-to-location.json data/geocode/random500.csv
+        poetry run oldnyc/geocode/truth/generate_truth_gtjson.py > data/geocode/truth.geojson
         jq -r '.features[].id' data/geocode/truth.geojson > data/geocode/truth-ids.txt
     - name: Check for diffs
       run: |
