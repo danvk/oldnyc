@@ -87,17 +87,6 @@ def printJsonNoYears(located_recs: list[LocatedRecord], lat_lon_map: dict[str, s
     print(json.dumps(data, sort_keys=True))
 
 
-def printLocationsJson(located_recs: list[LocatedRecord]):
-    locs = {}
-    for r, coder, location_data in located_recs:
-        if location_data and "lat" in location_data and "lon" in location_data:
-            lat = location_data["lat"]
-            lon = location_data["lon"]
-            locs[r.id] = [lat, lon]
-
-    print(json.dumps(json.loads(json.dumps(locs), parse_float=lambda x: round(float(x), 6))))
-
-
 def printRecordsJson(located_recs: list[LocatedRecord]):
     recs = []
     for r, coder, location_data in located_recs:
@@ -168,18 +157,6 @@ def printIdLocation(located_recs: list[LocatedRecord]):
             loc = "n/a\tn/a"
 
         print("\t".join([r.id, coder or "failed", loc]))
-
-
-def printLocations(located_recs: list[LocatedRecord]):
-    locs = defaultdict(int)
-    for _r, _coder, location_data in located_recs:
-        if location_data and "lat" in location_data and "lon" in location_data:
-            lat = location_data["lat"]
-            lon = location_data["lon"]
-            locs["%.6f,%.6f" % (lat, lon)] += 1
-
-    for ll, count in locs.items():
-        print("%d\t%s" % (count, ll))
 
 
 def output_geojson(located_recs: list[LocatedRecord], all_recs: list[Item]):

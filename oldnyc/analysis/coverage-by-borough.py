@@ -8,6 +8,8 @@ from collections import defaultdict
 
 from oldnyc.geocode.boroughs import point_to_borough
 
+# This expects input in records.json format, which I've deleted from geocode.py.
+# TODO: if I want to run this script again, use one of the other formats.
 records = json.load(open(sys.argv[1]))
 
 boros_re = r"(New York|Manhattan|Brooklyn|Bronx|Queens|Staten Island), (?:NY|N\.Y\.)$"

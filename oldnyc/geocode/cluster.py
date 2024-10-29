@@ -12,6 +12,8 @@ TODO:
 - look over pre-built eval pairs
 - implement this as a hook for lat-lons.js
 - look at before/after
+
+TODO (2024): switch this to take in geojson input
 """
 
 import fileinput

@@ -44,7 +44,7 @@ args = parser.parse_args()
 popular_photos: list[PopularPhoto] = json.loads(open("data/popular-photos.js").read()[20:-2])
 pop_ids = {x["id"] for x in popular_photos}
 
-# TODO: replace this with JSON
+# TODO: replace this with GeoJSON
 # strip leading 'var lat_lons = ' and trailing ';'
 lat_lon_to_ids: dict[str, list[str]] = json.loads(open("data/nyc-lat-lons-ny.js").read()[15:-1])
 
