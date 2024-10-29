@@ -82,7 +82,8 @@ if __name__ == "__main__":
             )
         )
 
-    fc = pygeojson.FeatureCollection(localturk_features + surveyor_features)
+    all_features = localturk_features + surveyor_features
+    fc = pygeojson.FeatureCollection(all_features)
     # fc = pygeojson.FeatureCollection(surveyor_features)
     # workaround for https://github.com/hawkaa/pygeojson/issues/18
     out = json.loads(pygeojson.dumps(fc))
