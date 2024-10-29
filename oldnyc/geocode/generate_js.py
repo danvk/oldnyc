@@ -19,7 +19,7 @@ LocatedRecord = tuple[Item, str | None, Location | Locatable | None]
 
 
 def _generateJson(located_recs: Sequence[LocatedRecord], lat_lon_map: dict[str, str]):
-    out = {}
+    out: dict[str, list[tuple[int, int, str]]] = {}
     # "lat,lon" -> list of items
     ll_to_id: dict[str, list[Item]] = defaultdict(list)
 
@@ -57,6 +57,7 @@ def _generateJson(located_recs: Sequence[LocatedRecord], lat_lon_map: dict[str, 
         for r, date_range in sorted_recs:
             assert date_range[0]
             assert date_range[1]
+            # TODO: year range is unused by callers of this function
             out_recs.append([date_range[0].year, date_range[1].year, r.id])
 
         if out_recs:
@@ -71,81 +72,12 @@ def _generateJson(located_recs: Sequence[LocatedRecord], lat_lon_map: dict[str, 
     return out
 
 
-def printJson(located_recs: Sequence[LocatedRecord], lat_lon_map: dict[str, str]):
-    data = _generateJson(located_recs, lat_lon_map)
-
-    print("var lat_lons = ")
-    print(json.dumps(data, sort_keys=True))
-
-
 def printJsonNoYears(located_recs: list[LocatedRecord], lat_lon_map: dict[str, str]):
-    data = _generateJson(located_recs, lat_lon_map)
-    for k, v in data.items():
-        data[k] = [x[2] for x in v]  # drop both year elements.
+    ll_to_items = _generateJson(located_recs, lat_lon_map)
+    data = {k: x[2] for k, v in ll_to_items.items() for x in v}  # drop both year elements.
 
     print("var lat_lons = ")
     print(json.dumps(data, sort_keys=True))
-
-
-def printRecordsJson(located_recs: list[LocatedRecord]):
-    recs = []
-    for r, coder, location_data in located_recs:
-        rec = {
-            "id": r.id,
-            "folder": (r.address or "").replace("Folder: ", ""),
-            "date": record.clean_date(r.date or ""),
-            "title": record.clean_title(r.title),
-            "description": r.back_text,
-            "url": r.url,
-            "extracted": {"date_range": [None, None]},
-        }
-
-        start, end = record.get_date_range(r.date or "")
-        rec["extracted"]["date_range"][0] = "%04d-%02d-%02d" % (start.year, start.month, start.day)
-        rec["extracted"]["date_range"][1] = "%04d-%02d-%02d" % (end.year, end.month, end.day)
-
-        if coder and location_data:
-            lat, lng = location_data.get("lat"), location_data.get("lon")
-            if lat is not None and lng is not None:
-                rec["extracted"]["latlon"] = (lat, lng)
-                rec["extracted"]["located_str"] = location_data["address"]
-                rec["extracted"]["technique"] = coder
-
-        # TODO: remove this
-        try:
-            json.dumps(rec)
-        except Exception as e:
-            sys.stderr.write("%s\n" % rec)
-            raise e
-
-        recs.append(rec)
-    # Net effect of this is to round lat/lngs to 6 decimals in the JSON, to match the
-    # web site and the behavior of old version of this code.
-    # https://stackoverflow.com/a/29066406/388951
-    print(
-        json.dumps(
-            json.loads(json.dumps(recs), parse_float=lambda x: round(float(x), 6)),
-            indent=2,
-            sort_keys=True,
-        )
-    )
-
-
-def printRecordsText(located_recs: list[LocatedRecord]):
-    for r, coder, location_data in located_recs:
-        date = record.clean_date(r.date or "")
-        title = record.clean_title(r.title)
-        folder = r.address
-        if folder:
-            folder = record.clean_folder(folder)
-
-        if location_data:
-            lat, lng = location_data.get("lat"), location_data.get("lon")
-            loc = (str((lat, lng)) or "") + "\t" + location_data["address"]
-        else:
-            loc = "n/a\tn/a"
-
-        print("\t".join([r.id, date, folder or "", title, r.url, coder or "failed", loc]))
 
 
 def printIdLocation(located_recs: list[LocatedRecord]):
