@@ -14,7 +14,6 @@ jobs:
     - name: Run geocoder
       run: |
         PYTHONPATH=. poetry run oldnyc/geocode/geocode.py --ids_filter test/random200-ids.txt --images_ndjson data/images.ndjson --output_format id-location.txt --geocode > >(tee test/random200-geocoded.txt) 2> >(tee test/random200.logs.txt >&2)
-        lat-lon-to-ids.json
         # See https://stackoverflow.com/a/692407/388951 for the stdout/stderr redirection
     - name: Generate truth data
       run: |
