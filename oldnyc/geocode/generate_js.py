@@ -106,7 +106,7 @@ def output_geojson(located_recs: list[LocatedRecord], all_recs: list[Item]):
                         "technique": coder,
                         "lat": location_data["lat"],  # type: ignore
                         "lng": location_data["lon"],  # type: ignore
-                        **location_data,
+                        **location_data,  # TODO: this has lng and lon
                     }
                     if location_data
                     else None
