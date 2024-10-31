@@ -76,6 +76,7 @@ if __name__ == "__main__":
             "lat-lon-to-ids.json",  # used for the static site; TODO: replace with geojson
             "id-location.txt",  # used in the e2e test
             "geojson",
+            "none",  # i.e. if you only want stats
         ),
     )
     parser.add_argument(
@@ -204,5 +205,7 @@ if __name__ == "__main__":
         generate_js.printIdLocation(located_recs)
     elif args.output_format == "geojson":
         generate_js.output_geojson(located_recs, rs)
+    elif args.output_format == "none":
+        pass
     else:
         raise ValueError(args.output_format)

@@ -16,6 +16,7 @@ class Locatable(TypedDict):
     lat: NotRequired[float]
     lon: NotRequired[float]
     grid: NotRequired[str]
+    subject: NotRequired[str]
     source: str
     type: str | list[str]  # 'point_of_interest', 'intersection'
     data: NotRequired[Any]
