@@ -22,7 +22,9 @@ def make_csv(ids_file: str, geojson_file: str, csv_file: str):
     features = pygeojson.load_feature_collection(open(geojson_file)).features
     id_to_location = {
         # TODO: Round
-        f.id: [*assert_point(f.geometry).coordinates][::-1] if f.geometry else None
+        f.id: [round(x, 6) for x in assert_point(f.geometry).coordinates][::-1]
+        if f.geometry
+        else None
         for f in features
     }
 
