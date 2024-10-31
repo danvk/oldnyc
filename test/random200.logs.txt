@@ -6,6 +6,7 @@ Borough mismatch: "51st Street & 19th Avenue, Manhattan, NY" (Manhattan) geocode
 (731306f) Bad location: 5th Avenue, Manhattan, N.Y.
 Rejecting extrapolation for 7, 12
 (1509149) Bad location: Broadway #173-77, Manhattan, NY
+(732657f) Bad location: Brooklyn P.S. 106., Brooklyn, N.Y.
 (733706f) Bad location: Coney Island Creek - Stillwell Avenue - W. 12th Street - Brooklyn., NY
   101 /   200 records processed
 (732005f) Bad location: Coney Island, Brooklyn, N.Y.
