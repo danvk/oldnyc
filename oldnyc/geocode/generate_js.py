@@ -19,7 +19,7 @@ LocatedRecord = tuple[Item, str | None, Location | Locatable | None]
 
 
 def _generateJson(located_recs: Sequence[LocatedRecord], lat_lon_map: dict[str, str]):
-    out: dict[str, list[tuple[int, int, str]]] = {}
+    out: dict[str, list[str]] = {}
     # "lat,lon" -> list of items
     ll_to_id: dict[str, list[Item]] = defaultdict(list)
 
@@ -53,13 +53,7 @@ def _generateJson(located_recs: Sequence[LocatedRecord], lat_lon_map: dict[str, 
         )
         no_date += len(recs) - len(sorted_recs)
 
-        out_recs = []
-        for r, date_range in sorted_recs:
-            assert date_range[0]
-            assert date_range[1]
-            # TODO: year range is unused by callers of this function
-            out_recs.append([date_range[0].year, date_range[1].year, r.id])
-
+        out_recs = [r.id for r, _ in sorted_recs]
         if out_recs:
             points += 1
             photos += len(out_recs)
@@ -74,7 +68,7 @@ def _generateJson(located_recs: Sequence[LocatedRecord], lat_lon_map: dict[str, 
 
 def printJsonNoYears(located_recs: list[LocatedRecord], lat_lon_map: dict[str, str]):
     ll_to_items = _generateJson(located_recs, lat_lon_map)
-    data = {k: x[2] for k, v in ll_to_items.items() for x in v}  # drop both year elements.
+    data = {k: x for k, v in ll_to_items.items() for x in v}
 
     print("var lat_lons = ")
     print(json.dumps(data, sort_keys=True))
