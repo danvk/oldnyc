@@ -18,8 +18,8 @@ jobs:
     - name: Generate truth data
       run: |
         export PYTHONPATH=.
-        poetry run oldnyc/geocode/geocode.py --images_ndjson data/images.ndjson --output_format id-location.json --ids_filter data/geocode/random500-ids.txt --geocode > /tmp/id-to-location.json
-        poetry run oldnyc/geocode/truth/make_localturk_csv.py data/geocode/random500-ids.txt /tmp/id-to-location.json data/geocode/random500.csv
+        poetry run oldnyc/geocode/geocode.py --images_ndjson data/images.ndjson --output_format geojson --ids_filter data/geocode/random500-ids.txt  --geocode > /tmp/images.geojson
+        poetry run oldnyc/geocode/truth/make_localturk_csv.py data/geocode/random500-ids.txt /tmp/images.geojson data/geocode/random500.csv
         poetry run oldnyc/geocode/truth/generate_truth_gtjson.py > data/geocode/truth.geojson
         jq -r '.features[].id' data/geocode/truth.geojson > data/geocode/truth-ids.txt
     - name: Check for diffs
@@ -68,6 +68,11 @@ jobs:
     - name: Check for diffs
       run: |
         git diff --exit-code data/
+    - name: Generate geocodes
+      run: |
+        export PYTHONPATH=.
+        tar -xzf geocache.tgz
+        poetry run oldnyc/geocode/geocode.py --images_ndjson data/photos.ndjson --lat_lon_map data/lat-lon-map.txt --output_format lat-lon-to-ids.json --geocode > data/lat-lon-to-ids.json
     - name: Generate static site
       run: |
         export PYTHONPATH=.

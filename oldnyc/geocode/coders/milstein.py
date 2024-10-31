@@ -74,7 +74,7 @@ class MilsteinCoder(Coder):
 
         m = None
         for pattern in cross_patterns:
-            m = re.search(pattern, loc)
+            m = re.match(pattern, loc)
             if m:
                 break
         if m:
@@ -87,7 +87,7 @@ class MilsteinCoder(Coder):
                 )
 
         for pattern in addr_patterns:
-            m = re.search(pattern, loc)
+            m = re.match(pattern, loc)
             # print(loc, m, pattern)
             if m:
                 break
@@ -107,7 +107,7 @@ class MilsteinCoder(Coder):
             )
 
         for pattern in place_patterns:
-            m = re.search(pattern, loc)
+            m = re.match(pattern, loc)
             if m:
                 break
         if m:

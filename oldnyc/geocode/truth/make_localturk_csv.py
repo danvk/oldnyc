@@ -1,16 +1,32 @@
 #!/usr/bin/env python
 import csv
 import dataclasses
-import json
 import sys
+
+import pygeojson
 
 from oldnyc.item import load_items
 
 
-def make_csv(ids_file: str, id_to_location: dict, csv_file: str):
+def assert_point(g: pygeojson.GeometryObject) -> pygeojson.Point:
+    if not isinstance(g, pygeojson.Point):
+        raise ValueError(f"Expected Point, got {g}")
+    return g
+
+
+def make_csv(ids_file: str, geojson_file: str, csv_file: str):
     items = load_items("data/images.ndjson")
     id_to_item = {r.id: r for r in items}
     ids = open(ids_file).read().splitlines()
+
+    features = pygeojson.load_feature_collection(open(geojson_file)).features
+    id_to_location = {
+        # TODO: Round
+        f.id: [round(x, 6) for x in assert_point(f.geometry).coordinates][::-1]
+        if f.geometry
+        else None
+        for f in features
+    }
 
     with open(csv_file, "w", newline="") as csv_f:
         writer = None
@@ -28,12 +44,8 @@ def make_csv(ids_file: str, id_to_location: dict, csv_file: str):
 
 if __name__ == "__main__":
     if len(sys.argv) != 4:
-        print(
-            "Usage: python json_to_csv.py <ids_file> <input id-to-location.json> <output_csv_file>"
-        )
+        print("Usage: python json_to_csv.py <ids_file> <images.geojson> <output_csv_file>")
         sys.exit(1)
 
-    ids_file = sys.argv[1]
-    id_to_location = json.load(open(sys.argv[2]))
-    csv_file = sys.argv[3]
-    make_csv(ids_file, id_to_location, csv_file)
+    ids_file, geojson_file, csv_file = sys.argv[1:]
+    make_csv(ids_file, geojson_file, csv_file)
