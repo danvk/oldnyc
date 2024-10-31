@@ -69,6 +69,11 @@ jobs:
     - name: Check for diffs
       run: |
         git diff --exit-code data/
+    - name: Generate geocodes
+      run: |
+        export PYTHONPATH=.
+        tar -xzf geocache.tgz
+        poetry run oldnyc/geocode/geocode.py --images_ndjson data/photos.ndjson --lat_lon_map data/lat-lon-map.txt --output_format lat-lon-to-ids.json --geocode > data/lat-lon-to-ids.json
     - name: Generate static site
       run: |
         export PYTHONPATH=.
