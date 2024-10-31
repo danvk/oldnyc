@@ -68,7 +68,6 @@ def _generateJson(located_recs: Sequence[LocatedRecord], lat_lon_map: dict[str, 
 
 def printJsonNoYears(located_recs: list[LocatedRecord], lat_lon_map: dict[str, str]):
     ll_to_items = _generateJson(located_recs, lat_lon_map)
-    print("var lat_lons = ")
     print(json.dumps(ll_to_items, sort_keys=True))
 
 

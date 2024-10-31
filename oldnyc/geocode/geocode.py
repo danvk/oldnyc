@@ -73,7 +73,7 @@ if __name__ == "__main__":
         "--output_format",
         default="",
         choices=(
-            "lat-lons-ny.js",  # used for the static site; TODO: replace with geojson
+            "lat-lon-to-ids.json",  # used for the static site; TODO: replace with geojson
             "id-location.txt",  # used in the e2e test
             "geojson",
         ),
@@ -198,8 +198,7 @@ if __name__ == "__main__":
 
     sys.stderr.write("%5d (total)\n" % successes)
 
-    # TODO: are all these necessary?
-    if args.output_format == "lat-lons-ny.js":
+    if args.output_format == "lat-lon-to-ids.json":
         generate_js.printJsonNoYears(located_recs, lat_lon_map)
     elif args.output_format == "id-location.txt":
         generate_js.printIdLocation(located_recs)
