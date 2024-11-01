@@ -8,6 +8,7 @@
 </ul>
 
 <div id="map"></div>
+<input id="pac-input" class="controls" type="text" placeholder="Search for an address, cross streets or a place name" />
 
 <div className="examples">
     <h2>Examples</h2>
@@ -16,26 +17,18 @@
 
 <script type="text/javascript">
 const examples = JSON.parse(atob("${examples_json_b64}"));
-const points = JSON.parse(atob("${points}"));
 const centroidExtent = ${centroid};
 const centroid = centroidExtent ? centroidExtent[0] : null;
 </script>
 
 <script type="text/javascript">
-document.getElementById("point-count").textContent = points.length;
-// for (const point of points) {
-//   const li = document.createElement("li");
-//   li.textContent = point;
-//   document.getElementById("points").appendChild(li);
-// }
+const numPoints = examples.filter(e => e.geocode).length;
+document.getElementById("point-count").textContent = numPoints;
 </script>
 
 <script src="subjects.js"></script>
 
-<!--
-Use named form elements to generate output as desired.
-Use data-key="x" to set a keyboard shortcut for buttons.
--->
+<input type="hidden" name="latlng" id="latlng">
 <textarea cols="70" rows="5" name="user_notes" placeholder="Any additional notes go here"></textarea><br>
 <button type="submit" name="result" data-key="b" value="Too broad">Too broad (b)</button>
 <button type="submit" name="result" data-key="1" value="Provides 1D location">Provides 1D location (1)</button>

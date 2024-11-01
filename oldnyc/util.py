@@ -1,6 +1,6 @@
 import base64
 import json
-from typing import Any
+from typing import Any, Sequence
 
 
 def encode_json_base64(o: Any) -> str:
@@ -9,3 +9,7 @@ def encode_json_base64(o: Any) -> str:
 
 def decode_json_base64(b64: str):
     return json.loads(base64.b64decode(b64).decode("utf-8"))
+
+
+def pick(o: dict, fields: Sequence[str]) -> dict:
+    return {k: o[k] for k in fields if k in o}

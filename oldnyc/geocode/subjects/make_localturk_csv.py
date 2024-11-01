@@ -5,6 +5,7 @@ import csv
 import dataclasses
 import json
 import os
+import sys
 from collections import Counter, defaultdict
 from typing import Sequence
 
@@ -14,7 +15,7 @@ from haversine import haversine
 from oldnyc.geocode.coders.nyc_parks import IGNORE_SUBJECTS, NycParkCoder
 from oldnyc.geojson_utils import assert_point
 from oldnyc.item import Item, load_items
-from oldnyc.util import encode_json_base64
+from oldnyc.util import encode_json_base64, pick
 
 
 def centroid(points: Sequence[tuple[float, float]]) -> tuple[float, float]:
@@ -55,23 +56,37 @@ def main():
             counts[geo] += 1
             geo_to_items[geo].append(item)
 
-    assert not os.path.exists("data/subjects/out.csv")
+    existing = {}
+    if os.path.exists("data/subjects/out.csv"):
+        rows = csv.DictReader(open("data/subjects/out.csv"))
+        # 'result' is manual review; 'outcome' is automatic from nyc_parks
+        existing = {
+            r["geo"]: pick(r, ("result", "latlng", "user_notes")) for r in rows if r["result"]
+        }
+        sys.stderr.write(f"Loaded {len(existing)} existing rows\n")
 
     # TODO: read existing out.csv
     with (
         open("data/subjects/tasks.csv", "w") as tasks_f,
         open("data/subjects/out.csv", "w") as out_f,
     ):
-        fieldnames = ["geo", "count", "examples_json_b64", "points", "centroid"]
+        fieldnames = ["geo", "count", "examples_json_b64", "centroid"]
         tasks = csv.DictWriter(tasks_f, fieldnames=fieldnames)
         tasks.writeheader()
-        out = csv.DictWriter(out_f, fieldnames=fieldnames + ["outcome", "latlng"])
+        out = csv.DictWriter(
+            out_f, fieldnames=fieldnames + ["outcome", "latlng", "result", "user_notes"]
+        )
         out.writeheader()
 
         for geo, count in counts.most_common():
             examples = [
-                {**dataclasses.asdict(item), "geocode": maybe_coords(id_to_location.get(item.id))}
-                for item in geo_to_items[geo][:5]
+                {
+                    "id": item.id,
+                    "url": item.url,
+                    "title": item.title,
+                    "geocode": maybe_coords(id_to_location.get(item.id)),
+                }
+                for item in geo_to_items[geo]
             ]
             points = [
                 p.coordinates[:2]
@@ -84,7 +99,6 @@ def main():
                 "geo": geo,
                 "count": count,
                 "examples_json_b64": encode_json_base64(examples),
-                "points": encode_json_base64(points),
                 "centroid": json.dumps(centroid_extent_m),
             }
             tasks.writerow(row)
@@ -96,6 +110,8 @@ def main():
                         "latlng": lat_lng,
                     }
                 )
+            elif geo in existing:
+                out.writerow({**row, **existing[geo]})
 
 
 if __name__ == "__main__":
