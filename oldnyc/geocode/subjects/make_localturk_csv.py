@@ -2,7 +2,6 @@
 """Assemble un-located subjects into a CSV file for localturking."""
 
 import csv
-import dataclasses
 import json
 import os
 import sys
@@ -56,6 +55,7 @@ def main():
             counts[geo] += 1
             geo_to_items[geo].append(item)
 
+    csv.field_size_limit(sys.maxsize)
     existing = {}
     if os.path.exists("data/subjects/out.csv"):
         rows = csv.DictReader(open("data/subjects/out.csv"))
@@ -65,10 +65,9 @@ def main():
         }
         sys.stderr.write(f"Loaded {len(existing)} existing rows\n")
 
-    # TODO: read existing out.csv
     with (
-        open("data/subjects/tasks.csv", "w") as tasks_f,
-        open("data/subjects/out.csv", "w") as out_f,
+        open("data/subjects/tasks.csv", "w", newline="\n") as tasks_f,
+        open("data/subjects/out.csv", "w", newline="\n") as out_f,
     ):
         fieldnames = ["geo", "count", "examples_json_b64", "centroid"]
         tasks = csv.DictWriter(tasks_f, fieldnames=fieldnames)
