@@ -246,6 +246,8 @@ IGNORE_SUBJECTS = {
     "Queens (New York, N.Y.)",
     "Bronx (New York, N.Y.)",
     "Brooklyn (New York, N.Y.)",
+    "Staten Island (New York, N.Y.)",
+    "United States",
 }
 
 

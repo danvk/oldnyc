@@ -20,6 +20,7 @@ def main():
     locations = dict[str, str]()
     geo_to_items = defaultdict[str, list[Item]](list)
 
+    # TODO: pull in locations from other coders here.
     for item in items:
         location = coder.codeRecord(item)
         if location:
