@@ -1,0 +1,46 @@
+<link rel="stylesheet" type="text/css" href="style.css"/>
+
+<ul>
+<li>subject: ${geo}</li>
+<li>count: ${count}</li>
+<li>centroid: ${centroid}</li>
+<li>points (<span id="point-count"></span>)</li>
+</ul>
+
+<div id="map"></div>
+
+<div className="examples">
+    <h2>Examples</h2>
+    <ul id="examples"></ul>
+</div>
+
+<script type="text/javascript">
+const examples = JSON.parse(atob("${examples_json_b64}"));
+const points = JSON.parse(atob("${points}"));
+const centroidExtent = ${centroid};
+const centroid = centroidExtent ? centroidExtent[0] : null;
+</script>
+
+<script type="text/javascript">
+document.getElementById("point-count").textContent = points.length;
+// for (const point of points) {
+//   const li = document.createElement("li");
+//   li.textContent = point;
+//   document.getElementById("points").appendChild(li);
+// }
+</script>
+
+<script src="subjects.js"></script>
+
+<!--
+Use named form elements to generate output as desired.
+Use data-key="x" to set a keyboard shortcut for buttons.
+-->
+<textarea cols="70" rows="5" name="user_notes" placeholder="Any additional notes go here"></textarea><br>
+<button type="submit" name="result" data-key="b" value="Too broad">Too broad (b)</button>
+<button type="submit" name="result" data-key="1" value="Provides 1D location">Provides 1D location (1)</button>
+<button type="submit" name="result" data-key="g" value="Good">Good (g)</button>
+<button type="submit" name="result" data-key="o" value="Other">Other (o)</button>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=${GOOGLE_MAPS_API_KEY}&libraries=places&callback=initMap&loading=async"
+  async defer></script>

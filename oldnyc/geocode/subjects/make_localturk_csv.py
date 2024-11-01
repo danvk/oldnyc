@@ -3,6 +3,7 @@
 
 import csv
 import dataclasses
+import json
 import os
 from collections import Counter, defaultdict
 from typing import Sequence
@@ -16,16 +17,20 @@ from oldnyc.item import Item, load_items
 from oldnyc.util import encode_json_base64
 
 
-def centroid(points: Sequence[pygeojson.Point]) -> tuple[float, float]:
-    x = sum(p.coordinates[0] for p in points) / len(points)
-    y = sum(p.coordinates[1] for p in points) / len(points)
+def centroid(points: Sequence[tuple[float, float]]) -> tuple[float, float]:
+    x = sum(p[0] for p in points) / len(points)
+    y = sum(p[1] for p in points) / len(points)
     return (x, y)
 
 
-def centroid_and_extent(points: Sequence[pygeojson.Point]) -> tuple[tuple[float, float], float]:
+def centroid_and_extent(points: Sequence[tuple[float, float]]) -> tuple[tuple[float, float], float]:
     x, y = centroid(points)
-    extent_km = max(haversine(p.coordinates[::-1], (y, x)) for p in points)
+    extent_km = max(haversine(p[::-1], (y, x)) for p in points)
     return ((x, y), 1000.0 * extent_km)
+
+
+def maybe_coords(p: pygeojson.Point | None):
+    return p.coordinates[:2] if p else None
 
 
 def main():
@@ -57,19 +62,22 @@ def main():
         open("data/subjects/tasks.csv", "w") as tasks_f,
         open("data/subjects/out.csv", "w") as out_f,
     ):
-        tasks = csv.DictWriter(tasks_f, fieldnames=["geo", "count", "examples_json_b64"])
+        fieldnames = ["geo", "count", "examples_json_b64", "points", "centroid"]
+        tasks = csv.DictWriter(tasks_f, fieldnames=fieldnames)
         tasks.writeheader()
-        out = csv.DictWriter(
-            out_f, fieldnames=["geo", "count", "examples_json_b64", "outcome", "latlng"]
-        )
+        out = csv.DictWriter(out_f, fieldnames=fieldnames + ["outcome", "latlng"])
         out.writeheader()
 
         for geo, count in counts.most_common():
             examples = [
-                {**dataclasses.asdict(item), "geocode": id_to_location.get(item.id)}
+                {**dataclasses.asdict(item), "geocode": maybe_coords(id_to_location.get(item.id))}
                 for item in geo_to_items[geo][:5]
             ]
-            points = [p for item in geo_to_items[geo] if (p := id_to_location.get(item.id))]
+            points = [
+                p.coordinates[:2]
+                for item in geo_to_items[geo]
+                if (p := id_to_location.get(item.id))
+            ]
             centroid_extent_m = centroid_and_extent(points) if points else None
             lat_lng = locations.get(geo)
             row = {
@@ -77,7 +85,7 @@ def main():
                 "count": count,
                 "examples_json_b64": encode_json_base64(examples),
                 "points": encode_json_base64(points),
-                "centroid": centroid_extent_m,
+                "centroid": json.dumps(centroid_extent_m),
             }
             tasks.writerow(row)
             if lat_lng:
