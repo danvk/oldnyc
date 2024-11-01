@@ -10,11 +10,7 @@ import sys
 
 import pygeojson
 
-
-def assert_point(g: pygeojson.GeometryObject) -> pygeojson.Point:
-    if not isinstance(g, pygeojson.Point):
-        raise ValueError(f"Expected Point, got {g}")
-    return g
+from oldnyc.geojson_utils import assert_point
 
 
 def geojson_to_csv(ndjson_file: str, geojson_file: str, out_csv_file: str):

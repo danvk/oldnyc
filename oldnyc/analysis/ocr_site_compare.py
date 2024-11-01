@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 """Which is better, on-site OCR or GPT?"""
 
-import base64
 import csv
 import json
 import random
@@ -11,6 +10,7 @@ from oldnyc.item import load_items
 from oldnyc.ocr.cleaner import clean
 from oldnyc.ocr.score_utils import score_for_pair
 from oldnyc.site.site_data_type import SiteJson
+from oldnyc.util import encode_json_base64
 
 
 def main():
@@ -69,7 +69,7 @@ def main():
         {
             "back_id": change["photo_id"],
             "distance": change["metadata"]["distance"],
-            "BASE64": base64.b64encode(json.dumps(change).encode("utf8")).decode("utf-8"),
+            "BASE64": encode_json_base64(change),
         }
         for change in changes
     )

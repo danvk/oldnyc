@@ -1,10 +1,9 @@
 #!/usr/bin/env python
 
-
-import base64
 import csv
 import fileinput
-import json
+
+from oldnyc.util import decode_json_base64
 
 
 def main():
@@ -12,7 +11,7 @@ def main():
     # back_id,BASE64,Before,notes,Neutral,After
     for row in rows:
         back_id = row["back_id"]
-        record = json.loads(base64.b64decode(row["BASE64"]).decode("utf-8"))
+        record = decode_json_base64(row["BASE64"])
         before = row["Before"]
         notes = row["notes"]
         # neutral = row["Neutral"]
