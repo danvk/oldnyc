@@ -8,7 +8,10 @@ import re
 import sys
 from collections import defaultdict
 
+import pygeojson
+
 from oldnyc.geocode.geocode_types import Coder, Locatable
+from oldnyc.geojson_utils import assert_point
 from oldnyc.item import blank_item
 
 # TODO: move these into a data file, maybe GeoJSON
@@ -252,24 +255,28 @@ IGNORE_SUBJECTS = {
 
 
 class NycParkCoder(Coder):
+    geo_to_location: dict[str, pygeojson.Point]
+
     def __init__(self):
-        pass
+        with open("data/subjects.geojson") as f:
+            features = pygeojson.load_feature_collection(f).features
+            self.geo_to_location = {f.properties["geo"]: assert_point(f.geometry) for f in features}
+
+        self.n_geo = 0
+        self.n_title = 0
 
     def codeRecord(self, r):
         for geo in r.subject.geographic:
-            loc = re.sub(r" \(.*", "", geo)
-            for group in [parks, islands, bridges]:
-                if loc in group:
-                    return Locatable(
-                        address="@%s,%s" % group[loc],
-                        source=geo,
-                        type="point_of_interest",
-                    )
+            pt = self.geo_to_location.get(geo)
+            if pt:
+                self.n_geo += 1
+                lng, lat = pt.coordinates[:2]
+                return Locatable(
+                    address="@%.6f,%.6f" % (lat, lng),
+                    source=geo,
+                    type="point_of_interest",
+                )
 
-        # subs = [s for s in r.subject.geographic if s not in IGNORE_SUBJECTS]
-        # if subs:
-        #     print("\t".join([r.id] + subs))
-        return None
         title = re.sub(r"\.$", "", r.title)
 
         m = re.search(park_re, title)
@@ -286,6 +293,7 @@ class NycParkCoder(Coder):
                                 latlon = central_park[place]
                     if not latlon:
                         latlon = parks[park]
+                    self.n_title += 1
                     return Locatable(
                         address="@%s,%s" % latlon,
                         source=m.group(0),
@@ -299,6 +307,7 @@ class NycParkCoder(Coder):
                 missing_islands[island] += 1
             else:
                 latlon = islands[island]
+                self.n_title += 1
                 return Locatable(
                     address="@%s,%s" % latlon,
                     source=m.group(0),
@@ -316,6 +325,7 @@ class NycParkCoder(Coder):
                 missing_bridges[bridge] += 1
             else:
                 latlon = bridges[bridge]
+                self.n_title += 1
                 return Locatable(
                     address="@%s,%s" % latlon,
                     source=m.group(0),
@@ -333,10 +343,11 @@ class NycParkCoder(Coder):
         return None
 
     def finalize(self):
-        for missing in [missing_parks, missing_islands, missing_bridges]:
-            vs = [(v, k) for k, v in missing.items()]
-            for v, k in reversed(sorted(vs)):
-                sys.stderr.write("%4d\t%s\n" % (v, k))
+        sys.stderr.write(f"POI/subject geocoding: n_geo={self.n_geo}, n_title={self.n_title}\n")
+        # for missing in [missing_parks, missing_islands, missing_bridges]:
+        #     vs = [(v, k) for k, v in missing.items()]
+        #     for v, k in reversed(sorted(vs)):
+        #         sys.stderr.write("%4d\t%s\n" % (v, k))
 
     def name(self):
         return "nyc-parks"

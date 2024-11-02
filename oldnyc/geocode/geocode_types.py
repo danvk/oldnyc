@@ -13,6 +13,7 @@ class Location(TypedDict):
 
 class Locatable(TypedDict):
     address: str
+    """Can be either a geolocatable address or @lat,lng"""
     lat: NotRequired[float]
     lon: NotRequired[float]
     grid: NotRequired[str]

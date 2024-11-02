@@ -1,0 +1,2554 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.965355,
+          40.782865
+        ]
+      },
+      "properties": {
+        "geo": "Central Park (New York, N.Y.)",
+        "count": 369,
+        "source": "2013"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.996823,
+          40.706096
+        ]
+      },
+      "properties": {
+        "geo": "Brooklyn Bridge (New York, N.Y.)",
+        "count": 241,
+        "source": "2013"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.990774,
+          40.707471
+        ]
+      },
+      "properties": {
+        "geo": "Manhattan Bridge (New York, N.Y.)",
+        "count": 155,
+        "source": "2013"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.972616,
+          40.71369
+        ]
+      },
+      "properties": {
+        "geo": "Williamsburg Bridge (New York, N.Y.)",
+        "count": 147,
+        "source": "2013"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.016094,
+          40.703717
+        ]
+      },
+      "properties": {
+        "geo": "Battery Park (New York, N.Y.)",
+        "count": 147,
+        "source": "2013"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.954224,
+          40.756732
+        ]
+      },
+      "properties": {
+        "geo": "Queensboro Bridge (New York, N.Y.)",
+        "count": 126,
+        "source": "2013"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.97231,
+          40.801234
+        ]
+      },
+      "properties": {
+        "geo": "Riverside Park (New York, N.Y.)",
+        "count": 119,
+        "source": "2013"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.840785,
+          40.739714
+        ]
+      },
+      "properties": {
+        "geo": "Flushing Meadows-Corona Park (New York, N.Y.)",
+        "count": 113,
+        "source": "2013"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.985941,
+          40.574926
+        ]
+      },
+      "properties": {
+        "geo": "Coney Island (New York, N.Y.)",
+        "count": 106,
+        "source": "2013"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.921913,
+          40.782596
+        ]
+      },
+      "properties": {
+        "geo": "Hell Gate Bridge (New York, N.Y.)",
+        "count": 101,
+        "source": "2013"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.006389,
+          40.71316
+        ]
+      },
+      "properties": {
+        "geo": "City Hall Park (New York, N.Y.)",
+        "count": 99,
+        "source": "2013"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.988036,
+          40.742216
+        ]
+      },
+      "properties": {
+        "geo": "Madison Square Park (New York, N.Y.)",
+        "count": 87,
+        "source": "2013"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.983607,
+          40.753792
+        ]
+      },
+      "properties": {
+        "geo": "Bryant Park (New York, N.Y.)",
+        "count": 74,
+        "source": "2013"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9905215,
+          40.7358235
+        ]
+      },
+      "properties": {
+        "geo": "Union Square (New York, N.Y.)",
+        "count": 69,
+        "source": "2024",
+        "result": "Good",
+        "user_notes": "Some of the outliers are long/aerial views, others have incorrect cross-streets in the titles."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9818957,
+          40.76807969999999
+        ]
+      },
+      "properties": {
+        "geo": "Columbus Circle (New York, N.Y.)",
+        "count": 63,
+        "source": "2024",
+        "result": "Good",
+        "user_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.97035,
+          40.66143
+        ]
+      },
+      "properties": {
+        "geo": "Prospect Park (New York, N.Y.)",
+        "count": 62,
+        "source": "2013"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.945942,
+          40.850425
+        ]
+      },
+      "properties": {
+        "geo": "George Washington Bridge (New York, N.Y.)",
+        "count": 61,
+        "source": "2013"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.00145669999999,
+          40.705573
+        ]
+      },
+      "properties": {
+        "geo": "Fulton Fish Market (New York, N.Y.)",
+        "count": 57,
+        "source": "2024",
+        "result": "Good",
+        "user_notes": "Somewhere around Fulton St. and the East River. The new location is in the Bronx."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.949964,
+          40.762161
+        ]
+      },
+      "properties": {
+        "geo": "Roosevelt Island (New York, N.Y.)",
+        "count": 57,
+        "source": "2013"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.016792,
+          40.68945
+        ]
+      },
+      "properties": {
+        "geo": "Governors Island (New York County, N.Y.)",
+        "count": 55,
+        "source": "2013"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.915,
+          40.584722
+        ]
+      },
+      "properties": {
+        "geo": "Plumb Island (N.Y.)",
+        "count": 44,
+        "source": "2013"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.928056,
+          40.846944
+        ]
+      },
+      "properties": {
+        "geo": "Washington Bridge (New York, N.Y.)",
+        "count": 36,
+        "source": "2013"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.925695,
+          40.871542
+        ]
+      },
+      "properties": {
+        "geo": "Inwood Hill Park (New York, N.Y.)",
+        "count": 33,
+        "source": "2013"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.93291,
+          40.843104
+        ]
+      },
+      "properties": {
+        "geo": "Highbridge Park (New York, N.Y.)",
+        "count": 33,
+        "source": "2013"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.890918,
+          40.894709
+        ]
+      },
+      "properties": {
+        "geo": "Van Cortlandt Park (New York, N.Y.)",
+        "count": 33,
+        "source": "2013"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.933622,
+          40.861619
+        ]
+      },
+      "properties": {
+        "geo": "Fort Tryon Park (New York, N.Y.)",
+        "count": 32,
+        "source": "2013"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.893056,
+          40.592778
+        ]
+      },
+      "properties": {
+        "geo": "Barren Island (New York, N.Y.)",
+        "count": 31,
+        "source": "2013"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.142963,
+          40.639706
+        ]
+      },
+      "properties": {
+        "geo": "Bayonne Bridge (N.Y. and N.J.)",
+        "count": 29,
+        "source": "2013"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.922302,
+          40.877713
+        ]
+      },
+      "properties": {
+        "geo": "Henry Hudson Bridge (New York, N.Y.)",
+        "count": 28,
+        "source": "2013"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.876667,
+          40.856389
+        ]
+      },
+      "properties": {
+        "geo": "Bronx Park (New York, N.Y.)",
+        "count": 27,
+        "source": "2013"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.990442,
+          40.735708
+        ]
+      },
+      "properties": {
+        "geo": "Union Square Park (New York, N.Y.)",
+        "count": 27,
+        "source": "2013"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.997332,
+          40.730823
+        ]
+      },
+      "properties": {
+        "geo": "Washington Square Park (New York, N.Y.)",
+        "count": 26,
+        "source": "2013"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.927871,
+          40.788232
+        ]
+      },
+      "properties": {
+        "geo": "Triborough Bridge (New York, N.Y.)",
+        "count": 22,
+        "source": "2013"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.946673,
+          40.849475
+        ]
+      },
+      "properties": {
+        "geo": "Fort Washington Park (New York, N.Y.)",
+        "count": 20,
+        "source": "2013"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.925275,
+          40.775934
+        ]
+      },
+      "properties": {
+        "geo": "Astoria Park (New York, N.Y.)",
+        "count": 20,
+        "source": "2013"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.92083,
+          40.59804
+        ]
+      },
+      "properties": {
+        "geo": "Marine Park (New York, N.Y.)",
+        "count": 19,
+        "source": "2013"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.97933,
+          40.57213
+        ]
+      },
+      "properties": {
+        "geo": "Coney Island Beach (New York, N.Y.)",
+        "count": 19,
+        "source": "2013"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.88601,
+          40.793128
+        ]
+      },
+      "properties": {
+        "geo": "Rikers Island (N.Y.)",
+        "count": 19,
+        "source": "2013"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.979697,
+          40.711697
+        ]
+      },
+      "properties": {
+        "geo": "Corlears Hook Park (New York, N.Y.)",
+        "count": 18,
+        "source": "2013"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.930277,
+          40.842308
+        ]
+      },
+      "properties": {
+        "geo": "High Bridge (New York, N.Y.)",
+        "count": 18,
+        "source": "2013"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.97,
+          40.673889
+        ]
+      },
+      "properties": {
+        "geo": "Grand Army Plaza (New York, N.Y.)",
+        "count": 16,
+        "source": "2013"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.959127,
+          40.805093
+        ]
+      },
+      "properties": {
+        "geo": "Morningside Park (New York, N.Y.)",
+        "count": 15,
+        "source": "2013"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.885145,
+          40.573697
+        ]
+      },
+      "properties": {
+        "geo": "Marine Parkway-Gil Hodges Memorial Bridge (New York, N.Y.)",
+        "count": 15,
+        "source": "2013"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.876081,
+          40.566623
+        ]
+      },
+      "properties": {
+        "geo": "Jacob Riis Park Historic District (New York, N.Y.)",
+        "count": 15,
+        "source": "2013"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.973833,
+          40.690344
+        ]
+      },
+      "properties": {
+        "geo": "Fort Greene Park (New York, N.Y.)",
+        "count": 14,
+        "source": "2013"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.942172,
+          40.824293
+        ]
+      },
+      "properties": {
+        "geo": "Jackie Robinson Park (New York, N.Y.)",
+        "count": 13,
+        "source": "2013"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.7972,
+          40.8615
+        ]
+      },
+      "properties": {
+        "geo": "Pelham Bay Park (New York, N.Y.)",
+        "count": 12,
+        "source": "2013"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.053688,
+          40.578873
+        ]
+      },
+      "properties": {
+        "geo": "Hoffman Island (N.Y.)",
+        "count": 12,
+        "source": "2013"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.965414,
+          40.779612
+        ]
+      },
+      "properties": {
+        "geo": "Cleopatra's Needle",
+        "count": 11,
+        "source": "2013"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.935247,
+          40.793366
+        ]
+      },
+      "properties": {
+        "geo": "Jefferson Park (New York, N.Y.)",
+        "count": 10,
+        "source": "2013"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.933096,
+          40.815139
+        ]
+      },
+      "properties": {
+        "geo": "Willis Avenue Bridge (New York, N.Y.)",
+        "count": 10,
+        "source": "2013"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.195978,
+          40.635381
+        ]
+      },
+      "properties": {
+        "geo": "Goethals Bridge (N.Y. and N.J.)",
+        "count": 9,
+        "source": "2013"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.855556,
+          40.85
+        ]
+      },
+      "properties": {
+        "geo": "Morris Park Race Track (New York, N.Y.)",
+        "count": 9,
+        "source": "2013"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.1157,
+          40.6251
+        ]
+      },
+      "properties": {
+        "geo": "Barrett Park (New York, N.Y.)",
+        "count": 8,
+        "source": "2013"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.0048053,
+          40.7121364
+        ]
+      },
+      "properties": {
+        "geo": "Printing House Square (New York, N.Y.)",
+        "count": 8,
+        "source": "2013"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.8521593,
+          40.7926994
+        ]
+      },
+      "properties": {
+        "geo": "Hermon A. MacNeil Park (New York, N.Y.)",
+        "count": 8,
+        "source": "2013"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.97,
+          40.673889
+        ]
+      },
+      "properties": {
+        "geo": "Grand Army Plaza (Brooklyn, New York, N.Y.)",
+        "count": 8,
+        "source": "2013"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9292,
+          40.72777
+        ]
+      },
+      "properties": {
+        "geo": "Penny Bridge (New York, N.Y.)",
+        "count": 8,
+        "source": "2013"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.944046,
+          40.804508
+        ]
+      },
+      "properties": {
+        "geo": "Marcus Garvey Park (New York, N.Y.)",
+        "count": 7,
+        "source": "2013"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.894444,
+          40.865278
+        ]
+      },
+      "properties": {
+        "geo": "Poe Park (New York, N.Y.)",
+        "count": 6,
+        "source": "2013"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.898137,
+          40.80072
+        ]
+      },
+      "properties": {
+        "geo": "North Brother Island (New York, N.Y.)",
+        "count": 6,
+        "source": "2013"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.03956,
+          40.699472
+        ]
+      },
+      "properties": {
+        "geo": "Ellis Island (N.J. and N.Y.)",
+        "count": 5,
+        "source": "2013"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9292,
+          40.72777
+        ]
+      },
+      "properties": {
+        "geo": "Kosciuszko Bridge (New York, N.Y.)",
+        "count": 5,
+        "source": "2013"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.983822,
+          40.571413
+        ]
+      },
+      "properties": {
+        "geo": "Coney Island Pier (New York, N.Y.)",
+        "count": 4,
+        "source": "2013"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.88748,
+          40.68837
+        ]
+      },
+      "properties": {
+        "geo": "Highland Park (New York, N.Y.)",
+        "count": 4,
+        "source": "2013"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.159722,
+          40.643333
+        ]
+      },
+      "properties": {
+        "geo": "Shooters Island (New York, N.Y.)",
+        "count": 4,
+        "source": "2013"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.8952,
+          40.8388
+        ]
+      },
+      "properties": {
+        "geo": "Crotona Park (New York, N.Y.)",
+        "count": 3,
+        "source": "2013"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.915,
+          40.862778
+        ]
+      },
+      "properties": {
+        "geo": "University Heights Bridge (New York, N.Y.)",
+        "count": 3,
+        "source": "2013"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.881488,
+          40.720101
+        ]
+      },
+      "properties": {
+        "geo": "Juniper Valley Park (New York, N.Y.)",
+        "count": 3,
+        "source": "2013"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.97,
+          40.673889
+        ]
+      },
+      "properties": {
+        "geo": "Grand Army Plaza (Manhattan, New York, N.Y.)",
+        "count": 2,
+        "source": "2013"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.784722,
+          40.677778
+        ]
+      },
+      "properties": {
+        "geo": "Baisley Pond Park (New York, N.Y.)",
+        "count": 2,
+        "source": "2013"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.921286,
+          40.793227
+        ]
+      },
+      "properties": {
+        "geo": "Ward's Island (New York, N.Y.)",
+        "count": 2,
+        "source": "2013"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.883929,
+          40.629194
+        ]
+      },
+      "properties": {
+        "geo": "Canarsie Beach Park (New York, N.Y.)",
+        "count": 2,
+        "source": "2013"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.907469,
+          40.840546
+        ]
+      },
+      "properties": {
+        "geo": "Claremont Park (New York, N.Y.)",
+        "count": 2,
+        "source": "2013"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.937268,
+          40.716014
+        ]
+      },
+      "properties": {
+        "geo": "Cooper Park (New York, N.Y.)",
+        "count": 2,
+        "source": "2013"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.998514,
+          40.671685
+        ]
+      },
+      "properties": {
+        "geo": "Hamilton Avenue Bridge (New York, N.Y.)",
+        "count": 2,
+        "source": "2013"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.838231,
+          40.886753
+        ]
+      },
+      "properties": {
+        "geo": "Seton Falls Park (New York, N.Y.)",
+        "count": 2,
+        "source": "2013"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.785639,
+          40.859525
+        ]
+      },
+      "properties": {
+        "geo": "High Island (New York, N.Y.)",
+        "count": 1,
+        "source": "2013"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.940758,
+          40.76607
+        ]
+      },
+      "properties": {
+        "geo": "Rainey Park (New York, N.Y.)",
+        "count": 1,
+        "source": "2013"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.898137,
+          40.796402
+        ]
+      },
+      "properties": {
+        "geo": "South Brother Island (New York, N.Y.)",
+        "count": 1,
+        "source": "2013"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9812029365853,
+          40.57821150487804
+        ]
+      },
+      "properties": {
+        "geo": "Coney Island Amusement Park (New York, N.Y.)",
+        "count": 50,
+        "source": "2024",
+        "result": "Good",
+        "user_notes": "One outlier is clearly not in Coney Island!"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.0136875,
+          40.7049375
+        ]
+      },
+      "properties": {
+        "geo": "Bowling Green Park (New York, N.Y.)",
+        "count": 41,
+        "source": "2024",
+        "result": "Good",
+        "user_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9855426,
+          40.7579747
+        ]
+      },
+      "properties": {
+        "geo": "Times Square (New York, N.Y.)",
+        "count": 39,
+        "source": "2024",
+        "result": "Good",
+        "user_notes": "most of these have specific cross-streets, which are better."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9736293,
+          40.7451124
+        ]
+      },
+      "properties": {
+        "geo": "St. Vartan's Park (New York, N.Y.)",
+        "count": 39,
+        "source": "2024",
+        "result": "Good",
+        "user_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.11163979999999,
+          40.6186608
+        ]
+      },
+      "properties": {
+        "geo": "Clove Lakes Park (New York, N.Y.)",
+        "count": 38,
+        "source": "2024",
+        "result": "Good",
+        "user_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9630671,
+          40.8134045
+        ]
+      },
+      "properties": {
+        "geo": "General Grant National Memorial (New York, N.Y.)",
+        "count": 36,
+        "source": "2024",
+        "result": "Good",
+        "user_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.7921888,
+          40.8054509
+        ]
+      },
+      "properties": {
+        "geo": "Fort Schuyler (New York, N.Y.)",
+        "count": 35,
+        "source": "2024",
+        "result": "Good",
+        "user_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.97234619259258,
+          40.74561748148149
+        ]
+      },
+      "properties": {
+        "geo": "Midtown-Queens Tunnel (New York, N.Y.)",
+        "count": 31,
+        "source": "2024",
+        "result": "Good",
+        "user_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.73843409999999,
+          40.7423947
+        ]
+      },
+      "properties": {
+        "geo": "Alley Pond Park (New York, N.Y.)",
+        "count": 29,
+        "source": "2024",
+        "result": "Good",
+        "user_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.0449292,
+          40.6895453
+        ]
+      },
+      "properties": {
+        "geo": "Liberty Island (N.Y.)",
+        "count": 25,
+        "source": "2024",
+        "result": "Good",
+        "user_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.00692331249999,
+          40.72439244375001
+        ]
+      },
+      "properties": {
+        "geo": "Holland Tunnel (New York, N.Y.)",
+        "count": 25,
+        "source": "2024",
+        "result": "Good",
+        "user_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.0030858,
+          40.7057091
+        ]
+      },
+      "properties": {
+        "geo": "East River Pier 16 (New York, N.Y.)",
+        "count": 22,
+        "source": "2024",
+        "result": "Good",
+        "user_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.8840859,
+          40.7738092
+        ]
+      },
+      "properties": {
+        "geo": "North Beach (New York, N.Y.)",
+        "count": 21,
+        "source": "2024",
+        "result": "Good",
+        "user_notes": "https://www.untappedcities.com/laguardia-airport-amusement-park-north-beach/"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.997332,
+          40.7308838
+        ]
+      },
+      "properties": {
+        "geo": "Washington Arch (New York, N.Y.)",
+        "count": 19,
+        "source": "2024",
+        "result": "Good",
+        "user_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.0140286,
+          40.6848252
+        ]
+      },
+      "properties": {
+        "geo": "Buttermilk Channel (N.Y.)",
+        "count": 18,
+        "source": "2024",
+        "result": "Good",
+        "user_notes": "Debatable how good a location this is."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.0738631,
+          40.58290239999999
+        ]
+      },
+      "properties": {
+        "geo": "South Beach (N.Y.)",
+        "count": 18,
+        "source": "2024",
+        "result": "Good",
+        "user_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.82773490000001,
+          40.64959880000001
+        ]
+      },
+      "properties": {
+        "geo": "Howard Beach (New York, N.Y.)",
+        "count": 18,
+        "source": "2024",
+        "result": "Good",
+        "user_notes": "https://citylore.org/multisensory-ramblersville-queens-new-yorks-smallest-neighborhood/"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.006215,
+          40.7032688
+        ]
+      },
+      "properties": {
+        "geo": "East River Pier 11 (New York, N.Y.)",
+        "count": 17,
+        "source": "2024",
+        "result": "Good",
+        "user_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.10791979999999,
+          40.617604
+        ]
+      },
+      "properties": {
+        "geo": "Clove Lake (N.Y.)",
+        "count": 17,
+        "source": "2024",
+        "result": "Good",
+        "user_notes": "This may be more specific than \"Cloves Lakes Park\""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.00008077777778,
+          40.71575344444444
+        ]
+      },
+      "properties": {
+        "geo": "Columbus Park (New York, N.Y.)",
+        "count": 16,
+        "source": "2024",
+        "result": "Good",
+        "user_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.00145669999999,
+          40.705573
+        ]
+      },
+      "properties": {
+        "geo": "East River Pier 17 (New York, N.Y.)",
+        "count": 15,
+        "source": "2024",
+        "result": "Good",
+        "user_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9858979,
+          40.7379165
+        ]
+      },
+      "properties": {
+        "geo": "Gramercy Park (New York, N.Y.)",
+        "count": 14,
+        "source": "2024",
+        "result": "Good",
+        "user_notes": "should be possible to get the remaining 3 cross-streets. Gramercy Park South/North seem to be synonyms for E 20th and E 21st streets."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.0093006,
+          40.7016048
+        ]
+      },
+      "properties": {
+        "geo": "East River Pier 6 (New York, N.Y.)",
+        "count": 14,
+        "source": "2024",
+        "result": "Good",
+        "user_notes": "Now a helipad"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.01066940000001,
+          40.7036576
+        ]
+      },
+      "properties": {
+        "geo": "East River Pier 7 (New York, N.Y.)",
+        "count": 14,
+        "source": "2024",
+        "result": "Good",
+        "user_notes": "This is a guess from extrapolating between 6 & 11."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.2464777,
+          40.5247462
+        ]
+      },
+      "properties": {
+        "geo": "Outerbridge Crossing (New York, N.Y.)",
+        "count": 14,
+        "source": "2024",
+        "result": "Good",
+        "user_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9777998,
+          40.7517266
+        ]
+      },
+      "properties": {
+        "geo": "Pershing Square (New York, N.Y.)",
+        "count": 13,
+        "source": "2024",
+        "result": "Good",
+        "user_notes": "Good subject but not useful because all photos have cross-streets!"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9907166,
+          40.7285375
+        ]
+      },
+      "properties": {
+        "geo": "Cooper Square (New York, N.Y.)",
+        "count": 13,
+        "source": "2024",
+        "result": "Good",
+        "user_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.0136875,
+          40.7049375
+        ]
+      },
+      "properties": {
+        "geo": "Bowling Green (New York, N.Y.)",
+        "count": 13,
+        "source": "2024",
+        "result": "Good",
+        "user_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.010348,
+          40.703446
+        ]
+      },
+      "properties": {
+        "geo": "East River Pier 8 (New York, N.Y.)",
+        "count": 13,
+        "source": "2024",
+        "result": "Good",
+        "user_notes": "Used to be at the northern end of Coenties Slip: https://digitalcollections.nypl.org/items/510d47e2-49ec-a3d9-e040-e00a18064a99"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.0111683,
+          40.7017757
+        ]
+      },
+      "properties": {
+        "geo": "East River Pier 5 (New York, N.Y.)",
+        "count": 12,
+        "source": "2024",
+        "result": "Good",
+        "user_notes": "https://digitalcollections.nypl.org/items/510d47e2-49ec-a3d9-e040-e00a18064a99"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.00535889999999,
+          40.7373336
+        ]
+      },
+      "properties": {
+        "geo": "Abingdon Square (New York, N.Y.)",
+        "count": 12,
+        "source": "2024",
+        "result": "Good",
+        "user_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.0001522,
+          40.7078487
+        ]
+      },
+      "properties": {
+        "geo": "East River Pier 10 (New York, N.Y.)",
+        "count": 12,
+        "source": "2024",
+        "result": "Good",
+        "user_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.006215,
+          40.7032688
+        ]
+      },
+      "properties": {
+        "geo": "East River Pier 14 (New York, N.Y.)",
+        "count": 12,
+        "source": "2024",
+        "result": "Good",
+        "user_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.8039529,
+          40.7036801
+        ]
+      },
+      "properties": {
+        "geo": "Rufus King Park (New York, N.Y.)",
+        "count": 12,
+        "source": "2024",
+        "result": "Good",
+        "user_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.00950019999999,
+          40.7623138
+        ]
+      },
+      "properties": {
+        "geo": "Lincoln Tunnel (New York, N.Y.)",
+        "count": 11,
+        "source": "2024",
+        "result": "Good",
+        "user_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.001196,
+          40.7500587
+        ]
+      },
+      "properties": {
+        "geo": "Chelsea Park (New York, N.Y.)",
+        "count": 10,
+        "source": "2024",
+        "result": "Good",
+        "user_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9326214,
+          40.84255119999999
+        ]
+      },
+      "properties": {
+        "geo": "Highbridge Water Tower (New York, N.Y.)",
+        "count": 10,
+        "source": "2024",
+        "result": "Good",
+        "user_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.98924699999999,
+          40.7149056
+        ]
+      },
+      "properties": {
+        "geo": "William H. Seward Park (New York, N.Y.)",
+        "count": 10,
+        "source": "2024",
+        "result": "Good",
+        "user_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.0261458,
+          40.7040122
+        ]
+      },
+      "properties": {
+        "geo": "East River Pier 15 (New York, N.Y.)",
+        "count": 10,
+        "source": "2024",
+        "result": "Good",
+        "user_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.0097895,
+          40.7026773
+        ]
+      },
+      "properties": {
+        "geo": "Jeanette Park (New York, N.Y.)",
+        "count": 10,
+        "source": "2024",
+        "result": "Good",
+        "user_notes": "Now Vietnam Veterans Plaza https://www.nycgovparks.org/parks/vietnam-veterans-plaza/history"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.82993189999999,
+          40.8017409
+        ]
+      },
+      "properties": {
+        "geo": "Bronx Whitestone Bridge (New York, N.Y.)",
+        "count": 10,
+        "source": "2024",
+        "result": "Good",
+        "user_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.010348,
+          40.703446
+        ]
+      },
+      "properties": {
+        "geo": "East River Pier 9 (New York, N.Y.)",
+        "count": 10,
+        "source": "2024",
+        "result": "Good",
+        "user_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.92554319999999,
+          40.82328499999999
+        ]
+      },
+      "properties": {
+        "geo": "Franz Sigel Park (New York, N.Y.)",
+        "count": 9,
+        "source": "2024",
+        "result": "Good",
+        "user_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.98132279999999,
+          40.57512735
+        ]
+      },
+      "properties": {
+        "geo": "Dreamland Amusement Park (New York, N. Y.)",
+        "count": 9,
+        "source": "2024",
+        "result": "Good",
+        "user_notes": "https://en.wikipedia.org/wiki/Dreamland_(Coney_Island,_1904)"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.98770999999999,
+          40.750247
+        ]
+      },
+      "properties": {
+        "geo": "Herald Square (New York, N.Y.)",
+        "count": 9,
+        "source": "2024",
+        "result": "Good",
+        "user_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.010348,
+          40.703446
+        ]
+      },
+      "properties": {
+        "geo": "East River Pier 13 (New York, N.Y.)",
+        "count": 9,
+        "source": "2024",
+        "result": "Good",
+        "user_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9383369,
+          40.8346461
+        ]
+      },
+      "properties": {
+        "geo": "Roger Morris Park (New York, N.Y.)",
+        "count": 9,
+        "source": "2024",
+        "result": "Good",
+        "user_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.1113329,
+          40.55033969999999
+        ]
+      },
+      "properties": {
+        "geo": "Oakwood Beach (New York, N.Y.)",
+        "count": 9,
+        "source": "2024",
+        "result": "Good",
+        "user_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9942296,
+          40.76804239999999
+        ]
+      },
+      "properties": {
+        "geo": "Dewitt Clinton Park (New York, N.Y.)",
+        "count": 8,
+        "source": "2024",
+        "result": "Good",
+        "user_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.0022862,
+          40.7332031
+        ]
+      },
+      "properties": {
+        "geo": "Sheridan Square (New York, N.Y.)",
+        "count": 8,
+        "source": "2024",
+        "result": "Good",
+        "user_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.997332,
+          40.7308838
+        ]
+      },
+      "properties": {
+        "geo": "Washington Square (New York, N.Y.)",
+        "count": 8,
+        "source": "2024",
+        "result": "Good",
+        "user_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.0153603,
+          40.70293119999999
+        ]
+      },
+      "properties": {
+        "geo": "Battery Place (New York, N.Y.)",
+        "count": 8,
+        "source": "2024",
+        "result": "Good",
+        "user_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.97158379999999,
+          40.6991765
+        ]
+      },
+      "properties": {
+        "geo": "Brooklyn Navy Yard (Brooklyn, New York, N.Y.)",
+        "count": 8,
+        "source": "2024",
+        "result": "Good",
+        "user_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.998077,
+          40.7137798
+        ]
+      },
+      "properties": {
+        "geo": "Chatham Square (New York, N.Y.)",
+        "count": 8,
+        "source": "2024",
+        "result": "Good",
+        "user_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9495306,
+          40.7691902
+        ]
+      },
+      "properties": {
+        "geo": "John Jay Park (New York, N.Y.)",
+        "count": 8,
+        "source": "2024",
+        "result": "Good",
+        "user_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.0931627,
+          40.57149
+        ]
+      },
+      "properties": {
+        "geo": "Midland Beach (New York, N.Y.)",
+        "count": 8,
+        "source": "2024",
+        "result": "Good",
+        "user_notes": "also a neighborhood, but this subject seems to mostly refer to the beach itself."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9817841,
+          40.72642949999999
+        ]
+      },
+      "properties": {
+        "geo": "Tompkins Square Park (New York, N.Y.)",
+        "count": 7,
+        "source": "2024",
+        "result": "Good",
+        "user_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.0154175,
+          40.6687144
+        ]
+      },
+      "properties": {
+        "geo": "Erie Basin (New York, N.Y.)",
+        "count": 7,
+        "source": "2024",
+        "result": "Good",
+        "user_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9391667,
+          40.83277779999999
+        ]
+      },
+      "properties": {
+        "geo": "Coogan's Bluff (New York, N.Y)",
+        "count": 7,
+        "source": "2024",
+        "result": "Good",
+        "user_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.84815859999999,
+          40.8055473
+        ]
+      },
+      "properties": {
+        "geo": "Clason's Point Park (New York, N.Y.)",
+        "count": 7,
+        "source": "2024",
+        "result": "Good",
+        "user_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.7757324,
+          40.7908824
+        ]
+      },
+      "properties": {
+        "geo": "Fort Totten Historic District (New York, N.Y.)",
+        "count": 7,
+        "source": "2024",
+        "result": "Good",
+        "user_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9209991,
+          40.583293
+        ]
+      },
+      "properties": {
+        "geo": "Plumb Beach (New York, N.Y.)",
+        "count": 7,
+        "source": "2024",
+        "result": "Good",
+        "user_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.91106359999999,
+          40.8736935
+        ]
+      },
+      "properties": {
+        "geo": "Broadway Bridge (New York, N.Y.)",
+        "count": 7,
+        "source": "2024",
+        "result": "Good",
+        "user_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.13569799999999,
+          40.54038329999999
+        ]
+      },
+      "properties": {
+        "geo": "Great Kills Harbor (New York, N.Y.)",
+        "count": 7,
+        "source": "2024",
+        "result": "Good",
+        "user_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9224792,
+          40.8286949
+        ]
+      },
+      "properties": {
+        "geo": "Joyce Kilmer Park (New York, N.Y.)",
+        "count": 6,
+        "source": "2024",
+        "result": "Good",
+        "user_notes": "should be able to get all these cross streets"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.8868028,
+          40.6287153
+        ]
+      },
+      "properties": {
+        "geo": "Canarsie Beach (New York, N.Y.)",
+        "count": 6,
+        "source": "2024",
+        "result": "Good",
+        "user_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9713897,
+          40.5751863
+        ]
+      },
+      "properties": {
+        "geo": "Asser Levy Park (New York, N.Y.)",
+        "count": 6,
+        "source": "2024",
+        "result": "Good",
+        "user_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.84889,
+          40.81056
+        ]
+      },
+      "properties": {
+        "geo": "Pugsley's Creek (New York, N.Y.)",
+        "count": 6,
+        "source": "2024",
+        "result": "Good",
+        "user_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.978692,
+          40.7587672
+        ]
+      },
+      "properties": {
+        "geo": "Rockefeller Plaza (New York, N.Y.)",
+        "count": 5,
+        "source": "2024",
+        "result": "Good",
+        "user_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.98554066,
+          40.75819424000001
+        ]
+      },
+      "properties": {
+        "geo": "Duffy Square (New York, N.Y.)",
+        "count": 5,
+        "source": "2024",
+        "result": "Good",
+        "user_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.97088289999999,
+          40.77432139999999
+        ]
+      },
+      "properties": {
+        "geo": "Bethseda Terrace (New York, N.Y.)",
+        "count": 5,
+        "source": "2024",
+        "result": "Good",
+        "user_notes": "718262f is blatantly wrong!"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.00167379999999,
+          40.7094783
+        ]
+      },
+      "properties": {
+        "geo": "Franklin Square (New York, N.Y.)",
+        "count": 5,
+        "source": "2024",
+        "result": "Good",
+        "user_notes": "42nd Street on 719336f is just wrong. https://en.wikipedia.org/wiki/Franklin_Square_(Manhattan)"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.990303,
+          40.6928442
+        ]
+      },
+      "properties": {
+        "geo": "Brooklyn Borough Hall Park (New York, N.Y.)",
+        "count": 5,
+        "source": "2024",
+        "result": "Good",
+        "user_notes": "Maybe Court Street has been renamed?"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.0199569,
+          40.6091564
+        ]
+      },
+      "properties": {
+        "geo": "Dyker Beach Park (New York, N.Y.)",
+        "count": 5,
+        "source": "2024",
+        "result": "Good",
+        "user_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9143035,
+          40.587605
+        ]
+      },
+      "properties": {
+        "geo": "Shell Bank Creek (N.Y.)",
+        "count": 5,
+        "source": "2024",
+        "result": "Good",
+        "user_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.0931627,
+          40.57149
+        ]
+      },
+      "properties": {
+        "geo": "Poppy Joe's Island (New York, N.Y.)",
+        "count": 5,
+        "source": "2024",
+        "result": "Good",
+        "user_notes": "\"Poppy Joe Island Beach is on the Lower New York Bay between Midland Beach and Ocean Breeze.\" (730619f)"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.0579185,
+          40.6012117
+        ]
+      },
+      "properties": {
+        "geo": "Fort Wadsworth (N.Y.)",
+        "count": 5,
+        "source": "2024",
+        "result": "Good",
+        "user_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.87861,
+          40.6387054
+        ]
+      },
+      "properties": {
+        "geo": "Fresh Creek (New York, N.Y.)",
+        "count": 5,
+        "source": "2024",
+        "result": "Good",
+        "user_notes": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.10654400000001,
+          40.5872006
+        ]
+      },
+      "properties": {
+        "geo": "Flagg's Pond (New York, N.Y.)",
+        "count": 5,
+        "source": "2024",
+        "result": "Good",
+        "user_notes": ""
+      }
+    }
+  ]
+}
