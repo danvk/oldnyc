@@ -263,6 +263,11 @@ class NycParkCoder(Coder):
             self.geo_to_location = {
                 f.properties["geo"]: assert_point(f.geometry) for f in features if f.geometry
             }
+            # for f in features:
+            #     if f.properties.get("result") == "pier":
+            #         self.geo_to_location[f.properties["geo"]] = pygeojson.Point(
+            #             (-73.9737, 40.74421)
+            #         )
 
         self.n_geo = 0
         self.n_title = 0
