@@ -260,22 +260,32 @@ class NycParkCoder(Coder):
     def __init__(self):
         with open("data/subjects.geojson") as f:
             features = pygeojson.load_feature_collection(f).features
-            self.geo_to_location = {f.properties["geo"]: assert_point(f.geometry) for f in features}
+            self.geo_to_location = {
+                f.properties["geo"]: assert_point(f.geometry) for f in features if f.geometry
+            }
 
         self.n_geo = 0
         self.n_title = 0
+        self.n_multi = 0
 
     def codeRecord(self, r):
-        for geo in r.subject.geographic:
-            pt = self.geo_to_location.get(geo)
-            if pt:
-                self.n_geo += 1
-                lng, lat = pt.coordinates[:2]
-                return Locatable(
-                    address="@%.6f,%.6f" % (lat, lng),
-                    source=geo,
-                    type="point_of_interest",
-                )
+        matches = [
+            (geo, assert_point(pt))
+            for geo in r.subject.geographic
+            if (pt := self.geo_to_location.get(geo))
+        ]
+        if len(matches) == 1:
+            geo, pt = matches[0]
+            self.n_geo += 1
+            lng, lat = pt.coordinates[:2]
+            return Locatable(
+                address="@%.6f,%.6f" % (lat, lng),
+                source=geo,
+                type="point_of_interest",
+            )
+        elif len(matches) > 1:
+            sys.stderr.write(f"Multiple geo matches for {r.id}: {matches}\n")
+            self.n_multi += 1
 
         title = re.sub(r"\.$", "", r.title)
 
@@ -343,7 +353,9 @@ class NycParkCoder(Coder):
         return None
 
     def finalize(self):
-        sys.stderr.write(f"POI/subject geocoding: n_geo={self.n_geo}, n_title={self.n_title}\n")
+        sys.stderr.write(
+            f"POI/subject geocoding: n_geo={self.n_geo} (n_multi={self.n_multi}), n_title={self.n_title}\n"
+        )
         # for missing in [missing_parks, missing_islands, missing_bridges]:
         #     vs = [(v, k) for k, v in missing.items()]
         #     for v, k in reversed(sorted(vs)):

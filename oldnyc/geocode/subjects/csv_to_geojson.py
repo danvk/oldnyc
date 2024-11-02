@@ -7,16 +7,7 @@ import sys
 
 import pygeojson
 
-"""
-  1: geo
-  2: count
-  3: examples_json_b64
-  4: centroid
-  5: outcome
-  6: latlng
-  7: result
-  8: user_notes
-"""
+from oldnyc.geocode.coders.nyc_parks import IGNORE_SUBJECTS
 
 
 def main():
@@ -59,6 +50,35 @@ def main():
                     },
                 )
             )
+
+        else:
+            features.append(
+                pygeojson.Feature(
+                    geometry=None,
+                    properties={
+                        "geo": geo,
+                        "count": count,
+                        "source": "2024",
+                        "result": result,
+                        "user_notes": user_notes,
+                    },
+                )
+            )
+
+    # TODO: move these into the CSV file
+    for subject in IGNORE_SUBJECTS:
+        features.append(
+            pygeojson.Feature(
+                geometry=None,
+                properties={
+                    "geo": subject,
+                    "count": 0,
+                    "source": "2024",
+                    "result": "Too broad",
+                    "user_notes": "",
+                },
+            )
+        )
 
     fc = pygeojson.FeatureCollection(features)
     # fc = pygeojson.FeatureCollection(surveyor_features)

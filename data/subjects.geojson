@@ -3,6 +3,28 @@
   "features": [
     {
       "type": "Feature",
+      "properties": {
+        "geo": "East River (N.Y.)",
+        "count": 728,
+        "source": "2024",
+        "result": "Too broad",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "Long Island (N.Y.)",
+        "count": 419,
+        "source": "2024",
+        "result": "Too broad",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -15,6 +37,17 @@
         "count": 369,
         "source": "2013"
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "Harlem River (N.Y.)",
+        "count": 249,
+        "source": "2024",
+        "result": "Provides 1D location",
+        "user_notes": ""
+      },
+      "geometry": null
     },
     {
       "type": "Feature",
@@ -108,6 +141,17 @@
     },
     {
       "type": "Feature",
+      "properties": {
+        "geo": "Broadway (New York, N.Y.)",
+        "count": 116,
+        "source": "2024",
+        "result": "Provides 1D location",
+        "user_notes": "There's a Broadway in Manhattan, Brooklyn _and_ Queens."
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -135,6 +179,17 @@
         "count": 106,
         "source": "2013"
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "Fifth Avenue (New York, N.Y.)",
+        "count": 104,
+        "source": "2024",
+        "result": "Provides 1D location",
+        "user_notes": "A lot of these might be the \"all of 5th avenue\" collection."
+      },
+      "geometry": null
     },
     {
       "type": "Feature",
@@ -168,6 +223,17 @@
     },
     {
       "type": "Feature",
+      "properties": {
+        "geo": "Upper Bay (N.Y. and N.J.)",
+        "count": 91,
+        "source": "2024",
+        "result": "Too broad",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -180,6 +246,17 @@
         "count": 87,
         "source": "2013"
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "New York Metropolitan Area",
+        "count": 80,
+        "source": "2024",
+        "result": "Too broad",
+        "user_notes": ""
+      },
+      "geometry": null
     },
     {
       "type": "Feature",
@@ -212,6 +289,28 @@
         "result": "Good",
         "user_notes": "Some of the outliers are long/aerial views, others have incorrect cross-streets in the titles."
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "Sheepshead Bay (New York, N.Y.)",
+        "count": 66,
+        "source": "2024",
+        "result": "partial",
+        "user_notes": "This is a neighborhood"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "Third Avenue (New York, N.Y.)",
+        "count": 64,
+        "source": "2024",
+        "result": "Provides 1D location",
+        "user_notes": ""
+      },
+      "geometry": null
     },
     {
       "type": "Feature",
@@ -262,6 +361,17 @@
     },
     {
       "type": "Feature",
+      "properties": {
+        "geo": "New Jersey",
+        "count": 60,
+        "source": "2024",
+        "result": "Too broad",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -294,6 +404,17 @@
     },
     {
       "type": "Feature",
+      "properties": {
+        "geo": "Fulton Street (New York, N.Y.)",
+        "count": 56,
+        "source": "2024",
+        "result": "Provides 1D location",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -306,6 +427,39 @@
         "count": 55,
         "source": "2013"
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "Sixth Avenue (New York, N.Y.)",
+        "count": 54,
+        "source": "2024",
+        "result": "Provides 1D location",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "Second Avenue (Manhattan, New York, N.Y.)",
+        "count": 52,
+        "source": "2024",
+        "result": "Provides 1D location",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "Greenwich Village (New York, N.Y.)",
+        "count": 51,
+        "source": "2024",
+        "result": "partial",
+        "user_notes": "neighborhood"
+      },
+      "geometry": null
     },
     {
       "type": "Feature",
@@ -1226,6 +1380,50 @@
     },
     {
       "type": "Feature",
+      "properties": {
+        "geo": "Coney Island Boardwalk (New York, N.Y.)",
+        "count": 50,
+        "source": "2024",
+        "result": "Provides 1D location",
+        "user_notes": "One outlier image is mislabeled in NYPL title."
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "Arthur Kill (N.J. and N.Y.)",
+        "count": 49,
+        "source": "2024",
+        "result": "partial",
+        "user_notes": "Geocodes are just for one bridge; this is broader."
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "Ninth Avenue (New York, N.Y.)",
+        "count": 46,
+        "source": "2024",
+        "result": "Provides 1D location",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "Riverside Drive (New York, N.Y.)",
+        "count": 41,
+        "source": "2024",
+        "result": "Provides 1D location",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -1240,6 +1438,17 @@
         "result": "Good",
         "user_notes": ""
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "Hempstead (N.Y.)",
+        "count": 41,
+        "source": "2024",
+        "result": "Other",
+        "user_notes": "A lot of this is Camp Black: https://longislandgenealogy.com/CampBlack/CampBlack.html\n\nThis is outside NYC."
+      },
+      "geometry": null
     },
     {
       "type": "Feature",
@@ -1277,6 +1486,17 @@
     },
     {
       "type": "Feature",
+      "properties": {
+        "geo": "Chinatown (New York, N.Y.)",
+        "count": 38,
+        "source": "2024",
+        "result": "Too broad",
+        "user_notes": "Neighborhood"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -1291,6 +1511,28 @@
         "result": "Good",
         "user_notes": ""
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "Bowery (New York, N.Y. : Street)",
+        "count": 37,
+        "source": "2024",
+        "result": "Provides 1D location",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "Inwood (New York, N.Y.)",
+        "count": 36,
+        "source": "2024",
+        "result": "neighborhood",
+        "user_notes": ""
+      },
+      "geometry": null
     },
     {
       "type": "Feature",
@@ -1311,6 +1553,17 @@
     },
     {
       "type": "Feature",
+      "properties": {
+        "geo": "Grand Central Parkway (New York, N.Y.)",
+        "count": 36,
+        "source": "2024",
+        "result": "Provides 1D location",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -1325,6 +1578,28 @@
         "result": "Good",
         "user_notes": ""
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "Tappan (N.Y.)",
+        "count": 34,
+        "source": "2024",
+        "result": "Too broad",
+        "user_notes": "Outside NYC"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "Harlem (New York, N.Y.)",
+        "count": 33,
+        "source": "2024",
+        "result": "neighborhood",
+        "user_notes": ""
+      },
+      "geometry": null
     },
     {
       "type": "Feature",
@@ -1345,6 +1620,28 @@
     },
     {
       "type": "Feature",
+      "properties": {
+        "geo": "Gateway National Recreation Area (N.J. and N.Y.)",
+        "count": 31,
+        "source": "2024",
+        "result": "partial",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "Ravenswood (New York, N.Y.)",
+        "count": 31,
+        "source": "2024",
+        "result": "neighborhood",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -1359,6 +1656,83 @@
         "result": "Good",
         "user_notes": ""
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "Civic Center (New York, N.Y.)",
+        "count": 29,
+        "source": "2024",
+        "result": "neighborhood",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "Bronx River (N.Y.)",
+        "count": 28,
+        "source": "2024",
+        "result": "Provides 1D location",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "West Side Highway (New York, N.Y.)",
+        "count": 28,
+        "source": "2024",
+        "result": "Provides 1D location",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "Flushing River (New York, N.Y.)",
+        "count": 27,
+        "source": "2024",
+        "result": "Provides 1D location",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "Huntington (N.Y.)",
+        "count": 27,
+        "source": "2024",
+        "result": "Too broad",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "Gowanus Canal (New York, N.Y.)",
+        "count": 26,
+        "source": "2024",
+        "result": "Provides 1D location",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "Camp Black (N.Y.)",
+        "count": 26,
+        "source": "2024",
+        "result": "Other",
+        "user_notes": ""
+      },
+      "geometry": null
     },
     {
       "type": "Feature",
@@ -1379,6 +1753,28 @@
     },
     {
       "type": "Feature",
+      "properties": {
+        "geo": "Franklin Delano Roosevelt Drive (New York, N.Y.)",
+        "count": 25,
+        "source": "2024",
+        "result": "Provides 1D location",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "Newton Creek (New York, N.Y.)",
+        "count": 25,
+        "source": "2024",
+        "result": "Provides 1D location",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -1393,6 +1789,28 @@
         "result": "Good",
         "user_notes": ""
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "Connecticut",
+        "count": 24,
+        "source": "2024",
+        "result": "Too broad",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "Saratoga Springs (N.Y.)",
+        "count": 24,
+        "source": "2024",
+        "result": "Too broad",
+        "user_notes": ""
+      },
+      "geometry": null
     },
     {
       "type": "Feature",
@@ -1413,6 +1831,17 @@
     },
     {
       "type": "Feature",
+      "properties": {
+        "geo": "Sarah d. Roosevelt Park (New York, N.Y.)",
+        "count": 22,
+        "source": "2024",
+        "result": "partial",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -1427,6 +1856,39 @@
         "result": "Good",
         "user_notes": "https://www.untappedcities.com/laguardia-airport-amusement-park-north-beach/"
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "Rockaway Beach (New York, N.Y.)",
+        "count": 21,
+        "source": "2024",
+        "result": "Provides 1D location",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "Garrison (N.Y.)",
+        "count": 21,
+        "source": "2024",
+        "result": "Too broad",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "Port Washington (N.Y.)",
+        "count": 21,
+        "source": "2024",
+        "result": "Too broad",
+        "user_notes": ""
+      },
+      "geometry": null
     },
     {
       "type": "Feature",
@@ -1447,6 +1909,28 @@
     },
     {
       "type": "Feature",
+      "properties": {
+        "geo": "East Hampton (N.Y.)",
+        "count": 19,
+        "source": "2024",
+        "result": "Too broad",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "Forty-second Street (New York, N.Y.)",
+        "count": 18,
+        "source": "2024",
+        "result": "Provides 1D location",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -1461,6 +1945,17 @@
         "result": "Good",
         "user_notes": "Debatable how good a location this is."
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "Spuyten Duyvil (New York, N.Y.)",
+        "count": 18,
+        "source": "2024",
+        "result": "neighborhood",
+        "user_notes": ""
+      },
+      "geometry": null
     },
     {
       "type": "Feature",
@@ -1498,6 +1993,28 @@
     },
     {
       "type": "Feature",
+      "properties": {
+        "geo": "Oyster Bay (N.Y.)",
+        "count": 18,
+        "source": "2024",
+        "result": "Too broad",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "Lafayette Street (New York, N.Y.)",
+        "count": 17,
+        "source": "2024",
+        "result": "Provides 1D location",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -1512,6 +2029,17 @@
         "result": "Good",
         "user_notes": ""
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "Gravesend (New York, N.Y.)",
+        "count": 17,
+        "source": "2024",
+        "result": "neighborhood",
+        "user_notes": ""
+      },
+      "geometry": null
     },
     {
       "type": "Feature",
@@ -1532,6 +2060,61 @@
     },
     {
       "type": "Feature",
+      "properties": {
+        "geo": "Sag Harbor (N.Y.)",
+        "count": 17,
+        "source": "2024",
+        "result": "Too broad",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "Park Avenue (New York, N.Y.)",
+        "count": 16,
+        "source": "2024",
+        "result": "Provides 1D location",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "Brighton Beach (New York, N.Y.)",
+        "count": 16,
+        "source": "2024",
+        "result": "neighborhood",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "Jamaica Bay (N.Y.)",
+        "count": 16,
+        "source": "2024",
+        "result": "partial",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "Myrtle Avenue (New York, N.Y.)",
+        "count": 16,
+        "source": "2024",
+        "result": "Provides 1D location",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -1546,6 +2129,61 @@
         "result": "Good",
         "user_notes": ""
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "Coney Island Creek (N.Y.)",
+        "count": 16,
+        "source": "2024",
+        "result": "partial",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "Plumb Beach Channel (N.Y.)",
+        "count": 16,
+        "source": "2024",
+        "result": "Provides 1D location",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "New Rochelle (N.Y.)",
+        "count": 16,
+        "source": "2024",
+        "result": "Too broad",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "Gerritsen Beach (New York, N.Y.)",
+        "count": 15,
+        "source": "2024",
+        "result": "neighborhood",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "Gerritsen Creek (New York, N.Y.)",
+        "count": 15,
+        "source": "2024",
+        "result": "Provides 1D location",
+        "user_notes": ""
+      },
+      "geometry": null
     },
     {
       "type": "Feature",
@@ -1566,6 +2204,17 @@
     },
     {
       "type": "Feature",
+      "properties": {
+        "geo": "Rockaway Inlet (N.Y.)",
+        "count": 15,
+        "source": "2024",
+        "result": "partial",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -1580,6 +2229,28 @@
         "result": "Good",
         "user_notes": "should be possible to get the remaining 3 cross-streets. Gramercy Park South/North seem to be synonyms for E 20th and E 21st streets."
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "Great Neck (N.Y.)",
+        "count": 14,
+        "source": "2024",
+        "result": "Too broad",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "Saint George (New York, N.Y.)",
+        "count": 14,
+        "source": "2024",
+        "result": "neighborhood",
+        "user_notes": ""
+      },
+      "geometry": null
     },
     {
       "type": "Feature",
@@ -1617,6 +2288,17 @@
     },
     {
       "type": "Feature",
+      "properties": {
+        "geo": "Flushing Bay (New York, N.Y.)",
+        "count": 14,
+        "source": "2024",
+        "result": "neighborhood",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -1631,6 +2313,50 @@
         "result": "Good",
         "user_notes": ""
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "Stony Brook (N.Y.)",
+        "count": 14,
+        "source": "2024",
+        "result": "Too broad",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "Belt Parkway (New York, N.Y.)",
+        "count": 13,
+        "source": "2024",
+        "result": "Provides 1D location",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "Lexington Avenue (New York, N.Y.)",
+        "count": 13,
+        "source": "2024",
+        "result": "Provides 1D location",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "Long Island City (New York, N.Y.)",
+        "count": 13,
+        "source": "2024",
+        "result": "neighborhood",
+        "user_notes": ""
+      },
+      "geometry": null
     },
     {
       "type": "Feature",
@@ -1685,6 +2411,17 @@
     },
     {
       "type": "Feature",
+      "properties": {
+        "geo": "Stapleton (New York, N.Y.)",
+        "count": 13,
+        "source": "2024",
+        "result": "neighborhood",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -1699,6 +2436,28 @@
         "result": "Good",
         "user_notes": "Used to be at the northern end of Coenties Slip: https://digitalcollections.nypl.org/items/510d47e2-49ec-a3d9-e040-e00a18064a99"
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "Northern Boulevard (New York, N.Y.)",
+        "count": 13,
+        "source": "2024",
+        "result": "Provides 1D location",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "Lemon Creek (New York, N.Y.)",
+        "count": 13,
+        "source": "2024",
+        "result": "Provides 1D location",
+        "user_notes": ""
+      },
+      "geometry": null
     },
     {
       "type": "Feature",
@@ -1733,6 +2492,50 @@
         "result": "Good",
         "user_notes": ""
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "Midtown Manhattan (New York, N.Y.)",
+        "count": 12,
+        "source": "2024",
+        "result": "neighborhood",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "Madison Avenue (New York, N.Y.)",
+        "count": 12,
+        "source": "2024",
+        "result": "Provides 1D location",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "Thirty-sixth Street (New York, N.Y.)",
+        "count": 12,
+        "source": "2024",
+        "result": "Provides 1D location",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "Flatbush Avenue (New York, N.Y.)",
+        "count": 12,
+        "source": "2024",
+        "result": "Provides 1D location",
+        "user_notes": ""
+      },
+      "geometry": null
     },
     {
       "type": "Feature",
@@ -1838,6 +2641,17 @@
     },
     {
       "type": "Feature",
+      "properties": {
+        "geo": "Sherman Creek (N.Y.)",
+        "count": 10,
+        "source": "2024",
+        "result": "Provides 1D location",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -1906,6 +2720,28 @@
     },
     {
       "type": "Feature",
+      "properties": {
+        "geo": "Mill Basin (New York, N.Y.)",
+        "count": 10,
+        "source": "2024",
+        "result": "neighborhood",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "Richmond Creek (New York, N.Y.)",
+        "count": 10,
+        "source": "2024",
+        "result": "Provides 1D location",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -1920,6 +2756,28 @@
         "result": "Good",
         "user_notes": ""
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "Van Cortlandt Avenue (New York, N.Y.)",
+        "count": 10,
+        "source": "2024",
+        "result": "Provides 1D location",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "Peekskill (N.Y.)",
+        "count": 10,
+        "source": "2024",
+        "result": "Too broad",
+        "user_notes": ""
+      },
+      "geometry": null
     },
     {
       "type": "Feature",
@@ -1940,6 +2798,17 @@
     },
     {
       "type": "Feature",
+      "properties": {
+        "geo": "Thirty-ninth Street (New York, N.Y.)",
+        "count": 9,
+        "source": "2024",
+        "result": "Provides 1D location",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -1954,6 +2823,28 @@
         "result": "Good",
         "user_notes": "https://en.wikipedia.org/wiki/Dreamland_(Coney_Island,_1904)"
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "White Plains Road (New York, N.Y.)",
+        "count": 9,
+        "source": "2024",
+        "result": "Provides 1D location",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "Henry Hudson Parkway (New York, N.Y.)",
+        "count": 9,
+        "source": "2024",
+        "result": "Provides 1D location",
+        "user_notes": ""
+      },
+      "geometry": null
     },
     {
       "type": "Feature",
@@ -1991,6 +2882,17 @@
     },
     {
       "type": "Feature",
+      "properties": {
+        "geo": "Flushing Creek (N.Y.)",
+        "count": 9,
+        "source": "2024",
+        "result": "Provides 1D location",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -2005,6 +2907,17 @@
         "result": "Good",
         "user_notes": ""
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "Marble Hill (New York, N.Y.)",
+        "count": 9,
+        "source": "2024",
+        "result": "neighborhood",
+        "user_notes": ""
+      },
+      "geometry": null
     },
     {
       "type": "Feature",
@@ -2025,6 +2938,138 @@
     },
     {
       "type": "Feature",
+      "properties": {
+        "geo": "Eastchester Bay (N.Y.)",
+        "count": 9,
+        "source": "2024",
+        "result": "partial",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "East River Pier 18 (New York, N.Y.)",
+        "count": 9,
+        "source": "2024",
+        "result": "pier",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "Westchester Creek (New York, N.Y.)",
+        "count": 9,
+        "source": "2024",
+        "result": "Provides 1D location",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "Washington (D.C.)",
+        "count": 9,
+        "source": "2024",
+        "result": "Too broad",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "Islip (N.Y.)",
+        "count": 9,
+        "source": "2024",
+        "result": "Too broad",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "Locust Valley (N.Y.)",
+        "count": 9,
+        "source": "2024",
+        "result": "Too broad",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "Manhasset (N.Y.)",
+        "count": 9,
+        "source": "2024",
+        "result": "Too broad",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "Oakdale (N.Y.)",
+        "count": 9,
+        "source": "2024",
+        "result": "Too broad",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "Peekskill",
+        "count": 9,
+        "source": "2024",
+        "result": "Too broad",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "Roslyn (N.Y.)",
+        "count": 9,
+        "source": "2024",
+        "result": "Too broad",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "Whitestone (New York, N.Y.)",
+        "count": 8,
+        "source": "2024",
+        "result": "neighborhood",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "Wall Street (New York, N.Y.)",
+        "count": 8,
+        "source": "2024",
+        "result": "Provides 1D location",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -2039,6 +3084,28 @@
         "result": "Good",
         "user_notes": ""
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "Lower Bay (N.Y. and N.J.)",
+        "count": 8,
+        "source": "2024",
+        "result": "Too broad",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "Thirty-seventh Street (New York, N.Y.)",
+        "count": 8,
+        "source": "2024",
+        "result": "Provides 1D location",
+        "user_notes": ""
+      },
+      "geometry": null
     },
     {
       "type": "Feature",
@@ -2093,6 +3160,17 @@
     },
     {
       "type": "Feature",
+      "properties": {
+        "geo": "Newtown (Queens County, N.Y.)",
+        "count": 8,
+        "source": "2024",
+        "result": "neighborhood",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -2144,6 +3222,39 @@
     },
     {
       "type": "Feature",
+      "properties": {
+        "geo": "Flushing River Bridge (New York, N.Y.)",
+        "count": 8,
+        "source": "2024",
+        "result": "Too broad",
+        "user_notes": "Not sure what this is referring to"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "Newark Bay (N.J.)",
+        "count": 8,
+        "source": "2024",
+        "result": "Too broad",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "La Salle Street (New York, N.Y.)",
+        "count": 8,
+        "source": "2024",
+        "result": "Provides 1D location",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -2158,6 +3269,39 @@
         "result": "Good",
         "user_notes": "also a neighborhood, but this subject seems to mostly refer to the beach itself."
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "Queens Boulevard (New York, N.Y.)",
+        "count": 8,
+        "source": "2024",
+        "result": "Provides 1D location",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "Cold Spring Harbor (N.Y.)",
+        "count": 8,
+        "source": "2024",
+        "result": "Too broad",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "Great River (N.Y.)",
+        "count": 8,
+        "source": "2024",
+        "result": "Too broad",
+        "user_notes": ""
+      },
+      "geometry": null
     },
     {
       "type": "Feature",
@@ -2212,6 +3356,61 @@
     },
     {
       "type": "Feature",
+      "properties": {
+        "geo": "West End Avenue (New York, N.Y.)",
+        "count": 7,
+        "source": "2024",
+        "result": "Provides 1D location",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "Spuyten Duyvil Creek (New York, N.Y.)",
+        "count": 7,
+        "source": "2024",
+        "result": "partial",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "Niagara Falls (N.Y.)",
+        "count": 7,
+        "source": "2024",
+        "result": "Too broad",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "Seventh Avenue (New York, N.Y.)",
+        "count": 7,
+        "source": "2024",
+        "result": "Provides 1D location",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "Raritan Bay (N.J. and N.Y.)",
+        "count": 7,
+        "source": "2024",
+        "result": "Too broad",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -2226,6 +3425,50 @@
         "result": "Good",
         "user_notes": ""
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "Upper Bay Pier 13 (New York, N.Y.)",
+        "count": 7,
+        "source": "2024",
+        "result": "pier",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "Long Island Sound (N.Y. and Conn.)",
+        "count": 7,
+        "source": "2024",
+        "result": "Too broad",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "East River Pier 12 (New York, N.Y.)",
+        "count": 7,
+        "source": "2024",
+        "result": "pier",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "Cameron Lake (New York, N.Y.)",
+        "count": 7,
+        "source": "2024",
+        "result": "Too broad",
+        "user_notes": ""
+      },
+      "geometry": null
     },
     {
       "type": "Feature",
@@ -2246,6 +3489,28 @@
     },
     {
       "type": "Feature",
+      "properties": {
+        "geo": "Manhattan Beach (New York, N.Y.)",
+        "count": 7,
+        "source": "2024",
+        "result": "neighborhood",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "Bayonne (N.J.)",
+        "count": 7,
+        "source": "2024",
+        "result": "Too broad",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -2260,6 +3525,17 @@
         "result": "Good",
         "user_notes": ""
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "Breezy Point (New York, N.Y.)",
+        "count": 7,
+        "source": "2024",
+        "result": "neighborhood",
+        "user_notes": ""
+      },
+      "geometry": null
     },
     {
       "type": "Feature",
@@ -2280,6 +3556,17 @@
     },
     {
       "type": "Feature",
+      "properties": {
+        "geo": "Webster Avenue (New York, N.Y.)",
+        "count": 7,
+        "source": "2024",
+        "result": "Provides 1D location",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -2294,6 +3581,138 @@
         "result": "Good",
         "user_notes": ""
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "Bordentown (N.J.)",
+        "count": 7,
+        "source": "2024",
+        "result": "Too broad",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "Southampton (N.Y.)",
+        "count": 7,
+        "source": "2024",
+        "result": "Too broad",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "Garden City (N.Y.)",
+        "count": 7,
+        "source": "2024",
+        "result": "Too broad",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "Glen Cove (N.Y.)",
+        "count": 7,
+        "source": "2024",
+        "result": "Too broad",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "Southold (N.Y.)",
+        "count": 7,
+        "source": "2024",
+        "result": "Too broad",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "Huntington Station (N.Y.)",
+        "count": 7,
+        "source": "2024",
+        "result": "Too broad",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "Middle Island (N.Y.)",
+        "count": 7,
+        "source": "2024",
+        "result": "Too broad",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "Rockville Centre (N.Y.)",
+        "count": 7,
+        "source": "2024",
+        "result": "Too broad",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "Setauket (N.Y.)",
+        "count": 7,
+        "source": "2024",
+        "result": "Too broad",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "Manhattanville (New York, N.Y.)",
+        "count": 6,
+        "source": "2024",
+        "result": "neighborhood",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "Eighth Avenue (New York, N.Y.)",
+        "count": 6,
+        "source": "2024",
+        "result": "Provides 1D location",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "Eleventh Street (New York, N.Y.)",
+        "count": 6,
+        "source": "2024",
+        "result": "Provides 1D location",
+        "user_notes": ""
+      },
+      "geometry": null
     },
     {
       "type": "Feature",
@@ -2314,6 +3733,39 @@
     },
     {
       "type": "Feature",
+      "properties": {
+        "geo": "Baker Field (New York, N.Y.)",
+        "count": 6,
+        "source": "2024",
+        "result": "Other",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "Kingsbridge (New York, N.Y.)",
+        "count": 6,
+        "source": "2024",
+        "result": "neighborhood",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "Croton Aqueduct (N.Y.)",
+        "count": 6,
+        "source": "2024",
+        "result": "partial",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -2328,6 +3780,39 @@
         "result": "Good",
         "user_notes": ""
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "Pavilion Hill (New York, N.Y.)",
+        "count": 6,
+        "source": "2024",
+        "result": "Other",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "American",
+        "count": 6,
+        "source": "2024",
+        "result": "Other",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "Transverse Road (New York, N.Y.)",
+        "count": 6,
+        "source": "2024",
+        "result": "Provides 1D location",
+        "user_notes": ""
+      },
+      "geometry": null
     },
     {
       "type": "Feature",
@@ -2348,6 +3833,83 @@
     },
     {
       "type": "Feature",
+      "properties": {
+        "geo": "Lenox Avenue (New York, N.Y.)",
+        "count": 6,
+        "source": "2024",
+        "result": "Provides 1D location",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "Morris Park Avenue (New York, N.Y.)",
+        "count": 6,
+        "source": "2024",
+        "result": "Provides 1D location",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "East River Pier 19 (New York, N.Y.)",
+        "count": 6,
+        "source": "2024",
+        "result": "pier",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "Cunard Line Pier (New York, N.Y.)",
+        "count": 6,
+        "source": "2024",
+        "result": "pier",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "Oriental Point (New York, N.Y.)",
+        "count": 6,
+        "source": "2024",
+        "result": "Other",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "Shore Parkway (New York, N.Y.)",
+        "count": 6,
+        "source": "2024",
+        "result": "Provides 1D location",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "Albany (N.Y.)",
+        "count": 6,
+        "source": "2024",
+        "result": "Too broad",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -2362,6 +3924,105 @@
         "result": "Good",
         "user_notes": ""
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "Upper Bay Pier 14 (New York, N.Y.)",
+        "count": 6,
+        "source": "2024",
+        "result": "pier",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "Washington (State)",
+        "count": 6,
+        "source": "2024",
+        "result": "Too broad",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "Croton-on-Hudson (N.Y.)",
+        "count": 6,
+        "source": "2024",
+        "result": "Too broad",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "Massapequa (N.Y.)",
+        "count": 6,
+        "source": "2024",
+        "result": "Too broad",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "East River Pier 21 (New York, N.Y.)",
+        "count": 5,
+        "source": "2024",
+        "result": "pier",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "Westchester Avenue (New York, N.Y.)",
+        "count": 5,
+        "source": "2024",
+        "result": "Provides 1D location",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "First Avenue (New York, N.Y.)",
+        "count": 5,
+        "source": "2024",
+        "result": "Provides 1D location",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "Twenty-eighth Street (New York, N.Y.)",
+        "count": 5,
+        "source": "2024",
+        "result": "Provides 1D location",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "Forty-first Street (New York, N.Y.)",
+        "count": 5,
+        "source": "2024",
+        "result": "Provides 1D location",
+        "user_notes": ""
+      },
+      "geometry": null
     },
     {
       "type": "Feature",
@@ -2382,6 +4043,28 @@
     },
     {
       "type": "Feature",
+      "properties": {
+        "geo": "Alley Creek (New York, N.Y.)",
+        "count": 5,
+        "source": "2024",
+        "result": "Other",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "Gerritsen Inlet (New York, N.Y.)",
+        "count": 5,
+        "source": "2024",
+        "result": "Other",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -2396,6 +4079,17 @@
         "result": "Good",
         "user_notes": ""
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "New Brighton (New York, N.Y.)",
+        "count": 5,
+        "source": "2024",
+        "result": "neighborhood",
+        "user_notes": ""
+      },
+      "geometry": null
     },
     {
       "type": "Feature",
@@ -2467,6 +4161,39 @@
     },
     {
       "type": "Feature",
+      "properties": {
+        "geo": "East River Park (New York, N.Y.)",
+        "count": 5,
+        "source": "2024",
+        "result": "Provides 1D location",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "Emmons Avenue (New York, N.Y.)",
+        "count": 5,
+        "source": "2024",
+        "result": "Provides 1D location",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "Ridgewood (New York, N.Y.)",
+        "count": 5,
+        "source": "2024",
+        "result": "neighborhood",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -2484,6 +4211,105 @@
     },
     {
       "type": "Feature",
+      "properties": {
+        "geo": "Hamilton Avenue (New York, N.Y.)",
+        "count": 5,
+        "source": "2024",
+        "result": "Provides 1D location",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "Bushwick (New York, N.Y.)",
+        "count": 5,
+        "source": "2024",
+        "result": "neighborhood",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "Woodlawn Avenue (New York, N.Y.)",
+        "count": 5,
+        "source": "2024",
+        "result": "Provides 1D location",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "Prince's Bay (New York, N.Y.)",
+        "count": 5,
+        "source": "2024",
+        "result": "neighborhood",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "Meeker Avenue (New York, N.Y.)",
+        "count": 5,
+        "source": "2024",
+        "result": "Provides 1D location",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "New Lots (New York, N.Y.)",
+        "count": 5,
+        "source": "2024",
+        "result": "Provides 1D location",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "Queens County (N.Y.)",
+        "count": 5,
+        "source": "2024",
+        "result": "Too broad",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "East River Pier 4 (New York, N.Y.)",
+        "count": 5,
+        "source": "2024",
+        "result": "pier",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "Pitman Avenue (New York, N.Y.)",
+        "count": 5,
+        "source": "2024",
+        "result": "Provides 1D location",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -2498,6 +4324,28 @@
         "result": "Good",
         "user_notes": "\"Poppy Joe Island Beach is on the Lower New York Bay between Midland Beach and Ocean Breeze.\" (730619f)"
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "Dongan Hills (New York, N.Y.)",
+        "count": 5,
+        "source": "2024",
+        "result": "neighborhood",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "Willowbrook (New York, N.Y.)",
+        "count": 5,
+        "source": "2024",
+        "result": "neighborhood",
+        "user_notes": ""
+      },
+      "geometry": null
     },
     {
       "type": "Feature",
@@ -2549,6 +4397,226 @@
         "result": "Good",
         "user_notes": ""
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "Au Sable (N.Y.)",
+        "count": 5,
+        "source": "2024",
+        "result": "Too broad",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "Babylon (N.Y.)",
+        "count": 5,
+        "source": "2024",
+        "result": "Too broad",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "Cutchogue (N.Y.)",
+        "count": 5,
+        "source": "2024",
+        "result": "Too broad",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "Mill Neck (N.Y.)",
+        "count": 5,
+        "source": "2024",
+        "result": "Too broad",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "Old Westbury (N.Y.)",
+        "count": 5,
+        "source": "2024",
+        "result": "Too broad",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "Saratoga",
+        "count": 5,
+        "source": "2024",
+        "result": "Too broad",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "Sullivan County (N.Y.)",
+        "count": 5,
+        "source": "2024",
+        "result": "Too broad",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "Hell Gate (New York, N.Y.)",
+        "count": 4,
+        "source": "2024",
+        "result": "Other",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "Central Bridge (New York, N.Y.)",
+        "count": 4,
+        "source": "2024",
+        "result": "neighborhood",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "Washington Heights (New York, N.Y.)",
+        "count": 4,
+        "source": "2024",
+        "result": "neighborhood",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "New York (N.Y.)",
+        "count": 0,
+        "source": "2024",
+        "result": "Too broad",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "United States",
+        "count": 0,
+        "source": "2024",
+        "result": "Too broad",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "Manhattan (New York, N.Y.)",
+        "count": 0,
+        "source": "2024",
+        "result": "Too broad",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "Bronx (New York, N.Y.)",
+        "count": 0,
+        "source": "2024",
+        "result": "Too broad",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "Hudson River (N.Y. and N.J.)",
+        "count": 0,
+        "source": "2024",
+        "result": "Too broad",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "New York (State)",
+        "count": 0,
+        "source": "2024",
+        "result": "Too broad",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "Brooklyn (New York, N.Y.)",
+        "count": 0,
+        "source": "2024",
+        "result": "Too broad",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "New York",
+        "count": 0,
+        "source": "2024",
+        "result": "Too broad",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "Staten Island (New York, N.Y.)",
+        "count": 0,
+        "source": "2024",
+        "result": "Too broad",
+        "user_notes": ""
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "Queens (New York, N.Y.)",
+        "count": 0,
+        "source": "2024",
+        "result": "Too broad",
+        "user_notes": ""
+      },
+      "geometry": null
     }
   ]
 }
