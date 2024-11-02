@@ -4,7 +4,6 @@
 See https://github.com/danvk/oldnyc/pull/146
 """
 
-import base64
 import csv
 import json
 import random
