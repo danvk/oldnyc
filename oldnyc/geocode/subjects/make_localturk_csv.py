@@ -66,8 +66,8 @@ def main():
         sys.stderr.write(f"Loaded {len(existing)} existing rows\n")
 
     with (
-        open("data/subjects/tasks.csv", "w", newline="\n") as tasks_f,
-        open("data/subjects/out.csv", "w", newline="\n") as out_f,
+        open("data/subjects/tasks.csv", "w", newline="") as tasks_f,
+        open("data/subjects/out.csv", "w", newline="") as out_f,
     ):
         fieldnames = ["geo", "count", "examples_json_b64", "centroid"]
         tasks = csv.DictWriter(tasks_f, fieldnames=fieldnames)

@@ -29,8 +29,8 @@ function initMap() {
   const map = new google.maps.Map(document.getElementById("map"), {
       center: {lat: 40.74421, lng: -73.9737},
       zoom: centroid ? 17 : 13,
+      gestureHandling: 'greedy',
   });
-  const bounds = new google.maps.LatLngBounds();
   let centroidMarker = new google.maps.Marker({
     position: {lat: 40.74421, lng: -73.9737},
     map: null,
@@ -54,6 +54,7 @@ function initMap() {
     document.getElementById('latlng').setAttribute('value', JSON.stringify([pos.lng(), pos.lat()]));
   });
 
+  let bounds;
   for (const example of examples) {
       const {geocode} = example;
       if (!geocode) continue;
@@ -65,6 +66,7 @@ function initMap() {
           icon: marker_icons[1],
           title: example.id,
       });
+      bounds ||= new google.maps.LatLngBounds();
       bounds.extend(marker.getPosition());
       google.maps.event.addListener(marker, 'click', function() {
         console.log(example.id);
@@ -72,7 +74,9 @@ function initMap() {
         document.querySelector(`[data-id="${example.id}"]`).classList.add('selected');
       });
   }
-  map.fitBounds(bounds);
+  if (bounds) {
+    map.fitBounds(bounds);
+  }
 
   const input = document.getElementById('pac-input');
   const autocomplete = new google.maps.places.Autocomplete(input);
@@ -128,5 +132,8 @@ for (const example of examples) {
     <a href="${example.url}">${example.id}</a>: ${example.title}
   `;
   li.setAttribute('data-id', example.id);
+  if (example.geocode) {
+    li.classList.add('geocoded');
+  }
   document.getElementById('examples').appendChild(li);
 }

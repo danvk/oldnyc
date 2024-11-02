@@ -16,3 +16,11 @@
     text-overflow: ellipsis;
     width: 400px;
 }
+
+ul#examples li::marker {
+    color: white;
+}
+
+ul#examples li.geocoded::marker {
+    color: red;
+}
