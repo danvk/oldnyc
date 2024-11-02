@@ -2,7 +2,7 @@
 
 import csv
 import sys
-from collections import defaultdict
+from collections import Counter, defaultdict
 from typing import Sequence
 
 import numpy as np
@@ -115,6 +115,8 @@ def may_extrapolate(avenue: str, street: str):
 num_exact = 0
 num_unclaimed = 0
 num_extrapolated = 0
+unknown_ave = Counter[str]()
+unknown_str = Counter[str]()
 
 
 def code(avenue: str, street: str) -> tuple[float, float] | None:
@@ -127,7 +129,7 @@ def code(avenue: str, street: str) -> tuple[float, float] | None:
 
     crosses = by_avenue.get(avenue)
     if not crosses:
-        sys.stderr.write("No cross for %s\n" % avenue)
+        unknown_ave[avenue] += 1
         num_unclaimed += 1
         return None
 
@@ -141,7 +143,7 @@ def code(avenue: str, street: str) -> tuple[float, float] | None:
     # another if they continued as straight lines.
     street_crosses = by_street.get(int(street))
     if not street_crosses:
-        sys.stderr.write("Street %s is unknown\n" % street)
+        unknown_str[street] += 1
         num_unclaimed += 1
         return None
 
