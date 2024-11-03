@@ -118,7 +118,7 @@
 726840f	failed	n/a	n/a
 720408f	milstein	(40.7155152, -73.9897764)	Essex Street and Hester Street, Manhattan, NY
 704920f	milstein	(40.697888, -73.99460499999999)	Clark Street and Hicks Street, Brooklyn, NY
-720438f	nyc-parks	(40.843104, -73.93291)	@40.843104,-73.93291
+720438f	nyc-parks	(40.842551, -73.932621)	@40.842551,-73.932621
 730836f	nyc-parks	(40.842308, -73.930277)	@40.842308,-73.930277
 704967f	milstein	(40.705439, -73.95633699999999)	Hooper Street and Marcy Avenue, Brooklyn, NY
 701306f	failed	n/a	n/a
@@ -142,7 +142,7 @@
 722402f	milstein	(40.8058042, -73.9386896)	126th Street and Park Avenue, Manhattan, NY
 722101f	extended-grid	(40.749644, -73.979609)	@40.749644,-73.979609
 722430f	milstein	(40.71200320000001, -74.0081046)	Broadway and Park Row, Manhattan, NY
-734005f	failed	n/a	n/a
+734005f	nyc-parks	(40.705573, -74.001457)	@40.705573,-74.001457
 701674f	milstein	(40.8376796, -73.85350729999999)	Purdy Street and St. Raymond Avenue, Bronx, NY
 104780	failed	n/a	n/a
 729420f	milstein	(40.5732734, -74.1469118)	Mill Road and Richmond Hill Road, Staten Island, NY

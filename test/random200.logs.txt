@@ -1,17 +1,31 @@
 Filtered to 200/41463 records with --ids_filter (200)
 Borough mismatch: "51st Street & 19th Avenue, Manhattan, NY" (Manhattan) geocoded to Brooklyn
 Rejecting extrapolation for 7, 12
+clash!	subject/title close	731946f	Coney Island (New York, N.Y.)	Islands - Coney Island 
   101 /   200 records processed
+clash!	subject/title close	732005f	Coney Island (New York, N.Y.)	Islands - Coney Island 
 Borough mismatch: "Fulton Street & Nassau Street, Brooklyn, NY" (Brooklyn) geocoded to Manhattan
-Multiple geo matches for 720438f: [('Highbridge Park (New York, N.Y.)', Point(coordinates=(-73.93291, 40.843104), bbox=None, type='Point')), ('Highbridge Water Tower (New York, N.Y.)', Point(coordinates=(-73.9326214, 40.84255119999999), bbox=None, type='Point'))]
-Multiple geo matches for 734005f: [('Brooklyn Bridge (New York, N.Y.)', Point(coordinates=(-73.996823, 40.706096), bbox=None, type='Point')), ('East River Pier 17 (New York, N.Y.)', Point(coordinates=(-74.00145669999999, 40.705573), bbox=None, type='Point')), ('Manhattan Bridge (New York, N.Y.)', Point(coordinates=(-73.990774, 40.707471), bbox=None, type='Point'))]
+clash!	subject/title to subject	720438f	Highbridge Water Tower (New York, N.Y.)	High Bridge Park
+clash!	subject/title close	730836f	High Bridge (New York, N.Y.)	Bridges - High Bridge 
+clash!	subject/title close	731060f	Washington Bridge (New York, N.Y.)	Bridges - Washington 
        num_exact: 47
 num_extrapolated: 6
    num_unclaimed: 3
   unknown avenues: [('19', 1)]
   unknown streets: [('175', 1), ('126', 1)]
-POI/subject geocoding: n_geo=9 (n_multi=2), n_title=1
+POI/subject geocoding:
+   5	n_both
+  11	n_geo
+  11	n_geo_unambig
+   4	n_out_both_close
+   1	n_out_both_subject
+   7	n_out_subject
+   4	n_out_title
+   5	n_title
+   2	n_title_bridge
+   2	n_title_island
+   1	n_title_park
    53 extended-grid
    81 milstein
-   10 nyc-parks
-  144 (total)
+   11 nyc-parks
+  145 (total)
