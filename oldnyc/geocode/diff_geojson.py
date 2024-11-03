@@ -35,7 +35,7 @@ def features_to_geojson_file(features, filename):
 def calculate_distance_delta_for_image_id(a, b):
     assert a["type"] == "Point"
     assert b["type"] == "Point"
-    (a_lng, a_lat) = b["coordinates"]
+    (a_lng, a_lat) = a["coordinates"]
     (b_lng, b_lat) = b["coordinates"]
     d_meters = haversine((a_lat, a_lng), (b_lat, b_lng)) * 1000
     return d_meters
@@ -69,32 +69,32 @@ def diff_geojson(
     dropped_ids = old_ids.difference(new_ids)
     added_ids = new_ids.difference(old_ids)
     changed_ids = []
+    dropped_geometry_ids = []
+    added_geometry_ids = []
     for k in new_ids.intersection(old_ids):
         a = old[k]["geometry"]
         b = new[k]["geometry"]
         if a is None and b is None:
             continue
-        if is_geometry_mismatch(a, b) or calculate_distance_delta_for_image_id(a, b) > 25:
+        elif a is None and b is not None:
+            added_geometry_ids.append(k)
+        elif b is None and a is not None:
+            dropped_geometry_ids.append(k)
+        elif is_geometry_mismatch(a, b) or calculate_distance_delta_for_image_id(a, b) > 25:
             changed_ids.append(k)
 
-        # we estimate that all reported images who have not changed are unchanged
-    unchanged_ids = old_ids.difference(changed_ids).difference(dropped_ids)
+    # we estimate that all reported images who have not changed are unchanged
+    unchanged_ids = (
+        old_ids.difference(changed_ids)
+        .difference(dropped_ids)
+        .difference(dropped_geometry_ids)
+        .difference(added_geometry_ids)
+    )
 
     dropped_features = [old[i] for i in dropped_ids]
     added_features = [new[i] for i in added_ids]
     changed_features = [new[i] for i in changed_ids]
     unchanged_features = [old[i] for i in unchanged_ids]
-
-    for feature in changed_features:
-        older = old[feature["id"]]
-        newer = new[feature["id"]]
-        a, b = older["geometry"], newer["geometry"]
-        distance = (
-            math.nan if is_geometry_mismatch(a, b) else calculate_distance_delta_for_image_id(a, b)
-        )
-        print(f"distance: {distance}")
-        print(f"old: {older}")
-        print(f"new: {newer}")
 
     features_to_geojson_file(dropped_features, dropped_file)
     features_to_geojson_file(added_features, added_file)
@@ -103,14 +103,16 @@ def diff_geojson(
 
     print(f"""
  Before: {len(old_ids):,}
- After: {len(new_ids):,}
+  After: {len(new_ids):,}
 
- Added: {len(added_ids):,}
- Dropped: {len(dropped_ids):,}
- Changed: {len(changed_ids):,}
-    """)
+  Added: {len(added_ids):,}
+Dropped: {len(dropped_ids):,}
+Changed: {len(changed_ids):,}
+  +geom: {len(added_geometry_ids):,}
+  -geom: {len(dropped_geometry_ids):,}
+""")
 
-    if added_ids:
+    if added_ids and num_samples:
         print("\nSample of additions:")
         add_samples = min(num_samples, len(added_ids))
         for k in random.sample([*added_ids], add_samples):
@@ -125,7 +127,7 @@ def diff_geojson(
             print(f" {k:6}: {title}")
             print(f'   + {b.get("lat"):.6f},{b.get("lng"):.6f} {b.get("technique")}')
 
-    if dropped_ids:
+    if dropped_ids and num_samples:
         print("\nSample of dropped:")
         drop_samples = min(num_samples, len(dropped_ids))
         for k in random.sample([*dropped_ids], drop_samples):
@@ -133,7 +135,7 @@ def diff_geojson(
             print(f' {k:6}: {a.get("original_title", "original title not found")}')
             print(f'   - {a.get("lat"):.6f},{a.get("lng"):.6f} {a.get("technique")}')
 
-    if changed_ids:
+    if changed_ids and num_samples:
         print("\nSample of changes:")
         changed_samples = min(num_samples, len(changed_ids))
         for k in random.sample([*changed_ids], changed_samples):
