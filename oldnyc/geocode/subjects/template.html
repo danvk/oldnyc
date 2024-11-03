@@ -1,0 +1,43 @@
+<link rel="stylesheet" type="text/css" href="style.css"/>
+
+<ul>
+<li>subject: ${geo}</li>
+<li>count: ${count}</li>
+<li>centroid: ${centroid}</li>
+<li>points (<span id="point-count"></span>)</li>
+</ul>
+
+<div id="map"></div>
+<input id="pac-input" class="controls" type="text" placeholder="Search for an address, cross streets or a place name" />
+
+<div className="examples">
+    <h2>Examples</h2>
+    <ul id="examples"></ul>
+</div>
+
+<script type="text/javascript">
+const examples = JSON.parse(atob("${examples_json_b64}"));
+const centroidExtent = ${centroid};
+const centroid = centroidExtent ? centroidExtent[0] : null;
+</script>
+
+<script type="text/javascript">
+const numPoints = examples.filter(e => e.geocode).length;
+document.getElementById("point-count").textContent = numPoints;
+</script>
+
+<script src="subjects.js"></script>
+
+<input type="hidden" name="latlng" id="latlng">
+<textarea cols="70" rows="5" name="user_notes" placeholder="Any additional notes go here"></textarea><br>
+<input type="range" min="0" max="2" name="specificity" value="0">
+<button type="submit" name="result" data-key="b" value="Too broad">Too broad (b)</button>
+<button type="submit" name="result" data-key="1" value="Provides 1D location">Provides 1D location (1)</button>
+<button type="submit" name="result" data-key="p" value="partial">Provides partial location (p)</button>
+<button type="submit" name="result" data-key="n" value="neighborhood">Neighborhood (n)</button>
+<button type="submit" name="result" value="pier">East River Pier</button>
+<button type="submit" name="result" data-key="g" value="Good">Good (g)</button>
+<button type="submit" name="result" data-key="o" value="Other">Other (o)</button>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=${GOOGLE_MAPS_API_KEY}&libraries=places&callback=initMap&loading=async"
+  async defer></script>

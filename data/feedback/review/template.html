@@ -30,12 +30,6 @@ Which is better?
 <textarea name="notes" placeholder="notes" cols="80" rows="5"></textarea>
 
 <script type="text/javascript">
-function decodeHtml(html) {
-    var txt = document.createElement("textarea");
-    txt.innerHTML = html;
-    return txt.value;
-}
-
 var changes = [
     JSON.parse(atob("${BASE64}"))
 ];

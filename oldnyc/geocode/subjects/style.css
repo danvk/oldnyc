@@ -1,0 +1,26 @@
+#map {
+    height: 400px;
+    width: 600px;
+}
+
+.selected {
+    font-weight: bold;
+}
+
+#pac-input {
+    background-color: #fff;
+    font-family: Roboto;
+    font-size: 15px;
+    font-weight: 300;
+    padding: 0 11px 0 13px;
+    text-overflow: ellipsis;
+    width: 400px;
+}
+
+ul#examples li::marker {
+    color: white;
+}
+
+ul#examples li.geocoded::marker {
+    color: red;
+}

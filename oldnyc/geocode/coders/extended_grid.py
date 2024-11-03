@@ -170,6 +170,8 @@ class ExtendedGridCoder(Coder):
         sys.stderr.write("       num_exact: %d\n" % grid.num_exact)
         sys.stderr.write("num_extrapolated: %d\n" % grid.num_extrapolated)
         sys.stderr.write("   num_unclaimed: %d\n" % grid.num_unclaimed)
+        sys.stderr.write("  unknown avenues: %s\n" % grid.unknown_ave.most_common())
+        sys.stderr.write("  unknown streets: %s\n" % grid.unknown_str.most_common())
 
     def name(self):
         return "extended-grid"

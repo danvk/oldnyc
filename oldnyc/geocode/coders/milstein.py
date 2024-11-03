@@ -119,7 +119,7 @@ class MilsteinCoder(Coder):
                 type="street_address",  # or 'point_of_interest' or 'establishment'
             )
 
-        sys.stderr.write("(%s) Bad location: %s\n" % (r.id, loc))
+        # sys.stderr.write("(%s) Bad location: %s\n" % (r.id, loc))
         return None
 
     def _extractLocationStringFromRecord(self, r: Item):

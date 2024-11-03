@@ -2,6 +2,7 @@
 """Find images that are on the site but not hosted on the NYPL bucket.
 
 Prints out pairs suitable for crawling with ocr/url_fetcher.py.
+These should also appear in data/self-hosted-sizes.txt.
 """
 
 import csv
@@ -21,4 +22,4 @@ if __name__ == "__main__":
             continue
         if "-" in id:
             sys.stderr.write(f"Cropped image crawl will fail: {id}\n")
-        print(f"images/{id}.jpg\thttps://images.nypl.org/?id={id}&t=w")
+        print(f"https://images.nypl.org/?id={id}&t=w\timages/{id}.jpg")

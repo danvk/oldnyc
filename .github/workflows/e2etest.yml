@@ -22,6 +22,7 @@ jobs:
         poetry run oldnyc/geocode/truth/make_localturk_csv.py data/geocode/random500-ids.txt /tmp/images.geojson data/geocode/random500.csv
         poetry run oldnyc/geocode/truth/generate_truth_gtjson.py > data/geocode/truth.geojson
         jq -r '.features[].id' data/geocode/truth.geojson > data/geocode/truth-ids.txt
+        poetry run python oldnyc/geocode/subjects/csv_to_geojson.py data/subjects/out.csv > data/subjects.geojson
     - name: Check for diffs
       run: |
         git diff --exit-code test/ data/

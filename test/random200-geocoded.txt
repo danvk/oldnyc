@@ -96,7 +96,7 @@
 703479f	failed	n/a	n/a
 718754f	milstein	(40.7121586, -73.9806996)	Cherry Street and Jackson Street, Manhattan, NY
 703755f	milstein	(40.6739616, -74.0080168)	Columbia Street and Creamer Street, Brooklyn, NY
-719118f	failed	n/a	n/a
+719118f	nyc-parks	(40.76808, -73.981896)	@40.768080,-73.981896
 733706f	failed	n/a	n/a
 732005f	nyc-parks	(40.574926, -73.985941)	@40.574926,-73.985941
 1509541	failed	n/a	n/a
@@ -118,7 +118,7 @@
 726840f	failed	n/a	n/a
 720408f	milstein	(40.7155152, -73.9897764)	Essex Street and Hester Street, Manhattan, NY
 704920f	milstein	(40.697888, -73.99460499999999)	Clark Street and Hicks Street, Brooklyn, NY
-720438f	nyc-parks	(40.843104, -73.93291)	@40.843104,-73.93291
+720438f	nyc-parks	(40.842551, -73.932621)	@40.842551,-73.932621
 730836f	nyc-parks	(40.842308, -73.930277)	@40.842308,-73.930277
 704967f	milstein	(40.705439, -73.95633699999999)	Hooper Street and Marcy Avenue, Brooklyn, NY
 701306f	failed	n/a	n/a
@@ -142,19 +142,19 @@
 722402f	milstein	(40.8058042, -73.9386896)	126th Street and Park Avenue, Manhattan, NY
 722101f	extended-grid	(40.749644, -73.979609)	@40.749644,-73.979609
 722430f	milstein	(40.71200320000001, -74.0081046)	Broadway and Park Row, Manhattan, NY
-734005f	failed	n/a	n/a
+734005f	nyc-parks	(40.705573, -74.001457)	@40.705573,-74.001457
 701674f	milstein	(40.8376796, -73.85350729999999)	Purdy Street and St. Raymond Avenue, Bronx, NY
 104780	failed	n/a	n/a
 729420f	milstein	(40.5732734, -74.1469118)	Mill Road and Richmond Hill Road, Staten Island, NY
 722881f	milstein	(40.7849851, -73.9826672)	79th Street and Riverside Drive, Manhattan, NY
 722717f	milstein	(40.78691060000001, -73.9812484)	82nd Street and Riverside Drive, Manhattan, NY
-719805f	failed	n/a	n/a
+719805f	nyc-parks	(40.861619, -73.933622)	@40.861619,-73.933622
 723027f	milstein	(40.7584384, -73.9789121)	49th Street (West) and Rockefeller Plaza, Manhattan, NY
 723036f	failed	n/a	n/a
 727922f	failed	n/a	n/a
 104536	failed	n/a	n/a
 723323f	milstein	(40.7094957, -73.994007)	Market Slip (West). and South Street, Manhattan, NY
-734332f	failed	n/a	n/a
+734332f	nyc-parks	(40.873694, -73.911064)	@40.873694,-73.911064
 706565f	failed	n/a	n/a
 723111f	milstein	(40.7275748, -73.9853065)	1st Avenue and St. Marks Place, Manhattan, NY
 723134f	milstein	(40.8253111, -73.9437817)	147th Street and St. Nicholas Avenue, Manhattan, NY
@@ -182,9 +182,9 @@
 1113271	failed	n/a	n/a
 730594f	failed	n/a	n/a
 731805f	failed	n/a	n/a
-734193f	failed	n/a	n/a
+734193f	nyc-parks	(40.540383, -74.135698)	@40.540383,-74.135698
 1635861	failed	n/a	n/a
-1635949	failed	n/a	n/a
+1635949	nyc-parks	(40.790882, -73.775732)	@40.790882,-73.775732
 1635983	failed	n/a	n/a
 1636238	failed	n/a	n/a
 1663931	failed	n/a	n/a
