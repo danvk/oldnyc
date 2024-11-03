@@ -820,8 +820,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -73.97,
-          40.673889
+          -73.973333,
+          40.764444
         ]
       },
       "properties": {
@@ -1284,8 +1284,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -73.97,
-          40.673889
+          -73.973333,
+          40.764444
         ]
       },
       "properties": {
@@ -4848,6 +4848,66 @@
     {
       "type": "Feature",
       "properties": {
+        "geo": "Manhattan (New York, N.Y.)",
+        "count": 0,
+        "source": "2024",
+        "result": "Too broad",
+        "user_notes": "",
+        "specificity": 0
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "New York (State)",
+        "count": 0,
+        "source": "2024",
+        "result": "Too broad",
+        "user_notes": "",
+        "specificity": 0
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "New York",
+        "count": 0,
+        "source": "2024",
+        "result": "Too broad",
+        "user_notes": "",
+        "specificity": 0
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "United States",
+        "count": 0,
+        "source": "2024",
+        "result": "Too broad",
+        "user_notes": "",
+        "specificity": 0
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geo": "New York (N.Y.)",
+        "count": 0,
+        "source": "2024",
+        "result": "Too broad",
+        "user_notes": "",
+        "specificity": 0
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "geo": "Hudson River (N.Y. and N.J.)",
         "count": 0,
         "source": "2024",
@@ -4884,54 +4944,6 @@
     {
       "type": "Feature",
       "properties": {
-        "geo": "Manhattan (New York, N.Y.)",
-        "count": 0,
-        "source": "2024",
-        "result": "Too broad",
-        "user_notes": "",
-        "specificity": 0
-      },
-      "geometry": null
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "geo": "United States",
-        "count": 0,
-        "source": "2024",
-        "result": "Too broad",
-        "user_notes": "",
-        "specificity": 0
-      },
-      "geometry": null
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "geo": "Bronx (New York, N.Y.)",
-        "count": 0,
-        "source": "2024",
-        "result": "Too broad",
-        "user_notes": "",
-        "specificity": 0
-      },
-      "geometry": null
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "geo": "New York (N.Y.)",
-        "count": 0,
-        "source": "2024",
-        "result": "Too broad",
-        "user_notes": "",
-        "specificity": 0
-      },
-      "geometry": null
-    },
-    {
-      "type": "Feature",
-      "properties": {
         "geo": "Staten Island (New York, N.Y.)",
         "count": 0,
         "source": "2024",
@@ -4944,19 +4956,7 @@
     {
       "type": "Feature",
       "properties": {
-        "geo": "New York",
-        "count": 0,
-        "source": "2024",
-        "result": "Too broad",
-        "user_notes": "",
-        "specificity": 0
-      },
-      "geometry": null
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "geo": "New York (State)",
+        "geo": "Bronx (New York, N.Y.)",
         "count": 0,
         "source": "2024",
         "result": "Too broad",
