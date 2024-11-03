@@ -110,6 +110,13 @@ def make_response(photo_ids: Iterable[str]):
             sys.stderr.write(f"Missing dimensions for {photo_id}\n")
             dims = (600, 400)
         w, h = dims
+        # The UI expects images to be thumbnailed to 600px.
+        if w > h and w > 600:
+            h = int(round(600 * h / w))
+            w = 600
+        elif h > w and h > 600:
+            w = int(round(600 * w / h))
+            h = 600
         ocr_text = id_to_text.get(photo_id)
 
         title = r.title

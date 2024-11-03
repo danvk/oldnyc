@@ -70,7 +70,7 @@ def main():
             )
 
     # TODO: move these into the CSV file
-    for subject in IGNORE_SUBJECTS:
+    for subject in sorted(IGNORE_SUBJECTS):
         features.append(
             pygeojson.Feature(
                 geometry=None,
