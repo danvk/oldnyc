@@ -82,6 +82,10 @@ parks = {
     "Cleopatra's Needle": (40.779612, -73.965414),
     "Grand Army Plaza": (40.673889, -73.97),
 }
+BIG_PARKS = {
+    "Central Park",
+    "Prospect Park",
+}
 
 central_park = {
     "The Pond": (40.766014, -73.974004),
@@ -233,6 +237,10 @@ missing_parks = defaultdict(int)
 missing_islands = defaultdict(int)
 missing_bridges = defaultdict(int)
 
+SPEC_BIG = 0
+SPEC_SMALL = 1
+SPEC_PRECISE = 2
+
 """
 geographic: Central Park (New York, N.Y.)
 geographic: Plumb Island (N.Y.)
@@ -252,6 +260,13 @@ IGNORE_SUBJECTS = {
     "Staten Island (New York, N.Y.)",
     "United States",
 }
+
+
+def is_address_close(a: str, b: str) -> bool:
+    assert a.startswith("@") and b.startswith("@"), (a, b)
+    a_lat, a_lon = (float(x) for x in a[1:].split(","))
+    b_lat, b_lon = (float(x) for x in b[1:].split(","))
+    return abs(a_lat - b_lat) < 0.0001 and abs(a_lon - b_lon) < 0.0001  # ~11m
 
 
 class NycParkCoder(Coder):
@@ -304,18 +319,26 @@ class NycParkCoder(Coder):
                 if park not in parks:
                     missing_parks[park] += 1
                 else:
+                    source = park
                     latlon = None
+                    spec = SPEC_BIG if park in BIG_PARKS else SPEC_SMALL
                     if park == "Central Park":
                         for place in central_park:
-                            if ("Central Park - %s" % place) in title:
+                            area = "Central Park - %s" % place
+                            if area in title:
                                 latlon = central_park[place]
+                                source = area
+                                spec = SPEC_PRECISE  # some of these are "precise"
                     if not latlon:
                         latlon = parks[park]
                     self.n_title += 1
-                    title_locatable = Locatable(
-                        address="@%s,%s" % latlon,
-                        source=m.group(0),
-                        type="point_of_interest",
+                    title_locatable = (
+                        spec,
+                        Locatable(
+                            address="@%s,%s" % latlon,
+                            source=source,
+                            type="point_of_interest",
+                        ),
                     )
 
         m = re.search(island_re, title)
@@ -326,10 +349,13 @@ class NycParkCoder(Coder):
             else:
                 latlon = islands[island]
                 self.n_title += 1
-                title_locatable = Locatable(
-                    address="@%s,%s" % latlon,
-                    source=m.group(0),
-                    type="point_of_interest",
+                title_locatable = (
+                    SPEC_SMALL,
+                    Locatable(
+                        address="@%s,%s" % latlon,
+                        source=m.group(0),
+                        type="point_of_interest",
+                    ),
                 )
 
         m = re.search(bridge_re, title)
@@ -344,22 +370,49 @@ class NycParkCoder(Coder):
             else:
                 latlon = bridges[bridge]
                 self.n_title += 1
-                title_locatable = Locatable(
-                    address="@%s,%s" % latlon,
-                    source=m.group(0),
-                    type="point_of_interest",
+                title_locatable = (
+                    SPEC_PRECISE,
+                    Locatable(
+                        address="@%s,%s" % latlon,
+                        source=m.group(0),
+                        type="point_of_interest",
+                    ),
                 )
 
         if (
             subject_locatable
             and title_locatable
-            and (subject_locatable["address"] != title_locatable["address"])
+            and not is_address_close(subject_locatable["address"], title_locatable[1]["address"])
         ):
             sys.stderr.write(
-                f"clash!\tsubject/title\t{r.id}\t{subject_locatable['source']}\t{title_locatable['source']}\n"
+                "\t".join(
+                    [
+                        "clash!",
+                        "subject/title",
+                        r.id,
+                        subject_locatable["source"],
+                        title_locatable[1]["source"],
+                        str(title_locatable[0]),
+                        subject_locatable["address"],
+                        title_locatable[1]["address"],
+                    ]
+                )
+                + "\n"
             )
+            if title_locatable[0] > SPEC_BIG:
+                sys.stderr.write(
+                    "\t".join(
+                        [
+                            "clash!",
+                            "subject/title resolved",
+                            r.id,
+                        ]
+                    )
+                    + "\n"
+                )
+                return title_locatable[1]
 
-        return subject_locatable or title_locatable
+        return subject_locatable or (title_locatable[1] if title_locatable else None)
 
     def getLatLonFromGeocode(self, geocode, data, record):
         for result in geocode["results"]:

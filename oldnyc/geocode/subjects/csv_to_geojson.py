@@ -22,6 +22,7 @@ def main():
         latlng = row["latlng"]
         result = row["result"]
         user_notes = row["user_notes"]
+        specificity = int(row["specificity"])
 
         if result == "Good":
             coords = json.loads(latlng)
@@ -34,6 +35,7 @@ def main():
                         "source": "2024",
                         "result": result,
                         "user_notes": user_notes,
+                        "specificity": specificity,
                     },
                 )
             )
@@ -47,6 +49,7 @@ def main():
                         "geo": geo,
                         "count": count,
                         "source": "2013",
+                        "specificity": specificity,
                     },
                 )
             )
@@ -61,6 +64,7 @@ def main():
                         "source": "2024",
                         "result": result,
                         "user_notes": user_notes,
+                        "specificity": 0,
                     },
                 )
             )
@@ -76,6 +80,7 @@ def main():
                     "source": "2024",
                     "result": "Too broad",
                     "user_notes": "",
+                    "specificity": 0,
                 },
             )
         )
