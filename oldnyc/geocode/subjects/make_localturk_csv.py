@@ -11,7 +11,7 @@ from typing import Sequence
 import pygeojson
 from haversine import haversine
 
-from oldnyc.geocode.coders.nyc_parks import IGNORE_SUBJECTS, NycParkCoder
+from oldnyc.geocode.coders.subjects import IGNORE_SUBJECTS, SubjectsCoder
 from oldnyc.geojson_utils import assert_point
 from oldnyc.item import Item, load_items
 from oldnyc.util import encode_json_base64, pick
@@ -35,7 +35,7 @@ def maybe_coords(p: pygeojson.Point | None):
 
 def main():
     items = load_items("data/images.ndjson")
-    coder = NycParkCoder()
+    coder = SubjectsCoder()
 
     other_geocodes = pygeojson.load_feature_collection(open("/tmp/images.geojson")).features
     id_to_location = {str(f.id): assert_point(f.geometry) for f in other_geocodes if f.geometry}

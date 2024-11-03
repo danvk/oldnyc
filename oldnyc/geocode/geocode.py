@@ -15,14 +15,14 @@ from typing import Callable
 from dotenv import load_dotenv
 
 from oldnyc.geocode import generate_js, geocoder
-from oldnyc.geocode.coders import extended_grid, gpt, milstein, nyc_parks
+from oldnyc.geocode.coders import extended_grid, gpt, milstein, subjects
 from oldnyc.geocode.geocode_types import Coder, Locatable, Location
 from oldnyc.item import Item, load_items
 
 CODERS: dict[str, Callable[[], Coder]] = {
     "extended-grid": extended_grid.ExtendedGridCoder,
     "milstein": milstein.MilsteinCoder,
-    "nyc-parks": nyc_parks.NycParkCoder,
+    "subjects": subjects.SubjectsCoder,
     "gpt": gpt.GptCoder,
 }
 
@@ -42,7 +42,7 @@ if __name__ == "__main__":
     parser.add_argument(
         "-c",
         "--coders",
-        default="extended-grid,milstein,nyc-parks",
+        default="extended-grid,milstein,subjects",
         help="Set to a comma-separated list of coders. Coders run in the specified order.",
     )
 
