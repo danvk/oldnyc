@@ -3,7 +3,7 @@
 import sys
 from collections import Counter
 
-from oldnyc.geocode.coders import nyc_parks
+from oldnyc.geocode.coders import subjects
 from oldnyc.item import Item, load_items
 
 
@@ -26,8 +26,8 @@ def print_geographics(items: list[Item]):
             counts[g] += 1
             if g.endswith(" (New York, N.Y.)"):
                 g = g.replace(" (New York, N.Y.)", "")
-            if g in nyc_parks.parks:
-                geo_to_loc[raw_g] = nyc_parks.parks[g]
+            if g in subjects.parks:
+                geo_to_loc[raw_g] = subjects.parks[g]
 
     for name, count in counts.most_common():
         loc = geo_to_loc.get(name) or ""

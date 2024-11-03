@@ -27,5 +27,5 @@ POI/subject geocoding:
    1	n_title_park
    53 extended-grid
    81 milstein
-   11 nyc-parks
+   11 subjects
   145 (total)

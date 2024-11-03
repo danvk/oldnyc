@@ -7,7 +7,7 @@ import sys
 
 import pygeojson
 
-from oldnyc.geocode.coders.nyc_parks import IGNORE_SUBJECTS
+from oldnyc.geocode.coders.subjects import IGNORE_SUBJECTS
 
 
 def main():

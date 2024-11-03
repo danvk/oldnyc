@@ -1,9 +1,16 @@
-#!/usr/bin/python
-#
-# Look for well-known NYC parks.
+"""Geocode using the "subjects" field and places of interest in the title.
 
+The idea is that if an item has a subjects/geographic field like this:
 
-import fileinput
+[
+    "Prospect Park",
+    "Grand Army Plaza",
+]
+
+then we can look these two up in subjects.geojson, see that "Grand Army Plaza"
+is more specific, and use that for geocoding.
+"""
+
 import re
 import sys
 from collections import Counter, defaultdict
@@ -12,9 +19,8 @@ import pygeojson
 
 from oldnyc.geocode.geocode_types import Coder, Locatable
 from oldnyc.geojson_utils import assert_point
-from oldnyc.item import blank_item
 
-# TODO: move these into a data file, maybe GeoJSON
+# TODO: use subjects.geojson instead of these lists
 parks = {
     "Bronx Park": (40.856389, -73.876667),
     "Claremont Park": (40.840546, -73.907469),
@@ -271,7 +277,7 @@ def is_address_close(a: str, b: str) -> bool:
     return abs(a_lat - b_lat) < 0.0001 and abs(a_lon - b_lon) < 0.0001  # ~11m
 
 
-class NycParkCoder(Coder):
+class SubjectsCoder(Coder):
     geo_to_location: dict[str, tuple[int, pygeojson.Point]]
     counters: Counter[str]
 
@@ -283,11 +289,6 @@ class NycParkCoder(Coder):
                 for f in features
                 if f.geometry
             }
-            # for f in features:
-            #     if f.properties.get("result") == "pier":
-            #         self.geo_to_location[f.properties["geo"]] = pygeojson.Point(
-            #             (-73.9737, 40.74421)
-            #         )
 
         self.counters = Counter()
 
@@ -463,30 +464,4 @@ class NycParkCoder(Coder):
         #         sys.stderr.write("%4d\t%s\n" % (v, k))
 
     def name(self):
-        return "nyc-parks"
-
-
-# For fast iteration
-if __name__ == "__main__":
-    coder = NycParkCoder()
-    r = blank_item()
-    num_ok, num_bad = 0, 0
-    for line in fileinput.input():
-        addr = line.strip()
-        if not addr:
-            continue
-        r.address = addr
-        result = coder.codeRecord(r)
-
-        if result:
-            num_ok += 1
-            print('"%s" -> %s' % (addr, result))
-        else:
-            num_bad += 1
-
-    coder.finalize()
-
-    sys.stderr.write(
-        "Parsed %d / %d = %.4f records\n"
-        % (num_ok, num_ok + num_bad, 1.0 * num_ok / (num_ok + num_bad))
-    )
+        return "subjects"
