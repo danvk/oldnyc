@@ -6,7 +6,7 @@
 import fileinput
 import re
 import sys
-from collections import defaultdict
+from collections import Counter, defaultdict
 
 import pygeojson
 
@@ -82,6 +82,7 @@ parks = {
     "Cleopatra's Needle": (40.779612, -73.965414),
     "Grand Army Plaza": (40.673889, -73.97),
 }
+# TODO: could add some more here
 BIG_PARKS = {
     "Central Park",
     "Prospect Park",
@@ -248,6 +249,7 @@ geographic: Prospect Park (New York, N.Y.)
 geographic: Bayonne Bridge (N.Y. and N.J.)
 """
 
+# TODO: fold these into tasks.csv / out.csv
 IGNORE_SUBJECTS = {
     "Manhattan (New York, N.Y.)",
     "New York",
@@ -270,13 +272,16 @@ def is_address_close(a: str, b: str) -> bool:
 
 
 class NycParkCoder(Coder):
-    geo_to_location: dict[str, pygeojson.Point]
+    geo_to_location: dict[str, tuple[int, pygeojson.Point]]
+    counters: Counter[str]
 
     def __init__(self):
         with open("data/subjects.geojson") as f:
             features = pygeojson.load_feature_collection(f).features
             self.geo_to_location = {
-                f.properties["geo"]: assert_point(f.geometry) for f in features if f.geometry
+                f.properties["geo"]: (f.properties["specificity"], assert_point(f.geometry))
+                for f in features
+                if f.geometry
             }
             # for f in features:
             #     if f.properties.get("result") == "pier":
@@ -284,30 +289,34 @@ class NycParkCoder(Coder):
             #             (-73.9737, 40.74421)
             #         )
 
-        self.n_geo = 0
-        self.n_title = 0
-        self.n_multi = 0
+        self.counters = Counter()
 
     def codeRecord(self, r):
         matches = [
-            (geo, assert_point(pt))
+            (geo, spec_pt)
             for geo in r.subject.geographic
-            if (pt := self.geo_to_location.get(geo))
+            if (spec_pt := self.geo_to_location.get(geo))
         ]
         subject_locatable = None
-        if len(matches) == 1:
-            geo, pt = matches[0]
-            self.n_geo += 1
+        matches.sort(key=lambda x: -x[1][0])  # most-specific first
+        if matches:
+            self.counters["n_geo"] += 1
+        if len(matches) == 1 or (len(matches) > 1 and matches[0][1][0] > matches[1][1][0]):
+            geo, (spec, pt) = matches[0]
+            self.counters["n_geo_unambig"] += 1
             lng, lat = pt.coordinates[:2]
-            subject_locatable = Locatable(
-                address="@%.6f,%.6f" % (lat, lng),
-                source=geo,
-                type="point_of_interest",
+            subject_locatable = (
+                spec,
+                Locatable(
+                    address="@%.6f,%.6f" % (lat, lng),
+                    source=geo,
+                    type="point_of_interest",
+                ),
             )
         elif len(matches) > 1:
-            matches_txt = "\t".join(m[0] for m in matches)
-            sys.stderr.write(f"clash!\tmulti-subject\t{r.id}\t{matches_txt}\n")
-            self.n_multi += 1
+            matches_txt = "\t".join(f"{spec}/{geo}" for geo, (spec, pt) in matches)
+            sys.stderr.write(f"clash!\tunresolved multi-subject\t{r.id}\t{matches_txt}\n")
+            self.counters["n_geo_multi"] += 1
 
         title = re.sub(r"\.$", "", r.title)
 
@@ -331,7 +340,7 @@ class NycParkCoder(Coder):
                                 spec = SPEC_PRECISE  # some of these are "precise"
                     if not latlon:
                         latlon = parks[park]
-                    self.n_title += 1
+                    self.counters["n_title_park"] += 1
                     title_locatable = (
                         spec,
                         Locatable(
@@ -348,7 +357,7 @@ class NycParkCoder(Coder):
                 missing_islands[island] += 1
             else:
                 latlon = islands[island]
-                self.n_title += 1
+                self.counters["n_title_island"] += 1
                 title_locatable = (
                     SPEC_SMALL,
                     Locatable(
@@ -369,7 +378,7 @@ class NycParkCoder(Coder):
                 missing_bridges[bridge] += 1
             else:
                 latlon = bridges[bridge]
-                self.n_title += 1
+                self.counters["n_title_bridge"] += 1
                 title_locatable = (
                     SPEC_PRECISE,
                     Locatable(
@@ -379,40 +388,62 @@ class NycParkCoder(Coder):
                     ),
                 )
 
-        if (
-            subject_locatable
-            and title_locatable
-            and not is_address_close(subject_locatable["address"], title_locatable[1]["address"])
-        ):
-            sys.stderr.write(
-                "\t".join(
-                    [
-                        "clash!",
-                        "subject/title",
-                        r.id,
-                        subject_locatable["source"],
-                        title_locatable[1]["source"],
-                        str(title_locatable[0]),
-                        subject_locatable["address"],
-                        title_locatable[1]["address"],
-                    ]
+        if title_locatable:
+            self.counters["n_title"] += 1
+
+        if subject_locatable and title_locatable:
+            self.counters["n_both"] += 1
+            subj_spec = subject_locatable[0]
+            subj_src = subject_locatable[1]["source"]
+            title_spec = title_locatable[0]
+            title_src = title_locatable[1]["source"]
+            if is_address_close(subject_locatable[1]["address"], title_locatable[1]["address"]):
+                sys.stderr.write(
+                    "\t".join(["clash!", "subject/title close", r.id, subj_src, title_src]) + "\n"
                 )
-                + "\n"
-            )
-            if title_locatable[0] > SPEC_BIG:
+
+                self.counters["n_out_title"] += 1
+                self.counters["n_out_both_close"] += 1
+                return title_locatable[1]
+            elif subj_spec > title_spec:
+                sys.stderr.write(
+                    "\t".join(["clash!", "subject/title to subject", r.id, subj_src, title_src])
+                    + "\n"
+                )
+                self.counters["n_out_subject"] += 1
+                self.counters["n_out_both_subject"] += 1
+                return subject_locatable[1]
+            elif title_spec > subj_spec:
+                sys.stderr.write(
+                    "\t".join(["clash!", "subject/title to title", r.id, subj_src, title_src])
+                    + "\n"
+                )
+                self.counters["n_out_title"] += 1
+                self.counters["n_out_both_title"] += 1
+                return title_locatable[1]
+            else:
                 sys.stderr.write(
                     "\t".join(
                         [
                             "clash!",
-                            "subject/title resolved",
+                            "subject/title same",
                             r.id,
+                            subj_src,
+                            title_src,
                         ]
                     )
                     + "\n"
                 )
+                self.counters["n_out_title"] += 1
+                self.counters["n_out_both_fallback_title"] += 1
                 return title_locatable[1]
 
-        return subject_locatable or (title_locatable[1] if title_locatable else None)
+        if subject_locatable:
+            self.counters["n_out_subject"] += 1
+            return subject_locatable[1]
+        if title_locatable:
+            self.counters["n_out_title"] += 1
+            return title_locatable[1]
 
     def getLatLonFromGeocode(self, geocode, data, record):
         for result in geocode["results"]:
@@ -423,9 +454,9 @@ class NycParkCoder(Coder):
         return None
 
     def finalize(self):
-        sys.stderr.write(
-            f"POI/subject geocoding: n_geo={self.n_geo} (n_multi={self.n_multi}), n_title={self.n_title}\n"
-        )
+        sys.stderr.write("POI/subject geocoding:\n")
+        for k in sorted(self.counters.keys()):
+            sys.stderr.write("%4d\t%s\n" % (self.counters[k], k))
         # for missing in [missing_parks, missing_islands, missing_bridges]:
         #     vs = [(v, k) for k, v in missing.items()]
         #     for v, k in reversed(sorted(vs)):
