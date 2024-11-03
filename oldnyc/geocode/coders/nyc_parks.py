@@ -279,21 +279,24 @@ class NycParkCoder(Coder):
             for geo in r.subject.geographic
             if (pt := self.geo_to_location.get(geo))
         ]
+        subject_locatable = None
         if len(matches) == 1:
             geo, pt = matches[0]
             self.n_geo += 1
             lng, lat = pt.coordinates[:2]
-            return Locatable(
+            subject_locatable = Locatable(
                 address="@%.6f,%.6f" % (lat, lng),
                 source=geo,
                 type="point_of_interest",
             )
         elif len(matches) > 1:
-            sys.stderr.write(f"Multiple geo matches for {r.id}: {matches}\n")
+            matches_txt = "\t".join(m[0] for m in matches)
+            sys.stderr.write(f"clash!\tmulti-subject\t{r.id}\t{matches_txt}\n")
             self.n_multi += 1
 
         title = re.sub(r"\.$", "", r.title)
 
+        title_locatable = None
         m = re.search(park_re, title)
         if m:
             park = m.group(1)
@@ -309,28 +312,28 @@ class NycParkCoder(Coder):
                     if not latlon:
                         latlon = parks[park]
                     self.n_title += 1
-                    return Locatable(
+                    title_locatable = Locatable(
                         address="@%s,%s" % latlon,
                         source=m.group(0),
                         type="point_of_interest",
                     )
 
         m = re.search(island_re, title)
-        if m:
+        if title_locatable is None and m:
             island = m.group(1)
             if island not in islands:
                 missing_islands[island] += 1
             else:
                 latlon = islands[island]
                 self.n_title += 1
-                return Locatable(
+                title_locatable = Locatable(
                     address="@%s,%s" % latlon,
                     source=m.group(0),
                     type="point_of_interest",
                 )
 
         m = re.search(bridge_re, title)
-        if m:
+        if title_locatable is None and m:
             bridge = m.group(1)
             # if not ('Bridge' in bridge or 'bridge' in bridge):
             # XXX this is weird
@@ -341,13 +344,22 @@ class NycParkCoder(Coder):
             else:
                 latlon = bridges[bridge]
                 self.n_title += 1
-                return Locatable(
+                title_locatable = Locatable(
                     address="@%s,%s" % latlon,
                     source=m.group(0),
                     type="point_of_interest",
                 )
 
-        return None
+        if (
+            subject_locatable
+            and title_locatable
+            and (subject_locatable["address"] != title_locatable["address"])
+        ):
+            sys.stderr.write(
+                f"clash!\tsubject/title\t{r.id}\t{subject_locatable['source']}\t{title_locatable['source']}\n"
+            )
+
+        return subject_locatable or title_locatable
 
     def getLatLonFromGeocode(self, geocode, data, record):
         for result in geocode["results"]:
