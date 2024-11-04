@@ -20,7 +20,6 @@ Output .geojson files:
 
 import argparse
 import json
-import math
 import random
 from typing import Optional, Sequence
 
