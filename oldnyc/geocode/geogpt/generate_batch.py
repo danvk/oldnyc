@@ -12,31 +12,25 @@ from oldnyc.item import Item, load_items
 
 # See https://cookbook.openai.com/examples/batch_processing
 SYSTEM_INSTRUCTIONS = """
-Your goal is to extract location information from JSON describing a photograph taken
-in New York City. The location information should be either an intersection of two streets,
-an address, or a place name. It should also contain the borough that the photograph is in
-(Manhattan, Brooklyn, Queens, Bronx, Staten Island).
-Intersections are most desirable, followed by addresses, and then place names.
-If there's no location information in the photo, respond with "no location information".
+Your goal is to extract location information from JSON describing a photograph taken in New York City. The location information should be either an intersection of two streets, a place name, or an address. It's also possible that there's no location information, or that the photo was not taken in New York City.
 
-Respond in JSON containing the following information:
+Respond in JSON matching the following TypeScript interface:
 
 {
   type: "intersection";
   street1: string;
   street2: string;
-  borough: "Manhattan" | "Brooklyn" | "Queens" | "Bronx" | "Staten Island"
 } | {
   type: "address";
-  number: string;
+  number: number;
   street: string;
-  borough: "Manhattan" | "Brooklyn" | "Queens" | "Bronx" | "Staten Island"
 } | {
   type: "place_name";
   place_name: string;
-  borough: "Manhattan" | "Brooklyn" | "Queens" | "Bronx" | "Staten Island"
 } | {
-  type: "no location information"
+  type: "no location information";
+} | {
+  type: "not in NYC";
 }
 """
 
@@ -45,35 +39,43 @@ class GptIntersection(TypedDict):
     type: Literal["intersection"]
     street1: str
     street2: str
-    borough: str
 
 
 class GptAddress(TypedDict):
     type: Literal["address"]
     number: str
     street: str
-    borough: str
 
 
 class GptPlaceName(TypedDict):
     type: Literal["place_name"]
     place_name: str
-    borough: str
 
 
 class GptNoLocation(TypedDict):
-    type: Literal["no_location"]
+    type: Literal["no location information"]
 
 
-GptResponse = GptIntersection | GptAddress | GptPlaceName | GptNoLocation
+class GptNotNYC(TypedDict):
+    type: Literal["not in NYC"]
+
+
+GptResponse = GptIntersection | GptAddress | GptPlaceName | GptNoLocation | GptNotNYC
 
 
 def make_gpt_request(r: Item, model: str) -> dict:
     r = prep_data(r)
-    gpt_data = {"title": r.title, "alt_title": r.alt_title, "description": r.back_text}
-    borough = guess_borough(r)
-    if borough:
-        gpt_data["borough"] = borough
+    gpt_data = dataclasses.asdict(r)
+    # These fields aren't useful for GPT
+    gpt_data.pop("id", None)
+    gpt_data.pop("uuid", None)
+    gpt_data.pop("url", None)
+    gpt_data.pop("photo_url", None)
+    gpt_data.pop("back_text_source", None)
+    gpt_data.pop("back_id", None)
+    # borough = guess_borough(r)
+    # if borough:
+    #     gpt_data["borough"] = borough
 
     data = json.dumps(gpt_data)
     return {
