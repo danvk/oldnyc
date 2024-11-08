@@ -78,7 +78,7 @@ class TitlePatternCoder(Coder):
                 if latlon:
                     self.n_grid += 1
                     lat, lng = latlon
-                    return float(lat), float(lng)  # they're numpy floats
+                    return round(float(lat), 7), round(float(lng), 7)  # they're numpy floats
             except ValueError:
                 pass
         # TODO: use extended-grid coder if possible; would require more street/avenue parsing.
