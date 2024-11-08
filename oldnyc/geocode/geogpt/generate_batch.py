@@ -62,6 +62,12 @@ class GptNotNYC(TypedDict):
 
 GptResponse = GptIntersection | GptAddress | GptPlaceName | GptNoLocation | GptNotNYC
 
+boroughs_pat = r"(?:Manhattan|Brooklyn|Queens|Bronx|Staten Island|Richmond)"
+
+# Borough: str1 - str2
+# Manhattan: 10th Street (East) - Broadway
+boro_int = re.compile(rf"^({boroughs_pat}): ([^-:\[\]]+?) - ([^-:\[\]]+)$")
+
 
 def make_gpt_request(r: Item, model: str) -> dict:
     r = prep_data(r)
@@ -131,11 +137,18 @@ def guess_borough(item: Item):
 
 
 if __name__ == "__main__":
-    (ids_file, model) = sys.argv[1:]
-    ids = {line.strip() for line in open(ids_file)}
+    if len(sys.argv) == 3:
+        (ids_file, model) = sys.argv[1:]
+    else:
+        (model,) = sys.argv[1:]
+        ids_file = None
 
     items = load_items("data/images.ndjson")
+    ids = {line.strip() for line in open(ids_file)} if ids_file else (r.id for r in items)
     id_to_records = {r.id: r for r in items}
 
     for id in ids:
+        item = id_to_records[id]
+        if boro_int.match(item.title):
+            continue
         print(json.dumps(make_gpt_request(id_to_records[id], model)))
