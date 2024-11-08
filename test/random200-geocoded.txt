@@ -1,74 +1,74 @@
 725773f	title-pattern	(40.752257, -73.8629333)	104th Street and 37th Drive, Queens, NY
 714972f	title-pattern	(40.788955, -73.9405603)	105th Street (East) and 1st Avenue, Manhattan, NY
-731662f	title-pattern	(40.7947013, -73.9363661)	114th Street (East) and 1st Avenue., Manhattan, NY
-710597f	title-pattern	(40.7467972, -74.00788709999999)	11th Avenue and 20th Street, Manhattan, NY
+731662f	title-pattern	(40.7947066, -73.9363463)	114th Street (East) and 1st Avenue, Manhattan, NY
+710597f	title-pattern	(40.7467878, -74.0078617)	11th Avenue and 20th Street, Manhattan, NY
 711084f	title-pattern	(40.7340256, -73.9950724)	11th Street (East) and 5th Avenue, Manhattan, NY
 702517f	title-pattern	(40.670265, -73.9920222)	11th Street and 3rd Avenue, Brooklyn, NY
-715218f	title-pattern	(40.80322839999999, -73.94459669999999)	120th Street and 5th Avenue, Manhattan, NY
+715218f	title-pattern	(40.8032504, -73.9446509)	120th Street and 5th Avenue, Manhattan, NY
 715225f	title-pattern	(40.810582, -73.9621696)	120th Street and Broadway, Manhattan, NY
-715273f	extended-grid	(40.800463, -73.932174)	@40.800463,-73.932174
+715273f	title-pattern	(40.80046291144639, -73.93217419733602)	123rd Street (East) and 1st Avenue, Manhattan, NY
 715775f	title-pattern	(40.8442656, -73.9337224)	175th Street (West) and Amsterdam Avenue, Manhattan, NY
-707652f	title-pattern	(40.767119, -73.9564907)	1st Ave. and 71st Street (East)., Manhattan, NY
-724948f	title-pattern	(40.7740642, -73.9368624)	1st Street and Astoria Boulevard., Queens, NY
+707652f	title-pattern	(40.767119, -73.9564907)	1st Ave and 71st Street (East), Manhattan, NY
+724948f	title-pattern	(40.7740642, -73.9368624)	1st Street and Astoria Boulevard, Queens, NY
 1507813	milstein	(40.745299, -74.004871)	448 20th Street (West), Manhattan, NY
 1558411	milstein	(40.71200320000001, -74.0081046)	233 Broadway and Barclay Street, Manhattan, NY
-711783f	title-pattern	(40.748355, -74.00368399999999)	10th Avenue and 24th Street, Manhattan, NY
+711783f	title-pattern	(40.748355, -74.003684)	10th Avenue and 24th Street, Manhattan, NY
 711875f	title-pattern	(40.7400154, -73.976246)	1st Avenue and 28th Street (East), Manhattan, NY
-707797f	title-pattern	(40.7359972, -73.9822652)	20th St. E. and 2nd Ave., Manhattan, NY
-707762f	title-pattern	(40.7255512, -73.9898805)	2nd Ave. and 3rd St., Manhattan, NY
+707797f	title-pattern	(40.7359972, -73.9822652)	20th St. E and 2nd Ave, Manhattan, NY
+707762f	title-pattern	(40.7255916, -73.9898722)	2nd Ave and 3rd St, Manhattan, NY
 731602f	failed	n/a	n/a
 724965f	title-pattern	(40.7428649, -73.95863)	2nd Street and 51st Avenue, Queens, NY
 725220f	title-pattern	(40.76691690000001, -73.835483)	32nd Avenue and Downing Street, Queens, NY
-712182f	title-pattern	(40.75219, -73.993464)	34th Street and 8th Avenue, Manhattan, NY
+712182f	title-pattern	(40.7521911, -73.9934722)	34th Street and 8th Avenue, Manhattan, NY
 712365f	title-pattern	(40.7552261, -73.9966536)	36th Street (West) and Dyer Avenue, Manhattan, NY
 712847f	title-pattern	(40.7514377, -73.97604609999999)	42nd Street (East) and Lexington Avenue, Manhattan, NY
-713018f	title-pattern	(40.7534991, -73.98089089999999)	42nd Street and 5th Avenue, Manhattan, NY
+713018f	title-pattern	(40.7534877, -73.9808944)	42nd Street and 5th Avenue, Manhattan, NY
 713156f	title-pattern	(40.7566969, -73.9864836)	43rd Street (West) and 7th Avenue, Manhattan, NY
 713408f	title-pattern	(40.75927, -73.980886)	49th Street (West) and 6th Avenue, Manhattan, NY
 702337f	title-pattern	(40.6537992, -74.0050724)	37th Street and 4th Avenue, Brooklyn, NY
-713577f	title-pattern	(40.6257656, -73.979837)	19th Avenue and 51st Street, Manhattan, NY
+713577f	failed	n/a	n/a
 417677	failed	n/a	n/a
 713622f	title-pattern	(40.7635447, -73.9851925)	52nd Street (West) and 8th Avenue, Manhattan, NY
-713882f	title-pattern	(40.7629605, -73.9739661)	57th Street and 5th Avenue, Manhattan, NY
+713882f	title-pattern	(40.7629806, -73.9739597)	57th Street and 5th Avenue, Manhattan, NY
 713972f	title-pattern	(40.7662157, -73.9795496)	58th Street (West) and 7th Avenue, Manhattan, NY
-714055f	title-pattern	(40.7716296, -73.99046919999999)	11th Avenue and 59th Street, Manhattan, NY
+714055f	title-pattern	(40.7716296, -73.9904692)	11th Avenue and 59th Street, Manhattan, NY
 702396f	title-pattern	(40.66359, -73.991089)	17th Street and 5th Avenue, Brooklyn, NY
-708420f	title-pattern	(40.659669, -73.99516899999999)	24th Street and 5th Avenue, Manhattan, NY
-708595f	title-pattern	(40.7491122, -73.98406740000001)	35th Street and 5th Avenue, Manhattan, NY
+708420f	title-pattern	(40.74220329583788, -73.98911301132158)	24th Street and 5th Avenue, Manhattan, NY
+708595f	title-pattern	(40.7491122, -73.9840674)	35th Street and 5th Avenue, Manhattan, NY
 708621f	title-pattern	(40.7503537, -73.9831701)	37th Street and 5th Avenue, Manhattan, NY
-708658f	title-pattern	(40.7515812, -73.9822803)	39th Street and 5th Avenue, Manhattan, NY
-708696f	title-pattern	(40.7521984, -73.9818312)	40th Street and 5th Avenue, Manhattan, NY
-708795f	title-pattern	(40.7534991, -73.98089089999999)	42nd Street and 5th Avenue, Manhattan, NY
-708861f	title-pattern	(40.756035, -73.97902010000001)	46th Street and 5th Avenue, Manhattan, NY
+708658f	title-pattern	(40.7515863, -73.9822815)	39th Street and 5th Avenue, Manhattan, NY
+708696f	title-pattern	(40.7522003, -73.9818336)	40th Street and 5th Avenue, Manhattan, NY
+708795f	title-pattern	(40.7534877, -73.9808944)	42nd Street and 5th Avenue, Manhattan, NY
+708861f	title-pattern	(40.7560361, -73.9790201)	46th Street and 5th Avenue, Manhattan, NY
 708939f	title-pattern	(40.7585457, -73.9771993)	50th Street (West) and 5th Avenue, Manhattan, NY
 708943f	title-pattern	(40.759166, -73.976748)	51st Street (West) and 5th Avenue, Manhattan, NY
-708989f	title-pattern	(40.7604194, -73.97584669999999)	53rd Street and 5th Avenue, Manhattan, NY
-709069f	title-pattern	(40.7636538, -73.97346499999999)	58th Street and 5th Avenue, Manhattan, NY
+708989f	title-pattern	(40.7604085, -73.9758286)	53rd Street and 5th Avenue, Manhattan, NY
+709069f	title-pattern	(40.7636538, -73.973465)	58th Street and 5th Avenue, Manhattan, NY
 731306f	failed	n/a	n/a
-714105f	title-pattern	(40.7641925, -73.9689917)	61st Street (East) and Park Avenue, Manhattan, NY
+714105f	title-pattern	(40.764185140664495, -73.96886654922966)	61st Street (East) and Park Avenue, Manhattan, NY
 1508279	milstein	(40.769205, -73.966681)	35 68th Street (East), Manhattan, NY
 725588f	title-pattern	(40.7140637, -73.8869935)	66th Road and 69th Street, Queens, NY
 709481f	title-pattern	(40.7548529, -73.9841244)	42nd Street (West) and 6th Avenue, Manhattan, NY
-709510f	title-pattern	(40.7561475, -73.98316299999999)	44th Street (West) and 6th Avenue, Manhattan, NY
+709510f	title-pattern	(40.7561475, -73.983163)	44th Street (West) and 6th Avenue, Manhattan, NY
 714399f	title-pattern	(40.7798176, -73.9844937)	72nd Street (West) and West End Avenue, Manhattan, NY
-714353f	title-pattern	(40.7710625, -73.9637322)	72nd Street and Avenue A, Manhattan, NY
+714353f	title-pattern	(40.766800148280936, -73.95363362033068)	72nd Street and Avenue A, Manhattan, NY
 725623f	title-pattern	(40.7316291, -73.7873143)	183rd Street and 73rd Avenue, Queens, NY
-714441f	title-pattern	(40.7697508, -73.95458959999999)	1st Avenue and 75th Street (East), Manhattan, NY
+714441f	title-pattern	(40.7697508, -73.9545896)	1st Avenue and 75th Street (East), Manhattan, NY
 709643f	title-pattern	(40.7372245, -74.0006804)	12th Street (West) and 7th Avenue, Manhattan, NY
-709691f	title-pattern	(40.7410555, -73.9978599)	18th Street and 7th Avenue, Manhattan, NY
-709755f	title-pattern	(40.7503293, -73.99110139999999)	33rd Street and 7th Avenue, Manhattan, NY
+709691f	title-pattern	(40.7410673, -73.9978679)	18th Street and 7th Avenue, Manhattan, NY
+709755f	title-pattern	(40.7503293, -73.9911014)	33rd Street and 7th Avenue, Manhattan, NY
 485886	failed	n/a	n/a
 725663f	title-pattern	(40.7536023, -73.8859408)	34th Avenue and 81st Street, Queens, NY
 417208	milstein	(40.773668, -73.9625049)	830 Park Avenue, Manhattan, NY
 714641f	title-pattern	(40.777546, -73.95701269999999)	83rd Street (East) and Lexington Avenue, Manhattan, NY
-714767f	title-pattern	(40.7877907, -73.971214)	88th Street (West) and Columbus Avenue, Manhattan, NY
+714767f	title-pattern	(40.78779737214204, -73.97123052877527)	88th Street (West) and Columbus Avenue, Manhattan, NY
 710244f	extended-grid	(40.805105, -73.954868)	@40.805105,-73.954868
-710174f	title-pattern	(40.7559504, -73.99072319999999)	40th Street (West) and 8th Avenue, Manhattan, NY
+710174f	title-pattern	(40.7559504, -73.9907232)	40th Street (West) and 8th Avenue, Manhattan, NY
 710222f	title-pattern	(40.7641748, -73.9847444)	53rd Street and 8th Avenue, Manhattan, NY
 714847f	title-pattern	(40.7921354, -73.9717984)	93rd Street (West) and Amsterdam Avenue, Manhattan, NY
-714866f	title-pattern	(40.7922045, -73.96803299999999)	95th Street (West) and Columbus Avenue, Manhattan, NY
+714866f	title-pattern	(40.79219522937302, -73.9680220639488)	95th Street (West) and Columbus Avenue, Manhattan, NY
 714878f	title-pattern	(40.785877, -73.9509341)	96th Street (East) and Lexington Avenue, Manhattan, NY
-714891f	title-pattern	(40.7928767, -73.9675422)	96th Street (West) and Columbus Avenue, Manhattan, NY
+714891f	title-pattern	(40.79286725870743, -73.96753178371263)	96th Street (West) and Columbus Avenue, Manhattan, NY
 710381f	title-pattern	(40.7527253, -73.9967889)	33rd Street and 9th Avenue, Manhattan, NY
 716213f	title-pattern	(40.8029878, -73.9638629)	Amsterdam Avenue and Cathedral Parkway, Manhattan, NY
 716251f	title-pattern	(40.8029878, -73.9638629)	Amsterdam Avenue and Cathedral Parkway, Manhattan, NY
@@ -76,8 +76,8 @@
 703007f	failed	n/a	n/a
 703078f	title-pattern	(40.6821316, -73.8697808)	Atlantic Avenue and Autumn Avenue, Brooklyn, NY
 703041f	title-pattern	(40.6823228, -73.9706163)	Atlantic Avenue and Carlton Avenue, Brooklyn, NY
-707148f	title-pattern	(40.6205804, -73.9019884)	Ave. V and Bergen Ave., Brooklyn, NY
-716421f	title-pattern	(40.7250447, -73.9812149)	7th Street and Avenue B, Manhattan, NY
+707148f	title-pattern	(40.6205613, -73.9019903)	Ave. V and Bergen Ave, Brooklyn, NY
+716421f	title-pattern	(40.7250808, -73.9812322)	7th Street and Avenue B, Manhattan, NY
 731946f	subjects	(40.574926, -73.985941)	@40.574926,-73.985941
 716604f	failed	n/a	n/a
 726128f	title-pattern	(40.7704092, -73.8246714)	Bayside Avenue and Parsons Boulevard, Queens, NY
@@ -113,7 +113,7 @@
 704362f	milstein	(40.6484002, -73.8932293)	107th Street (East) and Flatlands Avenue, Brooklyn, NY
 1509883	failed	n/a	n/a
 704427f	failed	n/a	n/a
-704487f	title-pattern	(40.7102385, -74.00772529999999)	Fulton Street and Nassau Street, Brooklyn, NY
+704487f	failed	n/a	n/a
 720086f	milstein	(40.7181343, -73.9938663)	Chrystie Street and Grand Street, Manhattan, NY
 726840f	failed	n/a	n/a
 720408f	title-pattern	(40.7155152, -73.9897764)	Essex Street and Hester Street, Manhattan, NY
@@ -140,7 +140,7 @@
 727605f	title-pattern	(40.7554185, -73.8862679)	81st Street and Northern Boulevard, Queens, NY
 732646f	failed	n/a	n/a
 722402f	title-pattern	(40.8058042, -73.9386896)	126th Street and Park Avenue, Manhattan, NY
-722101f	title-pattern	(40.7495592, -73.97940830000002)	38th Street and Park Avenue, Manhattan, NY
+722101f	title-pattern	(40.7496437, -73.9796092)	38th Street and Park Avenue, Manhattan, NY
 722430f	title-pattern	(40.71200320000001, -74.0081046)	Broadway and Park Row, Manhattan, NY
 734005f	subjects	(40.705573, -74.001457)	@40.705573,-74.001457
 701674f	title-pattern	(40.8376796, -73.85350729999999)	Purdy Street and St. Raymond Avenue, Bronx, NY
@@ -153,7 +153,7 @@
 723036f	failed	n/a	n/a
 727922f	failed	n/a	n/a
 104536	failed	n/a	n/a
-723323f	title-pattern	(40.7094957, -73.994007)	Market Slip (West). and South Street, Manhattan, NY
+723323f	title-pattern	(40.70951050000001, -73.9940379)	Market Slip (West) and South Street, Manhattan, NY
 734332f	subjects	(40.873694, -73.911064)	@40.873694,-73.911064
 706565f	failed	n/a	n/a
 723111f	title-pattern	(40.7275748, -73.9853065)	1st Avenue and St. Marks Place, Manhattan, NY
@@ -162,19 +162,19 @@
 728084f	failed	n/a	n/a
 417391	failed	n/a	n/a
 702016f	title-pattern	(40.8608772, -73.8418068)	Waring Avenue and Woodhull Avenue, Bronx, NY
-707267f	title-pattern	(40.686453, -73.99392999999999)	Court St. and Warren St., Brooklyn, NY
-707268f	title-pattern	(40.686453, -73.99392999999999)	Court St. and Warren St., Brooklyn, NY
+707267f	title-pattern	(40.6864687, -73.9939278)	Court St and Warren St, Brooklyn, NY
+707268f	title-pattern	(40.6864687, -73.9939278)	Court St and Warren St, Brooklyn, NY
 731060f	subjects	(40.846944, -73.928056)	@40.846944,-73.928056
 724252f	title-pattern	(40.7087712, -74.00091499999999)	Dover Street and Water Street, Manhattan, NY
 702047f	title-pattern	(40.8659309, -73.8858516)	198th Street (East) and Webster Avenue, Bronx, NY
 1558186	extended-grid	(40.752191, -73.993472)	@40.752191,-73.993472
 702135f	title-pattern	(40.8404054, -73.8423225)	Tremont Avenue (East) and Westchester Avenue, Bronx, NY
 724791f	title-pattern	(40.7079605, -74.0080134)	Maiden Lane and William Street, Manhattan, NY
-707352f	title-pattern	(40.672608, -73.899911)	Glenmore Ave. and Williams Ave., Brooklyn, NY
+707352f	title-pattern	(40.6726137, -73.8999264)	Glenmore Ave and Williams Ave, Brooklyn, NY
 702206f	title-pattern	(40.8410418, -73.8530997)	Castle Hill Avenue and Zerega Avenue, Bronx, NY
 733310f	failed	n/a	n/a
 732267f	failed	n/a	n/a
-732307f	title-pattern	(40.7172535, -74.013043)	Chambers Street. and West Street, Manhattan, NY
+732307f	title-pattern	(40.7172486, -74.0130308)	Chambers Street and West Street, Manhattan, NY
 1231043	failed	n/a	n/a
 485752	failed	n/a	n/a
 1238854	failed	n/a	n/a
