@@ -33,7 +33,7 @@ def test_alt_title():
     item = blank_item()
 
     item.title = "Feast of Our Lady of Mount Carmel."
-    item.alt_title = ["Manhattan: 1st Avenue - 112th Street."]
+    item.alt_title = ["Manhattan: 1st Avenue - 112th Street ."]
     assert tp.codeRecord(item) == {
         "type": "intersection",
         "source": item.alt_title[0],
