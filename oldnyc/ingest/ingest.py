@@ -172,6 +172,7 @@ def run():
         alt_title2 = mods_detail.get("titles")[1:] if mods_detail else None
         if not alt_title2:
             alt_title2 = [row2["alternative_title"].strip()] if row2["alternative_title"] else []
+        alt_title2 = [clean_title(normalize_whitespace(t)) for t in alt_title2]
 
         if alt_title:
             counters["alt_title"] += 1
