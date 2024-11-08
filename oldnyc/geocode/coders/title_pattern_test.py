@@ -31,6 +31,16 @@ def test_title_pattern():
 def test_alt_title():
     tp = TitlePatternCoder()
     item = blank_item()
+
+    item.title = "Feast of Our Lady of Mount Carmel."
+    item.alt_title = ["Manhattan: 1st Avenue - 112th Street."]
+    assert tp.codeRecord(item) == {
+        "type": "intersection",
+        "source": item.alt_title[0],
+        "address": "112th Street and 1st Avenue, Manhattan, NY",
+        "data": ("112th Street", "1st Avenue", "Manhattan"),
+    }
+
     item.title = "General view - Cedar Street - South."
     item.alt_title = [
         "Manhattan: Cedar Street - Pearl Street ; 1 Cedar Street ; Municipal Building."
