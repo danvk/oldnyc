@@ -15,7 +15,7 @@ boroughs_pat = r"(?:Manhattan|Brooklyn|Queens|Bronx|Staten Island|Richmond)"
 # Borough: str1 - str2
 # Manhattan: 10th Street (East) - Broadway
 # 711023f
-boro_int = re.compile(rf"^({boroughs_pat}): ([^-:\[\]]+?) - ([^-:\[\]]+)\.?$")
+boro_int = re.compile(rf"^({boroughs_pat}): ([^-:\[\];]+?) - ([^-:\[\];]+)\.?$")
 
 
 class TitlePatternCoder(Coder):
