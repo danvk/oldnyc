@@ -8,6 +8,7 @@ import re
 import sys
 
 from oldnyc.geocode.boroughs import point_to_borough
+from oldnyc.geocode.coders.coder_utils import get_lat_lng_from_geocode
 from oldnyc.geocode.geocode_types import Coder, Locatable
 from oldnyc.item import Item
 
@@ -127,21 +128,6 @@ class MilsteinCoder(Coder):
         loc = re.sub(r'^[ ?\t"\[]+|[ ?\t"\]]+$', "", raw_loc)
         return loc
 
-    def _getLatLonFromGeocode(self, geocode, data):
-        desired_types = data["type"]
-        if not isinstance(desired_types, list):
-            desired_types = [desired_types]
-        for data_type in desired_types:
-            # N = len(geocode["results"])
-            for i, result in enumerate(geocode["results"]):
-                # partial matches tend to be inaccurate.
-                # if result.get('partial_match'): continue
-                # data['type'] is something like 'address' or 'intersection'.
-                if data_type in result["types"]:
-                    # sys.stderr.write(f"Match on {i} / {N}: {result}\n")
-                    loc = result["geometry"]["location"]
-                    return (data_type, loc["lat"], loc["lng"])
-
     def _getBoroughFromAddress(self, address):
         m = re.search(boros_re, address)
         assert m, 'Failed to find borough in "%s"' % address
@@ -156,7 +142,7 @@ class MilsteinCoder(Coder):
         This ensures that the geocode is in the correct borough. This helps catch
         errors involving identically-named crosstreets in multiple boroughs.
         """
-        tlatlon = self._getLatLonFromGeocode(geocode, data)
+        tlatlon = get_lat_lng_from_geocode(geocode, data)
         if not tlatlon:
             return None
         _, lat, lon = tlatlon
