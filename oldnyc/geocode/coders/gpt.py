@@ -3,6 +3,7 @@
 import json
 import sys
 
+from oldnyc.geocode.coders.coder_utils import get_lat_lng_from_geocode
 from oldnyc.geocode.geocode_types import Coder, Locatable
 from oldnyc.geocode.geogpt.generate_batch import GptResponse
 from oldnyc.item import Item
@@ -78,7 +79,7 @@ class GptCoder(Coder):
             sys.stderr.write(json.dumps(data) + "\n")
             sys.stderr.write(json.dumps(geocode) + "\n")
         else:
-            tll = self.milstein._getLatLonFromGeocode(geocode, data)
+            tll = get_lat_lng_from_geocode(geocode, data)
             sys.stderr.write(f"gpt geocode success: {record.id} {tll}: {data}\n")
         return result
 
