@@ -111,10 +111,11 @@ Changed: {len(changed_ids):,}
   -geom: {len(dropped_geometry_ids):,}
 """)
 
-    if added_ids and num_samples:
-        print("\nSample of additions:")
-        add_samples = min(num_samples, len(added_ids))
-        for k in random.sample([*added_ids], add_samples):
+    if (added_ids or added_geometry_ids) and num_samples:
+        print("\nSample of additions / +geom:")
+        both = dropped_ids.union(added_geometry_ids)
+        add_samples = min(num_samples, len(both))
+        for k in random.sample([*both], add_samples):
             props = new[k]["properties"]
             b = props["geocode"]
             title = (
@@ -126,18 +127,23 @@ Changed: {len(changed_ids):,}
             print(f" {k:6}: {title}")
             print(f'   + {b.get("lat"):.6f},{b.get("lng"):.6f} {b.get("technique")}')
 
-    if dropped_ids and num_samples:
-        print("\nSample of dropped:")
-        drop_samples = min(num_samples, len(dropped_ids))
-        for k in random.sample([*dropped_ids], drop_samples):
-            a = old[k]["properties"]["geocode"]
-            print(f' {k:6}: {a.get("original_title", "original title not found")}')
+    if (dropped_ids or dropped_geometry_ids) and num_samples:
+        both = dropped_ids.union(dropped_geometry_ids)
+        print("\nSample of dropped / -geom:")
+        drop_samples = min(num_samples, len(both))
+        for k in random.sample([*both], drop_samples):
+            props = old[k]["properties"]
+            a = props["geocode"]
+            title = props.get("original_title") or props.get("title") or "original title not found"
+            print(f" {k:6}: {title}")
             print(f'   - {a.get("lat"):.6f},{a.get("lng"):.6f} {a.get("technique")}')
 
     if changed_ids and num_samples:
         print("\nSample of changes:")
         changed_samples = min(num_samples, len(changed_ids))
         for k in random.sample([*changed_ids], changed_samples):
+            props = old[k]["properties"]
+            title = props.get("original_title") or props.get("title") or "original title not found"
             a = old[k]["properties"]["geocode"]
             b = new[k]["properties"]["geocode"]
             a_lat = a.get("lat")
@@ -146,7 +152,7 @@ Changed: {len(changed_ids):,}
             b_lng = b.get("lng")
             d_meters = haversine((a_lat, a_lng), (b_lat, b_lng)) * 1000
 
-            print(f' {k:6}: {a.get("original_title", "original title not found")}')
+            print(f" {k:6}: {title}")
             print(f'   - {a_lat:.6f},{a_lng:.6f} {a.get("technique")}')
             print(f'   + {b_lat:.6f},{b_lng:.6f} {b.get("technique")}')
             print(f"     Moved {d_meters:0,.0f} meters")

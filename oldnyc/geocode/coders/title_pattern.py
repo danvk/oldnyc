@@ -6,6 +6,7 @@ This matches extremely simple, common patterns that aren't worth a trip to GPT.
 import re
 import sys
 
+from oldnyc.geocode.boroughs import point_to_borough
 from oldnyc.geocode.coders.coder_utils import get_lat_lng_from_geocode
 from oldnyc.geocode.geocode_types import Coder, Locatable
 
@@ -56,21 +57,27 @@ class TitlePatternCoder(Coder):
         out: Locatable = {
             "type": "intersection",
             "source": src,
-            "address": f"{str1} and {str2}, {boro}, NY",
+            "address": f"{str1} & {str2}, {boro}, NY",
             "data": (str1, str2, boro),
         }
         return out
 
     def getLatLonFromGeocode(self, geocode, data, record):
         assert "data" in data
-        # ssb: tuple[str, str, str] = data["data"]
-        # (str1, str2, boro) = ssb
+        ssb: tuple[str, str, str] = data["data"]
+        (str1, str2, boro) = ssb
         # TODO: use extended-grid coder if possible; would require more street/avenue parsing.
 
         tlatlng = get_lat_lng_from_geocode(geocode, data)
         if not tlatlng:
             return None
         _, lat, lng = tlatlng
+        geocode_boro = point_to_borough(lat, lng)
+        if geocode_boro != boro:
+            sys.stderr.write(
+                f'Borough mismatch: {record.id}: {data["source"]} geocoded to {geocode_boro} not {boro}\n'
+            )
+            return None
         return (lat, lng)
 
     def finalize(self):
