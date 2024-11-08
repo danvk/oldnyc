@@ -45,10 +45,12 @@ class TitlePatternCoder(Coder):
         (str1, str2) = sorted((str1, str2))  # try to increase cache coherence
         boro = boro.replace("Richmond", "Staten Island")
 
+        # TODO: try out "str1 & str2" instead of "str1 and str2".
+        #       I'm using the latter for cache coherence, but the former might work better.
         out: Locatable = {
             "type": "intersection",
             "source": r.title,
-            "address": f"{str1} & {str2}, {boro}, NY",
+            "address": f"{str1} and {str2}, {boro}, NY",
         }
         return out
 

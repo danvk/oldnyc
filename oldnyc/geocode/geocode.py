@@ -91,7 +91,7 @@ if __name__ == "__main__":
 
     if args.geocode:
         api_key = os.environ.get("GOOGLE_MAPS_API_KEY")
-        g = geocoder.Geocoder(args.use_network, 2)  # 2s between geocodes
+        g = geocoder.Geocoder(args.use_network, 2, api_key)  # 2s between geocodes
         if args.use_network and not api_key:
             raise ValueError("Must set GOOGLE_MAPS_API_KEY with --use_network")
     else:

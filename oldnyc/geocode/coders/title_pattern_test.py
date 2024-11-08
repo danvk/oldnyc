@@ -10,7 +10,7 @@ def test_title_pattern():
     assert tp.codeRecord(item) == {
         "type": "intersection",
         "source": title,
-        "address": "10th Street (East) & Broadway, Manhattan, NY",
+        "address": "10th Street (East) and Broadway, Manhattan, NY",
     }
 
     title = "Richmond: 3rd Street - New Dorp Lane"
@@ -18,7 +18,7 @@ def test_title_pattern():
     assert tp.codeRecord(item) == {
         "type": "intersection",
         "source": title,
-        "address": "3rd Street & New Dorp Lane, Staten Island, NY",
+        "address": "3rd Street and New Dorp Lane, Staten Island, NY",
     }
 
     title = "Manhattan: 6th Avenue - 37th and 38th Streets (West)"
