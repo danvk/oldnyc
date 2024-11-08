@@ -41,6 +41,7 @@ def test_alt_title():
         "data": ("112th Street", "1st Avenue", "Manhattan"),
     }
 
+    # 730343f
     item.title = "General view - Cedar Street - South."
     item.alt_title = [
         "Manhattan: Cedar Street - Pearl Street ; 1 Cedar Street ; Municipal Building."
