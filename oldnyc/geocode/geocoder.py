@@ -57,7 +57,7 @@ class Geocoder:
         cache_file = _cache_file(loc)
         open(cache_file, "wb").write(result)
 
-    def _fetch(self, url: str):
+    def _fetch(self, url: str, debug_txt: Optional[str]):
         """Attempts to fetch the URL. Does rate throttling. Returns XML."""
         now = time.time()
         diff = now - self._last_fetch
@@ -68,7 +68,7 @@ class Geocoder:
             time.sleep(self._wait_time - diff)
         self._last_fetch = time.time()
 
-        sys.stderr.write("Fetching %s\n" % url)
+        sys.stderr.write(f"Fetching {url} ({debug_txt})\n")
         assert self._api_key
         # Note: API key is _not_ part of the cache key
         f = urllib.request.urlopen(url + "&key=" + self._api_key)
@@ -81,7 +81,9 @@ class Geocoder:
             return FakeResponse % (m.group(1), m.group(2))
 
     # TODO: get a more precise return type from the GMaps API
-    def Locate(self, address: str, check_cache=True) -> dict[str, Any] | None:
+    def Locate(
+        self, address: str, check_cache=True, debug_txt: Optional[str] = None
+    ) -> dict[str, Any] | None:
         """Returns a maps API JSON response for the address or None.
 
         Address should be a fully-qualified address, e.g.
@@ -103,7 +105,7 @@ class Geocoder:
                 sys.stderr.write(f"Would have geocoded with network: {address}\n")
                 # XXX this should probably raise instead
                 return None
-            data = self._fetch(url)
+            data = self._fetch(url, f"{debug_txt}: {address}")
 
         if not data:
             return None

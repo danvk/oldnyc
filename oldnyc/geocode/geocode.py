@@ -152,7 +152,7 @@ if __name__ == "__main__":
                 geocode_result = None
                 address = location_data["address"]
                 try:
-                    geocode_result = g.Locate(address)
+                    geocode_result = g.Locate(address, True, r.id)
                 except urllib.error.HTTPError as e:
                     if e.status == 400:
                         sys.stderr.write(f"Bad request: {address}\n")

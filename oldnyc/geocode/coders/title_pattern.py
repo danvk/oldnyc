@@ -6,7 +6,6 @@ This matches extremely simple, common patterns that aren't worth a trip to GPT.
 import re
 import sys
 
-from oldnyc.geocode import grid
 from oldnyc.geocode.coders.coder_utils import get_lat_lng_from_geocode
 from oldnyc.geocode.geocode_types import Coder, Locatable
 
