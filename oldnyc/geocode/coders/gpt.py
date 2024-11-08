@@ -5,7 +5,7 @@ import sys
 
 from oldnyc.geocode.coders.coder_utils import get_lat_lng_from_geocode
 from oldnyc.geocode.geocode_types import Coder, Locatable
-from oldnyc.geocode.geogpt.generate_batch import GptResponse
+from oldnyc.geocode.geogpt.generate_batch import GptResponse, guess_borough
 from oldnyc.item import Item
 
 
@@ -34,11 +34,11 @@ class GptCoder(Coder):
             return None
         sys.stderr.write(f"GPT location: {r.id} {q}\n")
 
-        if q["type"] == "no_location":
+        if q["type"] == "not in NYC" or q["type"] == "no location information":
             return None
 
         loc: Locatable | None = None
-        boro = q["borough"]
+        boro = guess_borough(r)
         if q["type"] == "place_name":
             self.num_poi += 1
             return None

@@ -15,11 +15,12 @@ from typing import Callable
 from dotenv import load_dotenv
 
 from oldnyc.geocode import generate_js, geocoder
-from oldnyc.geocode.coders import extended_grid, gpt, milstein, subjects
+from oldnyc.geocode.coders import extended_grid, gpt, milstein, subjects, title_pattern
 from oldnyc.geocode.geocode_types import Coder, Locatable, Location
 from oldnyc.item import Item, load_items
 
 CODERS: dict[str, Callable[[], Coder]] = {
+    "title-pattern": title_pattern.TitlePatternCoder,
     "extended-grid": extended_grid.ExtendedGridCoder,
     "milstein": milstein.MilsteinCoder,
     "subjects": subjects.SubjectsCoder,
@@ -90,7 +91,7 @@ if __name__ == "__main__":
 
     if args.geocode:
         api_key = os.environ.get("GOOGLE_MAPS_API_KEY")
-        g = geocoder.Geocoder(args.use_network, 2)  # 2s between geocodes
+        g = geocoder.Geocoder(args.use_network, 2, api_key)  # 2s between geocodes
         if args.use_network and not api_key:
             raise ValueError("Must set GOOGLE_MAPS_API_KEY with --use_network")
     else:
