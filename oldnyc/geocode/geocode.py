@@ -15,11 +15,12 @@ from typing import Callable
 from dotenv import load_dotenv
 
 from oldnyc.geocode import generate_js, geocoder
-from oldnyc.geocode.coders import extended_grid, gpt, milstein, subjects
+from oldnyc.geocode.coders import extended_grid, gpt, milstein, subjects, title_pattern
 from oldnyc.geocode.geocode_types import Coder, Locatable, Location
 from oldnyc.item import Item, load_items
 
 CODERS: dict[str, Callable[[], Coder]] = {
+    "title-pattern": title_pattern.TitlePatternCoder,
     "extended-grid": extended_grid.ExtendedGridCoder,
     "milstein": milstein.MilsteinCoder,
     "subjects": subjects.SubjectsCoder,

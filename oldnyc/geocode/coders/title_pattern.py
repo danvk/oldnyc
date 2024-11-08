@@ -39,7 +39,9 @@ class TitlePatternCoder(Coder):
 
         self.n_match += 1
 
-        str1, str2, boro = m.groups()
+        boro, str1, str2 = m.groups()
+        if "and" in str1 or "and" in str2:
+            return None
         (str1, str2) = sorted((str1, str2))  # try to increase cache coherence
         boro = boro.replace("Richmond", "Staten Island")
 
