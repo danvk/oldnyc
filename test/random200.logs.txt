@@ -1,14 +1,10 @@
 Filtered to 200/41463 records with --ids_filter (200)
-now=1731083512.737347, then=0.000000, diff=1731083512.737347 vs. 2.000000
-Fetching https://maps.googleapis.com/maps/api/geocode/json?sensor=false&address=114th%20Street%20%28East%29%20and%201st%20Avenue.%2C%20Manhattan%2C%20NY
 clash!	subject/title close	731946f	Coney Island (New York, N.Y.)	Islands - Coney Island 
   101 /   200 records processed
 clash!	subject/title close	732005f	Coney Island (New York, N.Y.)	Islands - Coney Island 
 clash!	subject/title to subject	720438f	Highbridge Water Tower (New York, N.Y.)	High Bridge Park
 clash!	subject/title close	730836f	High Bridge (New York, N.Y.)	Bridges - High Bridge 
 clash!	subject/title close	731060f	Washington Bridge (New York, N.Y.)	Bridges - Washington 
-now=1731083513.096943, then=1731083512.737355, diff=0.359588 vs. 2.000000
-Fetching https://maps.googleapis.com/maps/api/geocode/json?sensor=false&address=Chambers%20Street.%20and%20West%20Street%2C%20Manhattan%2C%20NY
     titles matched: 139
 alt titles matched: 2
      total matches: 141
