@@ -3,9 +3,8 @@
 import json
 import sys
 
-from oldnyc.geocode.coders.coder_utils import get_lat_lng_from_geocode
 from oldnyc.geocode.geocode_types import Coder, Locatable
-from oldnyc.geocode.geogpt.generate_batch import GptResponse, guess_borough
+from oldnyc.geocode.geogpt.generate_batch import GptResponse
 from oldnyc.item import Item
 
 
@@ -34,11 +33,11 @@ class GptCoder(Coder):
             return None
         sys.stderr.write(f"GPT location: {r.id} {q}\n")
 
-        if q["type"] == "not in NYC" or q["type"] == "no location information":
+        if q["type"] == "no_location":
             return None
 
         loc: Locatable | None = None
-        boro = guess_borough(r)
+        boro = q["borough"]
         if q["type"] == "place_name":
             self.num_poi += 1
             return None
@@ -79,7 +78,7 @@ class GptCoder(Coder):
             sys.stderr.write(json.dumps(data) + "\n")
             sys.stderr.write(json.dumps(geocode) + "\n")
         else:
-            tll = get_lat_lng_from_geocode(geocode, data)
+            tll = self.milstein._getLatLonFromGeocode(geocode, data)
             sys.stderr.write(f"gpt geocode success: {record.id} {tll}: {data}\n")
         return result
 
