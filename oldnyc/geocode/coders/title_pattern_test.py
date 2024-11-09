@@ -168,6 +168,19 @@ def test_at():
     }
 
 
+def test_and_name():
+    tp = TitlePatternCoder()
+    item = blank_item()
+    # 725938f
+    item.title = "Queens: 160th Street - Grand Central Parkway"
+    assert tp.codeRecord(item) == {
+        "type": "intersection",
+        "source": "Queens: 160th Street - Grand Central Parkway",
+        "address": "160th Street and Grand Central Parkway, Queens, NY",
+        "data": ("160th Street", "Grand Central Parkway", "Queens"),
+    }
+
+
 # More to look at:
 
 # 1509723

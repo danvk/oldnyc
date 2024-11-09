@@ -120,7 +120,7 @@ class TitlePatternCoder(Coder):
         self.n_match += 1
 
         boro, str1, str2 = m[:3]
-        if "and" in str1 or "and" in str2:
+        if re.search(r"\band\b", str1) or re.search(r"\band\b", str2):
             return None
 
         if len(m) > 3:
