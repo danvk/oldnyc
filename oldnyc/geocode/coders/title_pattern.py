@@ -88,7 +88,7 @@ class TitlePatternCoder(Coder):
 
         str1 = str1.rstrip(". ")
         str2 = str2.rstrip(". ")
-        (str1, str2) = natsorted((str1, str2))  # try to increase cache coherence
+        (str1, str2) = sorted((str1, str2))  # try to increase cache coherence
         boro = boro.replace("Richmond", "Staten Island")
 
         assert src

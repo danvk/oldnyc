@@ -37,8 +37,8 @@ def test_alt_title():
     assert tp.codeRecord(item) == {
         "type": "intersection",
         "source": item.alt_title[0],
-        "address": "1st Avenue and 112th Street, Manhattan, NY",
-        "data": ("1st Avenue", "112th Street", "Manhattan"),
+        "address": "112th Street and 1st Avenue, Manhattan, NY",
+        "data": ("112th Street", "1st Avenue", "Manhattan"),
     }
 
     # 730343f
@@ -65,8 +65,8 @@ def test_braces():
     assert tp.codeRecord(item) == {
         "type": "intersection",
         "source": "Manhattan: 5th Avenue - 53rd Street",
-        "address": "5th Avenue and 53rd Street, Manhattan, NY",
-        "data": ("5th Avenue", "53rd Street", "Manhattan"),
+        "address": "53rd Street and 5th Avenue, Manhattan, NY",
+        "data": ("53rd Street", "5th Avenue", "Manhattan"),
     }
 
 
@@ -78,8 +78,8 @@ def test_between():
     assert tp.codeRecord(item) == {
         "type": "intersection",
         "source": "Manhattan: 5th Avenue - Between 23rd and 24th Streets",
-        "address": "5th Avenue and 23rd Street, Manhattan, NY",
-        "data": ("5th Avenue", "23rd Street", "Manhattan"),
+        "address": "23rd Street and 5th Avenue, Manhattan, NY",
+        "data": ("23rd Street", "5th Avenue", "Manhattan"),
     }
 
     # 731177f
@@ -87,8 +87,8 @@ def test_between():
     assert tp.codeRecord(item) == {
         "type": "intersection",
         "source": "Manhattan: 5th Avenue - Between 25th and 26th Streets.",
-        "address": "5th Avenue and 25th Street, Manhattan, NY",
-        "data": ("5th Avenue", "25th Street", "Manhattan"),
+        "address": "25th Street and 5th Avenue, Manhattan, NY",
+        "data": ("25th Street", "5th Avenue", "Manhattan"),
     }
 
     # 711722f
@@ -97,6 +97,6 @@ def test_between():
     assert tp.codeRecord(item) == {
         "type": "intersection",
         "source": "Manhattan: 23rd Street (West) - Between 9th and 10th Avenues.",
-        "address": "9th Avenue and 23rd Street (West), Manhattan, NY",
-        "data": ("9th Avenue", "23rd Street (West)", "Manhattan"),
+        "address": "23rd Street (West) and 9th Avenue, Manhattan, NY",
+        "data": ("23rd Street (West)", "9th Avenue", "Manhattan"),
     }
