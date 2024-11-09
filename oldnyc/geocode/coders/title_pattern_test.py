@@ -46,15 +46,12 @@ def test_alt_title():
     item.alt_title = [
         "Manhattan: Cedar Street - Pearl Street ; 1 Cedar Street ; Municipal Building."
     ]
-    assert tp.codeRecord(item) is None
-
-    # TODO: split on ';' and try each one
-    # == {
-    #     "type": "intersection",
-    #     "source": item.alt_title[0],
-    #     "address": "Cedar Street and Pearl Street, Manhattan, NY",
-    #     "data": ("Cedar Street", "Pearl Street", "Manhattan"),
-    # }
+    assert tp.codeRecord(item) == {
+        "type": "intersection",
+        "source": "Manhattan: Cedar Street - Pearl Street",
+        "address": "Cedar Street and Pearl Street, Manhattan, NY",
+        "data": ("Cedar Street", "Pearl Street", "Manhattan"),
+    }
 
 
 def test_braces():

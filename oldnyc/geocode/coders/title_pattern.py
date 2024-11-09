@@ -54,26 +54,26 @@ class TitlePatternCoder(Coder):
         self.n_boro_mismatch = 0
 
     def findMatch(self, r):
-        is_manhattan = is_in_manhattan(r)
-        for pat_name, pat in PATTERNS:
-            title = clean_title(r.title)
-            if is_manhattan and not title.startswith("Manhattan: "):
-                title = f"Manhattan: {title}"
-            m = pat.match(title)
-            if m:
-                self.counts["title"] += 1
-                self.counts[pat_name] += 1
-                return m, title
-            else:
-                for alt_title in r.alt_title:
-                    alt_title = clean_title(alt_title)
-                    if is_manhattan and not alt_title.startswith("Manhattan: "):
-                        alt_title = f"Manhattan: {alt_title}"
-                    m = pat.match(alt_title)
+        titles = [r.title] + r.alt_title
+        splits = []
+        for title in titles:
+            if ";" in title:
+                splits.extend(t.strip() for t in title.split(";"))
+        titles += splits
+
+        adds = [False, True] if is_in_manhattan(r) else [False]
+
+        for add in adds:
+            for pat_name, pat in PATTERNS:
+                for i, title in enumerate(titles):
+                    title = clean_title(title)
+                    if add and not title.startswith("Manhattan: "):
+                        title = f"Manhattan: {title}"
+                    m = pat.match(title)
                     if m:
-                        self.counts["alt_title"] += 1
+                        self.counts["title" if i == 0 else "alt_title"] += 1
                         self.counts[pat_name] += 1
-                        return m, alt_title
+                        return m, title
 
     def codeRecord(self, r):
         match = self.findMatch(r)
