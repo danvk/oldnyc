@@ -55,3 +55,16 @@ def test_alt_title():
     #     "address": "Cedar Street and Pearl Street, Manhattan, NY",
     #     "data": ("Cedar Street", "Pearl Street", "Manhattan"),
     # }
+
+
+def test_dregs():
+    tp = TitlePatternCoder()
+    title = "Manhattan: 5th Avenue - [53rd Street]"
+    item = blank_item()
+    item.title = title
+    assert tp.codeRecord(item) == {
+        "type": "intersection",
+        "source": "Manhattan: 5th Avenue - 53rd Street",
+        "address": "53rd Street and 5th Avenue, Manhattan, NY",
+        "data": ("53rd Street", "5th Avenue", "Manhattan"),
+    }

@@ -11,6 +11,7 @@ from oldnyc.geocode.boroughs import point_to_borough
 from oldnyc.geocode.coders.coder_utils import get_lat_lng_from_geocode
 from oldnyc.geocode.coders.extended_grid import parse_street_ave
 from oldnyc.geocode.geocode_types import Coder, Locatable
+from oldnyc.geocode.record import clean_title
 
 boroughs_pat = r"(?:Manhattan|Brooklyn|Queens|Bronx|Staten Island|Richmond)"
 
@@ -33,12 +34,14 @@ class TitlePatternCoder(Coder):
 
     def codeRecord(self, r):
         src = None
-        m = boro_int.match(r.title)
+        title = clean_title(r.title)
+        m = boro_int.match(title)
         if m:
-            src = r.title
+            src = title
             self.n_title += 1
         else:
             for alt_title in r.alt_title:
+                alt_title = clean_title(alt_title)
                 m = boro_int.match(alt_title)
                 if m:
                     src = alt_title
