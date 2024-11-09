@@ -83,4 +83,10 @@ def test_between():
     }
 
     # 731177f
-    "Manhattan: 5th Avenue - Between 25th and 26th Streets."
+    item.title = "Manhattan: 5th Avenue - Between 25th and 26th Streets."
+    assert tp.codeRecord(item) == {
+        "type": "intersection",
+        "source": "Manhattan: 5th Avenue - Between 25th and 26th Streets.",
+        "address": "25th Street and 5th Avenue, Manhattan, NY",
+        "data": ("25th Street", "5th Avenue", "Manhattan"),
+    }
