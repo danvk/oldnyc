@@ -25,7 +25,7 @@ boroughs_pat = r"(?:Manhattan|Brooklyn|Queens|Bronx|Staten Island|Richmond)"
 boro_int = re.compile(rf"^({boroughs_pat}): ([^-:\[\];]+?) - ([^-:\[\];]+)\.?$")
 
 between = re.compile(
-    rf"^({boroughs_pat}): ([^-:\[\];]+?) - Between ([^-:\[\];]+?) and ([^-:\[\];]+)\.?$"
+    rf"^({boroughs_pat}): ([^-:\[\];]+?) - [bB]etween ([^-:\[\];]+?) and ([^-:\[\];]+)\.?$"
 )
 
 num_prefix = re.compile(rf"^({boroughs_pat}): \d+ ([^-:\[\];]+?) - ([^-:\[\];]+)\.?$")
@@ -39,6 +39,36 @@ PATTERNS = [
 
 def is_in_manhattan(r: Item):
     return "Manhattan (New York, N.Y.)" in r.subject.geographic or r.source.endswith("Manhattan")
+
+
+def strip_trivia(txt: str) -> str:
+    return re.sub(
+        r"to|Northeast|Northwest|Southeast|Southwest|north|east|west|south|side|corner",
+        "",
+        txt,
+        flags=re.I,
+    )
+
+
+def clean_and_strip_title(title: str) -> str:
+    title = clean_title(title)
+    # east side
+    # west corner
+    # north from
+    # West side to
+    # to Northeast
+    parts = re.split(r"( - |, )", title)
+    out = []
+    for part in parts:
+        stripped = strip_trivia(part)
+        if not stripped.strip():
+            continue
+        if part.endswith(" and "):
+            part = part[:-5]
+        if not out or out[-1] != stripped:
+            out.append(part)
+
+    return "".join(out)
 
 
 class TitlePatternCoder(Coder):
@@ -66,7 +96,7 @@ class TitlePatternCoder(Coder):
         for add in adds:
             for pat_name, pat in PATTERNS:
                 for i, title in enumerate(titles):
-                    title = clean_title(title)
+                    title = clean_and_strip_title(title)
                     if add and not title.startswith("Manhattan: "):
                         title = f"Manhattan: {title}"
                     m = pat.match(title)
@@ -90,11 +120,11 @@ class TitlePatternCoder(Coder):
         if len(m.groups()) > 3:
             # Normalize "Between 23rd and 24th Streets" -> "23rd Street", "24th Street"
             str3 = m.groups()[3]
-            if "Streets" in str3 and "Street" not in str2:
+            if ("Streets" in str3 or "Street" in str3) and "Street" not in str2:
                 str2 = str2 + " Street"
                 str3 = str3.replace("Streets", "Street")
                 str2, str3 = natsorted((str2, str3))
-            if "Avenues" in str3 and "Avenue" not in str2:
+            if ("Avenues" in str3 or "Avenue" in str3) and "Avenue" not in str2:
                 str2 = str2 + " Avenue"
                 str3 = str3.replace("Avenues", "Avenue")
                 str2, str3 = natsorted((str2, str3))

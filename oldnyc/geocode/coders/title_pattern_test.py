@@ -1,4 +1,4 @@
-from oldnyc.geocode.coders.title_pattern import TitlePatternCoder
+from oldnyc.geocode.coders.title_pattern import TitlePatternCoder, clean_and_strip_title
 from oldnyc.item import blank_item
 
 
@@ -120,4 +120,35 @@ def test_number_prefix():
         "source": "Manhattan: 11 West 54th Street - Fifth Avenue.",
         "address": "Fifth Avenue and West 54th Street, Manhattan, NY",
         "data": ("Fifth Avenue", "West 54th Street", "Manhattan"),
+    }
+
+
+def test_strip_trivia():
+    assert (
+        clean_and_strip_title("Manhattan: 3rd Avenue - west side - between 16th and 17th Street.")
+        == "Manhattan: 3rd Avenue - between 16th and 17th Street."
+    )
+    assert (
+        clean_and_strip_title("3rd Avenue at 97th Street and , East side to North, Manhattan")
+        == "3rd Avenue at 97th Street, Manhattan"
+    )
+    assert (
+        clean_and_strip_title("Manhattan: 3rd Avenue - west corner - 13th Street.")
+        == "Manhattan: 3rd Avenue - 13th Street."
+    )
+
+
+def test_pattern_with_trivia():
+    tp = TitlePatternCoder()
+    item = blank_item()
+    # 708014f
+    item.title = "Manhattan: 3rd Avenue - west side - between 16th and 17th Street."
+    assert (
+        clean_and_strip_title(item.title)
+    ) == "Manhattan: 3rd Avenue - between 16th and 17th Street."
+    assert tp.codeRecord(item) == {
+        "type": "intersection",
+        "source": "Manhattan: 3rd Avenue - between 16th and 17th Street.",
+        "address": "16th Street and 3rd Avenue, Manhattan, NY",
+        "data": ("16th Street", "3rd Avenue", "Manhattan"),
     }
