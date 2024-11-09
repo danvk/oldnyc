@@ -16,7 +16,7 @@ from dotenv import load_dotenv
 
 from oldnyc.geocode import generate_js, geocoder
 from oldnyc.geocode.coders import extended_grid, gpt, milstein, subjects, title_pattern
-from oldnyc.geocode.geocode_types import Coder, Locatable, Location
+from oldnyc.geocode.geocode_types import Coder, Locatable
 from oldnyc.item import Item, load_items
 
 CODERS: dict[str, Callable[[], Coder]] = {
@@ -147,27 +147,29 @@ if __name__ == "__main__":
                 located_rec = (r, c.name(), location_data)
                 break
 
-            lat_lon = None
-            try:
-                geocode_result = None
-                address = location_data["address"]
-                try:
-                    geocode_result = g.Locate(address, True, r.id)
-                except urllib.error.HTTPError as e:
-                    if e.status == 400:
-                        sys.stderr.write(f"Bad request: {address}\n")
-                    else:
-                        raise e
+            lat_lon = c.getLatLonFromLocatable(r, location_data)
 
-                if geocode_result:
-                    lat_lon = c.getLatLonFromGeocode(geocode_result, location_data, r)
-                else:
-                    sys.stderr.write("Failed to geocode %s\n" % r.id)
-                    # sys.stderr.write('Location: %s\n' % location_data['address'])
-            except Exception:
-                sys.stderr.write("ERROR locating %s with %s\n" % (r.id, c.name()))
-                # sys.stderr.write('ERROR location: "%s"\n' % json.dumps(location_data))
-                raise
+            if not lat_lon:
+                try:
+                    geocode_result = None
+                    address = location_data["address"]
+                    try:
+                        geocode_result = g.Locate(address, True, r.id)
+                    except urllib.error.HTTPError as e:
+                        if e.status == 400:
+                            sys.stderr.write(f"Bad request: {address}\n")
+                        else:
+                            raise e
+
+                    if geocode_result:
+                        lat_lon = c.getLatLonFromGeocode(geocode_result, location_data, r)
+                    else:
+                        sys.stderr.write("Failed to geocode %s\n" % r.id)
+                        # sys.stderr.write('Location: %s\n' % location_data['address'])
+                except Exception:
+                    sys.stderr.write("ERROR locating %s with %s\n" % (r.id, c.name()))
+                    # sys.stderr.write('ERROR location: "%s"\n' % json.dumps(location_data))
+                    raise
 
             if lat_lon:
                 location_data["lat"] = lat_lon[0]

@@ -446,6 +446,9 @@ class SubjectsCoder(Coder):
             self.counters["n_out_title"] += 1
             return title_locatable[1]
 
+    def getLatLonFromLocatable(self, r, data):
+        pass
+
     def getLatLonFromGeocode(self, geocode, data, record):
         for result in geocode["results"]:
             # data['type'] is something like 'address' or 'intersection'.

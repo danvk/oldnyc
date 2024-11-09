@@ -68,9 +68,6 @@ class TitlePatternCoder(Coder):
             return None
 
         m, src = match
-        print(src)
-        print(m.groups())
-
         self.n_match += 1
 
         boro, str1, str2 = m.groups()[:3]
@@ -103,21 +100,26 @@ class TitlePatternCoder(Coder):
         }
         return out
 
+    def getLatLonFromLocatable(self, r, data):
+        assert "data" in data
+        ssb: tuple[str, str, str] = data["data"]
+        (str1, str2, boro) = ssb
+        if boro != "Manhattan":
+            return None
+        try:
+            avenue, street = parse_street_ave(str1, str2)
+            latlon = grid.code(avenue, street)
+            if latlon:
+                self.n_grid += 1
+                lat, lng = latlon
+                return round(float(lat), 7), round(float(lng), 7)  # they're numpy floats
+        except ValueError:
+            pass
+
     def getLatLonFromGeocode(self, geocode, data, record):
         assert "data" in data
         ssb: tuple[str, str, str] = data["data"]
         (str1, str2, boro) = ssb
-        if boro == "Manhattan":
-            try:
-                avenue, street = parse_street_ave(str1, str2)
-                latlon = grid.code(avenue, street)
-                if latlon:
-                    self.n_grid += 1
-                    lat, lng = latlon
-                    return round(float(lat), 7), round(float(lng), 7)  # they're numpy floats
-            except ValueError:
-                pass
-
         tlatlng = get_lat_lng_from_geocode(geocode, data)
         if not tlatlng:
             self.n_geocode_fail += 1

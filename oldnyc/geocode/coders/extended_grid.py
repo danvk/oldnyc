@@ -159,6 +159,10 @@ class ExtendedGridCoder(Coder):
         }
         return out
 
+    def getLatLonFromLocatable(self, r, data):
+        # TODO: do the location here, not in codeRecord
+        pass
+
     def getLatLonFromGeocode(self, geocode, data, record):
         for result in geocode["results"]:
             # data['type'] is something like 'address' or 'intersection'.
