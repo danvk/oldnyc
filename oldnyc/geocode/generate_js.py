@@ -8,14 +8,14 @@ from json import encoder
 from typing import Sequence
 
 from oldnyc.geocode import record
-from oldnyc.geocode.geocode_types import Locatable, Location
+from oldnyc.geocode.geocode_types import Locatable
 from oldnyc.item import Item
 
 encoder.FLOAT_REPR = lambda o: format(o, ".6f")  # type: ignore
 
 
 # could be tuple[Item, None, None] | tuple[Item, str, Location | Locatable]
-LocatedRecord = tuple[Item, str | None, Location | Locatable | None]
+LocatedRecord = tuple[Item, str | None, Locatable | None]
 
 
 def _generateJson(located_recs: Sequence[LocatedRecord], lat_lon_map: dict[str, str]):
@@ -75,7 +75,7 @@ def printIdLocation(located_recs: list[LocatedRecord]):
     for r, coder, location_data in located_recs:
         if location_data:
             lat, lng = location_data.get("lat"), location_data.get("lon")
-            loc = (str((lat, lng)) or "") + "\t" + location_data["address"]
+            loc = (str((lat, lng)) or "") + "\t" + location_data["source"]
         else:
             loc = "n/a\tn/a"
 

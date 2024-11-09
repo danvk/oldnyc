@@ -126,7 +126,7 @@ if __name__ == "__main__":
         )
 
     stats = defaultdict(int)
-    located_recs: list[tuple[Item, str | None, Locatable | Location | None]] = []
+    located_recs: list[tuple[Item, str | None, Locatable | None]] = []
     for idx, r in enumerate(rs):
         if idx % 100 == 0 and idx > 0:
             sys.stderr.write("%5d / %5d records processed\n" % (1 + idx, len(rs)))
