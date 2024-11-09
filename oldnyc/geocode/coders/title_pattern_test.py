@@ -57,7 +57,7 @@ def test_alt_title():
     # }
 
 
-def test_dregs():
+def test_braces():
     tp = TitlePatternCoder()
     title = "Manhattan: 5th Avenue - [53rd Street]"
     item = blank_item()
@@ -68,3 +68,19 @@ def test_dregs():
         "address": "53rd Street and 5th Avenue, Manhattan, NY",
         "data": ("53rd Street", "5th Avenue", "Manhattan"),
     }
+
+
+def test_between():
+    tp = TitlePatternCoder()
+    item = blank_item()
+    # 708379f
+    item.title = "Manhattan: 5th Avenue - [Between 23rd and 24th Streets]"
+    assert tp.codeRecord(item) == {
+        "type": "intersection",
+        "source": "Manhattan: 5th Avenue - Between 23rd and 24th Streets",
+        "address": "23rd Street and 5th Avenue, Manhattan, NY",
+        "data": ("23rd Street", "5th Avenue", "Manhattan"),
+    }
+
+    # 731177f
+    "Manhattan: 5th Avenue - Between 25th and 26th Streets."
