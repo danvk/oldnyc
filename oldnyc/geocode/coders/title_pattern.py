@@ -15,6 +15,7 @@ from oldnyc.geocode.coders.coder_utils import get_lat_lng_from_geocode
 from oldnyc.geocode.coders.extended_grid import parse_street_ave
 from oldnyc.geocode.geocode_types import Coder, Locatable
 from oldnyc.geocode.record import clean_title
+from oldnyc.item import Item
 
 boroughs_pat = r"(?:Manhattan|Brooklyn|Queens|Bronx|Staten Island|Richmond)"
 
@@ -36,6 +37,10 @@ PATTERNS = [
 ]
 
 
+def is_in_manhattan(r: Item):
+    return "Manhattan (New York, N.Y.)" in r.subject.geographic or r.source.endswith("Manhattan")
+
+
 class TitlePatternCoder(Coder):
     def __init__(self):
         self.n_title = 0
@@ -49,7 +54,7 @@ class TitlePatternCoder(Coder):
         self.n_boro_mismatch = 0
 
     def findMatch(self, r):
-        is_manhattan = "Manhattan (New York, N.Y.)" in r.subject.geographic
+        is_manhattan = is_in_manhattan(r)
         for pat_name, pat in PATTERNS:
             title = clean_title(r.title)
             if is_manhattan and not title.startswith("Manhattan: "):
