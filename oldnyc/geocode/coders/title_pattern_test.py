@@ -166,3 +166,34 @@ def test_at():
         "address": "3rd Avenue and 97th Street, Manhattan, NY",
         "data": ("3rd Avenue", "97th Street", "Manhattan"),
     }
+
+
+# More to look at:
+
+# 1509723
+"Fifth Avenue - 18th Street, northwest corner -"
+# 1509729
+"Fifth Avenue - 23rd Street looking north"
+# 715990f
+"Manhattan: Amsterdam Avenue - Cathedral Parkway - 113th Street"
+# 730413f
+"General view - [Manhattan - Park Avenue - 34th Street (Northeast).]"
+# 1508895
+"Fifth Avenue #1067 - 87th Street, east side - looking west"
+# 720847f
+"Manhattan: Lenox Avenue - 120th Street: Left photo: View 1, Lenox Avenue, e. s., n. fr. 120th Street. View 2, Lenox Avenue, e. s., n. fr. 120th Street."
+# 417427
+"The Alimar, Northwest corner West End Avenue and 105th Street."
+# 1507697
+"Tenth Avenue - 25th Street - 26th Street, west side"
+# 1508127
+"Park Avenue #301 - 48th Street - 50th Street"
+# 1516945
+"1873 2nd Ave. between 96th and 97th St."
+
+# Currently matched by Milstein:
+
+# 465559
+"Cromwell Apartments, northwest corner Broadway and 137th Street; Plan of first floor; Plan of upper floors."
+# 733357f
+"Manhattan: Bleecker Street ; 383 Bleecker Street."
