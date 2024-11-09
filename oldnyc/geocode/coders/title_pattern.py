@@ -24,6 +24,8 @@ boroughs_pat = r"(?:Manhattan|Brooklyn|Queens|Bronx|Staten Island|Richmond)"
 # 711023f
 boro_int = re.compile(rf"^({boroughs_pat}): ([^-:\[\];]+?) - ([^-:\[\];]+)\.?$")
 
+at_int = re.compile(rf"^([^-:\[\];]+?) at ([^-:\[\];]+), ({boroughs_pat})\.?$")
+
 between = re.compile(
     rf"^({boroughs_pat}): ([^-:\[\];]+?) - [bB]etween ([^-:\[\];]+?) and ([^-:\[\];]+)\.?$"
 )
@@ -34,6 +36,7 @@ PATTERNS = [
     ("between", between),
     ("num-prefix", num_prefix),
     ("boro-int", boro_int),
+    ("at-int", at_int),
 ]
 
 
@@ -103,7 +106,10 @@ class TitlePatternCoder(Coder):
                     if m:
                         self.counts["title" if i == 0 else "alt_title"] += 1
                         self.counts[pat_name] += 1
-                        return m, title
+                        if pat_name == "at-int":
+                            str1, str2, boro = m.groups()
+                            return (boro, str1, str2), title
+                        return m.groups(), title
 
     def codeRecord(self, r):
         match = self.findMatch(r)
@@ -113,13 +119,13 @@ class TitlePatternCoder(Coder):
         m, src = match
         self.n_match += 1
 
-        boro, str1, str2 = m.groups()[:3]
+        boro, str1, str2 = m[:3]
         if "and" in str1 or "and" in str2:
             return None
 
-        if len(m.groups()) > 3:
+        if len(m) > 3:
             # Normalize "Between 23rd and 24th Streets" -> "23rd Street", "24th Street"
-            str3 = m.groups()[3]
+            str3 = m[3]
             if ("Streets" in str3 or "Street" in str3) and "Street" not in str2:
                 str2 = str2 + " Street"
                 str3 = str3.replace("Streets", "Street")

@@ -152,3 +152,17 @@ def test_pattern_with_trivia():
         "address": "16th Street and 3rd Avenue, Manhattan, NY",
         "data": ("16th Street", "3rd Avenue", "Manhattan"),
     }
+
+
+def test_at():
+    tp = TitlePatternCoder()
+    item = blank_item()
+    # 485798
+    item.title = "3rd Avenue at 97th Street and , East side to North, Manhattan"
+    assert (clean_and_strip_title(item.title)) == "3rd Avenue at 97th Street, Manhattan"
+    assert tp.codeRecord(item) == {
+        "type": "intersection",
+        "source": "3rd Avenue at 97th Street, Manhattan",
+        "address": "3rd Avenue and 97th Street, Manhattan, NY",
+        "data": ("3rd Avenue", "97th Street", "Manhattan"),
+    }
