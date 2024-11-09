@@ -100,3 +100,27 @@ def test_between():
         "address": "23rd Street (West) and 9th Avenue, Manhattan, NY",
         "data": ("23rd Street (West)", "9th Avenue", "Manhattan"),
     }
+
+
+def test_number_prefix():
+    # 1558017
+    tp = TitlePatternCoder()
+    item = blank_item()
+    item.subject.geographic = ["Manhattan (New York, N.Y.)"]
+    item.title = "1065 Sixth Avenue - West 40th Street."
+    assert tp.codeRecord(item) == {
+        "type": "intersection",
+        "source": "Manhattan: 1065 Sixth Avenue - West 40th Street.",
+        "address": "Sixth Avenue and West 40th Street, Manhattan, NY",
+        "data": ("Sixth Avenue", "West 40th Street", "Manhattan"),
+    }
+
+    # 1558253
+    # "11 West 54th Street - Fifth Avenue, Manhattan, NY"
+    item.title = "11 West 54th Street - Fifth Avenue."
+    assert tp.codeRecord(item) == {
+        "type": "intersection",
+        "source": "Manhattan: 11 West 54th Street - Fifth Avenue.",
+        "address": "Fifth Avenue and West 54th Street, Manhattan, NY",
+        "data": ("Fifth Avenue", "West 54th Street", "Manhattan"),
+    }

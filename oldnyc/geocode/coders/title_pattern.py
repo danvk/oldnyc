@@ -27,8 +27,11 @@ between = re.compile(
     rf"^({boroughs_pat}): ([^-:\[\];]+?) - Between ([^-:\[\];]+?) and ([^-:\[\];]+)\.?$"
 )
 
+num_prefix = re.compile(rf"^({boroughs_pat}): \d+ ([^-:\[\];]+?) - ([^-:\[\];]+)\.?$")
+
 PATTERNS = [
     ("between", between),
+    ("num-prefix", num_prefix),
     ("boro-int", boro_int),
 ]
 
@@ -46,8 +49,11 @@ class TitlePatternCoder(Coder):
         self.n_boro_mismatch = 0
 
     def findMatch(self, r):
+        is_manhattan = "Manhattan (New York, N.Y.)" in r.subject.geographic
         for pat_name, pat in PATTERNS:
             title = clean_title(r.title)
+            if is_manhattan and not title.startswith("Manhattan: "):
+                title = f"Manhattan: {title}"
             m = pat.match(title)
             if m:
                 self.counts["title"] += 1
@@ -56,6 +62,8 @@ class TitlePatternCoder(Coder):
             else:
                 for alt_title in r.alt_title:
                     alt_title = clean_title(alt_title)
+                    if is_manhattan and not alt_title.startswith("Manhattan: "):
+                        alt_title = f"Manhattan: {alt_title}"
                     m = pat.match(alt_title)
                     if m:
                         self.counts["alt_title"] += 1
@@ -139,6 +147,7 @@ class TitlePatternCoder(Coder):
         sys.stderr.write(f"    titles matched: {self.n_title}\n")
         sys.stderr.write(f"alt titles matched: {self.n_alt_title}\n")
         sys.stderr.write(f"     total matches: {self.n_match}\n")
+        sys.stderr.write(f"          counters: {self.counts.most_common()}\n")
         sys.stderr.write("  geocoding results:\n")
         sys.stderr.write(f"            grid: {self.n_grid}\n")
         sys.stderr.write(f"          google: {self.n_google_location}\n")
