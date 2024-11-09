@@ -7,6 +7,8 @@ import re
 import sys
 from collections import Counter
 
+from natsort import natsorted
+
 from oldnyc.geocode import grid
 from oldnyc.geocode.boroughs import point_to_borough
 from oldnyc.geocode.coders.coder_utils import get_lat_lng_from_geocode
@@ -81,11 +83,15 @@ class TitlePatternCoder(Coder):
             if "Streets" in str3 and "Street" not in str2:
                 str2 = str2 + " Street"
                 str3 = str3.replace("Streets", "Street")
-                str2, str3 = sorted((str2, str3))
+                str2, str3 = natsorted((str2, str3))
+            if "Avenues" in str3 and "Avenue" not in str2:
+                str2 = str2 + " Avenue"
+                str3 = str3.replace("Avenues", "Avenue")
+                str2, str3 = natsorted((str2, str3))
 
         str1 = str1.rstrip(". ")
         str2 = str2.rstrip(". ")
-        (str1, str2) = sorted((str1, str2))  # try to increase cache coherence
+        (str1, str2) = natsorted((str1, str2))  # try to increase cache coherence
         boro = boro.replace("Richmond", "Staten Island")
 
         assert src
