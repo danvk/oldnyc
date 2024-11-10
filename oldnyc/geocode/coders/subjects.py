@@ -399,9 +399,9 @@ class SubjectsCoder(Coder):
             title_spec = title_locatable[0]
             title_src = title_locatable[1]["source"]
             if is_address_close(subject_locatable[1]["address"], title_locatable[1]["address"]):
-                sys.stderr.write(
-                    "\t".join(["clash!", "subject/title close", r.id, subj_src, title_src]) + "\n"
-                )
+                # sys.stderr.write(
+                #     "\t".join(["clash!", "subject/title close", r.id, subj_src, title_src]) + "\n"
+                # )
 
                 self.counters["n_out_title"] += 1
                 self.counters["n_out_both_close"] += 1
@@ -423,18 +423,18 @@ class SubjectsCoder(Coder):
                 self.counters["n_out_both_title"] += 1
                 return title_locatable[1]
             else:
-                sys.stderr.write(
-                    "\t".join(
-                        [
-                            "clash!",
-                            "subject/title same",
-                            r.id,
-                            subj_src,
-                            title_src,
-                        ]
-                    )
-                    + "\n"
-                )
+                # sys.stderr.write(
+                #     "\t".join(
+                #         [
+                #             "clash!",
+                #             "subject/title same",
+                #             r.id,
+                #             subj_src,
+                #             title_src,
+                #         ]
+                #     )
+                #     + "\n"
+                # )
                 self.counters["n_out_title"] += 1
                 self.counters["n_out_both_fallback_title"] += 1
                 return title_locatable[1]
@@ -445,6 +445,9 @@ class SubjectsCoder(Coder):
         if title_locatable:
             self.counters["n_out_title"] += 1
             return title_locatable[1]
+
+    def getLatLonFromLocatable(self, r, data):
+        pass
 
     def getLatLonFromGeocode(self, geocode, data, record):
         for result in geocode["results"]:

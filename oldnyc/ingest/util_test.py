@@ -31,6 +31,7 @@ def test_clean_title():
         )
         == "Bridges - Hell Gate Bridge [New York Connecting Railroad Bridge - East River.]"
     )
+    assert clean_title("??Manhattan: Avenue B - 8th Street") == "Manhattan: Avenue B - 8th Street"
 
 
 def test_clean_date():

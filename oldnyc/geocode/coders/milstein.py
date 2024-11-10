@@ -136,6 +136,9 @@ class MilsteinCoder(Coder):
             record_boro = "Manhattan"
         return record_boro
 
+    def getLatLonFromLocatable(self, r, data):
+        pass
+
     def getLatLonFromGeocode(self, geocode, data, record):
         """Extract (lat, lon) from a Google Maps API response. None = failure.
 
