@@ -74,6 +74,10 @@ def clean_and_strip_title(title: str) -> str:
     return "".join(out)
 
 
+def extract_braced_clauses(txt: str) -> list[str]:
+    return re.findall(r"\[([^\[\]]+)\]", txt)
+
+
 class TitlePatternCoder(Coder):
     def __init__(self):
         self.n_title = 0
@@ -88,6 +92,7 @@ class TitlePatternCoder(Coder):
 
     def findMatch(self, r):
         titles = [r.title] + r.alt_title
+        titles += [clause for t in titles for clause in extract_braced_clauses(t)]
         splits = []
         for title in titles:
             if ";" in title:

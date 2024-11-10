@@ -1,4 +1,8 @@
-from oldnyc.geocode.coders.title_pattern import TitlePatternCoder, clean_and_strip_title
+from oldnyc.geocode.coders.title_pattern import (
+    TitlePatternCoder,
+    clean_and_strip_title,
+    extract_braced_clauses,
+)
 from oldnyc.item import blank_item
 
 
@@ -200,6 +204,23 @@ def test_boro_dash():
         "source": "Bronx - Findlay Avenue - East 167th Street",
         "address": "East 167th Street and Findlay Avenue, Bronx, NY",
         "data": ("East 167th Street", "Findlay Avenue", "Bronx"),
+    }
+
+
+def test_general_view():
+    # 730413f
+    tp = TitlePatternCoder()
+    item = blank_item()
+    item.title = "General view - [Manhattan - Park Avenue - 34th Street (Northeast)]."
+    assert extract_braced_clauses(item.title) == [
+        "Manhattan - Park Avenue - 34th Street (Northeast)"
+    ]
+    # TODO: could strip out "(Northeast)"
+    assert tp.codeRecord(item) == {
+        "type": "intersection",
+        "source": "Manhattan - Park Avenue - 34th Street (Northeast)",
+        "address": "34th Street (Northeast) and Park Avenue, Manhattan, NY",
+        "data": ("34th Street (Northeast)", "Park Avenue", "Manhattan"),
     }
 
 
