@@ -39,6 +39,8 @@ PATTERNS = [
     ("at-int", at_int),
 ]
 
+num_pattern = re.compile(r"#\d+")  # these are addresses that can throw off geocoding
+
 
 def is_in_manhattan(r: Item):
     return "Manhattan (New York, N.Y.)" in r.subject.geographic or r.source.endswith("Manhattan")
@@ -141,8 +143,8 @@ class TitlePatternCoder(Coder):
                 str3 = str3.replace("Avenues", "Avenue")
                 str2, str3 = natsorted((str2, str3))
 
-        str1 = str1.rstrip(". ")
-        str2 = str2.rstrip(". ")
+        str1 = re.sub(num_pattern, "", str1).rstrip(". ,")
+        str2 = re.sub(num_pattern, "", str2).rstrip(". ,")
         (str1, str2) = sorted((str1, str2))  # try to increase cache coherence
         boro = boro.replace("Richmond", "Staten Island")
 

@@ -246,6 +246,20 @@ def test_space_colon():
     }
 
 
+def test_decoy_address():
+    tp = TitlePatternCoder()
+    item = blank_item()
+    # 1507919
+    item.title = "42nd Street (East) #122 - Lexington Avenue, southwest corner"
+    item.source = "blah / Manhattan"
+    assert tp.codeRecord(item) == {
+        "type": "intersection",
+        "source": "Manhattan: 42nd Street (East) #122 - Lexington Avenue, ",
+        "address": "42nd Street (East) and Lexington Avenue, Manhattan, NY",
+        "data": ("42nd Street (East)", "Lexington Avenue", "Manhattan"),
+    }
+
+
 # More to look at:
 
 # 1509723

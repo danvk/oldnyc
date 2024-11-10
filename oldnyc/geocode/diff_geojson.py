@@ -124,8 +124,7 @@ Changed: {len(changed_ids):,}
                 or props.get("title")
                 or "original title not found"
             )
-            print(f" {k:6}: {title}")
-            print(f'   + {b.get("lat"):.6f},{b.get("lng"):.6f} {b.get("technique")}')
+            print(f'add\t{k}\t{title}\t{b.get("lat"):.6f},{b.get("lng"):.6f}\t{b.get("technique")}')
 
     if (dropped_ids or dropped_geometry_ids) and num_samples:
         both = dropped_ids.union(dropped_geometry_ids)
@@ -135,8 +134,9 @@ Changed: {len(changed_ids):,}
             props = old[k]["properties"]
             a = props["geocode"]
             title = props.get("original_title") or props.get("title") or "original title not found"
-            print(f" {k:6}: {title}")
-            print(f'   - {a.get("lat"):.6f},{a.get("lng"):.6f} {a.get("technique")}')
+            print(
+                f'drop\t{k}\t{title}\t{a.get("lat"):.6f},{a.get("lng"):.6f}\t{a.get("technique")}'
+            )
 
     if changed_ids and num_samples:
         print("\nSample of changes:")
@@ -152,10 +152,11 @@ Changed: {len(changed_ids):,}
             b_lng = b.get("lng")
             d_meters = haversine((a_lat, a_lng), (b_lat, b_lng)) * 1000
 
-            print(f" {k:6}: {title}")
-            print(f'   - {a_lat:.6f},{a_lng:.6f} {a.get("technique")}')
-            print(f'   + {b_lat:.6f},{b_lng:.6f} {b.get("technique")}')
-            print(f"     Moved {d_meters:0,.0f} meters")
+            print(
+                f'change\t{k}\t{title}\t'
+                f'{a_lat:.6f},{a_lng:.6f}\t{a.get("technique")}\t'
+                f'{b_lat:.6f},{b_lng:.6f}\t{b.get("technique")}\tMoved {d_meters:0,.0f}m'
+            )
 
 
 if __name__ == "__main__":
