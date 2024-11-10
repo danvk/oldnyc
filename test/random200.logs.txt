@@ -2,23 +2,20 @@ Filtered to 200/41463 records with --ids_filter (200)
 Borough mismatch: 713577f: Manhattan: 51st Street - 19th Avenue geocoded to Brooklyn not Manhattan
 Borough mismatch: "51st Street & 19th Avenue, Manhattan, NY" (Manhattan) geocoded to Brooklyn
 Rejecting extrapolation for 7, 12
-clash!	subject/title close	731946f	Coney Island (New York, N.Y.)	Islands - Coney Island 
   101 /   200 records processed
-clash!	subject/title close	732005f	Coney Island (New York, N.Y.)	Islands - Coney Island 
 Borough mismatch: 704487f: Brooklyn: Fulton Street - Nassau Street geocoded to Manhattan not Brooklyn
 Borough mismatch: "Fulton Street & Nassau Street, Brooklyn, NY" (Brooklyn) geocoded to Manhattan
 clash!	subject/title to subject	720438f	Highbridge Water Tower (New York, N.Y.)	High Bridge Park
-clash!	subject/title close	730836f	High Bridge (New York, N.Y.)	Bridges - High Bridge 
-clash!	subject/title close	731060f	Washington Bridge (New York, N.Y.)	Bridges - Washington 
-    titles matched: 139
-alt titles matched: 2
-     total matches: 141
+    titles matched: 0
+alt titles matched: 0
+     total matches: 150
+          counters: [('title', 148), ('boro-int', 148), ('alt_title', 2), ('num-prefix', 1), ('at-int', 1)]
   geocoding results:
-            grid: 46
-          google: 74
+            grid: 51
+          google: 80
    boro mismatch: 2
-        failures: 14
-       num_exact: 45
+        failures: 17
+       num_exact: 46
 num_extrapolated: 7
    num_unclaimed: 4
   unknown avenues: [('19', 2)]
@@ -35,8 +32,8 @@ POI/subject geocoding:
    2	n_title_bridge
    2	n_title_island
    1	n_title_park
-  120 title-pattern
-    6 extended-grid
-    9 milstein
+  131 title-pattern
+    2 extended-grid
+    3 milstein
    11 subjects
-  146 (total)
+  147 (total)
