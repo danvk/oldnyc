@@ -55,6 +55,7 @@ def strip_trivia(txt: str) -> str:
 
 def clean_and_strip_title(title: str) -> str:
     title = clean_title(title)
+    title = re.sub(r" +:", ":", title)
     # east side
     # west corner
     # north from
@@ -105,7 +106,7 @@ class TitlePatternCoder(Coder):
             for pat_name, pat in PATTERNS:
                 for i, title in enumerate(titles):
                     title = clean_and_strip_title(title)
-                    if add and not title.startswith("Manhattan: "):
+                    if add and not title.startswith("Manhattan"):
                         title = f"Manhattan: {title}"
                     m = pat.match(title)
                     if m:

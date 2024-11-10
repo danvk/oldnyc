@@ -224,6 +224,19 @@ def test_general_view():
     }
 
 
+def test_space_colon():
+    tp = TitlePatternCoder()
+    item = blank_item()
+    # 709296f
+    item.title = "Manhattan : 6th Avenue - 3rd Street (West)."
+    assert tp.codeRecord(item) == {
+        "type": "intersection",
+        "source": "Manhattan: 6th Avenue - 3rd Street (West).",
+        "address": "3rd Street (West) and 6th Avenue, Manhattan, NY",
+        "data": ("3rd Street (West)", "6th Avenue", "Manhattan"),
+    }
+
+
 # More to look at:
 
 # 1509723
@@ -232,8 +245,6 @@ def test_general_view():
 "Fifth Avenue - 23rd Street looking north"
 # 715990f
 "Manhattan: Amsterdam Avenue - Cathedral Parkway - 113th Street"
-# 730413f
-"General view - [Manhattan - Park Avenue - 34th Street (Northeast).]"
 # 1508895
 "Fifth Avenue #1067 - 87th Street, east side - looking west"
 # 720847f
@@ -255,11 +266,7 @@ def test_general_view():
 "Manhattan: Bleecker Street ; 383 Bleecker Street."
 # 465538
 "Audubon Park Apartments, southeast corner Broadway and 156th Street; Plan of first floor; Plan of upper floors."
-# 1557751
-"Bronx - Findlay Avenue - East 167th Street"
 
 
-# 1557791
-"Brooklyn - 100 Henry Street - Clark Street"
 # 730530f
 "Queens] - Airports - La Guardia Field."
