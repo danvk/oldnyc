@@ -181,6 +181,19 @@ def test_and_name():
     }
 
 
+def test_boro_dash():
+    tp = TitlePatternCoder()
+    item = blank_item()
+    # 1557751
+    item.title = "Bronx - Findlay Avenue - East 167th Street"
+    assert tp.codeRecord(item) == {
+        "type": "intersection",
+        "source": "Bronx - Findlay Avenue - East 167th Street",
+        "address": "East 167th Street and Findlay Avenue, Bronx, NY",
+        "data": ("East 167th Street", "Findlay Avenue", "Bronx"),
+    }
+
+
 # More to look at:
 
 # 1509723
@@ -214,3 +227,9 @@ def test_and_name():
 "Audubon Park Apartments, southeast corner Broadway and 156th Street; Plan of first floor; Plan of upper floors."
 # 1557751
 "Bronx - Findlay Avenue - East 167th Street"
+
+
+# 1557791
+"Brooklyn - 100 Henry Street - Clark Street"
+# 730530f
+"Queens] - Airports - La Guardia Field."
