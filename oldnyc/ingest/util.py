@@ -13,6 +13,7 @@ def clean_title(title: str) -> str:
         title = title[1:-1]
     # title = title.rstrip(".")
     title = title.replace(" and , to", ", to")
+    title = title.lstrip("?")
     return title
 
 

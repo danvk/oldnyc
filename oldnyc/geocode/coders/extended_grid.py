@@ -43,13 +43,13 @@ ORDINALS = {
 
 def parse_street_ave(street1: str, street2: str) -> tuple[str, str]:
     # try to get the avenue in street1
-    if re.search(r"str|st\.", street1, flags=re.I):
+    if re.search(r"str|st\.|\bst\b", street1, flags=re.I):
         street2, street1 = street1, street2
 
     if not re.search(r"ave", street1, flags=re.I):
         raise ValueError("%s is not an avenue" % street1)
 
-    if not re.search(r"str|st\.", street2, flags=re.I):
+    if not re.search(r"str|st\.|\bst\b", street2, flags=re.I):
         raise ValueError("%s is not a street" % street2)
 
     street1 = remove_parens(street1)
@@ -158,6 +158,10 @@ class ExtendedGridCoder(Coder):
             "type": "intersection",
         }
         return out
+
+    def getLatLonFromLocatable(self, r, data):
+        # TODO: do the location here, not in codeRecord
+        pass
 
     def getLatLonFromGeocode(self, geocode, data, record):
         for result in geocode["results"]:
