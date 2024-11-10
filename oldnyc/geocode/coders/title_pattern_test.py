@@ -31,6 +31,15 @@ def test_title_pattern():
     item.title = title
     assert tp.codeRecord(item) is None
 
+    # 725017f
+    item.title = "Queens: 12th Street - North 27th Avenue."
+    assert tp.codeRecord(item) == {
+        "type": "intersection",
+        "source": "Queens: 12th Street - North 27th Avenue.",
+        "address": "12th Street and North 27th Avenue, Queens, NY",
+        "data": ("12th Street", "North 27th Avenue", "Queens"),
+    }
+
 
 def test_alt_title():
     tp = TitlePatternCoder()
@@ -257,6 +266,8 @@ def test_space_colon():
 "Park Avenue #301 - 48th Street - 50th Street"
 # 1516945
 "1873 2nd Ave. between 96th and 97th St."
+# 709447f
+"Manhattan: 6th Avenue - 37th and 38th Streets (West)"
 
 # Currently matched by Milstein:
 
