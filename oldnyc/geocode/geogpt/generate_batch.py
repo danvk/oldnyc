@@ -149,6 +149,6 @@ if __name__ == "__main__":
 
     for id in ids:
         item = id_to_records[id]
-        if boro_int.match(item.title):
-            continue
+        # if boro_int.match(item.title):
+        #     continue
         print(json.dumps(make_gpt_request(id_to_records[id], model)))
