@@ -7,7 +7,6 @@ import re
 import sys
 from typing import Literal, TypedDict
 
-from oldnyc.ingest.util import BOROUGHS
 from oldnyc.item import Item, load_items
 
 # See https://cookbook.openai.com/examples/batch_processing
@@ -79,6 +78,8 @@ def make_gpt_request(r: Item, model: str) -> dict:
     gpt_data.pop("photo_url", None)
     gpt_data.pop("back_text_source", None)
     gpt_data.pop("back_id", None)
+    gpt_data.pop("address", None)
+    gpt_data.pop("creator", None)
     # borough = guess_borough(r)
     # if borough:
     #     gpt_data["borough"] = borough
@@ -118,22 +119,6 @@ def prep_data(item: Item):
         title=prep_field(item.title),
         alt_title=[prep_field(t) for t in item.alt_title] if item.alt_title else None,
     )
-
-
-def guess_borough(item: Item):
-    for b in BOROUGHS:
-        full = f"{b} (New York, N.Y.)"
-        if full in item.subject.geographic:
-            return b
-    for b in BOROUGHS:
-        full = f"{b}, NY"
-        if item.address and item.address.endswith(full):
-            return b
-    for b in BOROUGHS:
-        full = f"/ {b}"
-        if item.source.endswith(full):
-            return b
-    return None
 
 
 if __name__ == "__main__":

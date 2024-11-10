@@ -1,30 +1,51 @@
 """Coder for GPT-extracted location queries."""
 
 import json
+import re
 import sys
 
+from oldnyc.geocode import grid
+from oldnyc.geocode.boroughs import point_to_borough
 from oldnyc.geocode.coders.coder_utils import get_lat_lng_from_geocode
+from oldnyc.geocode.coders.extended_grid import parse_street_ave
+from oldnyc.geocode.coders.title_pattern import boroughs_pat
 from oldnyc.geocode.geocode_types import Coder, Locatable
-from oldnyc.geocode.geogpt.generate_batch import GptResponse, guess_borough
+from oldnyc.geocode.geogpt.generate_batch import GptResponse
+from oldnyc.ingest.util import BOROUGHS
 from oldnyc.item import Item
+
+borough_re = re.compile(rf"\b({boroughs_pat})\b")
+
+
+def guess_borough(item: Item):
+    for b in BOROUGHS:
+        full = f"{b} (New York, N.Y.)"
+        if full in item.subject.geographic:
+            return b
+        full = f"/ {b}"
+        if item.source.endswith(full):
+            return b
+        if item.title.startswith(b):
+            return b
+    m = borough_re.search(item.title)
+    if m:
+        return m.group(1)
+    return None
 
 
 class GptCoder(Coder):
     queries: dict[str, GptResponse]
 
     def __init__(self):
-        # with open("geogpt/geocodes.json") as f:
-        # with open("/tmp/extracted-structure.json") as f:
-        with open("/tmp/extracted-structure+text.json") as f:
+        with open("data/gpt-geocodes.json") as f:
             self.queries = json.load(f)
         self.num_intersection = 0
         self.num_address = 0
         self.num_poi = 0
-        # TODO: can this be moved up top now?
-        from oldnyc.geocode.coders.milstein import MilsteinCoder
-
-        # Could also use extended-grid coder
-        self.milstein = MilsteinCoder()
+        self.n_grid = 0
+        self.n_google_location = 0
+        self.n_geocode_fail = 0
+        self.n_boro_mismatch = 0
 
     def codeRecord(self, r: Item):
         # GPT location extractions are always based on record ID, not photo ID.
@@ -32,9 +53,9 @@ class GptCoder(Coder):
         q = self.queries.get(id)
         if not q:
             return None
-        sys.stderr.write(f"GPT location: {r.id} {q}\n")
+        # sys.stderr.write(f"GPT location: {r.id} {q}\n")
 
-        if q["type"] == "not in NYC" or q["type"] == "no location information":
+        if q["type"] in ("no location information", "not in NYC"):
             return None
 
         loc: Locatable | None = None
@@ -42,12 +63,6 @@ class GptCoder(Coder):
         if q["type"] == "place_name":
             self.num_poi += 1
             return None
-            # place = q["place_name"]
-            # loc = {
-            #     "address": f"{place}, {boro}, NY",
-            #     "source": place,
-            #     "type": ["point_of_interest", "premise"],
-            # }
         elif q["type"] == "address":
             self.num_address += 1
             num = q["number"]
@@ -61,32 +76,64 @@ class GptCoder(Coder):
             )
         elif q["type"] == "intersection":
             self.num_intersection += 1
-            street1 = q["street1"]
-            street2 = q["street2"]
+            str1 = q["street1"]
+            str2 = q["street2"]
+            (str1, str2) = sorted((str1, str2))  # try to increase cache coherence
             loc = Locatable(
-                address=f"{street1} & {street2}, {boro}, NY",
-                source=f"{street1} & {street2}",
+                address=f"{str1} and {str2}, {boro}, NY",
+                source=f"{str1} and {str2}",
                 type="intersection",
-                data=q,
+                data=(str1, str2, boro),
             )
-        sys.stderr.write(f"GPT location: {r.id} {loc}\n")
+        # sys.stderr.write(f"GPT location: {r.id} {loc}\n")
         return loc
 
-    def getLatLonFromGeocode(self, geocode, data, record: Item):
-        result = self.milstein.getLatLonFromGeocode(geocode, data, record)
-        if not result:
-            sys.stderr.write(f"gpt geocode failed: {record.id}\n")
-            sys.stderr.write(json.dumps(data) + "\n")
-            sys.stderr.write(json.dumps(geocode) + "\n")
-        else:
-            tll = get_lat_lng_from_geocode(geocode, data)
-            sys.stderr.write(f"gpt geocode success: {record.id} {tll}: {data}\n")
-        return result
+    # TODO: next two methods are identical to those in title_pattern.py
+    def getLatLonFromLocatable(self, r, data):
+        assert "data" in data
+        ssb: tuple[str, str, str] = data["data"]
+        (str1, str2, boro) = ssb
+        if boro != "Manhattan":
+            return None
+        try:
+            avenue, street = parse_street_ave(str1, str2)
+            latlon = grid.code(avenue, street)
+            if latlon:
+                self.n_grid += 1
+                lat, lng = latlon
+                return round(float(lat), 7), round(float(lng), 7)  # they're numpy floats
+        except ValueError:
+            pass
+
+    def getLatLonFromGeocode(self, geocode, data, record):
+        assert "data" in data
+        ssb: tuple[str, str, str] = data["data"]
+        (str1, str2, boro) = ssb
+        tlatlng = get_lat_lng_from_geocode(geocode, data)
+        if not tlatlng:
+            self.n_geocode_fail += 1
+            return None
+        _, lat, lng = tlatlng
+        geocode_boro = point_to_borough(lat, lng)
+        if geocode_boro != boro:
+            self.n_boro_mismatch += 1
+            sys.stderr.write(
+                f'gpt Borough mismatch: {record.id}: {data["source"]} geocoded to {geocode_boro} not {boro}\n'
+            )
+            return None
+        self.n_google_location += 1
+        return (lat, lng)
 
     def finalize(self):
         sys.stderr.write(f"GPT POI:          {self.num_poi}\n")
         sys.stderr.write(f"GPT address:      {self.num_address}\n")
         sys.stderr.write(f"GPT intersection: {self.num_intersection}\n")
+
+        sys.stderr.write("GPT geocoding results:\n")
+        sys.stderr.write(f"            grid: {self.n_grid}\n")
+        sys.stderr.write(f"          google: {self.n_google_location}\n")
+        sys.stderr.write(f"   boro mismatch: {self.n_boro_mismatch}\n")
+        sys.stderr.write(f"        failures: {self.n_geocode_fail}\n")
 
     def name(self):
         return "gpt"

@@ -7,12 +7,6 @@ import sys
 from collections import Counter
 
 from oldnyc.geocode.geogpt.generate_batch import GptResponse
-from oldnyc.ingest.util import BOROUGHS
-
-IGNORE_GEOCODES = {
-    "not in NYC",
-    "no location information",
-}
 
 
 def patch_query(q: str) -> str:
@@ -29,11 +23,16 @@ def patch_query(q: str) -> str:
     return q
 
 
+def is_suspicious_address(n: int | str, s: str):
+    return bool(re.search(r"\b" + str(n) + r"(?:st|nd|rd|th)\b", s))
+
+
 TYPES = {"intersection", "place_name", "address", "no location information", "not in NYC"}
 
 if __name__ == "__main__":
     out = {}
     by_type = Counter[str]()
+    n_dropped = 0
     for path in sys.argv[1:]:
         outputs = [json.loads(line) for line in open(path)]
         for r in outputs:
@@ -48,7 +47,18 @@ if __name__ == "__main__":
             assert "type" in data
 
             if data["type"] not in TYPES:
+                n_dropped += 1
                 sys.stderr.write(f"Weirdo alert! {id}: {data}\n")
+                continue
+
+            if data["type"] == "address" and not data["number"]:
+                n_dropped += 1
+                continue
+
+            if data["type"] == "address" and is_suspicious_address(data["number"], data["street"]):
+                # While possible, this seems to always be a mistake.
+                # sys.stderr.write(f"Number and street are the same: {id}: {data}\n")
+                n_dropped += 1
                 continue
 
             by_type[data["type"]] += 1
@@ -57,3 +67,4 @@ if __name__ == "__main__":
     print(json.dumps(out, indent=2, sort_keys=True))
     sys.stderr.write(f"{len(out)} records\n")
     sys.stderr.write(f"{by_type.most_common()}\n")
+    sys.stderr.write(f"{n_dropped} records dropped\n")

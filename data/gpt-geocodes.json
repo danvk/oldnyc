@@ -2705,11 +2705,6 @@
     "street2": "Henderson Ave",
     "type": "intersection"
   },
-  "105097": {
-    "number": null,
-    "street": "Bayway Avenue",
-    "type": "address"
-  },
   "105098": {
     "place_name": "Van Pelt Avenue, Mariners Harbor, Staten Island, N.Y.",
     "type": "place_name"
@@ -5256,11 +5251,6 @@
     "street1": "45th Street (East)",
     "street2": "Lexington Avenue",
     "type": "intersection"
-  },
-  "1507941": {
-    "number": null,
-    "street": "46th Street (West)",
-    "type": "address"
   },
   "1507943": {
     "number": 226,
@@ -13216,11 +13206,6 @@
     "street2": "Eighth Avenue",
     "type": "intersection"
   },
-  "1558187": {
-    "number": 36,
-    "street": "East 36th Street",
-    "type": "address"
-  },
   "1558188": {
     "number": 39,
     "street": "East 36th Street",
@@ -13930,11 +13915,6 @@
   },
   "1558330": {
     "number": 72,
-    "street": "East 79th Street",
-    "type": "address"
-  },
-  "1558331": {
-    "number": 79,
     "street": "East 79th Street",
     "type": "address"
   },
@@ -17808,11 +17788,6 @@
   "1663997": {
     "place_name": "Flatbush",
     "type": "place_name"
-  },
-  "1663998": {
-    "number": 84,
-    "street": "84th Street",
-    "type": "address"
   },
   "1663999": {
     "place_name": "Brooklyn",
@@ -26873,11 +26848,6 @@
   "465705": {
     "number": 553,
     "street": "West 144th Street",
-    "type": "address"
-  },
-  "465706": {
-    "number": 0,
-    "street": "Rothsay, Falkland and Garelock",
     "type": "address"
   },
   "465707": {
@@ -39568,11 +39538,6 @@
     "street2": "Flatbush Avenue",
     "type": "intersection"
   },
-  "712207f": {
-    "number": null,
-    "street": "35th Street",
-    "type": "address"
-  },
   "712330f": {
     "street1": "36th Street (East)",
     "street2": "Fillmore Avenue",
@@ -39593,16 +39558,6 @@
     "street": "East 40th Street",
     "type": "address"
   },
-  "712622f": {
-    "number": 40,
-    "street": "East 40th Street",
-    "type": "address"
-  },
-  "712623f": {
-    "number": null,
-    "street": "40th Street (East)",
-    "type": "address"
-  },
   "712624f": {
     "street1": "40th Street (East)",
     "street2": "Mill Lane",
@@ -39617,36 +39572,6 @@
     "street1": "40th Street (East)",
     "street2": "Mill Lane",
     "type": "intersection"
-  },
-  "712627f": {
-    "number": null,
-    "street": "40th Street (East)",
-    "type": "address"
-  },
-  "712628f": {
-    "number": 40,
-    "street": "East 40th Street",
-    "type": "address"
-  },
-  "712629f": {
-    "number": 40,
-    "street": "East 40th Street",
-    "type": "address"
-  },
-  "712630f": {
-    "number": null,
-    "street": "40th Street (East)",
-    "type": "address"
-  },
-  "712631f": {
-    "number": 40,
-    "street": "40th Street (East)",
-    "type": "address"
-  },
-  "712632f": {
-    "number": 40,
-    "street": "East 40th Street",
-    "type": "address"
   },
   "712633f": {
     "street1": "40th Street (East)",
@@ -39697,11 +39622,6 @@
     "street1": "East 43rd Street",
     "street2": "55th Road",
     "type": "intersection"
-  },
-  "713148f": {
-    "number": null,
-    "street": "43rd Street (West)",
-    "type": "address"
   },
   "713239f": {
     "street1": "46th Street (East)",
@@ -39757,11 +39677,6 @@
     "street": "49th Street",
     "type": "address"
   },
-  "713376f": {
-    "number": null,
-    "street": "49th Street",
-    "type": "address"
-  },
   "713439f": {
     "street1": "50th Street (East)",
     "street2": "Beverly Road",
@@ -39790,11 +39705,6 @@
   "713583f": {
     "number": 455,
     "street": "52nd Street",
-    "type": "address"
-  },
-  "713600f": {
-    "number": null,
-    "street": "52nd Street (East)",
     "type": "address"
   },
   "713633f": {
@@ -39851,16 +39761,6 @@
     "street1": "56th Street",
     "street2": "Sutton Place",
     "type": "intersection"
-  },
-  "713797f": {
-    "number": null,
-    "street": "56th Street",
-    "type": "address"
-  },
-  "713799f": {
-    "number": null,
-    "street": "56th Street",
-    "type": "address"
   },
   "713805f": {
     "number": 78,
@@ -43932,11 +43832,6 @@
     "street1": "Coenties Slip",
     "street2": "Front Street",
     "type": "intersection"
-  },
-  "719035f": {
-    "number": null,
-    "street": "West 152nd Street",
-    "type": "address"
   },
   "719036f": {
     "street1": "155th Street (West)",
@@ -49865,11 +49760,6 @@
     "street2": "Rockaway Parkway",
     "type": "intersection"
   },
-  "723538f": {
-    "number": 0,
-    "street": "47th Street (West)",
-    "type": "address"
-  },
   "723556f": {
     "street1": "Avenue A",
     "street2": "Victory Boulevard",
@@ -52485,11 +52375,6 @@
     "street2": "John Street",
     "type": "intersection"
   },
-  "726148f": {
-    "number": 189,
-    "street": "Beach 189th Street",
-    "type": "address"
-  },
   "726149f": {
     "street1": "Bell Boulevard",
     "street2": "Grove Street",
@@ -54398,21 +54283,6 @@
     "street1": "Marathon Parkway",
     "street2": "Schenectady Avenue",
     "type": "intersection"
-  },
-  "727345f": {
-    "number": null,
-    "street": "Maspeth Avenue",
-    "type": "address"
-  },
-  "727346f": {
-    "number": null,
-    "street": "Maspeth Avenue",
-    "type": "address"
-  },
-  "727347f": {
-    "number": null,
-    "street": "Maspeth Avenue",
-    "type": "address"
   },
   "727371f": {
     "street1": "Maurice Avenue",
@@ -59372,11 +59242,6 @@
     "street2": "6th Avenue",
     "type": "intersection"
   },
-  "730234f": {
-    "number": null,
-    "street": "2nd Street (North)",
-    "type": "address"
-  },
   "730235f": {
     "street1": "22nd Street",
     "street2": "2nd Avenue",
@@ -62857,11 +62722,6 @@
     "place_name": "Triborough Bridge",
     "type": "place_name"
   },
-  "731024f": {
-    "number": 101,
-    "street": "East 101st Street",
-    "type": "address"
-  },
   "731025f": {
     "place_name": "Triborough Bridge",
     "type": "place_name"
@@ -63621,11 +63481,6 @@
     "place_name": "Fifth Avenue",
     "type": "place_name"
   },
-  "731204f": {
-    "number": null,
-    "street": "5th Avenue",
-    "type": "address"
-  },
   "731205f": {
     "place_name": "Fifth Avenue, Manhattan",
     "type": "place_name"
@@ -63634,11 +63489,6 @@
     "street1": "Broadway",
     "street2": "Manhattan",
     "type": "intersection"
-  },
-  "731207f": {
-    "number": 45,
-    "street": "East 45th Street",
-    "type": "address"
   },
   "731208f": {
     "street1": "5th Avenue",
@@ -64487,11 +64337,6 @@
   "731401f": {
     "place_name": "Midtown, Manhattan",
     "type": "place_name"
-  },
-  "731402f": {
-    "number": null,
-    "street": "Between 50th and 59th Streets (West)",
-    "type": "address"
   },
   "731403f": {
     "type": "no location information"
@@ -65414,11 +65259,6 @@
     "street2": "1st Avenue",
     "type": "intersection"
   },
-  "731600f": {
-    "number": null,
-    "street": "110th Street",
-    "type": "address"
-  },
   "731601f": {
     "street1": "114th Street",
     "street2": "Pleasant Avenue",
@@ -65553,16 +65393,6 @@
     "street2": "112th Street",
     "type": "intersection"
   },
-  "731629f": {
-    "number": null,
-    "street": "115th Street (East)",
-    "type": "address"
-  },
-  "731630f": {
-    "number": 115,
-    "street": "East 115th Street",
-    "type": "address"
-  },
   "731631f": {
     "street1": "115th Street",
     "street2": "1st Avenue",
@@ -65663,11 +65493,6 @@
     "street2": "113th Street",
     "type": "intersection"
   },
-  "731651f": {
-    "number": 115,
-    "street": "115th Street",
-    "type": "address"
-  },
   "731652f": {
     "type": "no location information"
   },
@@ -65690,11 +65515,6 @@
     "street1": "1st Avenue",
     "street2": "East 114th Street",
     "type": "intersection"
-  },
-  "731657f": {
-    "number": 108,
-    "street": "East 108th Street",
-    "type": "address"
   },
   "731658f": {
     "number": 239,
@@ -65720,11 +65540,6 @@
     "street1": "114th Street",
     "street2": "1st Avenue",
     "type": "intersection"
-  },
-  "731663f": {
-    "number": 0,
-    "street": "108th Street (East)",
-    "type": "address"
   },
   "731664f": {
     "street1": "Pleasant Avenue",
@@ -65899,11 +65714,6 @@
     "street1": "Sullivan Street",
     "street2": "West Houston Street",
     "type": "intersection"
-  },
-  "731700f": {
-    "number": 0,
-    "street": "63rd Street (East)",
-    "type": "address"
   },
   "731701f": {
     "street1": "Hester Street",
@@ -66087,11 +65897,6 @@
     "street": "Elizabeth Street",
     "type": "address"
   },
-  "731742f": {
-    "number": 105,
-    "street": "East 105th Street",
-    "type": "address"
-  },
   "731743f": {
     "number": 440,
     "street": "East 13th Street",
@@ -66101,11 +65906,6 @@
     "street1": "12th Street",
     "street2": "1st Avenue",
     "type": "intersection"
-  },
-  "731745f": {
-    "number": null,
-    "street": "67th Street",
-    "type": "address"
   },
   "731746f": {
     "street1": "Mulberry Street",
@@ -66326,21 +66126,6 @@
   "731798f": {
     "place_name": "Riverfront Warehouse",
     "type": "place_name"
-  },
-  "731799f": {
-    "number": 98,
-    "street": "East 98th Street",
-    "type": "address"
-  },
-  "731800f": {
-    "number": null,
-    "street": "51st Street (West)",
-    "type": "address"
-  },
-  "731801f": {
-    "number": null,
-    "street": "36th Street (West)",
-    "type": "address"
   },
   "731802f": {
     "place_name": "Brooklyn Lumber Yard",
@@ -66564,16 +66349,6 @@
     "street1": "1st Avenue",
     "street2": "29th Street",
     "type": "intersection"
-  },
-  "731855f": {
-    "number": 30,
-    "street": "East 30th Street",
-    "type": "address"
-  },
-  "731856f": {
-    "number": 26,
-    "street": "East 26th Street",
-    "type": "address"
   },
   "731857f": {
     "place_name": "Bellevue Hospital",
@@ -69267,11 +69042,6 @@
     "street2": "Ludlow Street",
     "type": "intersection"
   },
-  "732492f": {
-    "number": 0,
-    "street": "48th Street (West)",
-    "type": "address"
-  },
   "732493f": {
     "street1": "Orchard Street",
     "street2": "Grand Street",
@@ -69349,11 +69119,6 @@
     "street1": "1st Avenue",
     "street2": "11th Street",
     "type": "intersection"
-  },
-  "732510f": {
-    "number": 116,
-    "street": "116th Street",
-    "type": "address"
   },
   "732511f": {
     "street1": "3rd Avenue",
@@ -69637,18 +69402,8 @@
     "street2": "3rd Avenue",
     "type": "intersection"
   },
-  "732575f": {
-    "number": null,
-    "street": "48th Street (West)",
-    "type": "address"
-  },
   "732576f": {
     "type": "no location information"
-  },
-  "732577f": {
-    "number": null,
-    "street": "39th Street",
-    "type": "address"
   },
   "732578f": {
     "place_name": "5th Avenue, Manhattan",
@@ -70451,16 +70206,6 @@
     "street2": "Milford Street",
     "type": "intersection"
   },
-  "732769f": {
-    "number": null,
-    "street": "26th Street",
-    "type": "address"
-  },
-  "732770f": {
-    "number": null,
-    "street": "38th Street (East)",
-    "type": "address"
-  },
   "732771f": {
     "type": "no location information"
   },
@@ -70718,11 +70463,6 @@
     "street2": "Great Kills",
     "type": "intersection"
   },
-  "732827f": {
-    "number": 116,
-    "street": "116th Street",
-    "type": "address"
-  },
   "732828f": {
     "street1": "York Avenue",
     "street2": "74th Street",
@@ -70948,11 +70688,6 @@
     "street2": "East River",
     "type": "intersection"
   },
-  "732882f": {
-    "number": 97,
-    "street": "97th Street (West)",
-    "type": "address"
-  },
   "732883f": {
     "street1": "East 10th Street",
     "street2": "East River",
@@ -71079,11 +70814,6 @@
     "street1": "27th Street",
     "street2": "5th Avenue",
     "type": "intersection"
-  },
-  "732911f": {
-    "number": 96,
-    "street": "96th Street East",
-    "type": "address"
   },
   "732912f": {
     "street1": "W 39th St",
@@ -71304,11 +71034,6 @@
     "street1": "Houston Street",
     "street2": "Essex Street",
     "type": "intersection"
-  },
-  "732970f": {
-    "number": 90,
-    "street": "90th Street (West)",
-    "type": "address"
   },
   "732971f": {
     "type": "no location information"
@@ -71605,21 +71330,6 @@
   "733060f": {
     "number": 55,
     "street": "Chrystie Street",
-    "type": "address"
-  },
-  "733061f": {
-    "number": 0,
-    "street": "112th Street",
-    "type": "address"
-  },
-  "733062f": {
-    "number": 0,
-    "street": "113th Street",
-    "type": "address"
-  },
-  "733063f": {
-    "number": null,
-    "street": "113th Street",
     "type": "address"
   },
   "733064f": {
@@ -72767,16 +72477,6 @@
     "place_name": "Bryant Park",
     "type": "place_name"
   },
-  "733330f": {
-    "number": 135,
-    "street": "135th Street",
-    "type": "address"
-  },
-  "733331f": {
-    "number": 135,
-    "street": "135th Street",
-    "type": "address"
-  },
   "733332f": {
     "place_name": "Grand Central Terminal",
     "type": "place_name"
@@ -73461,11 +73161,6 @@
   "733489f": {
     "type": "no location information"
   },
-  "733490f": {
-    "number": 109,
-    "street": "109th Street",
-    "type": "address"
-  },
   "733491f": {
     "type": "no location information"
   },
@@ -73600,11 +73295,6 @@
     "street1": "Jamaica Ave",
     "street2": "163rd St",
     "type": "intersection"
-  },
-  "733525f": {
-    "number": null,
-    "street": "9th Avenue",
-    "type": "address"
   },
   "733526f": {
     "street1": "Bleecker Street",
@@ -73748,11 +73438,6 @@
     "place_name": "Riverside Park",
     "type": "place_name"
   },
-  "733558f": {
-    "number": 79,
-    "street": "79th Street",
-    "type": "address"
-  },
   "733559f": {
     "street1": "West Side Highway",
     "street2": "72nd Street",
@@ -73762,16 +73447,6 @@
     "street1": "36th Street",
     "street2": "Eleventh Ave",
     "type": "intersection"
-  },
-  "733561f": {
-    "number": 36,
-    "street": "36th Street (West)",
-    "type": "address"
-  },
-  "733562f": {
-    "number": 38,
-    "street": "38th Street (West)",
-    "type": "address"
   },
   "733563f": {
     "street1": "West 41st Street",
@@ -73792,11 +73467,6 @@
     "street1": "47th Street",
     "street2": "Eleventh Ave",
     "type": "intersection"
-  },
-  "733567f": {
-    "number": 52,
-    "street": "52nd Street (West)",
-    "type": "address"
   },
   "733568f": {
     "type": "not in NYC"
@@ -73954,11 +73624,6 @@
     "street1": "Morris Street",
     "street2": "Greenwich Street",
     "type": "intersection"
-  },
-  "733609f": {
-    "number": 0,
-    "street": "25th Street (West)",
-    "type": "address"
   },
   "733610f": {
     "street1": "122nd Street",
@@ -74226,11 +73891,6 @@
     "street2": "E. 210th Street",
     "type": "intersection"
   },
-  "733674f": {
-    "number": null,
-    "street": "South Duncomb Street",
-    "type": "address"
-  },
   "733675f": {
     "place_name": "Tremont Avenue, Bronx",
     "type": "place_name"
@@ -74262,11 +73922,6 @@
   "733681f": {
     "place_name": "Steel bridge of the I.R.T. Pelham Bay Park subway line",
     "type": "place_name"
-  },
-  "733682f": {
-    "number": null,
-    "street": "E. 173rd Street",
-    "type": "address"
   },
   "733683f": {
     "street1": "East 176th Street",
@@ -75080,11 +74735,6 @@
     "street2": "East 25th Street",
     "type": "intersection"
   },
-  "733866f": {
-    "number": 26,
-    "street": "East 26th Street",
-    "type": "address"
-  },
   "733867f": {
     "street1": "East 31st Street",
     "street2": "East River Drive",
@@ -75095,19 +74745,9 @@
     "street2": "East 42nd Street",
     "type": "intersection"
   },
-  "733869f": {
-    "number": 0,
-    "street": "East 31st Street",
-    "type": "address"
-  },
   "733870f": {
     "place_name": "Bellevue Hospital",
     "type": "place_name"
-  },
-  "733871f": {
-    "number": 0,
-    "street": "East 32nd Street",
-    "type": "address"
   },
   "733872f": {
     "street1": "East 32nd Street",
@@ -75475,11 +75115,6 @@
     "street2": "Queensborough Bridge",
     "type": "intersection"
   },
-  "733947f": {
-    "number": 93,
-    "street": "93rd Street (East)",
-    "type": "address"
-  },
   "733948f": {
     "street1": "East 94th Street",
     "street2": "Queensborough Bridge",
@@ -75504,11 +75139,6 @@
     "street1": "East 98th Street",
     "street2": "Queensborough Bridge",
     "type": "intersection"
-  },
-  "733953f": {
-    "number": 100,
-    "street": "East 100th Street",
-    "type": "address"
   },
   "733954f": {
     "place_name": "Hell Gate and Triborough Bridges",
@@ -75878,11 +75508,6 @@
     "street2": "East 62nd Street",
     "type": "intersection"
   },
-  "734036f": {
-    "number": 138,
-    "street": "East 138th Street",
-    "type": "address"
-  },
   "734037f": {
     "street1": "East 135th Street",
     "street2": "East 149th Street",
@@ -75912,11 +75537,6 @@
   "734043f": {
     "place_name": "Clason's Point",
     "type": "place_name"
-  },
-  "734044f": {
-    "number": null,
-    "street": "Tremont Avenue (East)",
-    "type": "address"
   },
   "734045f": {
     "place_name": "Hunt's Point",
@@ -76450,11 +76070,6 @@
     "place_name": "Gowanus Bay",
     "type": "place_name"
   },
-  "734166f": {
-    "number": 26,
-    "street": "26th Street",
-    "type": "address"
-  },
   "734167f": {
     "place_name": "Gowanus Bay - Brooklyn",
     "type": "place_name"
@@ -76641,20 +76256,10 @@
     "street2": "Harlem River",
     "type": "intersection"
   },
-  "734207f": {
-    "number": 0,
-    "street": "East 102nd Street",
-    "type": "address"
-  },
   "734208f": {
     "street1": "East 103rd Street",
     "street2": "Harlem River",
     "type": "intersection"
-  },
-  "734209f": {
-    "number": 103,
-    "street": "East 103rd Street",
-    "type": "address"
   },
   "734210f": {
     "street1": "East 105th Street",
@@ -76666,34 +76271,14 @@
     "street2": "107th Street",
     "type": "intersection"
   },
-  "734212f": {
-    "number": 107,
-    "street": "East 107th Street",
-    "type": "address"
-  },
   "734213f": {
     "street1": "East 107th Street",
     "street2": "Pleasant Avenue",
     "type": "intersection"
   },
-  "734214f": {
-    "number": 107,
-    "street": "East 107th Street",
-    "type": "address"
-  },
-  "734215f": {
-    "number": 107,
-    "street": "East 107th Street",
-    "type": "address"
-  },
   "734216f": {
     "place_name": "Harlem River",
     "type": "place_name"
-  },
-  "734217f": {
-    "number": 108,
-    "street": "East 108th Street",
-    "type": "address"
   },
   "734218f": {
     "street1": "East 108th Street",
@@ -76733,16 +76318,6 @@
     "street2": "East 116th Street",
     "type": "intersection"
   },
-  "734226f": {
-    "number": null,
-    "street": "East 116th Street",
-    "type": "address"
-  },
-  "734227f": {
-    "number": 0,
-    "street": "East 116th Street",
-    "type": "address"
-  },
   "734228f": {
     "street1": "East 118th Street",
     "street2": "East 119th Street",
@@ -76768,35 +76343,10 @@
     "street2": "East 122nd Street",
     "type": "intersection"
   },
-  "734233f": {
-    "number": 0,
-    "street": "East 122nd Street",
-    "type": "address"
-  },
-  "734234f": {
-    "number": 0,
-    "street": "East 123rd Street",
-    "type": "address"
-  },
-  "734235f": {
-    "number": 123,
-    "street": "East 123rd Street",
-    "type": "address"
-  },
-  "734236f": {
-    "number": null,
-    "street": "East 124th Street",
-    "type": "address"
-  },
   "734237f": {
     "street1": "East 125th Street",
     "street2": "Harlem River",
     "type": "intersection"
-  },
-  "734238f": {
-    "number": null,
-    "street": "East 127th Street",
-    "type": "address"
   },
   "734239f": {
     "street1": "East 127th Street",
@@ -76886,24 +76436,9 @@
     "street2": "157th Street",
     "type": "intersection"
   },
-  "734257f": {
-    "number": 153,
-    "street": "153rd Street (West)",
-    "type": "address"
-  },
   "734258f": {
     "place_name": "Bronx Municipal Terminal Market",
     "type": "place_name"
-  },
-  "734259f": {
-    "number": 155,
-    "street": "155th Street (West)",
-    "type": "address"
-  },
-  "734260f": {
-    "number": 155,
-    "street": "155th Street (West)",
-    "type": "address"
   },
   "734261f": {
     "street1": "Harlem River Drive",
@@ -76996,11 +76531,6 @@
     "street2": "188th Street (West)",
     "type": "intersection"
   },
-  "734280f": {
-    "number": 190,
-    "street": "190th Street",
-    "type": "address"
-  },
   "734281f": {
     "street1": "190th Street",
     "street2": "192nd Street",
@@ -77042,11 +76572,6 @@
     "street1": "West 201st Street",
     "street2": "Academy Street",
     "type": "intersection"
-  },
-  "734290f": {
-    "number": null,
-    "street": "Tremont Avenue (West)",
-    "type": "address"
   },
   "734291f": {
     "place_name": "Harlem River",
@@ -77096,11 +76621,6 @@
     "street2": "University Heights",
     "type": "intersection"
   },
-  "734301f": {
-    "number": 207,
-    "street": "207th Street (West)",
-    "type": "address"
-  },
   "734302f": {
     "street1": "207th Street",
     "street2": "Harlem River",
@@ -77120,11 +76640,6 @@
     "street1": "West 207th Street",
     "street2": "Harlem River",
     "type": "intersection"
-  },
-  "734306f": {
-    "number": 207,
-    "street": "207th Street (West)",
-    "type": "address"
   },
   "734307f": {
     "street1": "207th Street",
@@ -77151,40 +76666,10 @@
     "street2": "214th Street",
     "type": "intersection"
   },
-  "734312f": {
-    "number": 214,
-    "street": "214th Street (West)",
-    "type": "address"
-  },
-  "734313f": {
-    "number": 214,
-    "street": "214th Street (West)",
-    "type": "address"
-  },
-  "734314f": {
-    "number": 214,
-    "street": "214th Street (West)",
-    "type": "address"
-  },
-  "734315f": {
-    "number": 214,
-    "street": "214th Street (West)",
-    "type": "address"
-  },
   "734316f": {
     "street1": "215th Street",
     "street2": "216th Street",
     "type": "intersection"
-  },
-  "734317f": {
-    "number": 216,
-    "street": "West 216th Street",
-    "type": "address"
-  },
-  "734318f": {
-    "number": 217,
-    "street": "217th Street (West)",
-    "type": "address"
   },
   "734319f": {
     "street1": "218th Street",
@@ -77263,11 +76748,6 @@
   "734337f": {
     "place_name": "Spuyten Duyvil Hill",
     "type": "place_name"
-  },
-  "734338f": {
-    "number": null,
-    "street": "Spuyten Duyvil Road",
-    "type": "address"
   },
   "734339f": {
     "place_name": "Spuyten Duyvil",
@@ -78155,11 +77635,6 @@
     "place_name": "Empire State Building",
     "type": "place_name"
   },
-  "734554f": {
-    "number": 42,
-    "street": "42nd Street (West)",
-    "type": "address"
-  },
   "734555f": {
     "street1": "12th Avenue",
     "street2": "44th Street",
@@ -78334,11 +77809,6 @@
     "place_name": "George Washington Bridge",
     "type": "place_name"
   },
-  "734592f": {
-    "number": 135,
-    "street": "135th Street (West)",
-    "type": "address"
-  },
   "734593f": {
     "type": "no location information"
   },
@@ -78347,20 +77817,10 @@
     "street2": "142nd Street (West)",
     "type": "intersection"
   },
-  "734595f": {
-    "number": 148,
-    "street": "148th Street (West)",
-    "type": "address"
-  },
   "734596f": {
     "street1": "157th Street",
     "street2": "150th Street",
     "type": "intersection"
-  },
-  "734597f": {
-    "number": 155,
-    "street": "155th Street (West)",
-    "type": "address"
   },
   "734598f": {
     "place_name": "Fort Washington Park",
@@ -78384,11 +77844,6 @@
     "place_name": "Piers, Hudson River, Manhattan, NY",
     "type": "place_name"
   },
-  "734603f": {
-    "number": 133,
-    "street": "133rd Street (West)",
-    "type": "address"
-  },
   "734604f": {
     "place_name": "Claremont Inn",
     "type": "place_name"
@@ -78396,11 +77851,6 @@
   "734605f": {
     "number": 108,
     "street": "1st Street",
-    "type": "address"
-  },
-  "734606f": {
-    "number": 162,
-    "street": "162nd Street",
     "type": "address"
   },
   "734607f": {
@@ -78416,21 +77866,6 @@
     "street2": "Cedar Avenue",
     "type": "intersection"
   },
-  "734610f": {
-    "number": 179,
-    "street": "179th Street (West)",
-    "type": "address"
-  },
-  "734611f": {
-    "number": 179,
-    "street": "179th Street (West)",
-    "type": "address"
-  },
-  "734612f": {
-    "number": null,
-    "street": "Dyckman Street",
-    "type": "address"
-  },
   "734613f": {
     "place_name": "Fort Tryon Park",
     "type": "place_name"
@@ -78438,16 +77873,6 @@
   "734614f": {
     "place_name": "Inwood Hill Park",
     "type": "place_name"
-  },
-  "734615f": {
-    "number": null,
-    "street": "Dyckman Street",
-    "type": "address"
-  },
-  "734616f": {
-    "number": 181,
-    "street": "181st Street (West)",
-    "type": "address"
   },
   "734617f": {
     "place_name": "Fort Tryon Park",
@@ -78507,11 +77932,6 @@
   "734629f": {
     "place_name": "West Washington Market",
     "type": "place_name"
-  },
-  "734630f": {
-    "number": null,
-    "street": "Dyckman Street",
-    "type": "address"
   },
   "734631f": {
     "place_name": "Inwood Hill Park",
