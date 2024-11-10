@@ -30,7 +30,7 @@ between = re.compile(
     rf"^({boroughs_pat}): ([^-:\[\];]+?) - [bB]etween ([^-:\[\];]+?) and ([^-:\[\];]+)\.?$"
 )
 
-num_prefix = re.compile(rf"^({boroughs_pat}): \d+ ([^-:\[\];]+?) - ([^-:\[\];]+)\.?$")
+num_prefix = re.compile(rf"^({boroughs_pat})(?::| -) \d+ ([^-:\[\];]+?) - ([^-:\[\];]+)\.?$")
 
 PATTERNS = [
     ("between", between),

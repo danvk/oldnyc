@@ -122,6 +122,15 @@ def test_number_prefix():
         "data": ("Fifth Avenue", "West 54th Street", "Manhattan"),
     }
 
+    # 1557791
+    item.title = "Brooklyn - 100 Henry Street - Clark Street"
+    assert tp.codeRecord(item) == {
+        "type": "intersection",
+        "source": "Brooklyn - 100 Henry Street - Clark Street",
+        "address": "Clark Street and Henry Street, Brooklyn, NY",
+        "data": ("Clark Street", "Henry Street", "Brooklyn"),
+    }
+
 
 def test_strip_trivia():
     assert (
