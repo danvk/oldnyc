@@ -130,7 +130,7 @@
 705508f	title-pattern	(40.672618, -74.00059499999999)	Brooklyn: Lorraine Street - Court Street
 730023f	failed	n/a	n/a
 705520f	title-pattern	(40.6778533, -74.00194809999999)	Brooklyn: Luquer Street - Hamilton Avenue
-1507627	title-pattern	(40.750904, -73.9806783)	Manhattan: Madison Avenue - 39th Street, 
+1507627	title-pattern	(40.7509088, -73.98069079999999)	Manhattan: Madison Avenue - 39th Street, 
 729142f	title-pattern	(40.5902312, -74.1886414)	Richmond: Melvin Avenue - Wild Avenue
 705728f	title-pattern	(40.6185279, -73.91817429999999)	Brooklyn: Mill Lane - 59th Street (East)
 104881	failed	n/a	n/a
