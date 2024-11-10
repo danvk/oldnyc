@@ -210,3 +210,7 @@ def test_and_name():
 "Cromwell Apartments, northwest corner Broadway and 137th Street; Plan of first floor; Plan of upper floors."
 # 733357f
 "Manhattan: Bleecker Street ; 383 Bleecker Street."
+# 465538
+"Audubon Park Apartments, southeast corner Broadway and 156th Street; Plan of first floor; Plan of upper floors."
+# 1557751
+"Bronx - Findlay Avenue - East 167th Street"
