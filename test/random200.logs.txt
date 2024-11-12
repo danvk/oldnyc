@@ -1,11 +1,24 @@
 Filtered to 200/41463 records with --ids_filter (200)
 Borough mismatch: 713577f: Manhattan: 51st Street - 19th Avenue geocoded to Brooklyn not Manhattan
+gpt Borough mismatch: 713577f: 19th Avenue and 51st Street geocoded to Brooklyn not Manhattan
 Borough mismatch: "51st Street & 19th Avenue, Manhattan, NY" (Manhattan) geocoded to Brooklyn
+Failed to guess borough for 417677
 Rejecting extrapolation for 7, 12
+Failed to guess borough for 417208
+Failed to guess borough for 731946f
   101 /   200 records processed
+Failed to guess borough for 732005f
 Borough mismatch: 704487f: Brooklyn: Fulton Street - Nassau Street geocoded to Manhattan not Brooklyn
+gpt Borough mismatch: 704487f: Fulton Street and Nassau Street geocoded to Manhattan not Brooklyn
 Borough mismatch: "Fulton Street & Nassau Street, Brooklyn, NY" (Brooklyn) geocoded to Manhattan
-clash!	subject/title to subject	720438f	Highbridge Water Tower (New York, N.Y.)	High Bridge Park
+Failed to guess borough for 417391
+Failed to guess borough for 731060f
+Failed to guess borough for 733310f
+Failed to guess borough for 1113261
+Failed to guess borough for 1113271
+Failed to guess borough for 1635949
+Failed to guess borough for 2040792
+Failed to guess borough for psnypl_lhg_195
     titles matched: 0
 alt titles matched: 0
      total matches: 150
@@ -15,25 +28,37 @@ alt titles matched: 0
           google: 80
    boro mismatch: 2
         failures: 17
-       num_exact: 46
+ address matches: 2
+   boro mismatch: 0
+        failures: 0
+         success: 2
+GPT POI:          24
+GPT address:      4
+GPT intersection: 31
+GPT geocoding results:
+            grid: 4
+          google: 14
+   boro mismatch: 2
+        failures: 15
+       num_exact: 48
 num_extrapolated: 7
-   num_unclaimed: 4
-  unknown avenues: [('19', 2)]
-  unknown streets: [('175', 1), ('126', 1)]
+   num_unclaimed: 6
+  unknown avenues: [('19', 3)]
+  unknown streets: [('175', 1), ('172', 1), ('126', 1)]
 POI/subject geocoding:
-   5	n_both
-  11	n_geo
-  11	n_geo_unambig
+   4	n_both
+  10	n_geo
+  10	n_geo_unambig
    4	n_out_both_close
-   1	n_out_both_subject
-   7	n_out_subject
+   6	n_out_subject
    4	n_out_title
-   5	n_title
+   4	n_title
    2	n_title_bridge
    2	n_title_island
-   1	n_title_park
-  131 title-pattern
-    2 extended-grid
-    3 milstein
-   11 subjects
-  147 (total)
+  131 title-cross
+    2 title-address
+   18 gpt
+    0 extended-grid
+    0 milstein
+   10 subjects
+  161 (total)

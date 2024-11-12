@@ -274,4 +274,4 @@ class TitleAddressCoder(Coder):
         sys.stderr.write(f"         success: {self.n_success}\n")
 
     def name(self):
-        return "address-cross"
+        return "title-address"
