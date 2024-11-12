@@ -267,7 +267,7 @@ def test_address_coder():
     # 1508895
     item.title = "Fifth Avenue #1067 - 87th Street, east side - looking west"
     assert coder.codeRecord(item) == {
-        "type": "street_address",
+        "type": ["street_address", "premise"],
         "source": "Fifth Avenue #1067",
         "address": "1067 Fifth Avenue, Manhattan, NY",
         "data": ("1067", "Fifth Avenue", "Manhattan"),
@@ -276,7 +276,7 @@ def test_address_coder():
     # 1507775
     item.title = "38th Street (West) #247-49"
     assert coder.codeRecord(item) == {
-        "type": "street_address",
+        "type": ["street_address", "premise"],
         "source": "38th Street (West) #247",
         "address": "247 38th Street (West), Manhattan, NY",
         "data": ("247", "38th Street (West)", "Manhattan"),
@@ -285,7 +285,7 @@ def test_address_coder():
     # 1508975
     item.title = "Bowery Street #4-8"
     assert coder.codeRecord(item) == {
-        "type": "street_address",
+        "type": ["street_address", "premise"],
         "source": "Bowery Street #4",
         "address": "4 Bowery Street, Manhattan, NY",
         "data": ("4", "Bowery Street", "Manhattan"),

@@ -19,6 +19,7 @@ Failed to guess borough for 1113271
 Failed to guess borough for 1635949
 Failed to guess borough for 2040792
 Failed to guess borough for psnypl_lhg_195
+-- Finalizing title-cross --
     titles matched: 0
 alt titles matched: 0
      total matches: 150
@@ -28,10 +29,12 @@ alt titles matched: 0
           google: 80
    boro mismatch: 2
         failures: 17
+-- Finalizing title-address --
  address matches: 2
    boro mismatch: 0
         failures: 0
          success: 2
+-- Finalizing gpt --
 GPT POI:          24
 GPT address:      4
 GPT intersection: 31
@@ -40,11 +43,14 @@ GPT geocoding results:
           google: 14
    boro mismatch: 2
         failures: 15
+-- Finalizing extended-grid --
        num_exact: 48
 num_extrapolated: 7
    num_unclaimed: 6
   unknown avenues: [('19', 3)]
   unknown streets: [('175', 1), ('172', 1), ('126', 1)]
+-- Finalizing milstein --
+-- Finalizing subjects --
 POI/subject geocoding:
    4	n_both
   10	n_geo
@@ -55,6 +61,7 @@ POI/subject geocoding:
    4	n_title
    2	n_title_bridge
    2	n_title_island
+-- Final stats --
   131 title-cross
     2 title-address
    18 gpt

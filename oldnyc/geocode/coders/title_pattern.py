@@ -237,13 +237,12 @@ class TitleAddressCoder(Coder):
                 street, num = m.groups()
                 boro = guess_borough(r) or "Manhattan"
                 self.n_matches += 1
-                out: Locatable = {
-                    "type": "street_address",
-                    "source": m.group(0),
-                    "address": f"{num} {street}, {boro}, NY",
-                    "data": (num, street, boro),
-                }
-                return out
+                return Locatable(
+                    type=["street_address", "premise"],
+                    source=m.group(0),
+                    address=f"{num} {street}, {boro}, NY",
+                    data=(num, street, boro),
+                )
 
     def getLatLonFromLocatable(self, r, data):
         return None

@@ -71,6 +71,11 @@ if __name__ == "__main__":
         help="Set to print out records as they're coded.",
     )
     parser.add_argument(
+        "--print_geocodes",
+        action="store_true",
+        help="Print Google Maps geocoding queries as they're performed.",
+    )
+    parser.add_argument(
         "-o",
         "--output_format",
         default="",
@@ -155,7 +160,8 @@ if __name__ == "__main__":
                     geocode_result = None
                     address = location_data["address"]
                     try:
-                        # print(f"Geocoding {address}")
+                        if args.print_geocodes:
+                            print(f'{r.id} {c.name()}: Geocoding "{address}"')
                         geocode_result = g.Locate(address, True, r.id)
                     except urllib.error.HTTPError as e:
                         if e.status == 400:
@@ -195,8 +201,10 @@ if __name__ == "__main__":
 
     # Let each geocoder know we're done. This is useful for printing debug info.
     for c in geocoders:
+        sys.stderr.write(f"-- Finalizing {c.name()} --\n")
         c.finalize()
 
+    sys.stderr.write("-- Final stats --\n")
     successes = 0
     for c in geocoders:
         sys.stderr.write("%5d %s\n" % (stats[c.name()], c.name()))
