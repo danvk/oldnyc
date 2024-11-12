@@ -15,7 +15,14 @@ from typing import Callable
 from dotenv import load_dotenv
 
 from oldnyc.geocode import generate_js, geocoder
-from oldnyc.geocode.coders import extended_grid, gpt, milstein, subjects, title_pattern
+from oldnyc.geocode.coders import (
+    extended_grid,
+    gpt,
+    milstein,
+    special_cases,
+    subjects,
+    title_pattern,
+)
 from oldnyc.geocode.geocode_types import Coder, Locatable
 from oldnyc.item import Item, load_items
 
@@ -26,6 +33,7 @@ CODERS: dict[str, Callable[[], Coder]] = {
     "milstein": milstein.MilsteinCoder,
     "subjects": subjects.SubjectsCoder,
     "gpt": gpt.GptCoder,
+    "special": special_cases.SpecialCasesCoder,
 }
 
 if __name__ == "__main__":
@@ -104,8 +112,8 @@ if __name__ == "__main__":
         g = None
 
     geocoders = [CODERS[coder_name]() for coder_name in args.coders.split(",")]
-    for geocoder in geocoders:
-        CODERS[geocoder.name()]  # keep the dict in sync with the name() methods
+    for coder in geocoders:
+        CODERS[coder.name()]  # keep the dict in sync with the name() methods
 
     # TODO(danvk): does this belong here?
     lat_lon_map: dict[str, str] = {}
@@ -161,7 +169,8 @@ if __name__ == "__main__":
                     address = location_data["address"]
                     try:
                         if args.print_geocodes:
-                            print(f'{r.id} {c.name()}: Geocoding "{address}"')
+                            geocache = geocoder.cache_file_name(address)
+                            print(f'{r.id} {c.name()}: Geocoding "{address}" ({geocache})')
                         geocode_result = g.Locate(address, True, r.id)
                     except urllib.error.HTTPError as e:
                         if e.status == 400:

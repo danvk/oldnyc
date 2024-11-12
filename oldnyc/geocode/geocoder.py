@@ -29,7 +29,7 @@ FakeResponse = """
 """
 
 
-def _cache_file(loc: str):
+def cache_file_name(loc: str):
     key = base64.b64encode(loc.encode("utf8"))[:-2].decode("ascii")  # minus the trailing '=='
     key = key.replace("/", "-")  # '/' is bad in a file name.
     key = key[:255]  # longest possible filename
@@ -45,7 +45,7 @@ class Geocoder:
 
     def _check_cache(self, loc: str):
         """Returns cached results for the location or None if not available."""
-        cache_file = _cache_file(loc)
+        cache_file = cache_file_name(loc)
         if CacheDebug:
             sys.stderr.write("Checking %s\n" % cache_file)
         try:
@@ -54,7 +54,7 @@ class Geocoder:
             return None
 
     def _cache_result(self, loc: str, result: bytes):
-        cache_file = _cache_file(loc)
+        cache_file = cache_file_name(loc)
         open(cache_file, "wb").write(result)
 
     def _fetch(self, url: str, debug_txt: Optional[str]):
@@ -126,4 +126,4 @@ class Geocoder:
 
 if __name__ == "__main__":
     for arg in sys.argv[1:]:
-        print("%s --> %s" % (arg, _cache_file(arg)))
+        print("%s --> %s" % (arg, cache_file_name(arg)))

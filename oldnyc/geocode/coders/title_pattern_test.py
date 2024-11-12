@@ -248,6 +248,10 @@ def test_space_colon():
     }
 
 
+def test_add_dots():
+    "Brooklyn: Surf Ave. - 10th St. W."
+
+
 def test_decoy_address():
     tp = TitleCrossCoder()
     item = blank_item()
@@ -299,6 +303,16 @@ def test_address_coder():
         "source": "34th Street (West) #167",
         "address": "167 W 34th Street, Manhattan, NY",
         "data": ("167", "W 34th Street", "Manhattan"),
+    }
+
+    # 711033f
+    item.title = "Manhattan: 10th Street (West) - [Greenwich and Washington Streets]"
+    item.alt_title = ["271 West 10th Street ; Empire Brewery."]
+    assert coder.codeRecord(item) == {
+        "type": ["street_address", "premise"],
+        "source": "271 West 10th Street",
+        "address": "271 West 10th Street, Manhattan, NY",
+        "data": ("271", "West 10th Street", "Manhattan"),
     }
 
 

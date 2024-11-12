@@ -90,6 +90,13 @@ def extract_titles(r: Item) -> list[str]:
     return titles
 
 
+def punctuate(street: str) -> str:
+    """Add a trailing dot to a street if it might make sense"""
+    if street.endswith(("St", "Ave", "S", "N", "E", "W")):
+        return street + "."
+    return street
+
+
 class TitleCrossCoder(Coder):
     def __init__(self):
         self.n_title = 0
@@ -150,6 +157,10 @@ class TitleCrossCoder(Coder):
         (str1, str2) = sorted((str1, str2))  # try to increase cache coherence
         boro = boro.replace("Richmond", "Staten Island")
 
+        # This makes the streets look more like the milstein coder, which
+        # improves cache coherence and consistency.
+        str1 = punctuate(str1)
+        str2 = punctuate(str2)
         assert src
         out: Locatable = {
             "type": "intersection",
@@ -209,15 +220,17 @@ class TitleCrossCoder(Coder):
         return "title-cross"
 
 
-"""
-
-"""
-
 # Cribbed from milstein.py, which I hope to delete.
 # (?P<street1>[^#]+)
 streets_pat = r"(?:St\.|Street|Place|Pl\.|Road|Rd\.|Avenue|Ave\.|Av\.|Boulevard|Blvd\.|Broadway|Parkway|Pkwy\.|Pky\.|Street \(West\)|Street \(East\))"
 
 address1_re = re.compile(rf"^([^-:;]+ {streets_pat}) #(\d+)")
+address2_re = re.compile(rf"^(\d+) ([^-:;]+ {streets_pat})")
+
+ADDR_PATTERNS = [
+    ("street_pound", address1_re),
+    ("num_street", address2_re),
+]
 
 
 def rewrite_directional_street(street: str) -> str:
@@ -235,22 +248,29 @@ class TitleAddressCoder(Coder):
         self.n_success = 0
         self.n_geocode_fail = 0
         self.n_boro_mismatch = 0
+        self.patterns = Counter[str]()
 
     def codeRecord(self, r):
         titles = extract_titles(r)
         for t in titles:
-            m = re.search(address1_re, t)
-            if m:
-                street, num = m.groups()
-                boro = guess_borough(r) or "Manhattan"
-                self.n_matches += 1
-                street = rewrite_directional_street(street)
-                return Locatable(
-                    type=["street_address", "premise"],
-                    source=m.group(0),
-                    address=f"{num} {street}, {boro}, NY",
-                    data=(num, street, boro),
-                )
+            for name, pat in ADDR_PATTERNS:
+                m = re.search(pat, t)
+                if m:
+                    # TODO: use named capture groups
+                    if name == "num_street":
+                        num, street = m.groups()
+                    else:
+                        street, num = m.groups()
+                    boro = guess_borough(r) or "Manhattan"
+                    self.n_matches += 1
+                    street = rewrite_directional_street(street)
+                    self.patterns[name] += 1
+                    return Locatable(
+                        type=["street_address", "premise"],
+                        source=m.group(0),
+                        address=f"{num} {street}, {boro}, NY",
+                        data=(num, street, boro),
+                    )
 
     def getLatLonFromLocatable(self, r, data):
         return None
@@ -279,6 +299,7 @@ class TitleAddressCoder(Coder):
         sys.stderr.write(f"   boro mismatch: {self.n_boro_mismatch}\n")
         sys.stderr.write(f"        failures: {self.n_geocode_fail}\n")
         sys.stderr.write(f"         success: {self.n_success}\n")
+        sys.stderr.write(f"        patterns: {self.patterns.most_common()}\n")
 
     def name(self):
         return "title-address"
