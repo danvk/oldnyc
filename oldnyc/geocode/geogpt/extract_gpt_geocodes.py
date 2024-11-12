@@ -57,7 +57,7 @@ if __name__ == "__main__":
 
             if data["type"] == "address" and is_suspicious_address(data["number"], data["street"]):
                 # While possible, this seems to always be a mistake.
-                # sys.stderr.write(f"Number and street are the same: {id}: {data}\n")
+                sys.stderr.write(f"Number and street are the same: {id}: {data}\n")
                 n_dropped += 1
                 continue
 

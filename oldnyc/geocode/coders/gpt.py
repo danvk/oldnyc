@@ -18,6 +18,7 @@ borough_re = re.compile(rf"\b({boroughs_pat})\b")
 
 
 def guess_borough(item: Item):
+    titles = [item.title] + item.alt_title
     for b in BOROUGHS:
         full = f"{b} (New York, N.Y.)"
         if full in item.subject.geographic:
@@ -25,11 +26,13 @@ def guess_borough(item: Item):
         full = f"/ {b}"
         if item.source.endswith(full):
             return b
-        if item.title.startswith(b):
-            return b
-    m = borough_re.search(item.title)
-    if m:
-        return m.group(1)
+        for t in titles:
+            if t.startswith(b):
+                return b
+    for t in titles:
+        m = borough_re.search(t)
+        if m:
+            return m.group(1)
     return None
 
 
@@ -60,6 +63,9 @@ class GptCoder(Coder):
 
         loc: Locatable | None = None
         boro = guess_borough(r)
+        if boro is None:
+            sys.stderr.write(f"Failed to guess borough for {r.id}\n")
+            boro = "New York"
         if q["type"] == "place_name":
             self.num_poi += 1
             return None
@@ -72,7 +78,7 @@ class GptCoder(Coder):
                 address=f"{address}, {boro}, NY",
                 source=address,
                 type=["street_address", "premise"],
-                data=q,
+                data={**q, "boro": boro},
             )
         elif q["type"] == "intersection":
             self.num_intersection += 1
@@ -88,8 +94,10 @@ class GptCoder(Coder):
         # sys.stderr.write(f"GPT location: {r.id} {loc}\n")
         return loc
 
-    # TODO: next two methods are identical to those in title_pattern.py
+    # TODO: next two methods are nearly identical to those in title_pattern.py
     def getLatLonFromLocatable(self, r, data):
+        if data["type"] != "intersection":
+            return None
         assert "data" in data
         ssb: tuple[str, str, str] = data["data"]
         (str1, str2, boro) = ssb
@@ -107,15 +115,20 @@ class GptCoder(Coder):
 
     def getLatLonFromGeocode(self, geocode, data, record):
         assert "data" in data
-        ssb: tuple[str, str, str] = data["data"]
-        (str1, str2, boro) = ssb
+        boro = None
+        if data["type"] == "intersection":
+            ssb: tuple[str, str, str] = data["data"]
+            (str1, str2, boro) = ssb
+        elif "street_address" in data["type"]:
+            boro = data["data"]["boro"]
+
         tlatlng = get_lat_lng_from_geocode(geocode, data)
         if not tlatlng:
             self.n_geocode_fail += 1
             return None
         _, lat, lng = tlatlng
         geocode_boro = point_to_borough(lat, lng)
-        if geocode_boro != boro:
+        if geocode_boro != boro and not (boro == "New York" and geocode_boro == "Manhattan"):
             self.n_boro_mismatch += 1
             sys.stderr.write(
                 f'gpt Borough mismatch: {record.id}: {data["source"]} geocoded to {geocode_boro} not {boro}\n'
