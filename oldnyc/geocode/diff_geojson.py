@@ -19,6 +19,7 @@ Output .geojson files:
 """
 
 import argparse
+import itertools
 import json
 import random
 from typing import Optional, Sequence
@@ -90,8 +91,8 @@ def diff_geojson(
         .difference(added_geometry_ids)
     )
 
-    dropped_features = [old[i] for i in dropped_ids]
-    added_features = [new[i] for i in added_ids]
+    dropped_features = [old[i] for i in itertools.chain(dropped_ids, dropped_geometry_ids)]
+    added_features = [new[i] for i in itertools.chain(added_ids, added_geometry_ids)]
     changed_features = [new[i] for i in changed_ids]
     unchanged_features = [old[i] for i in unchanged_ids]
 
@@ -194,12 +195,6 @@ if __name__ == "__main__":
         type=str,
         help="Pipe delimited image id, representing a set of image ids to diff",
         default=None,
-    )
-    parser.add_argument(
-        "--verbose_metrics",
-        type=bool,
-        default=True,
-        help="If True, will print more verbose metrics",
     )
     parser.add_argument(
         "--num_samples",
