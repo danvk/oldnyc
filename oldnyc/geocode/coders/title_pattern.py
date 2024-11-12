@@ -210,12 +210,10 @@ class TitleCrossCoder(Coder):
 
 
 """
-38th Street (West) #247-49
-Bowery Street #4-8
-33rd Street (West) #205
-34th Street (West) #167
+
 """
 
+# Cribbed from milstein.py, which I hope to delete.
 # (?P<street1>[^#]+)
 streets_pat = r"(?:St\.|Street|Place|Pl\.|Road|Rd\.|Avenue|Ave\.|Av\.|Boulevard|Blvd\.|Broadway|Parkway|Pkwy\.|Pky\.|Street \(West\)|Street \(East\))"
 
