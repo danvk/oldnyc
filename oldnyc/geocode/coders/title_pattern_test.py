@@ -273,6 +273,24 @@ def test_address_coder():
         "data": ("1067", "Fifth Avenue", "Manhattan"),
     }
 
+    # 1507775
+    item.title = "38th Street (West) #247-49"
+    assert coder.codeRecord(item) == {
+        "type": "street_address",
+        "source": "38th Street (West) #247",
+        "address": "247 38th Street (West), Manhattan, NY",
+        "data": ("247", "38th Street (West)", "Manhattan"),
+    }
+
+    # 1508975
+    item.title = "Bowery Street #4-8"
+    assert coder.codeRecord(item) == {
+        "type": "street_address",
+        "source": "Bowery Street #4",
+        "address": "4 Bowery Street, Manhattan, NY",
+        "data": ("4", "Bowery Street", "Manhattan"),
+    }
+
 
 # More to look at:
 
@@ -289,8 +307,7 @@ def test_address_coder():
 "The Alimar, Northwest corner West End Avenue and 105th Street."
 # 1507697
 "Tenth Avenue - 25th Street - 26th Street, west side"
-# 1508127
-"Park Avenue #301 - 48th Street - 50th Street"
+
 # 1516945
 "1873 2nd Ave. between 96th and 97th St."
 # 709447f
