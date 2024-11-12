@@ -92,7 +92,10 @@ def extract_titles(r: Item) -> list[str]:
 
 def punctuate(street: str) -> str:
     """Add a trailing dot to a street if it might make sense"""
-    if street.endswith(("St", "Ave", "S", "N", "E", "W")):
+    # Blvd intentionally omitted
+    if street.endswith(
+        ("St", "Ave", "Rd", "Hwy", "Pl", "S", "N", "E", "W")
+    ) and not street.endswith(("Avenue S", "Avenue N", "Avenue W", "Avenue E", "Ave. W")):
         return street + "."
     return street
 
