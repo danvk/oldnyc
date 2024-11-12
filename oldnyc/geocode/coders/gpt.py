@@ -1,39 +1,15 @@
 """Coder for GPT-extracted location queries."""
 
 import json
-import re
 import sys
 
 from oldnyc.geocode import grid
-from oldnyc.geocode.boroughs import point_to_borough
+from oldnyc.geocode.boroughs import guess_borough, point_to_borough
 from oldnyc.geocode.coders.coder_utils import get_lat_lng_from_geocode
 from oldnyc.geocode.coders.extended_grid import parse_street_ave
-from oldnyc.geocode.coders.title_pattern import boroughs_pat
 from oldnyc.geocode.geocode_types import Coder, Locatable
 from oldnyc.geocode.geogpt.generate_batch import GptResponse
-from oldnyc.ingest.util import BOROUGHS
 from oldnyc.item import Item
-
-borough_re = re.compile(rf"\b({boroughs_pat})\b")
-
-
-def guess_borough(item: Item):
-    titles = [item.title] + item.alt_title
-    for b in BOROUGHS:
-        full = f"{b} (New York, N.Y.)"
-        if full in item.subject.geographic:
-            return b
-        full = f"/ {b}"
-        if item.source.endswith(full):
-            return b
-        for t in titles:
-            if t.startswith(b):
-                return b
-    for t in titles:
-        m = borough_re.search(t)
-        if m:
-            return m.group(1)
-    return None
 
 
 class GptCoder(Coder):

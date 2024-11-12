@@ -1,5 +1,6 @@
 from oldnyc.geocode.coders.title_pattern import (
-    TitlePatternCoder,
+    TitleAddressCoder,
+    TitleCrossCoder,
     clean_and_strip_title,
     extract_braced_clauses,
 )
@@ -7,7 +8,7 @@ from oldnyc.item import blank_item
 
 
 def test_title_pattern():
-    tp = TitlePatternCoder()
+    tp = TitleCrossCoder()
     title = "Manhattan: 10th Street (East) - Broadway"
     item = blank_item()
     item.title = title
@@ -42,7 +43,7 @@ def test_title_pattern():
 
 
 def test_alt_title():
-    tp = TitlePatternCoder()
+    tp = TitleCrossCoder()
     item = blank_item()
 
     item.title = "Feast of Our Lady of Mount Carmel."
@@ -68,7 +69,7 @@ def test_alt_title():
 
 
 def test_braces():
-    tp = TitlePatternCoder()
+    tp = TitleCrossCoder()
     title = "Manhattan: 5th Avenue - [53rd Street]"
     item = blank_item()
     item.title = title
@@ -81,7 +82,7 @@ def test_braces():
 
 
 def test_between():
-    tp = TitlePatternCoder()
+    tp = TitleCrossCoder()
     item = blank_item()
     # 708379f
     item.title = "Manhattan: 5th Avenue - [Between 23rd and 24th Streets]"
@@ -114,7 +115,7 @@ def test_between():
 
 def test_number_prefix():
     # 1558017
-    tp = TitlePatternCoder()
+    tp = TitleCrossCoder()
     item = blank_item()
     item.subject.geographic = ["Manhattan (New York, N.Y.)"]
     item.title = "1065 Sixth Avenue - West 40th Street."
@@ -161,7 +162,7 @@ def test_strip_trivia():
 
 
 def test_pattern_with_trivia():
-    tp = TitlePatternCoder()
+    tp = TitleCrossCoder()
     item = blank_item()
     # 708014f
     item.title = "Manhattan: 3rd Avenue - west side - between 16th and 17th Street."
@@ -177,7 +178,7 @@ def test_pattern_with_trivia():
 
 
 def test_at():
-    tp = TitlePatternCoder()
+    tp = TitleCrossCoder()
     item = blank_item()
     # 485798
     item.title = "3rd Avenue at 97th Street and , East side to North, Manhattan"
@@ -191,7 +192,7 @@ def test_at():
 
 
 def test_and_name():
-    tp = TitlePatternCoder()
+    tp = TitleCrossCoder()
     item = blank_item()
     # 725938f
     item.title = "Queens: 160th Street - Grand Central Parkway"
@@ -204,7 +205,7 @@ def test_and_name():
 
 
 def test_boro_dash():
-    tp = TitlePatternCoder()
+    tp = TitleCrossCoder()
     item = blank_item()
     # 1557751
     item.title = "Bronx - Findlay Avenue - East 167th Street"
@@ -218,7 +219,7 @@ def test_boro_dash():
 
 def test_general_view():
     # 730413f
-    tp = TitlePatternCoder()
+    tp = TitleCrossCoder()
     item = blank_item()
     item.title = "General view - [Manhattan - Park Avenue - 34th Street (Northeast)]."
     assert extract_braced_clauses(item.title) == [
@@ -234,7 +235,7 @@ def test_general_view():
 
 
 def test_space_colon():
-    tp = TitlePatternCoder()
+    tp = TitleCrossCoder()
     item = blank_item()
     # 709296f
     item.title = "Manhattan : 6th Avenue - 3rd Street (West)."
@@ -247,7 +248,7 @@ def test_space_colon():
 
 
 def test_decoy_address():
-    tp = TitlePatternCoder()
+    tp = TitleCrossCoder()
     item = blank_item()
     # 1507919
     item.title = "42nd Street (East) #122 - Lexington Avenue, southwest corner"
@@ -260,6 +261,19 @@ def test_decoy_address():
     }
 
 
+def test_address_coder():
+    coder = TitleAddressCoder()
+    item = blank_item()
+    # 1508895
+    item.title = "Fifth Avenue #1067 - 87th Street, east side - looking west"
+    assert coder.codeRecord(item) == {
+        "type": "street_address",
+        "source": "Fifth Avenue #1067",
+        "address": "1067 Fifth Avenue, Manhattan, NY",
+        "data": ("1067", "Fifth Avenue", "Manhattan"),
+    }
+
+
 # More to look at:
 
 # 1509723
@@ -268,8 +282,7 @@ def test_decoy_address():
 "Fifth Avenue - 23rd Street looking north"
 # 715990f
 "Manhattan: Amsterdam Avenue - Cathedral Parkway - 113th Street"
-# 1508895
-"Fifth Avenue #1067 - 87th Street, east side - looking west"
+
 # 720847f
 "Manhattan: Lenox Avenue - 120th Street: Left photo: View 1, Lenox Avenue, e. s., n. fr. 120th Street. View 2, Lenox Avenue, e. s., n. fr. 120th Street."
 # 417427

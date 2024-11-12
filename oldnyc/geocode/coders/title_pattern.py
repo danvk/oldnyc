@@ -10,14 +10,12 @@ from collections import Counter
 from natsort import natsorted
 
 from oldnyc.geocode import grid
-from oldnyc.geocode.boroughs import point_to_borough
+from oldnyc.geocode.boroughs import boroughs_pat, guess_borough, point_to_borough
 from oldnyc.geocode.coders.coder_utils import get_lat_lng_from_geocode
 from oldnyc.geocode.coders.extended_grid import parse_street_ave
 from oldnyc.geocode.geocode_types import Coder, Locatable
 from oldnyc.geocode.record import clean_title
 from oldnyc.item import Item
-
-boroughs_pat = r"(?:Manhattan|Brooklyn|Queens|Bronx|Staten Island|Richmond)"
 
 # Borough: str1 - str2
 # Manhattan: 10th Street (East) - Broadway
@@ -81,7 +79,18 @@ def extract_braced_clauses(txt: str) -> list[str]:
     return re.findall(r"\[([^\[\]]+)\]", txt)
 
 
-class TitlePatternCoder(Coder):
+def extract_titles(r: Item) -> list[str]:
+    titles = [r.title] + r.alt_title
+    titles += [clause for t in titles for clause in extract_braced_clauses(t)]
+    splits = []
+    for title in titles:
+        if ";" in title:
+            splits.extend(t.strip() for t in title.split(";"))
+    titles += splits
+    return titles
+
+
+class TitleCrossCoder(Coder):
     def __init__(self):
         self.n_title = 0
         self.n_alt_title = 0
@@ -94,14 +103,7 @@ class TitlePatternCoder(Coder):
         self.n_boro_mismatch = 0
 
     def findMatch(self, r):
-        titles = [r.title] + r.alt_title
-        titles += [clause for t in titles for clause in extract_braced_clauses(t)]
-        splits = []
-        for title in titles:
-            if ";" in title:
-                splits.extend(t.strip() for t in title.split(";"))
-        titles += splits
-
+        titles = extract_titles(r)
         adds = [False, True] if is_in_manhattan(r) else [False]
 
         for add in adds:
@@ -204,4 +206,72 @@ class TitlePatternCoder(Coder):
         sys.stderr.write(f"        failures: {self.n_geocode_fail}\n")
 
     def name(self):
-        return "title-pattern"
+        return "title-cross"
+
+
+"""
+38th Street (West) #247-49
+Bowery Street #4-8
+33rd Street (West) #205
+34th Street (West) #167
+"""
+
+# (?P<street1>[^#]+)
+streets_pat = r"(?:St\.|Street|Place|Pl\.|Road|Rd\.|Avenue|Ave\.|Av\.|Boulevard|Blvd\.|Broadway|Parkway|Pkwy\.|Pky\.|Street \(West\)|Street \(East\))"
+
+address1_re = re.compile(rf"^([^-:;]+ {streets_pat}) #(\d+)")
+
+
+class TitleAddressCoder(Coder):
+    def __init__(self):
+        self.n_matches = 0
+        self.n_success = 0
+        self.n_geocode_fail = 0
+        self.n_boro_mismatch = 0
+
+    def codeRecord(self, r):
+        titles = extract_titles(r)
+        for t in titles:
+            m = re.search(address1_re, t)
+            if m:
+                street, num = m.groups()
+                boro = guess_borough(r) or "Manhattan"
+                self.n_matches += 1
+                out: Locatable = {
+                    "type": "street_address",
+                    "source": m.group(0),
+                    "address": f"{num} {street}, {boro}, NY",
+                    "data": (num, street, boro),
+                }
+                return out
+
+    def getLatLonFromLocatable(self, r, data):
+        return None
+
+    def getLatLonFromGeocode(self, geocode, data, record):
+        assert "data" in data
+        ssb: tuple[str, str, str] = data["data"]
+        (str1, str2, boro) = ssb
+        tlatlng = get_lat_lng_from_geocode(geocode, data)
+        if not tlatlng:
+            self.n_geocode_fail += 1
+            return None
+        _, lat, lng = tlatlng
+        geocode_boro = point_to_borough(lat, lng)
+        if geocode_boro != boro:
+            self.n_boro_mismatch += 1
+            sys.stderr.write(
+                f'Borough mismatch: {record.id}: {data["source"]} geocoded to {geocode_boro} not {boro}\n'
+            )
+            return None
+        self.n_success += 1
+        return (lat, lng)
+
+    def finalize(self):
+        sys.stderr.write(f" address matches: {self.n_matches}\n")
+        sys.stderr.write(f"   boro mismatch: {self.n_boro_mismatch}\n")
+        sys.stderr.write(f"        failures: {self.n_geocode_fail}\n")
+        sys.stderr.write(f"         success: {self.n_success}\n")
+
+    def name(self):
+        return "address-cross"

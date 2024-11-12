@@ -20,7 +20,8 @@ from oldnyc.geocode.geocode_types import Coder, Locatable
 from oldnyc.item import Item, load_items
 
 CODERS: dict[str, Callable[[], Coder]] = {
-    "title-pattern": title_pattern.TitlePatternCoder,
+    "title-cross": title_pattern.TitleCrossCoder,
+    "title-address": title_pattern.TitleAddressCoder,
     "extended-grid": extended_grid.ExtendedGridCoder,
     "milstein": milstein.MilsteinCoder,
     "subjects": subjects.SubjectsCoder,
