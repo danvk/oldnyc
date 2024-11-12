@@ -3,6 +3,7 @@ from oldnyc.geocode.coders.title_pattern import (
     TitleCrossCoder,
     clean_and_strip_title,
     extract_braced_clauses,
+    rewrite_directional_street,
 )
 from oldnyc.item import blank_item
 
@@ -278,8 +279,8 @@ def test_address_coder():
     assert coder.codeRecord(item) == {
         "type": ["street_address", "premise"],
         "source": "38th Street (West) #247",
-        "address": "247 38th Street (West), Manhattan, NY",
-        "data": ("247", "38th Street (West)", "Manhattan"),
+        "address": "247 W 38th Street, Manhattan, NY",
+        "data": ("247", "W 38th Street", "Manhattan"),
     }
 
     # 1508975
@@ -290,6 +291,22 @@ def test_address_coder():
         "address": "4 Bowery Street, Manhattan, NY",
         "data": ("4", "Bowery Street", "Manhattan"),
     }
+
+    # 1507871
+    item.title = "34th Street (West) #167"
+    assert coder.codeRecord(item) == {
+        "type": ["street_address", "premise"],
+        "source": "34th Street (West) #167",
+        "address": "167 W 34th Street, Manhattan, NY",
+        "data": ("167", "W 34th Street", "Manhattan"),
+    }
+
+
+def test_rewrite_directional_street():
+    assert rewrite_directional_street("34th Street (West)") == "W 34th Street"
+    assert rewrite_directional_street("5th Avenue") == "5th Avenue"
+    assert rewrite_directional_street("51st Street (East)") == "E 51st Street"
+    assert rewrite_directional_street("8th Street (South)") == "S 8th Street"
 
 
 # More to look at:

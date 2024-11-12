@@ -222,6 +222,15 @@ streets_pat = r"(?:St\.|Street|Place|Pl\.|Road|Rd\.|Avenue|Ave\.|Av\.|Boulevard|
 address1_re = re.compile(rf"^([^-:;]+ {streets_pat}) #(\d+)")
 
 
+def rewrite_directional_street(street: str) -> str:
+    """Rewrite "34th Street (West)" -> "W 34th Street"."""
+    m = re.match(r"(\d+(?:th|st|nd|rd)) Street \((North|South|East|West)\)", street)
+    if m:
+        num, dir = m.groups()
+        return f"{dir[0]} {num} Street"
+    return street
+
+
 class TitleAddressCoder(Coder):
     def __init__(self):
         self.n_matches = 0
@@ -237,6 +246,7 @@ class TitleAddressCoder(Coder):
                 street, num = m.groups()
                 boro = guess_borough(r) or "Manhattan"
                 self.n_matches += 1
+                street = rewrite_directional_street(street)
                 return Locatable(
                     type=["street_address", "premise"],
                     source=m.group(0),
