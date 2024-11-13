@@ -13,7 +13,6 @@ from oldnyc.geocode import grid
 from oldnyc.geocode.boroughs import boroughs_pat, guess_borough, point_to_borough
 from oldnyc.geocode.coders.coder_utils import get_lat_lng_from_geocode
 from oldnyc.geocode.geocode_types import Coder, Locatable
-from oldnyc.geocode.record import clean_title
 from oldnyc.item import Item
 
 # Borough: str1 - str2
@@ -53,7 +52,7 @@ def strip_trivia(txt: str) -> str:
 
 
 def clean_and_strip_title(title: str) -> str:
-    title = clean_title(title)
+    title = title.replace("[", "").replace("]", "")
     title = re.sub(r" +:", ":", title)
     # east side
     # west corner
