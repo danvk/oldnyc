@@ -25,6 +25,32 @@ class SpecialCasesCoder(Coder):
                 data=(40.779554, -73.988017),
             )
 
+        if "Cathedral of St. John the Divine (New York, N.Y.)" in r.subject.name:
+            return Locatable(
+                address="Cathedral of St. John the Divine, New York, N.Y.",
+                source="Cathedral of St. John the Divine",
+                type="address",
+                data=(40.8038356, -73.9618754),
+            )
+
+        if "Mount Sinai Hospital (New York, N.Y.)" in r.subject.name:
+            return Locatable(
+                address="Mount Sinai Hospital, New York, N.Y.)",
+                source="Mount Sinai Hospital",
+                type="address",
+                data=(40.789196, -73.954817),
+            )
+
+        titles = [r.title] + r.alt_title
+        for title in titles:
+            if title.startswith("Manhattan: Columbus Circle"):
+                return Locatable(
+                    address="Columbus Circle, Manhattan, N.Y.",
+                    source="Columbus Circle",
+                    type="address",
+                    data=(40.767758, -73.9821527),
+                )
+
     def getLatLonFromLocatable(self, r, data):
         assert "data" in data
         return data["data"]
