@@ -84,6 +84,11 @@ if __name__ == "__main__":
         help="Print Google Maps geocoding queries as they're performed.",
     )
     parser.add_argument(
+        "--cache_hits_file",
+        type=str,
+        help="Write a list of geocache hits to this file; can be fed to purge_geocache.py.",
+    )
+    parser.add_argument(
         "-o",
         "--output_format",
         default="",
@@ -231,3 +236,9 @@ if __name__ == "__main__":
         pass
     else:
         raise ValueError(args.output_format)
+
+    if args.cache_hits_file:
+        assert g
+        with open(args.cache_hits_file, "w") as out:
+            out.write("\n".join(g._touched_cache_files))
+            out.write("\n")
