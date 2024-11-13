@@ -16,9 +16,7 @@ from dotenv import load_dotenv
 
 from oldnyc.geocode import generate_js, geocoder
 from oldnyc.geocode.coders import (
-    extended_grid,
     gpt,
-    milstein,
     special_cases,
     subjects,
     title_pattern,
@@ -29,8 +27,6 @@ from oldnyc.item import Item, load_items
 CODERS: dict[str, Callable[[], Coder]] = {
     "title-cross": title_pattern.TitleCrossCoder,
     "title-address": title_pattern.TitleAddressCoder,
-    "extended-grid": extended_grid.ExtendedGridCoder,
-    "milstein": milstein.MilsteinCoder,
     "subjects": subjects.SubjectsCoder,
     "gpt": gpt.GptCoder,
     "special": special_cases.SpecialCasesCoder,
@@ -52,7 +48,7 @@ if __name__ == "__main__":
     parser.add_argument(
         "-c",
         "--coders",
-        default="title-cross,title-address,gpt,special,subjects,extended-grid,milstein",
+        default="title-cross,title-address,gpt,special,subjects",
         help="Set to a comma-separated list of coders. Coders run in the specified order.",
     )
 

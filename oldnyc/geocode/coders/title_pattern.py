@@ -12,7 +12,6 @@ from natsort import natsorted
 from oldnyc.geocode import grid
 from oldnyc.geocode.boroughs import boroughs_pat, guess_borough, point_to_borough
 from oldnyc.geocode.coders.coder_utils import get_lat_lng_from_geocode
-from oldnyc.geocode.coders.extended_grid import parse_street_ave
 from oldnyc.geocode.geocode_types import Coder, Locatable
 from oldnyc.geocode.record import clean_title
 from oldnyc.item import Item
@@ -180,7 +179,7 @@ class TitleCrossCoder(Coder):
         if boro != "Manhattan":
             return None
         try:
-            avenue, street = parse_street_ave(str1, str2)
+            avenue, street = grid.parse_street_ave(str1, str2)
             latlon = grid.code(avenue, street)
             if latlon:
                 self.n_grid += 1

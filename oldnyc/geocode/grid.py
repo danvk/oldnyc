@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 import csv
+import re
 import sys
 from collections import Counter, defaultdict
 from typing import Sequence
@@ -153,6 +154,86 @@ def code(avenue: str, street: str) -> tuple[float, float] | None:
 
     num_extrapolated += 1
     return extrapolate_intersection(avenue, int(street))
+
+
+ORDINALS = {
+    "First": 1,
+    "Second": 2,
+    "Third": 3,
+    "Fourth": 4,
+    "Fifth": 5,
+    "Sixth": 6,
+    "Seventh": 7,
+    "Eighth": 8,
+    "Ninth": 9,
+    "Tenth": 10,
+    "Eleventh": 11,
+    "Twelfth": 12,
+    # Some NYC-specific stuff
+    "Amsterdam": 10,
+    r"\bPark\b": 4,  # the \b's prevent this from matching, e.g., 'Parkway'
+    "Columbus": 9,
+    "West End": 11,
+    "Lenox": 6,  # Now Malcolm X
+}
+
+
+def parse_street_ave(street1: str, street2: str) -> tuple[str, str]:
+    # try to get the avenue in street1
+    if re.search(r"str|st\.|\bst\b", street1, flags=re.I):
+        street2, street1 = street1, street2
+
+    if not re.search(r"ave", street1, flags=re.I):
+        raise ValueError("%s is not an avenue" % street1)
+
+    if not re.search(r"str|st\.|\bst\b", street2, flags=re.I):
+        raise ValueError("%s is not a street" % street2)
+
+    street1 = remove_parens(street1)
+    street2 = remove_parens(street2)
+    street2 = re.sub(r"West|East", "", street2, flags=re.I)
+
+    # pull the number from the street string
+    num = extract_ordinal(street2)
+    if num is None:
+        raise ValueError("Unable to find a number in %s" % street2)
+    street2 = str(num)
+
+    # Try the same for the avenue
+    num = extract_ordinal(street1)
+    if num is not None:
+        street1 = str(num)
+    else:
+        # Look for something like 'Avenue A'
+        m = re.search(r"[aA]venue (A|B|C|D)", street1)
+        if m:
+            street1 = m.group(1)
+        else:
+            # How about 'Fourth', 'Fifth'?
+            num = multisearch(ORDINALS, street1)
+            if num is not None:
+                street1 = str(num)
+            else:
+                raise ValueError("Did not find an avenue in %s" % street1)
+
+    return street1, street2
+
+
+def remove_parens(txt: str):
+    return re.sub(r"\([^)]+\)", "", txt)
+
+
+def extract_ordinal(txt: str):
+    m = re.search(r"(\d+)(?:st|nd|rd|th) ", txt)
+    return int(m.group(1)) if m else None
+
+
+def multisearch(re_dict, txt):
+    """Search for any of the keys. Given a match, return the value."""
+    for k, v in re_dict.items():
+        if re.search(k, txt, flags=re.I):
+            return v
+    return None
 
 
 if __name__ == "__main__":

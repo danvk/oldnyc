@@ -52,9 +52,6 @@ class Item:
 
     back_text_source: Optional[Literal["site", "gpt"]]
 
-    address: Optional[str]
-    """Possible address from original CSV. Unclear provenance."""
-
     source: str
     """Collection / sub-collection name"""
 
@@ -84,7 +81,6 @@ def blank_item() -> Item:
         back_id=None,
         back_text_source=None,
         back_text=None,
-        address=None,
         subject=Subject(name=[], temporal=[], geographic=[], topic=[]),
         source="Milstein",
         photo_url="https://images.nypl.org/?id=PHOTO_ID&t=w",

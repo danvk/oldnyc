@@ -33,3 +33,20 @@ def test_may_extrapolate():
     assert not grid.may_extrapolate("D", "25")
     assert not grid.may_extrapolate("7", "10")
     assert not grid.may_extrapolate("B", "93")  # 723557f-c
+
+
+def test_parse_street_ave():
+    assert grid.parse_street_ave("122nd St", "1st Ave") == ("1", "122")
+    assert grid.parse_street_ave("1st Ave", "122nd St") == ("1", "122")
+    assert grid.parse_street_ave("18th Street", "Avenue A") == ("A", "18")
+    assert grid.parse_street_ave("18th Street (West)", "4th Avenue") == ("4", "18")
+
+    # 711722f
+    assert grid.parse_street_ave("9th Avenue", "23rd Street (West)") == ("9", "23")
+
+    # 464848
+    assert grid.parse_street_ave("West End Avenue", "106th Street") == ("11", "106")
+    assert grid.parse_street_ave("Stanley Court, corner West End Avenue", "106th Street") == (
+        "11",
+        "106",
+    )

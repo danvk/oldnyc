@@ -79,8 +79,6 @@ def run():
 
         date_str = row["CREATED_DATE"]
 
-        full_address = row["Full Address"].strip()
-
         title = row["IMAGE_TITLE"].strip()
         assert title
 
@@ -237,7 +235,6 @@ def run():
             back_id=back_id,
             creator=clean_creator(creator) or None,
             source=source,
-            address=full_address,
             back_text=back_text,
             back_text_source=back_text_source,
             subject=Subject(name=names, temporal=temporals, geographic=geographics, topic=topics),
