@@ -11,24 +11,25 @@ from oldnyc.item import Item, load_items
 
 # See https://cookbook.openai.com/examples/batch_processing
 SYSTEM_INSTRUCTIONS = """
-Your goal is to extract location information from JSON describing a photograph taken in New York City.
-The location information might be a list of streets, an address, or a place name. Extract all possible
-sources of location information.
-It's also possible that there's no location information, or that the photo was not taken in New York City.
+Your goal is to extract location information from JSON describing a photograph taken in New York City. The location information should be either an intersection of two streets, a place name, or an address. It's also possible that there's no location information, or that the photo was not taken in New York City.
 
 Respond in JSON matching the following TypeScript interface:
 
 {
-  /** Street address, if present */
-  address?: {number: number; street: string};
-  /** Any street names found in the JSON. No duplicates. */
-  streets?: string[];
-  /** Any place name (other than streets) found in the JSON. */
-  place_name?: string;
-  /** Set this if the photo was not taken in NYC. */
-  not_in_nyc?: boolean;
-  /** Set this if there's no location information in the JSON. */
-  no_location_information?: boolean;
+  type: "intersection";
+  street1: string;
+  street2: string;
+} | {
+  type: "address";
+  number: number;
+  street: string;
+} | {
+  type: "place_name";
+  place_name: string;
+} | {
+  type: "no location information";
+} | {
+  type: "not in NYC";
 }
 """
 
