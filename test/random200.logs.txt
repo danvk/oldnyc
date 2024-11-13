@@ -1,7 +1,6 @@
 Filtered to 200/41463 records with --ids_filter (200)
 Borough mismatch: 713577f: Manhattan: 51st Street - 19th Avenue geocoded to Brooklyn not Manhattan
 gpt Borough mismatch: 713577f: 19th Avenue and 51st Street geocoded to Brooklyn not Manhattan
-Borough mismatch: "51st Street & 19th Avenue, Manhattan, NY" (Manhattan) geocoded to Brooklyn
 Failed to guess borough for 417677
 Rejecting extrapolation for 7, 12
 Failed to guess borough for 417208
@@ -10,7 +9,6 @@ Failed to guess borough for 731946f
 Failed to guess borough for 732005f
 Borough mismatch: 704487f: Brooklyn: Fulton Street - Nassau Street geocoded to Manhattan not Brooklyn
 gpt Borough mismatch: 704487f: Fulton Street and Nassau Street geocoded to Manhattan not Brooklyn
-Borough mismatch: "Fulton Street & Nassau Street, Brooklyn, NY" (Brooklyn) geocoded to Manhattan
 Failed to guess borough for 417391
 Failed to guess borough for 731060f
 Failed to guess borough for 733310f
@@ -57,19 +55,10 @@ POI/subject geocoding:
    4	n_title
    2	n_title_bridge
    2	n_title_island
--- Finalizing extended-grid --
-       num_exact: 48
-num_extrapolated: 7
-   num_unclaimed: 6
-  unknown avenues: [('19', 3)]
-  unknown streets: [('175', 1), ('172', 1), ('126', 1)]
--- Finalizing milstein --
 -- Final stats --
   131 title-cross
     3 title-address
    17 gpt
     1 special
     9 subjects
-    0 extended-grid
-    0 milstein
   161 (total)
