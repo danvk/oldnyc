@@ -44,6 +44,19 @@ GPT geocoding results:
           google: 13
    boro mismatch: 2
         failures: 15
+-- Finalizing special --
+Special cases: [('Columbus Circle', 1)]
+-- Finalizing subjects --
+POI/subject geocoding:
+   4	n_both
+   9	n_geo
+   9	n_geo_unambig
+   4	n_out_both_close
+   5	n_out_subject
+   4	n_out_title
+   4	n_title
+   2	n_title_bridge
+   2	n_title_island
 -- Finalizing extended-grid --
        num_exact: 48
 num_extrapolated: 7
@@ -51,22 +64,12 @@ num_extrapolated: 7
   unknown avenues: [('19', 3)]
   unknown streets: [('175', 1), ('172', 1), ('126', 1)]
 -- Finalizing milstein --
--- Finalizing subjects --
-POI/subject geocoding:
-   4	n_both
-  10	n_geo
-  10	n_geo_unambig
-   4	n_out_both_close
-   6	n_out_subject
-   4	n_out_title
-   4	n_title
-   2	n_title_bridge
-   2	n_title_island
 -- Final stats --
   131 title-cross
     3 title-address
    17 gpt
+    1 special
+    9 subjects
     0 extended-grid
     0 milstein
-   10 subjects
   161 (total)

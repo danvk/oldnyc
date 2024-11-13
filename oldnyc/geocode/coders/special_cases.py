@@ -56,7 +56,7 @@ class SpecialCasesCoder(Coder):
                     address="Columbus Circle, Manhattan, N.Y.",
                     source="Columbus Circle",
                     type="address",
-                    data=(40.767758, -73.9821527),
+                    data=(40.76808, -73.981896),
                 )
 
     def getLatLonFromLocatable(self, r, data):

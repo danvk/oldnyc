@@ -96,7 +96,7 @@
 703479f	failed	n/a	n/a
 718754f	title-cross	(40.7121586, -73.9806996)	Manhattan: Cherry Street - Jackson Street
 703755f	title-cross	(40.6739616, -74.0080168)	Brooklyn: Columbia Street - Creamer Street
-719118f	subjects	(40.76808, -73.981896)	Columbus Circle (New York, N.Y.)
+719118f	special	(40.76808, -73.981896)	Columbus Circle
 733706f	failed	n/a	n/a
 732005f	subjects	(40.574926, -73.985941)	Islands - Coney Island 
 1509541	failed	n/a	n/a
