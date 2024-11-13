@@ -116,7 +116,7 @@ def output_geojson(located_recs: list[LocatedRecord], all_recs: list[Item]):
                     "thumb_url": f"http://images.nypl.org/?id={r.id}&t=w",
                 },
                 "url": r.url,
-                "nypl_fields": {"alt_title": r.alt_title, "address": r.address},
+                "nypl_fields": {"alt_title": r.alt_title},
             },
         }
         features.append(feature)

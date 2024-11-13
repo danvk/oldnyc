@@ -155,7 +155,6 @@ def make_response(photo_ids: Iterable[str]):
             "id": photo_id,
             "title": title,
             **date_fields,
-            "folder": r.address,
             "width": w,
             "height": h,
             "text": ocr_text,

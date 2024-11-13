@@ -14,7 +14,6 @@ class DateFields(TypedDict):
 
 
 class SiteItem(DateFields):
-    folder: Optional[str]
     width: int
     height: int
     title: str

@@ -43,14 +43,14 @@ if __name__ == "__main__":
         data: GptResponse = json.loads(data_str)
         # gpt_location = data["location"]
 
-        csv_location = id_to_records[photo_id].address
+        # csv_location = id_to_records[photo_id].address
         # is_match = scrub(gpt_location) == scrub(csv_location or "")
 
         # if not is_match:
         print("Photo ID:", photo_id)
         print("Input:", json.dumps(input, indent=2))
         print("GPT:  ", data)
-        print("CSV:  ", csv_location)
+        # print("CSV:  ", csv_location)
         # print("Match:", is_match)
 
         print("\n\n----\n\n")
