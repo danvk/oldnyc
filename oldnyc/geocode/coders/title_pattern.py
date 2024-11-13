@@ -10,14 +10,12 @@ from collections import Counter
 from natsort import natsorted
 
 from oldnyc.geocode import grid
-from oldnyc.geocode.boroughs import point_to_borough
+from oldnyc.geocode.boroughs import boroughs_pat, guess_borough, point_to_borough
 from oldnyc.geocode.coders.coder_utils import get_lat_lng_from_geocode
 from oldnyc.geocode.coders.extended_grid import parse_street_ave
 from oldnyc.geocode.geocode_types import Coder, Locatable
 from oldnyc.geocode.record import clean_title
 from oldnyc.item import Item
-
-boroughs_pat = r"(?:Manhattan|Brooklyn|Queens|Bronx|Staten Island|Richmond)"
 
 # Borough: str1 - str2
 # Manhattan: 10th Street (East) - Broadway
@@ -81,7 +79,28 @@ def extract_braced_clauses(txt: str) -> list[str]:
     return re.findall(r"\[([^\[\]]+)\]", txt)
 
 
-class TitlePatternCoder(Coder):
+def extract_titles(r: Item) -> list[str]:
+    titles = [r.title] + r.alt_title
+    titles += [clause for t in titles for clause in extract_braced_clauses(t)]
+    splits = []
+    for title in titles:
+        if ";" in title:
+            splits.extend(t.strip() for t in title.split(";"))
+    titles += splits
+    return titles
+
+
+def punctuate(street: str) -> str:
+    """Add a trailing dot to a street if it might make sense"""
+    # Blvd intentionally omitted
+    if street.endswith(
+        ("St", "Ave", "Rd", "Hwy", "Pl", "S", "N", "E", "W")
+    ) and not street.endswith(("Avenue S", "Avenue N", "Avenue W", "Avenue E", "Ave. W")):
+        return street + "."
+    return street
+
+
+class TitleCrossCoder(Coder):
     def __init__(self):
         self.n_title = 0
         self.n_alt_title = 0
@@ -94,14 +113,7 @@ class TitlePatternCoder(Coder):
         self.n_boro_mismatch = 0
 
     def findMatch(self, r):
-        titles = [r.title] + r.alt_title
-        titles += [clause for t in titles for clause in extract_braced_clauses(t)]
-        splits = []
-        for title in titles:
-            if ";" in title:
-                splits.extend(t.strip() for t in title.split(";"))
-        titles += splits
-
+        titles = extract_titles(r)
         adds = [False, True] if is_in_manhattan(r) else [False]
 
         for add in adds:
@@ -148,6 +160,10 @@ class TitlePatternCoder(Coder):
         (str1, str2) = sorted((str1, str2))  # try to increase cache coherence
         boro = boro.replace("Richmond", "Staten Island")
 
+        # This makes the streets look more like the milstein coder, which
+        # improves cache coherence and consistency.
+        str1 = punctuate(str1)
+        str2 = punctuate(str2)
         assert src
         out: Locatable = {
             "type": "intersection",
@@ -190,7 +206,7 @@ class TitlePatternCoder(Coder):
             )
             return None
         self.n_google_location += 1
-        return (lat, lng)
+        return round(float(lat), 7), round(float(lng), 7)
 
     def finalize(self):
         sys.stderr.write(f"    titles matched: {self.n_title}\n")
@@ -204,4 +220,89 @@ class TitlePatternCoder(Coder):
         sys.stderr.write(f"        failures: {self.n_geocode_fail}\n")
 
     def name(self):
-        return "title-pattern"
+        return "title-cross"
+
+
+# Cribbed from milstein.py, which I hope to delete.
+# (?P<street1>[^#]+)
+streets_pat = r"(?:St\.|Street|Place|Pl\.|Road|Rd\.|Avenue|Ave\.|Av\.|Boulevard|Blvd\.|Broadway|Parkway|Pkwy\.|Pky\.|Street \(West\)|Street \(East\))"
+
+address1_re = re.compile(rf"^([^-:;]+ {streets_pat}) #(\d+)")
+address2_re = re.compile(rf"^(\d+) ([^-:;]+ {streets_pat})")
+
+ADDR_PATTERNS = [
+    ("street_pound", address1_re),
+    ("num_street", address2_re),
+]
+
+
+def rewrite_directional_street(street: str) -> str:
+    """Rewrite "34th Street (West)" -> "W 34th Street"."""
+    m = re.match(r"(\d+(?:th|st|nd|rd)) Street \((North|South|East|West)\)", street)
+    if m:
+        num, dir = m.groups()
+        return f"{dir[0]} {num} Street"
+    return street
+
+
+class TitleAddressCoder(Coder):
+    def __init__(self):
+        self.n_matches = 0
+        self.n_success = 0
+        self.n_geocode_fail = 0
+        self.n_boro_mismatch = 0
+        self.patterns = Counter[str]()
+
+    def codeRecord(self, r):
+        titles = extract_titles(r)
+        for t in titles:
+            for name, pat in ADDR_PATTERNS:
+                m = re.search(pat, t)
+                if m:
+                    # TODO: use named capture groups
+                    if name == "num_street":
+                        num, street = m.groups()
+                    else:
+                        street, num = m.groups()
+                    boro = guess_borough(r) or "Manhattan"
+                    self.n_matches += 1
+                    street = rewrite_directional_street(street)
+                    self.patterns[name] += 1
+                    return Locatable(
+                        type=["street_address", "premise"],
+                        source=m.group(0),
+                        address=f"{num} {street}, {boro}, NY",
+                        data=(num, street, boro),
+                    )
+
+    def getLatLonFromLocatable(self, r, data):
+        return None
+
+    def getLatLonFromGeocode(self, geocode, data, record):
+        assert "data" in data
+        ssb: tuple[str, str, str] = data["data"]
+        (str1, str2, boro) = ssb
+        tlatlng = get_lat_lng_from_geocode(geocode, data)
+        if not tlatlng:
+            self.n_geocode_fail += 1
+            return None
+        _, lat, lng = tlatlng
+        geocode_boro = point_to_borough(lat, lng)
+        if geocode_boro != boro:
+            self.n_boro_mismatch += 1
+            sys.stderr.write(
+                f'Borough mismatch: {record.id}: {data["source"]} geocoded to {geocode_boro} not {boro}\n'
+            )
+            return None
+        self.n_success += 1
+        return round(float(lat), 7), round(float(lng), 7)
+
+    def finalize(self):
+        sys.stderr.write(f" address matches: {self.n_matches}\n")
+        sys.stderr.write(f"   boro mismatch: {self.n_boro_mismatch}\n")
+        sys.stderr.write(f"        failures: {self.n_geocode_fail}\n")
+        sys.stderr.write(f"         success: {self.n_success}\n")
+        sys.stderr.write(f"        patterns: {self.patterns.most_common()}\n")
+
+    def name(self):
+        return "title-address"

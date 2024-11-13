@@ -4,13 +4,9 @@
 import json
 import re
 import sys
+from collections import Counter
 
-from oldnyc.ingest.util import BOROUGHS
-
-IGNORE_GEOCODES = {
-    "not in NYC",
-    "no location information",
-}
+from oldnyc.geocode.geogpt.generate_batch import GptResponse
 
 
 def patch_query(q: str) -> str:
@@ -27,43 +23,16 @@ def patch_query(q: str) -> str:
     return q
 
 
-def enforce_structure(data: dict) -> dict:
-    if "type" not in data:
-        if "place_name" in data:
-            data["type"] = "place_name"
-        elif "street1" in data:
-            data["type"] = "intersection"
-        elif "number" in data:
-            data["type"] = "address"
+def is_suspicious_address(n: int | str, s: str):
+    return bool(re.search(r"\b" + str(n) + r"(?:st|nd|rd|th)\b", s))
 
-    dump = json.dumps(data)
-    if (
-        '"no location information"' in dump
-        or '"unknown"' in dump
-        or data.get("borough") not in BOROUGHS
-    ):
-        return {"type": "no_location"}
 
-    assert data["type"] in ("place_name", "intersection", "address", "no_location")
-    if data["type"] == "intersection":
-        assert "street1" in data
-        assert "street2" in data
-        assert "borough" in data
-    elif data["type"] == "address":
-        assert "number" in data
-        assert "street" in data
-        assert "borough" in data
-    elif data["type"] == "place_name":
-        assert "place_name" in data
-        assert "borough" in data
-
-    return data
-
+TYPES = {"intersection", "place_name", "address", "no location information", "not in NYC"}
 
 if __name__ == "__main__":
     out = {}
-    n_unlocated = 0
-    n_type = 0
+    by_type = Counter[str]()
+    n_dropped = 0
     for path in sys.argv[1:]:
         outputs = [json.loads(line) for line in open(path)]
         for r in outputs:
@@ -73,18 +42,29 @@ if __name__ == "__main__":
             choices = response["body"]["choices"]
             assert len(choices) == 1
             data_str = choices[0]["message"]["content"]
-            data = json.loads(data_str)
-            data = enforce_structure(data)
-            if "type" in data:
-                n_type += 1
-            if data.get("type") == "no_location":
-                n_unlocated += 1
-            # gpt_location = data["location"]
-            # if gpt_location in IGNORE_GEOCODES:
-            #     continue
+            data: GptResponse = json.loads(data_str)
+            # data = enforce_structure(data)
+            assert "type" in data
+
+            if data["type"] not in TYPES:
+                n_dropped += 1
+                sys.stderr.write(f"Weirdo alert! {id}: {data}\n")
+                continue
+
+            if data["type"] == "address" and not data["number"]:
+                n_dropped += 1
+                continue
+
+            if data["type"] == "address" and is_suspicious_address(data["number"], data["street"]):
+                # While possible, this seems to always be a mistake.
+                sys.stderr.write(f"Number and street are the same: {id}: {data}\n")
+                n_dropped += 1
+                continue
+
+            by_type[data["type"]] += 1
             out[id] = data
 
     print(json.dumps(out, indent=2, sort_keys=True))
     sys.stderr.write(f"{len(out)} records\n")
-    sys.stderr.write(f"{n_type=}\n")
-    sys.stderr.write(f"{n_unlocated=}\n")
+    sys.stderr.write(f"{by_type.most_common()}\n")
+    sys.stderr.write(f"{n_dropped} records dropped\n")

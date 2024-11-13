@@ -15,16 +15,25 @@ from typing import Callable
 from dotenv import load_dotenv
 
 from oldnyc.geocode import generate_js, geocoder
-from oldnyc.geocode.coders import extended_grid, gpt, milstein, subjects, title_pattern
+from oldnyc.geocode.coders import (
+    extended_grid,
+    gpt,
+    milstein,
+    special_cases,
+    subjects,
+    title_pattern,
+)
 from oldnyc.geocode.geocode_types import Coder, Locatable
 from oldnyc.item import Item, load_items
 
 CODERS: dict[str, Callable[[], Coder]] = {
-    "title-pattern": title_pattern.TitlePatternCoder,
+    "title-cross": title_pattern.TitleCrossCoder,
+    "title-address": title_pattern.TitleAddressCoder,
     "extended-grid": extended_grid.ExtendedGridCoder,
     "milstein": milstein.MilsteinCoder,
     "subjects": subjects.SubjectsCoder,
     "gpt": gpt.GptCoder,
+    "special": special_cases.SpecialCasesCoder,
 }
 
 if __name__ == "__main__":
@@ -43,7 +52,7 @@ if __name__ == "__main__":
     parser.add_argument(
         "-c",
         "--coders",
-        default="title-pattern,extended-grid,milstein,subjects",
+        default="title-cross,title-address,gpt,special,subjects,extended-grid,milstein",
         help="Set to a comma-separated list of coders. Coders run in the specified order.",
     )
 
@@ -68,6 +77,11 @@ if __name__ == "__main__":
         "--print_records",
         action="store_true",
         help="Set to print out records as they're coded.",
+    )
+    parser.add_argument(
+        "--print_geocodes",
+        action="store_true",
+        help="Print Google Maps geocoding queries as they're performed.",
     )
     parser.add_argument(
         "-o",
@@ -98,8 +112,8 @@ if __name__ == "__main__":
         g = None
 
     geocoders = [CODERS[coder_name]() for coder_name in args.coders.split(",")]
-    for geocoder in geocoders:
-        CODERS[geocoder.name()]  # keep the dict in sync with the name() methods
+    for coder in geocoders:
+        CODERS[coder.name()]  # keep the dict in sync with the name() methods
 
     # TODO(danvk): does this belong here?
     lat_lon_map: dict[str, str] = {}
@@ -154,6 +168,9 @@ if __name__ == "__main__":
                     geocode_result = None
                     address = location_data["address"]
                     try:
+                        if args.print_geocodes:
+                            geocache = geocoder.cache_file_name(address)
+                            print(f'{r.id} {c.name()}: Geocoding "{address}" ({geocache})')
                         geocode_result = g.Locate(address, True, r.id)
                     except urllib.error.HTTPError as e:
                         if e.status == 400:
@@ -193,8 +210,10 @@ if __name__ == "__main__":
 
     # Let each geocoder know we're done. This is useful for printing debug info.
     for c in geocoders:
+        sys.stderr.write(f"-- Finalizing {c.name()} --\n")
         c.finalize()
 
+    sys.stderr.write("-- Final stats --\n")
     successes = 0
     for c in geocoders:
         sys.stderr.write("%5d %s\n" % (stats[c.name()], c.name()))

@@ -1,26 +1,7 @@
-from oldnyc.geocode.geogpt.extract_gpt_geocodes import patch_query
+from oldnyc.geocode.geogpt.extract_gpt_geocodes import is_suspicious_address
 
 
-def test_patch_query():
-    assert (
-        patch_query("4514 16th Avenue & 46th Street, Brooklyn, NY")
-        == "16th Avenue & 46th Street, Brooklyn, NY"
-    )
-    assert (
-        patch_query("131-135 Pitt St & E Houston St, Manhattan, NY")
-        == "Pitt St & E Houston St, Manhattan, NY"
-    )
-    assert (
-        patch_query("334-336 Atlantic Avenue, Brooklyn, NY") == "336 Atlantic Avenue, Brooklyn, NY"
-    )
-
-
-def test_do_not_patch_query():
-    assert (
-        patch_query("112 Schermerhorn Street, Brooklyn, NY")
-        == "112 Schermerhorn Street, Brooklyn, NY"
-    )
-    assert (
-        patch_query("18th Avenue & 75th Street, Brooklyn, NY")
-        == "18th Avenue & 75th Street, Brooklyn, NY"
-    )
+def test_is_suspicious_address():
+    assert is_suspicious_address(1, "1st Street")
+    assert is_suspicious_address(155, "155th Street (West)")
+    assert not is_suspicious_address(3, "East 83rd Street")
