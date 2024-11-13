@@ -42,10 +42,12 @@ class Geocoder:
         self._wait_time = wait_time
         self._last_fetch = 0
         self._api_key = api_key
+        self._touched_cache_files = set()
 
     def _check_cache(self, loc: str):
         """Returns cached results for the location or None if not available."""
         cache_file = cache_file_name(loc)
+        self._touched_cache_files.add(cache_file)
         if CacheDebug:
             sys.stderr.write("Checking %s\n" % cache_file)
         try:
