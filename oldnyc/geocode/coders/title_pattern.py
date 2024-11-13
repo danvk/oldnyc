@@ -206,7 +206,7 @@ class TitleCrossCoder(Coder):
             )
             return None
         self.n_google_location += 1
-        return (lat, lng)
+        return round(float(lat), 7), round(float(lng), 7)
 
     def finalize(self):
         sys.stderr.write(f"    titles matched: {self.n_title}\n")
@@ -295,7 +295,7 @@ class TitleAddressCoder(Coder):
             )
             return None
         self.n_success += 1
-        return (lat, lng)
+        return round(float(lat), 7), round(float(lng), 7)
 
     def finalize(self):
         sys.stderr.write(f" address matches: {self.n_matches}\n")

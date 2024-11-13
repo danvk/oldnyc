@@ -30,17 +30,18 @@ alt titles matched: 0
    boro mismatch: 2
         failures: 17
 -- Finalizing title-address --
- address matches: 2
+ address matches: 3
    boro mismatch: 0
         failures: 0
-         success: 2
+         success: 3
+        patterns: [('street_pound', 2), ('num_street', 1)]
 -- Finalizing gpt --
 GPT POI:          24
-GPT address:      4
+GPT address:      3
 GPT intersection: 31
 GPT geocoding results:
             grid: 4
-          google: 14
+          google: 13
    boro mismatch: 2
         failures: 15
 -- Finalizing extended-grid --
@@ -63,8 +64,8 @@ POI/subject geocoding:
    2	n_title_island
 -- Final stats --
   131 title-cross
-    2 title-address
-   18 gpt
+    3 title-address
+   17 gpt
     0 extended-grid
     0 milstein
    10 subjects
