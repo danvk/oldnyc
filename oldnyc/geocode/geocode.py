@@ -52,7 +52,7 @@ if __name__ == "__main__":
     parser.add_argument(
         "-c",
         "--coders",
-        default="title-pattern,extended-grid,milstein,subjects",
+        default="title-cross,title-address,gpt,special,subjects,extended-grid,milstein",
         help="Set to a comma-separated list of coders. Coders run in the specified order.",
     )
 
