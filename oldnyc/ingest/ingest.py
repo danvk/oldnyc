@@ -44,47 +44,6 @@ OTHER_OUTSIDE = {
 }
 
 
-CREATOR_PATCHES = {
-    "Welles, Burton F. (Burton Frederick), 1872-": "Welles & Co.--Publisher",
-    "Sperr, Percy Loomis, 1890-1964": "Sperr, Percy Loomis",
-    "Wurts Bros. (New York, N.Y.)": "Wurts Brothers",
-    "Ewing Galloway (Agency)": "Galloway, Ewing",
-    "Underhill, Irving, -1960": "Underhill, Irving,d. 1960",
-    "Tiemann, Hermann Newell (1863-1957)": "Tiemann, Hermann Newell",
-    "Fass, John S. (John Stroble), 1890-1973": "Fass, John S. (John Stroble),b. 1890",
-    "Van der Weyde, William M. (William Manley), 1870-1928": "Van der Weyde, William M. (William Manley)",
-    "Abbott, Berenice, 1898-1991": "Abbott, Berenice",
-    "Fairchild Aerial Surveys, inc.": "Fairchild Aerial Surveys, Inc.",
-    "Armbruster, Eugene L., 1865-1943": "Armbruster, Eugene L.",
-}
-
-SOURCE_PATCHES = {
-    "Fifth Avenue, New York, from start to finish": "Fifth Avenue, New York, from start to finish.",
-    "Itineraire pittoresque du fleuve Hudson et des parties laterales de l'Amerique du Nord, d'apres les dessins originaux pris sur les lieux. Atlas": "Itineraire pittoresque du fleuve Hudson et des parties laterales de l'Amerique du Nord, d'apres les dessins originaux pris sur les lieux. Atlas.",
-    "Apartment houses of the metropolis": "Apartment houses of the metropolis.",
-    "Amerique septentrionale : vues des chutes du Niagara": "Amerique septentrionale : vues des chutes du Niagara.",
-    "Photographic views of New York City, 1870's-1970's. Supplement. / Manhattan": "Photographic views of New York City, 1870's-1970's, from the collections of the New York Public Library. Supplement.  / Manhattan",
-    "Photographic views of New York City, 1870's-1970's. Supplement. / Brooklyn": "Photographic views of New York City, 1870's-1970's, from the collections of the New York Public Library. Supplement.  / Brooklyn",
-    "Photographic views of New York City, 1870's-1970's. Supplement. / Queens": "Photographic views of New York City, 1870's-1970's, from the collections of the New York Public Library. Supplement.  / Queens",
-    "Photographic views of New York City, 1870's-1970's. Supplement. / Bronx": "Photographic views of New York City, 1870's-1970's, from the collections of the New York Public Library. Supplement.  / Bronx",
-    "Photographic views of New York City, 1870's-1970's. Supplement. / Topics": "Photographic views of New York City, 1870's-1970's, from the collections of the New York Public Library. Supplement.  / Topics",
-    "Collection of photographs of New York City / Manhattan": "[Collection of photographs of New York City.] / [Wurts Brothers, photographer] / Manhattan",
-    "Collection of photographs of New York City / Brooklyn": "[Collection of photographs of New York City.] / [Wurts Brothers, photographer] / Brooklyn",
-    "Collection of photographs of New York City / Bronx": "[Collection of photographs of New York City.] / [Wurts Brothers, photographer] / Bronx",
-    "Collection of photographs of New York City / Queens": "[Collection of photographs of New York City.] / [Wurts Brothers, photographer] / Queens",
-    "Collection of photographs of New York City / Subjects": "[Collection of photographs of New York City.] / [Wurts Brothers, photographer] / Subjects",
-    "Collection of photographs of New York City, 1931-1942": "[Collection of photographs of New York City, 1931-1942.]",
-    "Photographic negatives of the New York City Tenement House Department": "Photographic negatives of the New York City Tenement House Department, 1902-1914",
-    "A Pictorial description of Broadway": "A Pictorial description of Broadway / by the Mail & Express.",
-    "The World's loose leaf album of apartment houses: containing views and ground plans of the principal high class apartment houses in New York City, together with a map showing the situation of these houses, transportation facilities, etc.": "The World's loose leaf album of apartment houses, containing views and ground plans of the principal high class apartment houses in New York City, together with a map showing the situation of these houses, transportation facilities, etc.",
-    "[Collection of photographs of New York City, 1931-1942]": "[Collection of photographs of New York City, 1931-1942.]",
-    "Photographs of Madison Square Garden": "[Photographs of Madison Square Garden. New York, 1925]",
-    "Forty etchings, from sketches made with the camera lucida, in North America, in 1827 and 1828": "Forty etchings, from sketches made with the camera lucida, in North America, in 1827 and 1828.",
-    "Photographic views of the construction of the New York City subway system, 1901-1905": "Photographic views of the construction of the New York City subway system, 1901-1905.",
-    "Supplement to Apartment houses of the metropolis": "Supplement to Apartment houses of the metropolis.",
-}
-
-
 def outside_nyc(geographics: list[str]) -> bool:
     for g in geographics:
         if (g in STATES and g not in TRISTATE) or g in OTHER_OUTSIDE:
@@ -97,13 +56,7 @@ def strip_punctuation(s: str) -> str:
 
 
 def patch_source(source: str) -> str:
-    if source == "":
-        return ""
-    source = source.replace(", from the collections of the New York Public Library", "")
-    if source.startswith("Collection of photographs taken by Daniel B. Austin"):
-        source = "[" + source
-        source = source.replace("1914", "1914]")
-    return SOURCE_PATCHES.get(source, source)
+    return source.replace(", from the collections of the New York Public Library", "")
 
 
 # These are sometimes used as placeholders for unknown dates.
@@ -206,7 +159,6 @@ def run():
             continue
 
         creator = (clean_creator(mods_detail["creator"] or "") or None) if mods_detail else None
-        creator = CREATOR_PATCHES.get(creator, creator) if creator else None
 
         source = " / ".join(mods_detail["sources"]) if mods_detail else ""
         source = patch_source(source)
