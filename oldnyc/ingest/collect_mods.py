@@ -11,7 +11,17 @@ def as_list(dict_or_list: dict | list) -> list:
 
 
 def is_photographer(name: dict):
-    return any(rt["$"] in ("pht", "art", "ltg") for rt in name["role"]["roleTerm"])
+    # Photographer, Artist, Lithographer, Creator
+    return any(rt["$"] in ("pht", "art", "ltg", "cre") for rt in name["role"]["roleTerm"])
+
+
+def extract_date(origin_info: dict | list) -> str | None:
+    origins = as_list(origin_info)
+    for origin in origins:
+        for field in ("dateIssued", "dateCreated"):
+            date = origin.get(field)
+            if date:
+                return ", ".join([d["$"] for d in as_list(date)])
 
 
 if __name__ == "__main__":
@@ -36,12 +46,13 @@ if __name__ == "__main__":
         assert titles[0]["usage"] == "primary"
         title_strs = [t["title"]["$"] for t in titles]
 
-        creator = None
+        # TODO: output as a list
         names = as_list(mods.get("name", []))
-        for name in names:
-            if is_photographer(name):
-                creator = name["namePart"]["$"]
-                break
+        creators = [name["namePart"]["$"] for name in names if is_photographer(name)]
+        creator = ";".join(creators) if creators else None
+
+        origin = mods.get("originInfo")
+        date = extract_date(origin) if origin else None
 
         sources = []
         relatedItem = mods["relatedItem"]
@@ -50,7 +61,7 @@ if __name__ == "__main__":
             sources = [relatedItem["titleInfo"]["title"]["$"]] + sources
             relatedItem = relatedItem.get("relatedItem")
 
-        mapping[uuid] = {"titles": title_strs, "creator": creator, "sources": sources}
+        mapping[uuid] = {"titles": title_strs, "creator": creator, "sources": sources, "date": date}
 
     # 104425.json: no back image
     # 1552839.json: has back image
