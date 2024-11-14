@@ -11,7 +11,7 @@ def as_list(dict_or_list: dict | list) -> list:
 
 
 def is_photographer(name: dict):
-    return any(rt["$"] in ("pht", "art") for rt in name["role"]["roleTerm"])
+    return any(rt["$"] in ("pht", "art", "ltg") for rt in name["role"]["roleTerm"])
 
 
 if __name__ == "__main__":
