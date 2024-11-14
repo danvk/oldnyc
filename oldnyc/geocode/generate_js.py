@@ -56,9 +56,8 @@ def _generateJson(located_recs: Sequence[LocatedRecord], lat_lon_map: dict[str, 
     photos = 0
     for lat_lon, recs in ll_to_id.items():
         rec_dates = [(r, get_date_range(r.date or "")) for r in recs]
-        # XXX the "if" filter here probably doesn't do anything
         sorted_recs = sorted(
-            [rdr for rdr in rec_dates if rdr[1] and rdr[1][1]],
+            rec_dates,
             key=lambda rdr: rdr[1][1],
         )
         no_date += len(recs) - len(sorted_recs)
