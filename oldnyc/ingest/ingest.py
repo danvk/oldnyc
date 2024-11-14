@@ -72,8 +72,10 @@ def run():
 
     counters = Counter[str]()
     out = open("data/images.ndjson", "w")
-    for id, row2 in tqdm([*csv2024.items()]):
+    ids = [*sorted(csv2024.keys())]
+    for id in tqdm(ids):
         counters["num records"] += 1
+        row2 = csv2024[id]
 
         uuid = row2["item_uuid"]
         url = row2["digital_collections_url"]

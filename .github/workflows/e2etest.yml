@@ -25,6 +25,11 @@ jobs:
         poetry run oldnyc/geocode/truth/generate_truth_gtjson.py > data/geocode/truth.geojson
         jq -r '.features[].id' data/geocode/truth.geojson > data/geocode/truth-ids.txt
         poetry run python oldnyc/geocode/subjects/csv_to_geojson.py data/subjects/out.csv > data/subjects.geojson
+    - name: Check performance on truth data
+      run: |
+        export PYTHONPATH=.
+        poetry run oldnyc/geocode/geocode.py --ids_filter data/geocode/truth-ids.txt --images_ndjson data/images.ndjson --output_format geojson --geocode > /tmp/actual.geojson
+        poetry run oldnyc/geocode/calculate_metrics.py --stats_only --truth_data data/geocode/truth.geojson --computed_data /tmp/actual.geojson > test/geocode-performance.txt
     - name: Check for diffs
       run: |
         git diff --exit-code test/ data/
