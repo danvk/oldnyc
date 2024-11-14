@@ -19,6 +19,7 @@ def test_interpolate():
     # This is halfway between 26th & 28th.
     assert_close(grid.code("9", "27"), (40.749020, -73.9995210))
     # assert_close(grid.code("Broadway", "59"), (40.734071, -73.977654))
+    assert_close(grid.code("5", "100"), (40.790469, -73.953898))
 
 
 def test_extrapolate():
@@ -53,3 +54,6 @@ def test_parse_street_ave():
     )
 
     assert grid.parse_street_ave("West 98th Street", "Central Park West") == ("8", "98")
+
+    # assert grid.parse_street_ave("Lenox Ave", "140-141 Sts") == ("6", "140")
+    assert grid.parse_street_ave("Fifth Avenue", "100th Street") == ("5", "100")

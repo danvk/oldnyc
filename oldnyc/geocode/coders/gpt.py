@@ -76,7 +76,7 @@ class GptCoder(Coder):
         assert "data" in data
         ssb: tuple[str, str, str] = data["data"]
         (str1, str2, boro) = ssb
-        if boro != "Manhattan":
+        if boro != "Manhattan" and boro != "New York":
             return None
         try:
             avenue, street = grid.parse_street_ave(str1, str2)
