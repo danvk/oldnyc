@@ -4,11 +4,12 @@
 import json
 import sys
 from collections import defaultdict
+from datetime import date
 from json import encoder
 from typing import Sequence
 
-from oldnyc.geocode import record
 from oldnyc.geocode.geocode_types import Locatable
+from oldnyc.ingest.dates import extract_years
 from oldnyc.item import Item
 
 encoder.FLOAT_REPR = lambda o: format(o, ".6f")  # type: ignore
@@ -16,6 +17,15 @@ encoder.FLOAT_REPR = lambda o: format(o, ".6f")  # type: ignore
 
 # could be tuple[Item, None, None] | tuple[Item, str, Location | Locatable]
 LocatedRecord = tuple[Item, str | None, Locatable | None]
+
+
+def get_date_range(date_str: str) -> tuple[date, date]:
+    # TODO: this is a bit wonky; could use clean_date more directly.
+    years = extract_years(date_str)
+    if not years or years == [""]:
+        return date(1850, 1, 1), date(1999, 12, 31)
+    dates = [date(int(y), 1, 1) for y in years]
+    return min(dates), max(dates)
 
 
 def _generateJson(located_recs: Sequence[LocatedRecord], lat_lon_map: dict[str, str]):
@@ -45,7 +55,7 @@ def _generateJson(located_recs: Sequence[LocatedRecord], lat_lon_map: dict[str, 
     points = 0
     photos = 0
     for lat_lon, recs in ll_to_id.items():
-        rec_dates = [(r, record.get_date_range(r.date or "")) for r in recs]
+        rec_dates = [(r, get_date_range(r.date or "")) for r in recs]
         # XXX the "if" filter here probably doesn't do anything
         sorted_recs = sorted(
             [rdr for rdr in rec_dates if rdr[1] and rdr[1][1]],
