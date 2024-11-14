@@ -42,7 +42,7 @@ def diff_geocode(truth_coord, computed_coord):
     return (True, "", f"{distance_km:.3f}")
 
 
-def tally_stats(truth_features, computed_features):
+def tally_stats(truth_features, computed_features, stats_only):
     """Print row-by-row results and overall metrics."""
     id_to_truth_feature = {f["id"]: f for f in truth_features}
 
@@ -51,7 +51,8 @@ def tally_stats(truth_features, computed_features):
     num_geocoded_incorrect = 0
     num_geocoded = 0
 
-    out = csv.writer(sys.stdout, delimiter="\t")
+    outfile = open("/dev/null", "w") if stats_only else sys.stdout
+    out = csv.writer(outfile, delimiter="\t")
     out.writerow(
         [
             "id",
@@ -149,9 +150,14 @@ if __name__ == "__main__":
         help="result of generate_geojson.py from geocoded images",
         default="data/images.geojson",
     )
+    parser.add_argument(
+        "--stats_only",
+        action="store_true",
+        help="Only print summary statistics, not photo-by-photo results.",
+    )
     args = parser.parse_args()
 
     truth_features = json.load(open(args.truth_data))["features"]
     computed_features = json.load(open(args.computed_data))["features"]
 
-    tally_stats(truth_features, computed_features)
+    tally_stats(truth_features, computed_features, args.stats_only)
