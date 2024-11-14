@@ -10,6 +10,10 @@ def as_list(dict_or_list: dict | list) -> list:
     return [dict_or_list] if isinstance(dict_or_list, dict) else dict_or_list
 
 
+def is_photographer(name: dict):
+    return any(rt["$"] == "pht" for rt in name["role"]["roleTerm"])
+
+
 if __name__ == "__main__":
     mods_dir, item_details_dir = sys.argv[1:]
 
@@ -31,8 +35,17 @@ if __name__ == "__main__":
         titles = as_list(mods["titleInfo"])
         assert titles[0]["usage"] == "primary"
 
+        creator = None
+        names = as_list(mods.get("name", []))
+        for name in names:
+            if is_photographer(name):
+                creator = name["namePart"]["$"]
+                break
+        # if not creator:
+        #     sys.stderr.write(f"{p} {uuid} has no photographer.\n")
+
         title_strs = [t["title"]["$"] for t in titles]
-        mapping[uuid] = {"titles": title_strs}
+        mapping[uuid] = {"titles": title_strs, "creator": creator}
 
     # 104425.json: no back image
     # 1552839.json: has back image
