@@ -4,6 +4,6 @@
 
 set -o errexit
 
-git diff data/images.ndjson | grep '^-{' | sed 's/^-//' | jq . > /tmp/before.ndjson
-git diff data/images.ndjson | grep '^\+{' | sed 's/^\+//' | jq . > /tmp/after.ndjson
+git diff data/images.ndjson | grep '^-{' | sed 's/^-//' | jq . | grep -v "creator" > /tmp/before.ndjson
+git diff data/images.ndjson | grep '^\+{' | sed 's/^\+//' | jq . | grep -v "creator"  > /tmp/after.ndjson
 webdiff /tmp/before.ndjson /tmp/after.ndjson
