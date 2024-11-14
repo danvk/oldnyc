@@ -106,6 +106,10 @@ def patch_source(source: str) -> str:
     return SOURCE_PATCHES.get(source, source)
 
 
+# These are sometimes used as placeholders for unknown dates.
+GENERIC_DATES = {"1887, 1986", "1870, 1970", "1887, 1964", "1900, 1999", "1960, 1990"}
+
+
 def run():
     csv2024 = {
         row["image_id"].lower(): row
@@ -139,8 +143,8 @@ def run():
         mods_detail = mods_details.get(uuid)
 
         date2 = row2["date"] or (mods_detail["date"] if mods_detail else None) or ""
-        if date2 in ("1887, 1986", "1870, 1970", "1887, 1964", "1900, 1999", "1960, 1990"):
-            date2 = ""  # 1887-1986 is used as "unknown"
+        if date2 in GENERIC_DATES:
+            date2 = ""
             counters["date2: generic"] += 1
         date2 = clean_date(normalize_whitespace(date2.strip()))
 
