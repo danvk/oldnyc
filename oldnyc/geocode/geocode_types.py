@@ -5,12 +5,6 @@ from typing import Any, NotRequired, Protocol, TypedDict
 from oldnyc.item import Item
 
 
-class Location(TypedDict):
-    address: str
-    lat: float
-    lon: float
-
-
 class Locatable(TypedDict):
     address: str
     """Can be either a geolocatable address or @lat,lng"""
