@@ -34,6 +34,7 @@ if __name__ == "__main__":
         mods = resp["mods"]
         titles = as_list(mods["titleInfo"])
         assert titles[0]["usage"] == "primary"
+        title_strs = [t["title"]["$"] for t in titles]
 
         creator = None
         names = as_list(mods.get("name", []))
@@ -41,11 +42,15 @@ if __name__ == "__main__":
             if is_photographer(name):
                 creator = name["namePart"]["$"]
                 break
-        # if not creator:
-        #     sys.stderr.write(f"{p} {uuid} has no photographer.\n")
 
-        title_strs = [t["title"]["$"] for t in titles]
-        mapping[uuid] = {"titles": title_strs, "creator": creator}
+        sources = []
+        relatedItem = mods["relatedItem"]
+        while relatedItem:
+            assert relatedItem["type"] == "host"
+            sources = [relatedItem["titleInfo"]["title"]["$"]] + sources
+            relatedItem = relatedItem.get("relatedItem")
+
+        mapping[uuid] = {"titles": title_strs, "creator": creator, "sources": sources}
 
     # 104425.json: no back image
     # 1552839.json: has back image
