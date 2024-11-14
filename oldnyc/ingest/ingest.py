@@ -56,7 +56,10 @@ def strip_punctuation(s: str) -> str:
 
 
 def run():
-    csv2013 = csv.DictReader(open("data/originals/milstein.csv", encoding="latin-1"))
+    csv2013 = {
+        row["DIGITAL_ID"]: row
+        for row in csv.DictReader(open("data/originals/milstein.csv", encoding="latin-1"))
+    }
     csv2024 = {
         row["image_id"].lower(): row
         for row in csv.DictReader(open("data/originals/Milstein_data_for_DV_2.csv"))
@@ -73,9 +76,10 @@ def run():
 
     counters = Counter[str]()
     out = open("data/images.ndjson", "w")
-    for row in tqdm([*csv2013]):
+    ids = [*sorted(csv2013.keys())]
+    for id in tqdm(ids):
         counters["num records"] += 1
-        id = row["DIGITAL_ID"]
+        row = csv2013[id]
 
         date_str = row["CREATED_DATE"]
 
