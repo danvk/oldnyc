@@ -56,7 +56,6 @@ def strip_punctuation(s: str) -> str:
 
 
 def run():
-    csv2013 = csv.DictReader(open("data/originals/milstein.csv", encoding="latin-1"))
     csv2024 = {
         row["image_id"].lower(): row
         for row in csv.DictReader(open("data/originals/Milstein_data_for_DV_2.csv"))
@@ -73,107 +72,32 @@ def run():
 
     counters = Counter[str]()
     out = open("data/images.ndjson", "w")
-    for row in tqdm([*csv2013]):
+    for id, row2 in tqdm([*csv2024.items()]):
         counters["num records"] += 1
-        id = row["DIGITAL_ID"]
 
-        date_str = row["CREATED_DATE"]
-
-        title = row["IMAGE_TITLE"].strip()
-        assert title
-
-        alt_title = row["ALTERNATE_TITLE"].strip()
-        if not alt_title:
-            alt_title = None
-        source = row["SOURCE"].strip()
-
-        creator = row["CREATOR"].strip()
-
-        row2 = csv2024[id]
         uuid = row2["item_uuid"]
         url = row2["digital_collections_url"]
         title2 = row2["title"].strip()
-        date2 = row2["date"]
-        if date2 == "1887, 1986" or date2 == "1870, 1970":
-            date2 = ""  # 1887-1986 is used as "unknown"
-            counters["date2: generic"] += 1
 
         topics = sort_uniq(json.loads(row2["subject/topic"]))
         geographics = sort_uniq(json.loads(row2["subject/geographic"]))
         names = sort_uniq(json.loads(row2["subject/name"]))
         temporals = sort_uniq(json.loads(row2["subject/temporal"]))
 
-        dates = [date_str, date2]
-        dates = [clean_date(normalize_whitespace(d.strip())) for d in dates]
-        date_str, date2 = dates
-        if date_str != date2:
-            counters["mismatch: date"] += 1
-            if date2 and not date_str:
-                counters["date: added"] += 1
-            elif date_str and not date2:
-                counters["date: dropped"] += 1
-            else:
-                counters["date: changed"] += 1
+        date2 = row2["date"]
+        if date2 == "1887, 1986" or date2 == "1870, 1970":
+            date2 = ""  # 1887-1986 is used as "unknown"
+            counters["date2: generic"] += 1
+        date2 = clean_date(normalize_whitespace(date2.strip()))
 
-            # print("---")
-            # print(id)
-            # print(date_str)
-            # print(date2)
-
-        titles = [title, title2]
-        titles = [clean_title(normalize_whitespace(t)) for t in titles]
-        title, title2 = titles
-
-        if title != title2:
-            counters["mismatch: title mismatch"] += 1
-            if title == title2 + ".":
-                counters["title mismatch: drop dot"] += 1
-            elif title2 == title + "]":
-                counters["title mismatch: add bracket"] += 1
-            elif strip_punctuation(title).lower() == strip_punctuation(title2).lower():
-                counters["title mismatch: other punctuation"] += 1
-            elif not title2.isascii():
-                counters["title mismatch: non-ascii"] += 1
-            elif title == "No Title":
-                counters["title mismatch: add title"] += 1
-                # print("---", id, "---")
-                # print(title)
-                # print(title2)
-            elif "Directories" in topics or "directory" in title2.lower():
-                counters["title mismatch: directory"] += 1
-            elif outside_nyc(geographics):
-                counters["title mismatch: outside nyc"] += 1
-            elif title2.replace(" and ", "") == title:
-                counters["title mismatch: add and"] += 1
-            else:
-                counters["title mismatch: other"] += 1
-                # print("---", id, "---")
-                # print(title)
-                # print(title2)
+        title2 = clean_title(normalize_whitespace(title2))
 
         mods_detail = mods_details.get(uuid)
-        # TODO: store as array
-        alt_title2 = (
-            "\n".join(mods_detail.get("titles"))
-            if mods_detail
-            else (row2["alternative_title"].strip() if row2["alternative_title"] else None)
-        )
-        alt_titles = [alt_title, alt_title2]
-        alt_titles = [clean_title(normalize_whitespace(t)) if t else None for t in alt_titles]
-        alt_title, alt_title2 = alt_titles
-
-        if alt_title != alt_title2:
-            counters["mismatch: alt_title mismatch"] += 1
-            # print("---")
-            # print(alt_title)
-            # print(alt_title2)
         alt_title2 = mods_detail.get("titles")[1:] if mods_detail else None
         if not alt_title2:
             alt_title2 = [row2["alternative_title"].strip()] if row2["alternative_title"] else []
         alt_title2 = [clean_title(normalize_whitespace(t)) for t in alt_title2]
 
-        if alt_title:
-            counters["alt_title"] += 1
         if alt_title2:
             counters["alt_title2"] += 1
 
@@ -229,7 +153,7 @@ def run():
             uuid=uuid,
             url=url,
             photo_url=f"https://images.nypl.org/?id={id}&t=w",
-            date=date2 or date_str or None,
+            date=date2 or None,
             title=title2,
             alt_title=alt_title2 or [],
             back_id=back_id,
