@@ -38,8 +38,8 @@ GPT POI:          24
 GPT address:      3
 GPT intersection: 31
 GPT geocoding results:
-            grid: 4
-          google: 13
+            grid: 6
+          google: 11
    boro mismatch: 2
         failures: 15
 -- Finalizing special --
