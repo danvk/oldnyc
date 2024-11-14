@@ -2,7 +2,7 @@
 104780	failed	n/a	n/a
 104881	failed	n/a	n/a
 1113261	gpt	(40.7566516, -73.9964883)	442 West 38th St.
-1113271	gpt	(40.7566768, -73.97856829999999)	Fifth Avenue and West 47th St.
+1113271	gpt	(40.7566601, -73.9785674)	Fifth Avenue and West 47th St.
 1231043	failed	n/a	n/a
 1238854	failed	n/a	n/a
 1507627	title-cross	(40.7509088, -73.9806908)	Manhattan: Madison Avenue - 39th Street, 
@@ -191,7 +191,7 @@
 732307f	title-cross	(40.7172486, -74.0130308)	Manhattan: West Street - Chambers Street.
 732646f	failed	n/a	n/a
 732657f	gpt	(40.6936433, -73.91332109999999)	Putnam Avenue and Wilson Avenue
-733310f	gpt	(40.7534832, -73.9808891)	42nd Street and Fifth Ave
+733310f	gpt	(40.7534877, -73.9808944)	42nd Street and Fifth Ave
 733706f	failed	n/a	n/a
 734005f	subjects	(40.705573, -74.001457)	East River Pier 17 (New York, N.Y.)
 734193f	subjects	(40.540383, -74.135698)	Great Kills Harbor (New York, N.Y.)

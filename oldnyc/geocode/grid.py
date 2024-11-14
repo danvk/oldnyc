@@ -183,6 +183,8 @@ def parse_street_ave(street1: str, street2: str) -> tuple[str, str]:
     if re.search(r"str|st\.|\bst\b", street1, flags=re.I):
         street2, street1 = street1, street2
 
+    street1 = street1.replace("Central Park West", "8th Avenue")
+
     if not re.search(r"ave", street1, flags=re.I):
         raise ValueError("%s is not an avenue" % street1)
 
