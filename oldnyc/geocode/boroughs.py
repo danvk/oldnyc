@@ -7,9 +7,17 @@ from oldnyc.geocode import shape_utils
 from oldnyc.ingest.util import BOROUGHS
 from oldnyc.item import Item
 
+# TODO: convert this to GeoJSON
 BOROUGHS_JSON_FILE = "data/originals/borough-polygons.json"
 
 boroughs = None
+
+
+def _get_boroughs():
+    global boroughs
+    if not boroughs:
+        boroughs = json.load(open(BOROUGHS_JSON_FILE))
+    return boroughs
 
 
 def point_to_borough(lat: float, lon: float) -> str | None:
@@ -18,15 +26,28 @@ def point_to_borough(lat: float, lon: float) -> str | None:
     Possible return values are:
     'Bronx', 'Brooklyn', 'Staten Island', 'Manhattan', 'Queens', None
     """
-    global boroughs
-    if not boroughs:
-        boroughs = json.load(open(BOROUGHS_JSON_FILE))
+    boroughs = _get_boroughs()
 
     pt = (lon, lat)
     for k, v in boroughs.items():
         if shape_utils.PointInPolygon(pt, v):
             return k
     return None
+
+
+MANHATTAN_BBOX = ((-74.0235, 40.6987), (-73.906, 40.8799))
+
+
+def is_in_manhattan(lat: float, lng: float) -> bool:
+    """Same as point_to_borough(lat, lng) = "Manhattan", but faster."""
+    if not (
+        MANHATTAN_BBOX[0][0] <= lng <= MANHATTAN_BBOX[1][0]
+        and MANHATTAN_BBOX[0][1] <= lat <= MANHATTAN_BBOX[1][1]
+    ):
+        return False
+    boroughs = _get_boroughs()
+    manhattan = boroughs["Manhattan"]
+    return shape_utils.PointInPolygon((lng, lat), manhattan)
 
 
 boroughs_pat = r"(?:Manhattan|Brooklyn|Queens|Bronx|Staten Island|Richmond)"
