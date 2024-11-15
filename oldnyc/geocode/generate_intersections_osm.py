@@ -1,7 +1,11 @@
 """Generate intersections.csv by looking for Avenue/Street intersections in an OSM dump."""
 
 import json
+import random
+import re
+import sys
 from collections import Counter, defaultdict
+from typing import TypeVar
 
 from tqdm import tqdm
 
@@ -15,13 +19,48 @@ def load_osm_data() -> list[OsmElement]:
     return els
 
 
+AVE_TO_NUM = {"A": 0, "B": -1, "C": -2, "D": -3}
+
+
+T = TypeVar("T")
+V = TypeVar("V")
+
+
+def invert(d: dict[T, set[V]]) -> dict[V, set[T]]:
+    out = defaultdict(set)
+    for k, vs in d.items():
+        for v in vs:
+            out[v].add(k)
+    return out
+
+
+def isint(s: str) -> bool:
+    try:
+        int(s)
+        return True
+    except ValueError:
+        return False
+
+
 def main():
     els = load_osm_data()
-    ways = [el for el in els if el["type"] == "way" and el["tags"].get("name")]
+    ways = [
+        el
+        for el in els
+        if el["type"] == "way" and el["tags"].get("name") and el["tags"].get("highway") != "footway"
+    ]
 
     id_to_way = {el["id"]: el for el in ways}
     all_nodes = [el for el in els if el["type"] == "node"]
     id_to_node = {el["id"]: el for el in all_nodes}
+
+    assert 1250608533 in id_to_way
+    assert 848013829 in id_to_way
+    assert 1025731531 in id_to_way
+
+    assert 848013829 in id_to_way  # Amsterdam Avenue
+    assert 5671540 in id_to_way  # West 104th Street
+
     node_counts = Counter[int]()
     for way in ways:
         for node in set(way["nodes"]):
@@ -48,11 +87,102 @@ def main():
         if len(set(id_to_way[w]["tags"]["name"] for w in node_to_ways[n])) >= 2
     ]
 
-    print(f"{len(ways)=}")
-    print(f"{len(manhattan_intersections)=}")
+    assert 42442559 in manhattan_intersections
+    assert 42442561 in manhattan_intersections
 
-    print(manhattan_intersections[0])
-    print([id_to_way[w] for w in node_to_ways[manhattan_intersections[0]]])
+    # print(f"{len(ways)=}")
+    # print(f"{len(manhattan_intersections)=}")
+
+    manhattan_roads = [
+        id_to_way[w] for w in {w for int_n in manhattan_intersections for w in node_to_ways[int_n]}
+    ]
+    # print(f"{len(manhattan_roads)=}")
+
+    # print("name_base", [*sorted(name_base.keys())])
+    # print("name_base1", [*sorted(name_base1.keys())])
+
+    ave_a = [m for m in manhattan_roads if m["id"] == 195743554]
+    assert ave_a
+
+    street_num_to_ways = defaultdict[int, set[int]](set)
+    ave_num_to_ways = defaultdict[str, set[int]](set)
+    for w in manhattan_roads:
+        name_type = w["tags"].get("tiger:name_type")
+        name_type1 = w["tags"].get("tiger:name_type_1")
+        base = w["tags"].get("tiger:name_base")
+        base1 = w["tags"].get("tiger:name_base_1")
+        name = w["tags"].get("name")
+        assert name
+
+        # TODO: Lafayette St is more like an Avenue
+
+        if name_type == "St" or name_type1 == "St" or "Street" in name:
+            names = [x for x in [name, base, base1, w["tags"].get("alt_name")] if x is not None]
+            for name in names:
+                name = name.replace("Street", "").strip()
+                name = re.sub(r"\b(east|west)\b", "", name, flags=re.I).strip()
+                name = re.sub(r"\b(\d+)(?:st|nd|rd|th)\b", r"\1", name).strip()
+
+                try:
+                    base_num = int(name)
+                except ValueError:
+                    continue
+                street_num_to_ways[base_num].add(w["id"])
+                break
+
+        elif (
+            name_type in ("Ave", "Blvd")
+            or "Avenue" in name
+            or "Boulevard" in name
+            or "Broadway" in name
+        ):
+            # name = (base or name).replace("Avenue", "").replace("Boulevard", "").strip()
+            # name = re.sub(r"st|nd|rd|th", "", name)
+            ave_num_to_ways[name].add(w["id"])
+
+    street_to_nodes = {
+        k: {n for way_id in way_ids for n in id_to_way[way_id]["nodes"]}
+        for k, way_ids in street_num_to_ways.items()
+    }
+    ave_to_nodes = {
+        k: {n for way_id in way_ids for n in id_to_way[way_id]["nodes"]}
+        for k, way_ids in ave_num_to_ways.items()
+    }
+    node_to_street = invert(street_to_nodes)
+    # node_to_ave = invert(ave_to_nodes)
+
+    for ave in sorted(ave_to_nodes.keys()):
+        nodes = ave_to_nodes[ave]
+        for node in nodes:
+            lat = id_to_node[node]["lat"]
+            lon = id_to_node[node]["lon"]
+            streets = node_to_street.get(node)
+            for street in sorted(streets or []):
+                print(f"{ave}\t{street}\t{node}\t{lat},{lon}")
+
+    # for k in sorted(ave_num_to_ways.keys()):
+    #     print(k, ave_num_to_ways[k])
+
+    # print(manhattan_intersections[0])
+    # print([id_to_way[w] for w in node_to_ways[manhattan_intersections[0]]])
+
+    # for street in range(1, 221):
+    #     if str(street) not in name_base1:
+    #         print(f"Missing street: {street}")
+
+    # name_type = Counter[str | None]()
+    # for w in manhattan_roads:
+    #     name_type[w["tags"].get("tiger:name_type")] += 1
+    # print(name_type.most_common())
+
+    # crosses = []
+    # for street in range(1, 221):
+    #     for ave in range(-3, 13 if street >= 14 else 7):
+    #         crosses.append((ave, street))
+
+    # random.shuffle(crosses)
+    # for i, (ave, street) in enumerate(crosses):
+    #     pass
 
 
 if __name__ == "__main__":
