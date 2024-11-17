@@ -30,7 +30,7 @@ def make_street_str(street, avenue):
     return f"{side} {ordinal} street"
 
 
-def make_avenue_str(avenue, street=0):
+def make_avenue_str(avenue, street=0) -> str | None:
     """1 --> 1st Avenue, -1 --> Avenue B"""
     if avenue <= 0:
         return "Avenue " + ["A", "B", "C", "D"][-avenue]
@@ -39,6 +39,8 @@ def make_avenue_str(avenue, street=0):
             return "Park Avenue South"
         elif street > 32:
             return "Park Avenue"
+        else:
+            return None
     elif avenue == 6 and street >= 110:
         return "Malcolm X Blvd"
     elif avenue == 7 and street >= 110:

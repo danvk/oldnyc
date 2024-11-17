@@ -1,5 +1,6 @@
 """Generate intersections.csv by looking for Avenue/Street intersections in an OSM dump."""
 
+import itertools
 import json
 import random
 import re
@@ -7,9 +8,11 @@ import sys
 from collections import Counter, defaultdict
 from typing import TypeVar
 
+from haversine import haversine
 from tqdm import tqdm
 
 from oldnyc.geocode.boroughs import is_in_manhattan
+from oldnyc.geocode.generate_intersections import make_avenue_str
 from oldnyc.geocode.osm import OsmElement
 
 
@@ -115,8 +118,16 @@ def main():
         assert name
 
         # TODO: Lafayette St is more like an Avenue
-
-        if name_type == "St" or name_type1 == "St" or "Street" in name:
+        if (
+            name_type in ("Ave", "Blvd")
+            or "Avenue" in name
+            or "Boulevard" in name
+            or "Broadway" in name
+        ):
+            # name = (base or name).replace("Avenue", "").replace("Boulevard", "").strip()
+            # name = re.sub(r"st|nd|rd|th", "", name)
+            ave_num_to_ways[name].add(w["id"])
+        elif name_type == "St" or name_type1 == "St" or "Street" in name:
             names = [x for x in [name, base, base1, w["tags"].get("alt_name")] if x is not None]
             for name in names:
                 name = name.replace("Street", "").strip()
@@ -130,16 +141,6 @@ def main():
                 street_num_to_ways[base_num].add(w["id"])
                 break
 
-        elif (
-            name_type in ("Ave", "Blvd")
-            or "Avenue" in name
-            or "Boulevard" in name
-            or "Broadway" in name
-        ):
-            # name = (base or name).replace("Avenue", "").replace("Boulevard", "").strip()
-            # name = re.sub(r"st|nd|rd|th", "", name)
-            ave_num_to_ways[name].add(w["id"])
-
     street_to_nodes = {
         k: {n for way_id in way_ids for n in id_to_way[way_id]["nodes"]}
         for k, way_ids in street_num_to_ways.items()
@@ -148,17 +149,19 @@ def main():
         k: {n for way_id in way_ids for n in id_to_way[way_id]["nodes"]}
         for k, way_ids in ave_num_to_ways.items()
     }
-    node_to_street = invert(street_to_nodes)
+    # node_to_street = invert(street_to_nodes)
     # node_to_ave = invert(ave_to_nodes)
 
-    for ave in sorted(ave_to_nodes.keys()):
-        nodes = ave_to_nodes[ave]
-        for node in nodes:
-            lat = id_to_node[node]["lat"]
-            lon = id_to_node[node]["lon"]
-            streets = node_to_street.get(node)
-            for street in sorted(streets or []):
-                print(f"{ave}\t{street}\t{node}\t{lat},{lon}")
+    # This might be a more useful format than intersections.csv.
+    # It's more "raw" and matches the street names more directly.
+    # for ave in sorted(ave_to_nodes.keys()):
+    #     nodes = ave_to_nodes[ave]
+    #     for node in nodes:
+    #         lat = id_to_node[node]["lat"]
+    #         lon = id_to_node[node]["lon"]
+    #         streets = node_to_street.get(node)
+    #         for street in sorted(streets or []):
+    #             print(f"{ave}\t{street}\t{node}\t{lat},{lon}")
 
     # for k in sorted(ave_num_to_ways.keys()):
     #     print(k, ave_num_to_ways[k])
@@ -175,14 +178,56 @@ def main():
     #     name_type[w["tags"].get("tiger:name_type")] += 1
     # print(name_type.most_common())
 
-    # crosses = []
-    # for street in range(1, 221):
-    #     for ave in range(-3, 13 if street >= 14 else 7):
-    #         crosses.append((ave, street))
-
     # random.shuffle(crosses)
     # for i, (ave, street) in enumerate(crosses):
     #     pass
+
+    # have streets as ints
+    # avenues have their raw names
+    def locate(ave: int, street: int) -> tuple[float, float] | None:
+        street_nodes = street_to_nodes.get(street)
+        if not street_nodes:
+            return None
+        ave_str = make_avenue_str(ave, street)
+        if ave_str is None:
+            return None
+        ave_nodes = ave_to_nodes.get(ave_str)
+        if not ave_nodes:
+            return None
+
+        intersect_node_ids = street_nodes & ave_nodes
+        if not intersect_node_ids:
+            return None
+        intersect_nodes = [id_to_node[n] for n in intersect_node_ids]
+
+        # If there are multiple nodes, it's likely they're the sides or corners of the
+        # intersection. It's fine to average them, after a sanity check.
+        for a, b in itertools.combinations(intersect_nodes, 2):
+            d = haversine((a["lat"], a["lon"]), (b["lat"], b["lon"])) * 1000
+            if d > 100:
+                sys.stderr.write(f"  {a['id']} <-> {b['id']} {d:.0f}m\n")
+                raise ValueError("Ambiguous intersection")
+
+        num = len(intersect_nodes)
+        return (
+            sum(n["lat"] for n in intersect_nodes) / num,
+            sum(n["lon"] for n in intersect_nodes) / num,
+        )
+
+    crosses: list[tuple[int, int]] = []
+    for street in range(1, 125):
+        for ave in range(-3, 13 if street >= 14 else 7):
+            crosses.append((ave, street))
+
+    rows = [["Street", "Avenue", "Lat", "Lon"]]
+    for i, (ave, street) in enumerate(crosses):
+        lat, lon = locate(ave, street) or ("", "")
+        rows.append([str(x) for x in [street, ave, lat, lon]])
+
+    # delim = "," if args.format == "csv" else "\t"
+    delim = ","
+    for row in rows:
+        print(delim.join(row))
 
 
 if __name__ == "__main__":
