@@ -5,13 +5,13 @@ import json
 import re
 import sys
 from collections import Counter, defaultdict
-from typing import TypeVar
+from typing import Sequence, TypeVar
 
 from haversine import haversine
 from tqdm import tqdm
 
 from oldnyc.geocode.boroughs import is_in_manhattan
-from oldnyc.geocode.osm.osm import OsmElement, OsmWay
+from oldnyc.geocode.osm.osm import OsmElement, OsmNode, OsmWay
 
 
 def load_osm_data() -> list[OsmElement]:
@@ -110,6 +110,22 @@ def make_avenue_str(avenue, street=0) -> str | None:
 """
 
 
+def get_intersection_center(nodes: Sequence[OsmNode]) -> tuple[float, float]:
+    # If there are multiple nodes, it's likely they're the sides or corners of the
+    # intersection. It's fine to average them, after a sanity check.
+    for a, b in itertools.combinations(nodes, 2):
+        d = haversine((a["lat"], a["lon"]), (b["lat"], b["lon"])) * 1000
+        if d > 100:
+            sys.stderr.write(f"  {a['id']} <-> {b['id']} {d:.0f}m\n")
+            raise ValueError("Ambiguous intersection")
+
+    num = len(nodes)
+    return (
+        sum(n["lat"] for n in nodes) / num,
+        sum(n["lon"] for n in nodes) / num,
+    )
+
+
 def main():
     els = load_osm_data()
     ways = [
@@ -185,7 +201,7 @@ def main():
         k: {n for way_id in way_ids for n in id_to_way[way_id]["nodes"]}
         for k, way_ids in ave_num_to_ways.items()
     }
-    # node_to_street = invert(street_to_nodes)
+    node_to_street = invert(street_to_nodes)
     # node_to_ave = invert(ave_to_nodes)
 
     # This might be a more useful format than intersections.csv.
@@ -214,20 +230,8 @@ def main():
         if not intersect_node_ids:
             return None
         intersect_nodes = [id_to_node[n] for n in intersect_node_ids]
-
-        # If there are multiple nodes, it's likely they're the sides or corners of the
-        # intersection. It's fine to average them, after a sanity check.
-        for a, b in itertools.combinations(intersect_nodes, 2):
-            d = haversine((a["lat"], a["lon"]), (b["lat"], b["lon"])) * 1000
-            if d > 100:
-                sys.stderr.write(f"  {a['id']} <-> {b['id']} {d:.0f}m\n")
-                raise ValueError("Ambiguous intersection")
-
-        num = len(intersect_nodes)
-        return (
-            round(sum(n["lat"] for n in intersect_nodes) / num, 6),
-            round(sum(n["lon"] for n in intersect_nodes) / num, 6),
-        )
+        lat, lng = get_intersection_center(intersect_nodes)
+        return (round(lat, 6), round(lng, 6))
 
     crosses: list[tuple[int, int]] = []
     for street in range(1, 125):
