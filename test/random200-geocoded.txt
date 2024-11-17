@@ -2,20 +2,20 @@
 104780	failed	n/a	n/a
 104881	failed	n/a	n/a
 1113261	gpt	(40.7566516, -73.9964883)	442 West 38th St.
-1113271	gpt	(40.7566601, -73.9785674)	Fifth Avenue and West 47th St.
+1113271	gpt	(40.756659, -73.978557)	Fifth Avenue and West 47th St.
 1231043	failed	n/a	n/a
 1238854	failed	n/a	n/a
 1507627	title-cross	(40.7509088, -73.9806908)	Manhattan: Madison Avenue - 39th Street, 
-1507669	title-cross	(40.7622891, -73.9861066)	Manhattan: Eighth Avenue - 50th Street
+1507669	title-cross	(40.762294, -73.986101)	Manhattan: Eighth Avenue - 50th Street
 1507813	title-address	(40.7453354, -74.0048613)	20th Street (West) #448
 1508279	title-address	(40.7692144, -73.9666901)	68th Street (East) #35
-1508763	gpt	(40.7522003, -73.9818336)	40th Street and Fifth Avenue
-1508801	gpt	(40.7560361, -73.9790201)	46th Street and Fifth Avenue
-1508875	title-cross	(40.768023, -73.9702744)	Manhattan: Fifth Avenue - 65th Street, 
+1508763	gpt	(40.752205, -73.981824)	40th Street and Fifth Avenue
+1508801	gpt	(40.756037, -73.979023)	46th Street and Fifth Avenue
+1508875	title-cross	(40.768028, -73.970279)	Manhattan: Fifth Avenue - 65th Street, 
 1509149	gpt	(40.7100042, -74.0101588)	173 Broadway
 1509541	failed	n/a	n/a
 1509883	failed	n/a	n/a
-1558186	title-cross	(40.7521911, -73.9934722)	Manhattan: West 34th Street - Eighth Avenue
+1558186	title-cross	(40.752199, -73.993458)	Manhattan: West 34th Street - Eighth Avenue
 1558411	title-cross	(40.7120032, -74.0081046)	Manhattan: 233 Broadway - Barclay Street
 1635861	failed	n/a	n/a
 1635949	subjects	(40.790882, -73.775732)	Fort Totten Historic District (New York, N.Y.)
@@ -25,8 +25,8 @@
 2040761	failed	n/a	n/a
 2040792	failed	n/a	n/a
 3984237	gpt	(40.5768665, -73.9826497)	Mermaid Av and W. 15th St.
-3984255	gpt	(40.7850054, -73.9466251)	E 97th St and Second Ave
-3984643	gpt	(40.7614857, -73.9606064)	1st Ave and E. 62nd St
+3984255	gpt	(40.784945, -73.946592)	E 97th St and Second Ave
+3984643	gpt	(40.761489, -73.960589)	1st Ave and E. 62nd St
 3984770	gpt	(40.6827979, -74.0056158)	Hamilton Av and Summit St.
 3985030	failed	n/a	n/a
 3985133	failed	n/a	n/a
@@ -71,63 +71,63 @@
 707267f	title-cross	(40.686453, -73.99393)	Brooklyn: Warren St. - Court St.
 707268f	title-cross	(40.686453, -73.99393)	Brooklyn: Warren St. - Court St.
 707352f	title-cross	(40.672608, -73.899911)	Brooklyn: Williams Ave. - Glenmore Ave.
-707652f	title-cross	(40.767119, -73.9564907)	Manhattan: 1st Ave. - 71st Street (East).
-707762f	title-cross	(40.7255879, -73.989893)	Manhattan: 2nd Ave. - 3rd St.
-707797f	title-cross	(40.7359972, -73.9822652)	Manhattan: 2nd Ave. - 20th St. E.
-708420f	title-cross	(40.7422033, -73.989113)	Manhattan: 5th Avenue - 24th Street
-708595f	title-cross	(40.7491122, -73.9840674)	Manhattan: 5th Avenue - 35th Street
-708621f	title-cross	(40.7503537, -73.9831701)	Manhattan: 5th Avenue - 37th Street
-708658f	title-cross	(40.7515863, -73.9822815)	Manhattan: 5th Avenue - 39th Street
-708696f	title-cross	(40.7522003, -73.9818336)	Manhattan: 5th Avenue - 40th Street
-708795f	title-cross	(40.7534877, -73.9808944)	Manhattan: 5th Avenue - 42nd Street
-708861f	title-cross	(40.7560361, -73.9790201)	Manhattan: 5th Avenue - 46th Street
-708939f	title-cross	(40.7585457, -73.9771993)	Manhattan: 5th Avenue - 50th Street (West)
-708943f	title-cross	(40.759166, -73.976748)	Manhattan: 5th Avenue - 51st Street (West)
-708989f	title-cross	(40.7604085, -73.9758286)	Manhattan: 5th Avenue - 53rd Street
-709069f	title-cross	(40.7636538, -73.973465)	Manhattan: 5th Avenue - 58th Street
-709481f	title-cross	(40.7548529, -73.9841244)	Manhattan: 6th Avenue - 42nd Street (West)
-709510f	title-cross	(40.7561475, -73.983163)	Manhattan: 6th Avenue - 44th Street (West)
+707652f	title-cross	(40.767131, -73.956482)	Manhattan: 1st Ave. - 71st Street (East).
+707762f	title-cross	(40.725581, -73.989868)	Manhattan: 2nd Ave. - 3rd St.
+707797f	title-cross	(40.736024, -73.982265)	Manhattan: 2nd Ave. - 20th St. E.
+708420f	title-cross	(40.742219, -73.989107)	Manhattan: 5th Avenue - 24th Street
+708595f	title-cross	(40.749105, -73.984071)	Manhattan: 5th Avenue - 35th Street
+708621f	title-cross	(40.750341, -73.983175)	Manhattan: 5th Avenue - 37th Street
+708658f	title-cross	(40.751581, -73.982276)	Manhattan: 5th Avenue - 39th Street
+708696f	title-cross	(40.752205, -73.981824)	Manhattan: 5th Avenue - 40th Street
+708795f	title-cross	(40.753481, -73.980879)	Manhattan: 5th Avenue - 42nd Street
+708861f	title-cross	(40.756037, -73.979023)	Manhattan: 5th Avenue - 46th Street
+708939f	title-cross	(40.758544, -73.977206)	Manhattan: 5th Avenue - 50th Street (West)
+708943f	title-cross	(40.759176, -73.976741)	Manhattan: 5th Avenue - 51st Street (West)
+708989f	title-cross	(40.760408, -73.975844)	Manhattan: 5th Avenue - 53rd Street
+709069f	title-cross	(40.763654, -73.973483)	Manhattan: 5th Avenue - 58th Street
+709481f	title-cross	(40.754842, -73.984118)	Manhattan: 6th Avenue - 42nd Street (West)
+709510f	title-cross	(40.756142, -73.983166)	Manhattan: 6th Avenue - 44th Street (West)
 709643f	title-cross	(40.7372245, -74.0006804)	Manhattan: 7th Avenue - 12th Street (West)
-709691f	title-cross	(40.7410673, -73.9978679)	Manhattan: 7th Avenue - 18th Street
-709755f	title-cross	(40.7503293, -73.9911014)	Manhattan: 7th Avenue - 33rd Street
-710174f	title-cross	(40.7559504, -73.9907232)	Manhattan: 8th Avenue - 40th Street (West)
-710222f	title-cross	(40.7641748, -73.9847444)	Manhattan: 8th Avenue - 53rd Street
-710244f	title-cross	(40.8051052, -73.954868)	Manhattan: 8th Avenue - 117th Street
-710381f	title-cross	(40.7527253, -73.9967889)	Manhattan: 9th Avenue - 33rd Street
-710597f	title-cross	(40.7467878, -74.0078617)	Manhattan: 11th Avenue - 20th Street
-711084f	title-cross	(40.7340256, -73.9950724)	Manhattan: 11th Street (East) - 5th Avenue
+709691f	title-cross	(40.741056, -73.997862)	Manhattan: 7th Avenue - 18th Street
+709755f	title-cross	(40.750342, -73.991099)	Manhattan: 7th Avenue - 33rd Street
+710174f	title-cross	(40.755949, -73.990728)	Manhattan: 8th Avenue - 40th Street (West)
+710222f	title-cross	(40.76416, -73.984741)	Manhattan: 8th Avenue - 53rd Street
+710244f	title-cross	(40.805094, -73.954874)	Manhattan: 8th Avenue - 117th Street
+710381f	title-cross	(40.752742, -73.996817)	Manhattan: 9th Avenue - 33rd Street
+710597f	title-cross	(40.746804, -74.007882)	Manhattan: 11th Avenue - 20th Street
+711084f	title-cross	(40.734046, -73.995064)	Manhattan: 11th Street (East) - 5th Avenue
 711652f	title-cross	(40.7423132, -73.9890177)	Manhattan: Broadway - 5th Avenue
 711783f	title-cross	(40.748355, -74.003684)	Manhattan: 24th Street - 10th Avenue
-711875f	title-cross	(40.7400154, -73.976246)	Manhattan: 28th Street (East) - 1st Avenue
-712182f	title-cross	(40.7521911, -73.9934722)	Manhattan: 34th Street - 8th Avenue
+711875f	title-cross	(40.740106, -73.976195)	Manhattan: 28th Street (East) - 1st Avenue
+712182f	title-cross	(40.752199, -73.993458)	Manhattan: 34th Street - 8th Avenue
 712365f	title-cross	(40.7552261, -73.9966536)	Manhattan: 36th Street (West) - Dyer Avenue
 712847f	title-cross	(40.7514377, -73.9760461)	Manhattan: 42nd Street (East) - Lexington Avenue
-713018f	title-cross	(40.7534877, -73.9808944)	Manhattan: 42nd Street - 5th Avenue
-713156f	title-cross	(40.7566969, -73.9864836)	Manhattan: 43rd Street (West) - 7th Avenue
-713408f	title-cross	(40.75927, -73.980886)	Manhattan: 49th Street (West) - 6th Avenue
+713018f	title-cross	(40.753481, -73.980879)	Manhattan: 42nd Street - 5th Avenue
+713156f	title-cross	(40.75671, -73.986458)	Manhattan: 43rd Street (West) - 7th Avenue
+713408f	title-cross	(40.759274, -73.980883)	Manhattan: 49th Street (West) - 6th Avenue
 713577f	failed	n/a	n/a
-713622f	title-cross	(40.7635447, -73.9851925)	Manhattan: 52nd Street (West) - 8th Avenue
-713882f	title-cross	(40.7629806, -73.9739597)	Manhattan: 57th Street - 5th Avenue
-713972f	title-cross	(40.7662157, -73.9795496)	Manhattan: 58th Street (West) - 7th Avenue
-714055f	title-cross	(40.7716296, -73.9904692)	Manhattan: 59th Street - 11th Avenue
-714105f	title-cross	(40.7641851, -73.9688665)	Manhattan: 61st Street (East) - Park Avenue
-714353f	title-cross	(40.7668001, -73.9536336)	Manhattan: 72nd Street - Avenue A
-714399f	title-cross	(40.7798176, -73.9844937)	Manhattan: 72nd Street (West) - West End Avenue
-714441f	title-cross	(40.7697508, -73.9545896)	Manhattan: 75th Street (East) - 1st Avenue
+713622f	title-cross	(40.763557, -73.985194)	Manhattan: 52nd Street (West) - 8th Avenue
+713882f	title-cross	(40.762972, -73.973974)	Manhattan: 57th Street - 5th Avenue
+713972f	title-cross	(40.766213, -73.979532)	Manhattan: 58th Street (West) - 7th Avenue
+714055f	title-cross	(40.771613, -73.990451)	Manhattan: 59th Street - 11th Avenue
+714105f	title-cross	(40.764169, -73.968896)	Manhattan: 61st Street (East) - Park Avenue
+714353f	title-cross	(40.7668959, -73.9538406)	Manhattan: 72nd Street - Avenue A
+714399f	title-cross	(40.779813, -73.984481)	Manhattan: 72nd Street (West) - West End Avenue
+714441f	title-cross	(40.769767, -73.954566)	Manhattan: 75th Street (East) - 1st Avenue
 714641f	title-cross	(40.777546, -73.9570127)	Manhattan: 83rd Street (East) - Lexington Avenue
-714767f	title-cross	(40.7877974, -73.9712305)	Manhattan: 88th Street (West) - Columbus Avenue
-714847f	title-cross	(40.7921354, -73.9717984)	Manhattan: 93rd Street (West) - Amsterdam Avenue
-714866f	title-cross	(40.7921952, -73.9680221)	Manhattan: 95th Street (West) - Columbus Avenue
+714767f	title-cross	(40.7877902, -73.9712102)	Manhattan: 88th Street (West) - Columbus Avenue
+714847f	title-cross	(40.792131, -73.971777)	Manhattan: 93rd Street (West) - Amsterdam Avenue
+714866f	title-cross	(40.7921829, -73.9680033)	Manhattan: 95th Street (West) - Columbus Avenue
 714878f	title-cross	(40.785877, -73.9509341)	Manhattan: 96th Street (East) - Lexington Avenue
-714891f	title-cross	(40.7928673, -73.9675318)	Manhattan: 96th Street (West) - Columbus Avenue
-714972f	title-cross	(40.788955, -73.9405603)	Manhattan: 105th Street (East) - 1st Avenue
-715218f	title-cross	(40.8032504, -73.9446509)	Manhattan: 120th Street - 5th Avenue
+714891f	title-cross	(40.7928572, -73.967511)	Manhattan: 96th Street (West) - Columbus Avenue
+714972f	title-cross	(40.78894, -73.940559)	Manhattan: 105th Street (East) - 1st Avenue
+715218f	title-cross	(40.80323, -73.944622)	Manhattan: 120th Street - 5th Avenue
 715225f	title-cross	(40.810582, -73.9621696)	Manhattan: 120th Street - Broadway
-715273f	title-cross	(40.8004629, -73.9321742)	Manhattan: 123rd Street (East) - 1st Avenue
+715273f	title-cross	(40.8004564, -73.9321696)	Manhattan: 123rd Street (East) - 1st Avenue
 715775f	title-cross	(40.8442656, -73.9337224)	Manhattan: 175th Street (West) - Amsterdam Avenue
 716213f	title-cross	(40.8029878, -73.9638629)	Manhattan: Amsterdam Avenue - Cathedral Parkway
 716251f	title-cross	(40.8029878, -73.9638629)	Manhattan: Amsterdam Avenue - Cathedral Parkway
-716421f	title-cross	(40.7250808, -73.9812322)	Manhattan: Avenue B - 7th Street
+716421f	title-cross	(40.725073, -73.981211)	Manhattan: Avenue B - 7th Street
 716604f	failed	n/a	n/a
 716849f	title-cross	(40.7062339, -74.0112434)	Manhattan: Broad Street - Exchange Place
 716954f	title-cross	(40.7050362, -74.0133253)	Manhattan: Broadway - Beaver Street
@@ -146,7 +146,7 @@
 720777f	title-cross	(40.7250568, -73.9953711)	Manhattan: Lafayette Street - Houston Street (East)
 720991f	title-cross	(40.7514377, -73.9760461)	Manhattan: Lexington Avenue - 42nd Street (East)
 721041f	title-cross	(40.7647478, -73.9663694)	Manhattan: Lexington Avenue - 63rd Street (East)
-722101f	title-cross	(40.7496437, -73.9796092)	Manhattan: Park Avenue - 38th Street
+722101f	title-cross	(40.749603, -73.979514)	Manhattan: Park Avenue - 38th Street
 722402f	title-cross	(40.8058042, -73.9386896)	Manhattan: Park Avenue - 126th Street
 722430f	title-cross	(40.7120032, -74.0081046)	Manhattan: Park Row - Broadway
 722717f	title-cross	(40.7869106, -73.9812484)	Manhattan: Riverside Drive - 82nd Street
@@ -183,7 +183,7 @@
 731060f	subjects	(40.846944, -73.928056)	Bridges - Washington 
 731306f	failed	n/a	n/a
 731602f	failed	n/a	n/a
-731662f	title-cross	(40.7947066, -73.9363463)	Manhattan: 114th Street (East) - 1st Avenue.
+731662f	title-cross	(40.794711, -73.936353)	Manhattan: 114th Street (East) - 1st Avenue.
 731805f	failed	n/a	n/a
 731946f	subjects	(40.574926, -73.985941)	Islands - Coney Island 
 732005f	subjects	(40.574926, -73.985941)	Islands - Coney Island 
@@ -191,7 +191,7 @@
 732307f	title-cross	(40.7172486, -74.0130308)	Manhattan: West Street - Chambers Street.
 732646f	failed	n/a	n/a
 732657f	gpt	(40.6936433, -73.91332109999999)	Putnam Avenue and Wilson Avenue
-733310f	gpt	(40.7534877, -73.9808944)	42nd Street and Fifth Ave
+733310f	gpt	(40.753481, -73.980879)	42nd Street and Fifth Ave
 733706f	failed	n/a	n/a
 734005f	subjects	(40.705573, -74.001457)	East River Pier 17 (New York, N.Y.)
 734193f	subjects	(40.540383, -74.135698)	Great Kills Harbor (New York, N.Y.)
