@@ -230,6 +230,8 @@ def main():
     rows = [["Street", "Avenue", "Lat", "Lon"]]
     for i, (ave, street) in enumerate(crosses):
         lat, lon = locate(ave, street) or ("", "")
+        if (ave, street, lat, lon) == (11, 14, "", ""):
+            lat, lon = (40.7424762, -74.0088873)
         rows.append([str(x) for x in [street, ave, lat, lon]])
 
     # delim = "," if args.format == "csv" else "\t"
