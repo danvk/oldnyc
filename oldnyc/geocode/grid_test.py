@@ -65,11 +65,17 @@ def test_parse_street_ave():
 
 
 def test_geocode_broadway():
-    assert_close(grid.code("Broadway", "59"), (40.767696, -73.981679))
+    # this is an exact intersection
+    assert_close(grid.geocode_intersection("Broadway", "59th Street"), (40.767696, -73.981679))
+    # these are interpolations
+    assert_close(grid.geocode_intersection("Broadway", "24"), (40.7422035, -73.989151))
+    assert_close(grid.geocode_intersection("Broadway", "124"), (40.8140625, -73.959421))
+    # this isn't great, but probably not too far off the intended location.
+    assert_close(grid.geocode_intersection("Broadway", "127"), (40.816311, -73.957802))
 
 
 def test_geocode_above_125():
-    assert_close(grid.code("7", "134"), (40.8146691, -73.94419))
+    assert_close(grid.geocode_intersection("7th Avenue", "134th Street"), (40.8146691, -73.94419))
 
 
 def test_parse_ave():

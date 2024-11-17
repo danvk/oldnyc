@@ -17,6 +17,7 @@ by_street = defaultdict[int, dict[str, Point]](lambda: {})
 
 # These are all intersections in Manhattan, not just the grid.
 all_ints = defaultdict[int, dict[str, Point]](lambda: {})
+all_ints_by_ave = defaultdict[str, dict[int, Point]](lambda: {})
 
 is_initialized = False
 
@@ -45,6 +46,10 @@ def load_data():
         if avenue is not None:
             all_ints[street][avenue] = (lat, lon)
         all_ints[street][raw_avenue] = (lat, lon)
+
+    for street, ints in all_ints.items():
+        for ave, ll in ints.items():
+            all_ints_by_ave[ave][street] = ll
 
     global is_initialized
     is_initialized = True
@@ -306,7 +311,37 @@ def extract_street_num(street: str) -> int | None:
     return base_num
 
 
+def interpolate(ave_ints: dict[int, Point], num: int) -> Point | None:
+    t0, pt0, t1, pt1 = None, None, None, None
+    for dm in range(1, 3):
+        t0 = num - dm
+        pt0 = ave_ints.get(t0)
+        if pt0:
+            break
+
+    if t0 is None or pt0 is None:
+        return None
+
+    for dp in range(1, 3):
+        t1 = num + dp
+        pt1 = ave_ints.get(t1)
+        if pt1:
+            break
+
+    if t1 is None or pt1 is None:
+        return None
+
+    # Interpolate between the two points.
+    frac = (num - t0) / (t1 - t0)
+    lat = pt0[0] + frac * (pt1[0] - pt0[0])
+    lng = pt0[1] + frac * (pt1[1] - pt0[1])
+    # print(f"Interpolating between {t0} and {t1} for {num}")
+    return lat, lng
+
+
 def geocode_intersection(street1: str, street2: str, debug_txt: Optional[str] = "") -> Point | None:
+    if not is_initialized:
+        load_data()
     global num_exact
 
     # If either looks like a numbered street, check for an exact match.
@@ -317,14 +352,21 @@ def geocode_intersection(street1: str, street2: str, debug_txt: Optional[str] = 
             street1, street2 = street2, street1
             num1 = num2
     if num1:
+        avenue = parse_ave_for_osm(street2)
         avenues = all_ints.get(num1)
         if avenues:
-            avenue = parse_ave_for_osm(street2)
             latlng = avenues.get(avenue)
             if latlng:
                 num_exact += 1
                 return latlng
-            # sys.stderr.write(f"Miss on intersection: {debug_txt} {num1}, {street2} -> {avenue}\n")
+            sys.stderr.write(f"Miss on intersection: {debug_txt} {num1}, {street2} -> {avenue}\n")
+
+        # There's no exact match, but we might be able to interpolate.
+        ave_ints = all_ints_by_ave.get(avenue)
+        if ave_ints:
+            latlng = interpolate(ave_ints, num1)
+            if latlng:
+                return latlng
 
     # Either of these can raise a ValueError
     avenue, street = parse_street_ave(street1, street2)
