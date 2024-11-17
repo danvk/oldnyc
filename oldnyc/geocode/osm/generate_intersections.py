@@ -1,11 +1,12 @@
 """Generate intersections.csv by looking for Avenue/Street intersections in an OSM dump."""
 
+import csv
 import itertools
 import json
 import re
 import sys
 from collections import Counter, defaultdict
-from typing import Sequence, TypeVar
+from typing import Sequence
 
 from haversine import haversine
 from tqdm import tqdm
@@ -23,21 +24,13 @@ def load_osm_data() -> list[OsmElement]:
 AVE_TO_NUM = {"A": 0, "B": -1, "C": -2, "D": -3}
 
 
-T = TypeVar("T")
-V = TypeVar("V")
-
-
-def invert(d: dict[T, set[V]]) -> dict[V, set[T]]:
-    out = defaultdict(set)
-    for k, vs in d.items():
-        for v in vs:
-            out[v].add(k)
-    return out
-
-
 def interpret_as_ave(w: OsmWay) -> str | None:
     name = w["tags"].get("name")
     alt_name = w["tags"].get("alt_name")
+    if "Street" in (name or "") or "Bridge" in (name or ""):
+        # filter out, e.g. "East 125th Street" = "Dr. MLK Jr. Blvd"
+        # or "Madison Avenue Bridge"
+        return None
     names = [x for x in [name, alt_name] if x is not None]
     for name in names:
         if (
@@ -201,19 +194,24 @@ def main():
         k: {n for way_id in way_ids for n in id_to_way[way_id]["nodes"]}
         for k, way_ids in ave_num_to_ways.items()
     }
-    node_to_street = invert(street_to_nodes)
-    # node_to_ave = invert(ave_to_nodes)
 
-    # This might be a more useful format than intersections.csv.
-    # It's more "raw" and matches the street names more directly.
-    # for ave in sorted(ave_to_nodes.keys()):
-    #     nodes = ave_to_nodes[ave]
-    #     for node in nodes:
-    #         lat = id_to_node[node]["lat"]
-    #         lon = id_to_node[node]["lon"]
-    #         streets = node_to_street.get(node)
-    #         for street in sorted(streets or []):
-    #             print(f"{ave}\t{street}\t{node}\t{lat},{lon}")
+    with open("data/intersections.csv", "w") as f:
+        out = csv.writer(f)
+        out.writerow(["Street", "Avenue", "Lat", "Lon"])
+        for ave in sorted(ave_to_nodes.keys()):
+            ave_nodes = ave_to_nodes[ave]
+            for street in sorted(street_to_nodes.keys()):
+                street_nodes = street_to_nodes[street]
+                intersect_nodes = ave_nodes & street_nodes
+                if not intersect_nodes:
+                    continue
+                intersect_nodes = [id_to_node[n] for n in intersect_nodes]
+                try:
+                    lat, lng = get_intersection_center(intersect_nodes)
+                except ValueError:
+                    print(f"Failing on {ave} {street}")
+                    raise
+                out.writerow([str(street), ave, str(round(lat, 6)), str(round(lng, 6))])
 
     def locate(ave: int, street: int) -> tuple[float, float] | None:
         street_nodes = street_to_nodes.get(street)
@@ -247,7 +245,7 @@ def main():
             lat, lon = (40.7424762, -74.0088873)
         rows.append([str(x) for x in [street, ave, lat, lon]])
 
-    with open("data/intersections.csv", "w") as f:
+    with open("data/grid.csv", "w") as f:
         delim = ","
         for row in rows:
             f.write(delim.join(row))

@@ -12,7 +12,7 @@ by_avenue = defaultdict(lambda: {})
 by_street = defaultdict(lambda: {})
 
 # TODO: load this lazily
-for row in csv.DictReader(open("data/intersections.csv")):
+for row in csv.DictReader(open("data/grid.csv")):
     if not row["Lat"]:
         continue  # not all intersections exist.
     avenue = int(row["Avenue"])
