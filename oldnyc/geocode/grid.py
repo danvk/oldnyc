@@ -8,6 +8,7 @@ from typing import Sequence
 
 import numpy as np
 from pygeojson import Optional
+from word2number import w2n
 
 Point = tuple[float, float]
 
@@ -299,9 +300,74 @@ def multisearch(re_dict, txt):
     return None
 
 
+def text_to_number(text: str) -> int | None:
+    # Normalize the text
+    text = text.lower().strip()
+
+    # Define ordinal mappings
+    ordinal_mapping = {
+        "first": 1,
+        "second": 2,
+        "third": 3,
+        "fourth": 4,
+        "fifth": 5,
+        "sixth": 6,
+        "seventh": 7,
+        "eighth": 8,
+        "ninth": 9,
+        "tenth": 10,
+        "eleventh": 11,
+        "twelfth": 12,
+        "thirteenth": 13,
+        "fourteenth": 14,
+        "fifteenth": 15,
+        "sixteenth": 16,
+        "seventeenth": 17,
+        "eighteenth": 18,
+        "nineteenth": 19,
+        "twentieth": 20,
+        "thirtieth": 30,
+        "fortieth": 40,
+        "fiftieth": 50,
+        "sixtieth": 60,
+        "seventieth": 70,
+        "eightieth": 80,
+        "ninetieth": 90,
+        "hundredth": 100,
+        "thousandth": 1000,
+    }
+
+    # Handle simple ordinals
+    for word, number in ordinal_mapping.items():
+        if text.endswith(word):
+            base_text = text[: -len(word)].strip()
+            try:
+                base_number = w2n.word_to_num(base_text) if base_text else 0
+                if not isinstance(base_number, int):
+                    return None
+                return base_number + number
+            except ValueError:
+                return number if not base_text else None
+
+    # Attempt to parse as a cardinal number
+    try:
+        x = w2n.word_to_num(text)
+        if not isinstance(x, int):
+            return None
+    except ValueError:
+        return None
+
+
 def extract_street_num(street: str) -> int | None:
     m = re.search(r"(\d+)(?:st|nd|rd|th) (?:Street|St\.|St\b)", street, flags=re.I)
-    return int(m.group(1)) if m else None
+    if m:
+        return int(m.group(1))
+    # try for an ordinal
+
+    m = re.search(r"(.*?) (?:Street|St\.|St\b)", street, flags=re.I)
+    if not m:
+        return None
+    return text_to_number(m.group(1))
 
 
 def interpolate(ave_ints: dict[int, Point], num: int) -> Point | None:
@@ -336,6 +402,8 @@ def geocode_intersection(street1: str, street2: str, debug_txt: Optional[str] = 
     if not is_initialized:
         load_data()
     global num_exact, num_interpolated
+
+    sys.stderr.write(f'Attempting to geocode "{street1}" and "{street2}"\n')
 
     # If either looks like a numbered street, check for an exact match.
     num1 = extract_street_num(street1)

@@ -3087,7 +3087,17 @@ files = [
     {file = "widgetsnbextension-4.0.13.tar.gz", hash = "sha256:ffcb67bc9febd10234a362795f643927f4e0c05d9342c727b65d2384f8feacb6"},
 ]
 
+[[package]]
+name = "word2number"
+version = "1.1"
+description = "Convert number words eg. three hundred and forty two to numbers (342)."
+optional = false
+python-versions = "*"
+files = [
+    {file = "word2number-1.1.zip", hash = "sha256:70e27a5d387f67b04c71fbb7621c05930b19bfd26efd6851e6e0f9969dcde7d0"},
+]
+
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.11"
-content-hash = "0a80a3807b7de7d32417cb36d52d763321ebed9d469b6483eb250259b9ed0367"
+content-hash = "e29ef4e09dca2f8b9c8bbcfbd711b43e5284a395c0474df9827ac208b473b1ba"
