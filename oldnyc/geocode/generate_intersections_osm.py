@@ -45,14 +45,12 @@ def isint(s: str) -> bool:
 
 
 def interpret_as_ave(w: OsmWay) -> str | None:
-    # name_type = w["tags"].get("tiger:name_type")
     name = w["tags"].get("name")
-    assert name
-    # alt_name = w["tags"].get("alt_name")
-    # names = [x for x in [name, alt_name] if x is not None]
-    # TODO: Lafayette St is more like an Avenue
-    if "Avenue" in name or "Boulevard" in name or "Broadway" in name:
-        return name
+    alt_name = w["tags"].get("alt_name")
+    names = [x for x in [name, alt_name] if x is not None]
+    for name in names:
+        if "Avenue" in name or "Boulevard" in name or "Broadway" in name:
+            return name
 
 
 def interpret_as_street(w: OsmWay) -> int | None:
