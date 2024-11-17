@@ -206,6 +206,25 @@ SPECIAL_AVES = {
 }
 
 
+def parse_ave(avenue: str) -> str | None:
+    """Normalize avenue names, e.g. "Fifth Avenue" -> "5"."""
+    if avenue in SPECIAL_AVES:
+        return avenue
+    num = extract_ordinal(avenue)
+    if num is not None:
+        return str(num)
+
+    # Look for something like 'Avenue A'
+    m = re.search(r"[aA]venue (A|B|C|D)", avenue)
+    if m:
+        return m.group(1)
+    else:
+        # How about 'Fourth', 'Fifth'?
+        num = multisearch(ORDINALS, avenue)
+        if num is not None:
+            return str(num)
+
+
 def parse_street_ave(street1: str, street2: str) -> tuple[str, str]:
     # try to get the avenue in street1
     if re.search(r"str|st\.|\bst\b", street1, flags=re.I):
@@ -230,25 +249,11 @@ def parse_street_ave(street1: str, street2: str) -> tuple[str, str]:
     street2 = str(num)
 
     # Try the same for the avenue
-    num = extract_ordinal(street1)
-    if num is not None:
-        street1 = str(num)
-    elif street1 in SPECIAL_AVES:
-        pass
-    else:
-        # Look for something like 'Avenue A'
-        m = re.search(r"[aA]venue (A|B|C|D)", street1)
-        if m:
-            street1 = m.group(1)
-        else:
-            # How about 'Fourth', 'Fifth'?
-            num = multisearch(ORDINALS, street1)
-            if num is not None:
-                street1 = str(num)
-            else:
-                raise ValueError("Did not find an avenue in %s" % street1)
+    ave = parse_ave(street1)
+    if ave is None:
+        raise ValueError("Did not find an avenue in %s" % street1)
 
-    return street1, street2
+    return ave, street2
 
 
 def remove_parens(txt: str):

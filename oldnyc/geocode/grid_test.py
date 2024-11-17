@@ -62,3 +62,10 @@ def test_parse_street_ave():
 
 def test_geocode_broadway():
     assert_close(grid.code("Broadway", "59"), (40.767696, -73.981679))
+
+
+def test_parse_ave():
+    assert grid.parse_ave("Broadway") == "Broadway"
+    assert grid.parse_ave("Fifth Avenue") == "5"
+    assert grid.parse_ave("Avenue A") == "A"
+    assert grid.parse_ave("Central Park West") == "Central Park West"
