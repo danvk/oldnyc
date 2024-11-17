@@ -1,4 +1,4 @@
-from oldnyc.geocode.osm.generate_intersections_osm import make_avenue_str
+from oldnyc.geocode.osm.generate_intersections import make_avenue_str
 
 
 def test_make_avenue_str():
