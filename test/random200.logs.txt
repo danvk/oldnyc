@@ -19,6 +19,7 @@ Grid statistics:
      Exact matches: 66
 Exact grid matches: 5
       Extrapolated: 2
+      Interpolated: 0
          Unclaimed: 2
    Unknown avenues: Counter({'19': 2})
    Unknown streets: Counter()

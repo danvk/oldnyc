@@ -149,6 +149,7 @@ num_exact = 0
 num_exact_grid = 0
 num_unclaimed = 0
 num_extrapolated = 0
+num_interpolated = 0
 unknown_ave = Counter[str]()
 unknown_str = Counter[str]()
 
@@ -342,7 +343,7 @@ def interpolate(ave_ints: dict[int, Point], num: int) -> Point | None:
 def geocode_intersection(street1: str, street2: str, debug_txt: Optional[str] = "") -> Point | None:
     if not is_initialized:
         load_data()
-    global num_exact
+    global num_exact, num_interpolated
 
     # If either looks like a numbered street, check for an exact match.
     num1 = extract_street_num(street1)
@@ -359,13 +360,16 @@ def geocode_intersection(street1: str, street2: str, debug_txt: Optional[str] = 
             if latlng:
                 num_exact += 1
                 return latlng
-            sys.stderr.write(f"Miss on intersection: {debug_txt} {num1}, {street2} -> {avenue}\n")
 
         # There's no exact match, but we might be able to interpolate.
         ave_ints = all_ints_by_ave.get(avenue)
         if ave_ints:
             latlng = interpolate(ave_ints, num1)
             if latlng:
+                num_interpolated += 1
+                sys.stderr.write(
+                    f"{debug_txt} Interpolated {street2} ({avenue}) & {street1} to {latlng}\n"
+                )
                 return latlng
 
     # Either of these can raise a ValueError
@@ -378,6 +382,7 @@ def log_stats():
     sys.stderr.write(f"     Exact matches: {num_exact}\n")
     sys.stderr.write(f"Exact grid matches: {num_exact_grid}\n")
     sys.stderr.write(f"      Extrapolated: {num_extrapolated}\n")
+    sys.stderr.write(f"      Interpolated: {num_interpolated}\n")
     sys.stderr.write(f"         Unclaimed: {num_unclaimed}\n")
     sys.stderr.write(f"   Unknown avenues: {unknown_ave}\n")
     sys.stderr.write(f"   Unknown streets: {unknown_str}\n")
