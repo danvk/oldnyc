@@ -35,14 +35,6 @@ def invert(d: dict[T, set[V]]) -> dict[V, set[T]]:
     return out
 
 
-def isint(s: str) -> bool:
-    try:
-        int(s)
-        return True
-    except ValueError:
-        return False
-
-
 def interpret_as_ave(w: OsmWay) -> str | None:
     name = w["tags"].get("name")
     alt_name = w["tags"].get("alt_name")
