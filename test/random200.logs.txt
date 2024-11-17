@@ -11,8 +11,7 @@ alt titles matched: 0
           counters: [('title', 148), ('boro-int', 148), ('alt_title', 2), ('num-prefix', 1), ('at-int', 1)]
   geocoding results:
             grid: 66
-        attempts:   95
-          parsed:   0
+ (grid attempts):   95
           google: 65
    boro mismatch: 2
         failures: 17
