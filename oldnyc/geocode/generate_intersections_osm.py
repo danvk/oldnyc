@@ -49,7 +49,12 @@ def interpret_as_ave(w: OsmWay) -> str | None:
     alt_name = w["tags"].get("alt_name")
     names = [x for x in [name, alt_name] if x is not None]
     for name in names:
-        if "Avenue" in name or "Boulevard" in name or "Broadway" in name:
+        if (
+            "Avenue" in name
+            or "Boulevard" in name
+            or "Broadway" in name
+            or "Central Park West" in name
+        ):
             return name
 
 
