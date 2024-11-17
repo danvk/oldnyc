@@ -11,12 +11,11 @@ from haversine import haversine
 from tqdm import tqdm
 
 from oldnyc.geocode.boroughs import is_in_manhattan
-from oldnyc.geocode.generate_intersections import make_avenue_str
-from oldnyc.geocode.osm import OsmElement, OsmWay
+from oldnyc.geocode.osm.osm import OsmElement, OsmWay
 
 
 def load_osm_data() -> list[OsmElement]:
-    osm_data = json.load(open("/Users/danvk/github/computing-in-the-catskills/data/nyc-roads.json"))
+    osm_data = json.load(open("data/osm-roads.json"))
     els = osm_data["elements"]
     return els
 
@@ -75,6 +74,50 @@ def interpret_as_street(w: OsmWay) -> int | None:
         return base_num
 
 
+# See http://stackoverflow.com/a/20007730/388951
+def make_ordinal(n):
+    return "%d%s" % (n, "tsnrhtdd"[(n // 10 % 10 != 1) * (n % 10 < 4) * n % 10 :: 4])
+
+
+def make_avenue_str(avenue, street=0) -> str | None:
+    """1 --> 1st Avenue, -1 --> Avenue B"""
+    if avenue <= 0:
+        return "Avenue " + ["A", "B", "C", "D"][-avenue]
+    elif avenue == 4:
+        if 17 <= street <= 32:
+            return "Park Avenue South"
+        elif street > 32:
+            return "Park Avenue"
+        else:
+            return None
+    elif avenue == 6 and street >= 110:
+        return "Malcolm X Boulevard"
+    elif avenue == 7 and street >= 110:
+        return "Adam Clayton Powell Jr. Boulevard"
+    elif avenue == 8 and 59 <= street <= 110:
+        return "Central Park West"
+    elif avenue == 8 and street > 110:
+        return "Frederick Douglass Boulevard"
+    elif avenue == 10 and street >= 59:
+        return "Amsterdam Avenue"
+    elif avenue == 11 and street >= 59:
+        return "West End Avenue"
+    else:
+        return make_ordinal(avenue) + " Avenue"
+
+
+"""
+10th Avenue --> Amsterdam Ave above 59th street
+11th Avenue --> West End Ave above 59th street
+ 8th Avenue --> Central Park West from 59th to 110th
+ 8th Avenue --> Frederick Douglass Blvd above 110th
+ 7th Avenue --> Adam Clayton Powell Jr Blvd above 110th
+ 6th Avenue --> Malcolm X Blvd above 110th
+ 4th Avenue --> Park Avenue S from 17th to 32nd street
+ 4th Avenue --> Park Avenue above 32nd street
+"""
+
+
 def main():
     els = load_osm_data()
     ways = [
@@ -123,16 +166,9 @@ def main():
     assert 42442559 in manhattan_intersections
     assert 42442561 in manhattan_intersections
 
-    # print(f"{len(ways)=}")
-    # print(f"{len(manhattan_intersections)=}")
-
     manhattan_roads = [
         id_to_way[w] for w in {w for int_n in manhattan_intersections for w in node_to_ways[int_n]}
     ]
-    # print(f"{len(manhattan_roads)=}")
-
-    # print("name_base", [*sorted(name_base.keys())])
-    # print("name_base1", [*sorted(name_base1.keys())])
 
     ave_a = [m for m in manhattan_roads if m["id"] == 195743554]
     assert ave_a
@@ -171,27 +207,6 @@ def main():
     #         for street in sorted(streets or []):
     #             print(f"{ave}\t{street}\t{node}\t{lat},{lon}")
 
-    # for k in sorted(ave_num_to_ways.keys()):
-    #     print(k, ave_num_to_ways[k])
-
-    # print(manhattan_intersections[0])
-    # print([id_to_way[w] for w in node_to_ways[manhattan_intersections[0]]])
-
-    # for street in range(1, 221):
-    #     if str(street) not in name_base1:
-    #         print(f"Missing street: {street}")
-
-    # name_type = Counter[str | None]()
-    # for w in manhattan_roads:
-    #     name_type[w["tags"].get("tiger:name_type")] += 1
-    # print(name_type.most_common())
-
-    # random.shuffle(crosses)
-    # for i, (ave, street) in enumerate(crosses):
-    #     pass
-
-    # have streets as ints
-    # avenues have their raw names
     def locate(ave: int, street: int) -> tuple[float, float] | None:
         street_nodes = street_to_nodes.get(street)
         if not street_nodes:
@@ -231,10 +246,11 @@ def main():
     for i, (ave, street) in enumerate(crosses):
         lat, lon = locate(ave, street) or ("", "")
         if (ave, street, lat, lon) == (11, 14, "", ""):
+            # Google geocodes this one but OSM has 14th street end at 10th Ave.
+            # The correct behavior is debatable, but this lets us keep a few photos.
             lat, lon = (40.7424762, -74.0088873)
         rows.append([str(x) for x in [street, ave, lat, lon]])
 
-    # delim = "," if args.format == "csv" else "\t"
     delim = ","
     for row in rows:
         print(delim.join(row))
