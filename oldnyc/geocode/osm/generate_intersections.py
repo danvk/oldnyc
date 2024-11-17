@@ -38,6 +38,7 @@ def interpret_as_ave(w: OsmWay) -> str | None:
             or "Boulevard" in name
             or "Broadway" in name
             or "Central Park West" in name
+            or "Sutton Place" in name
         ):
             return name
 
