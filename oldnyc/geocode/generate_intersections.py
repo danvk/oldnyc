@@ -42,13 +42,13 @@ def make_avenue_str(avenue, street=0) -> str | None:
         else:
             return None
     elif avenue == 6 and street >= 110:
-        return "Malcolm X Blvd"
+        return "Malcolm X Boulevard"
     elif avenue == 7 and street >= 110:
-        return "Adam Clayton Powell Jr Blvd"
+        return "Adam Clayton Powell Jr. Boulevard"
     elif avenue == 8 and 59 <= street <= 110:
         return "Central Park West"
     elif avenue == 8 and street > 110:
-        return "Frederick Douglass Blvd"
+        return "Frederick Douglass Boulevard"
     elif avenue == 10 and street >= 59:
         return "Amsterdam Avenue"
     elif avenue == 11 and street >= 59:
