@@ -58,6 +58,10 @@ def test_parse_street_ave():
     assert grid.parse_street_ave("Fifth Avenue", "100th Street") == ("5", "100")
 
     assert grid.parse_street_ave("Broadway", "59th Street") == ("Broadway", "59")
+    # assert grid.parse_street_ave("St. Nicholas Avenue", "147th Street") == (
+    #     "St. Nicholas Avenue",
+    #     "147",
+    # )
 
 
 def test_geocode_broadway():

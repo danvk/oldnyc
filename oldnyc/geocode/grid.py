@@ -20,7 +20,6 @@ all_ints = defaultdict[int, dict[str, Point]](lambda: {})
 is_initialized = False
 
 
-# TODO: load this lazily
 def load_data():
     for row in csv.DictReader(open("data/grid.csv")):
         if not row["Lat"]:
@@ -39,13 +38,12 @@ def load_data():
     for row in csv.DictReader(open("data/intersections.csv")):
         street = int(row["Street"])
         raw_avenue = row["Avenue"]
-        avenue = parse_ave(raw_avenue)
-        if avenue is None:
-            sys.stderr.write(f"Dropping {raw_avenue} from {street}\n")
-            continue
         lat = float(row["Lat"])
         lon = float(row["Lon"])
-        all_ints[street][avenue] = (lat, lon)
+        avenue = parse_ave(raw_avenue)
+        if avenue is not None:
+            all_ints[street][avenue] = (lat, lon)
+        all_ints[street][raw_avenue] = (lat, lon)
 
     global is_initialized
     is_initialized = True
@@ -293,6 +291,7 @@ def multisearch(re_dict, txt):
 
 
 if __name__ == "__main__":
+    load_data()
     print("Avenues and streets with imperfect correlations:")
     print("Avenues:")
     for ave in sorted(by_avenue.keys()):
