@@ -39,6 +39,7 @@ def interpret_as_ave(w: OsmWay) -> str | None:
             or "Broadway" in name
             or "Central Park West" in name
             or "Sutton Place" in name
+            or "Riverside Drive" in name
         ):
             return name
 
@@ -109,7 +110,8 @@ def get_intersection_center(nodes: Sequence[OsmNode]) -> tuple[float, float]:
     # intersection. It's fine to average them, after a sanity check.
     for a, b in itertools.combinations(nodes, 2):
         d = haversine((a["lat"], a["lon"]), (b["lat"], b["lon"])) * 1000
-        if d > 100:
+        # Riverside Drive / 110: 42452276 <-> 42441926 111m
+        if d > 120:
             sys.stderr.write(f"  {a['id']} <-> {b['id']} {d:.0f}m\n")
             raise ValueError("Ambiguous intersection")
 
