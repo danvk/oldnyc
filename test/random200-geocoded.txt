@@ -87,7 +87,7 @@
 709069f	title-cross	(40.763654, -73.973483)	Manhattan: 5th Avenue - 58th Street
 709481f	title-cross	(40.754842, -73.984118)	Manhattan: 6th Avenue - 42nd Street (West)
 709510f	title-cross	(40.756142, -73.983166)	Manhattan: 6th Avenue - 44th Street (West)
-709643f	title-cross	(40.7372245, -74.0006804)	Manhattan: 7th Avenue - 12th Street (West)
+709643f	title-cross	(40.737222, -74.000628)	Manhattan: 7th Avenue - 12th Street (West)
 709691f	title-cross	(40.741056, -73.997862)	Manhattan: 7th Avenue - 18th Street
 709755f	title-cross	(40.750342, -73.991099)	Manhattan: 7th Avenue - 33rd Street
 710174f	title-cross	(40.755949, -73.990728)	Manhattan: 8th Avenue - 40th Street (West)
@@ -115,16 +115,16 @@
 714399f	title-cross	(40.779813, -73.984481)	Manhattan: 72nd Street (West) - West End Avenue
 714441f	title-cross	(40.769767, -73.954566)	Manhattan: 75th Street (East) - 1st Avenue
 714641f	title-cross	(40.777546, -73.9570127)	Manhattan: 83rd Street (East) - Lexington Avenue
-714767f	title-cross	(40.7877902, -73.9712102)	Manhattan: 88th Street (West) - Columbus Avenue
+714767f	title-cross	(40.787799, -73.971236)	Manhattan: 88th Street (West) - Columbus Avenue
 714847f	title-cross	(40.792131, -73.971777)	Manhattan: 93rd Street (West) - Amsterdam Avenue
-714866f	title-cross	(40.7921829, -73.9680033)	Manhattan: 95th Street (West) - Columbus Avenue
+714866f	title-cross	(40.792197, -73.96804)	Manhattan: 95th Street (West) - Columbus Avenue
 714878f	title-cross	(40.785877, -73.9509341)	Manhattan: 96th Street (East) - Lexington Avenue
-714891f	title-cross	(40.7928572, -73.967511)	Manhattan: 96th Street (West) - Columbus Avenue
+714891f	title-cross	(40.792876, -73.967545)	Manhattan: 96th Street (West) - Columbus Avenue
 714972f	title-cross	(40.78894, -73.940559)	Manhattan: 105th Street (East) - 1st Avenue
 715218f	title-cross	(40.80323, -73.944622)	Manhattan: 120th Street - 5th Avenue
-715225f	title-cross	(40.810582, -73.9621696)	Manhattan: 120th Street - Broadway
+715225f	title-cross	(40.81054, -73.962061)	Manhattan: 120th Street - Broadway
 715273f	title-cross	(40.8004564, -73.9321696)	Manhattan: 123rd Street (East) - 1st Avenue
-715775f	title-cross	(40.8442656, -73.9337224)	Manhattan: 175th Street (West) - Amsterdam Avenue
+715775f	title-cross	(40.844248, -73.933724)	Manhattan: 175th Street (West) - Amsterdam Avenue
 716213f	title-cross	(40.8029878, -73.9638629)	Manhattan: Amsterdam Avenue - Cathedral Parkway
 716251f	title-cross	(40.8029878, -73.9638629)	Manhattan: Amsterdam Avenue - Cathedral Parkway
 716421f	title-cross	(40.725073, -73.981211)	Manhattan: Avenue B - 7th Street
@@ -132,7 +132,7 @@
 716849f	title-cross	(40.7062339, -74.0112434)	Manhattan: Broad Street - Exchange Place
 716954f	title-cross	(40.7050362, -74.0133253)	Manhattan: Broadway - Beaver Street
 717053f	title-cross	(40.7091466, -74.0105538)	Manhattan: Broadway - Liberty Street
-717397f	title-cross	(40.7489862, -73.9880222)	Manhattan: Broadway - 33rd Street
+717397f	title-cross	(40.74903, -73.988017)	Manhattan: Broadway - 33rd Street
 717855f	title-cross	(40.716861, -73.9862023)	Manhattan: Broome Street - Clinton Street
 718012f	title-cross	(40.7184111, -74.0005723)	Manhattan: Canal Street - Lafayette Street
 718754f	title-cross	(40.7121586, -73.9806996)	Manhattan: Cherry Street - Jackson Street
@@ -142,12 +142,12 @@
 719805f	subjects	(40.861619, -73.933622)	Fort Tryon Park (New York, N.Y.)
 720086f	title-cross	(40.7181343, -73.9938663)	Manhattan: Grand Street - Chrystie Street
 720408f	title-cross	(40.7155152, -73.9897764)	Manhattan: Hester Street - Essex Street
-720438f	gpt	(40.8422926, -73.9350884)	Amsterdam Ave and West 172nd Street
+720438f	gpt	(40.842304, -73.935124)	Amsterdam Ave and West 172nd Street
 720777f	title-cross	(40.7250568, -73.9953711)	Manhattan: Lafayette Street - Houston Street (East)
 720991f	title-cross	(40.7514377, -73.9760461)	Manhattan: Lexington Avenue - 42nd Street (East)
 721041f	title-cross	(40.7647478, -73.9663694)	Manhattan: Lexington Avenue - 63rd Street (East)
 722101f	title-cross	(40.749603, -73.979514)	Manhattan: Park Avenue - 38th Street
-722402f	title-cross	(40.8058042, -73.9386896)	Manhattan: Park Avenue - 126th Street
+722402f	title-cross	(40.80573, -73.938544)	Manhattan: Park Avenue - 126th Street
 722430f	title-cross	(40.7120032, -74.0081046)	Manhattan: Park Row - Broadway
 722717f	title-cross	(40.7869106, -73.9812484)	Manhattan: Riverside Drive - 82nd Street
 722881f	title-cross	(40.7849851, -73.9826672)	Manhattan: Riverside Drive - 79th Street

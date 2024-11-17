@@ -8,7 +8,6 @@ Failed to guess borough for 417391
 Failed to guess borough for 417677
 Borough mismatch: 704487f: Brooklyn: Fulton Street - Nassau Street geocoded to Manhattan not Brooklyn
 gpt Borough mismatch: 704487f: Fulton Street and Nassau Street geocoded to Manhattan not Brooklyn
-Rejecting extrapolation for 7, 12
   101 /   200 records processed
 Borough mismatch: 713577f: Manhattan: 51st Street - 19th Avenue geocoded to Brooklyn not Manhattan
 gpt Borough mismatch: 713577f: 19th Avenue and 51st Street geocoded to Brooklyn not Manhattan
@@ -23,8 +22,8 @@ alt titles matched: 0
      total matches: 150
           counters: [('title', 148), ('boro-int', 148), ('alt_title', 2), ('num-prefix', 1), ('at-int', 1)]
   geocoding results:
-            grid: 51
-          google: 80
+            grid: 56
+          google: 75
    boro mismatch: 2
         failures: 17
 -- Finalizing title-address --
@@ -38,8 +37,8 @@ GPT POI:          24
 GPT address:      3
 GPT intersection: 31
 GPT geocoding results:
-            grid: 6
-          google: 11
+            grid: 7
+          google: 10
    boro mismatch: 2
         failures: 15
 -- Finalizing special --
