@@ -17,27 +17,38 @@ by_street = defaultdict[int, dict[str, Point]](lambda: {})
 # These are all intersections in Manhattan, not just the grid.
 all_ints = defaultdict[int, dict[str, Point]](lambda: {})
 
-# TODO: load this lazily
-for row in csv.DictReader(open("data/grid.csv")):
-    if not row["Lat"]:
-        continue  # not all intersections exist.
-    avenue = int(row["Avenue"])
-    street = int(row["Street"])
-    lat = float(row["Lat"])
-    lon = float(row["Lon"])
-    if avenue <= 0:
-        avenue = ["A", "B", "C", "D"][-avenue]
-    else:
-        avenue = str(avenue)
-    by_avenue[avenue][street] = (lat, lon)
-    by_street[street][avenue] = (lat, lon)
+is_initialized = False
 
-for row in csv.DictReader(open("data/intersections.csv")):
-    street = int(row["Street"])
-    avenue = row["Avenue"]
-    lat = float(row["Lat"])
-    lon = float(row["Lon"])
-    all_ints[street][avenue] = (lat, lon)
+
+# TODO: load this lazily
+def load_data():
+    for row in csv.DictReader(open("data/grid.csv")):
+        if not row["Lat"]:
+            continue  # not all intersections exist.
+        avenue = int(row["Avenue"])
+        street = int(row["Street"])
+        lat = float(row["Lat"])
+        lon = float(row["Lon"])
+        if avenue <= 0:
+            avenue = ["A", "B", "C", "D"][-avenue]
+        else:
+            avenue = str(avenue)
+        by_avenue[avenue][street] = (lat, lon)
+        by_street[street][avenue] = (lat, lon)
+
+    for row in csv.DictReader(open("data/intersections.csv")):
+        street = int(row["Street"])
+        raw_avenue = row["Avenue"]
+        avenue = parse_ave(raw_avenue)
+        if avenue is None:
+            sys.stderr.write(f"Dropping {raw_avenue} from {street}\n")
+            continue
+        lat = float(row["Lat"])
+        lon = float(row["Lon"])
+        all_ints[street][avenue] = (lat, lon)
+
+    global is_initialized
+    is_initialized = True
 
 
 AVE_TO_NUM = {"A": 0, "B": -1, "C": -2, "D": -3}
@@ -95,6 +106,8 @@ def get_line(num_to_lls):
 
 
 def extrapolate_intersection(avenue: str, street: int):
+    if not is_initialized:
+        load_data()
     street_to_lls = by_avenue[avenue]
     ave_to_lls = by_street[street]
 
@@ -112,6 +125,8 @@ def extrapolate_intersection(avenue: str, street: int):
 
 def may_extrapolate(avenue: str, street: str):
     """Is this a valid intersection to extrapolate?"""
+    if not is_initialized:
+        load_data()
     ave_num = ave_to_num(avenue)
     str_num = int(street)
 
@@ -140,6 +155,8 @@ def code(avenue: str, street: str) -> tuple[float, float] | None:
     `avenue` and `street` are strings, e.g. 'A' and '15'.
     Returns (lat, lon) or None.
     """
+    if not is_initialized:
+        load_data()
     global num_exact, num_unclaimed, num_extrapolated, num_exact_grid
 
     # Look for an exact match in the full list of intersections first.
@@ -197,6 +214,8 @@ ORDINALS = {
     "Columbus": 9,
     "West End": 11,
     "Lenox": 6,  # Now Malcolm X
+    "Adam Clayton Powell Jr. Boulevard": 7,
+    "Malcolm X Boulevard": 6,
 }
 
 # "Avenues" that do not have "Avenue" in their names
