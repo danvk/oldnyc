@@ -1,0 +1,10 @@
+[out:json][timeout:60];
+rel(175905);
+out;
+map_to_area;
+(
+  way(area)["highway"]["name"];
+);
+out body;
+>;
+out skel qt;

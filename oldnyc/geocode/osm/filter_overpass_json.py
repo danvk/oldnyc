@@ -1,14 +1,13 @@
 """The Overpass results are a bit large to store in the repo.
 
-This filters them down to just the ways/nodes that have names.
+This filters them down to just the ways/nodes/tags that are of interest for the street grid.
 """
 
 import json
+import sys
 from collections import Counter
 
-osm_data = json.load(
-    open("/Users/danvk/github/computing-in-the-catskills/data/nyc-named-roads.json")
-)
+osm_data = json.load(open(sys.argv[1]))
 # Remove NYC relation
 osm_data["elements"] = [el for el in osm_data["elements"] if el["type"] != "relation"]
 

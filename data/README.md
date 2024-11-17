@@ -20,3 +20,11 @@ Inputs:
 TODO:
 
 - Document provenance for all files.
+
+## Repro instructions
+
+### osm-roads.json
+
+Run `data/nyc-named-roads.overpass-query.txt` through the Overpass API. This will produce a big JSON file that needs to be filtered. You can do this with:
+
+    poetry run python oldnyc/geocode/osm/filter_overpass_json.py /tmp/results.json > data/osm-roads.json
