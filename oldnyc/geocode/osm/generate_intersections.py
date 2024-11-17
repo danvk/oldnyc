@@ -243,9 +243,11 @@ def main():
             lat, lon = (40.7424762, -74.0088873)
         rows.append([str(x) for x in [street, ave, lat, lon]])
 
-    delim = ","
-    for row in rows:
-        print(delim.join(row))
+    with open("data/intersections.csv", "w") as f:
+        delim = ","
+        for row in rows:
+            f.write(delim.join(row))
+            f.write("\n")
 
 
 if __name__ == "__main__":
