@@ -225,8 +225,8 @@ def main():
 
         num = len(intersect_nodes)
         return (
-            round(sum(n["lat"] for n in intersect_nodes) / num, 7),
-            round(sum(n["lon"] for n in intersect_nodes) / num, 7),
+            round(sum(n["lat"] for n in intersect_nodes) / num, 6),
+            round(sum(n["lon"] for n in intersect_nodes) / num, 6),
         )
 
     crosses: list[tuple[int, int]] = []
