@@ -16,8 +16,8 @@ alt titles matched: 0
    boro mismatch: 2
         failures: 17
 Grid statistics:
-     Exact matches: 66
-Exact grid matches: 5
+     Exact matches: 71
+Exact grid matches: 0
       Extrapolated: 2
       Interpolated: 0
          Unclaimed: 2
@@ -34,7 +34,7 @@ GPT POI:          24
 GPT address:      3
 GPT intersection: 31
 GPT geocoding results:
-            grid: 7
+            grid: 7 (15 attempts)
           google: 10
    boro mismatch: 2
         failures: 15

@@ -300,16 +300,8 @@ def multisearch(re_dict, txt):
 
 
 def extract_street_num(street: str) -> int | None:
-    name = street.replace("Street", "").strip()
-    name = re.sub(r"\b(east|west)\b", "", name, flags=re.I).strip()
-    name = name.replace("()", "")  # remains of "(east)" or "(west)"
-    name = re.sub(r"\b(\d+)(?:st|nd|rd|th)\b", r"\1", name).strip()
-
-    try:
-        base_num = int(name)
-    except ValueError:
-        return None
-    return base_num
+    m = re.search(r"(\d+)(?:st|nd|rd|th) (?:Street|St\.|St\b)", street, flags=re.I)
+    return int(m.group(1)) if m else None
 
 
 def interpolate(ave_ints: dict[int, Point], num: int) -> Point | None:
@@ -352,6 +344,9 @@ def geocode_intersection(street1: str, street2: str, debug_txt: Optional[str] = 
         if num2:
             street1, street2 = street2, street1
             num1 = num2
+
+    # sys.stderr.write(f"{debug_txt} {street1} ({num1}) / {street2}\n")
+
     if num1:
         avenue = parse_ave_for_osm(street2)
         avenues = all_ints.get(num1)

@@ -68,10 +68,10 @@ def test_geocode_broadway():
     # this is an exact intersection
     assert_close(grid.geocode_intersection("Broadway", "59th Street"), (40.767696, -73.981679))
     # these are interpolations
-    assert_close(grid.geocode_intersection("Broadway", "24"), (40.7422035, -73.989151))
-    assert_close(grid.geocode_intersection("Broadway", "124"), (40.8140625, -73.959421))
+    assert_close(grid.geocode_intersection("Broadway", "24th Street"), (40.7422035, -73.989151))
+    assert_close(grid.geocode_intersection("Broadway", "124th St"), (40.8140625, -73.959421))
     # this isn't great, but probably not too far off the intended location.
-    assert_close(grid.geocode_intersection("Broadway", "127"), (40.816311, -73.957802))
+    assert_close(grid.geocode_intersection("Broadway", "127th St."), (40.816311, -73.957802))
 
 
 def test_geocode_above_125():
@@ -83,3 +83,10 @@ def test_parse_ave():
     assert grid.parse_ave("Fifth Avenue") == "5"
     assert grid.parse_ave("Avenue A") == "A"
     assert grid.parse_ave("Central Park West") == "Central Park West"
+
+
+def test_extract_street_num():
+    assert grid.extract_street_num("123rd Street") == 123
+    assert grid.extract_street_num("12th St.") == 12
+    assert grid.extract_street_num("31st St.") == 31
+    assert grid.extract_street_num("5th Avenue") is None

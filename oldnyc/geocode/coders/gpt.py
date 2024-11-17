@@ -21,6 +21,7 @@ class GptCoder(Coder):
         self.num_address = 0
         self.num_poi = 0
         self.n_grid = 0
+        self.n_grid_attempts = 0
         self.n_google_location = 0
         self.n_geocode_fail = 0
         self.n_boro_mismatch = 0
@@ -79,6 +80,7 @@ class GptCoder(Coder):
         if boro != "Manhattan" and boro != "New York":
             return None
         try:
+            self.n_grid_attempts += 1
             latlon = grid.geocode_intersection(str1, str2, r.id)
             if latlon:
                 self.n_grid += 1
@@ -117,7 +119,7 @@ class GptCoder(Coder):
         sys.stderr.write(f"GPT intersection: {self.num_intersection}\n")
 
         sys.stderr.write("GPT geocoding results:\n")
-        sys.stderr.write(f"            grid: {self.n_grid}\n")
+        sys.stderr.write(f"            grid: {self.n_grid} ({self.n_grid_attempts} attempts)\n")
         sys.stderr.write(f"          google: {self.n_google_location}\n")
         sys.stderr.write(f"   boro mismatch: {self.n_boro_mismatch}\n")
         sys.stderr.write(f"        failures: {self.n_geocode_fail}\n")
