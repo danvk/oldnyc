@@ -181,9 +181,7 @@ class TitleCrossCoder(Coder):
             return None
         try:
             self.n_grid_attempt += 1
-            avenue, street = grid.parse_street_ave(str1, str2)
-            self.n_grid_parse += 1
-            latlon = grid.code(avenue, street)
+            latlon = grid.geocode_intersection(str1, str2)
             if latlon:
                 self.n_grid += 1
                 lat, lng = latlon

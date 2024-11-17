@@ -157,14 +157,6 @@ def code(avenue: str, street: str) -> tuple[float, float] | None:
         load_data()
     global num_exact, num_unclaimed, num_extrapolated, num_exact_grid
 
-    # Look for an exact match in the full list of intersections first.
-    possible_aves = all_ints.get(int(street))
-    if possible_aves:
-        exact = possible_aves.get(avenue)
-        if exact:
-            num_exact += 1
-            return (exact[0], exact[1])
-
     crosses = by_avenue.get(avenue)
     if not crosses:
         unknown_ave[avenue] += 1
@@ -288,6 +280,43 @@ def multisearch(re_dict, txt):
         if re.search(k, txt, flags=re.I):
             return v
     return None
+
+
+def extract_street_num(street: str) -> int | None:
+    name = street.replace("Street", "").strip()
+    name = re.sub(r"\b(east|west)\b", "", name, flags=re.I).strip()
+    name = name.replace("()", "")  # remains of "(east)" or "(west)"
+    name = re.sub(r"\b(\d+)(?:st|nd|rd|th)\b", r"\1", name).strip()
+
+    try:
+        base_num = int(name)
+    except ValueError:
+        return None
+    return base_num
+
+
+def geocode_intersection(street1: str, street2: str):
+    global num_exact
+
+    # If either looks like a numbered street, check for an exact match.
+    num1 = extract_street_num(street1)
+    if not num1:
+        num2 = extract_street_num(street2)
+        if num2:
+            street1, street2 = street2, street1
+            num1 = num2
+    if num1:
+        avenues = all_ints.get(num1)
+        if avenues:
+            # TODO: do some normalization on street2
+            latlng = avenues.get(street2)
+            if latlng:
+                num_exact += 1
+                return latlng
+
+    # Either of these can raise a ValueError
+    avenue, street = parse_street_ave(street1, street2)
+    return code(avenue, street)
 
 
 def log_stats():

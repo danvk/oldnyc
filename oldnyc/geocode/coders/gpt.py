@@ -79,8 +79,7 @@ class GptCoder(Coder):
         if boro != "Manhattan" and boro != "New York":
             return None
         try:
-            avenue, street = grid.parse_street_ave(str1, str2)
-            latlon = grid.code(avenue, street)
+            latlon = grid.geocode_intersection(str1, str2)
             if latlon:
                 self.n_grid += 1
                 lat, lng = latlon
