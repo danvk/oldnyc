@@ -2,7 +2,6 @@
 
 import itertools
 import json
-import random
 import re
 import sys
 from collections import Counter, defaultdict
@@ -13,7 +12,7 @@ from tqdm import tqdm
 
 from oldnyc.geocode.boroughs import is_in_manhattan
 from oldnyc.geocode.generate_intersections import make_avenue_str
-from oldnyc.geocode.osm import OsmElement
+from oldnyc.geocode.osm import OsmElement, OsmWay
 
 
 def load_osm_data() -> list[OsmElement]:
@@ -43,6 +42,42 @@ def isint(s: str) -> bool:
         return True
     except ValueError:
         return False
+
+
+def interpret_as_ave(w: OsmWay) -> str | None:
+    name_type = w["tags"].get("tiger:name_type")
+    name = w["tags"].get("name")
+    assert name
+    # TODO: Lafayette St is more like an Avenue
+    if (
+        name_type in ("Ave", "Blvd")
+        or "Avenue" in name
+        or "Boulevard" in name
+        or "Broadway" in name
+    ):
+        return name
+
+
+def interpret_as_street(w: OsmWay) -> int | None:
+    name_type = w["tags"].get("tiger:name_type")
+    name_type1 = w["tags"].get("tiger:name_type_1")
+    base = w["tags"].get("tiger:name_base")
+    base1 = w["tags"].get("tiger:name_base_1")
+    name = w["tags"].get("name")
+    assert name
+    alt_name = w["tags"].get("alt_name")
+    if name_type == "St" or name_type1 == "St" or "Street" in name:
+        names = [x for x in [name, base, base1, alt_name] if x is not None]
+        for name in names:
+            name = name.replace("Street", "").strip()
+            name = re.sub(r"\b(east|west)\b", "", name, flags=re.I).strip()
+            name = re.sub(r"\b(\d+)(?:st|nd|rd|th)\b", r"\1", name).strip()
+
+            try:
+                base_num = int(name)
+            except ValueError:
+                continue
+            return base_num
 
 
 def main():
@@ -110,37 +145,14 @@ def main():
     street_num_to_ways = defaultdict[int, set[int]](set)
     ave_num_to_ways = defaultdict[str, set[int]](set)
     for w in manhattan_roads:
-        name_type = w["tags"].get("tiger:name_type")
-        name_type1 = w["tags"].get("tiger:name_type_1")
-        base = w["tags"].get("tiger:name_base")
-        base1 = w["tags"].get("tiger:name_base_1")
-        name = w["tags"].get("name")
-        assert name
-        alt_name = w["tags"].get("alt_name")
+        ave_name = interpret_as_ave(w)
+        if ave_name:
+            ave_num_to_ways[ave_name].add(w["id"])
+            continue
 
-        # TODO: Lafayette St is more like an Avenue
-        if (
-            name_type in ("Ave", "Blvd")
-            or "Avenue" in name
-            or "Boulevard" in name
-            or "Broadway" in name
-        ):
-            # name = (base or name).replace("Avenue", "").replace("Boulevard", "").strip()
-            # name = re.sub(r"st|nd|rd|th", "", name)
-            ave_num_to_ways[name].add(w["id"])
-        elif name_type == "St" or name_type1 == "St" or "Street" in name:
-            names = [x for x in [name, base, base1, alt_name] if x is not None]
-            for name in names:
-                name = name.replace("Street", "").strip()
-                name = re.sub(r"\b(east|west)\b", "", name, flags=re.I).strip()
-                name = re.sub(r"\b(\d+)(?:st|nd|rd|th)\b", r"\1", name).strip()
-
-                try:
-                    base_num = int(name)
-                except ValueError:
-                    continue
-                street_num_to_ways[base_num].add(w["id"])
-                break
+        street_num = interpret_as_street(w)
+        if street_num is not None:
+            street_num_to_ways[street_num].add(w["id"])
 
     street_to_nodes = {
         k: {n for way_id in way_ids for n in id_to_way[way_id]["nodes"]}
