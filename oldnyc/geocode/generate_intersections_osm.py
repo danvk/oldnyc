@@ -116,6 +116,7 @@ def main():
         base1 = w["tags"].get("tiger:name_base_1")
         name = w["tags"].get("name")
         assert name
+        alt_name = w["tags"].get("alt_name")
 
         # TODO: Lafayette St is more like an Avenue
         if (
@@ -128,7 +129,7 @@ def main():
             # name = re.sub(r"st|nd|rd|th", "", name)
             ave_num_to_ways[name].add(w["id"])
         elif name_type == "St" or name_type1 == "St" or "Street" in name:
-            names = [x for x in [name, base, base1, w["tags"].get("alt_name")] if x is not None]
+            names = [x for x in [name, base, base1, alt_name] if x is not None]
             for name in names:
                 name = name.replace("Street", "").strip()
                 name = re.sub(r"\b(east|west)\b", "", name, flags=re.I).strip()
