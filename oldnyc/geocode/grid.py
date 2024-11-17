@@ -8,8 +8,14 @@ from typing import Sequence
 
 import numpy as np
 
-by_avenue = defaultdict(lambda: {})
-by_street = defaultdict(lambda: {})
+Point = tuple[float, float]
+
+# These are just the Manhattan grid intersections (from Houston to 125th)
+by_avenue = defaultdict[str, dict[int, Point]](lambda: {})
+by_street = defaultdict[int, dict[str, Point]](lambda: {})
+
+# These are all intersections in Manhattan, not just the grid.
+all_ints = defaultdict[int, dict[str, Point]](lambda: {})
 
 # TODO: load this lazily
 for row in csv.DictReader(open("data/grid.csv")):
@@ -25,6 +31,13 @@ for row in csv.DictReader(open("data/grid.csv")):
         avenue = str(avenue)
     by_avenue[avenue][street] = (lat, lon)
     by_street[street][avenue] = (lat, lon)
+
+for row in csv.DictReader(open("data/intersections.csv")):
+    street = int(row["Street"])
+    avenue = row["Avenue"]
+    lat = float(row["Lat"])
+    lon = float(row["Lon"])
+    all_ints[street][avenue] = (lat, lon)
 
 
 AVE_TO_NUM = {"A": 0, "B": -1, "C": -2, "D": -3}
@@ -114,6 +127,7 @@ def may_extrapolate(avenue: str, street: str):
 
 
 num_exact = 0
+num_exact_grid = 0
 num_unclaimed = 0
 num_extrapolated = 0
 unknown_ave = Counter[str]()
@@ -126,7 +140,15 @@ def code(avenue: str, street: str) -> tuple[float, float] | None:
     `avenue` and `street` are strings, e.g. 'A' and '15'.
     Returns (lat, lon) or None.
     """
-    global num_exact, num_unclaimed, num_extrapolated
+    global num_exact, num_unclaimed, num_extrapolated, num_exact_grid
+
+    # Look for an exact match in the full list of intersections first.
+    possible_aves = all_ints.get(int(street))
+    if possible_aves:
+        exact = possible_aves.get(avenue)
+        if exact:
+            num_exact += 1
+            return (exact[0], exact[1])
 
     crosses = by_avenue.get(avenue)
     if not crosses:
@@ -137,7 +159,7 @@ def code(avenue: str, street: str) -> tuple[float, float] | None:
     # First look for an exact match.
     exact = crosses.get(int(street))
     if exact:
-        num_exact += 1
+        num_exact_grid += 1
         return (exact[0], exact[1])
 
     # Otherwise, find where the street and avenue would logically intersect one
@@ -177,6 +199,12 @@ ORDINALS = {
     "Lenox": 6,  # Now Malcolm X
 }
 
+# "Avenues" that do not have "Avenue" in their names
+SPECIAL_AVES = {
+    "Broadway",
+    "Central Park West",
+}
+
 
 def parse_street_ave(street1: str, street2: str) -> tuple[str, str]:
     # try to get the avenue in street1
@@ -185,7 +213,7 @@ def parse_street_ave(street1: str, street2: str) -> tuple[str, str]:
 
     street1 = street1.replace("Central Park West", "8th Avenue")
 
-    if not re.search(r"ave", street1, flags=re.I):
+    if not re.search(r"ave", street1, flags=re.I) and street1 not in SPECIAL_AVES:
         raise ValueError("%s is not an avenue" % street1)
 
     if not re.search(r"str|st\.|\bst\b", street2, flags=re.I):
@@ -205,6 +233,8 @@ def parse_street_ave(street1: str, street2: str) -> tuple[str, str]:
     num = extract_ordinal(street1)
     if num is not None:
         street1 = str(num)
+    elif street1 in SPECIAL_AVES:
+        pass
     else:
         # Look for something like 'Avenue A'
         m = re.search(r"[aA]venue (A|B|C|D)", street1)
