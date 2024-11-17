@@ -106,6 +106,8 @@ class TitleCrossCoder(Coder):
         self.counts = Counter[str]()
 
         self.n_grid = 0
+        self.n_grid_attempt = 0
+        self.n_grid_parse = 0
         self.n_google_location = 0
         self.n_geocode_fail = 0
         self.n_boro_mismatch = 0
@@ -178,7 +180,9 @@ class TitleCrossCoder(Coder):
         if boro != "Manhattan":
             return None
         try:
+            self.n_grid_attempt += 1
             avenue, street = grid.parse_street_ave(str1, str2)
+            self.n_grid_parse += 1
             latlon = grid.code(avenue, street)
             if latlon:
                 self.n_grid += 1
@@ -213,9 +217,12 @@ class TitleCrossCoder(Coder):
         sys.stderr.write(f"          counters: {self.counts.most_common()}\n")
         sys.stderr.write("  geocoding results:\n")
         sys.stderr.write(f"            grid: {self.n_grid}\n")
+        sys.stderr.write(f"        attempts:   {self.n_grid_attempt}\n")
+        sys.stderr.write(f"          parsed:   {self.n_grid_parse}\n")
         sys.stderr.write(f"          google: {self.n_google_location}\n")
         sys.stderr.write(f"   boro mismatch: {self.n_boro_mismatch}\n")
         sys.stderr.write(f"        failures: {self.n_geocode_fail}\n")
+        grid.log_stats()
 
     def name(self):
         return "title-cross"

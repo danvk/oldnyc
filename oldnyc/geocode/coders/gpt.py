@@ -39,7 +39,7 @@ class GptCoder(Coder):
         loc: Locatable | None = None
         boro = guess_borough(r)
         if boro is None:
-            sys.stderr.write(f"Failed to guess borough for {r.id}\n")
+            # sys.stderr.write(f"Failed to guess borough for {r.id}\n")
             boro = "New York"
         if q["type"] == "place_name":
             self.num_poi += 1

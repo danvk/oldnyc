@@ -290,6 +290,16 @@ def multisearch(re_dict, txt):
     return None
 
 
+def log_stats():
+    sys.stderr.write("Grid statistics:\n")
+    sys.stderr.write(f"     Exact matches: {num_exact}\n")
+    sys.stderr.write(f"Exact grid matches: {num_exact_grid}\n")
+    sys.stderr.write(f"      Extrapolated: {num_extrapolated}\n")
+    sys.stderr.write(f"         Unclaimed: {num_unclaimed}\n")
+    sys.stderr.write(f"   Unknown avenues: {unknown_ave}\n")
+    sys.stderr.write(f"   Unknown streets: {unknown_str}\n")
+
+
 if __name__ == "__main__":
     load_data()
     print("Avenues and streets with imperfect correlations:")

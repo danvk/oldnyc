@@ -315,8 +315,8 @@ class SubjectsCoder(Coder):
                 ),
             )
         elif len(matches) > 1:
-            matches_txt = "\t".join(f"{spec}/{geo}" for geo, (spec, pt) in matches)
-            sys.stderr.write(f"clash!\tunresolved multi-subject\t{r.id}\t{matches_txt}\n")
+            # matches_txt = "\t".join(f"{spec}/{geo}" for geo, (spec, pt) in matches)
+            # sys.stderr.write(f"clash!\tunresolved multi-subject\t{r.id}\t{matches_txt}\n")
             self.counters["n_geo_multi"] += 1
 
         title = re.sub(r"\.$", "", r.title)
@@ -407,18 +407,18 @@ class SubjectsCoder(Coder):
                 self.counters["n_out_both_close"] += 1
                 return title_locatable[1]
             elif subj_spec > title_spec:
-                sys.stderr.write(
-                    "\t".join(["clash!", "subject/title to subject", r.id, subj_src, title_src])
-                    + "\n"
-                )
+                # sys.stderr.write(
+                #     "\t".join(["clash!", "subject/title to subject", r.id, subj_src, title_src])
+                #     + "\n"
+                # )
                 self.counters["n_out_subject"] += 1
                 self.counters["n_out_both_subject"] += 1
                 return subject_locatable[1]
             elif title_spec > subj_spec:
-                sys.stderr.write(
-                    "\t".join(["clash!", "subject/title to title", r.id, subj_src, title_src])
-                    + "\n"
-                )
+                # sys.stderr.write(
+                #     "\t".join(["clash!", "subject/title to title", r.id, subj_src, title_src])
+                #     + "\n"
+                # )
                 self.counters["n_out_title"] += 1
                 self.counters["n_out_both_title"] += 1
                 return title_locatable[1]
