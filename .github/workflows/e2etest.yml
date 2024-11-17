@@ -17,7 +17,7 @@ jobs:
         # See https://stackoverflow.com/a/692407/388951 for the stdout/stderr redirection
     - name: Generate intersections
       run: |
-        poetry run python oldnyc/geocode/generate_intersections_osm.py > data/intersections.csv
+        poetry run python oldnyc/geocode/osm/generate_intersections.py > data/intersections.csv
     - name: Generate truth data
       run: |
         export PYTHONPATH=.
