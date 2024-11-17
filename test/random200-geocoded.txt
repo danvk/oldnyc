@@ -5,7 +5,7 @@
 1113271	gpt	(40.756659, -73.978557)	Fifth Avenue and West 47th St.
 1231043	failed	n/a	n/a
 1238854	failed	n/a	n/a
-1507627	title-cross	(40.7509088, -73.9806908)	Manhattan: Madison Avenue - 39th Street, 
+1507627	title-cross	(40.750907, -73.980677)	Manhattan: Madison Avenue - 39th Street, 
 1507669	title-cross	(40.762294, -73.986101)	Manhattan: Eighth Avenue - 50th Street
 1507813	title-address	(40.7453354, -74.0048613)	20th Street (West) #448
 1508279	title-address	(40.7692144, -73.9666901)	68th Street (East) #35
@@ -100,8 +100,8 @@
 711783f	title-cross	(40.748355, -74.003684)	Manhattan: 24th Street - 10th Avenue
 711875f	title-cross	(40.740106, -73.976195)	Manhattan: 28th Street (East) - 1st Avenue
 712182f	title-cross	(40.752199, -73.993458)	Manhattan: 34th Street - 8th Avenue
-712365f	title-cross	(40.7552261, -73.9966536)	Manhattan: 36th Street (West) - Dyer Avenue
-712847f	title-cross	(40.7514377, -73.9760461)	Manhattan: 42nd Street (East) - Lexington Avenue
+712365f	title-cross	(40.755167, -73.996523)	Manhattan: 36th Street (West) - Dyer Avenue
+712847f	title-cross	(40.751439, -73.976055)	Manhattan: 42nd Street (East) - Lexington Avenue
 713018f	title-cross	(40.753481, -73.980879)	Manhattan: 42nd Street - 5th Avenue
 713156f	title-cross	(40.75671, -73.986458)	Manhattan: 43rd Street (West) - 7th Avenue
 713408f	title-cross	(40.759274, -73.980883)	Manhattan: 49th Street (West) - 6th Avenue
@@ -114,11 +114,11 @@
 714353f	title-cross	(40.7668959, -73.9538406)	Manhattan: 72nd Street - Avenue A
 714399f	title-cross	(40.779813, -73.984481)	Manhattan: 72nd Street (West) - West End Avenue
 714441f	title-cross	(40.769767, -73.954566)	Manhattan: 75th Street (East) - 1st Avenue
-714641f	title-cross	(40.777546, -73.9570127)	Manhattan: 83rd Street (East) - Lexington Avenue
+714641f	title-cross	(40.777554, -73.957012)	Manhattan: 83rd Street (East) - Lexington Avenue
 714767f	title-cross	(40.787799, -73.971236)	Manhattan: 88th Street (West) - Columbus Avenue
 714847f	title-cross	(40.792131, -73.971777)	Manhattan: 93rd Street (West) - Amsterdam Avenue
 714866f	title-cross	(40.792197, -73.96804)	Manhattan: 95th Street (West) - Columbus Avenue
-714878f	title-cross	(40.785877, -73.9509341)	Manhattan: 96th Street (East) - Lexington Avenue
+714878f	title-cross	(40.785875, -73.95093)	Manhattan: 96th Street (East) - Lexington Avenue
 714891f	title-cross	(40.792876, -73.967545)	Manhattan: 96th Street (West) - Columbus Avenue
 714972f	title-cross	(40.78894, -73.940559)	Manhattan: 105th Street (East) - 1st Avenue
 715218f	title-cross	(40.80323, -73.944622)	Manhattan: 120th Street - 5th Avenue
@@ -144,17 +144,17 @@
 720408f	title-cross	(40.7155152, -73.9897764)	Manhattan: Hester Street - Essex Street
 720438f	gpt	(40.842304, -73.935124)	Amsterdam Ave and West 172nd Street
 720777f	title-cross	(40.7250568, -73.9953711)	Manhattan: Lafayette Street - Houston Street (East)
-720991f	title-cross	(40.7514377, -73.9760461)	Manhattan: Lexington Avenue - 42nd Street (East)
-721041f	title-cross	(40.7647478, -73.9663694)	Manhattan: Lexington Avenue - 63rd Street (East)
+720991f	title-cross	(40.751439, -73.976055)	Manhattan: Lexington Avenue - 42nd Street (East)
+721041f	title-cross	(40.764739, -73.966361)	Manhattan: Lexington Avenue - 63rd Street (East)
 722101f	title-cross	(40.749603, -73.979514)	Manhattan: Park Avenue - 38th Street
 722402f	title-cross	(40.80573, -73.938544)	Manhattan: Park Avenue - 126th Street
 722430f	title-cross	(40.7120032, -74.0081046)	Manhattan: Park Row - Broadway
-722717f	title-cross	(40.7869106, -73.9812484)	Manhattan: Riverside Drive - 82nd Street
-722881f	title-cross	(40.7849851, -73.9826672)	Manhattan: Riverside Drive - 79th Street
+722717f	title-cross	(40.786892, -73.981227)	Manhattan: Riverside Drive - 82nd Street
+722881f	title-cross	(40.784976, -73.982652)	Manhattan: Riverside Drive - 79th Street
 723027f	title-cross	(40.7584384, -73.9789121)	Manhattan: Rockefeller Plaza - 49th Street (West)
 723036f	failed	n/a	n/a
 723111f	title-cross	(40.7275748, -73.9853065)	Manhattan: St. Marks Place - 1st Avenue
-723134f	title-cross	(40.8253111, -73.9437817)	Manhattan: St. Nicholas Avenue - 147th Street
+723134f	title-cross	(40.825332, -73.943813)	Manhattan: St. Nicholas Avenue - 147th Street
 723323f	title-cross	(40.7095105, -73.9940379)	Manhattan: South Street - Market Slip (West).
 724252f	title-cross	(40.7087712, -74.000915)	Manhattan: Water Street - Dover Street
 724791f	title-cross	(40.7079605, -74.0080134)	Manhattan: William Street - Maiden Lane

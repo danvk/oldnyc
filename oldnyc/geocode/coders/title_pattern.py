@@ -181,7 +181,7 @@ class TitleCrossCoder(Coder):
             return None
         try:
             self.n_grid_attempt += 1
-            latlon = grid.geocode_intersection(str1, str2)
+            latlon = grid.geocode_intersection(str1, str2, r.id)
             if latlon:
                 self.n_grid += 1
                 lat, lng = latlon

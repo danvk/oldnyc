@@ -7,6 +7,7 @@ from collections import Counter, defaultdict
 from typing import Sequence
 
 import numpy as np
+from pygeojson import Optional
 
 Point = tuple[float, float]
 
@@ -206,6 +207,7 @@ ORDINALS = {
     "Lenox": 6,  # Now Malcolm X
     "Adam Clayton Powell Jr. Boulevard": 7,
     "Malcolm X Boulevard": 6,
+    "Frederick Douglass Boulevard": 8,
 }
 
 # "Avenues" that do not have "Avenue" in their names
@@ -232,6 +234,15 @@ def parse_ave(avenue: str) -> str | None:
         num = multisearch(ORDINALS, avenue)
         if num is not None:
             return str(num)
+
+
+def parse_ave_for_osm(avenue: str) -> str:
+    """Looser parsing, tries to match exact OSM names."""
+    ave = parse_ave(avenue)
+    if ave is not None:
+        return ave
+    avenue = avenue.replace("St. Nicholas", "Saint Nicholas")
+    return avenue
 
 
 def parse_street_ave(street1: str, street2: str) -> tuple[str, str]:
@@ -295,7 +306,7 @@ def extract_street_num(street: str) -> int | None:
     return base_num
 
 
-def geocode_intersection(street1: str, street2: str):
+def geocode_intersection(street1: str, street2: str, debug_txt: Optional[str] = "") -> Point | None:
     global num_exact
 
     # If either looks like a numbered street, check for an exact match.
@@ -308,11 +319,12 @@ def geocode_intersection(street1: str, street2: str):
     if num1:
         avenues = all_ints.get(num1)
         if avenues:
-            # TODO: do some normalization on street2
-            latlng = avenues.get(street2)
+            avenue = parse_ave_for_osm(street2)
+            latlng = avenues.get(avenue)
             if latlng:
                 num_exact += 1
                 return latlng
+            # sys.stderr.write(f"Miss on intersection: {debug_txt} {num1}, {street2} -> {avenue}\n")
 
     # Either of these can raise a ValueError
     avenue, street = parse_street_ave(street1, street2)
