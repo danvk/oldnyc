@@ -11,6 +11,7 @@ from typing import Sequence
 from haversine import haversine
 from tqdm import tqdm
 
+from oldnyc.geocode import grid
 from oldnyc.geocode.boroughs import is_in_manhattan, point_to_borough
 from oldnyc.geocode.osm.osm import OsmElement, OsmNode, OsmWay
 
@@ -202,6 +203,8 @@ def main():
             if borough is None:
                 print(f"Not in NYC: {str1} / {str2}: ({intersect_node_ids})")
                 continue
+            str1 = grid.normalize_street(str1)
+            str2 = grid.normalize_street(str2)
             out.writerow(
                 [
                     str(str1),

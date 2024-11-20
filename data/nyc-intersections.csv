@@ -7871,7 +7871,7 @@ Street1,Street2,Borough,Lat,Lon,Nodes
 1st Avenue,Peter Cooper Road,Manhattan,40.736217,-73.979013,387184869
 1st Avenue,Saint Marks Place,Manhattan,40.727599,-73.985307,4012724171
 1st Avenue,Willis Avenue Bridge,Manhattan,40.801765,-73.931213,7641820943
-1st Avenue Service Road,First Avenue Loop,Manhattan,40.732584,-73.981448,685164631
+1st Avenue Service Road,1st Avenue Loop,Manhattan,40.732584,-73.981448,685164631
 1st Avenue Tunnel,East 49th Street,Manhattan,40.753255,-73.966612,595105499/5852272391
 1st Avenue service road,East 14th Street Service Road,Manhattan,40.731409,-73.982277,4161568342
 1st Avenue service road,East 20th Street Service Road,Manhattan,40.734801,-73.979803,3360772998
@@ -11813,8 +11813,8 @@ Street1,Street2,Borough,Lat,Lon,Nodes
 3rd Avenue,Shore Road,Brooklyn,40.612569,-74.036106,42466150
 3rd Avenue,State Street,Brooklyn,40.685959,-73.980272,42466299
 3rd Avenue,Stuyvesant Street,Manhattan,40.729861,-73.989692,42443296
-3rd Avenue,Third Avenue,Bronx,40.816045,-73.917684,6415815544/42761265
-3rd Avenue,Third Avenue Bridge,Bronx,40.809326,-73.929498,567820429
+3rd Avenue,3rd Avenue,Bronx,40.816045,-73.917684,6415815544/42761265
+3rd Avenue,3rd Avenue Bridge,Bronx,40.809326,-73.929498,567820429
 3rd Avenue,Union Street,Brooklyn,40.678344,-73.985429,42466214
 3rd Avenue,Wakeman Place,Brooklyn,40.638121,-74.024761,42465991
 3rd Avenue,Warren Street,Brooklyn,40.682149,-73.982855,42466249
@@ -17322,7 +17322,7 @@ Alexander Avenue,East 142nd Street,Bronx,40.812604,-73.923273,42732882
 Alexander Avenue,East 143rd Street,Bronx,40.813229,-73.922791,42733954/2795084763
 Alexander Avenue,Ibsen Avenue,Staten Island,40.557126,-74.179236,42997939
 Alexander Avenue,Loring Avenue,Staten Island,40.555605,-74.179825,42997989
-Alexander Avenue,Third Avenue,Bronx,40.813322,-73.922873,42733954
+Alexander Avenue,3rd Avenue,Bronx,40.813322,-73.922873,42733954
 Alexander Avenue,Von Braun Avenue,Staten Island,40.55642,-74.179083,42994915
 Alexander Avenue,Woehrle Avenue,Staten Island,40.555489,-74.180749,42997993
 Alexander Avenue,Woodrow Road,Staten Island,40.557753,-74.180651,42997929/4205050907
@@ -21135,7 +21135,7 @@ Bassford Avenue,East 183rd Street,Bronx,40.854975,-73.8925,42759121
 Bassford Avenue,East 184th Street,Bronx,40.855549,-73.892001,42747524
 Bassford Avenue,East 185th Street,Bronx,40.856104,-73.891517,42755263
 Bassford Avenue,Fletcher Place,Bronx,40.854031,-73.893333,42759116
-Bassford Avenue,Third Avenue,Bronx,40.856565,-73.891068,42759129
+Bassford Avenue,3rd Avenue,Bronx,40.856565,-73.891068,42759129
 Batchelder Street,Emmons Avenue,Brooklyn,40.584004,-73.935884,42477434/2318552253
 Batchelder Street,Gerritsen Avenue,Brooklyn,40.606139,-73.939955,42528168
 Batchelder Street,Shore Parkway,Brooklyn,40.586201,-73.936288,42480753/42480246
@@ -21195,7 +21195,7 @@ Bathgate Avenue,East 189th Street,Bronx,40.8586,-73.888345,42748283
 Bathgate Avenue,East 191st Street,Bronx,40.860116,-73.886731,42760117
 Bathgate Avenue,East Fordham Road,Bronx,40.859588,-73.887358,3308988998
 Bathgate Avenue,East Tremont Avenue,Bronx,40.846849,-73.897114,42760064
-Bathgate Avenue,Third Avenue,Bronx,40.85581,-73.890779,42755266
+Bathgate Avenue,3rd Avenue,Bronx,40.85581,-73.890779,42755266
 Bathgate Street,Harold Avenue,Staten Island,40.529221,-74.163408,42958203
 Bathgate Street,Woods of Arden Road,Staten Island,40.531067,-74.159085,42958195
 Battery Avenue,Fort Hamilton Manor,Brooklyn,40.610231,-74.027057,42484124
@@ -23759,7 +23759,7 @@ Boston Road,Southern Boulevard,Bronx,40.837402,-73.887745,42757756
 Boston Road,Stebbins Avenue,Bronx,40.834609,-73.894442,42733621
 Boston Road,Steenwick Avenue,Bronx,40.884717,-73.831313,1348365654
 Boston Road,Suburban Place,Bronx,40.835758,-73.891387,42762521
-Boston Road,Third Avenue,Bronx,40.824749,-73.908407,7557632337/8009144425
+Boston Road,3rd Avenue,Bronx,40.824749,-73.908407,7557632337/8009144425
 Boston Road,Thwaites Place,Bronx,40.858495,-73.867831,2313404816
 Boston Road,Tiemann Avenue,Bronx,40.878444,-73.844101,42769667
 Boston Road,Union Avenue,Bronx,40.831965,-73.899063,42765313
@@ -24974,7 +24974,7 @@ Brook Avenue,Hylan Boulevard,Staten Island,40.559496,-74.122452,42988584/4408057
 Brook Avenue,Ithaca Street,Staten Island,40.558695,-74.122003,42960613
 Brook Avenue,Melrose Avenue,Bronx,40.82776,-73.911673,7560827238
 Brook Avenue,Park Avenue,Bronx,40.82776,-73.911673,7560827238
-Brook Avenue,Third Avenue,Bronx,40.822326,-73.910701,42761092
+Brook Avenue,3rd Avenue,Bronx,40.822326,-73.910701,42761092
 Brook Avenue,Webster Avenue,Bronx,40.828195,-73.911664,42761108
 Brook Avenue,Westchester Avenue,Bronx,40.816266,-73.914194,42760418
 Brook Street,Castleton Avenue,Staten Island,40.636728,-74.0849,42996770
@@ -27209,7 +27209,7 @@ Claremont Parkway,Crotona Park East,Bronx,40.835426,-73.895145,42752047
 Claremont Parkway,Crotona Park Greenway,Bronx,40.836478,-73.897765,42759823
 Claremont Parkway,Crotona Park West,Bronx,40.837644,-73.899981,42776482
 Claremont Parkway,Park Avenue,Bronx,40.839275,-73.90382,42783520
-Claremont Parkway,Third Avenue,Bronx,40.838198,-73.901175,42768599
+Claremont Parkway,3rd Avenue,Bronx,40.838198,-73.901175,42768599
 Claremont Parkway,Washington Avenue,Bronx,40.838874,-73.902647,42730127
 Claremont Parkway,Webster Avenue,Bronx,40.839739,-73.905379,9181314089/42764746
 Claremont Parkway,Wilkins Avenue,Bronx,40.835426,-73.895145,42752047
@@ -28647,7 +28647,7 @@ Courtlandt Avenue,East 160th Street,Bronx,40.824107,-73.915885,42750611
 Courtlandt Avenue,East 161st Street,Bronx,40.824714,-73.915517,42748171
 Courtlandt Avenue,East 162nd Street,Bronx,40.825213,-73.914749,42732945
 Courtlandt Avenue,East 163rd Street,Bronx,40.8257,-73.91397,42739726
-Courtlandt Avenue,Third Avenue,Bronx,40.814644,-73.920309,42745889
+Courtlandt Avenue,3rd Avenue,Bronx,40.814644,-73.920309,42745889
 Courtney Avenue,Utopia Parkway,Queens,40.751177,-73.792132,42887672/5515778666
 Courtney Loop,New Lane,Staten Island,40.612561,-74.063061,42975176/42975171
 Cove Court,Powell Cove Boulevard,Queens,40.794368,-73.84643,42826658
@@ -29020,7 +29020,7 @@ Cross Bronx Expressway Service Road,Shakespeare Avenue,Bronx,40.845322,-73.91930
 Cross Bronx Expressway Service Road,Swinton Avenue,Bronx,40.825626,-73.826529,42783323
 Cross Bronx Expressway Service Road,Taylor Avenue,Bronx,40.83489,-73.865939,42781969/42757829
 Cross Bronx Expressway Service Road,Thieriot Avenue,Bronx,40.834594,-73.864945,42759332/42760135
-Cross Bronx Expressway Service Road,Third Avenue,Bronx,40.844006,-73.897523,595491777/42768605
+Cross Bronx Expressway Service Road,3rd Avenue,Bronx,40.844006,-73.897523,595491777/42768605
 Cross Bronx Expressway Service Road,Throgs Neck Expressway Service Road,Bronx,40.82135,-73.81651,42781205/42767311
 Cross Bronx Expressway Service Road,Topping Avenue,Bronx,40.845089,-73.90573,42745101
 Cross Bronx Expressway Service Road,Virginia Avenue,Bronx,40.833743,-73.861738,6814502543
@@ -29320,7 +29320,7 @@ Cyrus Avenue,Just Court,Brooklyn,40.588085,-73.925736,42524476
 Cyrus Avenue,Madoc Avenue,Brooklyn,40.587762,-73.926226,42525886
 Cyrus Avenue,Noel Avenue,Brooklyn,40.588867,-73.924529,42476466
 Cyrus Place,Park Avenue,Bronx,40.858833,-73.892223,42770917
-Cyrus Place,Third Avenue,Bronx,40.858385,-73.891111,42768644
+Cyrus Place,3rd Avenue,Bronx,40.858385,-73.891111,42768644
 D Street,Forest Hill Road,Staten Island,40.596073,-74.141852,2523812080
 D Street,Jasper Street,Staten Island,40.596073,-74.141852,2523812080
 D'Auria Street,Galanaugh Lane,Manhattan,40.791555,-73.919685,3044774802
@@ -30955,7 +30955,7 @@ East 135th Street,Madison Avenue,Manhattan,40.812078,-73.936119,42437929/2481877
 East 135th Street,Madison Avenue Bridge,Manhattan,40.812096,-73.935993,7541804760/42437929/7541804762
 East 135th Street,Rider Avenue,Bronx,40.810233,-73.930095,42747174
 East 135th Street,Saint Ann's Avenue,Bronx,40.804901,-73.918813,42747190
-East 135th Street,Third Avenue Bridge,Bronx,40.809326,-73.929498,567820429
+East 135th Street,3rd Avenue Bridge,Bronx,40.809326,-73.929498,567820429
 East 135th Street,Walnut Avenue,Bronx,40.801054,-73.910251,42747216
 East 135th Street,West 135th Street,Manhattan,40.812756,-73.937641,7541804761
 East 135th Street,Willis Avenue,Bronx,40.807176,-73.924244,42725346
@@ -30983,7 +30983,7 @@ East 138th Street,Morris Avenue,Bronx,40.811092,-73.927289,4207700494
 East 138th Street,Park Avenue,Bronx,40.81257,-73.929263,42779702
 East 138th Street,Rider Avenue,Bronx,40.81173,-73.928134,7553826299
 East 138th Street,Saint Ann's Avenue,Bronx,40.806823,-73.917479,42763139
-East 138th Street,Third Avenue,Bronx,40.810971,-73.927139,3638058983
+East 138th Street,3rd Avenue,Bronx,40.810971,-73.927139,3638058983
 East 138th Street,Walnut Avenue,Bronx,40.802807,-73.908489,42775297
 East 138th Street,Walton Avenue,Bronx,40.813411,-73.930545,42733678
 East 138th Street,West 138th Street,Manhattan,40.814725,-73.936214,7732243573/5378686574
@@ -30994,7 +30994,7 @@ East 139th Street,Locust Avenue,Bronx,40.802805,-73.906628,42765797
 East 139th Street,Morris Avenue,Bronx,40.811709,-73.926696,7554858681/7554858679
 East 139th Street,Rider Avenue,Bronx,40.812286,-73.927453,7554858682
 East 139th Street,Saint Ann's Avenue,Bronx,40.807506,-73.917015,42763143
-East 139th Street,Third Avenue,Bronx,40.811498,-73.926397,2826997295
+East 139th Street,3rd Avenue,Bronx,40.811498,-73.926397,2826997295
 East 139th Street,Walnut Avenue,Bronx,40.803487,-73.907804,42765793
 East 139th Street,Willis Avenue,Bronx,40.809776,-73.922384,42761235
 East 13th Street,Elm Avenue,Brooklyn,40.617215,-73.961781,42506109
@@ -31014,7 +31014,7 @@ East 140th Street,Morris Avenue,Bronx,40.812972,-73.925803,42735676
 East 140th Street,Park Avenue,Bronx,40.813974,-73.928185,42777926
 East 140th Street,Rider Avenue,Bronx,40.813344,-73.926722,42775133
 East 140th Street,Saint Ann's Avenue,Bronx,40.808133,-73.916589,42763146
-East 140th Street,Third Avenue,Bronx,40.811935,-73.925565,42768489
+East 140th Street,3rd Avenue,Bronx,40.811935,-73.925565,42768489
 East 140th Street,Walnut Avenue,Bronx,40.804052,-73.907237,42775302
 East 140th Street,Walton Avenue,Bronx,40.815119,-73.929771,42733681
 East 140th Street,Willis Avenue,Bronx,40.810401,-73.921931,42761237
@@ -31024,7 +31024,7 @@ East 141st Street,Park Avenue,Bronx,40.815063,-73.927421,42743502
 East 141st Street,Powers Avenue,Bronx,40.807256,-73.912543,42743447
 East 141st Street,Rider Avenue,Bronx,40.814439,-73.925955,42743507
 East 141st Street,Saint Ann's Avenue,Bronx,40.80879,-73.916184,42743431
-East 141st Street,Third Avenue,Bronx,40.812384,-73.924683,42743421
+East 141st Street,3rd Avenue,Bronx,40.812384,-73.924683,42743421
 East 141st Street,Wales Avenue,Bronx,40.806326,-73.909586,42743464
 East 141st Street,Walnut Avenue,Bronx,40.80462,-73.90666,42743491
 East 141st Street,Willis Avenue,Bronx,40.81103,-73.921468,42743425
@@ -31034,7 +31034,7 @@ East 142nd Street,Powers Avenue,Bronx,40.808305,-73.911985,42760037
 East 142nd Street,Rider Avenue,Bronx,40.815149,-73.925464,42775135
 East 142nd Street,Saint Ann's Avenue,Bronx,40.809697,-73.915633,42763151
 East 142nd Street,Southern Boulevard,Bronx,40.807151,-73.908214,42766929
-East 142nd Street,Third Avenue,Bronx,40.812864,-73.923751,42768499
+East 142nd Street,3rd Avenue,Bronx,40.812864,-73.923751,42768499
 East 142nd Street,Wales Avenue,Bronx,40.807452,-73.909182,42768271
 East 142nd Street,Willis Avenue,Bronx,40.811652,-73.921018,42761241
 East 143rd Street,East 144th Street,Bronx,40.815639,-73.924775,2795084767
@@ -31043,7 +31043,7 @@ East 143rd Street,Morris Avenue,Bronx,40.815051,-73.924259,42733951
 East 143rd Street,Powers Avenue,Bronx,40.809072,-73.911592,42757457
 East 143rd Street,Saint Ann's Avenue,Bronx,40.810409,-73.915187,42733966
 East 143rd Street,Southern Boulevard,Bronx,40.808218,-73.907833,1931610637
-East 143rd Street,Third Avenue,Bronx,40.813322,-73.922873,42733954
+East 143rd Street,3rd Avenue,Bronx,40.813322,-73.922873,42733954
 East 143rd Street,Wales Avenue,Bronx,40.808423,-73.908845,1931610639
 East 143rd Street,Willis Avenue,Bronx,40.812253,-73.920576,42733958
 East 144th Street,Exterior Street,Bronx,40.817245,-73.930925,7557695126/7557695127
@@ -31055,7 +31055,7 @@ East 144th Street,Park Avenue,Bronx,40.816137,-73.926671,42777866
 East 144th Street,Rider Avenue,Bronx,40.815717,-73.925078,42733948
 East 144th Street,Saint Ann's Avenue,Bronx,40.810994,-73.914847,42763155
 East 144th Street,Southern Boulevard,Bronx,40.809066,-73.907535,42766931
-East 144th Street,Third Avenue,Bronx,40.813749,-73.922051,42768504
+East 144th Street,3rd Avenue,Bronx,40.813749,-73.922051,42768504
 East 144th Street,Timpson Place,Bronx,40.808895,-73.906708,42766727
 East 144th Street,Wales Avenue,Bronx,40.809272,-73.908528,42768279
 East 144th Street,Walton Avenue,Bronx,40.816758,-73.929026,42733686
@@ -31063,7 +31063,7 @@ East 144th Street,Willis Avenue,Bronx,40.812896,-73.920107,42761245
 East 145th Street,Jackson Avenue,Bronx,40.810525,-73.910046,42762525
 East 145th Street,Saint Ann's Avenue,Bronx,40.811651,-73.914474,42762558
 East 145th Street,Southern Boulevard,Bronx,40.809937,-73.90726,42762533
-East 145th Street,Third Avenue,Bronx,40.814185,-73.921191,42762551
+East 145th Street,3rd Avenue,Bronx,40.814185,-73.921191,42762551
 East 145th Street,Timpson Place,Bronx,40.809719,-73.906252,42762541
 East 145th Street,Tinton Avenue,Bronx,40.809937,-73.90726,42762533
 East 145th Street,Wales Avenue,Bronx,40.810141,-73.908218,42762529
@@ -31072,13 +31072,13 @@ East 146th Street,Exterior Street,Bronx,40.817915,-73.930633,7557695121/59579018
 East 146th Street,Gerard Avenue,Bronx,40.817689,-73.929755,42734146
 East 146th Street,Park Avenue,Bronx,40.816776,-73.92623,42745909
 East 146th Street,Saint Ann's Avenue,Bronx,40.812301,-73.914098,42745895
-East 146th Street,Third Avenue,Bronx,40.814601,-73.920392,42745889/7555037305
+East 146th Street,3rd Avenue,Bronx,40.814601,-73.920392,42745889/7555037305
 East 146th Street,Walton Avenue,Bronx,40.817412,-73.928717,42733689
 East 146th Street,Willis Avenue,Bronx,40.814141,-73.91919,42745890
 East 147th Street,Jackson Avenue,Bronx,40.811786,-73.909598,42764633
 East 147th Street,Saint Ann's Avenue,Bronx,40.812963,-73.913717,42763161
 East 147th Street,Southern Boulevard,Bronx,40.810883,-73.906026,42766934/6979668991
-East 147th Street,Third Avenue,Bronx,40.815088,-73.919459,42768512
+East 147th Street,3rd Avenue,Bronx,40.815088,-73.919459,42768512
 East 147th Street,Timpson Place,Bronx,40.810497,-73.905078,42766744
 East 147th Street,Tinton Avenue,Bronx,40.811214,-73.906855,42763797
 East 147th Street,Trinity Avenue,Bronx,40.811919,-73.910252,42774215
@@ -31087,7 +31087,7 @@ East 147th Street,Wales Avenue,Bronx,40.811399,-73.907764,42768284
 East 147th Street,Willis Avenue,Bronx,40.814775,-73.918731,7564284929
 East 148th Street,Morris Avenue,Bronx,40.816698,-73.923093,42735687
 East 148th Street,Saint Ann's Avenue,Bronx,40.813602,-73.913347,42763165
-East 148th Street,Third Avenue,Bronx,40.815543,-73.918588,42768516
+East 148th Street,3rd Avenue,Bronx,40.815543,-73.918588,42768516
 East 148th Street,Walton Avenue,Bronx,40.81845,-73.92838,6117189987
 East 148th Street,Willis Avenue,Bronx,40.81533,-73.918174,42761255
 East 149th Street,Exterior Street,Bronx,40.819303,-73.930214,2546166800
@@ -31101,7 +31101,7 @@ East 149th Street,Prospect Avenue,Bronx,40.812293,-73.904494,42741101
 East 149th Street,River Avenue,Bronx,40.819303,-73.930214,2546166800
 East 149th Street,Saint Ann's Avenue,Bronx,40.814278,-73.912957,2826899798
 East 149th Street,Southern Boulevard,Bronx,40.812103,-73.904164,42766938
-East 149th Street,Third Avenue,Bronx,40.816097,-73.917582,42761265
+East 149th Street,3rd Avenue,Bronx,40.816097,-73.917582,42761265
 East 149th Street,Timpson Place,Bronx,40.81152,-73.903443,42766747
 East 149th Street,Tinton Avenue,Bronx,40.81267,-73.906335,42763800
 East 149th Street,Trinity Avenue,Bronx,40.813438,-73.910028,42774181
@@ -31131,7 +31131,7 @@ East 150th Street,Morris Avenue,Bronx,40.818045,-73.922456,42733524
 East 150th Street,Prospect Avenue,Bronx,40.813089,-73.904183,42733591
 East 150th Street,River Avenue,Bronx,40.820267,-73.929751,7557695124
 East 150th Street,Saint Ann's Avenue,Bronx,40.814919,-73.912587,42733606
-East 150th Street,Third Avenue,Bronx,40.816576,-73.916751,42733534
+East 150th Street,3rd Avenue,Bronx,40.816576,-73.916751,42733534
 East 150th Street,Tinton Avenue,Bronx,40.813468,-73.906044,42733584
 East 150th Street,Union Avenue,Bronx,40.81328,-73.905127,42733588
 East 150th Street,Wales Avenue,Bronx,40.813656,-73.906965,42733581
@@ -31145,7 +31145,7 @@ East 151st Street,Morris Avenue,Bronx,40.818796,-73.922118,42735697
 East 151st Street,Park Avenue,Bronx,40.819297,-73.924042,42758635
 East 151st Street,Prospect Avenue,Bronx,40.814132,-73.903809,42741106
 East 151st Street,River Avenue,Bronx,40.822845,-73.928758,42758654
-East 151st Street,Third Avenue,Bronx,40.817211,-73.915991,42758642
+East 151st Street,3rd Avenue,Bronx,40.817211,-73.915991,42758642
 East 151st Street,Tinton Avenue,Bronx,40.814523,-73.905674,42758628
 East 151st Street,Union Avenue,Bronx,40.814328,-73.904749,42758674
 East 151st Street,Wales Avenue,Bronx,40.814719,-73.90658,42758623
@@ -31154,7 +31154,7 @@ East 152nd Street,Jackson Avenue,Bronx,40.81603,-73.908079,42764645
 East 152nd Street,Kelly Street,Bronx,40.815075,-73.90347,42741110
 East 152nd Street,Melrose Avenue,Bronx,40.818229,-73.91679,42776426
 East 152nd Street,Prospect Avenue,Bronx,40.815075,-73.90347,42741110
-East 152nd Street,Third Avenue,Bronx,40.817703,-73.915395,42768531/42768527
+East 152nd Street,3rd Avenue,Bronx,40.817703,-73.915395,42768531/42768527
 East 152nd Street,Tinton Avenue,Bronx,40.815462,-73.90533,42763802
 East 152nd Street,Union Avenue,Bronx,40.815274,-73.904425,5859955164
 East 152nd Street,Wales Avenue,Bronx,40.815652,-73.906241,42768295
@@ -31167,15 +31167,15 @@ East 153rd Street,Morris Avenue,Bronx,40.8202,-73.921486,42735703
 East 153rd Street,Park Avenue,Bronx,40.820501,-73.922675,42749748
 East 153rd Street,River Avenue,Bronx,40.824065,-73.928149,42749785
 East 153rd Street,Ruppert Place,Bronx,40.82667,-73.929817,42744109
-East 153rd Street,Third Avenue,Bronx,40.818452,-73.914536,2912071211/42749766
+East 153rd Street,3rd Avenue,Bronx,40.818452,-73.914536,2912071211/42749766
 East 153rd Street,Walton Avenue,Bronx,40.822398,-73.926911,42733701
 East 154th Street,Elton Avenue,Bronx,40.819096,-73.914557,42780968
 East 154th Street,Melrose Avenue,Bronx,40.819527,-73.916201,42776431
-East 154th Street,Third Avenue,Bronx,40.818956,-73.914031,42768535
+East 154th Street,3rd Avenue,Bronx,40.818956,-73.914031,42768535
 East 155th Street,Elton Avenue,Bronx,40.819746,-73.91426,42776241
 East 155th Street,Melrose Avenue,Bronx,40.820175,-73.915902,42776237
 East 155th Street,Prospect Avenue,Bronx,40.816318,-73.90301,42735942
-East 155th Street,Third Avenue,Bronx,40.819542,-73.91352,42768536
+East 155th Street,3rd Avenue,Bronx,40.819542,-73.91352,42768536
 East 155th Street,Union Avenue,Bronx,40.816514,-73.904,42765268
 East 156th Street,Elton Avenue,Bronx,40.820406,-73.913959,42760883
 East 156th Street,Forest Avenue,Bronx,40.818158,-73.906242,42760918
@@ -31191,7 +31191,7 @@ East 156th Street,Morris Avenue,Bronx,40.822063,-73.92041,42735716
 East 156th Street,Prospect Avenue,Bronx,40.81737,-73.902579,42741087
 East 156th Street,Saint Ann's Avenue,Bronx,40.819225,-73.910612,2827501290
 East 156th Street,Southern Boulevard,Bronx,40.814936,-73.897645,42760950
-East 156th Street,Third Avenue,Bronx,40.820133,-73.913063,42760885
+East 156th Street,3rd Avenue,Bronx,40.820133,-73.913063,42760885
 East 156th Street,Tinton Avenue,Bronx,40.817879,-73.905008,42760923
 East 156th Street,Trinity Avenue,Bronx,40.818538,-73.907823,42760909
 East 156th Street,Truxton Street,Bronx,40.812336,-73.892371,42760969
@@ -31205,7 +31205,7 @@ East 157th Street,Melrose Avenue,Bronx,40.82167,-73.915181,42744088
 East 157th Street,River Avenue,Bronx,40.825718,-73.927168,42744112
 East 157th Street,Ruppert Place,Bronx,40.82671,-73.929644,42744109/1932727598
 East 157th Street,Saint Ann's Avenue,Bronx,40.819952,-73.910355,42744128
-East 157th Street,Third Avenue,Bronx,40.820861,-73.91257,42744092
+East 157th Street,3rd Avenue,Bronx,40.820861,-73.91257,42744092
 East 157th Street,Walton Avenue,Bronx,40.825118,-73.925391,42733706
 East 158th Street,Elton Avenue,Bronx,40.821807,-73.913215,42780977
 East 158th Street,Forest Avenue,Bronx,40.819508,-73.905665,42780689
@@ -31216,7 +31216,7 @@ East 158th Street,Melrose Avenue,Bronx,40.822305,-73.914843,42776441
 East 158th Street,Park Avenue,Bronx,40.823397,-73.918326,42783436
 East 158th Street,River Avenue,Bronx,40.826613,-73.926643,42771306
 East 158th Street,Saint Ann's Avenue,Bronx,40.82063,-73.910124,42763187
-East 158th Street,Third Avenue,Bronx,40.821486,-73.912168,42768540
+East 158th Street,3rd Avenue,Bronx,40.821486,-73.912168,42768540
 East 158th Street,Tinton Avenue,Bronx,40.819239,-73.904546,42763809
 East 158th Street,Trinity Avenue,Bronx,40.819888,-73.907252,42774194
 East 158th Street,Union Avenue,Bronx,40.818968,-73.903437,42765276
@@ -31227,7 +31227,7 @@ East 159th Street,Grand Concourse,Bronx,40.826105,-73.923059,2408448908/42741414
 East 159th Street,Melrose Avenue,Bronx,40.822945,-73.914505,42770800
 East 159th Street,Park Avenue,Bronx,40.823887,-73.91757,42770796
 East 159th Street,Saint Ann's Avenue,Bronx,40.821248,-73.909904,3637945017
-East 159th Street,Third Avenue,Bronx,40.822064,-73.911774,42730063
+East 159th Street,3rd Avenue,Bronx,40.822064,-73.911774,42730063
 East 159th Street,Washington Avenue,Bronx,40.822064,-73.911774,42730063
 East 15th Street,Elm Avenue,Brooklyn,40.617808,-73.959999,42487796
 East 15th Street,Emmons Avenue,Brooklyn,40.583228,-73.953444,2318556436
@@ -31269,7 +31269,7 @@ East 161st Street,River Avenue,Bronx,40.827823,-73.925937,2411399009/2411145323/
 East 161st Street,Saint Ann's Avenue,Bronx,40.822649,-73.909442,6395375453/42748198
 East 161st Street,Sheridan Avenue,Bronx,40.826442,-73.921128,42748152/2408448899
 East 161st Street,Sherman Avenue,Bronx,40.826139,-73.92027,42731617/7029503719
-East 161st Street,Third Avenue,Bronx,40.822694,-73.909647,42748196/6395375453
+East 161st Street,3rd Avenue,Bronx,40.822694,-73.909647,42748196/6395375453
 East 161st Street,Tinton Avenue,Bronx,40.82108,-73.903798,42748216
 East 161st Street,Trinity Avenue,Bronx,40.821722,-73.906454,42748204
 East 161st Street,Union Avenue,Bronx,40.820807,-73.902666,42748220
@@ -31290,7 +31290,7 @@ East 162nd Street,Reverend James A. Polite Avenue,Bronx,40.821052,-73.898946,427
 East 162nd Street,River Avenue,Bronx,40.829467,-73.924967,42732983
 East 162nd Street,Sheridan Avenue,Bronx,40.827211,-73.920694,42732911
 East 162nd Street,Teller Avenue,Bronx,40.825911,-73.91568,3640176434/42732941
-East 162nd Street,Third Avenue,Bronx,40.82338,-73.909103,42732965
+East 162nd Street,3rd Avenue,Bronx,40.82338,-73.909103,42732965
 East 162nd Street,Westchester Avenue,Bronx,40.821052,-73.898946,42732978
 East 163rd Street,Elton Avenue,Bronx,40.824469,-73.909903,7557648829
 East 163rd Street,Fox Street,Bronx,40.820987,-73.893879,42739791
@@ -31311,7 +31311,7 @@ East 163rd Street,Sherman Avenue,Bronx,40.827825,-73.919336,42731625
 East 163rd Street,Simpson Street,Bronx,40.82098,-73.892842,42739795
 East 163rd Street,Southern Boulevard,Bronx,40.820984,-73.89167,42737472/9917795311
 East 163rd Street,Teller Avenue,Bronx,40.826546,-73.915316,42739709
-East 163rd Street,Third Avenue,Bronx,40.82407,-73.908711,2827501292
+East 163rd Street,3rd Avenue,Bronx,40.82407,-73.908711,2827501292
 East 163rd Street,Tiffany Street,Bronx,40.820995,-73.894903,42739788
 East 163rd Street,Tinton Avenue,Bronx,40.822721,-73.903143,42739761
 East 163rd Street,Trinity Avenue,Bronx,40.823346,-73.905757,42739755
@@ -31330,7 +31330,7 @@ East 164th Street,River Avenue,Bronx,40.830681,-73.924261,42742426
 East 164th Street,Sheridan Avenue,Bronx,40.829408,-73.919478,42742392/2829127625
 East 164th Street,Sherman Avenue,Bronx,40.829108,-73.918626,42731628
 East 164th Street,Teller Avenue,Bronx,40.827556,-73.91476,42742412
-East 164th Street,Third Avenue,Bronx,40.825322,-73.908202,42742384
+East 164th Street,3rd Avenue,Bronx,40.825322,-73.908202,42742384
 East 164th Street,Walton Avenue,Bronx,40.830053,-73.922413,42733725
 East 164th Street,Washington Avenue,Bronx,40.825854,-73.909907,42730080
 East 165th Street,Faile Street,Bronx,40.825136,-73.88965,42766683
@@ -31355,7 +31355,7 @@ East 165th Street,Rogers Place,Bronx,40.823808,-73.897551,42762449
 East 165th Street,Sheridan Avenue,Bronx,40.83034,-73.918941,11118481026/42781404
 East 165th Street,Sherman Avenue,Bronx,40.830012,-73.918105,11118481025/42731631
 East 165th Street,Teller Avenue,Bronx,40.828465,-73.913875,42782478
-East 165th Street,Third Avenue,Bronx,40.826492,-73.907739,42768572
+East 165th Street,3rd Avenue,Bronx,40.826492,-73.907739,42768572
 East 165th Street,Tiffany Street,Bronx,40.823937,-73.894871,42765729
 East 165th Street,Tinton Avenue,Bronx,40.824666,-73.902331,42763822
 East 165th Street,Trinity Avenue,Bronx,40.825287,-73.904922,8430175371
@@ -31378,7 +31378,7 @@ East 166th Street,Reverend James A. Polite Avenue,Bronx,40.825622,-73.898834,365
 East 166th Street,Sheridan Avenue,Bronx,40.831422,-73.918307,42768828
 East 166th Street,Sherman Avenue,Bronx,40.83113,-73.917446,42731634
 East 166th Street,Teller Avenue,Bronx,40.8297,-73.913124,42768836
-East 166th Street,Third Avenue,Bronx,40.828031,-73.907129,42768578/42768582
+East 166th Street,3rd Avenue,Bronx,40.828031,-73.907129,42768578/42768582
 East 166th Street,Tinton Avenue,Bronx,40.826277,-73.901613,42763832
 East 166th Street,Trinity Avenue,Bronx,40.82692,-73.904293,42768866
 East 166th Street,Union Avenue,Bronx,40.826024,-73.900508,8184221170
@@ -31411,7 +31411,7 @@ East 167th Street,Sherman Avenue,Bronx,40.833834,-73.915864,2408379361/42731643/
 East 167th Street,Simpson Street,Bronx,40.826842,-73.892942,42759512
 East 167th Street,Southern Boulevard,Bronx,40.826794,-73.891913,42759515
 East 167th Street,Teller Avenue,Bronx,40.830936,-73.912395,42759459
-East 167th Street,Third Avenue,Bronx,40.829452,-73.906571,42759475
+East 167th Street,3rd Avenue,Bronx,40.829452,-73.906571,42759475
 East 167th Street,Tiffany Street,Bronx,40.826252,-73.894834,42759509
 East 167th Street,Union Avenue,Bronx,40.826688,-73.900222,42759494
 East 167th Street,Walton Avenue,Bronx,40.835107,-73.919434,2408379376/2408379338/42733747
@@ -31433,7 +31433,7 @@ East 168th Street,River Avenue,Bronx,40.837138,-73.920469,42742513
 East 168th Street,Sheridan Avenue,Bronx,40.835412,-73.915385,42742517
 East 168th Street,Sherman Avenue,Bronx,40.835283,-73.915012,42731646
 East 168th Street,Teller Avenue,Bronx,40.832829,-73.911285,42742448
-East 168th Street,Third Avenue,Bronx,40.831059,-73.90584,42742468
+East 168th Street,3rd Avenue,Bronx,40.831059,-73.90584,42742468
 East 168th Street,Tinton Avenue,Bronx,40.829151,-73.900428,42742493
 East 168th Street,Union Avenue,Bronx,40.828853,-73.899321,42742498
 East 168th Street,Walton Avenue,Bronx,40.83644,-73.918412,42733751
@@ -31457,7 +31457,7 @@ East 169th Street,Reverend James A. Polite Avenue,Bronx,40.828766,-73.896394,427
 East 169th Street,Sheridan Avenue,Bronx,40.83599,-73.914817,42781412
 East 169th Street,Simpson Street,Bronx,40.826842,-73.892942,42759512
 East 169th Street,Teller Avenue,Bronx,40.834431,-73.910342,42782633
-East 169th Street,Third Avenue,Bronx,40.832749,-73.905032,42768584
+East 169th Street,3rd Avenue,Bronx,40.832749,-73.905032,42768584
 East 169th Street,Tiffany Street,Bronx,40.828028,-73.89507,42751170
 East 169th Street,Tinton Avenue,Bronx,40.830806,-73.899731,42763850
 East 169th Street,Union Avenue,Bronx,40.830026,-73.89865,42765298/42765325
@@ -31465,7 +31465,7 @@ East 169th Street,Walton Avenue,Bronx,40.837156,-73.917848,42733755
 East 169th Street,Washington Avenue,Bronx,40.833055,-73.905915,42730107
 East 169th Street,Webster Avenue,Bronx,40.833939,-73.908708,42764738/9832626702
 East 16th Street,Emmons Avenue,Brooklyn,40.583268,-73.952515,2318556437/42477375
-East 16th Street,First Avenue Loop,Manhattan,40.732664,-73.981601,42439323
+East 16th Street,1st Avenue Loop,Manhattan,40.732664,-73.981601,42439323
 East 16th Street,Foster Avenue,Brooklyn,40.634519,-73.96216,42532237
 East 16th Street,Gravesend Neck Road,Brooklyn,40.595029,-73.954735,42529578
 East 16th Street,Irving Place,Manhattan,40.735298,-73.987823,42434354
@@ -31496,7 +31496,7 @@ East 170th Street,Seabury Place,Bronx,40.833645,-73.892158,42739215
 East 170th Street,Sheridan Avenue,Bronx,40.838335,-73.912731,3557257813/2327276582
 East 170th Street,Stebbins Avenue,Bronx,40.833291,-73.894191,42733618
 East 170th Street,Teller Avenue,Bronx,40.836969,-73.909191,42739246
-East 170th Street,Third Avenue,Bronx,40.83501,-73.903521,42739178
+East 170th Street,3rd Avenue,Bronx,40.83501,-73.903521,42739178
 East 170th Street,Townsend Avenue,Bronx,40.839881,-73.916783,42739223
 East 170th Street,Walton Avenue,Bronx,40.839567,-73.915953,42733773
 East 170th Street,Washington Avenue,Bronx,40.835336,-73.904634,42730113
@@ -31509,7 +31509,7 @@ East 171st Street,Jerome Avenue,Bronx,40.841347,-73.916892,42736356
 East 171st Street,Morris Avenue,Bronx,40.838998,-73.910724,42735864
 East 171st Street,Park Avenue,Bronx,40.838018,-73.904509,42763615
 East 171st Street,Sheridan Avenue,Bronx,40.839453,-73.912079,42763655
-East 171st Street,Third Avenue,Bronx,40.837139,-73.901992,42763620
+East 171st Street,3rd Avenue,Bronx,40.837139,-73.901992,42763620
 East 171st Street,Townsend Avenue,Bronx,40.840974,-73.916004,42748512
 East 171st Street,Walton Avenue,Bronx,40.840637,-73.915188,42733778
 East 171st Street,Washington Avenue,Bronx,40.837642,-73.903338,42730123
@@ -31541,7 +31541,7 @@ East 172nd Street,Sheridan Avenue,Bronx,40.840603,-73.911515,42748477
 East 172nd Street,Sheridan Boulevard,Bronx,40.832252,-73.884543,7053193066/7053193067
 East 172nd Street,Southern Boulevard,Bronx,40.834058,-73.889727,42748414
 East 172nd Street,Stratford Avenue,Bronx,40.831638,-73.876067,42748369
-East 172nd Street,Third Avenue,Bronx,40.839676,-73.900107,42748439
+East 172nd Street,3rd Avenue,Bronx,40.839676,-73.900107,42748439
 East 172nd Street,Townsend Avenue,Bronx,40.841963,-73.915299,42748454
 East 172nd Street,Vyse Avenue,Bronx,40.833447,-73.887948,42748417
 East 172nd Street,Walton Avenue,Bronx,40.841624,-73.914483,42733782
@@ -31563,7 +31563,7 @@ East 173rd Street,Morris Avenue,Bronx,40.84378,-73.909475,42735877
 East 173rd Street,Park Avenue,Bronx,40.842402,-73.902203,42754897/42754893/8571799117
 East 173rd Street,Selwyn Avenue,Bronx,40.843824,-73.910367,42735931
 East 173rd Street,Southern Boulevard,Bronx,40.835707,-73.888742,42754959
-East 173rd Street,Third Avenue,Bronx,40.840969,-73.899173,42754936
+East 173rd Street,3rd Avenue,Bronx,40.840969,-73.899173,42754936
 East 173rd Street,Topping Avenue,Bronx,40.8436,-73.905866,42745087
 East 173rd Street,Vyse Avenue,Bronx,40.835095,-73.886963,42754954
 East 173rd Street,Ward Avenue,Bronx,40.833621,-73.878426,42754915
@@ -31591,7 +31591,7 @@ East 174th Street,Selwyn Avenue,Bronx,40.844896,-73.910274,42735934
 East 174th Street,Southern Boulevard,Bronx,40.837402,-73.887745,42757756
 East 174th Street,Stratford Avenue,Bronx,40.833889,-73.876596,42757795
 East 174th Street,Taylor Avenue,Bronx,40.835219,-73.866015,42757829
-East 174th Street,Third Avenue,Bronx,40.842353,-73.898361,42757847
+East 174th Street,3rd Avenue,Bronx,40.842353,-73.898361,42757847
 East 174th Street,Topping Avenue,Bronx,40.844652,-73.905775,42745090
 East 174th Street,Townsend Avenue,Bronx,40.845065,-73.913087,42748522
 East 174th Street,Vyse Avenue,Bronx,40.836769,-73.885964,42757761
@@ -31611,7 +31611,7 @@ East 175th Street,Morris Avenue,Bronx,40.846375,-73.909486,3639998164
 East 175th Street,Park Avenue,Bronx,40.845186,-73.900713,42740492/42740484
 East 175th Street,Prospect Avenue,Bronx,40.841699,-73.891502,42740440
 East 175th Street,Southern Boulevard,Bronx,40.839282,-73.886606,42740468
-East 175th Street,Third Avenue,Bronx,40.844186,-73.897433,595491777
+East 175th Street,3rd Avenue,Bronx,40.844186,-73.897433,595491777
 East 175th Street,Topping Avenue,Bronx,40.846698,-73.90559,42740539
 East 175th Street,Townsend Avenue,Bronx,40.847324,-73.911481,42740516
 East 175th Street,Trafalgar Place,Bronx,40.839641,-73.887543,42740464
@@ -31630,7 +31630,7 @@ East 176th Street,Morris Avenue,Bronx,40.848028,-73.908586,42735759
 East 176th Street,Park Avenue,Bronx,40.846412,-73.90003,42781177/42781187
 East 176th Street,Prospect Avenue,Bronx,40.842661,-73.890507,42740961
 East 176th Street,Southern Boulevard,Bronx,40.840109,-73.886193,42767004
-East 176th Street,Third Avenue,Bronx,40.845362,-73.896837,42768611
+East 176th Street,3rd Avenue,Bronx,40.845362,-73.896837,42768611
 East 176th Street,Topping Avenue,Bronx,40.847488,-73.905522,42745108
 East 176th Street,Townsend Avenue,Bronx,40.848443,-73.910681,42748535
 East 176th Street,Trafalgar Place,Bronx,40.840428,-73.886732,42767951
@@ -31660,7 +31660,7 @@ East 178th Street,Park Avenue,Bronx,40.848759,-73.898697,42757552/42757539
 East 178th Street,Prospect Avenue,Bronx,40.845186,-73.888321,42740980
 East 178th Street,Ryer Avenue,Bronx,40.849869,-73.901713,42757604
 East 178th Street,Southern Boulevard,Bronx,40.843784,-73.885461,42757621
-East 178th Street,Third Avenue,Bronx,40.847814,-73.895608,42757564
+East 178th Street,3rd Avenue,Bronx,40.847814,-73.895608,42757564
 East 178th Street,Valentine Avenue,Bronx,40.849422,-73.900886,42757526
 East 178th Street,Vyse Avenue,Bronx,40.842121,-73.882065,42757629
 East 178th Street,Washington Avenue,Bronx,40.848318,-73.897336,42729999
@@ -31679,7 +31679,7 @@ East 179th Street,Morris Avenue,Bronx,40.851808,-73.906821,42735774
 East 179th Street,Park Avenue,Bronx,40.850124,-73.897922,42727704/42727698
 East 179th Street,Prospect Avenue,Bronx,40.845748,-73.88784,42740289
 East 179th Street,Southern Boulevard,Bronx,40.844574,-73.885303,42740302
-East 179th Street,Third Avenue,Bronx,40.849111,-73.894952,42740262
+East 179th Street,3rd Avenue,Bronx,40.849111,-73.894952,42740262
 East 179th Street,Vyse Avenue,Bronx,40.842847,-73.881416,42740322
 East 179th Street,Walton Avenue,Bronx,40.852217,-73.907596,42733824
 East 179th Street,Washington Avenue,Bronx,40.849645,-73.89659,42730002
@@ -31720,7 +31720,7 @@ East 180th Street,Prospect Avenue,Bronx,40.847082,-73.886697,42740989
 East 180th Street,Rosedale Avenue,Bronx,40.839258,-73.870101,42752496
 East 180th Street,Ryer Avenue,Bronx,40.852865,-73.900926,42753920
 East 180th Street,Southern Boulevard,Bronx,40.84598,-73.88447,42753817
-East 180th Street,Third Avenue,Bronx,40.850713,-73.894073,42753795
+East 180th Street,3rd Avenue,Bronx,40.850713,-73.894073,42753795
 East 180th Street,Tiebout Avenue,Bronx,40.852249,-73.899272,42753927
 East 180th Street,Valentine Avenue,Bronx,40.852521,-73.900011,42753924
 East 180th Street,Van Nest Avenue,Bronx,40.840059,-73.870956,42753861
@@ -31742,7 +31742,7 @@ East 181st Street,Prospect Avenue,Bronx,40.847878,-73.886017,42740992
 East 181st Street,Quarry Road,Bronx,40.851133,-73.892788,42719992
 East 181st Street,Ryer Avenue,Bronx,40.854305,-73.900257,42774780
 East 181st Street,Southern Boulevard,Bronx,40.846783,-73.88379,42767034
-East 181st Street,Third Avenue,Bronx,40.851404,-73.893426,42768620
+East 181st Street,3rd Avenue,Bronx,40.851404,-73.893426,42768620
 East 181st Street,Tiebout Avenue,Bronx,40.85392,-73.89863,42744469
 East 181st Street,Valentine Avenue,Bronx,40.854086,-73.899321,42772928
 East 181st Street,Vyse Avenue,Bronx,40.844681,-73.879761,42776837
@@ -31765,7 +31765,7 @@ East 182nd Street,Prospect Avenue,Bronx,40.849309,-73.884802,42740995
 East 182nd Street,Quarry Road,Bronx,40.852308,-73.890439,42720003
 East 182nd Street,Ryer Avenue,Bronx,40.855669,-73.899672,42763724
 East 182nd Street,Southern Boulevard,Bronx,40.848245,-73.883123,42730749
-East 182nd Street,Third Avenue,Bronx,40.85277,-73.892167,42763784
+East 182nd Street,3rd Avenue,Bronx,40.85277,-73.892167,42763784
 East 182nd Street,Tiebout Avenue,Bronx,40.855217,-73.898122,42763737/42763790
 East 182nd Street,Valentine Avenue,Bronx,40.855364,-73.898776,42763730
 East 182nd Street,Walton Avenue,Bronx,40.857021,-73.903615,42733840
@@ -31780,7 +31780,7 @@ East 183rd Street,Park Avenue,Bronx,40.855858,-73.894604,42770540/42770534
 East 183rd Street,Prospect Avenue,Bronx,40.851499,-73.88382,42741009
 East 183rd Street,Ryer Avenue,Bronx,40.857116,-73.899069,42770579
 East 183rd Street,Southern Boulevard,Bronx,40.851061,-73.882322,42767053
-East 183rd Street,Third Avenue,Bronx,40.854117,-73.890902,42768626
+East 183rd Street,3rd Avenue,Bronx,40.854117,-73.890902,42768626
 East 183rd Street,Tiebout Avenue,Bronx,40.85651,-73.897307,42770589
 East 183rd Street,Valentine Avenue,Bronx,40.856808,-73.898174,42770584
 East 183rd Street,Walton Avenue,Bronx,40.858391,-73.902778,42733844
@@ -31793,7 +31793,7 @@ East 184th Street,Marion Avenue,Bronx,40.858139,-73.89574,42747499
 East 184th Street,Morris Avenue,Bronx,40.859977,-73.900788,42735795
 East 184th Street,Park Avenue,Bronx,40.85642,-73.894203,42747520/42747510
 East 184th Street,Ryer Avenue,Bronx,40.859095,-73.898226,42747489
-East 184th Street,Third Avenue,Bronx,40.854689,-73.890389,42747531
+East 184th Street,3rd Avenue,Bronx,40.854689,-73.890389,42747531
 East 184th Street,Tiebout Avenue,Bronx,40.858376,-73.896363,42747496
 East 184th Street,Valentine Avenue,Bronx,40.858763,-73.897358,42747493
 East 184th Street,Walton Avenue,Bronx,40.860277,-73.901639,42733848
@@ -31803,11 +31803,11 @@ East 184th Street,West 184th Street,Bronx,40.860589,-73.902551,42736268
 East 185th Street,Park Avenue,Bronx,40.857007,-73.893552,42755260
 East 185th Street,Prospect Avenue,Bronx,40.852564,-73.883281,42741014
 East 185th Street,Southern Boulevard,Bronx,40.852227,-73.881993,3295750240
-East 185th Street,Third Avenue,Bronx,40.85581,-73.890779,42755266
+East 185th Street,3rd Avenue,Bronx,40.85581,-73.890779,42755266
 East 185th Street,Washington Avenue,Bronx,40.856404,-73.892121,42730025
 East 186th Street,Hughes Avenue,Bronx,40.854418,-73.887533,42737974
 East 186th Street,Park Avenue,Bronx,40.857604,-73.893122,42737982
-East 186th Street,Third Avenue,Bronx,40.85678,-73.891097,42737986
+East 186th Street,3rd Avenue,Bronx,40.85678,-73.891097,42737986
 East 186th Street,Washington Avenue,Bronx,40.857001,-73.891679,42730029
 East 187th Street,Elm Place,Bronx,40.859619,-73.895226,5342370327
 East 187th Street,Grand Concourse,Bronx,40.860337,-73.898285,42741268/2025165414/2025165415
@@ -31819,7 +31819,7 @@ East 187th Street,Park Avenue,Bronx,40.858306,-73.892824,42779896/1657671795
 East 187th Street,Prospect Avenue,Bronx,40.85365,-73.882733,42741018
 East 187th Street,Ryer Avenue,Bronx,40.860197,-73.897711,42774790
 East 187th Street,Southern Boulevard,Bronx,40.853348,-73.881668,42767057
-East 187th Street,Third Avenue,Bronx,40.857427,-73.891106,42768639
+East 187th Street,3rd Avenue,Bronx,40.857427,-73.891106,42768639
 East 187th Street,Tiebout Avenue,Bronx,40.859748,-73.89579,42771603
 East 187th Street,Valentine Avenue,Bronx,40.85999,-73.896848,42772936
 East 187th Street,Washington Avenue,Bronx,40.857614,-73.891267,42730035
@@ -31832,7 +31832,7 @@ East 188th Street,Hughes Avenue,Bronx,40.856094,-73.886116,42765955
 East 188th Street,Lorillard Place,Bronx,40.857279,-73.888457,42765942
 East 188th Street,Marion Avenue,Bronx,40.860279,-73.894042,42765913
 East 188th Street,Park Avenue,Bronx,40.859327,-73.892089,42765918/42765927
-East 188th Street,Third Avenue,Bronx,40.85878,-73.89112,42765928/42765939
+East 188th Street,3rd Avenue,Bronx,40.85878,-73.89112,42765928/42765939
 East 188th Street,Tiebout Avenue,Bronx,40.860744,-73.895376,42765908
 East 188th Street,Valentine Avenue,Bronx,40.860997,-73.896425,42765905
 East 188th Street,Washington Avenue,Bronx,40.858402,-73.890596,42730044
@@ -31842,11 +31842,11 @@ East 189th Street,Hoffman Street,Bronx,40.857827,-73.886873,42748248
 East 189th Street,Hughes Avenue,Bronx,40.857028,-73.885329,42748301
 East 189th Street,Lorillard Place,Bronx,40.858226,-73.887632,42748288
 East 189th Street,Park Avenue,Bronx,40.860189,-73.891709,42748269
-East 189th Street,Third Avenue,Bronx,40.860025,-73.891125,5516750361
+East 189th Street,3rd Avenue,Bronx,40.860025,-73.891125,5516750361
 East 189th Street,Washington Avenue,Bronx,40.859353,-73.889779,42730048
 East 189th Street,Webster Avenue,Bronx,40.860523,-73.892563,42748267
 East 18th Street,Elm Avenue,Brooklyn,40.618721,-73.957259,42472661
-East 18th Street,First Avenue Loop,Manhattan,40.733827,-73.980737,42437289
+East 18th Street,1st Avenue Loop,Manhattan,40.733827,-73.980737,42437289
 East 18th Street,Foster Avenue,Brooklyn,40.635374,-73.960401,42492575
 East 18th Street,Glenwood Road,Brooklyn,40.632667,-73.959898,11582570282/11582570283
 East 18th Street,Gravesend Neck Road,Brooklyn,40.595756,-73.952913,42492642
@@ -33456,7 +33456,7 @@ East Fordham Road,Lorillard Place,Bronx,40.859261,-73.886734,42742642
 East Fordham Road,Marion Avenue,Bronx,40.861845,-73.892854,42742609
 East Fordham Road,Morris Avenue,Bronx,40.862295,-73.899801,42735731/42735798
 East Fordham Road,Southern Boulevard,Bronx,40.857288,-73.880836,3380068752/42742681/2757492815
-East Fordham Road,Third Avenue,Bronx,40.861087,-73.890231,1241612897/5327456901
+East Fordham Road,3rd Avenue,Bronx,40.861087,-73.890231,1241612897/5327456901
 East Fordham Road,Tiebout Avenue,Bronx,40.862071,-73.894807,42742600
 East Fordham Road,Valentine Avenue,Bronx,40.862268,-73.89589,42742739
 East Fordham Road,Walton Avenue,Bronx,40.862481,-73.90029,42733852
@@ -33696,7 +33696,7 @@ East Tremont Avenue,Sullivan Place,Bronx,40.829053,-73.824703,42742359
 East Tremont Avenue,Tan Place,Bronx,40.840865,-73.839342,42780123
 East Tremont Avenue,Taylor Avenue,Bronx,40.840344,-73.867248,42781955
 East Tremont Avenue,Thieriot Avenue,Bronx,40.840592,-73.866361,42749910
-East Tremont Avenue,Third Avenue,Bronx,40.846666,-73.896184,42768613
+East Tremont Avenue,3rd Avenue,Bronx,40.846666,-73.896184,42768613
 East Tremont Avenue,Unionport Road,Bronx,40.841294,-73.86358,5334655551/42739903
 East Tremont Avenue,Valentine Avenue,Bronx,40.847946,-73.901393,2329100897/42752875/2329100911
 East Tremont Avenue,Van Nest Avenue,Bronx,40.839671,-73.871191,42766764
@@ -34273,7 +34273,7 @@ Eltingville Boulevard,Lamoka Avenue,Staten Island,40.548731,-74.16524,6663103719
 Eltingville Boulevard,Leverett Avenue,Staten Island,40.555148,-74.166708,42982629
 Eltingville Boulevard,Richmond Avenue,Staten Island,40.544463,-74.165408,42999038
 Eltingville Boulevard,Wilson Avenue,Staten Island,40.54585,-74.164598,42970552
-Elton Avenue,Third Avenue,Bronx,40.818077,-73.914953,42768534
+Elton Avenue,3rd Avenue,Bronx,40.818077,-73.914953,42768534
 Elton Avenue,Washington Avenue,Bronx,40.824204,-73.910817,42730077
 Elton Street,Flatlands Avenue,Brooklyn,40.657636,-73.874903,1273032277/7887390796/7887390797
 Elton Street,Fulton Street,Brooklyn,40.67994,-73.884671,42464779
@@ -35059,8 +35059,8 @@ Fir Avenue,Grape Avenue,Brooklyn,40.647125,-73.986962,756246861
 Fir Avenue,Heather Avenue,Bronx,40.885334,-73.871567,777292578
 Fir Avenue,Sassafras Avenue,Brooklyn,40.649439,-73.981147,756247122
 Fir Avenue,Vine Avenue,Brooklyn,40.648719,-73.983643,756246941
-First Division Avenue,Schum Avenue,Brooklyn,40.610866,-74.029793,42462957
-First Division Avenue,White Avenue,Brooklyn,40.610455,-74.028979,42462953
+1st Division Avenue,Schum Avenue,Brooklyn,40.610866,-74.029793,42462957
+1st Division Avenue,White Avenue,Brooklyn,40.610455,-74.028979,42462953
 Firth Road,Merrill Avenue,Staten Island,40.610661,-74.165842,42973579
 Firth Road,Paulding Avenue,Staten Island,40.608503,-74.166432,42974293
 Firth Road,Plank Road,Staten Island,40.609201,-74.166239,42952009
@@ -35702,7 +35702,7 @@ Franklin Avenue,Saint Marks Avenue,Brooklyn,40.675928,-73.956069,42522967
 Franklin Avenue,Saull Street,Queens,40.753495,-73.829867,42811507
 Franklin Avenue,Sterling Place,Brooklyn,40.673295,-73.957021,42474974
 Franklin Avenue,Sullivan Place,Brooklyn,40.664108,-73.960337,42524197
-Franklin Avenue,Third Avenue,Bronx,40.826695,-73.907647,42762856
+Franklin Avenue,3rd Avenue,Bronx,40.826695,-73.907647,42762856
 Franklin Avenue,Van Buren Street,Staten Island,40.644756,-74.09264,43014095
 Franklin Avenue,Wallabout Street,Brooklyn,40.699415,-73.959004,7722348499
 Franklin Avenue,Willoughby Avenue,Brooklyn,40.692779,-73.957681,42492316
@@ -40907,7 +40907,7 @@ Loretto Street,Seacrest Lane,Staten Island,40.504286,-74.239499,42958358
 Loretto Street,Surf Avenue,Staten Island,40.499742,-74.237936,42956513
 Loretto Street,Wildwood Lane,Staten Island,40.503806,-74.239344,42949998
 Lori Drive,Robin Lane,Queens,40.787234,-73.78778,42819993
-Lorillard Place,Third Avenue,Bronx,40.85508,-73.890451,42768632
+Lorillard Place,3rd Avenue,Bronx,40.85508,-73.890451,42768632
 Lorimer Street,Marcy Avenue,Brooklyn,40.701495,-73.951915,42482202
 Lorimer Street,Maujer Street,Brooklyn,40.710432,-73.948771,42527642
 Lorimer Street,Meeker Avenue,Brooklyn,40.716645,-73.949793,8702221555/42476614/42476503
@@ -42335,7 +42335,7 @@ Morris Avenue,Mount Hope Place,Bronx,40.848848,-73.908304,42735763
 Morris Avenue,Park Avenue,Bronx,40.821883,-73.920589,42735711/9254430679
 Morris Avenue,Parkview Terrace,Bronx,40.870877,-73.893686,3638966153
 Morris Avenue,Selwyn Avenue,Bronx,40.840197,-73.910094,42735867
-Morris Avenue,Third Avenue,Bronx,40.811096,-73.927056,2826997294
+Morris Avenue,3rd Avenue,Bronx,40.811096,-73.927056,2826997294
 Morris Avenue,West Street,Brooklyn,40.701757,-73.979903,2406352159
 Morris Park Avenue,Muliner Avenue,Bronx,40.846326,-73.860803,42756732
 Morris Park Avenue,Newport Avenue,Bronx,40.851082,-73.8473,42752307
@@ -44167,7 +44167,7 @@ Putnam Avenue West,West 239th Street,Bronx,40.885306,-73.898259,42740400
 Putnam Place,Reservoir Oval West,Bronx,40.879007,-73.876012,42732093
 Putnam Street,Ridgecrest Avenue,Staten Island,40.543743,-74.163501,42958728
 Putnam Street,Saint Albans Place,Staten Island,40.543743,-74.163501,42958728
-Quarry Road,Third Avenue,Bronx,40.851008,-73.893795,42719990
+Quarry Road,3rd Avenue,Bronx,40.851008,-73.893795,42719990
 Quarry Road,Wade Square,Bronx,40.852026,-73.891017,42720000
 Quay Street,West Street,Brooklyn,40.72619,-73.958646,42503839
 Quay Street,Wharf Drive,Brooklyn,40.726083,-73.959788,42503837
@@ -44872,7 +44872,7 @@ Saint Adalbert Place South,Willow Road West,Staten Island,40.629048,-74.146146,4
 Saint Albans Place,Winchester Avenue,Staten Island,40.543919,-74.1624,42962035
 Saint Aloysius Avenue,Saint Matthew Avenue,Queens,40.730616,-73.916057,277390489
 Saint Aloysius Avenue,Saint Theresa Avenue,Queens,40.729286,-73.916452,761564666
-Saint Ann's Avenue,Third Avenue,Bronx,40.82285,-73.909425,6395375453
+Saint Ann's Avenue,3rd Avenue,Bronx,40.82285,-73.909425,6395375453
 Saint Ann's Avenue,Westchester Avenue,Bronx,40.816047,-73.911942,42760430
 Saint Anne Avenue,Saint Bridget Avenue,Queens,40.731022,-73.913134,761564815
 Saint Anne Avenue,Saint William Avenue,Queens,40.732827,-73.911686,761564783
@@ -45057,7 +45057,7 @@ Saint Pauls Avenue,Taxter Place,Staten Island,40.631225,-74.080361,42976907
 Saint Pauls Avenue,Trossach Road,Staten Island,40.627899,-74.083613,42995025
 Saint Pauls Avenue,Victory Boulevard,Staten Island,40.63811,-74.077934,42978415
 Saint Pauls Court,Saint Pauls Place,Brooklyn,40.650701,-73.962645,42516824
-Saint Pauls Place,Third Avenue,Bronx,40.835927,-73.902906,42762954
+Saint Pauls Place,3rd Avenue,Bronx,40.835927,-73.902906,42762954
 Saint Pauls Place,Washington Avenue,Bronx,40.836181,-73.904159,42730120
 Saint Pauls Place,Woodruff Avenue,Brooklyn,40.653262,-73.963812,42516815
 Saint Peter Avenue,Saint Rose Avenue,Queens,40.734589,-73.933979,761583782
@@ -45797,9 +45797,9 @@ Theresa Place,Victory Boulevard,Staten Island,40.624335,-74.093956,42978363
 Thieriot Avenue,Watson Avenue,Bronx,40.828049,-73.863572,42749609
 Thieriot Avenue,Westchester Avenue,Bronx,40.832401,-73.864566,42760396
 Thieriot Avenue,Wood Avenue,Bronx,40.83535,-73.865078,42771742
-Third Avenue,Weiher Court,Bronx,40.825996,-73.907931,42768565
-Third Avenue,Westchester Avenue,Bronx,40.816536,-73.916812,6415815555/42733534
-Third Avenue,Willis Avenue,Bronx,40.815621,-73.918461,7564299102
+3rd Avenue,Weiher Court,Bronx,40.825996,-73.907931,42768565
+3rd Avenue,Westchester Avenue,Bronx,40.816536,-73.916812,6415815555/42733534
+3rd Avenue,Willis Avenue,Bronx,40.815621,-73.918461,7564299102
 Thomas Place,Tysens Lane,Staten Island,40.564418,-74.117213,42966962
 Thomas Street,Trimble Place,Manhattan,40.716318,-74.006191,42429829
 Thomas Street,Varick Avenue,Brooklyn,40.725476,-73.93491,42505679

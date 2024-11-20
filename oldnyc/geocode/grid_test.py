@@ -101,4 +101,9 @@ def test_extract_street_num():
     assert grid.extract_street_num("Seventh Avenue") is None
 
 
+def test_normalize_street():
+    assert grid.normalize_street("Fifth Avenue") == "5th Avenue"
+    assert grid.normalize_street("Twelfth Street (East)") == "12th Street (East)"
+
+
 # 10th Street and Sixth Avenue, Brooklyn

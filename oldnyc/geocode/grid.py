@@ -205,8 +205,6 @@ class GridGeocoder:
         `avenue` and `street` are strings, e.g. 'A' and '15'.
         Returns (lat, lon) or None.
         """
-        global num_exact, num_unclaimed, num_extrapolated, num_exact_grid
-
         crosses = self.by_avenue.get(avenue)
         if not crosses:
             self.unknown_ave[avenue] += 1
@@ -237,8 +235,6 @@ class GridGeocoder:
     def geocode_intersection(
         self, street1: str, street2: str, debug_txt: Optional[str] = ""
     ) -> Point | None:
-        global num_exact, num_interpolated
-
         # sys.stderr.write(f'Attempting to geocode "{street1}" and "{street2}"\n')
 
         # If either looks like a numbered street, check for an exact match.
@@ -305,6 +301,12 @@ ORDINALS = {
     "Tenth": 10,
     "Eleventh": 11,
     "Twelfth": 12,
+    "Thirteenth": 13,
+}
+ordinals_re = re.compile(r"\b(%s)\b" % "|".join(ORDINALS.keys()), flags=re.I)
+
+NYC_ORDINALS = {
+    **ORDINALS,
     # Some NYC-specific stuff
     "Amsterdam": 10,
     r"\bPark\b": 4,  # the \b's prevent this from matching, e.g., 'Parkway'
@@ -323,6 +325,16 @@ SPECIAL_AVES = {
 }
 
 
+# See http://stackoverflow.com/a/20007730/388951
+def make_ordinal(n):
+    return "%d%s" % (n, "tsnrhtdd"[(n // 10 % 10 != 1) * (n % 10 < 4) * n % 10 :: 4])
+
+
+def normalize_street(street: str) -> str:
+    """Light normalization, e.g. "First Avenue" -> "1st Avenue"."""
+    return ordinals_re.sub(lambda m: make_ordinal(ORDINALS[m.group(1)]), street)
+
+
 def parse_ave(avenue: str) -> str | None:
     """Normalize avenue names, e.g. "Fifth Avenue" -> "5"."""
     if avenue in SPECIAL_AVES:
@@ -337,7 +349,7 @@ def parse_ave(avenue: str) -> str | None:
         return m.group(1)
     else:
         # How about 'Fourth', 'Fifth'?
-        num = multisearch(ORDINALS, avenue)
+        num = multisearch(NYC_ORDINALS, avenue)
         if num is not None:
             return str(num)
 
