@@ -403,7 +403,7 @@ def geocode_intersection(street1: str, street2: str, debug_txt: Optional[str] = 
         load_data()
     global num_exact, num_interpolated
 
-    sys.stderr.write(f'Attempting to geocode "{street1}" and "{street2}"\n')
+    # sys.stderr.write(f'Attempting to geocode "{street1}" and "{street2}"\n')
 
     # If either looks like a numbered street, check for an exact match.
     num1 = extract_street_num(street1)
