@@ -300,6 +300,23 @@ def Grid():
 
 
 ORDINALS = {
+    "first": 1,
+    "second": 2,
+    "third": 3,
+    "fourth": 4,
+    "fifth": 5,
+    "sixth": 6,
+    "seventh": 7,
+    "eighth": 8,
+    "ninth": 9,
+    "tenth": 10,
+    "eleventh": 11,
+    "twelfth": 12,
+    "thirteenth": 13,
+}
+ordinals_re = re.compile(r"\b(%s)\b" % "|".join(ORDINALS.keys()), flags=re.I)
+
+NYC_ORDINALS = {
     "First": 1,
     "Second": 2,
     "Third": 3,
@@ -313,11 +330,6 @@ ORDINALS = {
     "Eleventh": 11,
     "Twelfth": 12,
     "Thirteenth": 13,
-}
-ordinals_re = re.compile(r"\b(%s)\b" % "|".join(ORDINALS.keys()), flags=re.I)
-
-NYC_ORDINALS = {
-    **ORDINALS,
     # Some NYC-specific stuff
     "Amsterdam": 10,
     r"\bPark\b": 4,  # the \b's prevent this from matching, e.g., 'Parkway'
@@ -343,7 +355,7 @@ def make_ordinal(n):
 
 def normalize_street(street: str) -> str:
     """Light normalization, e.g. "First Avenue" -> "1st Avenue"."""
-    return ordinals_re.sub(lambda m: make_ordinal(ORDINALS[m.group(1)]), street)
+    return ordinals_re.sub(lambda m: make_ordinal(ORDINALS[m.group(1).lower()]), street)
 
 
 def parse_ave(avenue: str) -> str | None:

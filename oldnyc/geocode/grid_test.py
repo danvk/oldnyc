@@ -3,6 +3,8 @@ import pytest
 from oldnyc.geocode import grid
 from oldnyc.geocode.grid import Grid
 
+M = "Manhattan"
+
 
 def assert_close(ll1: tuple[float, float] | None, ll2: tuple[float, float]):
     """Assert that two latitude & longitude tuples are "close"."""
@@ -71,17 +73,17 @@ def test_parse_street_ave():
 def test_geocode_broadway():
     g = Grid()
     # this is an exact intersection
-    assert_close(g.geocode_intersection("Broadway", "59th Street"), (40.767696, -73.981679))
+    assert_close(g.geocode_intersection("Broadway", "59th Street", M), (40.767696, -73.981679))
     # these are interpolations
-    assert_close(g.geocode_intersection("Broadway", "24th Street"), (40.7422035, -73.989151))
-    assert_close(g.geocode_intersection("Broadway", "124th St"), (40.8140625, -73.959421))
+    assert_close(g.geocode_intersection("Broadway", "24th Street", M), (40.7422035, -73.989151))
+    assert_close(g.geocode_intersection("Broadway", "124th St", M), (40.8140625, -73.959421))
     # this isn't great, but probably not too far off the intended location.
-    assert_close(g.geocode_intersection("Broadway", "127th St."), (40.816311, -73.957802))
+    assert_close(g.geocode_intersection("Broadway", "127th St.", M), (40.816311, -73.957802))
 
 
 def test_geocode_above_125():
     g = Grid()
-    assert_close(g.geocode_intersection("7th Avenue", "134th Street"), (40.8146691, -73.94419))
+    assert_close(g.geocode_intersection("7th Avenue", "134th Street", M), (40.8146691, -73.94419))
 
 
 def test_parse_ave():
@@ -104,6 +106,7 @@ def test_extract_street_num():
 def test_normalize_street():
     assert grid.normalize_street("Fifth Avenue") == "5th Avenue"
     assert grid.normalize_street("Twelfth Street (East)") == "12th Street (East)"
+    assert grid.normalize_street("second avenue") == "2nd avenue"
 
 
 # 10th Street and Sixth Avenue, Brooklyn
