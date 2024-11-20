@@ -173,8 +173,14 @@ def main():
             if a == b:
                 sys.stderr.write(f"Surprise dupe: way/{a} node/{node}\n")
                 continue
+            wa = id_to_way[a]
+            wb = id_to_way[b]
+            if wa["tags"]["name"] == wb["tags"]["name"]:
+                sys.stderr.write(f"Name dupe: way/{a} way/{b} node/{node}\n")
+                continue
             way_pairs.add((a, b) if a < b else (b, a))
 
+    claimed_nodes = set[int]()
     with open("data/nyc-intersections.csv", "w") as f:
         out = csv.writer(f)
         out.writerow(["Street1", "Street2", "way1", "way2", "Borough", "Lat", "Lon"])
@@ -185,19 +191,22 @@ def main():
             str2nodes = set(w2["nodes"])
             n1 = w1["tags"]["name"]
             n2 = w2["tags"]["name"]
-            intersect_nodes = str1nodes & str2nodes
-            if not intersect_nodes:
+            intersect_node_ids = str1nodes & str2nodes
+            if not intersect_node_ids:
+                continue
+            if all(n in claimed_nodes for n in intersect_node_ids):
                 continue
             try:
-                intersect_nodes = [id_to_node[n] for n in intersect_nodes]
+                intersect_nodes = [id_to_node[n] for n in intersect_node_ids]
             except KeyError:
-                print(str1, str2, n1, n2)
+                print("Missing intersection node", str1, str2, n1, n2)
                 raise
             try:
                 lat, lng = get_intersection_center(intersect_nodes)
             except ValueError:
                 print(f"Ambiguous intersection: {str1} ({n1}) / {str2} ({n2})")
                 continue
+            claimed_nodes.update(intersect_node_ids)
             borough = point_to_borough(lat, lng)
             if borough is None:
                 print(f"Not in NYC: {str1} ({n1}), {str2} ({n2}) -> {lat}, {lng}")
