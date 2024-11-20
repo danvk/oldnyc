@@ -14,7 +14,7 @@ from typing import Callable
 
 from dotenv import load_dotenv
 
-from oldnyc.geocode import generate_js, geocoder
+from oldnyc.geocode import generate_js, geocoder, grid
 from oldnyc.geocode.coders import (
     gpt,
     special_cases,
@@ -213,6 +213,8 @@ if __name__ == "__main__":
     for c in geocoders:
         sys.stderr.write(f"-- Finalizing {c.name()} --\n")
         c.finalize()
+
+    grid.Grid().log_stats()
 
     sys.stderr.write("-- Final stats --\n")
     successes = 0

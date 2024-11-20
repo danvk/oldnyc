@@ -111,6 +111,7 @@ class TitleCrossCoder(Coder):
         self.n_google_location = 0
         self.n_geocode_fail = 0
         self.n_boro_mismatch = 0
+        self.grid = grid.Grid()
 
     def findMatch(self, r):
         titles = extract_titles(r)
@@ -181,7 +182,7 @@ class TitleCrossCoder(Coder):
             return None
         try:
             self.n_grid_attempt += 1
-            latlon = grid.geocode_intersection(str1, str2, r.id)
+            latlon = self.grid.geocode_intersection(str1, str2, r.id)
             if latlon:
                 self.n_grid += 1
                 lat, lng = latlon
@@ -219,7 +220,6 @@ class TitleCrossCoder(Coder):
         sys.stderr.write(f"          google: {self.n_google_location}\n")
         sys.stderr.write(f"   boro mismatch: {self.n_boro_mismatch}\n")
         sys.stderr.write(f"        failures: {self.n_geocode_fail}\n")
-        grid.log_stats()
 
     def name(self):
         return "title-cross"

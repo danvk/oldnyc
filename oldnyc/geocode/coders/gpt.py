@@ -25,6 +25,7 @@ class GptCoder(Coder):
         self.n_google_location = 0
         self.n_geocode_fail = 0
         self.n_boro_mismatch = 0
+        self.grid = grid.Grid()
 
     def codeRecord(self, r: Item):
         # GPT location extractions are always based on record ID, not photo ID.
@@ -81,7 +82,7 @@ class GptCoder(Coder):
             return None
         try:
             self.n_grid_attempts += 1
-            latlon = grid.geocode_intersection(str1, str2, r.id)
+            latlon = self.grid.geocode_intersection(str1, str2, r.id)
             if latlon:
                 self.n_grid += 1
                 lat, lng = latlon

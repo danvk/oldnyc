@@ -4,6 +4,7 @@ import csv
 import re
 import sys
 from collections import Counter, defaultdict
+from dataclasses import dataclass
 from typing import Sequence
 
 import numpy as np
@@ -12,21 +13,24 @@ from word2number import w2n
 
 Point = tuple[float, float]
 
-# These are just the Manhattan grid intersections (from Houston to 125th)
-by_avenue = defaultdict[str, dict[int, Point]](lambda: {})
-by_street = defaultdict[int, dict[str, Point]](lambda: {})
 
-# These are all intersections in Manhattan, not just the grid.
-all_ints = defaultdict[int, dict[str, Point]](lambda: {})
-all_ints_by_ave = defaultdict[str, dict[int, Point]](lambda: {})
+@dataclass(frozen=True, init=False)
+class Intersection:
+    def __init__(self, str1: str, str2: str, boro: str):
+        str1, str2 = (str1, str2) if str1 < str2 else (str2, str1)
+        # See https://stackoverflow.com/a/58336722/388951
+        object.__setattr__(self, "str1", str1)
+        object.__setattr__(self, "str2", str2)
+        object.__setattr__(self, "boro", boro)
 
-# All five boroughs; street names are sorted
-nyc_ints = dict[tuple[str, str], Point]()
+    str1: str
+    str2: str
+    boro: str
 
-is_initialized = False
 
-
-def load_data():
+def load_mini_grid():
+    by_avenue = defaultdict[str, dict[int, Point]](dict)
+    by_street = defaultdict[int, dict[str, Point]](dict)
     for row in csv.DictReader(open("data/grid.csv")):
         if not row["Lat"]:
             continue  # not all intersections exist.
@@ -38,9 +42,18 @@ def load_data():
             avenue = ["A", "B", "C", "D"][-avenue]
         else:
             avenue = str(avenue)
-        by_avenue[avenue][street] = (lat, lon)
-        by_street[street][avenue] = (lat, lon)
+        pt = (lat, lon)
+        by_avenue[avenue][street] = pt
+        by_street[street][avenue] = pt
 
+    return by_avenue, by_street
+
+
+def load_manhattan_intersections():
+    all_ints = defaultdict[int, dict[str, Point]](dict)
+    all_ints_by_ave = defaultdict[str, dict[int, Point]](dict)
+
+    # TODO: maybe this is a subset of nyc-intersections.csv?
     for row in csv.DictReader(open("data/intersections.csv")):
         street = int(row["Street"])
         raw_avenue = row["Avenue"]
@@ -55,8 +68,35 @@ def load_data():
         for ave, ll in ints.items():
             all_ints_by_ave[ave][street] = ll
 
-    global is_initialized
-    is_initialized = True
+    return all_ints, all_ints_by_ave
+
+
+def strip_dir(street: str) -> str:
+    """Remove cardinal directions from street names."""
+    return re.sub(r"\b(east|west|north|south)\b", "", street, flags=re.I).strip()
+
+
+def strip_ave(street: str) -> str:
+    """Remove suffixes like Street, Avenue, etc."""
+    return re.sub(r"\b(avenue|street|boulevard|place|road|drive)\b", "", street, flags=re.I).strip()
+
+
+def load_all_intersections():
+    # Completely unambiguous intersections
+    ints = dict[Intersection, Point]()
+    for row in csv.DictReader(open("data/nyc-intersections.csv")):
+        # Street1,Street2,Borough,Lat,Lon,Nodes
+        str1 = row["Street1"]
+        str2 = row["Street2"]
+        boro = row["Borough"]
+        lat = float(row["Lat"])
+        lng = float(row["Lon"])
+        # nodes = tuple(int(x) for x in row["Nodes"].split("/"))
+        ix = Intersection(str1, str2, boro)
+        assert ix not in ints
+        ints[ix] = (lat, lng)
+
+    return ints
 
 
 AVE_TO_NUM = {"A": 0, "B": -1, "C": -2, "D": -3}
@@ -113,28 +153,8 @@ def get_line(num_to_lls):
     return np.linalg.lstsq(xs, ys)[0]
 
 
-def extrapolate_intersection(avenue: str, street: int):
-    if not is_initialized:
-        load_data()
-    street_to_lls = by_avenue[avenue]
-    ave_to_lls = by_street[street]
-
-    if correl_lat_lons(street_to_lls) < 0.99 or correl_lat_lons(ave_to_lls) < 0.99:
-        return None
-
-    b_ave, a_ave = get_line(street_to_lls)
-    b_str, a_str = get_line(ave_to_lls)
-
-    lon = (b_ave - b_str) / (a_str - a_ave)
-    lat = b_ave + lon * a_ave
-
-    return lat, lon
-
-
 def may_extrapolate(avenue: str, street: str):
     """Is this a valid intersection to extrapolate?"""
-    if not is_initialized:
-        load_data()
     ave_num = ave_to_num(avenue)
     str_num = int(street)
 
@@ -149,51 +169,127 @@ def may_extrapolate(avenue: str, street: str):
     return True
 
 
-num_exact = 0
-num_exact_grid = 0
-num_unclaimed = 0
-num_extrapolated = 0
-num_interpolated = 0
-unknown_ave = Counter[str]()
-unknown_str = Counter[str]()
+class GridGeocoder:
+    def __init__(self):
+        # Manhattan from Houston to 125th Street, crossed by numbered/lettered avenues
+        self.by_avenue, self.by_street = load_mini_grid()
+
+        # Manhattan from Houston to 220th Street, with all north/south streets
+        self.all_ints, self.all_ints_by_ave = load_manhattan_intersections()
+
+        # All intersections, all five boroughs
+        self.nyc_ints = load_all_intersections()
+
+        self.counts = Counter[str]()
+        self.unknown_ave = Counter[str]()
+        self.unknown_str = Counter[str]()
+
+    def extrapolate_intersection(self, avenue: str, street: int):
+        street_to_lls = self.by_avenue[avenue]
+        ave_to_lls = self.by_street[street]
+
+        if correl_lat_lons(street_to_lls) < 0.99 or correl_lat_lons(ave_to_lls) < 0.99:
+            return None
+
+        b_ave, a_ave = get_line(street_to_lls)
+        b_str, a_str = get_line(ave_to_lls)
+
+        lon = (b_ave - b_str) / (a_str - a_ave)
+        lat = b_ave + lon * a_ave
+
+        return lat, lon
+
+    def code(self, avenue: str, street: str) -> tuple[float, float] | None:
+        """Find the location of a current or historical intersection.
+
+        `avenue` and `street` are strings, e.g. 'A' and '15'.
+        Returns (lat, lon) or None.
+        """
+        global num_exact, num_unclaimed, num_extrapolated, num_exact_grid
+
+        crosses = self.by_avenue.get(avenue)
+        if not crosses:
+            self.unknown_ave[avenue] += 1
+            self.counts["unclaimed"] += 1
+            return None
+
+        # First look for an exact match.
+        exact = crosses.get(int(street))
+        if exact:
+            self.counts["exact_grid"] += 1
+            return (exact[0], exact[1])
+
+        # Otherwise, find where the street and avenue would logically intersect one
+        # another if they continued as straight lines.
+        street_crosses = self.by_street.get(int(street))
+        if not street_crosses:
+            self.unknown_str[street] += 1
+            self.counts["unclaimed"] += 1
+            return None
+
+        if not may_extrapolate(avenue, street):
+            sys.stderr.write("Rejecting extrapolation for %s, %s\n" % (avenue, street))
+            return None
+
+        self.counts["extrapolated"] += 1  # this might still fail
+        return self.extrapolate_intersection(avenue, int(street))
+
+    def geocode_intersection(
+        self, street1: str, street2: str, debug_txt: Optional[str] = ""
+    ) -> Point | None:
+        global num_exact, num_interpolated
+
+        # sys.stderr.write(f'Attempting to geocode "{street1}" and "{street2}"\n')
+
+        # If either looks like a numbered street, check for an exact match.
+        num1 = extract_street_num(street1)
+        if not num1:
+            num2 = extract_street_num(street2)
+            if num2:
+                street1, street2 = street2, street1
+                num1 = num2
+
+        # sys.stderr.write(f"{debug_txt} {street1} ({num1}) / {street2}\n")
+
+        if num1:
+            avenue = parse_ave_for_osm(street2)
+            avenues = self.all_ints.get(num1)
+            if avenues:
+                latlng = avenues.get(avenue)
+                if latlng:
+                    self.counts["exact"] += 1
+                    return latlng
+
+            # There's no exact match, but we might be able to interpolate.
+            ave_ints = self.all_ints_by_ave.get(avenue)
+            if ave_ints:
+                latlng = interpolate(ave_ints, num1)
+                if latlng:
+                    self.counts["interpolated"] += 1
+                    sys.stderr.write(
+                        f"{debug_txt} Interpolated {street2} ({avenue}) & {street1} to {latlng}\n"
+                    )
+                    return latlng
+
+        # Either of these can raise a ValueError
+        avenue, street = parse_street_ave(street1, street2)
+        return self.code(avenue, street)
+
+    def log_stats(self):
+        sys.stderr.write("Grid statistics:\n")
+        sys.stderr.write(f"           Counts: {self.counts.most_common()}\n")
+        sys.stderr.write(f"  Unknown avenues: {self.unknown_ave}\n")
+        sys.stderr.write(f"  Unknown streets: {self.unknown_str}\n")
 
 
-def code(avenue: str, street: str) -> tuple[float, float] | None:
-    """Find the location of a current or historical intersection.
+singleton: GridGeocoder | None = None
 
-    `avenue` and `street` are strings, e.g. 'A' and '15'.
-    Returns (lat, lon) or None.
-    """
-    if not is_initialized:
-        load_data()
-    global num_exact, num_unclaimed, num_extrapolated, num_exact_grid
 
-    crosses = by_avenue.get(avenue)
-    if not crosses:
-        unknown_ave[avenue] += 1
-        num_unclaimed += 1
-        return None
-
-    # First look for an exact match.
-    exact = crosses.get(int(street))
-    if exact:
-        num_exact_grid += 1
-        return (exact[0], exact[1])
-
-    # Otherwise, find where the street and avenue would logically intersect one
-    # another if they continued as straight lines.
-    street_crosses = by_street.get(int(street))
-    if not street_crosses:
-        unknown_str[street] += 1
-        num_unclaimed += 1
-        return None
-
-    if not may_extrapolate(avenue, street):
-        sys.stderr.write("Rejecting extrapolation for %s, %s\n" % (avenue, street))
-        return None
-
-    num_extrapolated += 1
-    return extrapolate_intersection(avenue, int(street))
+def Grid():
+    global singleton
+    if not singleton:
+        singleton = GridGeocoder()
+    return singleton
 
 
 ORDINALS = {
@@ -401,70 +497,17 @@ def interpolate(ave_ints: dict[int, Point], num: int) -> Point | None:
     return lat, lng
 
 
-def geocode_intersection(street1: str, street2: str, debug_txt: Optional[str] = "") -> Point | None:
-    if not is_initialized:
-        load_data()
-    global num_exact, num_interpolated
-
-    # sys.stderr.write(f'Attempting to geocode "{street1}" and "{street2}"\n')
-
-    # If either looks like a numbered street, check for an exact match.
-    num1 = extract_street_num(street1)
-    if not num1:
-        num2 = extract_street_num(street2)
-        if num2:
-            street1, street2 = street2, street1
-            num1 = num2
-
-    # sys.stderr.write(f"{debug_txt} {street1} ({num1}) / {street2}\n")
-
-    if num1:
-        avenue = parse_ave_for_osm(street2)
-        avenues = all_ints.get(num1)
-        if avenues:
-            latlng = avenues.get(avenue)
-            if latlng:
-                num_exact += 1
-                return latlng
-
-        # There's no exact match, but we might be able to interpolate.
-        ave_ints = all_ints_by_ave.get(avenue)
-        if ave_ints:
-            latlng = interpolate(ave_ints, num1)
-            if latlng:
-                num_interpolated += 1
-                sys.stderr.write(
-                    f"{debug_txt} Interpolated {street2} ({avenue}) & {street1} to {latlng}\n"
-                )
-                return latlng
-
-    # Either of these can raise a ValueError
-    avenue, street = parse_street_ave(street1, street2)
-    return code(avenue, street)
-
-
-def log_stats():
-    sys.stderr.write("Grid statistics:\n")
-    sys.stderr.write(f"     Exact matches: {num_exact}\n")
-    sys.stderr.write(f"Exact grid matches: {num_exact_grid}\n")
-    sys.stderr.write(f"      Extrapolated: {num_extrapolated}\n")
-    sys.stderr.write(f"      Interpolated: {num_interpolated}\n")
-    sys.stderr.write(f"         Unclaimed: {num_unclaimed}\n")
-    sys.stderr.write(f"   Unknown avenues: {unknown_ave}\n")
-    sys.stderr.write(f"   Unknown streets: {unknown_str}\n")
-
-
 if __name__ == "__main__":
-    load_data()
+    g = Grid()
     print("Avenues and streets with imperfect correlations:")
     print("Avenues:")
-    for ave in sorted(by_avenue.keys()):
-        r2 = correl_lat_lons(by_avenue[ave])
+    for ave in sorted(g.by_avenue.keys()):
+        r2 = correl_lat_lons(g.by_avenue[ave])
         if r2 < 0.99:
             print("  %3s: %s" % (ave, r2))
 
     print("Streets:")
-    for street in sorted(by_street.keys()):
-        r2 = correl_lat_lons(by_street[street])
+    for street in sorted(g.by_street.keys()):
+        r2 = correl_lat_lons(g.by_street[street])
         if r2 < 0.99:
             print("  %3s: %s" % (street, r2))

@@ -1,6 +1,7 @@
 import pytest
 
 from oldnyc.geocode import grid
+from oldnyc.geocode.grid import Grid
 
 
 def assert_close(ll1: tuple[float, float] | None, ll2: tuple[float, float]):
@@ -11,19 +12,22 @@ def assert_close(ll1: tuple[float, float] | None, ll2: tuple[float, float]):
 
 
 def test_exact():
+    g = Grid()
     # It's really Park Avenue South.
-    assert_close(grid.code("4", "17"), (40.736518, -73.988962))
+    assert_close(g.code("4", "17"), (40.736518, -73.988962))
 
 
 def test_interpolate():
+    g = Grid()
     # This is halfway between 26th & 28th.
-    assert_close(grid.code("9", "27"), (40.749020, -73.9995210))
-    assert_close(grid.code("5", "100"), (40.790469, -73.953898))
+    assert_close(g.code("9", "27"), (40.749020, -73.9995210))
+    assert_close(g.code("5", "100"), (40.790469, -73.953898))
 
 
 def test_extrapolate():
-    assert_close(grid.code("A", "15"), (40.731083, -73.979847))
-    assert_close(grid.code("A", "20"), (40.734071, -73.977654))
+    g = Grid()
+    assert_close(g.code("A", "15"), (40.731083, -73.979847))
+    assert_close(g.code("A", "20"), (40.734071, -73.977654))
 
 
 def test_may_extrapolate():
@@ -65,17 +69,19 @@ def test_parse_street_ave():
 
 
 def test_geocode_broadway():
+    g = Grid()
     # this is an exact intersection
-    assert_close(grid.geocode_intersection("Broadway", "59th Street"), (40.767696, -73.981679))
+    assert_close(g.geocode_intersection("Broadway", "59th Street"), (40.767696, -73.981679))
     # these are interpolations
-    assert_close(grid.geocode_intersection("Broadway", "24th Street"), (40.7422035, -73.989151))
-    assert_close(grid.geocode_intersection("Broadway", "124th St"), (40.8140625, -73.959421))
+    assert_close(g.geocode_intersection("Broadway", "24th Street"), (40.7422035, -73.989151))
+    assert_close(g.geocode_intersection("Broadway", "124th St"), (40.8140625, -73.959421))
     # this isn't great, but probably not too far off the intended location.
-    assert_close(grid.geocode_intersection("Broadway", "127th St."), (40.816311, -73.957802))
+    assert_close(g.geocode_intersection("Broadway", "127th St."), (40.816311, -73.957802))
 
 
 def test_geocode_above_125():
-    assert_close(grid.geocode_intersection("7th Avenue", "134th Street"), (40.8146691, -73.94419))
+    g = Grid()
+    assert_close(g.geocode_intersection("7th Avenue", "134th Street"), (40.8146691, -73.94419))
 
 
 def test_parse_ave():
@@ -95,4 +101,4 @@ def test_extract_street_num():
     assert grid.extract_street_num("Seventh Avenue") is None
 
 
-# 10th Street and Sixth Avenue
+# 10th Street and Sixth Avenue, Brooklyn
