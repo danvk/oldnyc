@@ -93,7 +93,7 @@ def load_all_intersections():
         lng = float(row["Lon"])
         # nodes = tuple(int(x) for x in row["Nodes"].split("/"))
         ix = Intersection(str1, str2, boro)
-        assert ix not in ints
+        assert ix not in ints, ix
         ints[ix] = (lat, lng)
 
     return ints
@@ -233,9 +233,20 @@ class GridGeocoder:
         return self.extrapolate_intersection(avenue, int(street))
 
     def geocode_intersection(
-        self, street1: str, street2: str, debug_txt: Optional[str] = ""
+        self, street1: str, street2: str, boro: str, debug_txt: Optional[str] = ""
     ) -> Point | None:
         # sys.stderr.write(f'Attempting to geocode "{street1}" and "{street2}"\n')
+
+        street1 = normalize_street(street1)
+        street2 = normalize_street(street2)
+        ix = Intersection(street1, street2, boro)
+        pt = self.nyc_ints.get(ix)
+        if pt:
+            self.counts["exact"] += 1
+            return pt
+
+        if boro != "Manhattan":
+            return None
 
         # If either looks like a numbered street, check for an exact match.
         num1 = extract_street_num(street1)
@@ -253,7 +264,7 @@ class GridGeocoder:
             if avenues:
                 latlng = avenues.get(avenue)
                 if latlng:
-                    self.counts["exact"] += 1
+                    self.counts["exact: str"] += 1
                     return latlng
 
             # There's no exact match, but we might be able to interpolate.

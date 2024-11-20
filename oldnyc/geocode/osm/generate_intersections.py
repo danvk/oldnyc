@@ -179,7 +179,10 @@ def main():
             name_b = wb["tags"]["name"]
             if name_a == name_b:
                 continue
-            way_pairs[tuple(sorted((name_a, name_b)))].add(node)
+            name_a = grid.normalize_street(name_a)
+            name_b = grid.normalize_street(name_b)
+            pair = (name_a, name_b) if name_a < name_b else (name_b, name_a)
+            way_pairs[pair].add(node)
 
     claimed_nodes = set[int]()
     with open("data/nyc-intersections.csv", "w") as f:
@@ -203,8 +206,6 @@ def main():
             if borough is None:
                 print(f"Not in NYC: {str1} / {str2}: ({intersect_node_ids})")
                 continue
-            str1 = grid.normalize_street(str1)
-            str2 = grid.normalize_street(str2)
             out.writerow(
                 [
                     str(str1),

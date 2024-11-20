@@ -177,12 +177,10 @@ class TitleCrossCoder(Coder):
     def getLatLonFromLocatable(self, r, data):
         assert "data" in data
         ssb: tuple[str, str, str] = data["data"]
-        (str1, str2, boro) = ssb
-        if boro != "Manhattan":
-            return None
+        str1, str2, boro = ssb
         try:
             self.n_grid_attempt += 1
-            latlon = self.grid.geocode_intersection(str1, str2, r.id)
+            latlon = self.grid.geocode_intersection(str1, str2, boro, r.id)
             if latlon:
                 self.n_grid += 1
                 lat, lng = latlon

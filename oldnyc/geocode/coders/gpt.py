@@ -78,11 +78,11 @@ class GptCoder(Coder):
         assert "data" in data
         ssb: tuple[str, str, str] = data["data"]
         (str1, str2, boro) = ssb
-        if boro != "Manhattan" and boro != "New York":
-            return None
+        if boro == "New York":
+            boro = "Manhattan"
         try:
             self.n_grid_attempts += 1
-            latlon = self.grid.geocode_intersection(str1, str2, r.id)
+            latlon = self.grid.geocode_intersection(str1, str2, boro, r.id)
             if latlon:
                 self.n_grid += 1
                 lat, lng = latlon
