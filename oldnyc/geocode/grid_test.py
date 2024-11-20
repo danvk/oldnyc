@@ -93,3 +93,6 @@ def test_extract_street_num():
     assert grid.extract_street_num("Fifty-fourth Street") == 54
     assert grid.extract_street_num("One Hundred and Forty-first Street") == 141
     assert grid.extract_street_num("Seventh Avenue") is None
+
+
+# 10th Street and Sixth Avenue

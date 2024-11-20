@@ -20,6 +20,9 @@ by_street = defaultdict[int, dict[str, Point]](lambda: {})
 all_ints = defaultdict[int, dict[str, Point]](lambda: {})
 all_ints_by_ave = defaultdict[str, dict[int, Point]](lambda: {})
 
+# All five boroughs; street names are sorted
+nyc_ints = dict[tuple[str, str], Point]()
+
 is_initialized = False
 
 
