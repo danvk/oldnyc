@@ -11,11 +11,11 @@ from oldnyc.item import Item, load_items
 
 # See https://cookbook.openai.com/examples/batch_processing
 SYSTEM_INSTRUCTIONS = """
-Your goal is to extract location information from JSON describing a photograph taken in New York City. The location information should be either an intersection of two streets, a place name, or an address. If there are more than two streets, try to choose a pair that are likely to intersect one another, for example an avenue and a street rather than two avenues.
+Your goal is to extract multiple candidates for location information from JSON describing a photograph taken in New York City. The location information should be either an intersection of two streets, a locatable place name, or an address.
 
 It's also possible that there's no location information, or that the photo was not taken in New York City.
 
-Respond in JSON matching the following TypeScript interface:
+Respond in JSON with an array of candidates matching the following TypeScript interface:
 
 {
   type: "intersection";
@@ -24,14 +24,17 @@ Respond in JSON matching the following TypeScript interface:
 } | {
   type: "address";
   number: number;
-  street: number;
+  street: string;
 } | {
+  type: "place_name";
   place_name: string;
 } | {
   type: "no location information";
 } | {
   type: "not in NYC";
 }
+
+The array should contain as many valid candidates as possible based on the information available.
 """
 
 
