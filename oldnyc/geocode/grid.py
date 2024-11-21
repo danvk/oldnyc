@@ -73,12 +73,14 @@ def load_manhattan_intersections():
 
 def strip_dir(street: str) -> str:
     """Remove cardinal directions from street names."""
-    return re.sub(r"\b(east|west|north|south)\b", "", street, flags=re.I).strip()
+    return re.sub(r"\b(east|west|north|south)\b", "", street, flags=re.I).replace("()", "").strip()
 
 
 def strip_ave(street: str) -> str:
     """Remove suffixes like Street, Avenue, etc."""
-    return re.sub(r"\b(avenue|street|boulevard|place|road|drive)\b", "", street, flags=re.I).strip()
+    return re.sub(
+        r"\b(avenue|street|boulevard|place|road|drive|lane)\b", "", street, flags=re.I
+    ).strip()
 
 
 def load_all_intersections():
@@ -96,7 +98,19 @@ def load_all_intersections():
         assert ix not in ints, ix
         ints[ix] = (lat, lng)
 
-    return ints
+    # Intersections that are unambiguous after removing cardinal directions.
+    stripped_pts = defaultdict[Intersection, set[Point]](set)
+    for ix, pt in ints.items():
+        s1 = strip_dir(ix.str1)
+        s2 = strip_dir(ix.str2)
+        k = Intersection(ix.boro, s1, s2)
+        stripped_pts[k].add(pt)
+
+    unambig_pts = {k: [*pt][0] for k, pt in stripped_pts.items() if len(pt) == 1}
+
+    sys.stderr.write(f"Loaded {len(ints)} intersections, {len(unambig_pts)} unambiguous\n")
+
+    return ints, unambig_pts
 
 
 AVE_TO_NUM = {"A": 0, "B": -1, "C": -2, "D": -3}
@@ -178,7 +192,7 @@ class GridGeocoder:
         self.all_ints, self.all_ints_by_ave = load_manhattan_intersections()
 
         # All intersections, all five boroughs
-        self.nyc_ints = load_all_intersections()
+        self.nyc_ints, self.stripped_nyc_ints = load_all_intersections()
 
         self.counts = Counter[str]()
         self.unknown_ave = Counter[str]()
@@ -243,6 +257,15 @@ class GridGeocoder:
         pt = self.nyc_ints.get(ix)
         if pt:
             self.counts["exact"] += 1
+            return pt
+
+        # Try stripping cardinal directions
+        s1dir = strip_dir(street1)
+        s2dir = strip_dir(street2)
+        ixdir = Intersection(s1dir, s2dir, boro)
+        pt = self.stripped_nyc_ints.get(ixdir)
+        if pt:
+            self.counts["dir strip"] += 1
             return pt
 
         if boro != "Manhattan":

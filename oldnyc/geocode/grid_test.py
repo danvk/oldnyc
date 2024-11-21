@@ -140,3 +140,10 @@ def test_expand_abbrevs():
     assert grid.expand_abbrevs("Frederick Douglass Blvd") == "Frederick Douglass Boulevard"
     assert grid.expand_abbrevs("Central Park W") == "Central Park West"
     assert grid.expand_abbrevs("Maiden Ln") == "Maiden Lane"
+
+
+def test_strip_dir():
+    assert grid.strip_dir("10th Street (East)") == "10th Street"
+    assert grid.strip_dir("10th Street (West)") == "10th Street"
+    assert grid.strip_dir("West 59th Street") == "59th Street"
+    assert grid.strip_dir("North 4th Street") == "4th Street"
