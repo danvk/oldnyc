@@ -112,6 +112,9 @@ def test_normalize_street():
         grid.normalize_street("One hundred and forty-sixth Street")
         == "One hundred and forty-sixth Street"
     )
+    assert (
+        grid.normalize_street("One hundred and twelfth Street") == "One hundred and twelfth Street"
+    )
 
 
 # 10th Street and Sixth Avenue, Brooklyn

@@ -314,7 +314,7 @@ ORDINALS = {
     "twelfth": 12,
     "thirteenth": 13,
 }
-ordinals_re = re.compile(r"\b(?<!-)(%s)\b" % "|".join(ORDINALS.keys()), flags=re.I)
+ordinals_re = re.compile(r"^(%s)\b" % "|".join(ORDINALS.keys()), flags=re.I)
 
 NYC_ORDINALS = {
     "First": 1,
