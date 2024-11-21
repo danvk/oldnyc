@@ -64,10 +64,10 @@ def test_parse_street_ave():
     assert grid.parse_street_ave("Fifth Avenue", "100th Street") == ("5", "100")
 
     assert grid.parse_street_ave("Broadway", "59th Street") == ("Broadway", "59")
-    # assert grid.parse_street_ave("St. Nicholas Avenue", "147th Street") == (
-    #     "St. Nicholas Avenue",
-    #     "147",
-    # )
+    assert grid.parse_street_ave("St. Nicholas Avenue", "147th Street") == (
+        "St. Nicholas Avenue",
+        "147",
+    )
 
 
 def test_geocode_broadway():
@@ -79,6 +79,14 @@ def test_geocode_broadway():
     assert_close(g.geocode_intersection("Broadway", "124th St", M), (40.8140625, -73.959421))
     # this isn't great, but probably not too far off the intended location.
     assert_close(g.geocode_intersection("Broadway", "127th St.", M), (40.816311, -73.957802))
+
+
+def test_geocode_st_nicholas():
+    # This one is tricky because it's a rare case where "St." does not mean "Street".
+    g = Grid()
+    assert_close(
+        g.geocode_intersection("St. Nicholas Ave", "145th Street (West)", M), (40.82404, -73.944764)
+    )
 
 
 def test_geocode_above_125():

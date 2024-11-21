@@ -256,7 +256,7 @@ class GridGeocoder:
                 street1, street2 = street2, street1
                 num1 = num2
 
-        # sys.stderr.write(f"{debug_txt} {street1} ({num1}) / {street2}\n")
+        sys.stderr.write(f"{debug_txt} {street1} ({num1}) / {street2}\n")
 
         if num1:
             avenue = parse_ave_for_osm(street2)
@@ -345,6 +345,8 @@ NYC_ORDINALS = {
 SPECIAL_AVES = {
     "Broadway",
     "Central Park West",
+    "St. Nicholas Avenue",
+    "Saint Nicholas Avenue",
 }
 
 
@@ -362,6 +364,7 @@ def normalize_street(s: str) -> str:
 
 def expand_abbrevs(s: str) -> str:
     """Expand "Ave" -> "Avenue", "St" -> "Street", etc."""
+    s = re.sub(r"St\.? Nicholas", "Saint Nicholas", s)
     s = re.sub(r"\bSt\.?(?= |$)", "Street", s)
     s = re.sub(r"\bAve\.?(?= |$)", "Avenue", s)
     s = re.sub(r"\bPl\.?(?= |$)", "Place", s)
@@ -406,7 +409,7 @@ def parse_ave_for_osm(avenue: str) -> str:
 
 def parse_street_ave(street1: str, street2: str) -> tuple[str, str]:
     # try to get the avenue in street1
-    if re.search(r"str|st\.|\bst\b", street1, flags=re.I):
+    if re.search(r"str|st\.|\bst\b", street1, flags=re.I) and "Nicholas" not in street1:
         street2, street1 = street1, street2
 
     street1 = street1.replace("Central Park West", "8th Avenue")
