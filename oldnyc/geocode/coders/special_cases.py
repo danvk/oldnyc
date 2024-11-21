@@ -9,7 +9,7 @@ class SpecialCasesCoder(Coder):
     def __init__(self):
         self.counts = Counter[str]()
 
-    def codeRecord(self, r: Item):
+    def code_record(self, r: Item):
         if r.title.startswith("Newspapers - China Daily News"):
             # The 2013 Milstein CSV file has a bunch of addresses along Mott Street for these.
             self.counts["China Daily News"] += 1
