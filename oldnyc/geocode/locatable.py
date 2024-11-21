@@ -19,7 +19,7 @@ from oldnyc.item import Item
 def locate_with_osm(r: Item, loc: Locatable) -> Point | None:
     """Extract a location from a Locatable, without going to Google."""
     if isinstance(loc, LatLngLocation):
-        return loc.lat, loc.lng
+        return round(loc.lat, 7), round(loc.lng, 7)
     elif isinstance(loc, AddressLocation):
         return None  # not implemented yet
     # Must be an intersection
