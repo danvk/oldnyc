@@ -1,22 +1,29 @@
 """Utility for mapping a lat/lon to a borough."""
 
-import json
 import re
 
+import pygeojson
+
 from oldnyc.geocode import shape_utils
+from oldnyc.geojson_utils import assert_polygon
 from oldnyc.ingest.util import BOROUGHS
 from oldnyc.item import Item
 
-# TODO: convert this to GeoJSON
-BOROUGHS_JSON_FILE = "data/originals/borough-polygons.json"
+BOROUGHS_JSON_FILE = "data/originals/boroughs.geojson"
 
-boroughs = None
+boroughs: dict[str, list[list[tuple[float, float]]]] | None = None
 
 
 def _get_boroughs():
     global boroughs
     if not boroughs:
-        boroughs = json.load(open(BOROUGHS_JSON_FILE))
+        fc = pygeojson.load_feature_collection(open(BOROUGHS_JSON_FILE))
+        boroughs = {
+            str(f.id): [
+                [coord[:2] for coord in ring] for ring in assert_polygon(f.geometry).coordinates
+            ]
+            for f in fc.features
+        }
     return boroughs
 
 
