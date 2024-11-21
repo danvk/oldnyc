@@ -5,14 +5,15 @@ import argparse
 import dataclasses
 import json
 import re
-import sys
 from typing import Literal, TypedDict
 
 from oldnyc.item import Item, load_items
 
 # See https://cookbook.openai.com/examples/batch_processing
 SYSTEM_INSTRUCTIONS = """
-Your goal is to extract location information from JSON describing a photograph taken in New York City. The location information should be either an intersection of two streets, a place name, or an address. It's also possible that there's no location information, or that the photo was not taken in New York City.
+Your goal is to extract location information from JSON describing a photograph taken in New York City. The location information should be either an intersection of two streets, a place name, or an address. If there are more than two streets, try to choose a pair that are likely to intersect one another, for example an avenue and a street rather than two avenues.
+
+It's also possible that there's no location information, or that the photo was not taken in New York City.
 
 Respond in JSON matching the following TypeScript interface:
 
@@ -23,9 +24,8 @@ Respond in JSON matching the following TypeScript interface:
 } | {
   type: "address";
   number: number;
-  street: string;
+  street: number;
 } | {
-  type: "place_name";
   place_name: string;
 } | {
   type: "no location information";
