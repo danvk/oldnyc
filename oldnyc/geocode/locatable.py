@@ -34,7 +34,7 @@ def locate_with_osm(r: Item, loc: Locatable) -> Point | None:
         ave, street = grid.parse_street_ave(str1, str2)
         pt = grid.code(ave, street)
     except ValueError:
-        sys.stderr.write(f"grid fail\t{r.id}\t{loc}\n")
+        # sys.stderr.write(f"grid fail\t{r.id}\t{loc}\n")
         return None
     if not pt:
         return None
