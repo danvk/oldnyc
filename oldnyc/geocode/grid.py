@@ -103,12 +103,13 @@ def load_all_intersections():
     for ix, pt in ints.items():
         s1 = strip_dir(ix.str1)
         s2 = strip_dir(ix.str2)
-        k = Intersection(ix.boro, s1, s2)
+        k = Intersection(s1, s2, ix.boro)
         stripped_pts[k].add(pt)
 
     unambig_pts = {k: [*pt][0] for k, pt in stripped_pts.items() if len(pt) == 1}
 
     sys.stderr.write(f"Loaded {len(ints)} intersections, {len(unambig_pts)} unambiguous\n")
+    sys.stderr.write(str(next(iter(unambig_pts.items()))) + "\n")
 
     return ints, unambig_pts
 
