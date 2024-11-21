@@ -186,7 +186,7 @@ class TitleCrossCoder(Coder):
                 lat, lng = latlon
                 return round(float(lat), 7), round(float(lng), 7)  # they're numpy floats
         except ValueError:
-            sys.stderr.write(f"grid fail\t{r.id}\t{str1}\t{str2}\n")
+            sys.stderr.write(f"grid fail\t{r.id}\t{ssb}\n")
             pass
 
     def getLatLonFromGeocode(self, geocode, data, record):

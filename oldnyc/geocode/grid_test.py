@@ -101,12 +101,17 @@ def test_extract_street_num():
     assert grid.extract_street_num("Fifty-fourth Street") == 54
     assert grid.extract_street_num("One Hundred and Forty-first Street") == 141
     assert grid.extract_street_num("Seventh Avenue") is None
+    assert grid.extract_street_num("One hundred and forty-sixth Street") == 146
 
 
 def test_normalize_street():
     assert grid.normalize_street("Fifth Avenue") == "5th Avenue"
     assert grid.normalize_street("Twelfth Street (East)") == "12th Street (East)"
     assert grid.normalize_street("second avenue") == "2nd avenue"
+    assert (
+        grid.normalize_street("One hundred and forty-sixth Street")
+        == "One hundred and forty-sixth Street"
+    )
 
 
 # 10th Street and Sixth Avenue, Brooklyn
@@ -123,3 +128,4 @@ def test_expand_abbrevs():
     assert grid.expand_abbrevs("String St") == "String Street"
     assert grid.expand_abbrevs("Frederick Douglass Blvd") == "Frederick Douglass Boulevard"
     assert grid.expand_abbrevs("Central Park W") == "Central Park West"
+    assert grid.expand_abbrevs("Maiden Ln") == "Maiden Lane"

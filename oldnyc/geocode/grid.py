@@ -274,7 +274,7 @@ class GridGeocoder:
                 if latlng:
                     self.counts["interpolated"] += 1
                     sys.stderr.write(
-                        f"{debug_txt} Interpolated {street2} ({avenue}) & {street1} to {latlng}\n"
+                        f"{debug_txt} Interpolated {street2} ({avenue}) & {street1} ({num1}) to {latlng}\n"
                     )
                     return latlng
 
@@ -314,7 +314,7 @@ ORDINALS = {
     "twelfth": 12,
     "thirteenth": 13,
 }
-ordinals_re = re.compile(r"\b(%s)\b" % "|".join(ORDINALS.keys()), flags=re.I)
+ordinals_re = re.compile(r"\b(?<!-)(%s)\b" % "|".join(ORDINALS.keys()), flags=re.I)
 
 NYC_ORDINALS = {
     "First": 1,
@@ -353,9 +353,11 @@ def make_ordinal(n):
     return "%d%s" % (n, "tsnrhtdd"[(n // 10 % 10 != 1) * (n % 10 < 4) * n % 10 :: 4])
 
 
-def normalize_street(street: str) -> str:
+def normalize_street(s: str) -> str:
     """Light normalization, e.g. "First Avenue" -> "1st Avenue"."""
-    return ordinals_re.sub(lambda m: make_ordinal(ORDINALS[m.group(1).lower()]), street)
+    s = ordinals_re.sub(lambda m: make_ordinal(ORDINALS[m.group(1).lower()]), s)
+    s = expand_abbrevs(s)
+    return s
 
 
 def expand_abbrevs(s: str) -> str:
@@ -365,6 +367,7 @@ def expand_abbrevs(s: str) -> str:
     s = re.sub(r"\bPl\.?(?= |$)", "Place", s)
     s = re.sub(r"\bDr\.?(?= |$)", "Drive", s)
     s = re.sub(r"\bRd\.?(?= |$)", "Road", s)
+    s = re.sub(r"\bLn\.?(?= |$)", "Lane", s)
     s = re.sub(r"\bBlvd\.?(?= |$)", "Boulevard", s)
     s = re.sub(r"\bE\.?(?= |$)", "East", s)
     s = re.sub(r"\bW\.?(?= |$)", "West", s)
@@ -508,11 +511,10 @@ def text_to_number(text: str) -> int | None:
 
 
 def extract_street_num(street: str) -> int | None:
-    m = re.search(r"(\d+)(?:st|nd|rd|th) (?:Street|St\.|St\b)", street, flags=re.I)
+    m = re.search(r"\b(?<!-)(\d+)(?:st|nd|rd|th) (?:Street|St\.|St\b)", street, flags=re.I)
     if m:
         return int(m.group(1))
     # try for an ordinal
-
     m = re.search(r"(.*?) (?:Street|St\.|St\b)", street, flags=re.I)
     if not m:
         return None
