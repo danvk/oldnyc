@@ -4,6 +4,7 @@
 import sys
 from typing import Any
 
+from oldnyc.geocode import grid
 from oldnyc.geocode.boroughs import point_to_borough
 from oldnyc.geocode.geocode_types import (
     AddressLocation,
@@ -12,11 +13,10 @@ from oldnyc.geocode.geocode_types import (
     Locatable,
     Point,
 )
-from oldnyc.geocode.grid import GridGeocoder
 from oldnyc.item import Item
 
 
-def locate_with_osm(r: Item, loc: Locatable, g: GridGeocoder) -> Point | None:
+def locate_with_osm(r: Item, loc: Locatable) -> Point | None:
     """Extract a location from a Locatable, without going to Google."""
     if isinstance(loc, LatLngLocation):
         return loc.lat, loc.lng
@@ -28,10 +28,11 @@ def locate_with_osm(r: Item, loc: Locatable, g: GridGeocoder) -> Point | None:
     str1 = loc.str1
     str2 = loc.str2
     boro = loc.boro
-    if boro == "New York":
-        boro = "Manhattan"
+    if boro not in ("Manhattan", "New York"):
+        return None
     try:
-        pt = g.geocode_intersection(str1, str2, boro, r.id)
+        ave, street = grid.parse_street_ave(str1, str2)
+        pt = grid.code(ave, street)
     except ValueError:
         sys.stderr.write(f"grid fail\t{r.id}\t{loc}\n")
         return None

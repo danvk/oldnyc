@@ -3,7 +3,6 @@
 import json
 import sys
 
-from oldnyc.geocode import grid
 from oldnyc.geocode.boroughs import guess_borough
 from oldnyc.geocode.geocode_types import AddressLocation, Coder, IntersectionLocation
 from oldnyc.geocode.geogpt.generate_batch import GptResponse
@@ -24,7 +23,6 @@ class GptCoder(Coder):
         self.n_google_location = 0
         self.n_geocode_fail = 0
         self.n_boro_mismatch = 0
-        self.grid = grid.Grid()
 
     def code_record(self, r: Item):
         # GPT location extractions are always based on record ID, not photo ID.

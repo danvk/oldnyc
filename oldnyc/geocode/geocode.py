@@ -146,8 +146,6 @@ if __name__ == "__main__":
             f"Filtered to {n_after}/{n_before} records with --ids_filter ({len(ids)})\n"
         )
 
-    grid_coder = grid.Grid()
-
     stats = defaultdict(int)
     located_recs: list[tuple[Item, tuple[str, Locatable, Point] | None]] = []
     for idx, r in enumerate(rs):
@@ -170,7 +168,7 @@ if __name__ == "__main__":
                 break
 
             # First try OSM (offline), then Google (online)
-            lat_lon = locate_with_osm(r, locatable, grid_coder)
+            lat_lon = locate_with_osm(r, locatable)
 
             if not lat_lon:
                 try:
@@ -220,7 +218,7 @@ if __name__ == "__main__":
         sys.stderr.write(f"-- Finalizing {c.name()} --\n")
         c.finalize()
 
-    grid.Grid().log_stats()
+    # grid.log_stats()
 
     sys.stderr.write("-- Final stats --\n")
     successes = 0

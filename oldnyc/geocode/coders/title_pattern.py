@@ -110,7 +110,6 @@ class TitleCrossCoder(Coder):
         self.n_google_location = 0
         self.n_geocode_fail = 0
         self.n_boro_mismatch = 0
-        self.grid = grid.Grid()
 
     def findMatch(self, r):
         titles = extract_titles(r)
