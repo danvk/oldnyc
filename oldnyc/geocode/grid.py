@@ -358,6 +358,21 @@ def normalize_street(street: str) -> str:
     return ordinals_re.sub(lambda m: make_ordinal(ORDINALS[m.group(1).lower()]), street)
 
 
+def expand_abbrevs(s: str) -> str:
+    """Expand "Ave" -> "Avenue", "St" -> "Street", etc."""
+    s = re.sub(r"\bSt\.?(?= |$)", "Street", s)
+    s = re.sub(r"\bAve\.?(?= |$)", "Avenue", s)
+    s = re.sub(r"\bPl\.?(?= |$)", "Place", s)
+    s = re.sub(r"\bDr\.?(?= |$)", "Drive", s)
+    s = re.sub(r"\bRd\.?(?= |$)", "Road", s)
+    s = re.sub(r"\bBlvd\.?(?= |$)", "Boulevard", s)
+    s = re.sub(r"\bE\.?(?= |$)", "East", s)
+    s = re.sub(r"\bW\.?(?= |$)", "West", s)
+    s = re.sub(r"\bN\.?(?= |$)", "North", s)
+    s = re.sub(r"\bS\.?(?= |$)", "South", s)
+    return s
+
+
 def parse_ave(avenue: str) -> str | None:
     """Normalize avenue names, e.g. "Fifth Avenue" -> "5"."""
     if avenue in SPECIAL_AVES:

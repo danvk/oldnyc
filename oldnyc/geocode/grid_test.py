@@ -110,3 +110,16 @@ def test_normalize_street():
 
 
 # 10th Street and Sixth Avenue, Brooklyn
+def test_brooklyn_intersections():
+    g = Grid()
+    assert_close(
+        g.geocode_intersection("10th Street", "6th Avenue", "Brooklyn"), (40.667437, -73.984438)
+    )
+
+
+def test_expand_abbrevs():
+    assert grid.expand_abbrevs("6th St") == "6th Street"
+    assert grid.expand_abbrevs("N. 7th St.") == "North 7th Street"
+    assert grid.expand_abbrevs("String St") == "String Street"
+    assert grid.expand_abbrevs("Frederick Douglass Blvd") == "Frederick Douglass Boulevard"
+    assert grid.expand_abbrevs("Central Park W") == "Central Park West"
