@@ -22,6 +22,12 @@ from oldnyc.geocode.coders import (
     title_pattern,
 )
 from oldnyc.geocode.geocode_types import Coder, Locatable
+from oldnyc.geocode.locatable import (
+    Point,
+    extract_point_from_google_geocode,
+    get_address_for_google,
+    locate_with_osm,
+)
 from oldnyc.item import Item, load_items
 
 CODERS: dict[str, Callable[[], Coder]] = {
@@ -140,34 +146,36 @@ if __name__ == "__main__":
             f"Filtered to {n_after}/{n_before} records with --ids_filter ({len(ids)})\n"
         )
 
+    grid_coder = grid.Grid()
+
     stats = defaultdict(int)
-    located_recs: list[tuple[Item, str | None, Locatable | None]] = []
+    located_recs: list[tuple[Item, tuple[str, Locatable, Point] | None]] = []
     for idx, r in enumerate(rs):
         if idx % 100 == 0 and idx > 0:
             sys.stderr.write("%5d / %5d records processed\n" % (1 + idx, len(rs)))
 
-        located_rec = (r, None, None)
+        located_rec = (r, None)
 
         # Give each coder a crack at the record, in turn.
         for c in geocoders:
-            location_data = c.codeRecord(r)
-            if not location_data:
+            locatable = c.code_record(r)
+            if not locatable:
                 continue
-            assert "address" in location_data
 
             if not g:
                 if args.print_records:
-                    print("%s\t%s\t%s" % (c.name(), r.id, json.dumps(location_data)))
+                    print("%s\t%s\t%s" % (c.name(), r.id, json.dumps(locatable)))
                 stats[c.name()] += 1
-                located_rec = (r, c.name(), location_data)
+                located_rec = (r, None)
                 break
 
-            lat_lon = c.getLatLonFromLocatable(r, location_data)
+            # First try OSM (offline), then Google (online)
+            lat_lon = locate_with_osm(r, locatable, grid_coder)
 
             if not lat_lon:
                 try:
                     geocode_result = None
-                    address = location_data["address"]
+                    address = get_address_for_google(locatable)
                     try:
                         if args.print_geocodes:
                             geocache = geocoder.cache_file_name(address)
@@ -180,7 +188,7 @@ if __name__ == "__main__":
                             raise e
 
                     if geocode_result:
-                        lat_lon = c.getLatLonFromGeocode(geocode_result, location_data, r)
+                        lat_lon = extract_point_from_google_geocode(geocode_result, locatable, r)
                     else:
                         sys.stderr.write("Failed to geocode %s\n" % r.id)
                         # sys.stderr.write('Location: %s\n' % location_data['address'])
@@ -190,8 +198,6 @@ if __name__ == "__main__":
                     raise
 
             if lat_lon:
-                location_data["lat"] = lat_lon[0]
-                location_data["lon"] = lat_lon[1]
                 if args.print_records:
                     print(
                         "%s\t%f,%f\t%s\t%s"
@@ -200,11 +206,11 @@ if __name__ == "__main__":
                             lat_lon[0],
                             lat_lon[1],
                             c.name(),
-                            json.dumps(location_data),
+                            json.dumps(locatable),
                         )
                     )
                 stats[c.name()] += 1
-                located_rec = (r, c.name(), location_data)
+                located_rec = (r, (c.name(), locatable, lat_lon))
                 break
 
         located_recs.append(located_rec)

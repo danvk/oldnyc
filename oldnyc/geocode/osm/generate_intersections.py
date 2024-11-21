@@ -12,7 +12,7 @@ from haversine import haversine
 from tqdm import tqdm
 
 from oldnyc.geocode import grid
-from oldnyc.geocode.boroughs import is_in_manhattan, point_to_borough
+from oldnyc.geocode.boroughs import point_to_borough
 from oldnyc.geocode.osm.osm import OsmElement, OsmNode, OsmWay
 
 
