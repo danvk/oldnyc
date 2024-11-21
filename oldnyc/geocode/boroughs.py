@@ -5,7 +5,6 @@ import re
 import pygeojson
 
 from oldnyc.geocode import shape_utils
-from oldnyc.geojson_utils import assert_polygon
 from oldnyc.ingest.util import BOROUGHS
 from oldnyc.item import Item
 
