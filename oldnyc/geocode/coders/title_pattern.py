@@ -10,9 +10,8 @@ from collections import Counter
 from natsort import natsorted
 
 from oldnyc.geocode import grid
-from oldnyc.geocode.boroughs import boroughs_pat, guess_borough, point_to_borough
-from oldnyc.geocode.coders.coder_utils import get_lat_lng_from_geocode
-from oldnyc.geocode.geocode_types import Coder, Locatable
+from oldnyc.geocode.boroughs import boroughs_pat, guess_borough
+from oldnyc.geocode.geocode_types import AddressLocation, Coder, IntersectionLocation
 from oldnyc.item import Item
 
 # Borough: str1 - str2
@@ -106,9 +105,12 @@ class TitleCrossCoder(Coder):
         self.counts = Counter[str]()
 
         self.n_grid = 0
+        self.n_grid_attempt = 0
+        self.n_grid_parse = 0
         self.n_google_location = 0
         self.n_geocode_fail = 0
         self.n_boro_mismatch = 0
+        self.grid = grid.Grid()
 
     def findMatch(self, r):
         titles = extract_titles(r)
@@ -129,7 +131,7 @@ class TitleCrossCoder(Coder):
                             return (boro, str1, str2), title
                         return m.groups(), title
 
-    def codeRecord(self, r):
+    def code_record(self, r):
         match = self.findMatch(r)
         if not match:
             return None
@@ -160,51 +162,11 @@ class TitleCrossCoder(Coder):
 
         # This makes the streets look more like the milstein coder, which
         # improves cache coherence and consistency.
+        # TODO: is this still relevant with the OSM grid coder?
         str1 = punctuate(str1)
         str2 = punctuate(str2)
         assert src
-        out: Locatable = {
-            "type": "intersection",
-            "source": src,
-            "address": f"{str1} and {str2}, {boro}, NY",
-            "data": (str1, str2, boro),
-        }
-        return out
-
-    def getLatLonFromLocatable(self, r, data):
-        assert "data" in data
-        ssb: tuple[str, str, str] = data["data"]
-        (str1, str2, boro) = ssb
-        if boro != "Manhattan":
-            return None
-        try:
-            avenue, street = grid.parse_street_ave(str1, str2)
-            latlon = grid.code(avenue, street)
-            if latlon:
-                self.n_grid += 1
-                lat, lng = latlon
-                return round(float(lat), 7), round(float(lng), 7)  # they're numpy floats
-        except ValueError:
-            pass
-
-    def getLatLonFromGeocode(self, geocode, data, record):
-        assert "data" in data
-        ssb: tuple[str, str, str] = data["data"]
-        (str1, str2, boro) = ssb
-        tlatlng = get_lat_lng_from_geocode(geocode, data)
-        if not tlatlng:
-            self.n_geocode_fail += 1
-            return None
-        _, lat, lng = tlatlng
-        geocode_boro = point_to_borough(lat, lng)
-        if geocode_boro != boro:
-            self.n_boro_mismatch += 1
-            sys.stderr.write(
-                f'Borough mismatch: {record.id}: {data["source"]} geocoded to {geocode_boro} not {boro}\n'
-            )
-            return None
-        self.n_google_location += 1
-        return round(float(lat), 7), round(float(lng), 7)
+        return IntersectionLocation(source=src, str1=str1, str2=str2, boro=boro)
 
     def finalize(self):
         sys.stderr.write(f"    titles matched: {self.n_title}\n")
@@ -212,7 +174,7 @@ class TitleCrossCoder(Coder):
         sys.stderr.write(f"     total matches: {self.n_match}\n")
         sys.stderr.write(f"          counters: {self.counts.most_common()}\n")
         sys.stderr.write("  geocoding results:\n")
-        sys.stderr.write(f"            grid: {self.n_grid}\n")
+        sys.stderr.write(f"            grid: {self.n_grid} ({self.n_grid_attempt} attempts)\n")
         sys.stderr.write(f"          google: {self.n_google_location}\n")
         sys.stderr.write(f"   boro mismatch: {self.n_boro_mismatch}\n")
         sys.stderr.write(f"        failures: {self.n_geocode_fail}\n")
@@ -251,7 +213,7 @@ class TitleAddressCoder(Coder):
         self.n_boro_mismatch = 0
         self.patterns = Counter[str]()
 
-    def codeRecord(self, r):
+    def code_record(self, r):
         titles = extract_titles(r)
         for t in titles:
             for name, pat in ADDR_PATTERNS:
@@ -266,34 +228,12 @@ class TitleAddressCoder(Coder):
                     self.n_matches += 1
                     street = rewrite_directional_street(street)
                     self.patterns[name] += 1
-                    return Locatable(
-                        type=["street_address", "premise"],
+                    return AddressLocation(
                         source=m.group(0),
-                        address=f"{num} {street}, {boro}, NY",
-                        data=(num, street, boro),
+                        num=num,
+                        street=street,
+                        boro=boro,
                     )
-
-    def getLatLonFromLocatable(self, r, data):
-        return None
-
-    def getLatLonFromGeocode(self, geocode, data, record):
-        assert "data" in data
-        ssb: tuple[str, str, str] = data["data"]
-        (str1, str2, boro) = ssb
-        tlatlng = get_lat_lng_from_geocode(geocode, data)
-        if not tlatlng:
-            self.n_geocode_fail += 1
-            return None
-        _, lat, lng = tlatlng
-        geocode_boro = point_to_borough(lat, lng)
-        if geocode_boro != boro:
-            self.n_boro_mismatch += 1
-            sys.stderr.write(
-                f'Borough mismatch: {record.id}: {data["source"]} geocoded to {geocode_boro} not {boro}\n'
-            )
-            return None
-        self.n_success += 1
-        return round(float(lat), 7), round(float(lng), 7)
 
     def finalize(self):
         sys.stderr.write(f" address matches: {self.n_matches}\n")

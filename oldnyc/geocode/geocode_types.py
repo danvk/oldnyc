@@ -1,34 +1,42 @@
 # pyright: strict
 
-from typing import Any, NotRequired, Protocol, TypedDict
+from dataclasses import dataclass
+from typing import Protocol
 
 from oldnyc.item import Item
 
+Point = tuple[float, float]
 
-class Locatable(TypedDict):
-    address: str
-    """Can be either a geolocatable address or @lat,lng"""
-    lat: NotRequired[float]
-    lon: NotRequired[float]
-    grid: NotRequired[str]
-    subject: NotRequired[str]
+
+@dataclass
+class IntersectionLocation:
+    str1: str
+    str2: str
+    boro: str
     source: str
-    type: str | list[str]  # 'point_of_interest', 'intersection'
-    data: NotRequired[Any]
+
+
+@dataclass
+class AddressLocation:
+    num: str
+    street: str
+    boro: str
+    source: str
+
+
+@dataclass
+class LatLngLocation:
+    lat: float
+    lng: float
+    source: str
+
+
+Locatable = IntersectionLocation | AddressLocation | LatLngLocation
 
 
 class Coder(Protocol):
-    def codeRecord(self, r: Item) -> Locatable | None: ...
+    def code_record(self, r: Item) -> Locatable | None: ...
 
     def name(self) -> str: ...
-    def getLatLonFromLocatable(self, r: Item, data: Locatable) -> tuple[float, float] | None:
-        """Extract a location from a Locatable, without going to Google."""
-        ...
-
-    def getLatLonFromGeocode(
-        self, geocode: dict[str, Any], data: Locatable, record: Item
-    ) -> tuple[float, float] | None:
-        """Extract a location from a Google Maps geocoding API response."""
-        ...
 
     def finalize(self) -> None: ...

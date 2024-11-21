@@ -1,17 +1,19 @@
 """Generate intersections.csv by looking for Avenue/Street intersections in an OSM dump."""
 
+import csv
 import itertools
 import json
 import re
 import sys
 from collections import Counter, defaultdict
-from typing import TypeVar
+from typing import Sequence
 
 from haversine import haversine
 from tqdm import tqdm
 
-from oldnyc.geocode.boroughs import is_in_manhattan
-from oldnyc.geocode.osm.osm import OsmElement, OsmWay
+from oldnyc.geocode import grid
+from oldnyc.geocode.boroughs import point_to_borough
+from oldnyc.geocode.osm.osm import OsmElement, OsmNode, OsmWay
 
 
 def load_osm_data() -> list[OsmElement]:
@@ -23,21 +25,13 @@ def load_osm_data() -> list[OsmElement]:
 AVE_TO_NUM = {"A": 0, "B": -1, "C": -2, "D": -3}
 
 
-T = TypeVar("T")
-V = TypeVar("V")
-
-
-def invert(d: dict[T, set[V]]) -> dict[V, set[T]]:
-    out = defaultdict(set)
-    for k, vs in d.items():
-        for v in vs:
-            out[v].add(k)
-    return out
-
-
 def interpret_as_ave(w: OsmWay) -> str | None:
     name = w["tags"].get("name")
     alt_name = w["tags"].get("alt_name")
+    if "Street" in (name or "") or "Bridge" in (name or ""):
+        # filter out, e.g. "East 125th Street" = "Dr. MLK Jr. Blvd"
+        # or "Madison Avenue Bridge"
+        return None
     names = [x for x in [name, alt_name] if x is not None]
     for name in names:
         if (
@@ -45,6 +39,8 @@ def interpret_as_ave(w: OsmWay) -> str | None:
             or "Boulevard" in name
             or "Broadway" in name
             or "Central Park West" in name
+            or "Sutton Place" in name
+            or "Riverside Drive" in name
         ):
             return name
 
@@ -110,6 +106,23 @@ def make_avenue_str(avenue, street=0) -> str | None:
 """
 
 
+def get_intersection_center(nodes: Sequence[OsmNode]) -> tuple[float, float]:
+    # If there are multiple nodes, it's likely they're the sides or corners of the
+    # intersection. It's fine to average them, after a sanity check.
+    for a, b in itertools.combinations(nodes, 2):
+        d = haversine((a["lat"], a["lon"]), (b["lat"], b["lon"])) * 1000
+        # Riverside Drive / 110: 42452276 <-> 42441926 111m
+        if d > 120:
+            sys.stderr.write(f"  {a['id']} <-> {b['id']} {d:.0f}m\n")
+            raise ValueError("Ambiguous intersection")
+
+    num = len(nodes)
+    return (
+        sum(n["lat"] for n in nodes) / num,
+        sum(n["lon"] for n in nodes) / num,
+    )
+
+
 def main():
     els = load_osm_data()
     ways = [
@@ -135,12 +148,6 @@ def main():
             node_counts[node] += 1
     intersection_nodes = [n for n, v in node_counts.items() if v >= 2]
 
-    manhattan_intersections = [
-        n
-        for n in tqdm(intersection_nodes)
-        if is_in_manhattan(id_to_node[n]["lat"], id_to_node[n]["lon"])
-    ]
-
     node_to_ways = defaultdict(list)
     int_set = set(intersection_nodes)
     for way in ways:
@@ -149,103 +156,66 @@ def main():
                 node_to_ways[node].append(way["id"])
 
     # Exclude self-intersections, e.g. W 106th St. is split into multiple ways.
-    manhattan_intersections = [
+    intersection_nodes = [
         n
-        for n in manhattan_intersections
+        for n in intersection_nodes
         if len(set(id_to_way[w]["tags"]["name"] for w in node_to_ways[n])) >= 2
     ]
 
-    assert 42442559 in manhattan_intersections
-    assert 42442561 in manhattan_intersections
+    print(set(id_to_way[w]["tags"]["name"] for w in node_to_ways[42952845]))
+    assert 42952845 not in intersection_nodes
+    assert 42442559 in intersection_nodes
+    assert 42442561 in intersection_nodes
 
-    manhattan_roads = [
-        id_to_way[w] for w in {w for int_n in manhattan_intersections for w in node_to_ways[int_n]}
-    ]
+    way_pairs = defaultdict[tuple[str, str], set[int]](set)
+    for node in intersection_nodes:
+        ways = node_to_ways[node]
+        for a, b in itertools.combinations(ways, 2):
+            if a == b:
+                continue  # can be a self-intersection, e.g. a loop
+            wa = id_to_way[a]
+            wb = id_to_way[b]
+            name_a = wa["tags"]["name"]
+            name_b = wb["tags"]["name"]
+            if name_a == name_b:
+                continue
+            name_a = grid.normalize_street(name_a)
+            name_b = grid.normalize_street(name_b)
+            pair = (name_a, name_b) if name_a < name_b else (name_b, name_a)
+            way_pairs[pair].add(node)
 
-    ave_a = [m for m in manhattan_roads if m["id"] == 195743554]
-    assert ave_a
-
-    street_num_to_ways = defaultdict[int, set[int]](set)
-    ave_num_to_ways = defaultdict[str, set[int]](set)
-    for w in manhattan_roads:
-        ave_name = interpret_as_ave(w)
-        if ave_name:
-            ave_num_to_ways[ave_name].add(w["id"])
-            continue
-
-        street_num = interpret_as_street(w)
-        if street_num is not None:
-            street_num_to_ways[street_num].add(w["id"])
-
-    street_to_nodes = {
-        k: {n for way_id in way_ids for n in id_to_way[way_id]["nodes"]}
-        for k, way_ids in street_num_to_ways.items()
-    }
-    ave_to_nodes = {
-        k: {n for way_id in way_ids for n in id_to_way[way_id]["nodes"]}
-        for k, way_ids in ave_num_to_ways.items()
-    }
-    # node_to_street = invert(street_to_nodes)
-    # node_to_ave = invert(ave_to_nodes)
-
-    # This might be a more useful format than intersections.csv.
-    # It's more "raw" and matches the street names more directly.
-    # for ave in sorted(ave_to_nodes.keys()):
-    #     nodes = ave_to_nodes[ave]
-    #     for node in nodes:
-    #         lat = id_to_node[node]["lat"]
-    #         lon = id_to_node[node]["lon"]
-    #         streets = node_to_street.get(node)
-    #         for street in sorted(streets or []):
-    #             print(f"{ave}\t{street}\t{node}\t{lat},{lon}")
-
-    def locate(ave: int, street: int) -> tuple[float, float] | None:
-        street_nodes = street_to_nodes.get(street)
-        if not street_nodes:
-            return None
-        ave_str = make_avenue_str(ave, street)
-        if ave_str is None:
-            return None
-        ave_nodes = ave_to_nodes.get(ave_str)
-        if not ave_nodes:
-            return None
-
-        intersect_node_ids = street_nodes & ave_nodes
-        if not intersect_node_ids:
-            return None
-        intersect_nodes = [id_to_node[n] for n in intersect_node_ids]
-
-        # If there are multiple nodes, it's likely they're the sides or corners of the
-        # intersection. It's fine to average them, after a sanity check.
-        for a, b in itertools.combinations(intersect_nodes, 2):
-            d = haversine((a["lat"], a["lon"]), (b["lat"], b["lon"])) * 1000
-            if d > 100:
-                sys.stderr.write(f"  {a['id']} <-> {b['id']} {d:.0f}m\n")
-                raise ValueError("Ambiguous intersection")
-
-        num = len(intersect_nodes)
-        return (
-            round(sum(n["lat"] for n in intersect_nodes) / num, 6),
-            round(sum(n["lon"] for n in intersect_nodes) / num, 6),
-        )
-
-    crosses: list[tuple[int, int]] = []
-    for street in range(1, 125):
-        for ave in range(-3, 13 if street >= 14 else 7):
-            crosses.append((ave, street))
-
-    rows = [["Street", "Avenue", "Lat", "Lon"]]
-    for i, (ave, street) in enumerate(crosses):
-        lat, lon = locate(ave, street) or ("", "")
-        if (ave, street, lat, lon) == (11, 14, "", ""):
-            # Google geocodes this one but OSM has 14th street end at 10th Ave.
-            # The correct behavior is debatable, but this lets us keep a few photos.
-            lat, lon = (40.7424762, -74.0088873)
-        rows.append([str(x) for x in [street, ave, lat, lon]])
-
-    delim = ","
-    for row in rows:
-        print(delim.join(row))
+    claimed_nodes = set[int]()
+    with open("data/nyc-intersections.csv", "w") as f:
+        out = csv.writer(f)
+        out.writerow(["Street1", "Street2", "Borough", "Lat", "Lon", "Nodes"])
+        for (str1, str2), intersect_node_ids in tqdm(sorted(way_pairs.items())):
+            if all(n in claimed_nodes for n in intersect_node_ids):
+                continue
+            try:
+                intersect_nodes = [id_to_node[n] for n in intersect_node_ids]
+            except KeyError:
+                print("Missing intersection node", str1, str2)
+                raise
+            try:
+                lat, lng = get_intersection_center(intersect_nodes)
+            except ValueError:
+                print(f"Ambiguous intersection: {str1} / {str2}: ({intersect_node_ids})")
+                continue
+            # claimed_nodes.update(intersect_node_ids)
+            borough = point_to_borough(lat, lng)
+            if borough is None:
+                print(f"Not in NYC: {str1} / {str2}: ({intersect_node_ids})")
+                continue
+            out.writerow(
+                [
+                    str(str1),
+                    str(str2),
+                    borough,
+                    str(round(lat, 6)),
+                    str(round(lng, 6)),
+                    "/".join(str(n) for n in intersect_node_ids),
+                ]
+            )
 
 
 if __name__ == "__main__":
