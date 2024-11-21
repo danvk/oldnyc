@@ -14,7 +14,7 @@ from typing import Callable
 
 from dotenv import load_dotenv
 
-from oldnyc.geocode import generate_js, geocoder, grid
+from oldnyc.geocode import generate_js, geocoder
 from oldnyc.geocode.coders import (
     gpt,
     special_cases,

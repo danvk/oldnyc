@@ -9,7 +9,6 @@ from collections import Counter
 
 from natsort import natsorted
 
-from oldnyc.geocode import grid
 from oldnyc.geocode.boroughs import boroughs_pat, guess_borough
 from oldnyc.geocode.geocode_types import AddressLocation, Coder, IntersectionLocation
 from oldnyc.item import Item
