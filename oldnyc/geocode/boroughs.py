@@ -11,19 +11,27 @@ from oldnyc.item import Item
 
 BOROUGHS_JSON_FILE = "data/originals/boroughs.geojson"
 
-boroughs: dict[str, list[list[tuple[float, float]]]] | None = None
+Point = tuple[float, float]
+boroughs: dict[str, list[Point] | list[list[Point]]] | None = None
 
 
 def _get_boroughs():
     global boroughs
     if not boroughs:
         fc = pygeojson.load_feature_collection(open(BOROUGHS_JSON_FILE))
-        boroughs = {
-            str(f.id): [
-                [coord[:2] for coord in ring] for ring in assert_polygon(f.geometry).coordinates
-            ]
-            for f in fc.features
-        }
+        boroughs = {}
+        for f in fc.features:
+            g = f.geometry
+            assert g and g.type in ("Polygon", "MultiPolygon")
+            if isinstance(g, pygeojson.Polygon):
+                assert len(g.coordinates) == 1  # no interior rings
+                coords = [coord[:2] for ring in g.coordinates for coord in ring]
+            elif isinstance(g, pygeojson.MultiPolygon):
+                coords = [[coord[:2] for coord in poly[0]] for poly in g.coordinates]
+            else:
+                raise ValueError(f"Unexpected geometry type: {g.type}")
+            boroughs[str(f.id)] = coords
+
     return boroughs
 
 
