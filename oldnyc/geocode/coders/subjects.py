@@ -289,7 +289,7 @@ class SubjectsCoder(Coder):
 
         self.counters = Counter()
 
-    def codeRecord(self, r):
+    def code_record(self, r):
         matches = [
             (geo, spec_pt)
             for geo in r.subject.geographic

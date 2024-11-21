@@ -213,7 +213,7 @@ class TitleAddressCoder(Coder):
         self.n_boro_mismatch = 0
         self.patterns = Counter[str]()
 
-    def codeRecord(self, r):
+    def code_record(self, r):
         titles = extract_titles(r)
         for t in titles:
             for name, pat in ADDR_PATTERNS:

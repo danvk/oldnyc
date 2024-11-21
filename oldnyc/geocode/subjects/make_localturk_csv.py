@@ -46,7 +46,7 @@ def main():
 
     # TODO: pull in locations from other coders here.
     for item in items:
-        location = coder.codeRecord(item)
+        location = coder.code_record(item)
         if location:
             locations[location["source"]] = location["address"][1:]
         for geo in item.subject.geographic:
