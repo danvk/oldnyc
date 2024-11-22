@@ -51,8 +51,9 @@ def get_address_for_google(loc: Locatable) -> str:
         raise ValueError()
 
 
+# TODO: don't pass coder in; make the rounding consistent
 def extract_point_from_google_geocode(
-    geocode: dict[str, Any], loc: Locatable, record: Item
+    geocode: dict[str, Any], loc: Locatable, record: Item, coder: str
 ) -> Point | None:
     if isinstance(loc, LatLngLocation):
         return loc.lat, loc.lng
@@ -75,6 +76,8 @@ def extract_point_from_google_geocode(
         )
         return None
     # self.n_success += 1
+    if coder in ("title-cross", "title-address"):
+        return round(float(lat), 7), round(float(lng), 7)
     return pt
 
 

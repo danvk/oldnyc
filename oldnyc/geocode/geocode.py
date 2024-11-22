@@ -186,7 +186,9 @@ if __name__ == "__main__":
                             raise e
 
                     if geocode_result:
-                        lat_lon = extract_point_from_google_geocode(geocode_result, locatable, r)
+                        lat_lon = extract_point_from_google_geocode(
+                            geocode_result, locatable, r, c.name()
+                        )
                     else:
                         sys.stderr.write("Failed to geocode %s\n" % r.id)
                         # sys.stderr.write('Location: %s\n' % location_data['address'])
