@@ -72,11 +72,5 @@ class GptCoder(Coder):
         sys.stderr.write(f"GPT address:      {self.num_address}\n")
         sys.stderr.write(f"GPT intersection: {self.num_intersection}\n")
 
-        # sys.stderr.write("GPT geocoding results:\n")
-        # sys.stderr.write(f"            grid: {self.n_grid} ({self.n_grid_attempts} attempts)\n")
-        # sys.stderr.write(f"          google: {self.n_google_location}\n")
-        # sys.stderr.write(f"   boro mismatch: {self.n_boro_mismatch}\n")
-        # sys.stderr.write(f"        failures: {self.n_geocode_fail}\n")
-
     def name(self):
         return "gpt"

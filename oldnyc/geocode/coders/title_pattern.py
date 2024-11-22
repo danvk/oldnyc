@@ -171,11 +171,6 @@ class TitleCrossCoder(Coder):
         sys.stderr.write(f"alt titles matched: {self.n_alt_title}\n")
         sys.stderr.write(f"     total matches: {self.n_match}\n")
         sys.stderr.write(f"          counters: {self.counts.most_common()}\n")
-        # sys.stderr.write("  geocoding results:\n")
-        # sys.stderr.write(f"            grid: {self.n_grid} ({self.n_grid_attempt} attempts)\n")
-        # sys.stderr.write(f"          google: {self.n_google_location}\n")
-        # sys.stderr.write(f"   boro mismatch: {self.n_boro_mismatch}\n")
-        # sys.stderr.write(f"        failures: {self.n_geocode_fail}\n")
 
     def name(self):
         return "title-cross"
@@ -236,9 +231,6 @@ class TitleAddressCoder(Coder):
     def finalize(self):
         sys.stderr.write(f" address matches: {self.n_matches}\n")
         sys.stderr.write(f"        patterns: {self.patterns.most_common()}\n")
-        # sys.stderr.write(f"   boro mismatch: {self.n_boro_mismatch}\n")
-        # sys.stderr.write(f"        failures: {self.n_geocode_fail}\n")
-        # sys.stderr.write(f"         success: {self.n_success}\n")
 
     def name(self):
         return "title-address"
