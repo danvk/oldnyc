@@ -103,8 +103,10 @@ def load_all_intersections():
     for ix, pt in ints.items():
         s1 = strip_dir(ix.str1)
         s2 = strip_dir(ix.str2)
-        if not strip_ave(s1) or not strip_ave(s2):
-            continue  # Disallow, e.g., "South Street" -> "Street"
+        # South Street shouldn't be normalized to "Street".
+        # Central Park West shouldn't be normalized to "Central Park".
+        if not strip_ave(s1) or not strip_ave(s2) or s1 == "Central Park" or s2 == "Central Park":
+            continue
         k = Intersection(s1, s2, ix.boro)
         stripped_pts[k].add(pt)
 
