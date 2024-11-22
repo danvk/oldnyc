@@ -6,7 +6,6 @@
 
 import base64
 import json
-import re
 import sys
 import time
 import urllib
@@ -19,14 +18,6 @@ CacheDir = "geocache"
 
 CacheDebug = False
 # CacheDebug = True
-
-# For lat/lon requests, where we can skip the geocoder.
-FakeResponse = """
-{ "results" : [ {
-   "geometry" : { "location" : { "lat" : %s, "lng" : %s } },
-   "types" : [ "point_of_interest" ]
-  } ], "status" : "OK" }
-"""
 
 
 def cache_file_name(loc: str):
@@ -76,12 +67,6 @@ class Geocoder:
         f = urllib.request.urlopen(url + "&key=" + self._api_key)
         return f.read()
 
-    def _check_for_lat_lon(self, address: str):
-        """For addresses of the form "@(lat),(lon)", skip the geocoder."""
-        m = re.match(r"@([-0-9.]+),([-0-9.]+)$", address)
-        if m:
-            return FakeResponse % (m.group(1), m.group(2))
-
     # TODO: get a more precise return type from the GMaps API
     def Locate(
         self, address: str, check_cache=True, debug_txt: Optional[str] = None
@@ -95,13 +80,9 @@ class Geocoder:
 
         data = None
         from_cache = False
-        is_lat_lng = False
         if check_cache:
             data = self._check_cache(address)
             from_cache = data is not None
-        if not data:
-            data = self._check_for_lat_lon(address)
-            is_lat_lng = data is not None  # no point in caching these
         if not data:
             if not self._network_allowed:
                 sys.stderr.write(f"Would have geocoded with network: {address}\n")
@@ -120,7 +101,7 @@ class Geocoder:
                 raise Exception("Over your quota for the day!")
 
             return None
-        if not (from_cache or is_lat_lng) and response:
+        if not from_cache and response:
             self._cache_result(address, data)  # type: ignore
 
         return response
