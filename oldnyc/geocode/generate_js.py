@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 """Various output formats for generate-geocodes.py."""
 
+import dataclasses
 import json
 import sys
 from collections import defaultdict
@@ -8,7 +9,7 @@ from datetime import date
 from json import encoder
 from typing import Sequence
 
-from oldnyc.geocode.geocode_types import Locatable
+from oldnyc.geocode.geocode_types import Locatable, Point
 from oldnyc.ingest.dates import extract_years
 from oldnyc.item import Item
 
@@ -16,7 +17,7 @@ encoder.FLOAT_REPR = lambda o: format(o, ".6f")  # type: ignore
 
 
 # could be tuple[Item, None, None] | tuple[Item, str, Location | Locatable]
-LocatedRecord = tuple[Item, str | None, Locatable | None]
+LocatedRecord = tuple[Item, tuple[str, Locatable, Point] | None]
 
 
 def get_date_range(date_str: str) -> tuple[date, date]:
@@ -35,12 +36,10 @@ def _generateJson(located_recs: Sequence[LocatedRecord], lat_lon_map: dict[str, 
 
     claimed_in_map = {}
 
-    for r, _coder, location_data in located_recs:
-        if not location_data:
+    for r, loc in located_recs:
+        if not loc:
             continue
-        lat, lon = location_data.get("lat"), location_data.get("lon")
-        assert lat is not None
-        assert lon is not None
+        (lat, lon) = loc[2]
         ll_str = "%.6f,%.6f" % (lat, lon)
         if lat_lon_map and ll_str in lat_lon_map:
             claimed_in_map[ll_str] = True
@@ -75,36 +74,46 @@ def _generateJson(located_recs: Sequence[LocatedRecord], lat_lon_map: dict[str, 
     return out
 
 
-def printJsonNoYears(located_recs: list[LocatedRecord], lat_lon_map: dict[str, str]):
+def printJsonNoYears(located_recs: Sequence[LocatedRecord], lat_lon_map: dict[str, str]):
     ll_to_items = _generateJson(located_recs, lat_lon_map)
     print(json.dumps(ll_to_items, sort_keys=True))
 
 
-def printIdLocation(located_recs: list[LocatedRecord]):
-    for r, coder, location_data in located_recs:
-        if location_data:
-            lat, lng = location_data.get("lat"), location_data.get("lon")
-            loc = (str((lat, lng)) or "") + "\t" + location_data["source"]
+def printIdLocation(located_recs: Sequence[LocatedRecord]):
+    for r, loc_data in located_recs:
+        coder = None
+        if loc_data:
+            coder, location_data, pt = loc_data
+            lat, lng = pt
+            loc = (str((lat, lng)) or "") + "\t" + location_data.source
         else:
             loc = "n/a\tn/a"
 
         print("\t".join([r.id, coder or "failed", loc]))
 
 
-def output_geojson(located_recs: list[LocatedRecord], all_recs: list[Item]):
+locatable_types = {
+    "AddressLocation": "address",
+    "IntersectionLocation": "intersection",
+    "LatLngLocation": "point_of_interest",
+}
+
+
+def output_geojson(located_recs: Sequence[LocatedRecord], all_recs: list[Item]):
     features = []
-    id_to_loc = {rec[0].id: rec for rec in located_recs}
+    id_to_loc = {r.id: loc for r, loc in located_recs}
     for r in all_recs:
-        _, coder, location_data = id_to_loc[r.id]
+        loc_data = id_to_loc[r.id]
+        coder, locatable, pt = loc_data or (None, None, None)
         feature = {
             "id": r.id,
             "type": "Feature",
             "geometry": (
                 {
                     "type": "Point",
-                    "coordinates": [location_data["lon"], location_data["lat"]],  # type: ignore
+                    "coordinates": [pt[1], pt[0]],
                 }
-                if location_data
+                if pt
                 else None
             ),
             "properties": {
@@ -113,11 +122,12 @@ def output_geojson(located_recs: list[LocatedRecord], all_recs: list[Item]):
                 "geocode": (
                     {
                         "technique": coder,
-                        "lat": location_data["lat"],  # type: ignore
-                        "lng": location_data["lon"],  # type: ignore
-                        **location_data,  # TODO: this has lng and lon
+                        "lat": pt[0],
+                        "lng": pt[1],
+                        "type": locatable_types[locatable.__class__.__name__],
+                        **dataclasses.asdict(locatable),
                     }
-                    if location_data
+                    if pt and locatable
                     else None
                 ),
                 "image": {

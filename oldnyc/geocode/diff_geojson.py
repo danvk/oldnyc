@@ -22,7 +22,7 @@ import argparse
 import itertools
 import json
 import random
-from typing import Optional, Sequence
+from typing import Literal, Optional, Sequence
 
 from haversine import haversine
 
@@ -55,6 +55,7 @@ def diff_geojson(
     unchanged_file: str,
     sample_set: Optional[Sequence[str]],
     num_samples: int,
+    change_sample_type: Literal["random", "farthest"],
 ):
     before = json.load(open(before_file))["features"]
     old = {x["id"]: x for x in before}
@@ -142,7 +143,20 @@ Changed: {len(changed_ids):,}
     if changed_ids and num_samples:
         print("\nSample of changes:")
         changed_samples = min(num_samples, len(changed_ids))
-        for k in random.sample([*changed_ids], changed_samples):
+        if change_sample_type == "farthest":
+            # sort by distance
+            sample_ids = sorted(
+                changed_ids,
+                key=lambda k: -calculate_distance_delta_for_image_id(
+                    old[k]["geometry"], new[k]["geometry"]
+                ),
+            )
+        else:
+            # random sample
+            sample_ids = [*changed_ids]
+            random.shuffle(sample_ids)
+
+        for k in sample_ids[:changed_samples]:
             props = old[k]["properties"]
             title = props.get("original_title") or props.get("title") or "original title not found"
             a = old[k]["properties"]["geocode"]
@@ -202,6 +216,12 @@ if __name__ == "__main__":
         help="Number of examples of each type (add, drop, change) to show.",
         default=0,
     )
+    parser.add_argument(
+        "--change-sample-type",
+        choices=("random", "farthest"),
+        default="farthest",
+        help="Show random changes, or the biggest movers",
+    )
     args = parser.parse_args()
 
     sample_set = args.sample_set.split("|") if args.sample_set else None
@@ -214,4 +234,5 @@ if __name__ == "__main__":
         args.unchanged,
         sample_set,
         args.num_samples,
+        args.change_sample_type,
     )

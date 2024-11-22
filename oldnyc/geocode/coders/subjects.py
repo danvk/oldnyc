@@ -17,7 +17,7 @@ from collections import Counter, defaultdict
 
 import pygeojson
 
-from oldnyc.geocode.geocode_types import Coder, Locatable
+from oldnyc.geocode.geocode_types import Coder, LatLngLocation
 from oldnyc.geojson_utils import assert_point
 
 # TODO: use subjects.geojson instead of these lists
@@ -270,11 +270,8 @@ IGNORE_SUBJECTS = {
 }
 
 
-def is_address_close(a: str, b: str) -> bool:
-    assert a.startswith("@") and b.startswith("@"), (a, b)
-    a_lat, a_lon = (float(x) for x in a[1:].split(","))
-    b_lat, b_lon = (float(x) for x in b[1:].split(","))
-    return abs(a_lat - b_lat) < 0.0001 and abs(a_lon - b_lon) < 0.0001  # ~11m
+def is_close(a: LatLngLocation, b: LatLngLocation) -> bool:
+    return abs(a.lat - b.lat) < 0.0001 and abs(a.lng - b.lng) < 0.0001  # ~11m
 
 
 class SubjectsCoder(Coder):
@@ -292,7 +289,7 @@ class SubjectsCoder(Coder):
 
         self.counters = Counter()
 
-    def codeRecord(self, r):
+    def code_record(self, r):
         matches = [
             (geo, spec_pt)
             for geo in r.subject.geographic
@@ -306,17 +303,10 @@ class SubjectsCoder(Coder):
             geo, (spec, pt) = matches[0]
             self.counters["n_geo_unambig"] += 1
             lng, lat = pt.coordinates[:2]
-            subject_locatable = (
-                spec,
-                Locatable(
-                    address="@%.6f,%.6f" % (lat, lng),
-                    source=geo,
-                    type="point_of_interest",
-                ),
-            )
+            subject_locatable = (spec, LatLngLocation(lat=lat, lng=lng, source=geo))
         elif len(matches) > 1:
-            matches_txt = "\t".join(f"{spec}/{geo}" for geo, (spec, pt) in matches)
-            sys.stderr.write(f"clash!\tunresolved multi-subject\t{r.id}\t{matches_txt}\n")
+            # matches_txt = "\t".join(f"{spec}/{geo}" for geo, (spec, pt) in matches)
+            # sys.stderr.write(f"clash!\tunresolved multi-subject\t{r.id}\t{matches_txt}\n")
             self.counters["n_geo_multi"] += 1
 
         title = re.sub(r"\.$", "", r.title)
@@ -342,14 +332,8 @@ class SubjectsCoder(Coder):
                     if not latlon:
                         latlon = parks[park]
                     self.counters["n_title_park"] += 1
-                    title_locatable = (
-                        spec,
-                        Locatable(
-                            address="@%s,%s" % latlon,
-                            source=source,
-                            type="point_of_interest",
-                        ),
-                    )
+                    lat, lng = latlon
+                    title_locatable = (spec, LatLngLocation(lat=lat, lng=lng, source=source))
 
         m = re.search(island_re, title)
         if title_locatable is None and m:
@@ -357,16 +341,9 @@ class SubjectsCoder(Coder):
             if island not in islands:
                 missing_islands[island] += 1
             else:
-                latlon = islands[island]
+                lat, lng = islands[island]
                 self.counters["n_title_island"] += 1
-                title_locatable = (
-                    SPEC_SMALL,
-                    Locatable(
-                        address="@%s,%s" % latlon,
-                        source=m.group(0),
-                        type="point_of_interest",
-                    ),
-                )
+                title_locatable = (SPEC_SMALL, LatLngLocation(lat=lat, lng=lng, source=m.group(0)))
 
         m = re.search(bridge_re, title)
         if title_locatable is None and m:
@@ -378,15 +355,11 @@ class SubjectsCoder(Coder):
             if bridge not in bridges:
                 missing_bridges[bridge] += 1
             else:
-                latlon = bridges[bridge]
+                lat, lng = bridges[bridge]
                 self.counters["n_title_bridge"] += 1
                 title_locatable = (
                     SPEC_PRECISE,
-                    Locatable(
-                        address="@%s,%s" % latlon,
-                        source=m.group(0),
-                        type="point_of_interest",
-                    ),
+                    LatLngLocation(lat=lat, lng=lng, source=m.group(0)),
                 )
 
         if title_locatable:
@@ -395,10 +368,10 @@ class SubjectsCoder(Coder):
         if subject_locatable and title_locatable:
             self.counters["n_both"] += 1
             subj_spec = subject_locatable[0]
-            subj_src = subject_locatable[1]["source"]
+            # subj_src = subject_locatable[1].source
             title_spec = title_locatable[0]
-            title_src = title_locatable[1]["source"]
-            if is_address_close(subject_locatable[1]["address"], title_locatable[1]["address"]):
+            # title_src = title_locatable[1].source
+            if is_close(subject_locatable[1], title_locatable[1]):
                 # sys.stderr.write(
                 #     "\t".join(["clash!", "subject/title close", r.id, subj_src, title_src]) + "\n"
                 # )
@@ -407,18 +380,18 @@ class SubjectsCoder(Coder):
                 self.counters["n_out_both_close"] += 1
                 return title_locatable[1]
             elif subj_spec > title_spec:
-                sys.stderr.write(
-                    "\t".join(["clash!", "subject/title to subject", r.id, subj_src, title_src])
-                    + "\n"
-                )
+                # sys.stderr.write(
+                #     "\t".join(["clash!", "subject/title to subject", r.id, subj_src, title_src])
+                #     + "\n"
+                # )
                 self.counters["n_out_subject"] += 1
                 self.counters["n_out_both_subject"] += 1
                 return subject_locatable[1]
             elif title_spec > subj_spec:
-                sys.stderr.write(
-                    "\t".join(["clash!", "subject/title to title", r.id, subj_src, title_src])
-                    + "\n"
-                )
+                # sys.stderr.write(
+                #     "\t".join(["clash!", "subject/title to title", r.id, subj_src, title_src])
+                #     + "\n"
+                # )
                 self.counters["n_out_title"] += 1
                 self.counters["n_out_both_title"] += 1
                 return title_locatable[1]
@@ -445,17 +418,6 @@ class SubjectsCoder(Coder):
         if title_locatable:
             self.counters["n_out_title"] += 1
             return title_locatable[1]
-
-    def getLatLonFromLocatable(self, r, data):
-        pass
-
-    def getLatLonFromGeocode(self, geocode, data, record):
-        for result in geocode["results"]:
-            # data['type'] is something like 'address' or 'intersection'.
-            if data["type"] in result["types"]:
-                loc = result["geometry"]["location"]
-                return (loc["lat"], loc["lng"])
-        return None
 
     def finalize(self):
         sys.stderr.write("POI/subject geocoding:\n")
