@@ -1,4 +1,5 @@
-Missing popular: {'719363f-a', '716608f-a', '726358f-c', '721912f-b'}
+Missing popular: ['716608f-a', '719363f-a', '721912f-b', '726358f-c']
+NYPL items on site: 31465
 Unique photos on site: 45562
 Text-less photos: 1142
 Unique lat/lngs: 9432

@@ -235,7 +235,7 @@ photo_ids_on_site = {photo["photo_id"] for photo in all_photos}
 item_ids_on_site = {id.split("-")[0] for id in photo_ids_on_site}
 
 missing_popular = {id_ for id_ in pop_ids if id_ not in photo_ids_on_site}
-sys.stderr.write(f"Missing popular: {missing_popular}\n")
+sys.stderr.write(f"Missing popular: {sorted(missing_popular)}\n")
 print("Date extraction stats:")
 dates_from_text.log_stats()
 
