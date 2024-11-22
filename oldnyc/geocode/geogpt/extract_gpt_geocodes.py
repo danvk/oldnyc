@@ -32,6 +32,9 @@ TYPES = {"intersection", "place_name", "address", "no location information", "no
 if __name__ == "__main__":
     out = {}
     by_type = Counter[str]()
+    by_count = Counter[int]()
+    by_type_count = Counter[str]()
+    by_place = Counter[str]()
     n_dropped = 0
     for path in sys.argv[1:]:
         outputs = [json.loads(line) for line in open(path)]
@@ -42,29 +45,50 @@ if __name__ == "__main__":
             choices = response["body"]["choices"]
             assert len(choices) == 1
             data_str = choices[0]["message"]["content"]
-            data: GptResponse = json.loads(data_str)
-            # data = enforce_structure(data)
-            assert "type" in data
+            raw_response = json.loads(data_str)
+            if "type" in raw_response:
+                raw_response = {"candidates": [raw_response]}
+            results: list[GptResponse] = raw_response["candidates"]
 
-            if data["type"] not in TYPES:
-                n_dropped += 1
-                sys.stderr.write(f"Weirdo alert! {id}: {data}\n")
-                continue
+            by_count[len(results)] += 1
+            filtered = []
+            for data in results:
+                assert "type" in data
 
-            if data["type"] == "address" and not data["number"]:
-                n_dropped += 1
-                continue
+                if data["type"] not in TYPES:
+                    n_dropped += 1
+                    sys.stderr.write(f"Weirdo alert! {id}: {data}\n")
+                    continue
 
-            if data["type"] == "address" and is_suspicious_address(data["number"], data["street"]):
-                # While possible, this seems to always be a mistake.
-                sys.stderr.write(f"Number and street are the same: {id}: {data}\n")
-                n_dropped += 1
-                continue
+                if data["type"] == "address" and not data["number"]:
+                    n_dropped += 1
+                    continue
 
-            by_type[data["type"]] += 1
-            out[id] = data
+                if data["type"] == "address" and is_suspicious_address(
+                    data["number"], data["street"]
+                ):
+                    # While possible, this seems to always be a mistake.
+                    sys.stderr.write(f"Number and street are the same: {id}: {data}\n")
+                    n_dropped += 1
+                    continue
+
+                if data["type"] == "place_name" and data["place_name"] == "New York":
+                    n_dropped += 1
+                    continue
+
+                if data["type"] == "place_name":
+                    by_place[data["place_name"]] += 1
+
+                filtered.append(data)
+                by_type[data["type"]] += 1
+            for t, c in Counter(x["type"] for x in filtered).items():
+                by_type_count[f"{t}-{c}"] += 1
+            out[id] = filtered
 
     print(json.dumps(out, indent=2, sort_keys=True))
     sys.stderr.write(f"{len(out)} records\n")
     sys.stderr.write(f"{by_type.most_common()}\n")
+    sys.stderr.write(f"{by_count.most_common()}\n")
+    sys.stderr.write(f"{by_type_count.most_common()}\n")
+    sys.stderr.write(f"{by_place.most_common(100)}\n")
     sys.stderr.write(f"{n_dropped} records dropped\n")
