@@ -249,7 +249,7 @@ class GridGeocoder:
     def geocode_intersection(
         self, street1: str, street2: str, boro: str, debug_txt: Optional[str] = ""
     ) -> Point | None:
-        # sys.stderr.write(f'Attempting to geocode "{street1}" and "{street2}"\n')
+        sys.stderr.write(f'Attempting to geocode "{street1}" and "{street2}"\n')
 
         street1 = normalize_street(street1)
         street2 = normalize_street(street2)
@@ -355,10 +355,14 @@ NYC_ORDINALS = {
     "Thirteenth": 13,
     # Some NYC-specific stuff
     "Amsterdam": 10,
-    r"\bPark\b": 4,  # the \b's prevent this from matching, e.g., 'Parkway'
+    "Park": 4,
     "Columbus": 9,
     "West End": 11,
     "Lenox": 6,  # Now Malcolm X
+}
+nyc_ave_re = re.compile(r"\b(%s) Ave(?:\.?|nue)\b" % "|".join(NYC_ORDINALS.keys()), flags=re.I)
+
+NYC_NAMED_AVES = {
     "Adam Clayton Powell Jr. Boulevard": 7,
     "Malcolm X Boulevard": 6,
     "Frederick Douglass Boulevard": 8,
@@ -406,6 +410,8 @@ def parse_ave(avenue: str) -> str | None:
     """Normalize avenue names, e.g. "Fifth Avenue" -> "5"."""
     if avenue in SPECIAL_AVES:
         return avenue
+    if avenue == "Riverside Park":
+        return "Riverside Drive"
     num = extract_ordinal(avenue)
     if num is not None:
         return str(num)
@@ -414,11 +420,15 @@ def parse_ave(avenue: str) -> str | None:
     m = re.search(r"[aA]venue (A|B|C|D)", avenue)
     if m:
         return m.group(1)
-    else:
-        # How about 'Fourth', 'Fifth'?
-        num = multisearch(NYC_ORDINALS, avenue)
-        if num is not None:
-            return str(num)
+
+    m = re.search(nyc_ave_re, avenue)
+    if m:
+        return str(NYC_ORDINALS[m.group(1)])
+
+    # TODO: get rid of multisearch
+    num = multisearch(NYC_NAMED_AVES, avenue)
+    if num is not None:
+        return str(num)
 
 
 def parse_ave_for_osm(avenue: str) -> str:

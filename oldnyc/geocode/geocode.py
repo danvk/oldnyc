@@ -239,7 +239,7 @@ if __name__ == "__main__":
             sys.stderr.write(f"   boro mismatch: {n_boro_mismatch}\n")
             sys.stderr.write(f"        failures: {n_google_fail}\n")
 
-    # grid.log_stats()
+    grid_geocoder.log_stats()
 
     sys.stderr.write("-- Final stats --\n")
     successes = 0
