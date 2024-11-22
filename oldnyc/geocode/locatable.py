@@ -75,7 +75,7 @@ def extract_point_from_google_geocode(
         )
         return None
     # self.n_success += 1
-    return round(float(lat), 7), round(float(lng), 7)
+    return pt
 
 
 def get_lat_lng_from_geocode(geocode: dict[str, Any], desired_types: list[str]) -> Point | None:
