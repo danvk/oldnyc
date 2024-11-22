@@ -281,7 +281,7 @@ class GridGeocoder:
                 street1, street2 = street2, street1
                 num1 = num2
 
-        sys.stderr.write(f"{debug_txt} {street1} ({num1}) / {street2}\n")
+        # sys.stderr.write(f"{debug_txt} {street1} ({num1}) / {street2}\n")
 
         if num1:
             avenue = parse_ave_for_osm(street2)
