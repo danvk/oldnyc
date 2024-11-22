@@ -44,10 +44,19 @@ args = parser.parse_args()
 popular_photos: list[PopularPhoto] = json.loads(open("data/popular-photos.js").read()[20:-2])
 pop_ids = {x["id"] for x in popular_photos}
 
-lat_lon_to_ids: dict[str, list[str]] = json.load(open("data/lat-lon-to-ids.json"))
+lat_lon_to_item_ids: dict[str, list[str]] = json.load(open("data/lat-lon-to-ids.json"))
 
 rs = load_items("data/photos.ndjson")
 id_to_record = {r.id: r for r in rs}
+item_id_to_photo_ids = defaultdict[str, list[str]](list)
+for r in rs:
+    item_id = r.id.split("-")[0]
+    item_id_to_photo_ids[item_id].append(r.id)
+
+lat_lon_to_ids = {
+    ll: [photo_id for item_id in item_ids for photo_id in item_id_to_photo_ids[item_id]]
+    for ll, item_ids in lat_lon_to_item_ids.items()
+}
 
 id_to_dims: dict[str, tuple[int, int]] = {}
 for photo_id, width, height in csv.reader(open("data/nyc-image-sizes.txt")):
@@ -223,6 +232,7 @@ for latlon, photo_ids in lat_lon_to_ids.items():
         all_photos.append(site_response_to_site_json(response, (lat, lon)))
 
 photo_ids_on_site = {photo["photo_id"] for photo in all_photos}
+item_ids_on_site = {id.split("-")[0] for id in photo_ids_on_site}
 
 missing_popular = {id_ for id_ in pop_ids if id_ not in photo_ids_on_site}
 sys.stderr.write(f"Missing popular: {missing_popular}\n")
@@ -294,6 +304,7 @@ json.dump(timestamps, open("../oldnyc.github.io/timestamps.json", "w"), **SORT_P
 with open("../oldnyc.github.io/static/timestamps.js", "w") as f:
     f.write(f"var timestamps = {timestamps_json};")
 
+sys.stderr.write(f"NYPL items on site: {len(item_ids_on_site)}\n")
 sys.stderr.write(f"Unique photos on site: {len(photo_ids_on_site)}\n")
 sys.stderr.write(f"Text-less photos: {len(textless_photo_ids)}\n")
 sys.stderr.write(f"Unique lat/lngs: {len(latlon_to_count)}\n")
