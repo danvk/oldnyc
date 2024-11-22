@@ -1,0 +1,5 @@
+Missing popular: {'719363f-a', '716608f-a', '726358f-c', '721912f-b'}
+Unique photos on site: 45562
+Text-less photos: 1142
+Unique lat/lngs: 9432
+Orphaned popular photos: 4 / 54

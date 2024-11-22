@@ -89,8 +89,9 @@ jobs:
       run: |
         export PYTHONPATH=.
         echo '{"fixes": {}}' > data/feedback/fixes.json
-        poetry run oldnyc/site/generate_static_site.py --leave-timestamps-unchanged
+        poetry run oldnyc/site/generate_static_site.py --leave-timestamps-unchanged 2> >(tee test/site-stats.txt >&2)
     - name: Check for diffs
       run: |
+        git diff --exit-code test/
         cd ../oldnyc.github.io
         git diff --exit-code
