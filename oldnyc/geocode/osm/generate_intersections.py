@@ -15,6 +15,8 @@ from oldnyc.geocode import grid
 from oldnyc.geocode.boroughs import point_to_borough
 from oldnyc.geocode.osm.osm import OsmElement, OsmNode, OsmWay
 
+# TODO: restore code to generate the other intersection files
+
 
 def load_osm_data() -> list[OsmElement]:
     osm_data = json.load(open("data/osm-roads.json"))
