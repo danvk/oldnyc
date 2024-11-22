@@ -84,13 +84,14 @@ jobs:
       run: |
         export PYTHONPATH=.
         tar -xzf geocache.tgz
-        poetry run oldnyc/geocode/geocode.py --images_ndjson data/photos.ndjson --lat_lon_map data/lat-lon-map.txt --output_format lat-lon-to-ids.json --geocode > data/lat-lon-to-ids.json
+        poetry run oldnyc/geocode/geocode.py --images_ndjson data/images.ndjson --lat_lon_map data/lat-lon-map.txt --output_format lat-lon-to-ids.json --geocode > data/lat-lon-to-ids.json 2> >(tee >( sed -n '/Finalizing/,$p' > test/geocoding-stats.txt) >&2)
     - name: Generate static site
       run: |
         export PYTHONPATH=.
         echo '{"fixes": {}}' > data/feedback/fixes.json
-        poetry run oldnyc/site/generate_static_site.py --leave-timestamps-unchanged
+        poetry run oldnyc/site/generate_static_site.py --leave-timestamps-unchanged 2> >(tee test/site-stats.txt >&2)
     - name: Check for diffs
       run: |
+        git diff --exit-code test/
         cd ../oldnyc.github.io
         git diff --exit-code
