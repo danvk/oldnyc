@@ -1,21 +1,19 @@
 #!/usr/bin/env python
 """Generate a batch of "extract geocodable text" tasks for GPT."""
 
-import argparse
 import dataclasses
 import json
 import re
+import sys
 from typing import Literal, TypedDict
 
 from oldnyc.item import Item, load_items
 
 # See https://cookbook.openai.com/examples/batch_processing
 SYSTEM_INSTRUCTIONS = """
-Your goal is to extract multiple candidates for location information from JSON describing a photograph taken in New York City. The location information should be either an intersection of two streets, a locatable place name, or an address.
+Your goal is to extract location information from JSON describing a photograph taken in New York City. The location information should be either an intersection of two streets, a place name, or an address. It's also possible that there's no location information, or that the photo was not taken in New York City.
 
-It's also possible that there's no location information, or that the photo was not taken in New York City.
-
-Respond in JSON with an array of candidates matching the following TypeScript interface:
+Respond in JSON matching the following TypeScript interface:
 
 {
   type: "intersection";
@@ -33,8 +31,6 @@ Respond in JSON with an array of candidates matching the following TypeScript in
 } | {
   type: "not in NYC";
 }
-
-The array should contain as many valid candidates as possible based on the information available.
 """
 
 
@@ -126,35 +122,18 @@ def prep_data(item: Item):
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Generate batch files for geocode extraction")
-    parser.add_argument("--model", default="gpt-4o", help="GPT model to use")
-    parser.add_argument("--ids_file", type=str, help="File containing IDs to process, one per line")
-    parser.add_argument("--ids_filter", type=str, help="Comma-separated list of IDs to process")
-    parser.add_argument(
-        "--copy-paste",
-        action="store_true",
-        help="Output in copy-paste format for OpenAI Playground",
-    )
-    args = parser.parse_args()
-    assert not (
-        args.ids_file and args.ids_filter
-    ), "Specify either --ids_file or --ids_filter, not both"
+    if len(sys.argv) == 3:
+        (ids_file, model) = sys.argv[1:]
+    else:
+        (model,) = sys.argv[1:]
+        ids_file = None
 
     items = load_items("data/images.ndjson")
-    if args.ids_file:
-        ids = {line.strip() for line in open(args.ids_file)}
-    elif args.ids_filter:
-        ids = args.ids_filter.split(",")
-    else:
-        ids = (r.id for r in items)
-
+    ids = {line.strip() for line in open(ids_file)} if ids_file else (r.id for r in items)
     id_to_records = {r.id: r for r in items}
 
     for id in ids:
         item = id_to_records[id]
-        req = make_gpt_request(item, args.model)
-        if args.copy_paste:
-            for message in req["body"]["messages"]:
-                print(message["content"])
-        else:
-            print(json.dumps(req))
+        # if boro_int.match(item.title):
+        #     continue
+        print(json.dumps(make_gpt_request(id_to_records[id], model)))
