@@ -28,6 +28,9 @@ from oldnyc.geocode.locatable import (
     get_address_for_google,
     locate_with_osm,
 )
+from oldnyc.geocode.locatable import (
+    counts as locatable_counts,
+)
 from oldnyc.item import Item, load_items
 
 CODERS: dict[str, Callable[[], Coder]] = {
@@ -168,7 +171,7 @@ if __name__ == "__main__":
                 break
 
             # First try OSM (offline), then Google (online)
-            lat_lon = locate_with_osm(r, locatable)
+            lat_lon = locate_with_osm(r, locatable, c.name())
 
             if not lat_lon:
                 try:
@@ -219,6 +222,20 @@ if __name__ == "__main__":
     for c in geocoders:
         sys.stderr.write(f"-- Finalizing {c.name()} --\n")
         c.finalize()
+        counts = locatable_counts[c.name()]
+        n_grid_attempt = counts["grid: attempt"]
+        n_grid = counts["grid: success"]
+        n_boro_mismatch = counts["google: boro mismatch"]
+        n_google_fail = counts["google: fail"]
+        n_google_success = counts["google: success"]
+        n_google_attempts = n_google_fail + n_google_success + n_boro_mismatch
+
+        if n_grid_attempt:
+            sys.stderr.write(f"            grid: {n_grid} ({n_grid_attempt} attempts)\n")
+        if n_google_attempts:
+            sys.stderr.write(f"          google: {n_google_success}\n")
+            sys.stderr.write(f"   boro mismatch: {n_boro_mismatch}\n")
+            sys.stderr.write(f"        failures: {n_google_fail}\n")
 
     # grid.log_stats()
 

@@ -2,6 +2,7 @@
 
 
 import sys
+from collections import Counter, defaultdict
 from typing import Any
 
 from oldnyc.geocode import grid
@@ -15,8 +16,11 @@ from oldnyc.geocode.geocode_types import (
 )
 from oldnyc.item import Item
 
+# (coder, event) -> count
+counts = defaultdict[str, Counter[str]](Counter)
 
-def locate_with_osm(r: Item, loc: Locatable) -> Point | None:
+
+def locate_with_osm(r: Item, loc: Locatable, coder: str) -> Point | None:
     """Extract a location from a Locatable, without going to Google."""
     if isinstance(loc, LatLngLocation):
         return round(loc.lat, 7), round(loc.lng, 7)
@@ -31,6 +35,7 @@ def locate_with_osm(r: Item, loc: Locatable) -> Point | None:
     if boro not in ("Manhattan", "New York"):
         return None
     try:
+        counts[coder]["grid: attempt"] += 1
         ave, street = grid.parse_street_ave(str1, str2)
         pt = grid.code(ave, street)
     except ValueError:
@@ -38,6 +43,7 @@ def locate_with_osm(r: Item, loc: Locatable) -> Point | None:
         return None
     if not pt:
         return None
+    counts[coder]["grid: success"] += 1
     lat, lng = pt
     return round(float(lat), 7), round(float(lng), 7)  # they're numpy floats
 
@@ -65,6 +71,7 @@ def extract_point_from_google_geocode(
         raise ValueError()
 
     if not pt:
+        counts[coder]["google: fail"] += 1
         return None
     lat, lng = pt
     geocode_boro = point_to_borough(lat, lng)
@@ -74,8 +81,10 @@ def extract_point_from_google_geocode(
         sys.stderr.write(
             f"Borough mismatch: {record.id}: {loc.source} geocoded to {geocode_boro} not {boro}\n"
         )
+        counts[coder]["google: boro mismatch"] += 1
         return None
     # self.n_success += 1
+    counts[coder]["google: success"] += 1
     if coder in ("title-cross", "title-address"):
         return round(float(lat), 7), round(float(lng), 7)
     return pt
