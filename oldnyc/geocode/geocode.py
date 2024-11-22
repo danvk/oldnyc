@@ -46,7 +46,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Generate geocodes")
     parser.add_argument(
         "--images_ndjson",
-        required=True,
+        default="data/images.ndjson",
         help="ndjson file containing images (usually images.ndjson or photos.ndjson)",
     )
     parser.add_argument(
