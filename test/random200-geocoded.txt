@@ -193,8 +193,8 @@
 732657f	gpt	(40.6936433, -73.91332109999999)	Putnam Avenue and Wilson Avenue
 733310f	gpt	(40.753481, -73.980879)	42nd Street and Fifth Ave
 733706f	failed	n/a	n/a
-734005f	subjects	(40.705573, -74.0014567)	East River Pier 17 (New York, N.Y.)
-734193f	subjects	(40.5403833, -74.135698)	Great Kills Harbor (New York, N.Y.)
+734005f	subjects	(40.705573, -74.00145669999999)	East River Pier 17 (New York, N.Y.)
+734193f	subjects	(40.54038329999999, -74.13569799999999)	Great Kills Harbor (New York, N.Y.)
 734228f	failed	n/a	n/a
-734332f	subjects	(40.8736935, -73.9110636)	Broadway Bridge (New York, N.Y.)
+734332f	subjects	(40.8736935, -73.91106359999999)	Broadway Bridge (New York, N.Y.)
 psnypl_lhg_195	failed	n/a	n/a
