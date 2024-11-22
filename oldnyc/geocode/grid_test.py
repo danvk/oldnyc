@@ -99,7 +99,7 @@ def test_parse_ave():
     assert grid.parse_ave("Fifth Avenue") == "5"
     assert grid.parse_ave("Avenue A") == "A"
     assert grid.parse_ave("Central Park West") == "Central Park West"
-    assert grid.parse_ave("Riverside Park") is None
+    assert grid.parse_ave("Riverside Park") == "Riverside Drive"
 
 
 def test_extract_street_num():
@@ -111,6 +111,7 @@ def test_extract_street_num():
     assert grid.extract_street_num("One Hundred and Forty-first Street") == 141
     assert grid.extract_street_num("Seventh Avenue") is None
     assert grid.extract_street_num("One hundred and forty-sixth Street") == 146
+    assert grid.extract_street_num("Seventy-third to Seventy-fourth Street") == 73
 
 
 def test_normalize_street():

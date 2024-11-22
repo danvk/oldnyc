@@ -249,7 +249,7 @@ class GridGeocoder:
     def geocode_intersection(
         self, street1: str, street2: str, boro: str, debug_txt: Optional[str] = ""
     ) -> Point | None:
-        sys.stderr.write(f'Attempting to geocode "{street1}" and "{street2}"\n')
+        # sys.stderr.write(f'Attempting to geocode "{street1}" and "{street2}"\n')
 
         street1 = normalize_street(street1)
         street2 = normalize_street(street2)
@@ -491,6 +491,10 @@ def multisearch(re_dict, txt):
 def text_to_number(text: str) -> int | None:
     # Normalize the text
     text = text.lower().strip()
+
+    if " to " in text:
+        # See https://github.com/akshaynagpal/w2n/issues/75
+        return text_to_number(text.split(" to ")[0])
 
     # Define ordinal mappings
     ordinal_mapping = {
