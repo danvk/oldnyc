@@ -2,8 +2,10 @@
 
 
 import sys
+from collections import Counter, defaultdict
 from typing import Any
 
+from oldnyc.geocode import grid
 from oldnyc.geocode.boroughs import point_to_borough
 from oldnyc.geocode.geocode_types import (
     AddressLocation,
@@ -12,14 +14,20 @@ from oldnyc.geocode.geocode_types import (
     Locatable,
     Point,
 )
-from oldnyc.geocode.grid import GridGeocoder
 from oldnyc.item import Item
 
+# (coder, event) -> count
+counts = defaultdict[str, Counter[str]](Counter)
 
-def locate_with_osm(r: Item, loc: Locatable, g: GridGeocoder) -> Point | None:
+
+def locate_with_osm(r: Item, loc: Locatable, coder: str) -> Point | None:
     """Extract a location from a Locatable, without going to Google."""
     if isinstance(loc, LatLngLocation):
-        return loc.lat, loc.lng
+        # TODO: make the rounding consistent across coders
+        if coder != "subjects":
+            return round(loc.lat, 7), round(loc.lng, 7)
+        else:
+            return loc.lat, loc.lng
     elif isinstance(loc, AddressLocation):
         return None  # not implemented yet
     # Must be an intersection
@@ -28,15 +36,18 @@ def locate_with_osm(r: Item, loc: Locatable, g: GridGeocoder) -> Point | None:
     str1 = loc.str1
     str2 = loc.str2
     boro = loc.boro
-    if boro == "New York":
-        boro = "Manhattan"
+    if boro not in ("Manhattan", "New York"):
+        return None
     try:
-        pt = g.geocode_intersection(str1, str2, boro, r.id)
+        counts[coder]["grid: attempt"] += 1
+        ave, street = grid.parse_street_ave(str1, str2)
+        pt = grid.code(ave, street)
     except ValueError:
-        sys.stderr.write(f"grid fail\t{r.id}\t{loc}\n")
+        # sys.stderr.write(f"grid fail\t{r.id}\t{loc}\n")
         return None
     if not pt:
         return None
+    counts[coder]["grid: success"] += 1
     lat, lng = pt
     return round(float(lat), 7), round(float(lng), 7)  # they're numpy floats
 
@@ -51,7 +62,7 @@ def get_address_for_google(loc: Locatable) -> str:
 
 
 def extract_point_from_google_geocode(
-    geocode: dict[str, Any], loc: Locatable, record: Item
+    geocode: dict[str, Any], loc: Locatable, record: Item, coder: str
 ) -> Point | None:
     if isinstance(loc, LatLngLocation):
         return loc.lat, loc.lng
@@ -63,6 +74,7 @@ def extract_point_from_google_geocode(
         raise ValueError()
 
     if not pt:
+        counts[coder]["google: fail"] += 1
         return None
     lat, lng = pt
     geocode_boro = point_to_borough(lat, lng)
@@ -72,9 +84,14 @@ def extract_point_from_google_geocode(
         sys.stderr.write(
             f"Borough mismatch: {record.id}: {loc.source} geocoded to {geocode_boro} not {boro}\n"
         )
+        counts[coder]["google: boro mismatch"] += 1
         return None
     # self.n_success += 1
-    return round(float(lat), 7), round(float(lng), 7)
+    counts[coder]["google: success"] += 1
+    # TODO: make the rounding consistent across coders
+    if coder in ("title-cross", "title-address"):
+        return round(float(lat), 7), round(float(lng), 7)
+    return pt
 
 
 def get_lat_lng_from_geocode(geocode: dict[str, Any], desired_types: list[str]) -> Point | None:

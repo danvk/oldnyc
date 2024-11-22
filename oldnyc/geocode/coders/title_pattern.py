@@ -9,7 +9,6 @@ from collections import Counter
 
 from natsort import natsorted
 
-from oldnyc.geocode import grid
 from oldnyc.geocode.boroughs import boroughs_pat, guess_borough
 from oldnyc.geocode.geocode_types import AddressLocation, Coder, IntersectionLocation
 from oldnyc.item import Item
@@ -110,7 +109,6 @@ class TitleCrossCoder(Coder):
         self.n_google_location = 0
         self.n_geocode_fail = 0
         self.n_boro_mismatch = 0
-        self.grid = grid.Grid()
 
     def findMatch(self, r):
         titles = extract_titles(r)
@@ -173,11 +171,6 @@ class TitleCrossCoder(Coder):
         sys.stderr.write(f"alt titles matched: {self.n_alt_title}\n")
         sys.stderr.write(f"     total matches: {self.n_match}\n")
         sys.stderr.write(f"          counters: {self.counts.most_common()}\n")
-        sys.stderr.write("  geocoding results:\n")
-        sys.stderr.write(f"            grid: {self.n_grid} ({self.n_grid_attempt} attempts)\n")
-        sys.stderr.write(f"          google: {self.n_google_location}\n")
-        sys.stderr.write(f"   boro mismatch: {self.n_boro_mismatch}\n")
-        sys.stderr.write(f"        failures: {self.n_geocode_fail}\n")
 
     def name(self):
         return "title-cross"
@@ -237,9 +230,6 @@ class TitleAddressCoder(Coder):
 
     def finalize(self):
         sys.stderr.write(f" address matches: {self.n_matches}\n")
-        sys.stderr.write(f"   boro mismatch: {self.n_boro_mismatch}\n")
-        sys.stderr.write(f"        failures: {self.n_geocode_fail}\n")
-        sys.stderr.write(f"         success: {self.n_success}\n")
         sys.stderr.write(f"        patterns: {self.patterns.most_common()}\n")
 
     def name(self):

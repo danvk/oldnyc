@@ -3,7 +3,6 @@
 import json
 import sys
 
-from oldnyc.geocode import grid
 from oldnyc.geocode.boroughs import guess_borough
 from oldnyc.geocode.geocode_types import AddressLocation, Coder, IntersectionLocation
 from oldnyc.geocode.geogpt.generate_batch import GptResponse
@@ -24,7 +23,6 @@ class GptCoder(Coder):
         self.n_google_location = 0
         self.n_geocode_fail = 0
         self.n_boro_mismatch = 0
-        self.grid = grid.Grid()
 
     def code_record(self, r: Item):
         # GPT location extractions are always based on record ID, not photo ID.
@@ -73,12 +71,6 @@ class GptCoder(Coder):
         sys.stderr.write(f"GPT POI:          {self.num_poi}\n")
         sys.stderr.write(f"GPT address:      {self.num_address}\n")
         sys.stderr.write(f"GPT intersection: {self.num_intersection}\n")
-
-        sys.stderr.write("GPT geocoding results:\n")
-        sys.stderr.write(f"            grid: {self.n_grid} ({self.n_grid_attempts} attempts)\n")
-        sys.stderr.write(f"          google: {self.n_google_location}\n")
-        sys.stderr.write(f"   boro mismatch: {self.n_boro_mismatch}\n")
-        sys.stderr.write(f"        failures: {self.n_geocode_fail}\n")
 
     def name(self):
         return "gpt"

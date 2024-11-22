@@ -18,7 +18,7 @@
 1558186	title-cross	(40.752199, -73.993458)	Manhattan: West 34th Street - Eighth Avenue
 1558411	title-cross	(40.7120032, -74.0081046)	Manhattan: 233 Broadway - Barclay Street
 1635861	failed	n/a	n/a
-1635949	subjects	(40.790882, -73.775732)	Fort Totten Historic District (New York, N.Y.)
+1635949	subjects	(40.7908824, -73.7757324)	Fort Totten Historic District (New York, N.Y.)
 1635983	failed	n/a	n/a
 1636238	failed	n/a	n/a
 1663931	failed	n/a	n/a
@@ -193,8 +193,8 @@
 732657f	gpt	(40.6936433, -73.91332109999999)	Putnam Avenue and Wilson Avenue
 733310f	gpt	(40.753481, -73.980879)	42nd Street and Fifth Ave
 733706f	failed	n/a	n/a
-734005f	subjects	(40.705573, -74.001457)	East River Pier 17 (New York, N.Y.)
-734193f	subjects	(40.540383, -74.135698)	Great Kills Harbor (New York, N.Y.)
+734005f	subjects	(40.705573, -74.00145669999999)	East River Pier 17 (New York, N.Y.)
+734193f	subjects	(40.54038329999999, -74.13569799999999)	Great Kills Harbor (New York, N.Y.)
 734228f	failed	n/a	n/a
-734332f	subjects	(40.873694, -73.911064)	Broadway Bridge (New York, N.Y.)
+734332f	subjects	(40.8736935, -73.91106359999999)	Broadway Bridge (New York, N.Y.)
 psnypl_lhg_195	failed	n/a	n/a
