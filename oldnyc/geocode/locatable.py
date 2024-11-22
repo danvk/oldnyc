@@ -23,7 +23,11 @@ counts = defaultdict[str, Counter[str]](Counter)
 def locate_with_osm(r: Item, loc: Locatable, coder: str) -> Point | None:
     """Extract a location from a Locatable, without going to Google."""
     if isinstance(loc, LatLngLocation):
-        return round(loc.lat, 7), round(loc.lng, 7)
+        # TODO: make the rounding consistent across coders
+        if coder != "subjects":
+            return round(loc.lat, 7), round(loc.lng, 7)
+        else:
+            return loc.lat, loc.lng
     elif isinstance(loc, AddressLocation):
         return None  # not implemented yet
     # Must be an intersection
@@ -57,7 +61,6 @@ def get_address_for_google(loc: Locatable) -> str:
         raise ValueError()
 
 
-# TODO: don't pass coder in; make the rounding consistent
 def extract_point_from_google_geocode(
     geocode: dict[str, Any], loc: Locatable, record: Item, coder: str
 ) -> Point | None:
@@ -85,6 +88,7 @@ def extract_point_from_google_geocode(
         return None
     # self.n_success += 1
     counts[coder]["google: success"] += 1
+    # TODO: make the rounding consistent across coders
     if coder in ("title-cross", "title-address"):
         return round(float(lat), 7), round(float(lng), 7)
     return pt
