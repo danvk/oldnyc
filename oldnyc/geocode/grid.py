@@ -103,26 +103,14 @@ def load_all_intersections():
     for ix, pt in ints.items():
         s1 = strip_dir(ix.str1)
         s2 = strip_dir(ix.str2)
+        if not strip_ave(s1) or not strip_ave(s2):
+            continue  # Disallow, e.g., "South Street" -> "Street"
         k = Intersection(s1, s2, ix.boro)
         stripped_pts[k].add(pt)
 
     unambig_pts = {k: [*pt][0] for k, pt in stripped_pts.items() if len(pt) == 1}
 
-    stripped_pts.clear()
-    for ix, pt in unambig_pts.items():
-        s1 = strip_ave(ix.str1)
-        s2 = strip_ave(ix.str2)
-        k = Intersection(s1, s2, ix.boro)
-        stripped_pts[k].add(pt)
-
-    double_unambig_pts = {k: [*pt][0] for k, pt in stripped_pts.items() if len(pt) == 1}
-
-    sys.stderr.write(
-        f"Loaded {len(ints)} intersections, {len(unambig_pts)} unambiguous, {len(double_unambig_pts)} doubly-unambiguous\n"
-    )
-    sys.stderr.write(str(next(iter(unambig_pts.items()))) + "\n")
-
-    return ints, unambig_pts, double_unambig_pts
+    return ints, unambig_pts
 
 
 AVE_TO_NUM = {"A": 0, "B": -1, "C": -2, "D": -3}
@@ -204,7 +192,7 @@ class GridGeocoder:
         self.all_ints, self.all_ints_by_ave = load_manhattan_intersections()
 
         # All intersections, all five boroughs
-        self.nyc_ints, self.stripped_nyc_ints, self.double_stripped = load_all_intersections()
+        self.nyc_ints, self.stripped_nyc_ints = load_all_intersections()
 
         self.counts = Counter[str]()
         self.unknown_ave = Counter[str]()
@@ -278,15 +266,6 @@ class GridGeocoder:
         pt = self.stripped_nyc_ints.get(ixdir)
         if pt:
             self.counts["dir strip"] += 1
-            return pt
-
-        # Try stripping avenue, street, etc.
-        s1ave = strip_ave(s1dir)
-        s2ave = strip_ave(s2dir)
-        ixave = Intersection(s1ave, s2ave, boro)
-        pt = self.double_stripped.get(ixave)
-        if pt:
-            self.counts["ave strip"] += 1
             return pt
 
         if boro != "Manhattan":

@@ -149,7 +149,7 @@ if __name__ == "__main__":
             f"Filtered to {n_after}/{n_before} records with --ids_filter ({len(ids)})\n"
         )
 
-    grid_coder = grid.Grid()
+    grid_geocoder = grid.Grid()
 
     stats = defaultdict(int)
     located_recs: list[tuple[Item, tuple[str, Locatable, Point] | None]] = []
@@ -173,7 +173,7 @@ if __name__ == "__main__":
                 break
 
             # First try OSM (offline), then Google (online)
-            lat_lon = locate_with_osm(r, locatable, c.name())
+            lat_lon = locate_with_osm(r, locatable, c.name(), grid_geocoder)
 
             if not lat_lon:
                 try:

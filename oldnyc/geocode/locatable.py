@@ -20,7 +20,9 @@ from oldnyc.item import Item
 counts = defaultdict[str, Counter[str]](Counter)
 
 
-def locate_with_osm(r: Item, loc: Locatable, coder: str) -> Point | None:
+def locate_with_osm(
+    r: Item, loc: Locatable, coder: str, grid_geocoder: grid.GridGeocoder
+) -> Point | None:
     """Extract a location from a Locatable, without going to Google."""
     if isinstance(loc, LatLngLocation):
         # TODO: make the rounding consistent across coders
@@ -33,15 +35,11 @@ def locate_with_osm(r: Item, loc: Locatable, coder: str) -> Point | None:
     # Must be an intersection
     assert isinstance(loc, IntersectionLocation)
 
-    str1 = loc.str1
-    str2 = loc.str2
     boro = loc.boro
-    if boro not in ("Manhattan", "New York"):
-        return None
+    boro = "Manhattan" if boro == "New York" else boro
     try:
         counts[coder]["grid: attempt"] += 1
-        ave, street = grid.parse_street_ave(str1, str2)
-        pt = grid.code(ave, street)
+        pt = grid_geocoder.geocode_intersection(loc.str1, loc.str2, boro, r.id)
     except ValueError:
         # sys.stderr.write(f"grid fail\t{r.id}\t{loc}\n")
         return None
@@ -49,7 +47,7 @@ def locate_with_osm(r: Item, loc: Locatable, coder: str) -> Point | None:
         return None
     counts[coder]["grid: success"] += 1
     lat, lng = pt
-    return round(float(lat), 7), round(float(lng), 7)  # they're numpy floats
+    return round(float(lat), 7), round(float(lng), 7)  # they may be numpy floats
 
 
 def get_address_for_google(loc: Locatable) -> str:
@@ -86,7 +84,7 @@ def extract_point_from_google_geocode(
         )
         counts[coder]["google: boro mismatch"] += 1
         return None
-    # self.n_success += 1
+    # TODO: track hits by locatable type
     counts[coder]["google: success"] += 1
     # TODO: make the rounding consistent across coders
     if coder in ("title-cross", "title-address"):
