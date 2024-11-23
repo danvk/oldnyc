@@ -14,7 +14,7 @@ repository = "https://github.com/danvk/oldnyc"
 package-mode = false
 
 [tool.poetry.dependencies]
-python = "^3.11"
+python = "^3.12"
 ruff = "^0.6.5"
 requests = "^2.32.3"
 pillow = "^10.4.0"
