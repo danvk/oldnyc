@@ -10,7 +10,6 @@ import random
 import re
 import sys
 from collections import Counter, defaultdict
-from typing import TypeVar
 
 from tqdm import tqdm
 
@@ -66,11 +65,7 @@ def get_suspect_words(text: str, words: set[str], extra_words: set[str]) -> list
     ]
 
 
-# TODO: switch to diff_lists[T] after upgrading to Python 3.12
-T = TypeVar("T")
-
-
-def diff_lists(a: list[T], b: list[T]) -> list[T]:
+def diff_lists[T](a: list[T], b: list[T]) -> list[T]:
     """Returns items in a that are not in b, accounting for duplicates."""
     b = list(b)
     out = []
