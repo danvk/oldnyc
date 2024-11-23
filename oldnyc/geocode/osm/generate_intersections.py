@@ -5,7 +5,6 @@ import json
 import re
 import sys
 from collections import Counter, defaultdict
-from typing import TypeVar
 
 from haversine import haversine
 from tqdm import tqdm
@@ -23,11 +22,7 @@ def load_osm_data() -> list[OsmElement]:
 AVE_TO_NUM = {"A": 0, "B": -1, "C": -2, "D": -3}
 
 
-T = TypeVar("T")
-V = TypeVar("V")
-
-
-def invert(d: dict[T, set[V]]) -> dict[V, set[T]]:
+def invert[T, V](d: dict[T, set[V]]) -> dict[V, set[T]]:
     out = defaultdict(set)
     for k, vs in d.items():
         for v in vs:
