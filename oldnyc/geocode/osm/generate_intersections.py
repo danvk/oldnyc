@@ -326,7 +326,7 @@ def main():
             lat, lon = (40.7424762, -74.0088873)
         rows.append([str(x) for x in [street, ave, lat, lon]])
 
-    with open("data/intersections.csv", "w") as f:
+    with open("data/grid.csv", "w") as f:
         out = csv.writer(f, lineterminator="\n")
         out.writerows(rows)
 
