@@ -1,7 +1,6 @@
 # From title_pattern.py
 
 
-import sys
 from collections import Counter, defaultdict
 from typing import Any
 
