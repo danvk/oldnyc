@@ -2,12 +2,11 @@
 
 import csv
 import re
+import statistics
 import sys
 from collections import Counter, defaultdict
 from dataclasses import dataclass
-from typing import Sequence
 
-import numpy as np
 from pygeojson import Optional
 from word2number import w2n
 
@@ -125,17 +124,6 @@ def ave_to_num(ave: str):
         return int(ave)
 
 
-# TODO: use statistics.correlation instead
-def correl(xs_list: Sequence[float | int], ys_list: Sequence[float | int]):
-    xs = np.array(xs_list, dtype=float)
-    ys = np.array(ys_list, dtype=float)
-    meanx = xs.mean()
-    meany = ys.mean()
-    stdx = xs.std()
-    stdy = ys.std()
-    return ((xs * ys).mean() - meanx * meany) / (stdx * stdy)
-
-
 def extract_lat_lons(num_to_lls):
     """Returns (xs, lats, lons) as parallel lists."""
     lats = sorted([(ave_to_num(x), num_to_lls[x][0]) for x in num_to_lls.keys()])
@@ -152,8 +140,8 @@ def correl_lat_lons(num_to_lls):
     Given a dict mapping street/ave # --> (lat, lon), returns min(r^2).
     """
     xs, lats, lons = extract_lat_lons(num_to_lls)
-    r_lat = correl(xs, lats)
-    r_lon = correl(xs, lons)
+    r_lat = statistics.correlation(xs, lats)
+    r_lon = statistics.correlation(xs, lons)
     return min(r_lat * r_lat, r_lon * r_lon)
 
 
@@ -163,11 +151,8 @@ def get_line(num_to_lls):
     Returns (b, a), i.e. (intercept, slope)
     """
     ns, lats, lons = extract_lat_lons(num_to_lls)
-    xs = np.zeros((len(lons), 2))
-    xs[:, 0] = 1
-    xs[:, 1] = lons
-    ys = np.array(lats)
-    return np.linalg.lstsq(xs, ys)[0]
+    slope, intercept = statistics.linear_regression(lons, lats)
+    return intercept, slope
 
 
 def may_extrapolate(avenue: str, street: str):
