@@ -29,6 +29,24 @@ def is_suspicious_address(n: int | str, s: str):
 
 TYPES = {"intersection", "place_name", "address", "no location information", "not in NYC"}
 
+# These are too broad to be useful
+VAGUE_PLACES = {
+    "New York",
+    "New York (N.Y.)",
+    "Manhattan",
+    "Manhattan (New York, N.Y.)",
+    "Brooklyn",
+    "Brooklyn (New York, N.Y.)",
+    "Staten Island",
+    "Staten Island (New York, N.Y.)",
+    "Queens",
+    "Queens (New York, N.Y.)",
+    "Bronx",
+    "Bronx (New York, N.Y.)",
+    "East River",
+    "Hudson River",
+}
+
 if __name__ == "__main__":
     out = {}
     by_type = Counter[str]()
@@ -50,7 +68,6 @@ if __name__ == "__main__":
                 raw_response = {"candidates": [raw_response]}
             results: list[GptResponse] = raw_response["candidates"]
 
-            by_count[len(results)] += 1
             filtered = []
             for data in results:
                 assert "type" in data
@@ -72,7 +89,7 @@ if __name__ == "__main__":
                     n_dropped += 1
                     continue
 
-                if data["type"] == "place_name" and data["place_name"] == "New York":
+                if data["type"] == "place_name" and data["place_name"] in VAGUE_PLACES:
                     n_dropped += 1
                     continue
 
@@ -81,6 +98,7 @@ if __name__ == "__main__":
 
                 filtered.append(data)
                 by_type[data["type"]] += 1
+            by_count[len(filtered)] += 1
             for t, c in Counter(x["type"] for x in filtered).items():
                 by_type_count[f"{t}-{c}"] += 1
             out[id] = filtered
