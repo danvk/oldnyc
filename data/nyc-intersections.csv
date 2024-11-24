@@ -16928,9 +16928,9 @@ Academy Street,Seaman Avenue,Manhattan,40.867769,-73.925919,42445640
 Academy Street,Sherman Avenue,Manhattan,40.864403,-73.923767,42427863
 Academy Street,Vermilyea Avenue,Manhattan,40.86537,-73.924389,42437921
 Acension Avenue,Border Avenue,Queens,40.718316,-73.896932,765037500
-Acension Avenue,St James Avenue,Queens,40.718519,-73.896114,765037506
-Acension Avenue,St Johns Avenue,Queens,40.718519,-73.896114,765037506
-Acension Avenue,St Peters Avenue,Queens,40.718316,-73.896932,765037500
+Acension Avenue,Saint James Avenue,Queens,40.718519,-73.896114,765037506
+Acension Avenue,Saint Johns Avenue,Queens,40.718519,-73.896114,765037506
+Acension Avenue,Saint Peters Avenue,Queens,40.718316,-73.896932,765037500
 Ackerman Street,Cleveland Avenue,Staten Island,40.542861,-74.143037,42957137
 Acorn Court,Arrowood Court,Staten Island,40.54861,-74.211597,43000211
 Acorn Court,Balsam Place,Staten Island,40.54861,-74.211597,43000211
@@ -18800,7 +18800,7 @@ Astoria Boulevard North,Steinway Street,Queens,40.769414,-73.910264,42910587
 Astoria Boulevard South,Boody Street,Queens,40.765737,-73.892435,597444019
 Astoria Boulevard South,Brooklyn-Queens Expressway West,Queens,40.768086,-73.906099,42885742
 Astoria Boulevard South,Hoyt Avenue South,Queens,40.769731,-73.916329,7659376752
-Astoria Boulevard South,St Michael's Avenue,Queens,40.76663,-73.897133,482544323
+Astoria Boulevard South,Saint Michael's Avenue,Queens,40.76663,-73.897133,482544323
 Astoria Boulevard South,Steinway Street,Queens,40.768855,-73.910942,42912771
 Astoria Park Greenway,Ditmars Boulevard,Queens,40.782554,-73.919726,2298768513
 Astoria Park South,Hoyt Avenue South,Queens,40.774624,-73.923985,42826016
@@ -23701,9 +23701,9 @@ Border Avenue,Lawn Avenue,Queens,40.72221,-73.897094,7706100043
 Border Avenue,Main Entrance,Queens,40.722972,-73.898991,765037629
 Border Avenue,Ocean Avenue,Brooklyn,40.654981,-73.983424,755897665
 Border Avenue,Orchard Avenue,Brooklyn,40.647704,-73.99364,756247165
-Border Avenue,St Marks Avenue,Queens,40.718651,-73.894805,7706100050
-Border Avenue,St Pauls Avenue,Queens,40.719034,-73.894076,765037621
-Border Avenue,St Peters Avenue,Queens,40.718316,-73.896932,765037500
+Border Avenue,Saint Marks Avenue,Queens,40.718651,-73.894805,7706100050
+Border Avenue,Saint Pauls Avenue,Queens,40.719034,-73.894076,765037621
+Border Avenue,Saint Peters Avenue,Queens,40.718316,-73.896932,765037500
 Border Avenue,Summit Avenue,Brooklyn,40.647704,-73.99364,756247165
 Border Avenue,Vine Avenue,Brooklyn,40.647483,-73.982596,756246990
 Borg Court,Catherine Street,Staten Island,40.627948,-74.135698,1415639014
@@ -26641,10 +26641,10 @@ Central Avenue,Prospect Avenue,Bronx,40.889292,-73.872039,777171848
 Central Avenue,Putnam Avenue,Brooklyn,40.692166,-73.914754,42486785
 Central Avenue,Ravine Avenue,Bronx,40.892645,-73.865886,777171983
 Central Avenue,Sage Street,Queens,40.609464,-73.746034,42848819/42848815
+Central Avenue,Saint Johns Avenue,Queens,40.718602,-73.896088,765037507
 Central Avenue,Schaefer Street,Brooklyn,40.688745,-73.908742,42486806
 Central Avenue,Slosson Terrace,Staten Island,40.63953,-74.07645,42979474
 Central Avenue,Spinoza Avenue,Queens,40.700917,-73.871766,759258161
-Central Avenue,St Johns Avenue,Queens,40.718602,-73.896088,765037507
 Central Avenue,Stanhope Street,Brooklyn,40.697299,-73.923776,42486746
 Central Avenue,Starr Street,Brooklyn,40.699861,-73.928283,42486718
 Central Avenue,Stockholm Street,Brooklyn,40.697731,-73.924535,42486743
@@ -27183,7 +27183,7 @@ Church Road,East 7th Road,Queens,40.608552,-73.818259,42865209
 Church Road,East 8th Road,Queens,40.607171,-73.818302,42810283
 Church Road,East 9th Road,Queens,40.606495,-73.818258,42809720
 Church Road,Noel Road,Queens,40.607833,-73.818337,42873981
-Church Road,St Lukes Road,Queens,40.765495,-73.901175,7659616039
+Church Road,Saint Lukes Road,Queens,40.765495,-73.901175,7659616039
 Church Street,Cortlandt Street,Manhattan,40.710369,-74.011208,42438155
 Church Street,Dey Street,Manhattan,40.711013,-74.010777,42453934
 Church Street,Douglaston Parkway,Queens,40.766513,-73.7456,42806240
@@ -27627,7 +27627,7 @@ Clinton Avenue,Prospect Avenue,Staten Island,40.638961,-74.097673,43019322
 Clinton Avenue,Queens-Midtown Expressway,Queens,40.725412,-73.899577,8626106389
 Clinton Avenue,Remsen Place,Queens,40.724858,-73.900652,42845918
 Clinton Avenue,Richmond Terrace,Staten Island,40.644669,-74.098466,43019311
-Clinton Avenue,St Pauls Avenue,Queens,40.720297,-73.894908,765037454
+Clinton Avenue,Saint Pauls Avenue,Queens,40.720297,-73.894908,765037454
 Clinton Avenue,Van Buren Street,Staten Island,40.643939,-74.098385,43016450
 Clinton Avenue,Willoughby Avenue,Brooklyn,40.691545,-73.968493,42492303
 Clinton Court,Henderson Avenue,Staten Island,40.640494,-74.096696,43012291
@@ -29336,8 +29336,8 @@ Cypress Avenue,Palmetto Street,Queens,40.701675,-73.908843,42870693
 Cypress Avenue,Paradise Avenue,Queens,40.698921,-73.874854,759258253
 Cypress Avenue,Putnam Avenue,Queens,40.700367,-73.906621,42853145
 Cypress Avenue,Saint Felix Avenue,Queens,40.695391,-73.898884,42907545
+Cypress Avenue,Saint Peters Avenue,Queens,40.717828,-73.896401,765037569
 Cypress Avenue,Sea Gate Avenue,Brooklyn,40.578681,-74.005958,42467970
-Cypress Avenue,St Peters Avenue,Queens,40.717828,-73.896401,765037569
 Cypress Avenue,Stanhope Street,Queens,40.705631,-73.915513,42907474
 Cypress Avenue,Starr Street,Queens,40.708252,-73.919954,42898825
 Cypress Avenue,Stephen Street,Queens,40.697592,-73.90193,42814511
@@ -34225,7 +34225,7 @@ Elm Place,Pennyfield Avenue,Bronx,40.811473,-73.805243,42726469
 Elm Place,Poplar Avenue,Bronx,40.811015,-73.806213,42737945
 Elm Place,Sunnyside Terrace,Staten Island,40.614413,-74.09979,42964271
 Elm Place,Van Cortlandt Avenue,Staten Island,40.615235,-74.100723,42964269
-Elm Road,St Michael's Avenue,Queens,40.764229,-73.898077,482842587
+Elm Road,Saint Michael's Avenue,Queens,40.764229,-73.898077,482842587
 Elm Street,Henderson Avenue,Staten Island,40.637429,-74.113736,43007739
 Elm Street,Richmond Terrace,Staten Island,40.642152,-74.115062,43007732
 Elmbank Street,Harold Avenue,Staten Island,40.529834,-74.163814,42982374
@@ -41470,7 +41470,7 @@ Maple Parkway,Netherland Avenue,Staten Island,40.628781,-74.156591,42969162
 Maple Parkway,Spirit Lane,Staten Island,40.628262,-74.156565,42969165
 Maple Parkway,Walloon Street,Staten Island,40.632505,-74.15639,9667463072/42969151
 Maple Road,Oval Road,Queens,40.765453,-73.898053,484215959
-Maple Road,St Michael's Avenue,Queens,40.765511,-73.89763,484213721
+Maple Road,Saint Michael's Avenue,Queens,40.765511,-73.89763,484213721
 Maple Street,New York Avenue,Brooklyn,40.661007,-73.947753,42485089
 Maple Street,Nostrand Avenue,Brooklyn,40.660827,-73.950644,42481672
 Maple Street,Rogers Avenue,Brooklyn,40.660648,-73.953539,42485084
@@ -44896,12 +44896,15 @@ Saint Francis Avenue,Saint Michael Avenue,Queens,40.7394,-73.911729,761565121
 Saint Francis Place,Saint Johns Place,Brooklyn,40.672233,-73.956479,42498596
 Saint George Drive,Utopia Court,Staten Island,40.593092,-74.105529,43002197
 Saint Georges Crescent,Van Cortlandt Avenue East,Bronx,40.877158,-73.884761,2024817802
+Saint James Avenue,Saint Johns Avenue,Queens,40.718519,-73.896114,765037506
 Saint James Avenue,Saint William Avenue,Queens,40.733714,-73.916557,761564885
 Saint Jerome Avenue,Saint Thomas Avenue,Queens,40.730365,-73.932239,3440153613
 Saint John Avenue,Watchogue Road,Staten Island,40.615669,-74.135538,42954345
 Saint John Avenue,Waters Avenue,Staten Island,40.617093,-74.135149,42956727
 Saint John's Avenue,Saint Mary's Avenue,Queens,40.733566,-73.930227,761583588
 Saint John's Lane,York Street,Manhattan,40.721069,-74.005848,42438779
+Saint Johns Avenue,Saint Marks Avenue,Queens,40.718775,-73.895842,7706100051
+Saint Johns Avenue,Saint Pauls Avenue,Queens,40.719872,-73.894935,765037430
 Saint Johns Avenue,Schubert Street,Staten Island,40.608267,-74.072601,43001443
 Saint Johns Avenue,Strauss Street,Staten Island,40.607528,-74.074014,43008762
 Saint Johns Avenue,Tompkins Avenue,Staten Island,40.609771,-74.069674,5528176062
@@ -44924,6 +44927,7 @@ Saint Lawrence Avenue,Seward Avenue,Bronx,40.818999,-73.864314,42743591
 Saint Lawrence Avenue,Soundview Avenue,Bronx,40.819893,-73.864553,42738880/9603624487
 Saint Lawrence Avenue,Watson Avenue,Bronx,40.82768,-73.866346,42743598
 Saint Lawrence Avenue,Westchester Avenue,Bronx,40.831624,-73.867258,42743604
+Saint Lukes Road,West Road,Queens,40.765649,-73.901918,7659616035
 Saint Mark Avenue,Saint Theresa Avenue,Queens,40.729153,-73.914599,761564659
 Saint Marks Avenue,Saint Marks Place,Brooklyn,40.680852,-73.977451,42465238
 Saint Marks Avenue,Saratoga Avenue,Brooklyn,40.67339,-73.916773,42476340
@@ -45528,10 +45532,6 @@ Spritz Road,Whitelaw Street,Queens,40.672457,-73.846165,42867211
 Spruce Avenue,Sylvan Avenue,Brooklyn,40.653727,-74.000349,756246952
 Spruce Avenue,Tulip Avenue,Brooklyn,40.650518,-73.997389,756246906
 Spruce Lane,White Oak Lane,Staten Island,40.539285,-74.221005,42962983
-St James Avenue,St Johns Avenue,Queens,40.718519,-73.896114,765037506
-St Johns Avenue,St Marks Avenue,Queens,40.718775,-73.895842,7706100051
-St Johns Avenue,St Pauls Avenue,Queens,40.719872,-73.894935,765037430
-St Lukes Road,West Road,Queens,40.765649,-73.901918,7659616035
 Stacey Lane,Zwicky Avenue,Staten Island,40.576793,-74.102102,42965478
 Stadium Avenue,Waterbury Avenue,Bronx,40.837178,-73.818773,42758834
 Stadium Avenue,Watt Avenue,Bronx,40.848032,-73.820131,9561918219

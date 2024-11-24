@@ -401,13 +401,14 @@ def normalize_street_for_osm(s: str) -> str:
 
 def expand_abbrevs(s: str) -> str:
     """Expand "Ave" -> "Avenue", "St" -> "Street", etc."""
-    s = re.sub(r"\b(?<!^)St\.?(?= |$)", "Street", s)
-    s = re.sub(r"\b(?<!^)Ave\.?(?= |$)", "Avenue", s)
-    s = re.sub(r"\b(?<!^)Pl\.?(?= |$)", "Place", s)
-    s = re.sub(r"\b(?<!^)Dr\.?(?= |$)", "Drive", s)
-    s = re.sub(r"\b(?<!^)Rd\.?(?= |$)", "Road", s)
-    s = re.sub(r"\b(?<!^)Ln\.?(?= |$)", "Lane", s)
-    s = re.sub(r"\b(?<!^)Blvd\.?(?= |$)", "Boulevard", s)
+    s = re.sub(r"^St\.? ", "Saint ", s)
+    s = re.sub(r"\bSt\.?(?= |$)", "Street", s)
+    s = re.sub(r"\bAve\.?(?= |$)", "Avenue", s)
+    s = re.sub(r"\bPl\.?(?= |$)", "Place", s)
+    s = re.sub(r"\b(?<!^)Dr\.?(?= |$)", "Drive", s)  # Don't match "Dr. MLK"
+    s = re.sub(r"\bRd\.?(?= |$)", "Road", s)
+    s = re.sub(r"\bLn\.?(?= |$)", "Lane", s)
+    s = re.sub(r"\bBlvd\.?(?= |$)", "Boulevard", s)
     return s
 
 
