@@ -125,6 +125,7 @@ def ave_to_num(ave: str):
         return int(ave)
 
 
+# TODO: use statistics.correlation instead
 def correl(xs_list: Sequence[float | int], ys_list: Sequence[float | int]):
     xs = np.array(xs_list, dtype=float)
     ys = np.array(ys_list, dtype=float)
@@ -400,14 +401,13 @@ def normalize_street_for_osm(s: str) -> str:
 
 def expand_abbrevs(s: str) -> str:
     """Expand "Ave" -> "Avenue", "St" -> "Street", etc."""
-    s = re.sub(r"St\.? (Nicholas|James|John|Michael|Peter)", r"Saint \1", s)
-    s = re.sub(r"\bSt\.?(?= |$)", "Street", s)
-    s = re.sub(r"\bAve\.?(?= |$)", "Avenue", s)
-    s = re.sub(r"\bPl\.?(?= |$)", "Place", s)
-    s = re.sub(r"\bDr\.?(?= |$)", "Drive", s)
-    s = re.sub(r"\bRd\.?(?= |$)", "Road", s)
-    s = re.sub(r"\bLn\.?(?= |$)", "Lane", s)
-    s = re.sub(r"\bBlvd\.?(?= |$)", "Boulevard", s)
+    s = re.sub(r"\b(?<!^)St\.?(?= |$)", "Street", s)
+    s = re.sub(r"\b(?<!^)Ave\.?(?= |$)", "Avenue", s)
+    s = re.sub(r"\b(?<!^)Pl\.?(?= |$)", "Place", s)
+    s = re.sub(r"\b(?<!^)Dr\.?(?= |$)", "Drive", s)
+    s = re.sub(r"\b(?<!^)Rd\.?(?= |$)", "Road", s)
+    s = re.sub(r"\b(?<!^)Ln\.?(?= |$)", "Lane", s)
+    s = re.sub(r"\b(?<!^)Blvd\.?(?= |$)", "Boulevard", s)
     return s
 
 

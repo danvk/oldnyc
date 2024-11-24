@@ -131,11 +131,15 @@ def test_normalize_street():
     assert grid.normalize_street("Frederick Douglass Blvd") == "Frederick Douglass Boulevard"
     assert grid.normalize_street("Central Park W") == "Central Park West"
     assert grid.normalize_street("Maiden Ln") == "Maiden Lane"
-    assert grid.normalize_street("St Nicholas") == "Saint Nicholas"
+    assert grid.normalize_street("St Nicholas") == "St Nicholas"
     assert grid.normalize_street("10th St E") == "10th Street East"
     assert grid.normalize_street_for_osm("Avenue E") == "Avenue E"
     # TODO: just fix this bug?
     assert grid.normalize_street("Avenue E") == "Avenue East"
+    assert (
+        grid.normalize_street_for_osm("Dr. Martin Luther King Jr. Expressway")
+        == "Dr. Martin Luther King Jr. Expressway"
+    )
 
 
 # 10th Street and Sixth Avenue, Brooklyn

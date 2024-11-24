@@ -123,7 +123,7 @@ def get_intersection_center(nodes: Sequence[OsmNode]) -> tuple[float, float]:
         d = haversine((a["lat"], a["lon"]), (b["lat"], b["lon"])) * 1000
         # Riverside Drive / 110: 42452276 <-> 42441926 111m
         if d > 120:
-            sys.stderr.write(f"  {a['id']} <-> {b['id']} {d:.0f}m\n")
+            # sys.stderr.write(f"  {a['id']} <-> {b['id']} {d:.0f}m\n")
             raise ValueError("Ambiguous intersection")
 
     num = len(nodes)
@@ -225,7 +225,7 @@ def main():
             # claimed_nodes.update(intersect_node_ids)
             borough = point_to_borough(lat, lng)
             if borough is None:
-                print(f"Not in NYC: {str1} / {str2}: ({intersect_node_ids})")
+                # print(f"Not in NYC: {str1} / {str2}: ({intersect_node_ids})")
                 continue
             out.writerow(
                 [
@@ -327,7 +327,7 @@ def main():
         rows.append([str(x) for x in [street, ave, lat, lon]])
 
     with open("data/intersections.csv", "w") as f:
-        out = csv.writer(f)
+        out = csv.writer(f, lineterminator="\n")
         out.writerows(rows)
 
 
