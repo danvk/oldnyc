@@ -184,6 +184,8 @@ if __name__ == "__main__":
                     try:
                         geocode_result = None
                         address = get_address_for_google(locatable)
+                        if not address:
+                            continue
                         try:
                             if args.print_geocodes:
                                 geocache = geocoder.cache_file_name(address)

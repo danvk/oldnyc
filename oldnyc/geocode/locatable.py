@@ -49,10 +49,31 @@ def locate_with_osm(
     return round_pt(pt)
 
 
-def get_address_for_google(loc: Locatable) -> str:
+KNOWN_BAD = {
+    "Hudson River",
+    "East River",
+    "unknown",
+    "Harlem River",
+    "Manhattan",
+    "West",
+    "North",
+    "East",
+    "South",
+    "Richmond",
+    "docks",
+    "Triborough Bridge",
+    "Randall's Island",
+    "Tottenville",
+}
+# 2986 -> 2719
+
+
+def get_address_for_google(loc: Locatable) -> str | None:
     if isinstance(loc, AddressLocation):
         return f"{loc.num} {loc.street}, {loc.boro}, NY"
     elif isinstance(loc, IntersectionLocation):
+        if loc.str1 in KNOWN_BAD or loc.str2 in KNOWN_BAD:
+            return None
         return f"{loc.str1} and {loc.str2}, {loc.boro}, NY"
     else:
         raise ValueError()
