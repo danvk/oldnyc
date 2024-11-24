@@ -12,7 +12,7 @@ from haversine import haversine
 from tqdm import tqdm
 
 from oldnyc.geocode import grid
-from oldnyc.geocode.boroughs import point_to_borough
+from oldnyc.geocode.boroughs import is_in_manhattan, point_to_borough
 from oldnyc.geocode.osm.osm import OsmElement, OsmNode, OsmWay
 
 # TODO: restore code to generate the other intersection files
@@ -25,6 +25,14 @@ def load_osm_data() -> list[OsmElement]:
 
 
 AVE_TO_NUM = {"A": 0, "B": -1, "C": -2, "D": -3}
+
+
+def invert[T, V](d: dict[T, set[V]]) -> dict[V, set[T]]:
+    out = defaultdict(set)
+    for k, vs in d.items():
+        for v in vs:
+            out[v].add(k)
+    return out
 
 
 def interpret_as_ave(w: OsmWay) -> str | None:
@@ -150,6 +158,12 @@ def main():
             node_counts[node] += 1
     intersection_nodes = [n for n, v in node_counts.items() if v >= 2]
 
+    manhattan_intersections = [
+        n
+        for n in tqdm(intersection_nodes)
+        if is_in_manhattan(id_to_node[n]["lat"], id_to_node[n]["lon"])
+    ]
+
     node_to_ways = defaultdict(list)
     int_set = set(intersection_nodes)
     for way in ways:
@@ -161,6 +175,11 @@ def main():
     intersection_nodes = [
         n
         for n in intersection_nodes
+        if len(set(id_to_way[w]["tags"]["name"] for w in node_to_ways[n])) >= 2
+    ]
+    manhattan_intersections = [
+        n
+        for n in manhattan_intersections
         if len(set(id_to_way[w]["tags"]["name"] for w in node_to_ways[n])) >= 2
     ]
 
@@ -218,6 +237,98 @@ def main():
                     "/".join(str(n) for n in intersect_node_ids),
                 ]
             )
+
+    assert 42442559 in manhattan_intersections
+    assert 42442561 in manhattan_intersections
+
+    manhattan_roads = [
+        id_to_way[w] for w in {w for int_n in manhattan_intersections for w in node_to_ways[int_n]}
+    ]
+
+    ave_a = [m for m in manhattan_roads if m["id"] == 195743554]
+    assert ave_a
+
+    street_num_to_ways = defaultdict[int, set[int]](set)
+    ave_num_to_ways = defaultdict[str, set[int]](set)
+    for w in manhattan_roads:
+        ave_name = interpret_as_ave(w)
+        if ave_name:
+            ave_num_to_ways[ave_name].add(w["id"])
+            continue
+
+        street_num = interpret_as_street(w)
+        if street_num is not None:
+            street_num_to_ways[street_num].add(w["id"])
+
+    street_to_nodes = {
+        k: {n for way_id in way_ids for n in id_to_way[way_id]["nodes"]}
+        for k, way_ids in street_num_to_ways.items()
+    }
+    ave_to_nodes = {
+        k: {n for way_id in way_ids for n in id_to_way[way_id]["nodes"]}
+        for k, way_ids in ave_num_to_ways.items()
+    }
+    # node_to_street = invert(street_to_nodes)
+    # node_to_ave = invert(ave_to_nodes)
+
+    # This might be a more useful format than intersections.csv.
+    # It's more "raw" and matches the street names more directly.
+    # for ave in sorted(ave_to_nodes.keys()):
+    #     nodes = ave_to_nodes[ave]
+    #     for node in nodes:
+    #         lat = id_to_node[node]["lat"]
+    #         lon = id_to_node[node]["lon"]
+    #         streets = node_to_street.get(node)
+    #         for street in sorted(streets or []):
+    #             print(f"{ave}\t{street}\t{node}\t{lat},{lon}")
+
+    def locate(ave: int, street: int) -> tuple[float, float] | None:
+        street_nodes = street_to_nodes.get(street)
+        if not street_nodes:
+            return None
+        ave_str = make_avenue_str(ave, street)
+        if ave_str is None:
+            return None
+        ave_nodes = ave_to_nodes.get(ave_str)
+        if not ave_nodes:
+            return None
+
+        intersect_node_ids = street_nodes & ave_nodes
+        if not intersect_node_ids:
+            return None
+        intersect_nodes = [id_to_node[n] for n in intersect_node_ids]
+
+        # If there are multiple nodes, it's likely they're the sides or corners of the
+        # intersection. It's fine to average them, after a sanity check.
+        for a, b in itertools.combinations(intersect_nodes, 2):
+            d = haversine((a["lat"], a["lon"]), (b["lat"], b["lon"])) * 1000
+            if d > 100:
+                sys.stderr.write(f"  {a['id']} <-> {b['id']} {d:.0f}m\n")
+                raise ValueError("Ambiguous intersection")
+
+        num = len(intersect_nodes)
+        return (
+            round(sum(n["lat"] for n in intersect_nodes) / num, 6),
+            round(sum(n["lon"] for n in intersect_nodes) / num, 6),
+        )
+
+    crosses: list[tuple[int, int]] = []
+    for street in range(1, 125):
+        for ave in range(-3, 13 if street >= 14 else 7):
+            crosses.append((ave, street))
+
+    rows = [["Street", "Avenue", "Lat", "Lon"]]
+    for i, (ave, street) in enumerate(crosses):
+        lat, lon = locate(ave, street) or ("", "")
+        if (ave, street, lat, lon) == (11, 14, "", ""):
+            # Google geocodes this one but OSM has 14th street end at 10th Ave.
+            # The correct behavior is debatable, but this lets us keep a few photos.
+            lat, lon = (40.7424762, -74.0088873)
+        rows.append([str(x) for x in [street, ave, lat, lon]])
+
+    delim = ","
+    for row in rows:
+        print(delim.join(row))
 
 
 if __name__ == "__main__":
