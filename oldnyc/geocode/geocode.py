@@ -224,8 +224,6 @@ if __name__ == "__main__":
         sys.stderr.write(f"-- Finalizing {c.name()} --\n")
         c.finalize()
 
-    # grid.log_stats()
-
     sys.stderr.write("-- Final stats --\n")
     successes = 0
     for c in geocoders:
