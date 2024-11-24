@@ -174,39 +174,26 @@ if __name__ == "__main__":
                 break
 
             lat_lon = None
+            locatable = None
             for locatable in candidate_locatables:
                 # First try OSM (offline), then Google (online)
                 lat_lon = locate_with_osm(r, locatable, c.name(), grid_geocoder)
 
+                # TODO: factor this block out, it's a mess
                 if not lat_lon:
                     try:
                         geocode_result = None
                         address = get_address_for_google(locatable)
                         try:
-                            geocode_result = None
-                            address = get_address_for_google(locatable)
-                            try:
-                                if args.print_geocodes:
-                                    geocache = geocoder.cache_file_name(address)
-                                    print(f'{r.id} {c.name()}: Geocoding "{address}" ({geocache})')
-                                geocode_result = g.Locate(address, True, r.id)
-                            except urllib.error.HTTPError as e:
-                                if e.status == 400:
-                                    sys.stderr.write(f"Bad request: {address}\n")
-                                else:
-                                    raise e
-
-                            if geocode_result:
-                                lat_lon = extract_point_from_google_geocode(
-                                    geocode_result, locatable, r, c.name()
-                                )
+                            if args.print_geocodes:
+                                geocache = geocoder.cache_file_name(address)
+                                print(f'{r.id} {c.name()}: Geocoding "{address}" ({geocache})')
+                            geocode_result = g.Locate(address, True, r.id)
+                        except urllib.error.HTTPError as e:
+                            if e.status == 400:
+                                sys.stderr.write(f"Bad request: {address}\n")
                             else:
-                                sys.stderr.write("Failed to geocode %s\n" % r.id)
-                                # sys.stderr.write('Location: %s\n' % location_data['address'])
-                        except Exception:
-                            sys.stderr.write("ERROR locating %s with %s\n" % (r.id, c.name()))
-                            # sys.stderr.write('ERROR location: "%s"\n' % json.dumps(location_data))
-                            raise
+                                raise e
 
                         if geocode_result:
                             lat_lon = extract_point_from_google_geocode(
@@ -255,14 +242,14 @@ if __name__ == "__main__":
 
         if n_grid_attempt:
             sys.stderr.write(f"            grid: {n_grid} ({n_grid_attempt} attempts)\n")
+            grid_geocoder.log_stats()
+
         if n_google_attempts:
             sys.stderr.write(f"          google: {n_google_success}\n")
             sys.stderr.write(f"   boro mismatch: {n_boro_mismatch}\n")
             sys.stderr.write(f"        failures: {n_google_fail}\n")
             assert g
             g.log_stats()
-
-    grid_geocoder.log_stats()
 
     sys.stderr.write("-- Final stats --\n")
     successes = 0

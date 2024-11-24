@@ -111,7 +111,7 @@ class Geocoder:
     def log_stats(self):
         sys.stderr.write("Google geocoder stats:\n")
         sys.stderr.write(f"     Cache misses: {self.n_cache_misses}\n")
-        sys.stderr.write(f"  Cache files hit: {self._touched_cache_files}\n")
+        sys.stderr.write(f"  Cache files hit: {len(self._touched_cache_files)}\n")
 
 
 if __name__ == "__main__":
