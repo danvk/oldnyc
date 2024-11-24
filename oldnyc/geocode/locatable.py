@@ -21,7 +21,7 @@ counts = defaultdict[str, Counter[str]](Counter)
 
 def round_pt(pt: Point) -> Point:
     lat, lng = pt
-    return round(float(lat), 7), round(float(lng), 7)  # they may be numpy floats
+    return round(lat, 7), round(lng, 7)
 
 
 def locate_with_osm(
