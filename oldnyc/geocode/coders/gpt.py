@@ -10,7 +10,7 @@ from oldnyc.item import Item
 
 
 class GptCoder(Coder):
-    queries: dict[str, GptResponse]
+    queries: dict[str, list[GptResponse]]
 
     def __init__(self):
         with open("data/gpt-geocodes.json") as f:
@@ -27,9 +27,12 @@ class GptCoder(Coder):
     def code_record(self, r: Item):
         # GPT location extractions are always based on record ID, not photo ID.
         id = r.id.split("-")[0]
-        q = self.queries.get(id)
-        if not q:
+        qs = self.queries.get(id)
+        if not qs:
             return None
+        return [locatable for q in qs if (locatable := self.code_one(r, q))]
+
+    def code_one(self, r: Item, q: GptResponse):
         # sys.stderr.write(f"GPT location: {r.id} {q}\n")
 
         if q["type"] in ("no location information", "not in NYC"):

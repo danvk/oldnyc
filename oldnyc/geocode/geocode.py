@@ -156,59 +156,65 @@ if __name__ == "__main__":
 
         # Give each coder a crack at the record, in turn.
         for c in geocoders:
-            locatable = c.code_record(r)
-            if not locatable:
+            candidate_locatables = c.code_record(r)
+            if not candidate_locatables:
                 continue
 
-            if not g:
-                if args.print_records:
-                    print("%s\t%s\t%s" % (c.name(), r.id, json.dumps(locatable)))
-                stats[c.name()] += 1
-                located_rec = (r, None)
-                break
+            for locatable in candidate_locatables:
+                if not g:
+                    if args.print_records:
+                        print("%s\t%s\t%s" % (c.name(), r.id, json.dumps(locatable)))
+                    stats[c.name()] += 1
+                    located_rec = (r, None)
+                    break
 
-            # First try OSM (offline), then Google (online)
-            lat_lon = locate_with_osm(r, locatable)
+                # First try OSM (offline), then Google (online)
+                lat_lon = locate_with_osm(r, locatable)
 
-            if not lat_lon:
-                try:
-                    geocode_result = None
-                    address = get_address_for_google(locatable)
+                if not lat_lon:
                     try:
-                        if args.print_geocodes:
-                            geocache = geocoder.cache_file_name(address)
-                            print(f'{r.id} {c.name()}: Geocoding "{address}" ({geocache})')
-                        geocode_result = g.Locate(address, True, r.id)
-                    except urllib.error.HTTPError as e:
-                        if e.status == 400:
-                            sys.stderr.write(f"Bad request: {address}\n")
+                        geocode_result = None
+                        address = get_address_for_google(locatable)
+                        try:
+                            if args.print_geocodes:
+                                geocache = geocoder.cache_file_name(address)
+                                print(f'{r.id} {c.name()}: Geocoding "{address}" ({geocache})')
+                            geocode_result = g.Locate(address, True, r.id)
+                        except urllib.error.HTTPError as e:
+                            if e.status == 400:
+                                sys.stderr.write(f"Bad request: {address}\n")
+                            else:
+                                raise e
+
+                        if geocode_result:
+                            lat_lon = extract_point_from_google_geocode(
+                                geocode_result, locatable, r
+                            )
                         else:
-                            raise e
+                            sys.stderr.write("Failed to geocode %s\n" % r.id)
+                            # sys.stderr.write('Location: %s\n' % location_data['address'])
+                    except Exception:
+                        sys.stderr.write("ERROR locating %s with %s\n" % (r.id, c.name()))
+                        # sys.stderr.write('ERROR location: "%s"\n' % json.dumps(location_data))
+                        raise
 
-                    if geocode_result:
-                        lat_lon = extract_point_from_google_geocode(geocode_result, locatable, r)
-                    else:
-                        sys.stderr.write("Failed to geocode %s\n" % r.id)
-                        # sys.stderr.write('Location: %s\n' % location_data['address'])
-                except Exception:
-                    sys.stderr.write("ERROR locating %s with %s\n" % (r.id, c.name()))
-                    # sys.stderr.write('ERROR location: "%s"\n' % json.dumps(location_data))
-                    raise
-
-            if lat_lon:
-                if args.print_records:
-                    print(
-                        "%s\t%f,%f\t%s\t%s"
-                        % (
-                            r.id,
-                            lat_lon[0],
-                            lat_lon[1],
-                            c.name(),
-                            json.dumps(locatable),
+                if lat_lon:
+                    if args.print_records:
+                        print(
+                            "%s\t%f,%f\t%s\t%s"
+                            % (
+                                r.id,
+                                lat_lon[0],
+                                lat_lon[1],
+                                c.name(),
+                                json.dumps(locatable),
+                            )
                         )
-                    )
-                stats[c.name()] += 1
-                located_rec = (r, (c.name(), locatable, lat_lon))
+                    stats[c.name()] += 1
+                    located_rec = (r, (c.name(), locatable, lat_lon))
+                    break
+
+            if located_rec:
                 break
 
         located_recs.append(located_rec)

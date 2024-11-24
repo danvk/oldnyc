@@ -164,7 +164,7 @@ class TitleCrossCoder(Coder):
         str1 = punctuate(str1)
         str2 = punctuate(str2)
         assert src
-        return IntersectionLocation(source=src, str1=str1, str2=str2, boro=boro)
+        return [IntersectionLocation(source=src, str1=str1, str2=str2, boro=boro)]
 
     def finalize(self):
         sys.stderr.write(f"    titles matched: {self.n_title}\n")
@@ -226,12 +226,14 @@ class TitleAddressCoder(Coder):
                     self.n_matches += 1
                     street = rewrite_directional_street(street)
                     self.patterns[name] += 1
-                    return AddressLocation(
-                        source=m.group(0),
-                        num=num,
-                        street=street,
-                        boro=boro,
-                    )
+                    return [
+                        AddressLocation(
+                            source=m.group(0),
+                            num=num,
+                            street=street,
+                            boro=boro,
+                        )
+                    ]
 
     def finalize(self):
         sys.stderr.write(f" address matches: {self.n_matches}\n")
