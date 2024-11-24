@@ -79,9 +79,9 @@ def extract_point_from_google_geocode(
     boro = loc.boro if loc.boro != "New York" else "Manhattan"
     if geocode_boro != boro:
         # self.n_boro_mismatch += 1
-        sys.stderr.write(
-            f"Borough mismatch: {record.id}: {loc.source} geocoded to {geocode_boro} not {boro}\n"
-        )
+        # sys.stderr.write(
+        #     f"Borough mismatch: {record.id}: {loc.source} geocoded to {geocode_boro} not {boro}\n"
+        # )
         counts[coder]["google: boro mismatch"] += 1
         return None
     # TODO: track hits by locatable type

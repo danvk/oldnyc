@@ -243,7 +243,7 @@ class GridGeocoder:
             return None
 
         if not may_extrapolate(avenue, street):
-            sys.stderr.write("Rejecting extrapolation for %s, %s\n" % (avenue, street))
+            # sys.stderr.write("Rejecting extrapolation for %s, %s\n" % (avenue, street))
             return None
 
         self.counts["extrapolated"] += 1  # this might still fail
@@ -299,9 +299,9 @@ class GridGeocoder:
                 latlng = interpolate(ave_ints, num1)
                 if latlng:
                     self.counts["interpolated"] += 1
-                    sys.stderr.write(
-                        f"{debug_txt} Interpolated {street2} ({avenue}) & {street1} ({num1}) to {latlng}\n"
-                    )
+                    # sys.stderr.write(
+                    #     f"{debug_txt} Interpolated {street2} ({avenue}) & {street1} ({num1}) to {latlng}\n"
+                    # )
                     return latlng
 
         # Either of these can raise a ValueError

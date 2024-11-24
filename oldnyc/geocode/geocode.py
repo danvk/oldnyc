@@ -13,6 +13,7 @@ from collections import defaultdict
 from typing import Callable
 
 from dotenv import load_dotenv
+from tqdm import tqdm
 
 from oldnyc.geocode import generate_js, geocoder, grid
 from oldnyc.geocode.coders import (
@@ -110,6 +111,7 @@ if __name__ == "__main__":
         help="Lat/lon cluster map, built by cluster-locations.py. "
         "Only used when outputting lat-lons{,-ny}.js",
     )
+    parser.add_argument("--no-progress-bar", action="store_true", help="Show/hide progress bar.")
 
     args = parser.parse_args()
 
@@ -153,10 +155,8 @@ if __name__ == "__main__":
 
     stats = defaultdict(int)
     located_recs: list[tuple[Item, tuple[str, Locatable, Point] | None]] = []
-    for idx, r in enumerate(rs):
-        if idx % 100 == 0 and idx > 0:
-            sys.stderr.write("%5d / %5d records processed\n" % (1 + idx, len(rs)))
-
+    src = rs if args.no_progress_bar else tqdm(rs)
+    for idx, r in enumerate(src):
         located_rec = (r, None)
 
         # Give each coder a crack at the record, in turn.

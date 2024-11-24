@@ -1,9 +1,4 @@
 Filtered to 200/41463 records with --ids_filter (200)
-Borough mismatch: 704487f: Brooklyn: Fulton Street - Nassau Street geocoded to Manhattan not Brooklyn
-Borough mismatch: 704487f: Fulton Street and Nassau Street geocoded to Manhattan not Brooklyn
-  101 /   200 records processed
-Borough mismatch: 713577f: Manhattan: 51st Street - 19th Avenue geocoded to Brooklyn not Manhattan
-Borough mismatch: 713577f: 19th Avenue and 51st Street geocoded to Brooklyn not Manhattan
 -- Finalizing title-cross --
     titles matched: 0
 alt titles matched: 0
