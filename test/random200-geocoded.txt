@@ -30,10 +30,10 @@
 3984770	gpt	(40.6827979, -74.0056158)	Hamilton Av and Summit St.
 3985030	failed	n/a	n/a
 3985133	failed	n/a	n/a
-3985197	gpt	(40.68690549999999, -73.9446241)	Gates Av and Tompkins Av
+3985197	gpt	(40.6869055, -73.9446241)	Gates Av and Tompkins Av
 417208	gpt	(40.773698, -73.961944)	Park Avenue and Seventy-sixth Street
 417391	failed	n/a	n/a
-417677	gpt	(40.8037375, -73.96522569999999)	527 Cathedral Parkway
+417677	gpt	(40.8037375, -73.9652257)	527 Cathedral Parkway
 485752	gpt	(40.714965, -74.009709)	Warren Street and West Broadway
 485886	title-cross	(40.729464, -74.005185)	7th Avenue at Carmine Street, Manhattan
 700428f	title-cross	(40.904466, -73.907167)	Bronx: Arlington Avenue - 256th Street (West)
@@ -193,8 +193,8 @@
 732657f	gpt	(40.693641, -73.913307)	Putnam Avenue and Wilson Avenue
 733310f	gpt	(40.753481, -73.980879)	42nd Street and Fifth Ave
 733706f	failed	n/a	n/a
-734005f	subjects	(40.705573, -74.00145669999999)	East River Pier 17 (New York, N.Y.)
-734193f	subjects	(40.54038329999999, -74.13569799999999)	Great Kills Harbor (New York, N.Y.)
+734005f	subjects	(40.705573, -74.0014567)	East River Pier 17 (New York, N.Y.)
+734193f	subjects	(40.5403833, -74.135698)	Great Kills Harbor (New York, N.Y.)
 734228f	failed	n/a	n/a
-734332f	subjects	(40.8736935, -73.91106359999999)	Broadway Bridge (New York, N.Y.)
+734332f	subjects	(40.8736935, -73.9110636)	Broadway Bridge (New York, N.Y.)
 psnypl_lhg_195	failed	n/a	n/a
