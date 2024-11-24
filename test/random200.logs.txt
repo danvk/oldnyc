@@ -9,8 +9,8 @@ Borough mismatch: 713577f: 19th Avenue and 51st Street geocoded to Brooklyn not 
 alt titles matched: 0
      total matches: 150
           counters: [('title', 148), ('boro-int', 148), ('alt_title', 2), ('num-prefix', 1), ('at-int', 1)]
-            grid: 123 (150 attempts)
-          google: 9
+            grid: 124 (150 attempts)
+          google: 8
    boro mismatch: 2
         failures: 16
 -- Finalizing title-address --
@@ -41,7 +41,7 @@ POI/subject geocoding:
    2	n_title_bridge
    2	n_title_island
 Grid statistics:
-           Counts: [('dir strip', 71), ('exact', 59), ('exact: str', 2), ('unclaimed', 2), ('extrapolated', 2)]
+           Counts: [('dir strip', 71), ('exact', 60), ('exact: str', 2), ('unclaimed', 2), ('extrapolated', 2)]
   Unknown avenues: Counter({'19': 2})
   Unknown streets: Counter()
 -- Final stats --
