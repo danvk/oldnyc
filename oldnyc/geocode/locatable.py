@@ -70,6 +70,8 @@ KNOWN_BAD = {
 
 def get_address_for_google(loc: Locatable) -> str | None:
     if isinstance(loc, AddressLocation):
+        if loc.street in KNOWN_BAD:
+            return None
         return f"{loc.num} {loc.street}, {loc.boro}, NY"
     elif isinstance(loc, IntersectionLocation):
         if loc.str1 in KNOWN_BAD or loc.str2 in KNOWN_BAD:
