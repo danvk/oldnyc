@@ -3,49 +3,53 @@
 alt titles matched: 0
      total matches: 31270
           counters: [('boro-int', 30503), ('title', 30096), ('alt_title', 1174), ('at-int', 288), ('num-prefix', 271), ('between', 208)]
-            grid: 7813 (18776 attempts)
-          google: 17946
-   boro mismatch: 504
-        failures: 4850
+            grid: 24497 (31113 attempts)
+          google: 1896
+   boro mismatch: 480
+        failures: 4240
 -- Finalizing title-address --
- address matches: 638
-        patterns: [('street_pound', 427), ('num_street', 211)]
-          google: 608
-   boro mismatch: 13
-        failures: 17
+ address matches: 626
+        patterns: [('street_pound', 426), ('num_street', 200)]
+          google: 601
+   boro mismatch: 9
+        failures: 16
 -- Finalizing gpt --
-GPT POI:          5096
-GPT address:      721
-GPT intersection: 7359
-            grid: 406 (3697 attempts)
-          google: 2259
-   boro mismatch: 499
-        failures: 4916
+GPT POI:          5089
+GPT address:      712
+GPT intersection: 6750
+            grid: 1763 (6750 attempts)
+          google: 959
+   boro mismatch: 457
+        failures: 4283
 -- Finalizing special --
-Special cases: [('Columbus Circle', 47), ('China Daily News', 23), ('St. John the Divine', 7), ('Squatters: Camp Thomas Paine', 6), ('Mt. Sinai', 5)]
+Special cases: [('Columbus Circle', 45), ('China Daily News', 23), ('St. John the Divine', 7), ('Squatters: Camp Thomas Paine', 6), ('Mt. Sinai', 5)]
 -- Finalizing subjects --
 POI/subject geocoding:
-1034	n_both
-2262	n_geo
+1027	n_both
+2222	n_geo
  127	n_geo_multi
-2135	n_geo_unambig
- 858	n_out_both_close
-  30	n_out_both_fallback_title
-  40	n_out_both_subject
- 106	n_out_both_title
-1141	n_out_subject
-1204	n_out_title
-1244	n_title
- 363	n_title_bridge
- 260	n_title_island
- 621	n_title_park
+2095	n_geo_unambig
+ 855	n_out_both_close
+  29	n_out_both_fallback_title
+  38	n_out_both_subject
+ 105	n_out_both_title
+1106	n_out_subject
+1196	n_out_title
+1234	n_title
+ 359	n_title_bridge
+ 256	n_title_island
+ 619	n_title_park
+Grid statistics:
+           Counts: [('exact', 12469), ('dir strip', 12105), ('exact: str', 1253), ('interpolated', 269), ('extrapolated', 170), ('unclaimed', 142), ('exact_grid', 5)]
+  Unknown avenues: Counter({'13': 53, 'Broadway': 8, '36': 7, '19': 6, '85': 4, '62': 3, '53': 2, '93': 2, '95': 2, '22': 2, '98': 2, '57': 1, '49': 1, '26': 1, '46': 1, '44': 1, '96': 1, '88': 1})
+  Unknown streets: Counter({'193': 10, '212': 10, '145': 6, '129': 3, '157': 2, '139': 2, '143': 2, '192': 2, '142': 2, '130': 2, '174': 1, '208': 1, '181': 1})
 -- Final stats --
-25759 title-cross
-  608 title-address
- 2665 gpt
-   88 special
- 2345 subjects
-31465 (total)
+26393 title-cross
+  601 title-address
+ 2722 gpt
+   86 special
+ 2302 subjects
+32104 (total)
 Dropped w/ no date: 0
-Unique lat/longs: 9432
-Total photographs: 31465
+Unique lat/longs: 9805
+Total photographs: 32104

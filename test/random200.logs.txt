@@ -1,19 +1,13 @@
 Filtered to 200/41463 records with --ids_filter (200)
-Borough mismatch: 704487f: Brooklyn: Fulton Street - Nassau Street geocoded to Manhattan not Brooklyn
-Borough mismatch: 704487f: Fulton Street and Nassau Street geocoded to Manhattan not Brooklyn
-Rejecting extrapolation for 7, 12
-  101 /   200 records processed
-Borough mismatch: 713577f: Manhattan: 51st Street - 19th Avenue geocoded to Brooklyn not Manhattan
-Borough mismatch: 713577f: 19th Avenue and 51st Street geocoded to Brooklyn not Manhattan
 -- Finalizing title-cross --
     titles matched: 0
 alt titles matched: 0
      total matches: 150
           counters: [('title', 148), ('boro-int', 148), ('alt_title', 2), ('num-prefix', 1), ('at-int', 1)]
-            grid: 51 (95 attempts)
-          google: 80
+            grid: 124 (150 attempts)
+          google: 8
    boro mismatch: 2
-        failures: 17
+        failures: 16
 -- Finalizing title-address --
  address matches: 3
         patterns: [('street_pound', 2), ('num_street', 1)]
@@ -23,11 +17,11 @@ alt titles matched: 0
 -- Finalizing gpt --
 GPT POI:          24
 GPT address:      3
-GPT intersection: 31
-            grid: 6 (15 attempts)
-          google: 11
+GPT intersection: 30
+            grid: 11 (30 attempts)
+          google: 6
    boro mismatch: 2
-        failures: 15
+        failures: 14
 -- Finalizing special --
 Special cases: [('Columbus Circle', 1)]
 -- Finalizing subjects --
@@ -41,10 +35,14 @@ POI/subject geocoding:
    4	n_title
    2	n_title_bridge
    2	n_title_island
+Grid statistics:
+           Counts: [('dir strip', 71), ('exact', 60), ('exact: str', 2), ('unclaimed', 2), ('extrapolated', 2)]
+  Unknown avenues: Counter({'19': 2})
+  Unknown streets: Counter()
 -- Final stats --
-  131 title-cross
+  132 title-cross
     3 title-address
    17 gpt
     1 special
     9 subjects
-  161 (total)
+  162 (total)

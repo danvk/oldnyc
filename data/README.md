@@ -23,6 +23,8 @@ TODO:
 
 ## Repro instructions
 
+If there are no instructions for a file here, check `e2etest.yml`.
+
 ### osm-roads.json
 
 Run `data/nyc-named-roads.overpass-query.txt` through the Overpass API. This will produce a big JSON file that needs to be filtered. You can do this with:

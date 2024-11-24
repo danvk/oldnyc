@@ -13,8 +13,9 @@ from collections import defaultdict
 from typing import Callable
 
 from dotenv import load_dotenv
+from tqdm import tqdm
 
-from oldnyc.geocode import generate_js, geocoder
+from oldnyc.geocode import generate_js, geocoder, grid
 from oldnyc.geocode.coders import (
     gpt,
     special_cases,
@@ -46,7 +47,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Generate geocodes")
     parser.add_argument(
         "--images_ndjson",
-        required=True,
+        default="data/images.ndjson",
         help="ndjson file containing images (usually images.ndjson or photos.ndjson)",
     )
     parser.add_argument(
@@ -110,6 +111,7 @@ if __name__ == "__main__":
         help="Lat/lon cluster map, built by cluster-locations.py. "
         "Only used when outputting lat-lons{,-ny}.js",
     )
+    parser.add_argument("--no-progress-bar", action="store_true", help="Show/hide progress bar.")
 
     args = parser.parse_args()
 
@@ -149,12 +151,12 @@ if __name__ == "__main__":
             f"Filtered to {n_after}/{n_before} records with --ids_filter ({len(ids)})\n"
         )
 
+    grid_geocoder = grid.Grid()
+
     stats = defaultdict(int)
     located_recs: list[tuple[Item, tuple[str, Locatable, Point] | None]] = []
-    for idx, r in enumerate(rs):
-        if idx % 100 == 0 and idx > 0:
-            sys.stderr.write("%5d / %5d records processed\n" % (1 + idx, len(rs)))
-
+    src = rs if args.no_progress_bar else tqdm(rs)
+    for idx, r in enumerate(src):
         located_rec = (r, None)
 
         # Give each coder a crack at the record, in turn.
@@ -171,7 +173,7 @@ if __name__ == "__main__":
                 break
 
             # First try OSM (offline), then Google (online)
-            lat_lon = locate_with_osm(r, locatable, c.name())
+            lat_lon = locate_with_osm(r, locatable, c.name(), grid_geocoder)
 
             if not lat_lon:
                 try:
@@ -237,7 +239,7 @@ if __name__ == "__main__":
             sys.stderr.write(f"   boro mismatch: {n_boro_mismatch}\n")
             sys.stderr.write(f"        failures: {n_google_fail}\n")
 
-    # grid.log_stats()
+    grid_geocoder.log_stats()
 
     sys.stderr.write("-- Final stats --\n")
     successes = 0
