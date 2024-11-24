@@ -282,6 +282,24 @@ def main():
     #         for street in sorted(streets or []):
     #             print(f"{ave}\t{street}\t{node}\t{lat},{lon}")
 
+    with open("data/intersections.csv", "w") as f:
+        out = csv.writer(f)
+        out.writerow(["Street", "Avenue", "Lat", "Lon"])
+        for ave in sorted(ave_to_nodes.keys()):
+            ave_nodes = ave_to_nodes[ave]
+            for street in sorted(street_to_nodes.keys()):
+                street_nodes = street_to_nodes[street]
+                intersect_nodes = ave_nodes & street_nodes
+                if not intersect_nodes:
+                    continue
+                intersect_nodes = [id_to_node[n] for n in intersect_nodes]
+                try:
+                    lat, lng = get_intersection_center(intersect_nodes)
+                except ValueError:
+                    print(f"Failing on {ave} {street}")
+                    raise
+                out.writerow([str(street), ave, str(round(lat, 6)), str(round(lng, 6))])
+
     def locate(ave: int, street: int) -> tuple[float, float] | None:
         street_nodes = street_to_nodes.get(street)
         if not street_nodes:
