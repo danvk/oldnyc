@@ -32,7 +32,7 @@ jobs:
     - name: Check performance on truth data
       run: |
         export PYTHONPATH=.
-        poetry run oldnyc/geocode/geocode.py --ids_filter data/geocode/truth-ids.txt --output_format geojson --geocode > /tmp/actual.geojson
+        poetry run oldnyc/geocode/geocode.py --ids_filter data/geocode/truth-ids.txt --output_format geojson --geocode --no-status-bar > /tmp/actual.geojson
         poetry run oldnyc/geocode/calculate_metrics.py --stats_only --truth_data data/geocode/truth.geojson --computed_data /tmp/actual.geojson > test/geocode-performance.txt
     - name: Check for diffs
       run: |
@@ -84,7 +84,7 @@ jobs:
       run: |
         export PYTHONPATH=.
         tar -xzf geocache.tgz
-        poetry run oldnyc/geocode/geocode.py --lat_lon_map data/lat-lon-map.txt --output_format lat-lon-to-ids.json --geocode > data/lat-lon-to-ids.json 2> >(tee >( sed -n '/Finalizing/,$p' > test/geocoding-stats.txt) >&2)
+        poetry run oldnyc/geocode/geocode.py --lat_lon_map data/lat-lon-map.txt --output_format lat-lon-to-ids.json --geocode --no-status-bar > data/lat-lon-to-ids.json 2> >(tee >( sed -n '/Finalizing/,$p' > test/geocoding-stats.txt) >&2)
     - name: Generate static site
       run: |
         export PYTHONPATH=.
