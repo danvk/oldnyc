@@ -14,12 +14,12 @@ is more specific, and use that for geocoding.
 import re
 import sys
 from collections import Counter, defaultdict
-from typing import Sequence
 
 import pygeojson
 
-from oldnyc.geocode.geocode_types import Coder, LatLngLocation, Locatable
+from oldnyc.geocode.geocode_types import Coder, LatLngLocation
 from oldnyc.geojson_utils import assert_point
+from oldnyc.item import Item
 
 # TODO: use subjects.geojson instead of these lists
 parks = {
@@ -290,7 +290,12 @@ class SubjectsCoder(Coder):
 
         self.counters = Counter()
 
-    def code_record(self, r) -> Sequence[Locatable] | None:
+    def code_record(self, r: Item):
+        loc = self.code_one_record(r)
+        if loc:
+            return [loc]
+
+    def code_one_record(self, r: Item):
         matches = [
             (geo, spec_pt)
             for geo in r.subject.geographic
@@ -379,7 +384,7 @@ class SubjectsCoder(Coder):
 
                 self.counters["n_out_title"] += 1
                 self.counters["n_out_both_close"] += 1
-                return [title_locatable[1]]
+                return title_locatable[1]
             elif subj_spec > title_spec:
                 # sys.stderr.write(
                 #     "\t".join(["clash!", "subject/title to subject", r.id, subj_src, title_src])
@@ -387,7 +392,7 @@ class SubjectsCoder(Coder):
                 # )
                 self.counters["n_out_subject"] += 1
                 self.counters["n_out_both_subject"] += 1
-                return [subject_locatable[1]]
+                return subject_locatable[1]
             elif title_spec > subj_spec:
                 # sys.stderr.write(
                 #     "\t".join(["clash!", "subject/title to title", r.id, subj_src, title_src])
@@ -395,7 +400,7 @@ class SubjectsCoder(Coder):
                 # )
                 self.counters["n_out_title"] += 1
                 self.counters["n_out_both_title"] += 1
-                return [title_locatable[1]]
+                return title_locatable[1]
             else:
                 # sys.stderr.write(
                 #     "\t".join(
@@ -411,14 +416,14 @@ class SubjectsCoder(Coder):
                 # )
                 self.counters["n_out_title"] += 1
                 self.counters["n_out_both_fallback_title"] += 1
-                return [title_locatable[1]]
+                return title_locatable[1]
 
         if subject_locatable:
             self.counters["n_out_subject"] += 1
-            return [subject_locatable[1]]
+            return subject_locatable[1]
         if title_locatable:
             self.counters["n_out_title"] += 1
-            return [title_locatable[1]]
+            return title_locatable[1]
 
     def finalize(self):
         sys.stderr.write("POI/subject geocoding:\n")

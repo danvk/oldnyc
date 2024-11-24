@@ -14,7 +14,7 @@ repository = "https://github.com/danvk/oldnyc"
 package-mode = false
 
 [tool.poetry.dependencies]
-python = "^3.11"
+python = "^3.12"
 ruff = "^0.6.5"
 requests = "^2.32.3"
 pillow = "^10.4.0"
@@ -36,6 +36,7 @@ pyright = "^1.1.385"
 imagehash = "^4.3.1"
 pygeojson = "^0.2.0"
 natsort = "^8.4.0"
+word2number = "^1.1"
 
 [tool.ruff]
 line-length = 100

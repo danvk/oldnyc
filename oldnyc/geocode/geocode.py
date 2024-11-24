@@ -13,8 +13,9 @@ from collections import defaultdict
 from typing import Callable
 
 from dotenv import load_dotenv
+from tqdm import tqdm
 
-from oldnyc.geocode import generate_js, geocoder
+from oldnyc.geocode import generate_js, geocoder, grid
 from oldnyc.geocode.coders import (
     gpt,
     special_cases,
@@ -27,6 +28,9 @@ from oldnyc.geocode.locatable import (
     extract_point_from_google_geocode,
     get_address_for_google,
     locate_with_osm,
+)
+from oldnyc.geocode.locatable import (
+    counts as locatable_counts,
 )
 from oldnyc.item import Item, load_items
 
@@ -43,7 +47,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Generate geocodes")
     parser.add_argument(
         "--images_ndjson",
-        required=True,
+        default="data/images.ndjson",
         help="ndjson file containing images (usually images.ndjson or photos.ndjson)",
     )
     parser.add_argument(
@@ -107,6 +111,7 @@ if __name__ == "__main__":
         help="Lat/lon cluster map, built by cluster-locations.py. "
         "Only used when outputting lat-lons{,-ny}.js",
     )
+    parser.add_argument("--no-progress-bar", action="store_true", help="Show/hide progress bar.")
 
     args = parser.parse_args()
 
@@ -146,12 +151,12 @@ if __name__ == "__main__":
             f"Filtered to {n_after}/{n_before} records with --ids_filter ({len(ids)})\n"
         )
 
+    grid_geocoder = grid.Grid()
+
     stats = defaultdict(int)
     located_recs: list[tuple[Item, tuple[str, Locatable, Point] | None]] = []
-    for idx, r in enumerate(rs):
-        if idx % 100 == 0 and idx > 0:
-            sys.stderr.write("%5d / %5d records processed\n" % (1 + idx, len(rs)))
-
+    src = rs if args.no_progress_bar else tqdm(rs)
+    for idx, r in enumerate(src):
         located_rec = (r, None)
 
         # Give each coder a crack at the record, in turn.
@@ -160,35 +165,52 @@ if __name__ == "__main__":
             if not candidate_locatables:
                 continue
 
-            for locatable in candidate_locatables:
-                if not g:
-                    if args.print_records:
+            if not g:
+                if args.print_records:
+                    for locatable in candidate_locatables:
                         print("%s\t%s\t%s" % (c.name(), r.id, json.dumps(locatable)))
-                    stats[c.name()] += 1
-                    located_rec = (r, None)
-                    break
+                stats[c.name()] += 1
+                located_rec = (r, None)
+                break
 
+            lat_lon = None
+            for locatable in candidate_locatables:
                 # First try OSM (offline), then Google (online)
-                lat_lon = locate_with_osm(r, locatable)
+                lat_lon = locate_with_osm(r, locatable, c.name(), grid_geocoder)
 
                 if not lat_lon:
                     try:
                         geocode_result = None
                         address = get_address_for_google(locatable)
                         try:
-                            if args.print_geocodes:
-                                geocache = geocoder.cache_file_name(address)
-                                print(f'{r.id} {c.name()}: Geocoding "{address}" ({geocache})')
-                            geocode_result = g.Locate(address, True, r.id)
-                        except urllib.error.HTTPError as e:
-                            if e.status == 400:
-                                sys.stderr.write(f"Bad request: {address}\n")
+                            geocode_result = None
+                            address = get_address_for_google(locatable)
+                            try:
+                                if args.print_geocodes:
+                                    geocache = geocoder.cache_file_name(address)
+                                    print(f'{r.id} {c.name()}: Geocoding "{address}" ({geocache})')
+                                geocode_result = g.Locate(address, True, r.id)
+                            except urllib.error.HTTPError as e:
+                                if e.status == 400:
+                                    sys.stderr.write(f"Bad request: {address}\n")
+                                else:
+                                    raise e
+
+                            if geocode_result:
+                                lat_lon = extract_point_from_google_geocode(
+                                    geocode_result, locatable, r, c.name()
+                                )
                             else:
-                                raise e
+                                sys.stderr.write("Failed to geocode %s\n" % r.id)
+                                # sys.stderr.write('Location: %s\n' % location_data['address'])
+                        except Exception:
+                            sys.stderr.write("ERROR locating %s with %s\n" % (r.id, c.name()))
+                            # sys.stderr.write('ERROR location: "%s"\n' % json.dumps(location_data))
+                            raise
 
                         if geocode_result:
                             lat_lon = extract_point_from_google_geocode(
-                                geocode_result, locatable, r
+                                geocode_result, locatable, r, c.name()
                             )
                         else:
                             sys.stderr.write("Failed to geocode %s\n" % r.id)
@@ -214,7 +236,7 @@ if __name__ == "__main__":
                     located_rec = (r, (c.name(), locatable, lat_lon))
                     break
 
-            if located_rec:
+            if lat_lon:
                 break
 
         located_recs.append(located_rec)
@@ -223,6 +245,24 @@ if __name__ == "__main__":
     for c in geocoders:
         sys.stderr.write(f"-- Finalizing {c.name()} --\n")
         c.finalize()
+        counts = locatable_counts[c.name()]
+        n_grid_attempt = counts["grid: attempt"]
+        n_grid = counts["grid: success"]
+        n_boro_mismatch = counts["google: boro mismatch"]
+        n_google_fail = counts["google: fail"]
+        n_google_success = counts["google: success"]
+        n_google_attempts = n_google_fail + n_google_success + n_boro_mismatch
+
+        if n_grid_attempt:
+            sys.stderr.write(f"            grid: {n_grid} ({n_grid_attempt} attempts)\n")
+        if n_google_attempts:
+            sys.stderr.write(f"          google: {n_google_success}\n")
+            sys.stderr.write(f"   boro mismatch: {n_boro_mismatch}\n")
+            sys.stderr.write(f"        failures: {n_google_fail}\n")
+            assert g
+            g.log_stats()
+
+    grid_geocoder.log_stats()
 
     sys.stderr.write("-- Final stats --\n")
     successes = 0

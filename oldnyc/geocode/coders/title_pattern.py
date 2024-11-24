@@ -129,7 +129,12 @@ class TitleCrossCoder(Coder):
                             return (boro, str1, str2), title
                         return m.groups(), title
 
-    def code_record(self, r):
+    def code_record(self, r: Item):
+        loc = self.code_one_record(r)
+        if loc:
+            return [loc]
+
+    def code_one_record(self, r: Item):
         match = self.findMatch(r)
         if not match:
             return None
@@ -164,18 +169,13 @@ class TitleCrossCoder(Coder):
         str1 = punctuate(str1)
         str2 = punctuate(str2)
         assert src
-        return [IntersectionLocation(source=src, str1=str1, str2=str2, boro=boro)]
+        return IntersectionLocation(source=src, str1=str1, str2=str2, boro=boro)
 
     def finalize(self):
         sys.stderr.write(f"    titles matched: {self.n_title}\n")
         sys.stderr.write(f"alt titles matched: {self.n_alt_title}\n")
         sys.stderr.write(f"     total matches: {self.n_match}\n")
         sys.stderr.write(f"          counters: {self.counts.most_common()}\n")
-        sys.stderr.write("  geocoding results:\n")
-        sys.stderr.write(f"            grid: {self.n_grid} ({self.n_grid_attempt} attempts)\n")
-        sys.stderr.write(f"          google: {self.n_google_location}\n")
-        sys.stderr.write(f"   boro mismatch: {self.n_boro_mismatch}\n")
-        sys.stderr.write(f"        failures: {self.n_geocode_fail}\n")
 
     def name(self):
         return "title-cross"
@@ -211,7 +211,12 @@ class TitleAddressCoder(Coder):
         self.n_boro_mismatch = 0
         self.patterns = Counter[str]()
 
-    def code_record(self, r):
+    def code_record(self, r: Item):
+        loc = self.code_one_record(r)
+        if loc:
+            return [loc]
+
+    def code_one_record(self, r: Item):
         titles = extract_titles(r)
         for t in titles:
             for name, pat in ADDR_PATTERNS:
@@ -226,20 +231,15 @@ class TitleAddressCoder(Coder):
                     self.n_matches += 1
                     street = rewrite_directional_street(street)
                     self.patterns[name] += 1
-                    return [
-                        AddressLocation(
-                            source=m.group(0),
-                            num=num,
-                            street=street,
-                            boro=boro,
-                        )
-                    ]
+                    return AddressLocation(
+                        source=m.group(0),
+                        num=num,
+                        street=street,
+                        boro=boro,
+                    )
 
     def finalize(self):
         sys.stderr.write(f" address matches: {self.n_matches}\n")
-        sys.stderr.write(f"   boro mismatch: {self.n_boro_mismatch}\n")
-        sys.stderr.write(f"        failures: {self.n_geocode_fail}\n")
-        sys.stderr.write(f"         success: {self.n_success}\n")
         sys.stderr.write(f"        patterns: {self.patterns.most_common()}\n")
 
     def name(self):
