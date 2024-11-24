@@ -72,11 +72,6 @@ def interpret_as_street(w: OsmWay) -> int | None:
         return base_num
 
 
-# See http://stackoverflow.com/a/20007730/388951
-def make_ordinal(n):
-    return "%d%s" % (n, "tsnrhtdd"[(n // 10 % 10 != 1) * (n % 10 < 4) * n % 10 :: 4])
-
-
 def make_avenue_str(avenue, street=0) -> str | None:
     """1 --> 1st Avenue, -1 --> Avenue B"""
     if avenue <= 0:
@@ -101,7 +96,7 @@ def make_avenue_str(avenue, street=0) -> str | None:
     elif avenue == 11 and street >= 59:
         return "West End Avenue"
     else:
-        return make_ordinal(avenue) + " Avenue"
+        return grid.make_ordinal(avenue) + " Avenue"
 
 
 """
@@ -183,7 +178,6 @@ def main():
         if len(set(id_to_way[w]["tags"]["name"] for w in node_to_ways[n])) >= 2
     ]
 
-    print(set(id_to_way[w]["tags"]["name"] for w in node_to_ways[42952845]))
     assert 42952845 not in intersection_nodes
     assert 42442559 in intersection_nodes
     assert 42442561 in intersection_nodes
@@ -206,6 +200,9 @@ def main():
             way_pairs[pair].add(node)
 
     claimed_nodes = set[int]()
+
+    # All intersections in NYC, all five boroughs.
+    # Street names are lightly normalized but not parsed.
     with open("data/nyc-intersections.csv", "w") as f:
         out = csv.writer(f)
         out.writerow(["Street1", "Street2", "Borough", "Lat", "Lon", "Nodes"])
@@ -229,8 +226,8 @@ def main():
                 continue
             out.writerow(
                 [
-                    str(str1),
-                    str(str2),
+                    str1,
+                    str2,
                     borough,
                     str(round(lat, 6)),
                     str(round(lng, 6)),
@@ -282,7 +279,9 @@ def main():
     #         for street in sorted(streets or []):
     #             print(f"{ave}\t{street}\t{node}\t{lat},{lon}")
 
-    with open("data/intersections.csv", "w") as f:
+    # Intersections between numbered streets and any Avenue-like street in Manhattan.
+    # The numbered streets are parsed as integers, the avenues are left alone.
+    with open("data/manhattan-grid.csv", "w") as f:
         out = csv.writer(f)
         out.writerow(["Street", "Avenue", "Lat", "Lon"])
         for ave in sorted(ave_to_nodes.keys()):
@@ -344,7 +343,10 @@ def main():
             lat, lon = (40.7424762, -74.0088873)
         rows.append([str(x) for x in [street, ave, lat, lon]])
 
-    with open("data/grid.csv", "w") as f:
+    # The "classic" grid from 1st to 125th street and the numbered/lettered avenues.
+    # Both streets and avenues are parsed as integers (Avenue D is -3, etc.).
+    # https://www.danvk.org/2016/01/19/oldnyc-update.html
+    with open("data/intersections.csv", "w") as f:
         out = csv.writer(f, lineterminator="\n")
         out.writerows(rows)
 

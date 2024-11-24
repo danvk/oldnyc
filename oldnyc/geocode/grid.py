@@ -31,7 +31,7 @@ class Intersection:
 def load_mini_grid():
     by_avenue = defaultdict[str, dict[int, Point]](dict)
     by_street = defaultdict[int, dict[str, Point]](dict)
-    for row in csv.DictReader(open("data/grid.csv")):
+    for row in csv.DictReader(open("data/intersections.csv")):
         if not row["Lat"]:
             continue  # not all intersections exist.
         avenue = int(row["Avenue"])
@@ -54,7 +54,7 @@ def load_manhattan_intersections():
     all_ints_by_ave = defaultdict[str, dict[int, Point]](dict)
 
     # TODO: maybe this is a subset of nyc-intersections.csv?
-    for row in csv.DictReader(open("data/intersections.csv")):
+    for row in csv.DictReader(open("data/manhattan-grid.csv")):
         street = int(row["Street"])
         raw_avenue = row["Avenue"]
         lat = float(row["Lat"])
