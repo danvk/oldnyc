@@ -200,8 +200,8 @@ def main():
             name_b = wb["tags"]["name"]
             if name_a == name_b:
                 continue
-            name_a = grid.normalize_street(name_a)
-            name_b = grid.normalize_street(name_b)
+            name_a = grid.normalize_street_for_osm(name_a)
+            name_b = grid.normalize_street_for_osm(name_b)
             pair = (name_a, name_b) if name_a < name_b else (name_b, name_a)
             way_pairs[pair].add(node)
 
@@ -220,7 +220,7 @@ def main():
             try:
                 lat, lng = get_intersection_center(intersect_nodes)
             except ValueError:
-                print(f"Ambiguous intersection: {str1} / {str2}: ({intersect_node_ids})")
+                # print(f"Ambiguous intersection: {str1} / {str2}: ({intersect_node_ids})")
                 continue
             # claimed_nodes.update(intersect_node_ids)
             borough = point_to_borough(lat, lng)

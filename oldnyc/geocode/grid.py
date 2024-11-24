@@ -385,6 +385,13 @@ def make_ordinal(n):
 
 
 def normalize_street(s: str) -> str:
+    """Slightly more aggressive normalization for NYPL input."""
+    s = normalize_street_for_osm(s)
+    s = expand_dir_abbrevs(s)
+    return s
+
+
+def normalize_street_for_osm(s: str) -> str:
     """Light normalization, e.g. "First Avenue" -> "1st Avenue"."""
     s = ordinals_re.sub(lambda m: make_ordinal(ORDINALS[m.group(1).lower()]), s)
     s = expand_abbrevs(s)
@@ -393,7 +400,7 @@ def normalize_street(s: str) -> str:
 
 def expand_abbrevs(s: str) -> str:
     """Expand "Ave" -> "Avenue", "St" -> "Street", etc."""
-    s = re.sub(r"St\.? Nicholas", "Saint Nicholas", s)
+    s = re.sub(r"St\.? (Nicholas|James|John|Michael|Peter)", r"Saint \1", s)
     s = re.sub(r"\bSt\.?(?= |$)", "Street", s)
     s = re.sub(r"\bAve\.?(?= |$)", "Avenue", s)
     s = re.sub(r"\bPl\.?(?= |$)", "Place", s)
@@ -401,6 +408,10 @@ def expand_abbrevs(s: str) -> str:
     s = re.sub(r"\bRd\.?(?= |$)", "Road", s)
     s = re.sub(r"\bLn\.?(?= |$)", "Lane", s)
     s = re.sub(r"\bBlvd\.?(?= |$)", "Boulevard", s)
+    return s
+
+
+def expand_dir_abbrevs(s: str) -> str:
     s = re.sub(r"\bE\.?(?= |$)", "East", s)
     s = re.sub(r"\bW\.?(?= |$)", "West", s)
     s = re.sub(r"\bN\.?(?= |$)", "North", s)

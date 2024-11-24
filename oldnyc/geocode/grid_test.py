@@ -125,6 +125,17 @@ def test_normalize_street():
     assert (
         grid.normalize_street("One hundred and twelfth Street") == "One hundred and twelfth Street"
     )
+    assert grid.normalize_street("6th St") == "6th Street"
+    assert grid.normalize_street("N. 7th St.") == "North 7th Street"
+    assert grid.normalize_street("String St") == "String Street"
+    assert grid.normalize_street("Frederick Douglass Blvd") == "Frederick Douglass Boulevard"
+    assert grid.normalize_street("Central Park W") == "Central Park West"
+    assert grid.normalize_street("Maiden Ln") == "Maiden Lane"
+    assert grid.normalize_street("St Nicholas") == "Saint Nicholas"
+    assert grid.normalize_street("10th St E") == "10th Street East"
+    assert grid.normalize_street_for_osm("Avenue E") == "Avenue E"
+    # TODO: just fix this bug?
+    assert grid.normalize_street("Avenue E") == "Avenue East"
 
 
 # 10th Street and Sixth Avenue, Brooklyn
@@ -133,15 +144,6 @@ def test_brooklyn_intersections():
     assert_close(
         g.geocode_intersection("10th Street", "6th Avenue", "Brooklyn"), (40.667437, -73.984438)
     )
-
-
-def test_expand_abbrevs():
-    assert grid.expand_abbrevs("6th St") == "6th Street"
-    assert grid.expand_abbrevs("N. 7th St.") == "North 7th Street"
-    assert grid.expand_abbrevs("String St") == "String Street"
-    assert grid.expand_abbrevs("Frederick Douglass Blvd") == "Frederick Douglass Boulevard"
-    assert grid.expand_abbrevs("Central Park W") == "Central Park West"
-    assert grid.expand_abbrevs("Maiden Ln") == "Maiden Lane"
 
 
 def test_strip_dir():
