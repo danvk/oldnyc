@@ -19,16 +19,17 @@ from oldnyc.item import Item
 counts = defaultdict[str, Counter[str]](Counter)
 
 
+def round_pt(pt: Point) -> Point:
+    lat, lng = pt
+    return round(float(lat), 7), round(float(lng), 7)  # they may be numpy floats
+
+
 def locate_with_osm(
     r: Item, loc: Locatable, coder: str, grid_geocoder: grid.GridGeocoder
 ) -> Point | None:
     """Extract a location from a Locatable, without going to Google."""
     if isinstance(loc, LatLngLocation):
-        # TODO: make the rounding consistent across coders
-        if coder != "subjects":
-            return round(loc.lat, 7), round(loc.lng, 7)
-        else:
-            return loc.lat, loc.lng
+        return round(loc.lat, 7), round(loc.lng, 7)
     elif isinstance(loc, AddressLocation):
         return None  # not implemented yet
     # Must be an intersection
@@ -45,8 +46,7 @@ def locate_with_osm(
     if not pt:
         return None
     counts[coder]["grid: success"] += 1
-    lat, lng = pt
-    return round(float(lat), 7), round(float(lng), 7)  # they may be numpy floats
+    return round_pt(pt)
 
 
 def get_address_for_google(loc: Locatable) -> str:
@@ -85,10 +85,7 @@ def extract_point_from_google_geocode(
         return None
     # TODO: track hits by locatable type
     counts[coder]["google: success"] += 1
-    # TODO: make the rounding consistent across coders
-    if coder in ("title-cross", "title-address"):
-        return round(float(lat), 7), round(float(lng), 7)
-    return pt
+    return round_pt(pt)
 
 
 def get_lat_lng_from_geocode(geocode: dict[str, Any], desired_types: list[str]) -> Point | None:
