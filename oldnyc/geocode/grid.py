@@ -70,6 +70,21 @@ def load_manhattan_intersections():
     return all_ints, all_ints_by_ave
 
 
+# The cardinal directions are critical to the identities of these streets.
+# They should never be stripped.
+PRESERVE_DIRECTIONS = {
+    "West Street",
+    "South Street",
+    "East End Avenue",
+    "West End Avenue",
+    "Central Park East",
+    "Central Park West",
+    "Central Park North",
+    "Central Park South",
+    "Prospect Park West",
+}
+
+
 def strip_dir(street: str) -> str:
     """Remove cardinal directions from street names."""
     return re.sub(r"\b(east|west|north|south)\b", "", street, flags=re.I).replace("()", "").strip()

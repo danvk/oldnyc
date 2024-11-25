@@ -155,3 +155,18 @@ def test_strip_dir():
     assert grid.strip_dir("10th Street (West)") == "10th Street"
     assert grid.strip_dir("West 59th Street") == "59th Street"
     assert grid.strip_dir("North 4th Street") == "4th Street"
+    assert grid.strip_dir("West Street") == "West Street"
+    assert grid.strip_dir("South Street") == "South Street"
+    assert grid.strip_dir("East End Avenue") == "East End Avenue"
+    assert grid.strip_dir("West End Avenue") == "West End Avenue"
+    assert grid.strip_dir("Central Park West") == "Central Park West"
+
+
+def test_preserved_streets():
+    g = Grid()
+    assert_close(
+        g.geocode_intersection("East 76th Street", "East End Avenue", "Manhattan"),
+        (40.782401, -73.982596),
+        # (40.770415, -73.948064),
+    )
+    # 40.782401
