@@ -49403,11 +49403,6 @@
   ],
   "417171": [
     {
-      "number": 25,
-      "street": "Claremont Avenue",
-      "type": "address"
-    },
-    {
       "street1": "Claremont Avenue",
       "street2": "116th Street",
       "type": "intersection"
@@ -62787,11 +62782,6 @@
     {
       "place_name": "N.Y.U. Heights",
       "type": "place_name"
-    },
-    {
-      "number": 17,
-      "street": "East 42nd Street",
-      "type": "address"
     }
   ],
   "701208f": [
@@ -62837,22 +62827,12 @@
     {
       "place_name": "Hall of Fame",
       "type": "place_name"
-    },
-    {
-      "number": 17,
-      "street": "East 42nd Street",
-      "type": "address"
     }
   ],
   "701214f": [
     {
       "place_name": "Hall of Fame",
       "type": "place_name"
-    },
-    {
-      "number": 17,
-      "street": "East 42nd Street",
-      "type": "address"
     }
   ],
   "701215f": [
@@ -62865,11 +62845,6 @@
     {
       "place_name": "Hall of Fame",
       "type": "place_name"
-    },
-    {
-      "number": 17,
-      "street": "East 42nd Street",
-      "type": "address"
     }
   ],
   "701217f": [
@@ -62882,11 +62857,6 @@
     {
       "place_name": "Hall of Fame",
       "type": "place_name"
-    },
-    {
-      "number": 17,
-      "street": "East 42nd Street",
-      "type": "address"
     }
   ],
   "701219f": [
@@ -62901,11 +62871,6 @@
     {
       "place_name": "University Heights campus",
       "type": "place_name"
-    },
-    {
-      "number": 3293,
-      "street": "3rd Avenue",
-      "type": "address"
     }
   ],
   "701225f": [
@@ -66088,11 +66053,6 @@
       "street1": "West Farms Square",
       "street2": "176th Street",
       "type": "intersection"
-    },
-    {
-      "number": 275,
-      "street": "E. 10th Street",
-      "type": "address"
     }
   ],
   "702086f": [
@@ -82425,11 +82385,6 @@
     {
       "place_name": "New York Telephone Company",
       "type": "place_name"
-    },
-    {
-      "number": 118,
-      "street": "East 28th Street",
-      "type": "address"
     }
   ],
   "707380f": [
@@ -82461,11 +82416,6 @@
       "street1": "Willoughby St.",
       "street2": "NYHOLM & LINCOLN",
       "type": "intersection"
-    },
-    {
-      "number": 114,
-      "street": "East 32nd Street",
-      "type": "address"
     },
     {
       "place_name": "New York Telephone Bldg.",
@@ -82519,11 +82469,6 @@
     {
       "place_name": "New York Telephone Bldg.",
       "type": "place_name"
-    },
-    {
-      "number": 111,
-      "street": "E. 32nd Street",
-      "type": "address"
     }
   ],
   "707389f": [
@@ -82535,11 +82480,6 @@
       "street1": "Willoughby St.",
       "street2": "N/A",
       "type": "intersection"
-    },
-    {
-      "number": 111,
-      "street": "East 42nd Street",
-      "type": "address"
     }
   ],
   "707390f": [
@@ -82551,11 +82491,6 @@
     {
       "place_name": "New York Telephone Co.",
       "type": "place_name"
-    },
-    {
-      "number": 14,
-      "street": "E. 39th Street",
-      "type": "address"
     }
   ],
   "707391f": [
@@ -82578,11 +82513,6 @@
     {
       "place_name": "New York Telephone Company",
       "type": "place_name"
-    },
-    {
-      "number": 114,
-      "street": "East 29th Street",
-      "type": "address"
     }
   ],
   "707393f": [
@@ -82633,11 +82563,6 @@
       "street1": "Willoughby St",
       "street2": "unknown",
       "type": "intersection"
-    },
-    {
-      "number": 113,
-      "street": "East 28th Street",
-      "type": "address"
     }
   ],
   "707397f": [
@@ -82664,11 +82589,6 @@
       "street1": "Willoughby St.",
       "street2": "unknown",
       "type": "intersection"
-    },
-    {
-      "number": 114,
-      "street": "E. 580th Street",
-      "type": "address"
     }
   ],
   "707399f": [
@@ -82691,11 +82611,6 @@
       "street1": "Willoughby St.",
       "street2": "Brooklyn",
       "type": "intersection"
-    },
-    {
-      "number": 114,
-      "street": "East 32nd Street",
-      "type": "address"
     }
   ],
   "707401f": [
@@ -84261,11 +84176,6 @@
       "type": "address"
     },
     {
-      "number": 114,
-      "street": "East 32nd Street",
-      "type": "address"
-    },
-    {
       "number": 74,
       "street": "5th Avenue",
       "type": "address"
@@ -84323,11 +84233,6 @@
     {
       "number": 711,
       "street": "5th Avenue",
-      "type": "address"
-    },
-    {
-      "number": 114,
-      "street": "East 32nd Street",
       "type": "address"
     }
   ],
@@ -87756,11 +87661,6 @@
       "street1": "40th Street",
       "street2": "East",
       "type": "intersection"
-    },
-    {
-      "number": 114,
-      "street": "East 32nd Street",
-      "type": "address"
     }
   ],
   "712623f": [
@@ -89164,11 +89064,6 @@
       "street1": "110th Street",
       "street2": "Manhattan",
       "type": "intersection"
-    },
-    {
-      "number": 220,
-      "street": "West 42nd Street",
-      "type": "address"
     }
   ],
   "715061f": [
@@ -90215,11 +90110,6 @@
       "street1": "Allen Street",
       "street2": "Atlantic Avenue",
       "type": "intersection"
-    },
-    {
-      "number": 164,
-      "street": "W. 79th Street",
-      "type": "address"
     }
   ],
   "715907f": [
@@ -91632,11 +91522,6 @@
     {
       "place_name": "New York Harbor",
       "type": "place_name"
-    },
-    {
-      "number": 235,
-      "street": "E. 45th St.",
-      "type": "address"
     }
   ],
   "716547f": [
@@ -93448,11 +93333,6 @@
       "street1": "Broadway",
       "street2": "Worth Street",
       "type": "intersection"
-    },
-    {
-      "number": 108,
-      "street": "Fulton Street",
-      "type": "address"
     }
   ],
   "717238f": [
@@ -93465,11 +93345,6 @@
       "street1": "Broadway",
       "street2": "Worth Street",
       "type": "intersection"
-    },
-    {
-      "number": 108,
-      "street": "Fulton Street",
-      "type": "address"
     }
   ],
   "717239f": [
@@ -93482,11 +93357,6 @@
       "street1": "Broadway",
       "street2": "Worth Street",
       "type": "intersection"
-    },
-    {
-      "number": 108,
-      "street": "Fulton Street",
-      "type": "address"
     }
   ],
   "717240f": [
@@ -93499,11 +93369,6 @@
       "street1": "Broadway",
       "street2": "Worth Street",
       "type": "intersection"
-    },
-    {
-      "number": 108,
-      "street": "Fulton Street",
-      "type": "address"
     }
   ],
   "717241f": [
@@ -93516,11 +93381,6 @@
       "street1": "Broadway",
       "street2": "Worth Street",
       "type": "intersection"
-    },
-    {
-      "number": 108,
-      "street": "Fulton Street",
-      "type": "address"
     }
   ],
   "717242f": [
@@ -93533,11 +93393,6 @@
       "street1": "Broadway",
       "street2": "Worth Street",
       "type": "intersection"
-    },
-    {
-      "number": 108,
-      "street": "Fulton Street",
-      "type": "address"
     }
   ],
   "717243f": [
@@ -93550,11 +93405,6 @@
       "street1": "Broadway",
       "street2": "Worth Street",
       "type": "intersection"
-    },
-    {
-      "number": 108,
-      "street": "Fulton Street",
-      "type": "address"
     }
   ],
   "717244f": [
@@ -95920,11 +95770,6 @@
     {
       "place_name": "Metropolitan Museum of Art",
       "type": "place_name"
-    },
-    {
-      "number": 270,
-      "street": "W. 38",
-      "type": "address"
     }
   ],
   "718183f": [
@@ -101635,11 +101480,6 @@
     {
       "place_name": "Central Park",
       "type": "place_name"
-    },
-    {
-      "number": 3293,
-      "street": "Third Ave",
-      "type": "address"
     }
   ],
   "719106f": [
@@ -101661,11 +101501,6 @@
     {
       "place_name": "Columbus Circle",
       "type": "place_name"
-    },
-    {
-      "number": 3293,
-      "street": "Third Avenue",
-      "type": "address"
     }
   ],
   "719108f": [
@@ -102685,11 +102520,6 @@
     {
       "place_name": "Cooper Square",
       "type": "place_name"
-    },
-    {
-      "number": 225,
-      "street": "W. 39th St.",
-      "type": "address"
     }
   ],
   "719213f": [
@@ -110831,11 +110661,6 @@
       "street1": "Lexington Avenue",
       "street2": "Classon Avenue",
       "type": "intersection"
-    },
-    {
-      "number": 122,
-      "street": "East 25th Street",
-      "type": "address"
     }
   ],
   "721136f": [
@@ -111165,11 +110990,6 @@
       "street1": "Madison Avenue",
       "street2": "Tompkins Avenue",
       "type": "intersection"
-    },
-    {
-      "number": 122,
-      "street": "East 25th Street",
-      "type": "address"
     }
   ],
   "721264f": [
@@ -111255,11 +111075,6 @@
       "street1": "Madison Avenue",
       "street2": "Tompkins Avenue",
       "type": "intersection"
-    },
-    {
-      "number": 122,
-      "street": "East 25th Street",
-      "type": "address"
     }
   ],
   "721453f": [
@@ -116916,11 +116731,6 @@
     {
       "place_name": "Rockefeller Plaza",
       "type": "place_name"
-    },
-    {
-      "number": 114,
-      "street": "East 32nd Street",
-      "type": "address"
     }
   ],
   "723008f": [
@@ -122344,11 +122154,6 @@
       "number": 1,
       "street": "Wall Street",
       "type": "address"
-    },
-    {
-      "number": 111,
-      "street": "East 32nd Street",
-      "type": "address"
     }
   ],
   "723832f": [
@@ -123531,11 +123336,6 @@
     {
       "place_name": "Washington Market",
       "type": "place_name"
-    },
-    {
-      "number": 66,
-      "street": "Harrison St.",
-      "type": "address"
     }
   ],
   "724192f": [
@@ -123596,11 +123396,6 @@
     {
       "place_name": "Washington Market",
       "type": "place_name"
-    },
-    {
-      "number": 66,
-      "street": "Harrison Street",
-      "type": "address"
     }
   ],
   "724200f": [
@@ -123615,11 +123410,6 @@
       "street1": "Washington Street",
       "street2": "York Street",
       "type": "intersection"
-    },
-    {
-      "number": 66,
-      "street": "Harrison Street",
-      "type": "address"
     }
   ],
   "724202f": [
@@ -127832,22 +127622,12 @@
     {
       "place_name": "Alley Pond Park",
       "type": "place_name"
-    },
-    {
-      "number": 51,
-      "street": "Browvale Lane",
-      "type": "address"
     }
   ],
   "726047f": [
     {
       "place_name": "Alley Pond Park",
       "type": "place_name"
-    },
-    {
-      "number": 51,
-      "street": "Browvale Lane",
-      "type": "address"
     },
     {
       "place_name": "Little Neck",
@@ -127858,11 +127638,6 @@
     {
       "place_name": "Alley Pond Park",
       "type": "place_name"
-    },
-    {
-      "number": 51,
-      "street": "Browvale Lane",
-      "type": "address"
     }
   ],
   "726049f": [
@@ -127898,11 +127673,6 @@
       "type": "place_name"
     },
     {
-      "number": 51,
-      "street": "Browvale Lane",
-      "type": "address"
-    },
-    {
       "place_name": "Douglaston",
       "type": "place_name"
     },
@@ -127922,11 +127692,6 @@
       "type": "place_name"
     },
     {
-      "number": 51,
-      "street": "Browvale Lane",
-      "type": "address"
-    },
-    {
       "place_name": "Douglaston",
       "type": "place_name"
     },
@@ -127940,11 +127705,6 @@
       "street1": "Arleigh Road",
       "street2": "Beaver Street",
       "type": "intersection"
-    },
-    {
-      "number": 51,
-      "street": "Browvale Lane",
-      "type": "address"
     }
   ],
   "726056f": [
@@ -127952,11 +127712,6 @@
       "street1": "Arleigh Road",
       "street2": "Beaver Street",
       "type": "intersection"
-    },
-    {
-      "number": 51,
-      "street": "Browvale Lane",
-      "type": "address"
     },
     {
       "place_name": "Douglaston",
@@ -130685,11 +130440,6 @@
     {
       "place_name": "New York World's Fair",
       "type": "place_name"
-    },
-    {
-      "number": 114,
-      "street": "East 32nd Street",
-      "type": "address"
     }
   ],
   "726696f": [
@@ -130828,11 +130578,6 @@
     {
       "place_name": "Rockaway Beach",
       "type": "place_name"
-    },
-    {
-      "number": 51,
-      "street": "Browvale Lane",
-      "type": "address"
     }
   ],
   "726712f": [
@@ -130867,22 +130612,12 @@
     {
       "place_name": "Flushing",
       "type": "place_name"
-    },
-    {
-      "number": 51,
-      "street": "Browvale Lane",
-      "type": "address"
     }
   ],
   "726715f": [
     {
       "place_name": "Fort Totten Historic District",
       "type": "place_name"
-    },
-    {
-      "number": 51,
-      "street": "Browvale Lane",
-      "type": "address"
     }
   ],
   "726718f": [
@@ -131237,11 +130972,6 @@
     {
       "place_name": "St. John's University",
       "type": "place_name"
-    },
-    {
-      "number": 51,
-      "street": "Browvale Lane",
-      "type": "address"
     }
   ],
   "726804f": [
@@ -131253,11 +130983,6 @@
     {
       "place_name": "St. John's University",
       "type": "place_name"
-    },
-    {
-      "number": 51,
-      "street": "Browvale Lane",
-      "type": "address"
     }
   ],
   "726805f": [
@@ -131269,11 +130994,6 @@
     {
       "place_name": "St. John's University",
       "type": "place_name"
-    },
-    {
-      "number": 51,
-      "street": "Browvale Lane",
-      "type": "address"
     }
   ],
   "726806f": [
@@ -132357,11 +132077,6 @@
     {
       "place_name": "Little Neck Bay",
       "type": "place_name"
-    },
-    {
-      "number": 51,
-      "street": "Browvale Lane",
-      "type": "address"
     }
   ],
   "727250f": [
@@ -132383,11 +132098,6 @@
       "type": "intersection"
     },
     {
-      "number": 51,
-      "street": "Browvale Lane",
-      "type": "address"
-    },
-    {
       "place_name": "Little Neck",
       "type": "place_name"
     }
@@ -132397,11 +132107,6 @@
       "street1": "Little Neck Parkway",
       "street2": "Albert Street",
       "type": "intersection"
-    },
-    {
-      "number": 51,
-      "street": "Browvale Lane",
-      "type": "address"
     },
     {
       "place_name": "Little Neck Community Church",
@@ -132417,11 +132122,6 @@
     {
       "place_name": "Temple Torah",
       "type": "place_name"
-    },
-    {
-      "number": 51,
-      "street": "Browvale Lane",
-      "type": "address"
     }
   ],
   "727255f": [
@@ -132429,11 +132129,6 @@
       "street1": "Little Neck Parkway",
       "street2": "Albert Street",
       "type": "intersection"
-    },
-    {
-      "number": 51,
-      "street": "Browvale Lane",
-      "type": "address"
     },
     {
       "place_name": "Temple Torah",
@@ -132470,11 +132165,6 @@
       "street1": "Little Neck Parkway",
       "street2": "Long Island Expressway",
       "type": "intersection"
-    },
-    {
-      "number": 51,
-      "street": "Browvale Lane",
-      "type": "address"
     },
     {
       "place_name": "Cornell Homestead",
@@ -132679,11 +132369,6 @@
     {
       "place_name": "Alley Pond",
       "type": "place_name"
-    },
-    {
-      "number": 51,
-      "street": "Browvale Lane",
-      "type": "address"
     }
   ],
   "727292f": [
@@ -132776,11 +132461,6 @@
     {
       "place_name": "Manhattan Boulevard",
       "type": "place_name"
-    },
-    {
-      "number": 51,
-      "street": "Browvale Lane",
-      "type": "address"
     }
   ],
   "727338f": [
@@ -133064,11 +132744,6 @@
       "street1": "Nassau Boulevard",
       "street2": "Marathon Boulevard",
       "type": "intersection"
-    },
-    {
-      "number": 51,
-      "street": "Browvale Lane",
-      "type": "address"
     }
   ],
   "727458f": [
@@ -133081,22 +132756,12 @@
     {
       "place_name": "Newtown",
       "type": "place_name"
-    },
-    {
-      "number": 51,
-      "street": "Browvale Lane",
-      "type": "address"
     }
   ],
   "727461f": [
     {
       "place_name": "Newtown",
       "type": "place_name"
-    },
-    {
-      "number": 51,
-      "street": "Browvale Lane",
-      "type": "address"
     }
   ],
   "727462f": [
@@ -134095,33 +133760,18 @@
     {
       "place_name": "Paul Klapper Library",
       "type": "place_name"
-    },
-    {
-      "number": 51,
-      "street": "Browvale Lane",
-      "type": "address"
     }
   ],
   "727843f": [
     {
       "place_name": "Queens College",
       "type": "place_name"
-    },
-    {
-      "number": 51,
-      "street": "Browvale Lane",
-      "type": "address"
     }
   ],
   "727844f": [
     {
       "place_name": "Queens College",
       "type": "place_name"
-    },
-    {
-      "number": 51,
-      "street": "Browvale Lane",
-      "type": "address"
     }
   ],
   "727845f": [
@@ -137379,16 +137029,6 @@
       "street1": "Fingerboard Road",
       "street2": "167th Street",
       "type": "intersection"
-    },
-    {
-      "number": 225,
-      "street": "West 39th St.",
-      "type": "address"
-    },
-    {
-      "number": 229,
-      "street": "West 39th St.",
-      "type": "address"
     }
   ],
   "728820f": [
@@ -142724,11 +142364,6 @@
     {
       "place_name": "Morningside Heights",
       "type": "place_name"
-    },
-    {
-      "number": 270,
-      "street": "W. 38",
-      "type": "address"
     }
   ],
   "730017f": [
@@ -142739,11 +142374,6 @@
     {
       "place_name": "Central Manhattan",
       "type": "place_name"
-    },
-    {
-      "number": 270,
-      "street": "W. 38",
-      "type": "address"
     }
   ],
   "730018f": [
@@ -142755,22 +142385,12 @@
     {
       "place_name": "Jefferson Park",
       "type": "place_name"
-    },
-    {
-      "number": 270,
-      "street": "W. 38th Street",
-      "type": "address"
     }
   ],
   "730019f": [
     {
       "place_name": "Central Park",
       "type": "place_name"
-    },
-    {
-      "number": 270,
-      "street": "W. 38",
-      "type": "address"
     }
   ],
   "730020f": [
@@ -142968,11 +142588,6 @@
     {
       "place_name": "Governor's Island",
       "type": "place_name"
-    },
-    {
-      "number": 220,
-      "street": "West 42nd St.",
-      "type": "address"
     }
   ],
   "730044f": [
@@ -144239,44 +143854,24 @@
     {
       "place_name": "Central Park",
       "type": "place_name"
-    },
-    {
-      "number": 270,
-      "street": "W. 38th St.",
-      "type": "address"
     }
   ],
   "730106f": [
     {
       "place_name": "midtown Manhattan",
       "type": "place_name"
-    },
-    {
-      "number": 270,
-      "street": "W. 38",
-      "type": "address"
     }
   ],
   "730107f": [
     {
       "place_name": "Central Park",
       "type": "place_name"
-    },
-    {
-      "number": 270,
-      "street": "W. 38th St",
-      "type": "address"
     }
   ],
   "730108f": [
     {
       "place_name": "Central Park",
       "type": "place_name"
-    },
-    {
-      "number": 270,
-      "street": "W. 38",
-      "type": "address"
     }
   ],
   "730109f": [
@@ -148906,11 +148501,6 @@
       "street1": "45th Street",
       "street2": "2nd Avenue",
       "type": "intersection"
-    },
-    {
-      "number": 235,
-      "street": "East 45th Street",
-      "type": "address"
     }
   ],
   "730300f": [
@@ -148918,11 +148508,6 @@
       "street1": "45th Street",
       "street2": "Second Avenue",
       "type": "intersection"
-    },
-    {
-      "number": 235,
-      "street": "East 45th Street",
-      "type": "address"
     },
     {
       "place_name": "Second Avenue Elevated Lines",
@@ -148934,11 +148519,6 @@
       "street1": "45th Street",
       "street2": "2nd Avenue",
       "type": "intersection"
-    },
-    {
-      "number": 235,
-      "street": "East 45th Street",
-      "type": "address"
     }
   ],
   "730302f": [
@@ -154627,11 +154207,6 @@
     {
       "place_name": "Queens, New York",
       "type": "place_name"
-    },
-    {
-      "number": 51,
-      "street": "Browvale Lane",
-      "type": "address"
     }
   ],
   "730538f": [
@@ -154664,11 +154239,6 @@
     {
       "place_name": "Queens, New York, N.Y.",
       "type": "place_name"
-    },
-    {
-      "number": 51,
-      "street": "Browvale Lane",
-      "type": "address"
     }
   ],
   "730540f": [
@@ -163168,38 +162738,18 @@
     {
       "place_name": "New York (State)",
       "type": "place_name"
-    },
-    {
-      "number": 225,
-      "street": "W. 39th St.",
-      "type": "address"
     }
   ],
   "731269f": [
     {
       "place_name": "New York City",
       "type": "place_name"
-    },
-    {
-      "number": 225,
-      "street": "West 39th St",
-      "type": "address"
     }
   ],
   "731270f": [
     {
       "place_name": "New York (State)",
       "type": "place_name"
-    },
-    {
-      "number": 225,
-      "street": "W. 39th St.",
-      "type": "address"
-    },
-    {
-      "number": 229,
-      "street": "W. 39th St.",
-      "type": "address"
     }
   ],
   "731271f": [
@@ -163566,16 +163116,6 @@
     {
       "place_name": "New York (State)",
       "type": "place_name"
-    },
-    {
-      "number": 225,
-      "street": "W. 39th St.",
-      "type": "address"
-    },
-    {
-      "number": 229,
-      "street": "W. 39th St.",
-      "type": "address"
     }
   ],
   "731310f": [
@@ -164745,11 +164285,6 @@
     {
       "place_name": "Columbia University",
       "type": "place_name"
-    },
-    {
-      "number": 25,
-      "street": "Claremont Avenue",
-      "type": "address"
     }
   ],
   "731405f": [
@@ -164770,11 +164305,6 @@
       "street1": "129th Street",
       "street2": "Broadway",
       "type": "intersection"
-    },
-    {
-      "number": 25,
-      "street": "Claremont Avenue",
-      "type": "address"
     }
   ],
   "731406f": [
@@ -164785,11 +164315,6 @@
     {
       "place_name": "Columbia University",
       "type": "place_name"
-    },
-    {
-      "number": 25,
-      "street": "Claremont Avenue",
-      "type": "address"
     }
   ],
   "731407f": [
@@ -164805,11 +164330,6 @@
       "street1": "Claremont Avenue",
       "street2": "Manhattan",
       "type": "intersection"
-    },
-    {
-      "number": 25,
-      "street": "Claremont Avenue",
-      "type": "address"
     }
   ],
   "731408f": [
@@ -164821,11 +164341,6 @@
     {
       "place_name": "Barnard College",
       "type": "place_name"
-    },
-    {
-      "number": 25,
-      "street": "Claremont Avenue",
-      "type": "address"
     }
   ],
   "731409f": [
@@ -165363,11 +164878,6 @@
     {
       "place_name": "Columbia University",
       "type": "place_name"
-    },
-    {
-      "number": 25,
-      "street": "Claremont Avenue",
-      "type": "address"
     }
   ],
   "731444f": [
@@ -165399,11 +164909,6 @@
     {
       "place_name": "Riverside Church",
       "type": "place_name"
-    },
-    {
-      "number": 25,
-      "street": "Claremont Avenue",
-      "type": "address"
     }
   ],
   "731446f": [
@@ -165414,11 +164919,6 @@
     {
       "place_name": "Low Library",
       "type": "place_name"
-    },
-    {
-      "number": 25,
-      "street": "Claremont Avenue",
-      "type": "address"
     }
   ],
   "731447f": [
@@ -165521,11 +165021,6 @@
       "street1": "117th Street",
       "street2": "Morningside Drive",
       "type": "intersection"
-    },
-    {
-      "number": 25,
-      "street": "Claremont Avenue",
-      "type": "address"
     }
   ],
   "731454f": [
@@ -165548,11 +165043,6 @@
     {
       "place_name": "Journalism Hall",
       "type": "place_name"
-    },
-    {
-      "number": 25,
-      "street": "Claremont Avenue",
-      "type": "address"
     }
   ],
   "731455f": [
@@ -165564,11 +165054,6 @@
     {
       "place_name": "Columbia University",
       "type": "place_name"
-    },
-    {
-      "number": 25,
-      "street": "Claremont Avenue",
-      "type": "address"
     }
   ],
   "731456f": [
@@ -165583,11 +165068,6 @@
     {
       "place_name": "Furnald Hall",
       "type": "place_name"
-    },
-    {
-      "number": 25,
-      "street": "Claremont Avenue",
-      "type": "address"
     }
   ],
   "731457f": [
@@ -165621,11 +165101,6 @@
       "street1": "Broadway",
       "street2": "Amsterdam Avenue",
       "type": "intersection"
-    },
-    {
-      "number": 25,
-      "street": "Claremont Avenue",
-      "type": "address"
     }
   ],
   "731460f": [
@@ -165638,11 +165113,6 @@
     {
       "place_name": "Columbia University",
       "type": "place_name"
-    },
-    {
-      "number": 25,
-      "street": "Claremont Avenue",
-      "type": "address"
     }
   ],
   "731462f": [
@@ -165654,11 +165124,6 @@
     {
       "place_name": "Columbia University",
       "type": "place_name"
-    },
-    {
-      "number": 25,
-      "street": "Claremont Avenue",
-      "type": "address"
     }
   ],
   "731463f": [
@@ -172929,11 +172394,6 @@
     {
       "place_name": "Quarantine, New York harbor",
       "type": "place_name"
-    },
-    {
-      "number": 225,
-      "street": "West 39th St.",
-      "type": "address"
     }
   ],
   "732079f": [
@@ -172958,16 +172418,6 @@
     {
       "place_name": "Hoffman Island",
       "type": "place_name"
-    },
-    {
-      "number": 225,
-      "street": "West 39th St.",
-      "type": "address"
-    },
-    {
-      "number": 229,
-      "street": "West 39th St.",
-      "type": "address"
     }
   ],
   "732081f": [
@@ -172984,38 +172434,18 @@
     {
       "place_name": "New York Harbor",
       "type": "place_name"
-    },
-    {
-      "number": 225,
-      "street": "West 39th St.",
-      "type": "address"
     }
   ],
   "732083f": [
     {
       "place_name": "Hoffman Island",
       "type": "place_name"
-    },
-    {
-      "number": 225,
-      "street": "West 39th St.",
-      "type": "address"
-    },
-    {
-      "number": 229,
-      "street": "West 39th St.",
-      "type": "address"
     }
   ],
   "732084f": [
     {
       "place_name": "Hoffman Island",
       "type": "place_name"
-    },
-    {
-      "number": 225,
-      "street": "West 39th St.",
-      "type": "address"
     }
   ],
   "732085f": [
@@ -173036,16 +172466,6 @@
     {
       "place_name": "Hoffman Island",
       "type": "place_name"
-    },
-    {
-      "number": 225,
-      "street": "West 39th St.",
-      "type": "address"
-    },
-    {
-      "number": 229,
-      "street": "West 39th St.",
-      "type": "address"
     }
   ],
   "732087f": [
@@ -174542,22 +173962,12 @@
     {
       "place_name": "The Flea Market",
       "type": "place_name"
-    },
-    {
-      "number": 124,
-      "street": "West 72nd St",
-      "type": "address"
     }
   ],
   "732216f": [
     {
       "place_name": "New York (State)",
       "type": "place_name"
-    },
-    {
-      "number": 124,
-      "street": "West 72nd St.",
-      "type": "address"
     }
   ],
   "732217f": [
@@ -175040,11 +174450,6 @@
     {
       "number": 75,
       "street": "Varick Street",
-      "type": "address"
-    },
-    {
-      "number": 114,
-      "street": "East 32nd Street",
       "type": "address"
     },
     {
@@ -180634,11 +180039,6 @@
       "street1": "5th Street",
       "street2": "Avenue B",
       "type": "intersection"
-    },
-    {
-      "number": 225,
-      "street": "W. 39th Street",
-      "type": "address"
     }
   ],
   "732906f": [
@@ -180646,11 +180046,6 @@
       "street1": "5th Street",
       "street2": "Avenue A",
       "type": "intersection"
-    },
-    {
-      "number": 225,
-      "street": "W. 39th St.",
-      "type": "address"
     }
   ],
   "732907f": [
@@ -180663,11 +180058,6 @@
       "street1": "5th Street",
       "street2": "Avenue B",
       "type": "intersection"
-    },
-    {
-      "number": 225,
-      "street": "W. 39th Street",
-      "type": "address"
     }
   ],
   "732908f": [
@@ -180679,16 +180069,6 @@
     {
       "place_name": "Columbus Park",
       "type": "place_name"
-    },
-    {
-      "number": 225,
-      "street": "W. 39th Street",
-      "type": "address"
-    },
-    {
-      "number": 229,
-      "street": "W. 39th Street",
-      "type": "address"
     }
   ],
   "732909f": [
@@ -180703,11 +180083,6 @@
       "street1": "27th Street",
       "street2": "5th Avenue",
       "type": "intersection"
-    },
-    {
-      "number": 225,
-      "street": "W. 39th St.",
-      "type": "address"
     }
   ],
   "732911f": [
@@ -180721,11 +180096,6 @@
     {
       "place_name": "New York (State)",
       "type": "place_name"
-    },
-    {
-      "number": 225,
-      "street": "W. 39th St.",
-      "type": "address"
     }
   ],
   "732913f": [],
@@ -183744,11 +183114,6 @@
       "number": 77,
       "street": "West 44th Street",
       "type": "address"
-    },
-    {
-      "number": 225,
-      "street": "West 39th Street",
-      "type": "address"
     }
   ],
   "733343f": [
@@ -184501,11 +183866,6 @@
       "street1": "2nd Avenue",
       "street2": "23rd Street",
       "type": "intersection"
-    },
-    {
-      "number": 275,
-      "street": "E. 10th St.",
-      "type": "address"
     }
   ],
   "733407f": [
@@ -184517,11 +183877,6 @@
       "street1": "Dyre Avenue",
       "street2": "Dyer Avenue",
       "type": "intersection"
-    },
-    {
-      "number": 275,
-      "street": "E. 10th Street",
-      "type": "address"
     }
   ],
   "733408f": [
@@ -184560,11 +183915,6 @@
       "street1": "9th Avenue",
       "street2": "110th Street",
       "type": "intersection"
-    },
-    {
-      "number": 275,
-      "street": "E. 10th St.",
-      "type": "address"
     },
     {
       "place_name": "9th Avenue Elevated Station",
@@ -184990,11 +184340,6 @@
     {
       "place_name": "Marble Hill",
       "type": "place_name"
-    },
-    {
-      "number": 275,
-      "street": "E. 10th Street",
-      "type": "address"
     }
   ],
   "733461f": [],
@@ -185004,13 +184349,7 @@
       "type": "place_name"
     }
   ],
-  "733463f": [
-    {
-      "number": 220,
-      "street": "West 42nd Street",
-      "type": "address"
-    }
-  ],
+  "733463f": [],
   "733464f": [
     {
       "street1": "New Utrecht Avenue",
@@ -185376,11 +184715,6 @@
     {
       "place_name": "Columbus Circle",
       "type": "place_name"
-    },
-    {
-      "number": 275,
-      "street": "E. 10th Street",
-      "type": "address"
     }
   ],
   "733524f": [
@@ -185849,22 +185183,12 @@
     {
       "place_name": "New York (State)",
       "type": "place_name"
-    },
-    {
-      "number": 225,
-      "street": "W. 39th St.",
-      "type": "address"
     }
   ],
   "733570f": [
     {
       "place_name": "New York (State)",
       "type": "place_name"
-    },
-    {
-      "number": 225,
-      "street": "W. 39th St.",
-      "type": "address"
     }
   ],
   "733571f": [
@@ -185877,11 +185201,6 @@
     {
       "place_name": "New York City",
       "type": "place_name"
-    },
-    {
-      "number": 225,
-      "street": "W. 39th St.",
-      "type": "address"
     }
   ],
   "733573f": [],
@@ -185967,11 +185286,6 @@
       "street1": "5th Avenue",
       "street2": "West 39th St.",
       "type": "intersection"
-    },
-    {
-      "number": 225,
-      "street": "West 39th St.",
-      "type": "address"
     }
   ],
   "733590f": [
@@ -187364,13 +186678,7 @@
       "type": "place_name"
     }
   ],
-  "733711f": [
-    {
-      "number": 220,
-      "street": "West 42nd St.",
-      "type": "address"
-    }
-  ],
+  "733711f": [],
   "733712f": [
     {
       "place_name": "Brooklyn Bridge",
@@ -201337,11 +200645,6 @@
     {
       "place_name": "Empire State Building",
       "type": "place_name"
-    },
-    {
-      "number": 164,
-      "street": "W. 79th Street",
-      "type": "address"
     }
   ],
   "734524f": [
