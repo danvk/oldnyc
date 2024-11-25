@@ -73,6 +73,12 @@ PHOTOGRAPHER_ADDRESSES = {
     "14 East 39th Street",
     "235 East 45th Street",
     "164 West 79th Street",
+    "839 Broadway",
+    "86 Madison Avenue",
+    "58 West 22nd St.",
+    "36 West 23rd Street",
+    "145 W. 41st St.",
+    "58 West 29th Street",
 }
 
 if __name__ == "__main__":
