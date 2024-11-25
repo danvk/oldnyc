@@ -50,10 +50,10 @@ def locate_with_osm(
 
 
 KNOWN_BAD = {
-    "Hudson River",
-    "East River",
+    # "Hudson River",
+    # "East River",
     "unknown",
-    "Harlem River",
+    # "Harlem River",
     "Manhattan",
     "West",
     "North",
