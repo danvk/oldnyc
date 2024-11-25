@@ -167,3 +167,6 @@ def test_preserved_streets():
     with pytest.raises(ValueError):
         g.geocode_intersection("East 76th Street", "East End Avenue", "Manhattan")
     # It would be fine to locate this, it's just important that it's not geocoded to West End Ave.
+
+    with pytest.raises(ValueError):
+        g.geocode_intersection("East 76th Street", "East End Ave", "Manhattan")
