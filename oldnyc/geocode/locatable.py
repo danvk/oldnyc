@@ -17,6 +17,7 @@ from oldnyc.item import Item
 
 # (coder, event) -> count
 counts = defaultdict[str, Counter[str]](Counter)
+total_counts = Counter[str]()
 
 
 def round_pt(pt: Point) -> Point:
@@ -87,14 +88,17 @@ def extract_point_from_google_geocode(
     if isinstance(loc, LatLngLocation):
         return loc.lat, loc.lng
     elif isinstance(loc, AddressLocation):
+        gtype = "address"
         pt = get_lat_lng_from_geocode(geocode, ["street_address", "premise"])
     elif isinstance(loc, IntersectionLocation):
+        gtype = "intersection"
         pt = get_lat_lng_from_geocode(geocode, ["intersection"])
     else:
         raise ValueError()
 
     if not pt:
         counts[coder]["google: fail"] += 1
+        total_counts[f"google: {gtype} - fail"] += 1
         return None
     lat, lng = pt
     geocode_boro = point_to_borough(lat, lng)
@@ -105,9 +109,11 @@ def extract_point_from_google_geocode(
         #     f"Borough mismatch: {record.id}: {loc.source} geocoded to {geocode_boro} not {boro}\n"
         # )
         counts[coder]["google: boro mismatch"] += 1
+        total_counts[f"google: {gtype} - boro mismatch"] += 1
         return None
     # TODO: track hits by locatable type
     counts[coder]["google: success"] += 1
+    total_counts[f"google: {gtype} - success"] += 1
     return round_pt(pt)
 
 

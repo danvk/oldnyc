@@ -1,8 +1,8 @@
 104536	failed	n/a	n/a
 104780	failed	n/a	n/a
 104881	failed	n/a	n/a
-1113261	gpt	(40.7566516, -73.9964883)	442 West 38th St.
-1113271	gpt	(40.756659, -73.978557)	Fifth Avenue and West 47th St.
+1113261	gpt	(40.75096, -73.982726)	Fifth Avenue and West 38th St
+1113271	gpt	(40.756659, -73.978557)	Fifth Avenue and West 47th St
 1231043	failed	n/a	n/a
 1238854	failed	n/a	n/a
 1507627	title-cross	(40.750907, -73.980677)	Manhattan: Madison Avenue - 39th Street, 
@@ -55,7 +55,7 @@
 704348f	title-cross	(40.6866881, -73.9792917)	Brooklyn: Flatbush Avenue - Lafayette Street
 704362f	title-cross	(40.648437, -73.893295)	Brooklyn: Flatlands Avenue - 107th Street (East)
 704427f	gpt	(40.611958, -74.031867)	100th Street and Fort Hamilton Parkway
-704487f	failed	n/a	n/a
+704487f	gpt	(40.6917442, -73.988601)	186 Fulton Street
 704920f	title-cross	(40.697892, -73.994599)	Brooklyn: Hicks Street - Clark Street
 704967f	title-cross	(40.705439, -73.956337)	Brooklyn: Hooper Street - Marcy Avenue
 705366f	title-cross	(40.688555, -73.962836)	Brooklyn: Lafayette Avenue - Grand Avenue
@@ -64,7 +64,7 @@
 705728f	title-cross	(40.6185279, -73.9181743)	Brooklyn: Mill Lane - 59th Street (East)
 705747f	title-cross	(40.697218, -73.992127)	Brooklyn: Monroe Place - Clark Street
 705770f	title-cross	(40.693756, -73.990425)	Brooklyn: Montague Street - Court Street
-706037f	failed	n/a	n/a
+706037f	gpt	(40.6594607, -73.908152)	Newport Street and Rockaway Parkway
 706565f	failed	n/a	n/a
 706851f	title-cross	(40.709807, -73.940183)	Brooklyn: Stagg Street - Bushwick Avenue
 707148f	title-cross	(40.620563, -73.901989)	Brooklyn: Ave. V - Bergen Ave.
@@ -128,7 +128,7 @@
 716213f	title-cross	(40.802962, -73.963849)	Manhattan: Amsterdam Avenue - Cathedral Parkway
 716251f	title-cross	(40.802962, -73.963849)	Manhattan: Amsterdam Avenue - Cathedral Parkway
 716421f	title-cross	(40.725073, -73.981211)	Manhattan: Avenue B - 7th Street
-716604f	failed	n/a	n/a
+716604f	gpt	(40.7150701, -73.9968811)	19 Bayard Street
 716849f	title-cross	(40.706278, -74.011188)	Manhattan: Broad Street - Exchange Place
 716954f	title-cross	(40.705009, -74.013327)	Manhattan: Broadway - Beaver Street
 717053f	title-cross	(40.709173, -74.010571)	Manhattan: Broadway - Liberty Street
@@ -138,7 +138,7 @@
 718754f	title-cross	(40.712212, -73.980711)	Manhattan: Cherry Street - Jackson Street
 719118f	special	(40.76808, -73.981896)	Columbus Circle
 719259f	title-cross	(40.719982, -73.992912)	Manhattan: Delancey Street - Chrystie Street
-719352f	failed	n/a	n/a
+719352f	gpt	(40.71407, -73.997584)	Bowery and Doyers Street
 719805f	subjects	(40.861619, -73.933622)	Fort Tryon Park (New York, N.Y.)
 720086f	title-cross	(40.718164, -73.993839)	Manhattan: Grand Street - Chrystie Street
 720408f	title-cross	(40.715561, -73.989748)	Manhattan: Hester Street - Essex Street
@@ -152,7 +152,7 @@
 722717f	title-cross	(40.786892, -73.981227)	Manhattan: Riverside Drive - 82nd Street
 722881f	title-cross	(40.784976, -73.982652)	Manhattan: Riverside Drive - 79th Street
 723027f	title-cross	(40.7584384, -73.9789121)	Manhattan: Rockefeller Plaza - 49th Street (West)
-723036f	failed	n/a	n/a
+723036f	gpt	(40.7584384, -73.9789121)	49th Street and Rockefeller Plaza
 723111f	title-cross	(40.727599, -73.985307)	Manhattan: St. Marks Place - 1st Avenue
 723134f	title-cross	(40.825332, -73.943813)	Manhattan: St. Nicholas Avenue - 147th Street
 723323f	title-cross	(40.7095105, -73.9940379)	Manhattan: South Street - Market Slip (West).

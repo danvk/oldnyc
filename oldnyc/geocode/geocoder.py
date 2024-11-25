@@ -87,7 +87,7 @@ class Geocoder:
         if not data:
             if not self._network_allowed:
                 self.n_cache_misses += 1
-                sys.stderr.write(f"Would have geocoded with network: {address}\n")
+                sys.stderr.write(f"{debug_txt} Would have geocoded with network: {address}\n")
                 # XXX this should probably raise instead
                 return None
             data = self._fetch(url, f"{debug_txt}: {address}")

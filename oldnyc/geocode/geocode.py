@@ -28,6 +28,7 @@ from oldnyc.geocode.locatable import (
     extract_point_from_google_geocode,
     get_address_for_google,
     locate_with_osm,
+    total_counts,
 )
 from oldnyc.geocode.locatable import (
     counts as locatable_counts,
@@ -252,6 +253,7 @@ if __name__ == "__main__":
             sys.stderr.write(f"        failures: {n_google_fail}\n")
             assert g
             g.log_stats()
+            sys.stderr.write(f"{total_counts.most_common()}\n")
 
     sys.stderr.write("-- Final stats --\n")
     successes = 0
