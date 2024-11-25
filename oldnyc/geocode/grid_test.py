@@ -164,9 +164,6 @@ def test_strip_dir():
 
 def test_preserved_streets():
     g = Grid()
-    assert_close(
-        g.geocode_intersection("East 76th Street", "East End Avenue", "Manhattan"),
-        (40.782401, -73.982596),
-        # (40.770415, -73.948064),
-    )
-    # 40.782401
+    with pytest.raises(ValueError):
+        g.geocode_intersection("East 76th Street", "East End Avenue", "Manhattan")
+    # It would be fine to locate this, it's just important that it's not geocoded to West End Ave.

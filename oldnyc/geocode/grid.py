@@ -87,6 +87,8 @@ PRESERVE_DIRECTIONS = {
 
 def strip_dir(street: str) -> str:
     """Remove cardinal directions from street names."""
+    if street in PRESERVE_DIRECTIONS:
+        return street
     return re.sub(r"\b(east|west|north|south)\b", "", street, flags=re.I).replace("()", "").strip()
 
 
