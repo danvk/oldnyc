@@ -77,6 +77,12 @@ def get_address_for_google(loc: Locatable) -> str | None:
     elif isinstance(loc, IntersectionLocation):
         if loc.str1 in KNOWN_BAD or loc.str2 in KNOWN_BAD:
             return None
+        ix = grid.Intersection(
+            grid.normalize_street(loc.str1), grid.normalize_street(loc.str2), loc.boro
+        )
+        if ix in grid.CURSED_INTERSECTIONS:
+            total_counts["cursed"] += 1
+            return None
         return f"{loc.str1} and {loc.str2}, {loc.boro}, NY"
     else:
         raise ValueError()

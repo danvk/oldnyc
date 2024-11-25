@@ -170,3 +170,8 @@ def test_preserved_streets():
 
     with pytest.raises(ValueError):
         g.geocode_intersection("East 76th Street", "East End Ave", "Manhattan")
+
+
+def test_cursed_intersection():
+    g = Grid()
+    assert g.geocode_intersection("Broadway", "Amsterdam Ave", "Manhattan") is None
