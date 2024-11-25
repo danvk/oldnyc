@@ -10988,8 +10988,9 @@
       "type": "address"
     },
     {
-      "place_name": "60 Wall Tower",
-      "type": "place_name"
+      "number": 60,
+      "street": "Wall Street",
+      "type": "address"
     }
   ],
   "1508035": [
@@ -20976,8 +20977,9 @@
   ],
   "1517055": [
     {
-      "place_name": "60 Wall Tower",
-      "type": "place_name"
+      "number": 60,
+      "street": "Wall Street",
+      "type": "address"
     }
   ],
   "1517057": [
@@ -20990,8 +20992,9 @@
       "type": "place_name"
     },
     {
-      "place_name": "60 Wall Tower",
-      "type": "place_name"
+      "number": 60,
+      "street": "Wall Street",
+      "type": "address"
     }
   ],
   "1517059": [
@@ -91221,8 +91224,9 @@
       "type": "place_name"
     },
     {
-      "place_name": "14 Wall Street",
-      "type": "place_name"
+      "number": 14,
+      "street": "Wall Street",
+      "type": "address"
     },
     {
       "place_name": "Woolworth Building",
@@ -100999,8 +101003,9 @@
       "type": "intersection"
     },
     {
-      "place_name": "60 Wall Street Tower",
-      "type": "place_name"
+      "number": 60,
+      "street": "Wall Street",
+      "type": "address"
     }
   ],
   "718999f": [
@@ -102974,8 +102979,9 @@
       "type": "place_name"
     },
     {
-      "place_name": "60 Wall Tower",
-      "type": "place_name"
+      "number": 60,
+      "street": "Wall Street",
+      "type": "address"
     }
   ],
   "719302f": [
@@ -112566,8 +112572,9 @@
   ],
   "721829f": [
     {
-      "place_name": "14 Wall Street",
-      "type": "place_name"
+      "number": 14,
+      "street": "Wall Street",
+      "type": "address"
     },
     {
       "place_name": "Bankers Trust Co.",
@@ -112580,8 +112587,9 @@
   ],
   "721830f": [
     {
-      "place_name": "14 Wall Street",
-      "type": "place_name"
+      "number": 14,
+      "street": "Wall Street",
+      "type": "address"
     },
     {
       "place_name": "Bankers Trust Co.",
@@ -112594,8 +112602,9 @@
   ],
   "721831f": [
     {
-      "place_name": "14 Wall Street",
-      "type": "place_name"
+      "number": 14,
+      "street": "Wall Street",
+      "type": "address"
     },
     {
       "place_name": "Nassau Street",
@@ -112608,8 +112617,9 @@
   ],
   "721832f": [
     {
-      "place_name": "14 Wall Street",
-      "type": "place_name"
+      "number": 14,
+      "street": "Wall Street",
+      "type": "address"
     },
     {
       "place_name": "Bankers Trust Co.",
@@ -112622,8 +112632,9 @@
   ],
   "721833f": [
     {
-      "place_name": "14 Wall Street",
-      "type": "place_name"
+      "number": 14,
+      "street": "Wall Street",
+      "type": "address"
     },
     {
       "place_name": "Nassau Street",
@@ -112641,8 +112652,9 @@
       "type": "intersection"
     },
     {
-      "place_name": "14 Wall Street",
-      "type": "place_name"
+      "number": 14,
+      "street": "Wall Street",
+      "type": "address"
     },
     {
       "place_name": "Bankers Trust Co.",
@@ -112655,8 +112667,9 @@
       "type": "place_name"
     },
     {
-      "place_name": "14 Wall Street",
-      "type": "place_name"
+      "number": 14,
+      "street": "Wall Street",
+      "type": "address"
     },
     {
       "place_name": "Nassau Street",
@@ -112670,8 +112683,9 @@
       "type": "intersection"
     },
     {
-      "place_name": "14 Wall Street",
-      "type": "place_name"
+      "number": 14,
+      "street": "Wall Street",
+      "type": "address"
     },
     {
       "place_name": "Bankers Trust Co.",
@@ -112680,8 +112694,9 @@
   ],
   "721837f": [
     {
-      "place_name": "14 Wall Street",
-      "type": "place_name"
+      "number": 14,
+      "street": "Wall Street",
+      "type": "address"
     },
     {
       "place_name": "Nassau Street",
@@ -112694,8 +112709,9 @@
   ],
   "721838f": [
     {
-      "place_name": "14 Wall Street",
-      "type": "place_name"
+      "number": 14,
+      "street": "Wall Street",
+      "type": "address"
     },
     {
       "place_name": "Bankers Trust Co.",
@@ -112704,8 +112720,9 @@
   ],
   "721839f": [
     {
-      "place_name": "14 Wall Street",
-      "type": "place_name"
+      "number": 14,
+      "street": "Wall Street",
+      "type": "address"
     },
     {
       "place_name": "Bankers Trust Co.",
@@ -112718,8 +112735,9 @@
   ],
   "721840f": [
     {
-      "place_name": "14 Wall Street",
-      "type": "place_name"
+      "number": 14,
+      "street": "Wall Street",
+      "type": "address"
     },
     {
       "place_name": "Bankers Trust Co.",
@@ -112737,14 +112755,16 @@
       "type": "intersection"
     },
     {
-      "place_name": "14 Wall Street",
-      "type": "place_name"
+      "number": 14,
+      "street": "Wall Street",
+      "type": "address"
     }
   ],
   "721842f": [
     {
-      "place_name": "14 Wall Street",
-      "type": "place_name"
+      "number": 14,
+      "street": "Wall Street",
+      "type": "address"
     },
     {
       "place_name": "Nassau Street",
@@ -112757,8 +112777,9 @@
   ],
   "721843f": [
     {
-      "place_name": "14 Wall Street",
-      "type": "place_name"
+      "number": 14,
+      "street": "Wall Street",
+      "type": "address"
     },
     {
       "place_name": "Nassau Street",
@@ -112775,14 +112796,16 @@
       "type": "place_name"
     },
     {
-      "place_name": "14 Wall Street",
-      "type": "place_name"
+      "number": 14,
+      "street": "Wall Street",
+      "type": "address"
     }
   ],
   "721845f": [
     {
-      "place_name": "14 Wall Street",
-      "type": "place_name"
+      "number": 14,
+      "street": "Wall Street",
+      "type": "address"
     },
     {
       "place_name": "Bankers Trust Co.",
@@ -112795,8 +112818,9 @@
   ],
   "721846f": [
     {
-      "place_name": "14 Wall Street",
-      "type": "place_name"
+      "number": 14,
+      "street": "Wall Street",
+      "type": "address"
     },
     {
       "place_name": "Nassau Street",
@@ -112809,8 +112833,9 @@
   ],
   "721847f": [
     {
-      "place_name": "14 Wall Street",
-      "type": "place_name"
+      "number": 14,
+      "street": "Wall Street",
+      "type": "address"
     },
     {
       "place_name": "Bankers Trust Co.",
@@ -112823,8 +112848,9 @@
   ],
   "721848f": [
     {
-      "place_name": "14 Wall Street",
-      "type": "place_name"
+      "number": 14,
+      "street": "Wall Street",
+      "type": "address"
     },
     {
       "place_name": "Nassau Street",
@@ -112842,8 +112868,9 @@
       "type": "intersection"
     },
     {
-      "place_name": "14 Wall Street",
-      "type": "place_name"
+      "number": 14,
+      "street": "Wall Street",
+      "type": "address"
     },
     {
       "place_name": "Bankers Trust Co.",
@@ -112852,8 +112879,9 @@
   ],
   "721850f": [
     {
-      "place_name": "14 Wall Street",
-      "type": "place_name"
+      "number": 14,
+      "street": "Wall Street",
+      "type": "address"
     },
     {
       "street1": "Nassau Street",
@@ -112867,8 +112895,9 @@
   ],
   "721851f": [
     {
-      "place_name": "14 Wall Street",
-      "type": "place_name"
+      "number": 14,
+      "street": "Wall Street",
+      "type": "address"
     },
     {
       "place_name": "Nassau Street",
@@ -118131,8 +118160,9 @@
       "type": "place_name"
     },
     {
-      "place_name": "60 Wall Street tower",
-      "type": "place_name"
+      "number": 60,
+      "street": "Wall Street",
+      "type": "address"
     },
     {
       "place_name": "Farmer's Loan and Trust Co. Building",
@@ -118480,8 +118510,9 @@
       "type": "intersection"
     },
     {
-      "place_name": "60 Wall Street Tower",
-      "type": "place_name"
+      "number": 60,
+      "street": "Wall Street",
+      "type": "address"
     },
     {
       "place_name": "Bank of Manhattan Building",
@@ -122515,8 +122546,9 @@
       "type": "place_name"
     },
     {
-      "place_name": "120 Wall Street",
-      "type": "place_name"
+      "number": 120,
+      "street": "Wall Street",
+      "type": "address"
     }
   ],
   "723946f": [
@@ -124536,8 +124568,9 @@
       "type": "intersection"
     },
     {
-      "place_name": "14 Wall Street",
-      "type": "place_name"
+      "number": 14,
+      "street": "Wall Street",
+      "type": "address"
     },
     {
       "place_name": "Trinity Church",
@@ -142926,8 +142959,9 @@
       "type": "place_name"
     },
     {
-      "place_name": "14 Wall Street",
-      "type": "place_name"
+      "number": 14,
+      "street": "Wall Street",
+      "type": "address"
     },
     {
       "place_name": "David N. Dinkins Manhattan Municipal Building",
@@ -143064,8 +143098,9 @@
       "type": "place_name"
     },
     {
-      "place_name": "60 Wall Tower",
-      "type": "place_name"
+      "number": 60,
+      "street": "Wall Street",
+      "type": "address"
     },
     {
       "place_name": "Bank of Manhattan Building",
@@ -143103,16 +143138,18 @@
       "type": "place_name"
     },
     {
-      "place_name": "120 Wall Street",
-      "type": "place_name"
+      "number": 120,
+      "street": "Wall Street",
+      "type": "address"
     },
     {
       "place_name": "City Bank Farmers Trust",
       "type": "place_name"
     },
     {
-      "place_name": "60 Wall Tower",
-      "type": "place_name"
+      "number": 60,
+      "street": "Wall Street",
+      "type": "address"
     },
     {
       "place_name": "Bank of Manhattan",
@@ -143608,8 +143645,9 @@
       "type": "place_name"
     },
     {
-      "place_name": "14 Wall Street",
-      "type": "place_name"
+      "number": 14,
+      "street": "Wall Street",
+      "type": "address"
     },
     {
       "place_name": "Woolworth Building",
@@ -149453,8 +149491,9 @@
       "type": "place_name"
     },
     {
-      "place_name": "60 Wall Street Tower",
-      "type": "place_name"
+      "number": 60,
+      "street": "Wall Street",
+      "type": "address"
     },
     {
       "place_name": "City Bank-Farmers Trust Company",
@@ -149761,8 +149800,9 @@
       "type": "place_name"
     },
     {
-      "place_name": "60 Wall Street Tower",
-      "type": "place_name"
+      "number": 60,
+      "street": "Wall Street",
+      "type": "address"
     },
     {
       "place_name": "Bank of Manhattan",
@@ -150891,8 +150931,9 @@
       "type": "place_name"
     },
     {
-      "place_name": "14 Wall Street",
-      "type": "place_name"
+      "number": 14,
+      "street": "Wall Street",
+      "type": "address"
     },
     {
       "place_name": "Federal Reserve Bank of New York",
@@ -151424,8 +151465,9 @@
       "type": "address"
     },
     {
-      "place_name": "60 Wall Street Tower",
-      "type": "place_name"
+      "number": 60,
+      "street": "Wall Street",
+      "type": "address"
     },
     {
       "place_name": "Brooklyn Bridge",
@@ -151467,8 +151509,9 @@
       "type": "place_name"
     },
     {
-      "place_name": "60 Wall Street Tower",
-      "type": "place_name"
+      "number": 60,
+      "street": "Wall Street",
+      "type": "address"
     }
   ],
   "730419f": [
@@ -151488,8 +151531,9 @@
       "type": "address"
     },
     {
-      "place_name": "60 Wall Street Tower",
-      "type": "place_name"
+      "number": 60,
+      "street": "Wall Street",
+      "type": "address"
     }
   ],
   "730420f": [
@@ -151519,8 +151563,9 @@
       "type": "address"
     },
     {
-      "place_name": "60 Wall Street Tower",
-      "type": "place_name"
+      "number": 60,
+      "street": "Wall Street",
+      "type": "address"
     },
     {
       "place_name": "Empire State Building",
@@ -151574,8 +151619,9 @@
       "type": "address"
     },
     {
-      "place_name": "60 Wall Street Tower",
-      "type": "place_name"
+      "number": 60,
+      "street": "Wall Street",
+      "type": "address"
     },
     {
       "place_name": "New York Telephone Company",
@@ -151675,8 +151721,9 @@
       "type": "address"
     },
     {
-      "place_name": "60 Wall Street Tower",
-      "type": "place_name"
+      "number": 60,
+      "street": "Wall Street",
+      "type": "address"
     },
     {
       "place_name": "New York Telephone Company",
@@ -151750,8 +151797,9 @@
       "type": "address"
     },
     {
-      "place_name": "60 Wall Street Tower",
-      "type": "place_name"
+      "number": 60,
+      "street": "Wall Street",
+      "type": "address"
     },
     {
       "street1": "Front Street",
@@ -151776,8 +151824,9 @@
       "type": "address"
     },
     {
-      "place_name": "60 Wall Street Tower",
-      "type": "place_name"
+      "number": 60,
+      "street": "Wall Street",
+      "type": "address"
     },
     {
       "place_name": "Borough Hall section of Brooklyn",
@@ -151796,8 +151845,9 @@
       "type": "address"
     },
     {
-      "place_name": "60 Wall Street Tower",
-      "type": "place_name"
+      "number": 60,
+      "street": "Wall Street",
+      "type": "address"
     },
     {
       "place_name": "Bull Insular Line pier",
@@ -151821,8 +151871,9 @@
       "type": "address"
     },
     {
-      "place_name": "60 Wall Street Tower",
-      "type": "place_name"
+      "number": 60,
+      "street": "Wall Street",
+      "type": "address"
     },
     {
       "place_name": "Bank of Manhattan",
@@ -151981,8 +152032,9 @@
       "type": "address"
     },
     {
-      "place_name": "60 Wall Street Tower",
-      "type": "place_name"
+      "number": 60,
+      "street": "Wall Street",
+      "type": "address"
     }
   ],
   "730435f": [
@@ -152002,8 +152054,9 @@
       "type": "address"
     },
     {
-      "place_name": "60 Wall Street Tower",
-      "type": "place_name"
+      "number": 60,
+      "street": "Wall Street",
+      "type": "address"
     },
     {
       "place_name": "Equitable Trust Company",
@@ -152022,8 +152075,9 @@
       "type": "place_name"
     },
     {
-      "place_name": "14 Wall Street",
-      "type": "place_name"
+      "number": 14,
+      "street": "Wall Street",
+      "type": "address"
     }
   ],
   "730436f": [
@@ -152445,8 +152499,9 @@
       "type": "place_name"
     },
     {
-      "place_name": "40 Wall Street",
-      "type": "place_name"
+      "number": 40,
+      "street": "Wall Street",
+      "type": "address"
     },
     {
       "street1": "34th St.",
@@ -152603,8 +152658,9 @@
       "type": "place_name"
     },
     {
-      "place_name": "14 Wall Street",
-      "type": "place_name"
+      "number": 14,
+      "street": "Wall Street",
+      "type": "address"
     }
   ],
   "730455f": [
@@ -154272,8 +154328,9 @@
       "type": "intersection"
     },
     {
-      "place_name": "60 Wall Street Tower",
-      "type": "place_name"
+      "number": 60,
+      "street": "Wall Street",
+      "type": "address"
     }
   ],
   "730543f": [
@@ -154313,8 +154370,9 @@
       "type": "intersection"
     },
     {
-      "place_name": "60 Wall Street Tower",
-      "type": "place_name"
+      "number": 60,
+      "street": "Wall Street",
+      "type": "address"
     }
   ],
   "730546f": [
@@ -156025,8 +156083,9 @@
       "type": "place_name"
     },
     {
-      "place_name": "14 Wall Street",
-      "type": "place_name"
+      "number": 14,
+      "street": "Wall Street",
+      "type": "address"
     },
     {
       "place_name": "Singer Building",
@@ -169486,8 +169545,9 @@
       "type": "place_name"
     },
     {
-      "place_name": "60 Wall Street Tower",
-      "type": "place_name"
+      "number": 60,
+      "street": "Wall Street",
+      "type": "address"
     },
     {
       "place_name": "Bank of The Manhattan Company Buildings",
@@ -186949,8 +187009,9 @@
       "type": "place_name"
     },
     {
-      "place_name": "60 Wall Street Tower",
-      "type": "place_name"
+      "number": 60,
+      "street": "Wall Street",
+      "type": "address"
     }
   ],
   "733731f": [
@@ -187033,8 +187094,9 @@
       "type": "place_name"
     },
     {
-      "place_name": "60 Wall Street Tower",
-      "type": "place_name"
+      "number": 60,
+      "street": "Wall Street",
+      "type": "address"
     },
     {
       "place_name": "American Sugar Refining Co. Buildings",
@@ -187342,8 +187404,9 @@
       "type": "place_name"
     },
     {
-      "place_name": "60 Wall Street Tower",
-      "type": "place_name"
+      "number": 60,
+      "street": "Wall Street",
+      "type": "address"
     }
   ],
   "733743f": [
@@ -187398,8 +187461,9 @@
       "type": "place_name"
     },
     {
-      "place_name": "60 Wall Tower",
-      "type": "place_name"
+      "number": 60,
+      "street": "Wall Street",
+      "type": "address"
     },
     {
       "place_name": "Whitehall Building",
@@ -188497,8 +188561,9 @@
       "type": "place_name"
     },
     {
-      "place_name": "60 Wall Street Tower",
-      "type": "place_name"
+      "number": 60,
+      "street": "Wall Street",
+      "type": "address"
     },
     {
       "place_name": "City Bank Farmers Trust Building",
@@ -188535,8 +188600,9 @@
       "type": "intersection"
     },
     {
-      "place_name": "60 Wall Tower Building",
-      "type": "place_name"
+      "number": 60,
+      "street": "Wall Street",
+      "type": "address"
     },
     {
       "place_name": "Bank of Manhattan Trust Co. Building",
@@ -188831,8 +188897,9 @@
       "type": "place_name"
     },
     {
-      "place_name": "60 Wall Street Tower",
-      "type": "place_name"
+      "number": 60,
+      "street": "Wall Street",
+      "type": "address"
     },
     {
       "place_name": "American Sugar Refining Company",
@@ -188861,8 +188928,9 @@
       "type": "intersection"
     },
     {
-      "place_name": "60 Wall Street Tower",
-      "type": "place_name"
+      "number": 60,
+      "street": "Wall Street",
+      "type": "address"
     },
     {
       "place_name": "American Sugar Refining Company",
@@ -188970,8 +189038,9 @@
       "type": "place_name"
     },
     {
-      "place_name": "60 Wall Street Tower",
-      "type": "place_name"
+      "number": 60,
+      "street": "Wall Street",
+      "type": "address"
     },
     {
       "place_name": "Bank of Manhattan",
@@ -192195,8 +192264,9 @@
       "type": "place_name"
     },
     {
-      "place_name": "60 Wall St. Tower Building",
-      "type": "place_name"
+      "number": 60,
+      "street": "Wall Street",
+      "type": "address"
     },
     {
       "place_name": "City Bank Farmers Trust Co. building",
@@ -192217,8 +192287,9 @@
       "type": "place_name"
     },
     {
-      "place_name": "60 Wall Street Tower",
-      "type": "place_name"
+      "number": 60,
+      "street": "Wall Street",
+      "type": "address"
     },
     {
       "place_name": "City Bank Farmers Trust Co.",
@@ -192342,8 +192413,9 @@
       "type": "place_name"
     },
     {
-      "place_name": "60 Wall Tower Building",
-      "type": "place_name"
+      "number": 60,
+      "street": "Wall Street",
+      "type": "address"
     }
   ],
   "733961f": [
@@ -192535,8 +192607,9 @@
       "type": "place_name"
     },
     {
-      "place_name": "60 Wall Street Tower",
-      "type": "place_name"
+      "number": 60,
+      "street": "Wall Street",
+      "type": "address"
     },
     {
       "place_name": "Seamen's Church Institute",
@@ -193145,8 +193218,9 @@
       "type": "place_name"
     },
     {
-      "place_name": "120 Wall Street",
-      "type": "place_name"
+      "number": 120,
+      "street": "Wall Street",
+      "type": "address"
     }
   ],
   "733995f": [
@@ -193251,8 +193325,9 @@
       "type": "place_name"
     },
     {
-      "place_name": "120 Wall Street",
-      "type": "place_name"
+      "number": 120,
+      "street": "Wall Street",
+      "type": "address"
     },
     {
       "place_name": "City Bank and Farmers Trust Co",
@@ -193295,8 +193370,9 @@
       "type": "place_name"
     },
     {
-      "place_name": "60 Wall Street Tower",
-      "type": "place_name"
+      "number": 60,
+      "street": "Wall Street",
+      "type": "address"
     },
     {
       "place_name": "Bank of Manhattan",
@@ -199256,8 +199332,9 @@
   "734433f": [],
   "734434f": [
     {
-      "place_name": "14 Wall Street",
-      "type": "place_name"
+      "number": 14,
+      "street": "Wall Street",
+      "type": "address"
     },
     {
       "place_name": "Singer Building",
@@ -199288,8 +199365,9 @@
   ],
   "734436f": [
     {
-      "place_name": "14 Wall Street",
-      "type": "place_name"
+      "number": 14,
+      "street": "Wall Street",
+      "type": "address"
     },
     {
       "place_name": "David N. Dinkins Manhattan Municipal Building",
@@ -199741,8 +199819,9 @@
       "type": "place_name"
     },
     {
-      "place_name": "14 Wall Street",
-      "type": "place_name"
+      "number": 14,
+      "street": "Wall Street",
+      "type": "address"
     }
   ],
   "734471f": [
@@ -199898,8 +199977,9 @@
       "type": "place_name"
     },
     {
-      "place_name": "14 Wall Street",
-      "type": "place_name"
+      "number": 14,
+      "street": "Wall Street",
+      "type": "address"
     },
     {
       "place_name": "Singer Building",
@@ -199921,8 +200001,9 @@
       "type": "place_name"
     },
     {
-      "place_name": "14 Wall Street",
-      "type": "place_name"
+      "number": 14,
+      "street": "Wall Street",
+      "type": "address"
     },
     {
       "place_name": "New York Telephone Company",
@@ -200038,8 +200119,9 @@
       "type": "place_name"
     },
     {
-      "place_name": "14 Wall Street",
-      "type": "place_name"
+      "number": 14,
+      "street": "Wall Street",
+      "type": "address"
     },
     {
       "place_name": "Singer Building",
@@ -200107,12 +200189,14 @@
       "type": "place_name"
     },
     {
-      "place_name": "60 Wall Street Tower",
-      "type": "place_name"
+      "number": 60,
+      "street": "Wall Street",
+      "type": "address"
     },
     {
-      "place_name": "14 Wall Street",
-      "type": "place_name"
+      "number": 14,
+      "street": "Wall Street",
+      "type": "address"
     },
     {
       "place_name": "Singer Building",
@@ -200352,8 +200436,9 @@
       "type": "place_name"
     },
     {
-      "place_name": "14 Wall Street",
-      "type": "place_name"
+      "number": 14,
+      "street": "Wall Street",
+      "type": "address"
     }
   ],
   "734503f": [

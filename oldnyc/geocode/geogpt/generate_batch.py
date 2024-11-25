@@ -46,7 +46,7 @@ class GptIntersection(TypedDict):
 
 class GptAddress(TypedDict):
     type: Literal["address"]
-    number: str
+    number: int
     street: str
 
 

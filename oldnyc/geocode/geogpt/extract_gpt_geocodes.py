@@ -6,7 +6,7 @@ import re
 import sys
 from collections import Counter
 
-from oldnyc.geocode.geogpt.generate_batch import GptResponse
+from oldnyc.geocode.geogpt.generate_batch import GptAddress, GptResponse
 from oldnyc.geocode.grid import normalize_street
 from oldnyc.item import load_items
 
@@ -83,6 +83,7 @@ if __name__ == "__main__":
     by_place = Counter[str]()
     by_address = Counter[str]()
     n_dropped = 0
+    n_wall_place = 0
     n_photographer_dropped = 0
     items = load_items("data/images.ndjson")
     id_to_item = {r.id: r for r in items}
@@ -109,9 +110,23 @@ if __name__ == "__main__":
                     sys.stderr.write(f"Weirdo alert! {id}: {data}\n")
                     continue
 
+                if data["type"] == "place_name" and (
+                    m := re.match(r"^(\d+) Wall", data["place_name"])
+                ):
+                    n_wall_place += 1
+                    data = GptAddress(
+                        type="address",
+                        number=int(m.group(1)),
+                        street="Wall Street",
+                    )
+
                 if data["type"] == "address" and not data["number"]:
                     n_dropped += 1
                     continue
+
+                if data["type"] == "address":
+                    # There's an 11 1/2 address
+                    assert isinstance(data["number"], (int, float)), f"{id} {data}"
 
                 if data["type"] == "address" and is_suspicious_address(
                     data["number"], data["street"]
@@ -157,3 +172,4 @@ if __name__ == "__main__":
     sys.stderr.write(f"{n_dropped} records dropped\n")
     sys.stderr.write(f"{by_address.most_common(100)}\n")
     sys.stderr.write(f"{n_photographer_dropped=}\n")
+    sys.stderr.write(f"{n_wall_place=}\n")
