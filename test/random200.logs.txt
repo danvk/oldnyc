@@ -4,18 +4,18 @@ Filtered to 200/41463 records with --ids_filter (200)
 alt titles matched: 0
      total matches: 150
           counters: [('title', 148), ('boro-int', 148), ('alt_title', 2), ('num-prefix', 1), ('at-int', 1)]
-            grid: 124 (150 attempts)
+            grid: 125 (150 attempts)
 Grid statistics:
-           Counts: [('dir strip', 71), ('exact', 62), ('exact: str', 2), ('unclaimed', 2), ('extrapolated', 2)]
+           Counts: [('dir strip', 72), ('exact', 62), ('exact: str', 2), ('unclaimed', 2), ('extrapolated', 2)]
   Unknown avenues: Counter({'19': 2})
   Unknown streets: Counter()
-          google: 8
+          google: 7
    boro mismatch: 2
         failures: 16
 Google geocoder stats:
      Cache misses: 0
-  Cache files hit: 56
-[('google: intersection - fail', 42), ('google: intersection - success', 13), ('google: address - success', 7), ('google: intersection - boro mismatch', 5)]
+  Cache files hit: 55
+[('google: intersection - fail', 42), ('google: intersection - success', 12), ('google: address - success', 7), ('google: intersection - boro mismatch', 5)]
 -- Finalizing title-address --
  address matches: 3
         patterns: [('street_pound', 2), ('num_street', 1)]
@@ -24,15 +24,15 @@ Google geocoder stats:
         failures: 0
 Google geocoder stats:
      Cache misses: 0
-  Cache files hit: 56
-[('google: intersection - fail', 42), ('google: intersection - success', 13), ('google: address - success', 7), ('google: intersection - boro mismatch', 5)]
+  Cache files hit: 55
+[('google: intersection - fail', 42), ('google: intersection - success', 12), ('google: address - success', 7), ('google: intersection - boro mismatch', 5)]
 -- Finalizing gpt --
 GPT POI:          61
 GPT address:      13
 GPT intersection: 56
             grid: 13 (47 attempts)
 Grid statistics:
-           Counts: [('dir strip', 71), ('exact', 62), ('exact: str', 2), ('unclaimed', 2), ('extrapolated', 2)]
+           Counts: [('dir strip', 72), ('exact', 62), ('exact: str', 2), ('unclaimed', 2), ('extrapolated', 2)]
   Unknown avenues: Counter({'19': 2})
   Unknown streets: Counter()
           google: 9
@@ -40,8 +40,8 @@ Grid statistics:
         failures: 26
 Google geocoder stats:
      Cache misses: 0
-  Cache files hit: 56
-[('google: intersection - fail', 42), ('google: intersection - success', 13), ('google: address - success', 7), ('google: intersection - boro mismatch', 5)]
+  Cache files hit: 55
+[('google: intersection - fail', 42), ('google: intersection - success', 12), ('google: address - success', 7), ('google: intersection - boro mismatch', 5)]
 -- Finalizing special --
 Special cases: [('Columbus Circle', 1)]
 -- Finalizing subjects --

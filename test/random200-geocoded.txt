@@ -155,7 +155,7 @@
 723036f	gpt	(40.7584384, -73.9789121)	49th Street and Rockefeller Plaza
 723111f	title-cross	(40.727599, -73.985307)	Manhattan: St. Marks Place - 1st Avenue
 723134f	title-cross	(40.825332, -73.943813)	Manhattan: St. Nicholas Avenue - 147th Street
-723323f	title-cross	(40.7095105, -73.9940379)	Manhattan: South Street - Market Slip (West).
+723323f	title-cross	(40.709513, -73.994024)	Manhattan: South Street - Market Slip (West).
 724252f	title-cross	(40.708786, -74.000836)	Manhattan: Water Street - Dover Street
 724791f	title-cross	(40.707995, -74.00801)	Manhattan: William Street - Maiden Lane
 724948f	title-cross	(40.773906, -73.936611)	Queens: 1st Street - Astoria Boulevard.
