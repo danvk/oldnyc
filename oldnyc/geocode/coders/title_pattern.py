@@ -233,7 +233,7 @@ class TitleAddressCoder(Coder):
                     self.patterns[name] += 1
                     return AddressLocation(
                         source=m.group(0),
-                        num=num,
+                        num=int(num),
                         street=street,
                         boro=boro,
                     )

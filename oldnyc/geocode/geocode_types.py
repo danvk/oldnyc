@@ -18,7 +18,7 @@ class IntersectionLocation:
 
 @dataclass
 class AddressLocation:
-    num: str
+    num: int
     street: str
     boro: str
     source: str

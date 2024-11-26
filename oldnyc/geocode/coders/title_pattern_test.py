@@ -264,32 +264,32 @@ def test_address_coder():
     # 1508895
     item.title = "Fifth Avenue #1067 - 87th Street, east side - looking west"
     assert coder.code_one_record(item) == AddressLocation(
-        source="Fifth Avenue #1067", num="1067", street="Fifth Avenue", boro="Manhattan"
+        source="Fifth Avenue #1067", num=1067, street="Fifth Avenue", boro="Manhattan"
     )
 
     # 1507775
     item.title = "38th Street (West) #247-49"
     assert coder.code_one_record(item) == AddressLocation(
-        source="38th Street (West) #247", num="247", street="W 38th Street", boro="Manhattan"
+        source="38th Street (West) #247", num=247, street="W 38th Street", boro="Manhattan"
     )
 
     # 1508975
     item.title = "Bowery Street #4-8"
     assert coder.code_one_record(item) == AddressLocation(
-        source="Bowery Street #4", num="4", street="Bowery Street", boro="Manhattan"
+        source="Bowery Street #4", num=4, street="Bowery Street", boro="Manhattan"
     )
 
     # 1507871
     item.title = "34th Street (West) #167"
     assert coder.code_one_record(item) == AddressLocation(
-        source="34th Street (West) #167", num="167", street="W 34th Street", boro="Manhattan"
+        source="34th Street (West) #167", num=167, street="W 34th Street", boro="Manhattan"
     )
 
     # 711033f
     item.title = "Manhattan: 10th Street (West) - [Greenwich and Washington Streets]"
     item.alt_title = ["271 West 10th Street ; Empire Brewery."]
     assert coder.code_one_record(item) == AddressLocation(
-        source="271 West 10th Street", num="271", street="West 10th Street", boro="Manhattan"
+        source="271 West 10th Street", num=271, street="West 10th Street", boro="Manhattan"
     )
 
 
