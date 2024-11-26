@@ -43,7 +43,38 @@ CODERS: dict[str, Callable[[], Coder]] = {
     "special": special_cases.SpecialCasesCoder,
 }
 
-if __name__ == "__main__":
+
+def locate_with_google(
+    locatable: Locatable, r: Item, coder: str, g: geocoder.Geocoder, print_geocodes: bool
+) -> Point | None:
+    try:
+        geocode_result = None
+        address = get_address_for_google(locatable)
+        if not address:
+            return None
+        try:
+            if print_geocodes:
+                geocache = geocoder.cache_file_name(address)
+                print(f'{r.id} {coder}: Geocoding "{address}" ({geocache})')
+            geocode_result = g.Locate(address, True, r.id)
+        except urllib.error.HTTPError as e:
+            if e.status == 400:
+                sys.stderr.write(f"Bad request: {address}\n")
+            else:
+                raise e
+
+        if geocode_result:
+            return extract_point_from_google_geocode(geocode_result, locatable, r, coder)
+        else:
+            sys.stderr.write("Failed to geocode %s\n" % r.id)
+            # sys.stderr.write('Location: %s\n' % location_data['address'])
+    except Exception:
+        sys.stderr.write("ERROR locating %s with %s\n" % (r.id, coder))
+        # sys.stderr.write('ERROR location: "%s"\n' % json.dumps(location_data))
+        raise
+
+
+def main():
     load_dotenv()
     parser = argparse.ArgumentParser(description="Generate geocodes")
     parser.add_argument(
@@ -179,36 +210,9 @@ if __name__ == "__main__":
             for locatable in candidate_locatables:
                 # First try OSM (offline), then Google (online)
                 lat_lon = locate_with_osm(r, locatable, c.name(), grid_geocoder)
-
-                # TODO: factor this block out, it's a mess
-                if not lat_lon:
-                    try:
-                        geocode_result = None
-                        address = get_address_for_google(locatable)
-                        if not address:
-                            continue
-                        try:
-                            if args.print_geocodes:
-                                geocache = geocoder.cache_file_name(address)
-                                print(f'{r.id} {c.name()}: Geocoding "{address}" ({geocache})')
-                            geocode_result = g.Locate(address, True, r.id)
-                        except urllib.error.HTTPError as e:
-                            if e.status == 400:
-                                sys.stderr.write(f"Bad request: {address}\n")
-                            else:
-                                raise e
-
-                        if geocode_result:
-                            lat_lon = extract_point_from_google_geocode(
-                                geocode_result, locatable, r, c.name()
-                            )
-                        else:
-                            sys.stderr.write("Failed to geocode %s\n" % r.id)
-                            # sys.stderr.write('Location: %s\n' % location_data['address'])
-                    except Exception:
-                        sys.stderr.write("ERROR locating %s with %s\n" % (r.id, c.name()))
-                        # sys.stderr.write('ERROR location: "%s"\n' % json.dumps(location_data))
-                        raise
+                lat_lon = lat_lon or locate_with_google(
+                    locatable, r, c.name(), g, args.print_geocodes
+                )
 
                 if lat_lon:
                     if args.print_records:
@@ -279,3 +283,7 @@ if __name__ == "__main__":
         with open(args.cache_hits_file, "w") as out:
             out.write("\n".join(g._touched_cache_files))
             out.write("\n")
+
+
+if __name__ == "__main__":
+    main()
