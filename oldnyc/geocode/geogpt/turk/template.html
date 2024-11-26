@@ -1,0 +1,55 @@
+<div class="container">
+  <div class="inputside" >
+    <ul id="metadata">
+      <li><a target="_blank" href="${url}">${title}</a></li>
+    </ul>
+
+    <p><b>Change:</b> ${old_coder} &rarr; ${new_coder} (${move_str})</p>
+
+    <b>Item</b><br/>
+    <pre id="item-json"></pre>
+
+    <b>Backing text</b><br/>
+    <pre id="back-text"></pre>
+
+    <b>GPT (before)</b><br/>
+    <pre id="gpt-before"></pre>
+
+    <b>GPT (after)</b><br/>
+    <pre id="gpt-after"></pre>
+  </div>
+
+  <div class="outputside">
+      <div id="map"></div>
+      <textarea cols="70" rows="5" name="user_notes" placeholder="Any additional notes: how did you figure out where the image was? Anything interesting about it?"></textarea><br>
+
+      <p>
+      <button type="submit" name="result" data-key="w" value="Win">Win (W)</button>
+      <button type="submit" name="result" data-key="n" value="Neutral">Neutral (N)</button>
+      <button type="submit" name="result" data-key="l" value="Loss">Loss (L)</button>
+      </p>
+
+    <a href="${url}" target="_blank"><img border=0 style="max-height: 600px" src="${photo_url}" /></a>
+  </div>
+</div>
+
+</form>
+<form action="/delete-last" method="POST" style="display: inline-block">
+  <br><input type="submit" id="undo-button" data-key="z" value="Undo Last (z)">
+</form>
+
+<script type="text/javascript">
+var item_json = JSON.parse(atob("${item_jsonb64}"));
+var old_lat_lng = [${old_latlng}];
+var new_lat_lng = [${new_latlng}];
+var old_gpt_json = JSON.parse(atob("${old_gpt_jsonb64}"));
+var new_gpt_json = JSON.parse(atob("${new_gpt_jsonb64}"));
+</script>
+
+<script src="init-map.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?loading=async&key=${GOOGLE_MAPS_API_KEY}&callback=initMap"
+  async></script>
+
+<link rel="stylesheet" type="text/css" href="style.css"/>
+
+<form style="display:none">

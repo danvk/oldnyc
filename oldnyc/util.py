@@ -11,5 +11,5 @@ def decode_json_base64(b64: str):
     return json.loads(base64.b64decode(b64).decode("utf-8"))
 
 
-def pick(o: dict, fields: Sequence[str]) -> dict:
+def pick[K, V](o: dict[K, V], fields: Sequence[K]) -> dict[K, V]:
     return {k: o[k] for k in fields if k in o}
