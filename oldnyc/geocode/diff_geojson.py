@@ -32,7 +32,7 @@ def features_to_geojson_file(features, filename):
         json.dump({"type": "FeatureCollection", "features": features}, f)
 
 
-def calculate_distance_delta_for_image_id(a, b):
+def calc_geometry_distance_m(a, b):
     assert a["type"] == "Point"
     assert b["type"] == "Point"
     (a_lng, a_lat) = a["coordinates"]
@@ -81,7 +81,7 @@ def diff_geojson(
             added_geometry_ids.append(k)
         elif b is None and a is not None:
             dropped_geometry_ids.append(k)
-        elif is_geometry_mismatch(a, b) or calculate_distance_delta_for_image_id(a, b) > 25:
+        elif is_geometry_mismatch(a, b) or calc_geometry_distance_m(a, b) > 25:
             changed_ids.append(k)
 
     # we estimate that all reported images who have not changed are unchanged
@@ -147,9 +147,7 @@ Changed: {len(changed_ids):,}
             # sort by distance
             sample_ids = sorted(
                 changed_ids,
-                key=lambda k: -calculate_distance_delta_for_image_id(
-                    old[k]["geometry"], new[k]["geometry"]
-                ),
+                key=lambda k: -calc_geometry_distance_m(old[k]["geometry"], new[k]["geometry"]),
             )
         else:
             # random sample
@@ -159,18 +157,18 @@ Changed: {len(changed_ids):,}
         for k in sample_ids[:changed_samples]:
             props = old[k]["properties"]
             title = props.get("original_title") or props.get("title") or "original title not found"
-            a = old[k]["properties"]["geocode"]
-            b = new[k]["properties"]["geocode"]
-            a_lat = a.get("lat")
-            a_lng = a.get("lng")
-            b_lat = b.get("lat")
-            b_lng = b.get("lng")
-            d_meters = haversine((a_lat, a_lng), (b_lat, b_lng)) * 1000
+            old_geom = old[k]["geometry"]
+            new_geom = new[k]["geometry"]
+            a_lng, a_lat = old_geom["coordinates"]
+            b_lng, b_lat = new_geom["coordinates"]
+            d_meters = calc_geometry_distance_m(old_geom, new_geom)
+            a_tech = props["geocode"].get("technique")
+            b_tech = new[k]["properties"]["geocode"].get("technique")
 
             print(
-                f'change\t{k}\t{title}\t'
-                f'{a_lat:.6f},{a_lng:.6f}\t{a.get("technique")}\t'
-                f'{b_lat:.6f},{b_lng:.6f}\t{b.get("technique")}\tMoved {d_meters:0,.0f}m'
+                f"change\t{k}\t{title}\t"
+                f"{a_lat:.6f},{a_lng:.6f}\t{a_tech}\t"
+                f"{b_lat:.6f},{b_lng:.6f}\t{b_tech}\tMoved {d_meters:0,.0f}m"
             )
 
 
