@@ -10,6 +10,11 @@ class SpecialCasesCoder(Coder):
         self.counts = Counter[str]()
 
     def code_record(self, r: Item):
+        loc = self.code_one_record(r)
+        if loc:
+            return [loc]
+
+    def code_one_record(self, r: Item):
         if r.title.startswith("Newspapers - China Daily News"):
             # The 2013 Milstein CSV file has a bunch of addresses along Mott Street for these.
             self.counts["China Daily News"] += 1

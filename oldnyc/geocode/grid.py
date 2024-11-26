@@ -70,8 +70,25 @@ def load_manhattan_intersections():
     return all_ints, all_ints_by_ave
 
 
+# The cardinal directions are critical to the identities of these streets.
+# They should never be stripped.
+PRESERVE_DIRECTIONS = {
+    "West Street",
+    "South Street",
+    "East End Avenue",
+    "West End Avenue",
+    "Central Park East",
+    "Central Park West",
+    "Central Park North",
+    "Central Park South",
+    "Prospect Park West",
+}
+
+
 def strip_dir(street: str) -> str:
     """Remove cardinal directions from street names."""
+    if street in PRESERVE_DIRECTIONS:
+        return street
     return re.sub(r"\b(east|west|north|south)\b", "", street, flags=re.I).replace("()", "").strip()
 
 
@@ -171,6 +188,13 @@ def may_extrapolate(avenue: str, street: str):
     return True
 
 
+# These seem to always be mistakes.
+CURSED_INTERSECTIONS = {
+    Intersection("Amsterdam Avenue", "Broadway", boro="Manhattan"),
+    Intersection("Amsterdam", "Broadway", boro="Manhattan"),
+}
+
+
 class GridGeocoder:
     def __init__(self):
         # Manhattan from Houston to 125th Street, crossed by numbered/lettered avenues
@@ -244,6 +268,9 @@ class GridGeocoder:
         ix = Intersection(street1, street2, boro)
         pt = self.nyc_ints.get(ix)
         if pt:
+            if ix in CURSED_INTERSECTIONS:
+                self.counts["cursed"] += 1
+                return None
             self.counts["exact"] += 1
             return pt
 

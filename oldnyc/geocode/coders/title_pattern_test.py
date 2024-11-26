@@ -14,23 +14,23 @@ def test_title_pattern():
     title = "Manhattan: 10th Street (East) - Broadway"
     item = blank_item()
     item.title = title
-    assert tp.code_record(item) == IntersectionLocation(
+    assert tp.code_one_record(item) == IntersectionLocation(
         source=title, str1="10th Street (East)", str2="Broadway", boro="Manhattan"
     )
 
     title = "Richmond: 3rd Street - New Dorp Lane"
     item.title = title
-    assert tp.code_record(item) == IntersectionLocation(
+    assert tp.code_one_record(item) == IntersectionLocation(
         source=title, str1="3rd Street", str2="New Dorp Lane", boro="Staten Island"
     )
 
     title = "Manhattan: 6th Avenue - 37th and 38th Streets (West)"
     item.title = title
-    assert tp.code_record(item) is None
+    assert tp.code_one_record(item) is None
 
     # 725017f
     item.title = "Queens: 12th Street - North 27th Avenue."
-    assert tp.code_record(item) == IntersectionLocation(
+    assert tp.code_one_record(item) == IntersectionLocation(
         source="Queens: 12th Street - North 27th Avenue.",
         str1="12th Street",
         str2="North 27th Avenue",
@@ -44,7 +44,7 @@ def test_alt_title():
 
     item.title = "Feast of Our Lady of Mount Carmel."
     item.alt_title = ["Manhattan: 1st Avenue - 112th Street ."]
-    assert tp.code_record(item) == IntersectionLocation(
+    assert tp.code_one_record(item) == IntersectionLocation(
         source=item.alt_title[0], str1="112th Street", str2="1st Avenue", boro="Manhattan"
     )
 
@@ -53,7 +53,7 @@ def test_alt_title():
     item.alt_title = [
         "Manhattan: Cedar Street - Pearl Street ; 1 Cedar Street ; Municipal Building."
     ]
-    assert tp.code_record(item) == IntersectionLocation(
+    assert tp.code_one_record(item) == IntersectionLocation(
         source="Manhattan: Cedar Street - Pearl Street",
         str1="Cedar Street",
         str2="Pearl Street",
@@ -66,7 +66,7 @@ def test_braces():
     title = "Manhattan: 5th Avenue - [53rd Street]"
     item = blank_item()
     item.title = title
-    assert tp.code_record(item) == IntersectionLocation(
+    assert tp.code_one_record(item) == IntersectionLocation(
         source="Manhattan: 5th Avenue - 53rd Street",
         str1="53rd Street",
         str2="5th Avenue",
@@ -79,7 +79,7 @@ def test_between():
     item = blank_item()
     # 708379f
     item.title = "Manhattan: 5th Avenue - [Between 23rd and 24th Streets]"
-    assert tp.code_record(item) == IntersectionLocation(
+    assert tp.code_one_record(item) == IntersectionLocation(
         source="Manhattan: 5th Avenue - Between 23rd and 24th Streets",
         str1="23rd Street",
         str2="5th Avenue",
@@ -88,7 +88,7 @@ def test_between():
 
     # 731177f
     item.title = "Manhattan: 5th Avenue - Between 25th and 26th Streets."
-    assert tp.code_record(item) == IntersectionLocation(
+    assert tp.code_one_record(item) == IntersectionLocation(
         source="Manhattan: 5th Avenue - Between 25th and 26th Streets.",
         str1="25th Street",
         str2="5th Avenue",
@@ -98,7 +98,7 @@ def test_between():
     # 711722f
     item.title = "Manhattan: [London Terrace - Typical one room apartment (interior).]"
     item.alt_title = ["Manhattan: 23rd Street (West) - Between 9th and 10th Avenues."]
-    assert tp.code_record(item) == IntersectionLocation(
+    assert tp.code_one_record(item) == IntersectionLocation(
         source="Manhattan: 23rd Street (West) - Between 9th and 10th Avenues.",
         str1="23rd Street (West)",
         str2="9th Avenue",
@@ -112,7 +112,7 @@ def test_number_prefix():
     item = blank_item()
     item.subject.geographic = ["Manhattan (New York, N.Y.)"]
     item.title = "1065 Sixth Avenue - West 40th Street."
-    assert tp.code_record(item) == IntersectionLocation(
+    assert tp.code_one_record(item) == IntersectionLocation(
         source="Manhattan: 1065 Sixth Avenue - West 40th Street.",
         str1="Sixth Avenue",
         str2="West 40th Street",
@@ -122,7 +122,7 @@ def test_number_prefix():
     # 1558253
     # "11 West 54th Street - Fifth Avenue, Manhattan, NY"
     item.title = "11 West 54th Street - Fifth Avenue."
-    assert tp.code_record(item) == IntersectionLocation(
+    assert tp.code_one_record(item) == IntersectionLocation(
         source="Manhattan: 11 West 54th Street - Fifth Avenue.",
         str1="Fifth Avenue",
         str2="West 54th Street",
@@ -131,7 +131,7 @@ def test_number_prefix():
 
     # 1557791
     item.title = "Brooklyn - 100 Henry Street - Clark Street"
-    assert tp.code_record(item) == IntersectionLocation(
+    assert tp.code_one_record(item) == IntersectionLocation(
         source="Brooklyn - 100 Henry Street - Clark Street",
         str1="Clark Street",
         str2="Henry Street",
@@ -162,7 +162,7 @@ def test_pattern_with_trivia():
     assert (
         clean_and_strip_title(item.title)
     ) == "Manhattan: 3rd Avenue - between 16th and 17th Street."
-    assert tp.code_record(item) == IntersectionLocation(
+    assert tp.code_one_record(item) == IntersectionLocation(
         source="Manhattan: 3rd Avenue - between 16th and 17th Street.",
         str1="16th Street",
         str2="3rd Avenue",
@@ -176,7 +176,7 @@ def test_at():
     # 485798
     item.title = "3rd Avenue at 97th Street and , East side to North, Manhattan"
     assert (clean_and_strip_title(item.title)) == "3rd Avenue at 97th Street, Manhattan"
-    assert tp.code_record(item) == IntersectionLocation(
+    assert tp.code_one_record(item) == IntersectionLocation(
         source="3rd Avenue at 97th Street, Manhattan",
         str1="3rd Avenue",
         str2="97th Street",
@@ -189,7 +189,7 @@ def test_and_name():
     item = blank_item()
     # 725938f
     item.title = "Queens: 160th Street - Grand Central Parkway"
-    assert tp.code_record(item) == IntersectionLocation(
+    assert tp.code_one_record(item) == IntersectionLocation(
         source="Queens: 160th Street - Grand Central Parkway",
         str1="160th Street",
         str2="Grand Central Parkway",
@@ -202,7 +202,7 @@ def test_boro_dash():
     item = blank_item()
     # 1557751
     item.title = "Bronx - Findlay Avenue - East 167th Street"
-    assert tp.code_record(item) == IntersectionLocation(
+    assert tp.code_one_record(item) == IntersectionLocation(
         source="Bronx - Findlay Avenue - East 167th Street",
         str1="East 167th Street",
         str2="Findlay Avenue",
@@ -219,7 +219,7 @@ def test_general_view():
         "Manhattan - Park Avenue - 34th Street (Northeast)"
     ]
     # TODO: could strip out "(Northeast)"
-    assert tp.code_record(item) == IntersectionLocation(
+    assert tp.code_one_record(item) == IntersectionLocation(
         source="Manhattan - Park Avenue - 34th Street (Northeast)",
         str1="34th Street (Northeast)",
         str2="Park Avenue",
@@ -232,7 +232,7 @@ def test_space_colon():
     item = blank_item()
     # 709296f
     item.title = "Manhattan : 6th Avenue - 3rd Street (West)."
-    assert tp.code_record(item) == IntersectionLocation(
+    assert tp.code_one_record(item) == IntersectionLocation(
         source="Manhattan: 6th Avenue - 3rd Street (West).",
         str1="3rd Street (West)",
         str2="6th Avenue",
@@ -250,7 +250,7 @@ def test_decoy_address():
     # 1507919
     item.title = "42nd Street (East) #122 - Lexington Avenue, southwest corner"
     item.source = "blah / Manhattan"
-    assert tp.code_record(item) == IntersectionLocation(
+    assert tp.code_one_record(item) == IntersectionLocation(
         source="Manhattan: 42nd Street (East) #122 - Lexington Avenue, ",
         str1="42nd Street (East)",
         str2="Lexington Avenue",
@@ -263,33 +263,33 @@ def test_address_coder():
     item = blank_item()
     # 1508895
     item.title = "Fifth Avenue #1067 - 87th Street, east side - looking west"
-    assert coder.code_record(item) == AddressLocation(
-        source="Fifth Avenue #1067", num="1067", street="Fifth Avenue", boro="Manhattan"
+    assert coder.code_one_record(item) == AddressLocation(
+        source="Fifth Avenue #1067", num=1067, street="Fifth Avenue", boro="Manhattan"
     )
 
     # 1507775
     item.title = "38th Street (West) #247-49"
-    assert coder.code_record(item) == AddressLocation(
-        source="38th Street (West) #247", num="247", street="W 38th Street", boro="Manhattan"
+    assert coder.code_one_record(item) == AddressLocation(
+        source="38th Street (West) #247", num=247, street="W 38th Street", boro="Manhattan"
     )
 
     # 1508975
     item.title = "Bowery Street #4-8"
-    assert coder.code_record(item) == AddressLocation(
-        source="Bowery Street #4", num="4", street="Bowery Street", boro="Manhattan"
+    assert coder.code_one_record(item) == AddressLocation(
+        source="Bowery Street #4", num=4, street="Bowery Street", boro="Manhattan"
     )
 
     # 1507871
     item.title = "34th Street (West) #167"
-    assert coder.code_record(item) == AddressLocation(
-        source="34th Street (West) #167", num="167", street="W 34th Street", boro="Manhattan"
+    assert coder.code_one_record(item) == AddressLocation(
+        source="34th Street (West) #167", num=167, street="W 34th Street", boro="Manhattan"
     )
 
     # 711033f
     item.title = "Manhattan: 10th Street (West) - [Greenwich and Washington Streets]"
     item.alt_title = ["271 West 10th Street ; Empire Brewery."]
-    assert coder.code_record(item) == AddressLocation(
-        source="271 West 10th Street", num="271", street="West 10th Street", boro="Manhattan"
+    assert coder.code_one_record(item) == AddressLocation(
+        source="271 West 10th Street", num=271, street="West 10th Street", boro="Manhattan"
     )
 
 

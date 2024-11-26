@@ -19,6 +19,7 @@ import pygeojson
 
 from oldnyc.geocode.geocode_types import Coder, LatLngLocation
 from oldnyc.geojson_utils import assert_point
+from oldnyc.item import Item
 
 # TODO: use subjects.geojson instead of these lists
 parks = {
@@ -289,7 +290,12 @@ class SubjectsCoder(Coder):
 
         self.counters = Counter()
 
-    def code_record(self, r):
+    def code_record(self, r: Item):
+        loc = self.code_one_record(r)
+        if loc:
+            return [loc]
+
+    def code_one_record(self, r: Item):
         matches = [
             (geo, spec_pt)
             for geo in r.subject.geographic

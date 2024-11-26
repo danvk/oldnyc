@@ -1,7 +1,7 @@
 # pyright: strict
 
 from dataclasses import dataclass
-from typing import Protocol
+from typing import Protocol, Sequence
 
 from oldnyc.item import Item
 
@@ -18,7 +18,7 @@ class IntersectionLocation:
 
 @dataclass
 class AddressLocation:
-    num: str
+    num: int
     street: str
     boro: str
     source: str
@@ -35,7 +35,8 @@ Locatable = IntersectionLocation | AddressLocation | LatLngLocation
 
 
 class Coder(Protocol):
-    def code_record(self, r: Item) -> Locatable | None: ...
+    # TODO: could be Iterable or generator
+    def code_record(self, r: Item) -> Sequence[Locatable] | None: ...
 
     def name(self) -> str: ...
 

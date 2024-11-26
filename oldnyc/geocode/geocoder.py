@@ -34,6 +34,7 @@ class Geocoder:
         self._last_fetch = 0
         self._api_key = api_key
         self._touched_cache_files = set()
+        self.n_cache_misses = 0
 
     def _check_cache(self, loc: str):
         """Returns cached results for the location or None if not available."""
@@ -85,7 +86,8 @@ class Geocoder:
             from_cache = data is not None
         if not data:
             if not self._network_allowed:
-                sys.stderr.write(f"Would have geocoded with network: {address}\n")
+                self.n_cache_misses += 1
+                sys.stderr.write(f"{debug_txt} Would have geocoded with network: {address}\n")
                 # XXX this should probably raise instead
                 return None
             data = self._fetch(url, f"{debug_txt}: {address}")
@@ -105,6 +107,11 @@ class Geocoder:
             self._cache_result(address, data)  # type: ignore
 
         return response
+
+    def log_stats(self):
+        sys.stderr.write("Google geocoder stats:\n")
+        sys.stderr.write(f"     Cache misses: {self.n_cache_misses}\n")
+        sys.stderr.write(f"  Cache files hit: {len(self._touched_cache_files)}\n")
 
 
 if __name__ == "__main__":

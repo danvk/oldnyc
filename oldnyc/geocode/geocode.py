@@ -28,6 +28,7 @@ from oldnyc.geocode.locatable import (
     extract_point_from_google_geocode,
     get_address_for_google,
     locate_with_osm,
+    total_counts,
 )
 from oldnyc.geocode.locatable import (
     counts as locatable_counts,
@@ -42,7 +43,38 @@ CODERS: dict[str, Callable[[], Coder]] = {
     "special": special_cases.SpecialCasesCoder,
 }
 
-if __name__ == "__main__":
+
+def locate_with_google(
+    locatable: Locatable, r: Item, coder: str, g: geocoder.Geocoder, print_geocodes: bool
+) -> Point | None:
+    try:
+        geocode_result = None
+        address = get_address_for_google(locatable)
+        if not address:
+            return None
+        try:
+            if print_geocodes:
+                geocache = geocoder.cache_file_name(address)
+                print(f'{r.id} {coder}: Geocoding "{address}" ({geocache})')
+            geocode_result = g.Locate(address, True, r.id)
+        except urllib.error.HTTPError as e:
+            if e.status == 400:
+                sys.stderr.write(f"Bad request: {address}\n")
+            else:
+                raise e
+
+        if geocode_result:
+            return extract_point_from_google_geocode(geocode_result, locatable, r, coder)
+        else:
+            sys.stderr.write("Failed to geocode %s\n" % r.id)
+            # sys.stderr.write('Location: %s\n' % location_data['address'])
+    except Exception:
+        sys.stderr.write("ERROR locating %s with %s\n" % (r.id, coder))
+        # sys.stderr.write('ERROR location: "%s"\n' % json.dumps(location_data))
+        raise
+
+
+def main():
     load_dotenv()
     parser = argparse.ArgumentParser(description="Generate geocodes")
     parser.add_argument(
@@ -161,61 +193,44 @@ if __name__ == "__main__":
 
         # Give each coder a crack at the record, in turn.
         for c in geocoders:
-            locatable = c.code_record(r)
-            if not locatable:
+            candidate_locatables = c.code_record(r)
+            if not candidate_locatables:
                 continue
 
             if not g:
                 if args.print_records:
-                    print("%s\t%s\t%s" % (c.name(), r.id, json.dumps(locatable)))
+                    for locatable in candidate_locatables:
+                        print("%s\t%s\t%s" % (c.name(), r.id, json.dumps(locatable)))
                 stats[c.name()] += 1
                 located_rec = (r, None)
                 break
 
-            # First try OSM (offline), then Google (online)
-            lat_lon = locate_with_osm(r, locatable, c.name(), grid_geocoder)
+            lat_lon = None
+            locatable = None
+            for locatable in candidate_locatables:
+                # First try OSM (offline), then Google (online)
+                lat_lon = locate_with_osm(r, locatable, c.name(), grid_geocoder)
+                lat_lon = lat_lon or locate_with_google(
+                    locatable, r, c.name(), g, args.print_geocodes
+                )
 
-            if not lat_lon:
-                try:
-                    geocode_result = None
-                    address = get_address_for_google(locatable)
-                    try:
-                        if args.print_geocodes:
-                            geocache = geocoder.cache_file_name(address)
-                            print(f'{r.id} {c.name()}: Geocoding "{address}" ({geocache})')
-                        geocode_result = g.Locate(address, True, r.id)
-                    except urllib.error.HTTPError as e:
-                        if e.status == 400:
-                            sys.stderr.write(f"Bad request: {address}\n")
-                        else:
-                            raise e
-
-                    if geocode_result:
-                        lat_lon = extract_point_from_google_geocode(
-                            geocode_result, locatable, r, c.name()
+                if lat_lon:
+                    if args.print_records:
+                        print(
+                            "%s\t%f,%f\t%s\t%s"
+                            % (
+                                r.id,
+                                lat_lon[0],
+                                lat_lon[1],
+                                c.name(),
+                                json.dumps(locatable),
+                            )
                         )
-                    else:
-                        sys.stderr.write("Failed to geocode %s\n" % r.id)
-                        # sys.stderr.write('Location: %s\n' % location_data['address'])
-                except Exception:
-                    sys.stderr.write("ERROR locating %s with %s\n" % (r.id, c.name()))
-                    # sys.stderr.write('ERROR location: "%s"\n' % json.dumps(location_data))
-                    raise
+                    stats[c.name()] += 1
+                    located_rec = (r, (c.name(), locatable, lat_lon))
+                    break
 
             if lat_lon:
-                if args.print_records:
-                    print(
-                        "%s\t%f,%f\t%s\t%s"
-                        % (
-                            r.id,
-                            lat_lon[0],
-                            lat_lon[1],
-                            c.name(),
-                            json.dumps(locatable),
-                        )
-                    )
-                stats[c.name()] += 1
-                located_rec = (r, (c.name(), locatable, lat_lon))
                 break
 
         located_recs.append(located_rec)
@@ -234,12 +249,15 @@ if __name__ == "__main__":
 
         if n_grid_attempt:
             sys.stderr.write(f"            grid: {n_grid} ({n_grid_attempt} attempts)\n")
+            grid_geocoder.log_stats()
+
         if n_google_attempts:
             sys.stderr.write(f"          google: {n_google_success}\n")
             sys.stderr.write(f"   boro mismatch: {n_boro_mismatch}\n")
             sys.stderr.write(f"        failures: {n_google_fail}\n")
-
-    grid_geocoder.log_stats()
+            assert g
+            g.log_stats()
+            sys.stderr.write(f"{total_counts.most_common()}\n")
 
     sys.stderr.write("-- Final stats --\n")
     successes = 0
@@ -265,3 +283,7 @@ if __name__ == "__main__":
         with open(args.cache_hits_file, "w") as out:
             out.write("\n".join(g._touched_cache_files))
             out.write("\n")
+
+
+if __name__ == "__main__":
+    main()

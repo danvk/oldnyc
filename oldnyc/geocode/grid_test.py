@@ -155,3 +155,23 @@ def test_strip_dir():
     assert grid.strip_dir("10th Street (West)") == "10th Street"
     assert grid.strip_dir("West 59th Street") == "59th Street"
     assert grid.strip_dir("North 4th Street") == "4th Street"
+    assert grid.strip_dir("West Street") == "West Street"
+    assert grid.strip_dir("South Street") == "South Street"
+    assert grid.strip_dir("East End Avenue") == "East End Avenue"
+    assert grid.strip_dir("West End Avenue") == "West End Avenue"
+    assert grid.strip_dir("Central Park West") == "Central Park West"
+
+
+def test_preserved_streets():
+    g = Grid()
+    with pytest.raises(ValueError):
+        g.geocode_intersection("East 76th Street", "East End Avenue", "Manhattan")
+    # It would be fine to locate this, it's just important that it's not geocoded to West End Ave.
+
+    with pytest.raises(ValueError):
+        g.geocode_intersection("East 76th Street", "East End Ave", "Manhattan")
+
+
+def test_cursed_intersection():
+    g = Grid()
+    assert g.geocode_intersection("Broadway", "Amsterdam Ave", "Manhattan") is None

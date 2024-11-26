@@ -36,7 +36,7 @@ def diff_geocode(truth_coord, computed_coord):
         return (False, "Missing geocode", "")
     if truth_coord is None:
         return (False, "Should be missing geocode", "")
-    distance_km = haversine(truth_coord, computed_coord)
+    distance_km = haversine(truth_coord[::-1], computed_coord[::-1])
     if distance_km > 0.25:
         return (False, "Too far: %.3f km" % distance_km, f"{distance_km:.3f}")
     return (True, "", f"{distance_km:.3f}")

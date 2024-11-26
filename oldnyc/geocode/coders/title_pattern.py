@@ -129,7 +129,12 @@ class TitleCrossCoder(Coder):
                             return (boro, str1, str2), title
                         return m.groups(), title
 
-    def code_record(self, r):
+    def code_record(self, r: Item):
+        loc = self.code_one_record(r)
+        if loc:
+            return [loc]
+
+    def code_one_record(self, r: Item):
         match = self.findMatch(r)
         if not match:
             return None
@@ -206,7 +211,12 @@ class TitleAddressCoder(Coder):
         self.n_boro_mismatch = 0
         self.patterns = Counter[str]()
 
-    def code_record(self, r):
+    def code_record(self, r: Item):
+        loc = self.code_one_record(r)
+        if loc:
+            return [loc]
+
+    def code_one_record(self, r: Item):
         titles = extract_titles(r)
         for t in titles:
             for name, pat in ADDR_PATTERNS:
@@ -223,7 +233,7 @@ class TitleAddressCoder(Coder):
                     self.patterns[name] += 1
                     return AddressLocation(
                         source=m.group(0),
-                        num=num,
+                        num=int(num),
                         street=street,
                         boro=boro,
                     )
