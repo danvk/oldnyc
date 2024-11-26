@@ -79,6 +79,7 @@ PHOTOGRAPHER_ADDRESSES = {
     "36 West 23rd Street",  # yes
     "145 West 41st Street",  # 718249f
     "58 West 29th Street",  # yes
+    "24 Central Park South",  # 718168f
 }
 
 if __name__ == "__main__":
