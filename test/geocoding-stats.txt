@@ -3,53 +3,69 @@
 alt titles matched: 0
      total matches: 31270
           counters: [('boro-int', 30503), ('title', 30096), ('alt_title', 1174), ('at-int', 288), ('num-prefix', 271), ('between', 208)]
-            grid: 24497 (31113 attempts)
-          google: 1896
+            grid: 24513 (31113 attempts)
+Grid statistics:
+           Counts: [('exact', 13054), ('dir strip', 12520), ('exact: str', 1014), ('interpolated', 280), ('extrapolated', 179), ('unclaimed', 163), ('cursed', 7), ('exact_grid', 5)]
+  Unknown avenues: Counter({'13': 65, 'Broadway': 9, '36': 7, '19': 6, '85': 5, '62': 3, '53': 2, '88': 2, '93': 2, '95': 2, '22': 2, '98': 2, '57': 1, '49': 1, '26': 1, '46': 1, '44': 1, '96': 1})
+  Unknown streets: Counter({'212': 11, '193': 10, '145': 6, '129': 3, '213': 3, '157': 2, '139': 2, '143': 2, '192': 2, '142': 2, '181': 2, '130': 2, '159': 1, '174': 1, '208': 1})
+          google: 1876
    boro mismatch: 480
-        failures: 4240
+        failures: 4238
+Google geocoder stats:
+     Cache misses: 0
+  Cache files hit: 7927
+[('google: intersection - fail', 9791), ('google: intersection - success', 2440), ('google: address - success', 1851), ('google: intersection - boro mismatch', 1014), ('google: address - fail', 159), ('google: address - boro mismatch', 131), ('cursed', 10)]
 -- Finalizing title-address --
  address matches: 626
         patterns: [('street_pound', 426), ('num_street', 200)]
           google: 601
    boro mismatch: 9
         failures: 16
+Google geocoder stats:
+     Cache misses: 0
+  Cache files hit: 7927
+[('google: intersection - fail', 9791), ('google: intersection - success', 2440), ('google: address - success', 1851), ('google: intersection - boro mismatch', 1014), ('google: address - fail', 159), ('google: address - boro mismatch', 131), ('cursed', 10)]
 -- Finalizing gpt --
-GPT POI:          5089
-GPT address:      712
-GPT intersection: 6750
-            grid: 1763 (6750 attempts)
-          google: 959
-   boro mismatch: 457
-        failures: 4283
+GPT POI:          14958
+GPT address:      3355
+GPT intersection: 11078
+            grid: 2529 (9296 attempts)
+Grid statistics:
+           Counts: [('exact', 13054), ('dir strip', 12520), ('exact: str', 1014), ('interpolated', 280), ('extrapolated', 179), ('unclaimed', 163), ('cursed', 7), ('exact_grid', 5)]
+  Unknown avenues: Counter({'13': 65, 'Broadway': 9, '36': 7, '19': 6, '85': 5, '62': 3, '53': 2, '88': 2, '93': 2, '95': 2, '22': 2, '98': 2, '57': 1, '49': 1, '26': 1, '46': 1, '44': 1, '96': 1})
+  Unknown streets: Counter({'212': 11, '193': 10, '145': 6, '129': 3, '213': 3, '157': 2, '139': 2, '143': 2, '192': 2, '142': 2, '181': 2, '130': 2, '159': 1, '174': 1, '208': 1})
+          google: 1814
+   boro mismatch: 656
+        failures: 5696
+Google geocoder stats:
+     Cache misses: 0
+  Cache files hit: 7927
+[('google: intersection - fail', 9791), ('google: intersection - success', 2440), ('google: address - success', 1851), ('google: intersection - boro mismatch', 1014), ('google: address - fail', 159), ('google: address - boro mismatch', 131), ('cursed', 10)]
 -- Finalizing special --
-Special cases: [('Columbus Circle', 45), ('China Daily News', 23), ('St. John the Divine', 7), ('Squatters: Camp Thomas Paine', 6), ('Mt. Sinai', 5)]
+Special cases: [('Columbus Circle', 27), ('China Daily News', 23), ('Squatters: Camp Thomas Paine', 6), ('Mt. Sinai', 3), ('St. John the Divine', 1)]
 -- Finalizing subjects --
 POI/subject geocoding:
-1027	n_both
-2222	n_geo
- 127	n_geo_multi
-2095	n_geo_unambig
- 855	n_out_both_close
-  29	n_out_both_fallback_title
-  38	n_out_both_subject
- 105	n_out_both_title
-1106	n_out_subject
-1196	n_out_title
-1234	n_title
- 359	n_title_bridge
- 256	n_title_island
- 619	n_title_park
-Grid statistics:
-           Counts: [('exact', 12469), ('dir strip', 12105), ('exact: str', 1253), ('interpolated', 269), ('extrapolated', 170), ('unclaimed', 142), ('exact_grid', 5)]
-  Unknown avenues: Counter({'13': 53, 'Broadway': 8, '36': 7, '19': 6, '85': 4, '62': 3, '53': 2, '93': 2, '95': 2, '22': 2, '98': 2, '57': 1, '49': 1, '26': 1, '46': 1, '44': 1, '96': 1, '88': 1})
-  Unknown streets: Counter({'193': 10, '212': 10, '145': 6, '129': 3, '157': 2, '139': 2, '143': 2, '192': 2, '142': 2, '130': 2, '174': 1, '208': 1, '181': 1})
+ 911	n_both
+1913	n_geo
+ 109	n_geo_multi
+1804	n_geo_unambig
+ 769	n_out_both_close
+  28	n_out_both_fallback_title
+  26	n_out_both_subject
+  88	n_out_both_title
+ 919	n_out_subject
+1074	n_out_title
+1100	n_title
+ 349	n_title_bridge
+ 250	n_title_island
+ 501	n_title_park
 -- Final stats --
-26393 title-cross
+26389 title-cross
   601 title-address
- 2722 gpt
-   86 special
- 2302 subjects
-32104 (total)
+ 4343 gpt
+   60 special
+ 1993 subjects
+33386 (total)
 Dropped w/ no date: 0
-Unique lat/longs: 9805
-Total photographs: 32104
+Unique lat/longs: 10471
+Total photographs: 33386
