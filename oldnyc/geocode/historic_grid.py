@@ -45,12 +45,13 @@ def main():
     streets = pygeojson.load_feature_collection(open("data/originals/nyc-streets.geojson")).features
     geoms = [geom_to_shape(f.geometry) for f in streets]
 
-    current_ixs, current_stripped_ixs = load_all_intersections()
+    current_ixs, current_stripped_ixs = load_all_intersections(exclude_historic=True)
 
     out = csv.DictWriter(
         open("data/historic-intersections.csv", "w"),
-        fieldnames=["i", "j", "Street1", "Street2", "Borough", "Lat", "Lng"],
+        fieldnames=["i", "j", "Street1", "Street2", "Borough", "Lat", "Lon"],
     )
+    out.writeheader()
     for i, j in tqdm(itertools.combinations(range(len(geoms)), 2)):
         name1 = normalize_street_for_osm(streets[i].properties["name"])
         name2 = normalize_street_for_osm(streets[j].properties["name"])
@@ -93,7 +94,7 @@ def main():
                 "Street2": name2,
                 "Borough": boro1,
                 "Lat": str(pt.y),
-                "Lng": str(pt.x),
+                "Lon": str(pt.x),
             }
         )
 

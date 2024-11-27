@@ -175,3 +175,12 @@ def test_preserved_streets():
 def test_cursed_intersection():
     g = Grid()
     assert g.geocode_intersection("Broadway", "Amsterdam Ave", "Manhattan") is None
+
+
+def test_geocode_historic():
+    # Historic intersections from nyc-streets.geojson
+    g = Grid()
+    assert g.geocode_intersection("Broome Street", "Tompkins Street", "Manhattan") == (
+        40.718,
+        -73.990,
+    )
