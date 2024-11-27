@@ -3,12 +3,14 @@
 import csv
 import itertools
 import sys
+from collections import defaultdict
 
 import pygeojson
 import shapely
 from haversine import haversine
 from tqdm import tqdm
 
+from oldnyc.geocode.geocode_types import Point
 from oldnyc.geocode.grid import (
     Intersection,
     load_all_intersections,
@@ -47,11 +49,7 @@ def main():
 
     current_ixs, current_stripped_ixs = load_all_intersections(exclude_historic=True)
 
-    out = csv.DictWriter(
-        open("data/historic-intersections.csv", "w"),
-        fieldnames=["i", "j", "Street1", "Street2", "Borough", "Lat", "Lon"],
-    )
-    out.writeheader()
+    ix_to_pt = defaultdict[Intersection, list[Point]](list)
     for i, j in tqdm(itertools.combinations(range(len(geoms)), 2)):
         name1 = normalize_street_for_osm(streets[i].properties["name"])
         name2 = normalize_street_for_osm(streets[j].properties["name"])
@@ -86,19 +84,31 @@ def main():
             n_match_stripped += 1
             continue
 
+        ix_to_pt[ix].append((pt.y, pt.x))
+
+    out = csv.DictWriter(
+        open("data/historic-intersections.csv", "w"),
+        fieldnames=["i", "j", "Street1", "Street2", "Borough", "Lat", "Lon"],
+    )
+    out.writeheader()
+    n_ambig_dedupe = 0
+    for ix, pts in ix_to_pt.items():
+        mp = shapely.geometry.MultiPoint([(x, y) for (y, x) in pts])
+        pt = centroid_if_small(mp)
+        if not pt:
+            sys.stderr.write(f"Skipping {ix} with {len(pts)} points: {mp} / {bounds_diam_m(mp)}m\n")
+            n_ambig_dedupe += 1
+            continue
         out.writerow(
             {
-                "i": str(i),
-                "j": str(j),
-                "Street1": name1,
-                "Street2": name2,
-                "Borough": boro1,
+                "Street1": ix.str1,
+                "Street2": ix.str2,
+                "Borough": ix.boro,
                 "Lat": str(pt.y),
                 "Lon": str(pt.x),
             }
         )
-
-    sys.stderr.write(f"{n_ambig=}, {n_match_current=}, {n_match_stripped=}\n")
+    sys.stderr.write(f"{n_ambig=}, {n_match_current=}, {n_match_stripped=}, {n_ambig_dedupe=}\n")
 
 
 if __name__ == "__main__":
