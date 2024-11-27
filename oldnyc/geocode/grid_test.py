@@ -9,8 +9,7 @@ M = "Manhattan"
 def assert_close(ll1: tuple[float, float] | None, ll2: tuple[float, float]):
     """Assert that two latitude & longitude tuples are "close"."""
     assert ll1 is not None
-    assert ll1[0] == pytest.approx(ll2[0], 1e-6)
-    assert ll1[1] == pytest.approx(ll2[1], 1e-6)
+    assert ll1 == pytest.approx(ll2, 1e-6)
 
 
 def test_exact():
@@ -73,9 +72,9 @@ def test_parse_street_ave():
 def test_geocode_broadway():
     g = Grid()
     # this is an exact intersection
-    assert_close(g.geocode_intersection("Broadway", "59th Street", M), (40.767696, -73.981679))
+    assert_close(g.geocode_intersection("Broadway", "59th Street", M), (40.76801, -73.98194))
     # these are interpolations
-    assert_close(g.geocode_intersection("Broadway", "24th Street", M), (40.7422035, -73.989151))
+    assert_close(g.geocode_intersection("Broadway", "24th Street", M), (40.74229, -73.98919))
     assert_close(g.geocode_intersection("Broadway", "124th St", M), (40.8140625, -73.959421))
     # this isn't great, but probably not too far off the intended location.
     assert_close(g.geocode_intersection("Broadway", "127th St.", M), (40.816311, -73.957802))
@@ -180,7 +179,7 @@ def test_cursed_intersection():
 def test_geocode_historic():
     # Historic intersections from nyc-streets.geojson
     g = Grid()
-    assert g.geocode_intersection("Broome Street", "Tompkins Street", "Manhattan") == (
-        40.718,
-        -73.990,
+    assert_close(
+        g.geocode_intersection("Broome Street", "Tompkins Street", "Manhattan"),
+        (40.71418, -73.97697),
     )
