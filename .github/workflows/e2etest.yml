@@ -18,6 +18,7 @@ jobs:
     - name: Generate intersections
       run: |
         export PYTHONPATH=.
+        poetry run python oldnyc/geocode/historic_grid.py
         poetry run python oldnyc/geocode/osm/generate_intersections.py
     - name: Generate truth data
       run: |
