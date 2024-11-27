@@ -1,6 +1,6 @@
 
 Results:
   Geocodes
-    229 / 269 = 85.13% of locatable images correctly located.
-     12 / 241 = 4.98% incorrectly located.
+    232 / 269 = 86.25% of locatable images correctly located.
+     10 / 242 = 4.13% incorrectly located.
 

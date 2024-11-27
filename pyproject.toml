@@ -37,6 +37,7 @@ imagehash = "^4.3.1"
 pygeojson = "^0.2.0"
 natsort = "^8.4.0"
 word2number = "^1.1"
+shapely = "^2.0.6"
 
 [tool.ruff]
 line-length = 100

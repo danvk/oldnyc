@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 import csv
+import itertools
 import re
 import statistics
 import sys
@@ -99,10 +100,13 @@ def strip_ave(street: str) -> str:
     ).strip()
 
 
-def load_all_intersections():
+def load_all_intersections(exclude_historic=False):
     # Completely unambiguous intersections
     ints = dict[Intersection, Point]()
-    for row in csv.DictReader(open("data/nyc-intersections.csv")):
+    inputs = csv.DictReader(open("data/nyc-intersections.csv"))
+    if not exclude_historic:
+        inputs = itertools.chain(inputs, csv.DictReader(open("data/historic-intersections.csv")))
+    for row in inputs:
         # Street1,Street2,Borough,Lat,Lon,Nodes
         str1 = row["Street1"]
         str2 = row["Street2"]
