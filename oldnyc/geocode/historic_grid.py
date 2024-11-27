@@ -88,7 +88,7 @@ def main():
 
     out = csv.DictWriter(
         open("data/historic-intersections.csv", "w"),
-        fieldnames=["i", "j", "Street1", "Street2", "Borough", "Lat", "Lon"],
+        fieldnames=["Street1", "Street2", "Borough", "Lat", "Lon"],
     )
     out.writeheader()
     n_ambig_dedupe = 0
@@ -104,8 +104,8 @@ def main():
                 "Street1": ix.str1,
                 "Street2": ix.str2,
                 "Borough": ix.boro,
-                "Lat": str(pt.y),
-                "Lon": str(pt.x),
+                "Lat": "%.6f" % pt.y,
+                "Lon": "%.6f" % pt.x,
             }
         )
     sys.stderr.write(f"{n_ambig=}, {n_match_current=}, {n_match_stripped=}, {n_ambig_dedupe=}\n")
