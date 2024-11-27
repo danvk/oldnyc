@@ -55,7 +55,7 @@
 704348f	title-cross	(40.6866881, -73.9792917)	Brooklyn: Flatbush Avenue - Lafayette Street
 704362f	title-cross	(40.648437, -73.893295)	Brooklyn: Flatlands Avenue - 107th Street (East)
 704427f	gpt	(40.611958, -74.031867)	100th Street and Fort Hamilton Parkway
-704487f	gpt	(40.6917442, -73.988601)	186 Fulton Street
+704487f	title-cross	(40.698663, -73.991499)	Brooklyn: Fulton Street - Nassau Street
 704920f	title-cross	(40.697892, -73.994599)	Brooklyn: Hicks Street - Clark Street
 704967f	title-cross	(40.705439, -73.956337)	Brooklyn: Hooper Street - Marcy Avenue
 705366f	title-cross	(40.688555, -73.962836)	Brooklyn: Lafayette Avenue - Grand Avenue
@@ -111,7 +111,7 @@
 713972f	title-cross	(40.766213, -73.979532)	Manhattan: 58th Street (West) - 7th Avenue
 714055f	title-cross	(40.771613, -73.990451)	Manhattan: 59th Street - 11th Avenue
 714105f	title-cross	(40.764169, -73.968896)	Manhattan: 61st Street (East) - Park Avenue
-714353f	title-cross	(40.7668959, -73.9538406)	Manhattan: 72nd Street - Avenue A
+714353f	title-cross	(40.76688, -73.95381)	Manhattan: 72nd Street - Avenue A
 714399f	title-cross	(40.779813, -73.984481)	Manhattan: 72nd Street (West) - West End Avenue
 714441f	title-cross	(40.769767, -73.954566)	Manhattan: 75th Street (East) - 1st Avenue
 714641f	title-cross	(40.777554, -73.957012)	Manhattan: 83rd Street (East) - Lexington Avenue
