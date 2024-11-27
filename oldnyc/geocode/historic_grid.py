@@ -9,7 +9,12 @@ import shapely
 from haversine import haversine
 from tqdm import tqdm
 
-from oldnyc.geocode.grid import Intersection, load_all_intersections, strip_dir
+from oldnyc.geocode.grid import (
+    Intersection,
+    load_all_intersections,
+    normalize_street_for_osm,
+    strip_dir,
+)
 
 
 def geom_to_shape(geom: pygeojson.GeometryObject | None):
@@ -47,8 +52,8 @@ def main():
         fieldnames=["i", "j", "Street1", "Street2", "Borough", "Lat", "Lng"],
     )
     for i, j in tqdm(itertools.combinations(range(len(geoms)), 2)):
-        name1 = streets[i].properties["name"]
-        name2 = streets[j].properties["name"]
+        name1 = normalize_street_for_osm(streets[i].properties["name"])
+        name2 = normalize_street_for_osm(streets[j].properties["name"])
         if name1 == name2 or strip_dir(name1) == strip_dir(name2):
             continue
         g1, g2 = geoms[i], geoms[j]
