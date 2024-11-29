@@ -1,4 +1,6 @@
 Filtered to 200/41463 records with --ids_filter (200)
+-- Finalizing fifth --
+Fifth Avenue: 2 claimed
 -- Finalizing title-cross --
     titles matched: 0
 alt titles matched: 0
@@ -6,7 +8,7 @@ alt titles matched: 0
           counters: [('title', 148), ('boro-int', 148), ('alt_title', 2), ('num-prefix', 1), ('at-int', 1)]
             grid: 126 (150 attempts)
 Grid statistics:
-           Counts: [('dir strip', 73), ('exact', 63), ('exact: str', 2), ('unclaimed', 2), ('extrapolated', 1)]
+           Counts: [('dir strip', 73), ('exact', 61), ('exact: str', 2), ('unclaimed', 2), ('extrapolated', 1)]
   Unknown avenues: Counter({'19': 2})
   Unknown streets: Counter()
           google: 7
@@ -27,12 +29,12 @@ Google geocoder stats:
   Cache files hit: 50
 [('google: intersection - fail', 40), ('google: intersection - success', 12), ('google: address - success', 6), ('google: intersection - boro mismatch', 2)]
 -- Finalizing gpt --
-GPT POI:          60
-GPT address:      11
-GPT intersection: 52
-            grid: 13 (43 attempts)
+GPT POI:          58
+GPT address:      10
+GPT intersection: 49
+            grid: 11 (41 attempts)
 Grid statistics:
-           Counts: [('dir strip', 73), ('exact', 63), ('exact: str', 2), ('unclaimed', 2), ('extrapolated', 1)]
+           Counts: [('dir strip', 73), ('exact', 61), ('exact: str', 2), ('unclaimed', 2), ('extrapolated', 1)]
   Unknown avenues: Counter({'19': 2})
   Unknown streets: Counter()
           google: 8
@@ -56,9 +58,10 @@ POI/subject geocoding:
    2	n_title_bridge
    2	n_title_island
 -- Final stats --
+    2 fifth
   133 title-cross
     3 title-address
-   21 gpt
+   19 gpt
     1 special
     9 subjects
   167 (total)
