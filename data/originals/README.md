@@ -6,6 +6,8 @@ Files in this folder are "originals"—not derived from some other data source.
 - Street listings
   - `manhattan-streets.txt`: https://geographic.org/streetview/usa/ny/new_york/new_york.html
   - `brooklyn-streets.txt`: https://geographic.org/streetview/usa/ny/kings/brooklyn.html
+  - `nyc-streets.geojson`: https://github.com/nypl-spacetime/nyc-historical-streets
+- Locations for Fifth Avenue collection: https://github.com/NYPL-publicdomain/fifth-avenue
 
 ```bash
 perl -pe 's/   .*//' | uniq | perl -ne 'print unless /^([WE] )?\d/' | perl -ne 'print if /.../'

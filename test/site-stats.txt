@@ -1,6 +1,6 @@
 Missing popular: ['721912f-b']
-NYPL items on site: 33787
-Unique photos on site: 49081
+NYPL items on site: 33807
+Unique photos on site: 49101
 Text-less photos: 1380
-Unique lat/lngs: 10597
+Unique lat/lngs: 10669
 Orphaned popular photos: 1 / 54

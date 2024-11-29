@@ -1,8 +1,8 @@
 104536	failed	n/a	n/a
 104780	failed	n/a	n/a
 104881	failed	n/a	n/a
-1113261	gpt	(40.75096, -73.982726)	Fifth Avenue and West 38th St
-1113271	gpt	(40.756659, -73.978557)	Fifth Avenue and West 47th St
+1113261	fifth	(40.7512051, -73.9824083)	Fifth Avenue
+1113271	fifth	(40.7566585, -73.9784762)	Fifth Avenue
 1231043	failed	n/a	n/a
 1238854	failed	n/a	n/a
 1507627	title-cross	(40.750907, -73.980677)	Manhattan: Madison Avenue - 39th Street, 

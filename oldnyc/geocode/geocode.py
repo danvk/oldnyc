@@ -41,6 +41,7 @@ CODERS: dict[str, Callable[[], Coder]] = {
     "subjects": subjects.SubjectsCoder,
     "gpt": gpt.GptCoder,
     "special": special_cases.SpecialCasesCoder,
+    "fifth": special_cases.FifthAvenueCoder,
 }
 
 
@@ -90,7 +91,7 @@ def main():
     parser.add_argument(
         "-c",
         "--coders",
-        default="title-cross,title-address,gpt,special,subjects",
+        default="fifth,title-cross,title-address,gpt,special,subjects",
         help="Set to a comma-separated list of coders. Coders run in the specified order.",
     )
 
