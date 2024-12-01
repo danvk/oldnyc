@@ -35,6 +35,11 @@ jobs:
         export PYTHONPATH=.
         poetry run oldnyc/geocode/geocode.py --ids_filter data/geocode/truth-ids.txt --output_format geojson --geocode --no-progress-bar > /tmp/actual.geojson
         poetry run oldnyc/geocode/calculate_metrics.py --stats_only --truth_data data/geocode/truth.geojson --computed_data /tmp/actual.geojson > test/geocode-performance.txt
+    - name: Clustering
+      run: |
+        export PYTHONPATH=.
+        poetry run oldnyc/geocode/geocode.py --images_ndjson data/images.ndjson --output_format geojson --geocode > /tmp/images.geojson
+        poetry run python oldnyc/geocode/cluster.py /tmp/images.geojson > data/lat-lon-map.txt
     - name: Check for diffs
       run: |
         git diff --exit-code test/ data/
