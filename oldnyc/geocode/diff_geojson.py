@@ -6,7 +6,7 @@ input. In order to estimate the correctness of features one can assume that feat
 changes in the after geojson are corrected and any features that haven't changed location to
 remain incorrect. Note: this would label deleted features as incorrect.
 
- If the number of features in either geojson are too numerous, you can restrict the
+If the number of features in either geojson are too numerous, you can restrict the
 features used for the diffing by passing the sample_set flag a pipe delimited set of ids as a
 restriction. For example, this would be useful if a second geojson is constructed over a subset of
 ids that are suspected of being incorrect.
@@ -28,8 +28,10 @@ from haversine import haversine
 
 
 def features_to_geojson_file(features, filename):
+    owned_features = [*features]
+    random.shuffle(owned_features)
     with open(filename, "w") as f:
-        json.dump({"type": "FeatureCollection", "features": features}, f)
+        json.dump({"type": "FeatureCollection", "features": owned_features}, f)
 
 
 def calc_geometry_distance_m(a, b):
@@ -56,10 +58,15 @@ def diff_geojson(
     sample_set: Optional[Sequence[str]],
     num_samples: int,
     change_sample_type: Literal["random", "farthest"],
+    drop_null_geometries: bool,
 ):
     before = json.load(open(before_file))["features"]
+    if drop_null_geometries:
+        before = [f for f in before if f["geometry"] is not None]
     old = {x["id"]: x for x in before}
     after = json.load(open(after_file))["features"]
+    if drop_null_geometries:
+        after = [f for f in after if f["geometry"] is not None]
     new = {x["id"]: x for x in after}
     old_ids = {x["id"] for x in before}
     new_ids = {x["id"] for x in after}
@@ -113,11 +120,10 @@ Changed: {len(changed_ids):,}
   -geom: {len(dropped_geometry_ids):,}
 """)
 
-    if (added_ids or added_geometry_ids) and num_samples:
+    if added_ids and num_samples:
         print("\nSample of additions / +geom:")
-        both = dropped_ids.union(added_geometry_ids)
-        add_samples = min(num_samples, len(both))
-        for k in random.sample([*both], add_samples):
+        add_samples = min(num_samples, len(added_ids))
+        for k in random.sample([*added_ids], add_samples):
             props = new[k]["properties"]
             b = props["geocode"]
             title = (
@@ -128,11 +134,10 @@ Changed: {len(changed_ids):,}
             )
             print(f'add\t{k}\t{title}\t{b.get("lat"):.6f},{b.get("lng"):.6f}\t{b.get("technique")}')
 
-    if (dropped_ids or dropped_geometry_ids) and num_samples:
-        both = dropped_ids.union(dropped_geometry_ids)
+    if dropped_ids and num_samples:
         print("\nSample of dropped / -geom:")
-        drop_samples = min(num_samples, len(both))
-        for k in random.sample([*both], drop_samples):
+        drop_samples = min(num_samples, len(dropped_ids))
+        for k in random.sample([*dropped_ids], drop_samples):
             props = old[k]["properties"]
             a = props["geocode"]
             title = props.get("original_title") or props.get("title") or "original title not found"
@@ -220,6 +225,9 @@ if __name__ == "__main__":
         default="farthest",
         help="Show random changes, or the biggest movers",
     )
+    parser.add_argument(
+        "--drop_null_geometries", action="store_true", help="Delete features with null geometries."
+    )
     args = parser.parse_args()
 
     sample_set = args.sample_set.split("|") if args.sample_set else None
@@ -233,4 +241,5 @@ if __name__ == "__main__":
         sample_set,
         args.num_samples,
         args.change_sample_type,
+        args.drop_null_geometries,
     )

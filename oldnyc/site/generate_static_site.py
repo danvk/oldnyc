@@ -215,6 +215,7 @@ all_photos: list[SitePhoto] = []
 latlon_to_count: dict[str, dict[str, int]] = {}
 id4_to_latlon = defaultdict[str, dict[str, str]](dict)  # first 4 of id -> id -> "lat,lon"
 textless_photo_ids: list[str] = []
+# TODO: delete all existing files in by-location first.
 for latlon, photo_ids in lat_lon_to_ids.items():
     outfile = "../oldnyc.github.io/by-location/%s.json" % latlon.replace(",", "")
     photos = make_response(photo_ids)
