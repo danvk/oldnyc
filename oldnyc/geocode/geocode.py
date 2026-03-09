@@ -10,6 +10,7 @@ import os
 import sys
 import urllib.error
 from collections import defaultdict
+from dataclasses import asdict
 from typing import Callable
 
 from dotenv import load_dotenv
@@ -224,7 +225,7 @@ def main():
                                 lat_lon[0],
                                 lat_lon[1],
                                 c.name(),
-                                json.dumps(locatable),
+                                json.dumps(asdict(locatable)),
                             )
                         )
                     stats[c.name()] += 1
