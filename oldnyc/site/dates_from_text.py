@@ -39,6 +39,7 @@ WEIRD_DATES = {
 
 def parse_mon_year_date(mon_year_date: str):
     mon_year_date = re.sub(r"sept\b", "sep", mon_year_date, flags=re.I)
+    mon_year_date = re.sub(r",(\d)", r", \1", mon_year_date)
     try:
         dt = next(datefinder.find_dates(mon_year_date))
     except StopIteration:
