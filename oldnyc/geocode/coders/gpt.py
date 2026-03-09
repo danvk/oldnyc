@@ -1,6 +1,7 @@
 """Coder for GPT-extracted location queries."""
 
 import json
+import logging
 import sys
 
 from oldnyc.geocode.boroughs import guess_borough
@@ -23,6 +24,7 @@ class GptCoder(Coder):
         self.n_google_location = 0
         self.n_geocode_fail = 0
         self.n_boro_mismatch = 0
+        self.logger = logging.getLogger(__name__)
 
     def code_record(self, r: Item):
         # GPT location extractions are always based on record ID, not photo ID.
@@ -34,14 +36,18 @@ class GptCoder(Coder):
 
     def code_one(self, r: Item, q: GptResponse):
         # sys.stderr.write(f"GPT location: {r.id} {q}\n")
+        self.logger.debug(f"Raw GPT response for {r.id}: {q}")
 
         if q["type"] in ("no location information", "not in NYC"):
             return None
 
         boro = guess_borough(r)
         if boro is None:
-            # sys.stderr.write(f"Failed to guess borough for {r.id}\n")
+            self.logger.debug(f"Failed to guess borough for {r.id}, defaulting to Manhattan\n")
             boro = "New York"
+        else:
+            self.logger.debug(f"Guessed boro for {r.id}: {boro}")
+
         if q["type"] == "place_name":
             # TODO: look at these
             self.num_poi += 1

@@ -6,6 +6,7 @@
 
 import argparse
 import json
+import logging
 import os
 import sys
 import urllib.error
@@ -146,8 +147,19 @@ def main():
         "Only used when outputting lat-lons{,-ny}.js",
     )
     parser.add_argument("--no-progress-bar", action="store_true", help="Show/hide progress bar.")
+    parser.add_argument(
+        "--debug",
+        metavar="MODULE",
+        nargs="+",
+        default=[],
+        help="Enable DEBUG logging for the specified module(s), e.g. oldnyc.geocode.coders.gpt",
+    )
 
     args = parser.parse_args()
+
+    logging.basicConfig(level=logging.WARNING, format="%(name)s %(levelname)s %(message)s")
+    for module in args.debug:
+        logging.getLogger(module).setLevel(logging.DEBUG)
 
     if args.geocode:
         api_key = os.environ.get("GOOGLE_MAPS_API_KEY")
