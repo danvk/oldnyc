@@ -221,6 +221,12 @@ Negative No. 296.
 
 """
 
+test_709676f = """
+Seventh Avenue at S.E. corner of 17th Street.
+March 21,1931.
+P.L. Sperr,Photographer.
+"""
+
 
 def test_get_full_date():
     assert get_dates_from_text(text_701590f) == ["1938-01-25"]
@@ -286,3 +292,7 @@ def test_inline_month():
 
 def test_inline_year():
     assert get_dates_from_text(test_709795f) == ["1903"]
+
+
+def test_no_space():
+    assert get_dates_from_text(test_709676f) == ["1931-03-21"]

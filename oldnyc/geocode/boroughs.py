@@ -1,5 +1,6 @@
 """Utility for mapping a lat/lon to a borough."""
 
+import logging
 import re
 
 import pygeojson
@@ -12,6 +13,8 @@ BOROUGHS_JSON_FILE = "data/originals/boroughs.geojson"
 
 Point = tuple[float, float]
 boroughs: dict[str, list[Point] | list[list[Point]]] | None = None
+
+logger = logging.getLogger(__name__)
 
 
 def _get_boroughs():
@@ -73,15 +76,19 @@ def guess_borough(item: Item):
     for b in BOROUGHS:
         full = f"{b} (New York, N.Y.)"
         if full in item.subject.geographic:
+            logger.debug(f'{item.id} matched "{full}" from subject {item.subject.geographic}')
             return b
         full = f"/ {b}"
         if item.source.endswith(full):
+            logger.debug(f'{item.id} matched "{full}" from source {item.source}')
             return b
         for t in titles:
             if t.startswith(b):
+                logger.debug(f'{item.id} matched "{b}" at start of title "{t}"')
                 return b
     for t in titles:
         m = borough_re.search(t)
         if m:
+            logger.debug(f'{item.id} matched /{borough_re}/ to title "{t}"')
             return m.group(1)
     return None

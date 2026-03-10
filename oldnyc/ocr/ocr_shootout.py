@@ -2,6 +2,9 @@
 """Compare GPT OCR to the existing OCR and decide which one to use for each item.
 
 See https://github.com/danvk/oldnyc/pull/146
+
+This was run once to produce `data/site-ocr-keep-ids.txt`, it doesn't
+need to be run again.
 """
 
 import csv
