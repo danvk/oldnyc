@@ -50,8 +50,6 @@ CODERS: dict[str, Callable[[], Coder]] = {
 def locate_with_google(
     locatable: Locatable, r: Item, coder: str, g: geocoder.Geocoder, print_geocodes: bool
 ) -> Point | None:
-    # if not isinstance(locatable, AddressLocation):
-    #     return None  # defer to OSM
     try:
         geocode_result = None
         address = get_address_for_google(locatable)
@@ -100,21 +98,19 @@ def main():
     )
 
     parser.add_argument(
-        "-g",
-        "--geocode",
-        action="store_true",
-        help="Set to geocode all locations. The alternative is "
-        "to extract location strings but not geocode them. This "
-        "can be useful with --print_records.",
-    )
-    parser.add_argument(
         "-n",
         "--use_network",
         action="store_true",
         help="Set this to make the geocoder use the network. The "
         "alternative is to use only the geocache.",
     )
-    parser.add_argument("--use_google", action="store_true", help="Use Google for geocoding")
+    parser.add_argument(
+        "--google",
+        default="all",
+        choices=("all", "none", "address-only"),
+        help="How to use Google for geocoding. all=intersections + addresses. "
+        "none results in OSM-only geocoding.",
+    )
 
     parser.add_argument(
         "-p",
@@ -165,15 +161,12 @@ def main():
     for module in args.debug:
         logging.getLogger(module).setLevel(logging.DEBUG)
 
-    if args.geocode:
-        api_key = os.environ.get("GOOGLE_MAPS_API_KEY")
-        g = (
-            geocoder.Geocoder(args.use_network, 2, api_key) if args.use_google else None
-        )  # 2s between geocodes
-        if args.use_network and not api_key:
-            raise ValueError("Must set GOOGLE_MAPS_API_KEY with --use_network")
-    else:
-        g = None
+    api_key = os.environ.get("GOOGLE_MAPS_API_KEY")
+    g = (
+        geocoder.Geocoder(args.use_network, 2, api_key) if args.google != "none" else None
+    )  # 2s between geocodes
+    if args.use_network and not api_key:
+        raise ValueError("Must set GOOGLE_MAPS_API_KEY with --use_network")
 
     geocoders = [CODERS[coder_name]() for coder_name in args.coders.split(",")]
     for coder in geocoders:
@@ -217,14 +210,6 @@ def main():
             if not candidate_locatables:
                 continue
 
-            # if not g:
-            #     if args.print_records:
-            #         for locatable in candidate_locatables:
-            #             print("%s\t%s\t%s" % (c.name(), r.id, json.dumps(asdict(locatable))))
-            #     stats[c.name()] += 1
-            #     located_rec = (r, None)
-            #     break
-
             lat_lon = None
             locatable = None
             for locatable in candidate_locatables:
@@ -232,11 +217,12 @@ def main():
                 lat_lon = locate_with_osm(r, locatable, c.name(), grid_geocoder)
                 logger.debug(f"{r.id}: {c.name()} {json.dumps(asdict(locatable))} OSM: {lat_lon}")
 
-                if not lat_lon and args.use_google:
-                    lat_lon = locate_with_google(locatable, r, c.name(), g, args.print_geocodes)
-                    logger.debug(
-                        f"{r.id}: {c.name()} {json.dumps(asdict(locatable))} Google: {lat_lon}"
-                    )
+                if not lat_lon and g:
+                    if args.google != "address" or isinstance(locatable, AddressLocation):
+                        lat_lon = locate_with_google(locatable, r, c.name(), g, args.print_geocodes)
+                        logger.debug(
+                            f"{r.id}: {c.name()} {json.dumps(asdict(locatable))} Google: {lat_lon}"
+                        )
 
                 if lat_lon:
                     if args.print_records:
@@ -289,7 +275,7 @@ def main():
         sys.stderr.write("%5d %s\n" % (stats[c.name()], c.name()))
         successes += stats[c.name()]
 
-    sys.stderr.write("%s\n" % json.dumps(locatable_counts))
+    # sys.stderr.write("%s\n" % json.dumps(locatable_counts))
 
     sys.stderr.write("%5d (total)\n" % successes)
 
