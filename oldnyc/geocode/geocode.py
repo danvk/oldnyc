@@ -112,6 +112,7 @@ def main():
         help="Set this to make the geocoder use the network. The "
         "alternative is to use only the geocache.",
     )
+    parser.add_argument("--use_google", action="store_true", help="Use Google for geocoding")
 
     parser.add_argument(
         "-p",
@@ -157,13 +158,16 @@ def main():
 
     args = parser.parse_args()
 
+    logger = logging.getLogger("oldnyc.geocode")
     logging.basicConfig(level=logging.WARNING, format="%(name)s %(levelname)s %(message)s")
     for module in args.debug:
         logging.getLogger(module).setLevel(logging.DEBUG)
 
     if args.geocode:
         api_key = os.environ.get("GOOGLE_MAPS_API_KEY")
-        g = geocoder.Geocoder(args.use_network, 2, api_key)  # 2s between geocodes
+        g = (
+            geocoder.Geocoder(args.use_network, 2, api_key) if args.use_google else None
+        )  # 2s between geocodes
         if args.use_network and not api_key:
             raise ValueError("Must set GOOGLE_MAPS_API_KEY with --use_network")
     else:
@@ -211,22 +215,26 @@ def main():
             if not candidate_locatables:
                 continue
 
-            if not g:
-                if args.print_records:
-                    for locatable in candidate_locatables:
-                        print("%s\t%s\t%s" % (c.name(), r.id, json.dumps(locatable)))
-                stats[c.name()] += 1
-                located_rec = (r, None)
-                break
+            # if not g:
+            #     if args.print_records:
+            #         for locatable in candidate_locatables:
+            #             print("%s\t%s\t%s" % (c.name(), r.id, json.dumps(asdict(locatable))))
+            #     stats[c.name()] += 1
+            #     located_rec = (r, None)
+            #     break
 
             lat_lon = None
             locatable = None
             for locatable in candidate_locatables:
                 # First try OSM (offline), then Google (online)
                 lat_lon = locate_with_osm(r, locatable, c.name(), grid_geocoder)
-                lat_lon = lat_lon or locate_with_google(
-                    locatable, r, c.name(), g, args.print_geocodes
-                )
+                logger.debug(f"{r.id}: {c.name()} {json.dumps(asdict(locatable))} OSM: {lat_lon}")
+
+                if not lat_lon and args.use_google:
+                    lat_lon = locate_with_google(locatable, r, c.name(), g, args.print_geocodes)
+                    logger.debug(
+                        f"{r.id}: {c.name()} {json.dumps(asdict(locatable))} Google: {lat_lon}"
+                    )
 
                 if lat_lon:
                     if args.print_records:
@@ -278,6 +286,8 @@ def main():
     for c in geocoders:
         sys.stderr.write("%5d %s\n" % (stats[c.name()], c.name()))
         successes += stats[c.name()]
+
+    sys.stderr.write("%s\n" % json.dumps(locatable_counts))
 
     sys.stderr.write("%5d (total)\n" % successes)
 
