@@ -21,6 +21,7 @@ class SiteItem(DateFields):
     image_url: str
     nypl_url: str
     text: Optional[str]
+    text_source: Optional[str]
     original_title: NotRequired[str]
     rotation: NotRequired[int]
 

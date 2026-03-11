@@ -85,12 +85,16 @@ print(f"{len(back_id_to_correction)} OCR fixes")
 #     'last_date': '2017-06-04T15:09:35',
 #     'last_timestamp': 1496603375454,
 # }
-id_to_text: dict[str, str] = {}
+id_to_text: dict[str, tuple[str, str | None]] = {}
 for photo_id, r in id_to_record.items():
+    text_source = r.back_text_source
     if r.back_text:
-        id_to_text[photo_id] = r.back_text
+        id_to_text[photo_id] = (r.back_text, text_source)
     if r.back_id in back_id_to_correction:
-        id_to_text[photo_id] = back_id_to_correction[r.back_id]["text"]
+        id_to_text[photo_id] = (
+            back_id_to_correction[r.back_id]["text"],
+            f"{text_source} + user edit",
+        )
 
 
 def image_url(photo_id: str, is_thumb: bool) -> str:
@@ -126,7 +130,7 @@ def make_response(photo_ids: Iterable[str]):
         elif h > w and h > 600:
             w = int(round(600 * w / h))
             h = 600
-        ocr_text = id_to_text.get(photo_id)
+        ocr_text, text_source = id_to_text.get(photo_id) or (None, None)
 
         title = r.title
         original_title = None
@@ -167,6 +171,7 @@ def make_response(photo_ids: Iterable[str]):
             "width": w,
             "height": h,
             "text": ocr_text,
+            "text_source": text_source,
             "image_url": image_url(photo_id, is_thumb=False),
             "thumb_url": image_url(photo_id, is_thumb=True),
             "nypl_url": f"https://digitalcollections.nypl.org/items/{r.uuid}",
