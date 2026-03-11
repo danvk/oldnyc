@@ -32,7 +32,7 @@ git push
 It's easiest to do this by iterating on the `images.ndjson` file, which has one
 entry per milstein card, rather than one entry per photo.
 
-    poetry run oldnyc/geocode/geocode.py --coders milstein --images_ndjson data/images.ndjson --output_format geojson --geocode > /tmp/images.geojson
+    poetry run oldnyc/geocode/geocode.py --coders milstein --images_ndjson data/images.ndjson --output_format geojson > /tmp/images.geojson
 
 This will print out lots of information about incorrect geocodes and eventually print something like:
 
@@ -44,7 +44,7 @@ This is out of 43363 total records in the Milstein collection.
 By default, this only uses the local "geocache"--it doesn't fetch any geocodes
 from Google Maps. If you want to do that, add --use_network:
 
-    poetry run oldnyc/geocode/geocode.py --images_ndjson data/images.ndjson --output_format geojson --geocode --use_network > /tmp/images.geojson
+    poetry run oldnyc/geocode/geocode.py --images_ndjson data/images.ndjson --output_format geojson --use_network > /tmp/images.geojson
 
 If you want to determine per-borough geocoding coverage, run
 
@@ -59,11 +59,11 @@ Start by unpacking the geocache. This will speed up geocoding and help ensure st
 To get new geocodes into the frontend, you need to geocode `photos.ndjson`
 (see below for how to generate this). Do so with:
 
-    poetry run oldnyc/geocode/geocode.py --images_ndjson data/photos.ndjson --lat_lon_map data/lat-lon-map.txt --output_format lat-lon-to-ids.json --geocode > data/lat-lon-to-ids.json
+    poetry run oldnyc/geocode/geocode.py --images_ndjson data/photos.ndjson --lat_lon_map data/lat-lon-map.txt --output_format lat-lon-to-ids.json > data/lat-lon-to-ids.json
 
 The lat-lon-map.txt file can be generated via:
 
-    poetry run oldnyc/geocode/geocode.py --images_ndjson data/images.ndjson --output_format locations.txt --geocode > data/locations.txt
+    poetry run oldnyc/geocode/geocode.py --images_ndjson data/images.ndjson --output_format locations.txt > data/locations.txt
     poetry run oldnyc/geocode/cluster.py locations.txt > data/lat-lon-map.txt
 
 To update the geocache:
