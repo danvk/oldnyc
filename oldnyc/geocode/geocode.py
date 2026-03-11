@@ -24,7 +24,7 @@ from oldnyc.geocode.coders import (
     subjects,
     title_pattern,
 )
-from oldnyc.geocode.geocode_types import Coder, Locatable
+from oldnyc.geocode.geocode_types import AddressLocation, Coder, Locatable
 from oldnyc.geocode.locatable import (
     Point,
     extract_point_from_google_geocode,
@@ -50,6 +50,8 @@ CODERS: dict[str, Callable[[], Coder]] = {
 def locate_with_google(
     locatable: Locatable, r: Item, coder: str, g: geocoder.Geocoder, print_geocodes: bool
 ) -> Point | None:
+    # if not isinstance(locatable, AddressLocation):
+    #     return None  # defer to OSM
     try:
         geocode_result = None
         address = get_address_for_google(locatable)
