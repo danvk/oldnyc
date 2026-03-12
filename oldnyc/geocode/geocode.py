@@ -9,7 +9,6 @@ import json
 import logging
 import os
 import sys
-import urllib.error
 from collections import defaultdict
 from dataclasses import asdict
 from typing import Callable
@@ -27,8 +26,7 @@ from oldnyc.geocode.coders import (
 from oldnyc.geocode.geocode_types import AddressLocation, Coder, Locatable
 from oldnyc.geocode.locatable import (
     Point,
-    extract_point_from_google_geocode,
-    get_address_for_google,
+    locate_with_google,
     locate_with_osm,
     total_counts,
 )
@@ -45,36 +43,6 @@ CODERS: dict[str, Callable[[], Coder]] = {
     "special": special_cases.SpecialCasesCoder,
     "fifth": special_cases.FifthAvenueCoder,
 }
-
-
-def locate_with_google(
-    locatable: Locatable, r: Item, coder: str, g: geocoder.Geocoder, print_geocodes: bool
-) -> Point | None:
-    try:
-        geocode_result = None
-        address = get_address_for_google(locatable)
-        if not address:
-            return None
-        try:
-            if print_geocodes:
-                geocache = geocoder.cache_file_name(address)
-                print(f'{r.id} {coder}: Geocoding "{address}" ({geocache})')
-            geocode_result = g.Locate(address, True, r.id)
-        except urllib.error.HTTPError as e:
-            if e.status == 400:
-                sys.stderr.write(f"Bad request: {address}\n")
-            else:
-                raise e
-
-        if geocode_result:
-            return extract_point_from_google_geocode(geocode_result, locatable, r, coder)
-        else:
-            sys.stderr.write("Failed to geocode %s\n" % r.id)
-            # sys.stderr.write('Location: %s\n' % location_data['address'])
-    except Exception:
-        sys.stderr.write("ERROR locating %s with %s\n" % (r.id, coder))
-        # sys.stderr.write('ERROR location: "%s"\n' % json.dumps(location_data))
-        raise
 
 
 def main():
