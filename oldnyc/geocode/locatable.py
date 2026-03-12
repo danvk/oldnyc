@@ -1,6 +1,3 @@
-# From title_pattern.py
-
-
 import sys
 import urllib.error
 from collections import Counter, defaultdict
