@@ -23,7 +23,13 @@ from oldnyc.geocode.coders import (
     subjects,
     title_pattern,
 )
-from oldnyc.geocode.geocode_types import AddressLocation, Coder, Locatable
+from oldnyc.geocode.geocode_types import (
+    AddressLocation,
+    Coder,
+    GeocodedItem,
+    GeocodeResult,
+    Locatable,
+)
 from oldnyc.geocode.locatable import (
     Point,
     locate_with_google,
@@ -167,10 +173,10 @@ def main():
     grid_geocoder = grid.Grid()
 
     stats = defaultdict(int)
-    located_recs: list[tuple[Item, tuple[str, Locatable, Point] | None]] = []
+    geocoded_items: list[GeocodedItem] = []
     src = rs if args.no_progress_bar else tqdm(rs)
-    for idx, r in enumerate(src):
-        located_rec = (r, None)
+    for r in src:
+        result = GeocodedItem(item=r, result=None, failures=[])
 
         # Give each coder a crack at the record, in turn.
         for c in geocoders:
@@ -205,13 +211,16 @@ def main():
                             )
                         )
                     stats[c.name()] += 1
-                    located_rec = (r, (c.name(), locatable, lat_lon))
+                    result.result = GeocodeResult(
+                        coder=c.name(), location=locatable, lat_lon=lat_lon
+                    )
                     break
+                result.failures.append((c.name(), locatable))
 
             if lat_lon:
                 break
 
-        located_recs.append(located_rec)
+        geocoded_items.append(result)
 
     # Let each geocoder know we're done. This is useful for printing debug info.
     for c in geocoders:
@@ -248,11 +257,11 @@ def main():
     sys.stderr.write("%5d (total)\n" % successes)
 
     if args.output_format == "lat-lon-to-ids.json":
-        generate_js.printJsonNoYears(located_recs, lat_lon_map)
+        generate_js.printJsonNoYears(geocoded_items, lat_lon_map)
     elif args.output_format == "id-location.txt":
-        generate_js.printIdLocation(located_recs)
+        generate_js.printIdLocation(geocoded_items)
     elif args.output_format == "geojson":
-        generate_js.output_geojson(located_recs, rs)
+        generate_js.output_geojson(geocoded_items, rs)
     elif args.output_format == "none":
         pass
     else:

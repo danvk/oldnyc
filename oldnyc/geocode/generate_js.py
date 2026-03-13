@@ -9,7 +9,7 @@ from datetime import date
 from json import encoder
 from typing import Sequence
 
-from oldnyc.geocode.geocode_types import Locatable, Point
+from oldnyc.geocode.geocode_types import GeocodedItem, Locatable, Point
 from oldnyc.ingest.dates import extract_years
 from oldnyc.item import Item
 
@@ -29,22 +29,21 @@ def get_date_range(date_str: str) -> tuple[date, date]:
     return min(dates), max(dates)
 
 
-def _generateJson(located_recs: Sequence[LocatedRecord], lat_lon_map: dict[str, str]):
+def _generateJson(located_recs: Sequence[GeocodedItem], lat_lon_map: dict[str, str]):
     out: dict[str, list[str]] = {}
     # "lat,lon" -> list of items
     ll_to_id: dict[str, list[Item]] = defaultdict(list)
 
     claimed_in_map = {}
 
-    for r, loc in located_recs:
-        if not loc:
+    for item in located_recs:
+        if not item.result:
             continue
-        (lat, lon) = loc[2]
-        ll_str = "%.6f,%.6f" % (lat, lon)
+        ll_str = "%.6f,%.6f" % item.result.lat_lon
         if lat_lon_map and ll_str in lat_lon_map:
             claimed_in_map[ll_str] = True
             ll_str = lat_lon_map[ll_str]
-        ll_to_id[ll_str].append(r)
+        ll_to_id[ll_str].append(item.item)
 
     # print len(claimed_in_map)
     # print len(lat_lon_map)
@@ -74,22 +73,22 @@ def _generateJson(located_recs: Sequence[LocatedRecord], lat_lon_map: dict[str, 
     return out
 
 
-def printJsonNoYears(located_recs: Sequence[LocatedRecord], lat_lon_map: dict[str, str]):
+def printJsonNoYears(located_recs: Sequence[GeocodedItem], lat_lon_map: dict[str, str]):
     ll_to_items = _generateJson(located_recs, lat_lon_map)
     print(json.dumps(ll_to_items, sort_keys=True))
 
 
-def printIdLocation(located_recs: Sequence[LocatedRecord]):
-    for r, loc_data in located_recs:
+def printIdLocation(located_recs: Sequence[GeocodedItem]):
+    for item in located_recs:
         coder = None
-        if loc_data:
-            coder, location_data, pt = loc_data
-            lat, lng = pt
-            loc = (str((lat, lng)) or "") + "\t" + location_data.source
+        r = item.result
+        if r:
+            coder = r.coder
+            loc = f"{r.lat_lon}\t{r.location.source}"
         else:
             loc = "n/a\tn/a"
 
-        print("\t".join([r.id, coder or "failed", loc]))
+        print("\t".join([item.item.id, coder or "failed", loc]))
 
 
 locatable_types = {
@@ -99,12 +98,15 @@ locatable_types = {
 }
 
 
-def output_geojson(located_recs: Sequence[LocatedRecord], all_recs: list[Item]):
+def output_geojson(located_recs: Sequence[GeocodedItem], all_recs: list[Item]):
     features = []
-    id_to_loc = {r.id: loc for r, loc in located_recs}
+    id_to_loc = {r.item.id: r.result for r in located_recs}
     for r in all_recs:
         loc_data = id_to_loc[r.id]
-        coder, locatable, pt = loc_data or (None, None, None)
+        if loc_data:
+            coder, locatable, pt = loc_data.coder, loc_data.location, loc_data.lat_lon
+        else:
+            coder, locatable, pt = None, None, None
         feature = {
             "id": r.id,
             "type": "Feature",
