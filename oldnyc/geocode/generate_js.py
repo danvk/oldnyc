@@ -124,10 +124,7 @@ def output_geojson(located_recs: Sequence[GeocodedItem], all_recs: list[Item]):
                 "geocode": (
                     {
                         "technique": coder,
-                        "lat": pt[0],
-                        "lng": pt[1],
-                        "type": locatable_types[locatable.__class__.__name__],
-                        **dataclasses.asdict(locatable),
+                        "source": locatable.source,
                     }
                     if pt and locatable
                     else None
