@@ -1,7 +1,7 @@
 # pyright: strict
 
 from dataclasses import dataclass
-from typing import Protocol, Sequence
+from typing import Literal, Protocol, Sequence
 
 from oldnyc.item import Item
 
@@ -39,6 +39,7 @@ class GeocodeResult:
     coder: str
     location: Locatable
     lat_lon: Point
+    geocoder: Literal["osm", "google"]
 
 
 @dataclass

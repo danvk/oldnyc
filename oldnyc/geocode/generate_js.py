@@ -100,13 +100,11 @@ locatable_types = {
 
 def output_geojson(located_recs: Sequence[GeocodedItem], all_recs: list[Item]):
     features = []
-    id_to_loc = {r.item.id: r.result for r in located_recs}
+    id_to_geocode = {r.item.id: r for r in located_recs}
     for r in all_recs:
-        loc_data = id_to_loc[r.id]
-        if loc_data:
-            coder, locatable, pt = loc_data.coder, loc_data.location, loc_data.lat_lon
-        else:
-            coder, locatable, pt = None, None, None
+        geocode = id_to_geocode[r.id]
+        result = geocode.result
+        pt = result.lat_lon if result else None
         feature = {
             "id": r.id,
             "type": "Feature",
@@ -123,11 +121,22 @@ def output_geojson(located_recs: Sequence[GeocodedItem], all_recs: list[Item]):
                 "date": r.date,
                 "geocode": (
                     {
-                        "technique": coder,
-                        "source": locatable.source,
+                        "technique": result.coder,
+                        "source": result.location.source,  # duplicative
+                        "location": dataclasses.asdict(result.location),
+                        "geocoder": result.geocoder,
                     }
-                    if pt and locatable
+                    if result
                     else None
+                ),
+                **(
+                    {
+                        "geocode_failures": [
+                            (coder, dataclasses.asdict(loc)) for coder, loc in geocode.failures
+                        ]
+                    }
+                    if geocode.failures
+                    else {}
                 ),
                 "image": {
                     "url": f"http://images.nypl.org/?id={r.id}&t=w",

@@ -190,6 +190,7 @@ def main():
                 # First try OSM (offline), then Google (online)
                 lat_lon = locate_with_osm(r, locatable, c.name(), grid_geocoder)
                 logger.debug(f"{r.id}: {c.name()} {json.dumps(asdict(locatable))} OSM: {lat_lon}")
+                geocode_provider = "osm"
 
                 if not lat_lon and g:
                     if args.google != "address" or isinstance(locatable, AddressLocation):
@@ -197,6 +198,7 @@ def main():
                         logger.debug(
                             f"{r.id}: {c.name()} {json.dumps(asdict(locatable))} Google: {lat_lon}"
                         )
+                        geocode_provider = "google"
 
                 if lat_lon:
                     if args.print_records:
@@ -212,7 +214,10 @@ def main():
                         )
                     stats[c.name()] += 1
                     result.result = GeocodeResult(
-                        coder=c.name(), location=locatable, lat_lon=lat_lon
+                        coder=c.name(),
+                        location=locatable,
+                        lat_lon=lat_lon,
+                        geocoder=geocode_provider,
                     )
                     break
                 result.failures.append((c.name(), locatable))
