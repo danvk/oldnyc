@@ -37,6 +37,9 @@ class SiteResponse(SiteItem):
     """Type of the entries in by-location/*.json"""
 
     id: str
+    nypl_fields: Any
+    geocode: Any
+    geocode_failures: NotRequired[list[Any]]
 
 
 class Timestamps(TypedDict):

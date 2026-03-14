@@ -78,6 +78,10 @@ def output_geojson(
                 }
             ),
         }
+        if geocode.failures:
+            props["geocode_failures"] = [
+                {"technique": coder, **locatable_to_dict(loc)} for coder, loc in geocode.failures
+            ]
 
         feature: GeoJsonFeature = {
             "id": r.id,
