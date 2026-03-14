@@ -6,7 +6,7 @@ jobs:
   geocoder:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v6
     - uses: ./.github/actions/setup
     - name: Expand geocache
       run: |
@@ -47,7 +47,7 @@ jobs:
   cropper:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v6
     - uses: ./.github/actions/setup
     - name: Run cropper
       run: |
@@ -63,7 +63,7 @@ jobs:
   generation:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v6
     - uses: ./.github/actions/setup
     - name: Clone web site
       run: |
@@ -86,7 +86,7 @@ jobs:
       run: |
         export PYTHONPATH=.
         tar -xzf geocache.tgz
-        poetry run oldnyc/geocode/geocode.py --lat_lon_map data/lat-lon-map.txt --output_format lat-lon-to-ids.json --no-progress-bar > data/lat-lon-to-ids.json 2> >(tee >( sed -n '/Finalizing/,$p' > test/geocoding-stats.txt) >&2)
+        poetry run oldnyc/geocode/geocode.py --lat_lon_map data/lat-lon-map.txt --output_format geojson --no-progress-bar > data/images.geojson  2> >(tee >( sed -n '/Finalizing/,$p' > test/geocoding-stats.txt) >&2)
     - name: Generate static site
       run: |
         export PYTHONPATH=.

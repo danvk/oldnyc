@@ -13,3 +13,11 @@ def decode_json_base64(b64: str):
 
 def pick[K, V](o: dict[K, V], fields: Sequence[K]) -> dict[K, V]:
     return {k: o[k] for k in fields if k in o}
+
+
+def remove_empty(obj):
+    return {
+        k: (remove_empty(v) if isinstance(v, dict) else v)
+        for k, v in obj.items()
+        if v is not None and v != []
+    }

@@ -11,11 +11,13 @@ import time
 from collections import OrderedDict, defaultdict
 from typing import Iterable, Sequence
 
+from oldnyc.geocode.generate_js import get_date_range
 from oldnyc.ingest.dates import extract_years
 from oldnyc.item import load_items
 from oldnyc.site import dates_from_text
 from oldnyc.site.site_data_type import (
     DateFields,
+    GeoJsonFeature,
     PopularPhoto,
     SiteItem,
     SiteJson,
@@ -44,14 +46,32 @@ args = parser.parse_args()
 popular_photos: list[PopularPhoto] = json.loads(open("data/popular-photos.js").read()[20:-2])
 pop_ids = {x["id"] for x in popular_photos}
 
-lat_lon_to_item_ids: dict[str, list[str]] = json.load(open("data/lat-lon-to-ids.json"))
-
 rs = load_items("data/photos.ndjson")
 id_to_record = {r.id: r for r in rs}
 item_id_to_photo_ids = defaultdict[str, list[str]](list)
 for r in rs:
     item_id = r.id.split("-")[0]
     item_id_to_photo_ids[item_id].append(r.id)
+
+geocoded_features: list[GeoJsonFeature] = [
+    f for f in json.load(open("data/images.geojson"))["features"] if f["geometry"]
+]
+item_id_to_geocoded_feature = {f["id"]: f for f in geocoded_features}
+lat_lon_to_item_ids = dict[str, list[str]]()
+for f in geocoded_features:
+    if not f["geometry"]:
+        continue
+    lng, lat = f["geometry"]["coordinates"]
+    ll_str = "%.6f,%.6f" % (lat, lng)
+    lat_lon_to_item_ids.setdefault(ll_str, []).append(f["id"])
+
+
+def last_date_for_id(id: str):
+    return get_date_range(item_id_to_geocoded_feature[id]["properties"]["date"] or "")[1]
+
+
+for v in lat_lon_to_item_ids.values():
+    v.sort(key=last_date_for_id)
 
 lat_lon_to_ids = {
     ll: [photo_id for item_id in item_ids for photo_id in item_id_to_photo_ids[item_id]]

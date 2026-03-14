@@ -1,10 +1,10 @@
-# From title_pattern.py
-
-
+import dataclasses
+import sys
+import urllib.error
 from collections import Counter, defaultdict
 from typing import Any
 
-from oldnyc.geocode import grid
+from oldnyc.geocode import geocoder, grid
 from oldnyc.geocode.boroughs import point_to_borough
 from oldnyc.geocode.geocode_types import (
     AddressLocation,
@@ -66,7 +66,36 @@ KNOWN_BAD = {
     "Randall's Island",
     "Tottenville",
 }
-# 2986 -> 2719
+
+
+def locate_with_google(
+    locatable: Locatable, r: Item, coder: str, g: geocoder.Geocoder, print_geocodes: bool
+) -> Point | None:
+    try:
+        geocode_result = None
+        address = get_address_for_google(locatable)
+        if not address:
+            return None
+        try:
+            if print_geocodes:
+                geocache = geocoder.cache_file_name(address)
+                print(f'{r.id} {coder}: Geocoding "{address}" ({geocache})')
+            geocode_result = g.Locate(address, True, r.id)
+        except urllib.error.HTTPError as e:
+            if e.status == 400:
+                sys.stderr.write(f"Bad request: {address}\n")
+            else:
+                raise e
+
+        if geocode_result:
+            return extract_point_from_google_geocode(geocode_result, locatable, r, coder)
+        else:
+            sys.stderr.write("Failed to geocode %s\n" % r.id)
+            # sys.stderr.write('Location: %s\n' % location_data['address'])
+    except Exception:
+        sys.stderr.write("ERROR locating %s with %s\n" % (r.id, coder))
+        # sys.stderr.write('ERROR location: "%s"\n' % json.dumps(location_data))
+        raise
 
 
 def get_address_for_google(loc: Locatable) -> str | None:
@@ -135,3 +164,11 @@ def get_lat_lng_from_geocode(geocode: dict[str, Any], desired_types: list[str]) 
                 # sys.stderr.write(f"Match on {i} / {N}: {result}\n")
                 loc = result["geometry"]["location"]
                 return (loc["lat"], loc["lng"])
+
+
+def locatable_to_dict(loc: Locatable, include_source=False):
+    d = dataclasses.asdict(loc)
+    if include_source:
+        return d
+    del d["source"]
+    return d

@@ -1,7 +1,7 @@
 # pyright: strict
 
 from dataclasses import dataclass
-from typing import Protocol, Sequence
+from typing import Literal, Protocol, Sequence
 
 from oldnyc.item import Item
 
@@ -32,6 +32,22 @@ class LatLngLocation:
 
 
 Locatable = IntersectionLocation | AddressLocation | LatLngLocation
+
+
+@dataclass
+class GeocodeResult:
+    coder: str
+    location: Locatable
+    lat_lon: Point
+    geocoder: Literal["osm", "google"]
+
+
+@dataclass
+class GeocodedItem:
+    item: Item
+    result: GeocodeResult | None
+    # (coder, locatable) pairs that failed to produce a lat/lng
+    failures: list[tuple[str, Locatable]]
 
 
 class Coder(Protocol):

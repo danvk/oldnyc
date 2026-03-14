@@ -9,7 +9,6 @@ import json
 import logging
 import os
 import sys
-import urllib.error
 from collections import defaultdict
 from dataclasses import asdict
 from typing import Callable
@@ -24,18 +23,21 @@ from oldnyc.geocode.coders import (
     subjects,
     title_pattern,
 )
-from oldnyc.geocode.geocode_types import AddressLocation, Coder, Locatable
-from oldnyc.geocode.locatable import (
-    Point,
-    extract_point_from_google_geocode,
-    get_address_for_google,
-    locate_with_osm,
-    total_counts,
+from oldnyc.geocode.geocode_types import (
+    AddressLocation,
+    Coder,
+    GeocodedItem,
+    GeocodeResult,
 )
 from oldnyc.geocode.locatable import (
     counts as locatable_counts,
 )
-from oldnyc.item import Item, load_items
+from oldnyc.geocode.locatable import (
+    locate_with_google,
+    locate_with_osm,
+    total_counts,
+)
+from oldnyc.item import load_items
 
 CODERS: dict[str, Callable[[], Coder]] = {
     "title-cross": title_pattern.TitleCrossCoder,
@@ -45,36 +47,6 @@ CODERS: dict[str, Callable[[], Coder]] = {
     "special": special_cases.SpecialCasesCoder,
     "fifth": special_cases.FifthAvenueCoder,
 }
-
-
-def locate_with_google(
-    locatable: Locatable, r: Item, coder: str, g: geocoder.Geocoder, print_geocodes: bool
-) -> Point | None:
-    try:
-        geocode_result = None
-        address = get_address_for_google(locatable)
-        if not address:
-            return None
-        try:
-            if print_geocodes:
-                geocache = geocoder.cache_file_name(address)
-                print(f'{r.id} {coder}: Geocoding "{address}" ({geocache})')
-            geocode_result = g.Locate(address, True, r.id)
-        except urllib.error.HTTPError as e:
-            if e.status == 400:
-                sys.stderr.write(f"Bad request: {address}\n")
-            else:
-                raise e
-
-        if geocode_result:
-            return extract_point_from_google_geocode(geocode_result, locatable, r, coder)
-        else:
-            sys.stderr.write("Failed to geocode %s\n" % r.id)
-            # sys.stderr.write('Location: %s\n' % location_data['address'])
-    except Exception:
-        sys.stderr.write("ERROR locating %s with %s\n" % (r.id, coder))
-        # sys.stderr.write('ERROR location: "%s"\n' % json.dumps(location_data))
-        raise
 
 
 def main():
@@ -199,10 +171,10 @@ def main():
     grid_geocoder = grid.Grid()
 
     stats = defaultdict(int)
-    located_recs: list[tuple[Item, tuple[str, Locatable, Point] | None]] = []
+    geocoded_items: list[GeocodedItem] = []
     src = rs if args.no_progress_bar else tqdm(rs)
-    for idx, r in enumerate(src):
-        located_rec = (r, None)
+    for r in src:
+        result = GeocodedItem(item=r, result=None, failures=[])
 
         # Give each coder a crack at the record, in turn.
         for c in geocoders:
@@ -216,6 +188,7 @@ def main():
                 # First try OSM (offline), then Google (online)
                 lat_lon = locate_with_osm(r, locatable, c.name(), grid_geocoder)
                 logger.debug(f"{r.id}: {c.name()} {json.dumps(asdict(locatable))} OSM: {lat_lon}")
+                geocode_provider = "osm"
 
                 if not lat_lon and g:
                     if args.google != "address" or isinstance(locatable, AddressLocation):
@@ -223,6 +196,7 @@ def main():
                         logger.debug(
                             f"{r.id}: {c.name()} {json.dumps(asdict(locatable))} Google: {lat_lon}"
                         )
+                        geocode_provider = "google"
 
                 if lat_lon:
                     if args.print_records:
@@ -237,13 +211,19 @@ def main():
                             )
                         )
                     stats[c.name()] += 1
-                    located_rec = (r, (c.name(), locatable, lat_lon))
+                    result.result = GeocodeResult(
+                        coder=c.name(),
+                        location=locatable,
+                        lat_lon=lat_lon,
+                        geocoder=geocode_provider,
+                    )
                     break
+                result.failures.append((c.name(), locatable))
 
             if lat_lon:
                 break
 
-        located_recs.append(located_rec)
+        geocoded_items.append(result)
 
     # Let each geocoder know we're done. This is useful for printing debug info.
     for c in geocoders:
@@ -279,12 +259,10 @@ def main():
 
     sys.stderr.write("%5d (total)\n" % successes)
 
-    if args.output_format == "lat-lon-to-ids.json":
-        generate_js.printJsonNoYears(located_recs, lat_lon_map)
-    elif args.output_format == "id-location.txt":
-        generate_js.printIdLocation(located_recs)
+    if args.output_format == "id-location.txt":
+        generate_js.printIdLocation(geocoded_items)
     elif args.output_format == "geojson":
-        generate_js.output_geojson(located_recs, rs)
+        generate_js.output_geojson(geocoded_items, rs, lat_lon_map)
     elif args.output_format == "none":
         pass
     else:
