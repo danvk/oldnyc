@@ -67,9 +67,9 @@ class PointGeometry(TypedDict):
 
 class GeoJsonProperties(TypedDict):
     title: str
-    date: str
+    date: str | None
     geocode: Any
-    geocode_failures: list[Any]
+    geocode_failures: NotRequired[list[Any]]
     url: str
     nypl_fields: Any
 

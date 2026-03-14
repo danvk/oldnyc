@@ -259,9 +259,7 @@ def main():
 
     sys.stderr.write("%5d (total)\n" % successes)
 
-    if args.output_format == "lat-lon-to-ids.json":
-        generate_js.printJsonNoYears(geocoded_items, lat_lon_map)
-    elif args.output_format == "id-location.txt":
+    if args.output_format == "id-location.txt":
         generate_js.printIdLocation(geocoded_items)
     elif args.output_format == "geojson":
         generate_js.output_geojson(geocoded_items, rs, lat_lon_map)
