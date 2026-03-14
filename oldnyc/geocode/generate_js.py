@@ -156,6 +156,9 @@ def output_geojson(
         }
         features.append(feature)
 
+    points = {tuple(f["geometry"]["coordinates"]) for f in features if f["geometry"]}
+
+    sys.stderr.write("Unique lat/longs: %d\n" % len(points))
     print(
         json.dumps(
             {"type": "FeatureCollection", "features": features},

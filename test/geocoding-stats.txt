@@ -69,6 +69,4 @@ POI/subject geocoding:
    58 special
  1932 subjects
 33807 (total)
-Dropped w/ no date: 0
 Unique lat/longs: 9007
-Total photographs: 33807
