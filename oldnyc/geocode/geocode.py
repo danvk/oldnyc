@@ -28,18 +28,16 @@ from oldnyc.geocode.geocode_types import (
     Coder,
     GeocodedItem,
     GeocodeResult,
-    Locatable,
-)
-from oldnyc.geocode.locatable import (
-    Point,
-    locate_with_google,
-    locate_with_osm,
-    total_counts,
 )
 from oldnyc.geocode.locatable import (
     counts as locatable_counts,
 )
-from oldnyc.item import Item, load_items
+from oldnyc.geocode.locatable import (
+    locate_with_google,
+    locate_with_osm,
+    total_counts,
+)
+from oldnyc.item import load_items
 
 CODERS: dict[str, Callable[[], Coder]] = {
     "title-cross": title_pattern.TitleCrossCoder,
