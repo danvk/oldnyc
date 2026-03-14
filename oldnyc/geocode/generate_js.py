@@ -100,13 +100,23 @@ locatable_types = {
 }
 
 
-def output_geojson(located_recs: Sequence[GeocodedItem], all_recs: list[Item]):
+def output_geojson(
+    located_recs: Sequence[GeocodedItem], all_recs: list[Item], lat_lon_map: dict[str, str]
+):
     features = []
     id_to_geocode = {r.item.id: r for r in located_recs}
     for r in all_recs:
         geocode = id_to_geocode[r.id]
         result = geocode.result
         pt = result.lat_lon if result else None
+
+        if pt and lat_lon_map:
+            ll_str = "%.6f,%.6f" % pt
+            if ll_str in lat_lon_map:
+                ll_str = lat_lon_map[ll_str]
+                lat, lng = [float(x) for x in ll_str.split(",")]
+                pt = (lat, lng)
+
         feature = {
             "id": r.id,
             "type": "Feature",
@@ -141,10 +151,6 @@ def output_geojson(located_recs: Sequence[GeocodedItem], all_recs: list[Item]):
                     if geocode.failures
                     else {}
                 ),
-                # "image": {
-                #     "url": f"http://images.nypl.org/?id={r.id}&t=w",
-                #     "thumb_url": f"http://images.nypl.org/?id={r.id}&t=w",
-                # },
                 "url": r.url,
                 "nypl_fields": remove_empty(
                     {

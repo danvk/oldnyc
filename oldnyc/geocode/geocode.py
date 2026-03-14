@@ -264,7 +264,7 @@ def main():
     elif args.output_format == "id-location.txt":
         generate_js.printIdLocation(geocoded_items)
     elif args.output_format == "geojson":
-        generate_js.output_geojson(geocoded_items, rs)
+        generate_js.output_geojson(geocoded_items, rs, lat_lon_map)
     elif args.output_format == "none":
         pass
     else:
