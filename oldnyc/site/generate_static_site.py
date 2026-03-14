@@ -54,7 +54,7 @@ for r in rs:
     item_id_to_photo_ids[item_id].append(r.id)
 
 geocoded_features: list[GeoJsonFeature] = [
-    f for f in json.load(open("data/images.geojson"))["features"] if f["geometry"]
+    f for f in json.load(open("data/images.geojson"))["features"]
 ]
 item_id_to_geocoded_feature = {f["id"]: f for f in geocoded_features}
 lat_lon_to_item_ids = dict[str, list[str]]()
@@ -152,6 +152,9 @@ def make_response(photo_ids: Iterable[str]):
             h = 600
         ocr_text, text_source = id_to_text.get(photo_id) or (None, None)
 
+        item_id = r.id.split("-")[0]
+        geocoded_feature = item_id_to_geocoded_feature[item_id]
+
         title = r.title
         original_title = None
         if is_pure_location(title):
@@ -196,7 +199,12 @@ def make_response(photo_ids: Iterable[str]):
             "thumb_url": image_url(photo_id, is_thumb=True),
             "nypl_url": f"https://digitalcollections.nypl.org/items/{r.uuid}",
             # TODO: switch to r.url after reviewing other diffs
+            "nypl_fields": geocoded_feature["properties"]["nypl_fields"],
+            "geocode": geocoded_feature["properties"]["geocode"],
         }
+        geocode_failures = geocoded_feature["properties"].get("geocode_failures")
+        if geocode_failures:
+            resp["geocode_failures"] = geocode_failures
         if original_title:
             resp["original_title"] = original_title
         if rotation:
