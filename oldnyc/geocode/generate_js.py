@@ -70,16 +70,6 @@ def output_geojson(
                 if result
                 else None
             ),
-            **(
-                {
-                    "geocode_failures": [
-                        {"technique": coder, **locatable_to_dict(loc)}
-                        for coder, loc in geocode.failures
-                    ]
-                }
-                if geocode.failures
-                else {}
-            ),
             "url": r.url,
             "nypl_fields": remove_empty(
                 {
