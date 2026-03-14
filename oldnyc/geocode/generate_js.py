@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 """Various output formats for generate-geocodes.py."""
 
+import dataclasses
 import json
 import sys
 from collections import defaultdict
@@ -12,6 +13,7 @@ from oldnyc.geocode.geocode_types import GeocodedItem, Locatable, Point
 from oldnyc.geocode.locatable import locatable_to_dict
 from oldnyc.ingest.dates import extract_years
 from oldnyc.item import Item
+from oldnyc.util import remove_empty
 
 encoder.FLOAT_REPR = lambda o: format(o, ".6f")  # type: ignore
 
@@ -144,7 +146,12 @@ def output_geojson(located_recs: Sequence[GeocodedItem], all_recs: list[Item]):
                 #     "thumb_url": f"http://images.nypl.org/?id={r.id}&t=w",
                 # },
                 "url": r.url,
-                "nypl_fields": {"alt_title": r.alt_title},
+                "nypl_fields": remove_empty(
+                    {
+                        "alt_title": r.alt_title,
+                        "subjects": dataclasses.asdict(r.subject),
+                    }
+                ),
             },
         }
         features.append(feature)
