@@ -70,7 +70,6 @@ docstring-code-line-length = "dynamic"
 
 [tool.pyright]
 typeCheckingMode = "standard"
-reportAssignmentType = "error"
 
 # This would be the next step:
 # reportUnknownParameterType = "warning"
