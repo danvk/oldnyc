@@ -1,4 +1,4 @@
-from typing import NotRequired, Optional, TypedDict
+from typing import Any, Literal, NotRequired, Optional, TypedDict
 
 
 class LatLon(TypedDict):
@@ -58,3 +58,24 @@ class PopularPhoto(TypedDict):
     height: int
     id: str
     desc: str
+
+
+class PointGeometry(TypedDict):
+    type: Literal["Point"]
+    coordinates: tuple[float, float]
+
+
+class GeoJsonProperties(TypedDict):
+    title: str
+    date: str
+    geocode: Any
+    geocode_failures: list[Any]
+    url: str
+    nypl_fields: Any
+
+
+class GeoJsonFeature(TypedDict):
+    id: str
+    type: Literal["Feature"]
+    geometry: PointGeometry | None
+    properties: GeoJsonProperties

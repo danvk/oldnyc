@@ -13,6 +13,7 @@ from oldnyc.geocode.geocode_types import GeocodedItem, Locatable, Point
 from oldnyc.geocode.locatable import locatable_to_dict
 from oldnyc.ingest.dates import extract_years
 from oldnyc.item import Item
+from oldnyc.site.site_data_type import GeoJsonFeature
 from oldnyc.util import remove_empty
 
 encoder.FLOAT_REPR = lambda o: format(o, ".6f")  # type: ignore
@@ -93,17 +94,10 @@ def printIdLocation(located_recs: Sequence[GeocodedItem]):
         print("\t".join([item.item.id, coder or "failed", loc]))
 
 
-locatable_types = {
-    "AddressLocation": "address",
-    "IntersectionLocation": "intersection",
-    "LatLngLocation": "point_of_interest",
-}
-
-
 def output_geojson(
     located_recs: Sequence[GeocodedItem], all_recs: list[Item], lat_lon_map: dict[str, str]
 ):
-    features = []
+    features: list[GeoJsonFeature] = []
     id_to_geocode = {r.item.id: r for r in located_recs}
     for r in all_recs:
         geocode = id_to_geocode[r.id]
@@ -117,7 +111,7 @@ def output_geojson(
                 lat, lng = [float(x) for x in ll_str.split(",")]
                 pt = (lat, lng)
 
-        feature = {
+        feature: GeoJsonFeature = {
             "id": r.id,
             "type": "Feature",
             "geometry": (

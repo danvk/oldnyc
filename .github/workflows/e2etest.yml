@@ -87,6 +87,7 @@ jobs:
         export PYTHONPATH=.
         tar -xzf geocache.tgz
         poetry run oldnyc/geocode/geocode.py --lat_lon_map data/lat-lon-map.txt --output_format lat-lon-to-ids.json --no-progress-bar > data/lat-lon-to-ids.json 2> >(tee >( sed -n '/Finalizing/,$p' > test/geocoding-stats.txt) >&2)
+        poetry run oldnyc/geocode/geocode.py --lat_lon_map data/lat-lon-map.txt --output_format geojson --no-progress-bar > data/images.geojson
     - name: Generate static site
       run: |
         export PYTHONPATH=.
