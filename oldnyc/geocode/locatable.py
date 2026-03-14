@@ -1,3 +1,4 @@
+import dataclasses
 import sys
 import urllib.error
 from collections import Counter, defaultdict
@@ -163,3 +164,11 @@ def get_lat_lng_from_geocode(geocode: dict[str, Any], desired_types: list[str]) 
                 # sys.stderr.write(f"Match on {i} / {N}: {result}\n")
                 loc = result["geometry"]["location"]
                 return (loc["lat"], loc["lng"])
+
+
+def locatable_to_dict(loc: Locatable, include_source=False):
+    d = dataclasses.asdict(loc)
+    if include_source:
+        return d
+    del d["source"]
+    return d

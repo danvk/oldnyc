@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 """Various output formats for generate-geocodes.py."""
 
-import dataclasses
 import json
 import sys
 from collections import defaultdict
@@ -10,6 +9,7 @@ from json import encoder
 from typing import Sequence
 
 from oldnyc.geocode.geocode_types import GeocodedItem, Locatable, Point
+from oldnyc.geocode.locatable import locatable_to_dict
 from oldnyc.ingest.dates import extract_years
 from oldnyc.item import Item
 
@@ -123,7 +123,7 @@ def output_geojson(located_recs: Sequence[GeocodedItem], all_recs: list[Item]):
                     {
                         "technique": result.coder,
                         "source": result.location.source,  # duplicative
-                        "location": dataclasses.asdict(result.location),
+                        "location": locatable_to_dict(result.location),
                         "geocoder": result.geocoder,
                     }
                     if result
@@ -132,16 +132,17 @@ def output_geojson(located_recs: Sequence[GeocodedItem], all_recs: list[Item]):
                 **(
                     {
                         "geocode_failures": [
-                            (coder, dataclasses.asdict(loc)) for coder, loc in geocode.failures
+                            {"technique": coder, **locatable_to_dict(loc)}
+                            for coder, loc in geocode.failures
                         ]
                     }
                     if geocode.failures
                     else {}
                 ),
-                "image": {
-                    "url": f"http://images.nypl.org/?id={r.id}&t=w",
-                    "thumb_url": f"http://images.nypl.org/?id={r.id}&t=w",
-                },
+                # "image": {
+                #     "url": f"http://images.nypl.org/?id={r.id}&t=w",
+                #     "thumb_url": f"http://images.nypl.org/?id={r.id}&t=w",
+                # },
                 "url": r.url,
                 "nypl_fields": {"alt_title": r.alt_title},
             },
